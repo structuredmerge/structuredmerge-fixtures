@@ -1,0 +1,146 @@
+{
+  "plan": {
+    "family": "json",
+    "entries": [
+      {
+        "ref": {
+          "family": "json",
+          "role": "structure_json",
+          "case": "structure_json"
+        },
+        "path": [
+          "json",
+          "slice-07-structure",
+          "object-and-array.json"
+        ],
+        "run": {
+          "ref": {
+            "family": "json",
+            "role": "structure_json",
+            "case": "structure_json"
+          },
+          "requirements": {},
+          "family_profile": {
+            "family": "json",
+            "supported_dialects": [
+              "json",
+              "jsonc"
+            ],
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              },
+              {
+                "surface": "fallback",
+                "name": "trailing_comma_destination_fallback"
+              }
+            ]
+          },
+          "feature_profile": {
+            "backend": "kreuzberg-language-pack",
+            "supports_dialects": false,
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ref": {
+          "family": "json",
+          "role": "tree_sitter_adapter",
+          "case": "tree_sitter_adapter"
+        },
+        "path": [
+          "json",
+          "slice-26-tree-sitter-adapter",
+          "strict-json.json"
+        ],
+        "run": {
+          "ref": {
+            "family": "json",
+            "role": "tree_sitter_adapter",
+            "case": "tree_sitter_adapter"
+          },
+          "requirements": {},
+          "family_profile": {
+            "family": "json",
+            "supported_dialects": [
+              "json",
+              "jsonc"
+            ],
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              },
+              {
+                "surface": "fallback",
+                "name": "trailing_comma_destination_fallback"
+              }
+            ]
+          },
+          "feature_profile": {
+            "backend": "kreuzberg-language-pack",
+            "supports_dialects": false,
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "missing_roles": [
+      "missing_role"
+    ]
+  },
+  "executions": {
+    "json:structure_json:structure_json": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:tree_sitter_adapter:tree_sitter_adapter": {
+      "outcome": "failed",
+      "messages": [
+        "adapter regression"
+      ]
+    }
+  },
+  "expected_report": {
+    "results": [
+      {
+        "ref": {
+          "family": "json",
+          "role": "structure_json",
+          "case": "structure_json"
+        },
+        "outcome": "passed",
+        "messages": []
+      },
+      {
+        "ref": {
+          "family": "json",
+          "role": "tree_sitter_adapter",
+          "case": "tree_sitter_adapter"
+        },
+        "outcome": "failed",
+        "messages": [
+          "adapter regression"
+        ]
+      }
+    ],
+    "summary": {
+      "total": 2,
+      "passed": 1,
+      "failed": 1,
+      "skipped": 0
+    }
+  }
+}

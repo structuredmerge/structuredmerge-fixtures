@@ -298,6 +298,14 @@
         ]
       },
       {
+        "role": "planned_suite_report",
+        "path": [
+          "diagnostics",
+          "slice-41-planned-conformance-suite-report",
+          "planned-suite-report.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

@@ -266,6 +266,22 @@
         ]
       },
       {
+        "role": "repository_publication",
+        "path": [
+          "diagnostics",
+          "slice-37-repository-publication",
+          "repository-visibility.json"
+        ]
+      },
+      {
+        "role": "github_actions_baseline",
+        "path": [
+          "diagnostics",
+          "slice-38-github-actions-baseline",
+          "github-actions-baseline.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

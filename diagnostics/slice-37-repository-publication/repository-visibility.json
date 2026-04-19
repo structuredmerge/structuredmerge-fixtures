@@ -1,0 +1,30 @@
+{
+  "organization": "structuredmerge",
+  "repositories": [
+    {
+      "name": "structuredmerge-spec",
+      "url": "https://github.com/structuredmerge/structuredmerge-spec",
+      "visibility": "PUBLIC"
+    },
+    {
+      "name": "structuredmerge-fixtures",
+      "url": "https://github.com/structuredmerge/structuredmerge-fixtures",
+      "visibility": "PUBLIC"
+    },
+    {
+      "name": "structuredmerge-typescript",
+      "url": "https://github.com/structuredmerge/structuredmerge-typescript",
+      "visibility": "PUBLIC"
+    },
+    {
+      "name": "structuredmerge-rust",
+      "url": "https://github.com/structuredmerge/structuredmerge-rust",
+      "visibility": "PUBLIC"
+    },
+    {
+      "name": "structuredmerge-go",
+      "url": "https://github.com/structuredmerge/structuredmerge-go",
+      "visibility": "PUBLIC"
+    }
+  ]
+}

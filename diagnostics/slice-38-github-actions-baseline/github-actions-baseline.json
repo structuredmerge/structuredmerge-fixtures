@@ -1,0 +1,35 @@
+{
+  "repositories": [
+    {
+      "name": "structuredmerge-spec",
+      "workflow": "current",
+      "checks": [
+        "markdown headings",
+        "slice inventory"
+      ]
+    },
+    {
+      "name": "structuredmerge-fixtures",
+      "workflow": "current",
+      "checks": [
+        "json validity",
+        "manifest path resolution"
+      ]
+    },
+    {
+      "name": "structuredmerge-typescript",
+      "workflow": "current",
+      "command": "pnpm install --frozen-lockfile && mise run check"
+    },
+    {
+      "name": "structuredmerge-rust",
+      "workflow": "current",
+      "command": "mise run check"
+    },
+    {
+      "name": "structuredmerge-go",
+      "workflow": "current",
+      "command": "mise run check"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+name: Current
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - "main"
+      - "*-stable"
+    tags:
+      - "!*" # Do not execute on tags
+  pull_request:
+    branches:
+      - "*"
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate Fixtures
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Validate JSON fixtures
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r file; do
+            jq empty "$file"
+          done < <(find . -type f -name '*.json' -not -path './.git/*' | sort)
+      - name: Validate manifest paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          jq -r '
+            [
+              .family_feature_profiles[].path,
+              .families[][]?.path
+            ] | map(join("/")) | .[]
+          ' conformance/slice-24-manifest/family-feature-profiles.json | while IFS= read -r path; do
+            test -f "$path"
+          done

@@ -258,6 +258,14 @@
         ]
       },
       {
+        "role": "suite_report",
+        "path": [
+          "diagnostics",
+          "slice-36-conformance-suite-report",
+          "suite-report.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

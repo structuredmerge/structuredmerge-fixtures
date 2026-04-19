@@ -1,0 +1,10 @@
+{
+  "options": {
+    "require_explicit_contexts": true,
+    "interactive": true
+  },
+  "expected_hints": {
+    "interactive": true,
+    "require_explicit_contexts": true
+  }
+}

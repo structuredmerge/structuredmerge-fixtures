@@ -482,6 +482,38 @@
         ]
       },
       {
+        "role": "review_host_hints",
+        "path": [
+          "diagnostics",
+          "slice-61-review-host-hints",
+          "review-host-hints.json"
+        ]
+      },
+      {
+        "role": "family_context_review_request",
+        "path": [
+          "diagnostics",
+          "slice-62-family-context-review-request",
+          "family-context-review-request.json"
+        ]
+      },
+      {
+        "role": "conformance_manifest_review_state",
+        "path": [
+          "diagnostics",
+          "slice-63-conformance-manifest-review-state",
+          "conformance-manifest-review-state.json"
+        ]
+      },
+      {
+        "role": "reviewed_default_context",
+        "path": [
+          "diagnostics",
+          "slice-64-reviewed-default-context",
+          "reviewed-default-context.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

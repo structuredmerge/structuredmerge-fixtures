@@ -1,0 +1,162 @@
+{
+  "manifest": {
+    "family_feature_profiles": [],
+    "suites": {
+      "json_portable": {
+        "family": "json",
+        "roles": [
+          "structure_json"
+        ]
+      },
+      "text_portable": {
+        "family": "text",
+        "roles": [
+          "analysis"
+        ]
+      }
+    },
+    "families": {
+      "json": [
+        {
+          "role": "structure_json",
+          "path": [
+            "json",
+            "slice-07-structure",
+            "object-and-array.json"
+          ]
+        }
+      ],
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "json": {
+        "family_profile": {
+          "family": "json",
+          "supported_dialects": [
+            "json",
+            "jsonc"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            },
+            {
+              "surface": "fallback",
+              "name": "trailing_comma_destination_fallback"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "kreuzberg-language-pack",
+          "supports_dialects": false,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      }
+    },
+    "family_profiles": {
+      "text": {
+        "family": "text",
+        "supported_dialects": [
+          "text"
+        ],
+        "supported_policies": []
+      }
+    },
+    "require_explicit_contexts": true,
+    "interactive": false
+  },
+  "executions": {
+    "json:structure_json:structure_json": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "text:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "expected_state": {
+    "report": {
+      "entries": [
+        {
+          "suite": "json_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "structure_json",
+                  "case": "structure_json"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 1,
+              "passed": 1,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "missing explicit family context for text."
+      }
+    ],
+    "requests": [
+      {
+        "id": "family_context:text",
+        "kind": "family_context",
+        "family": "text",
+        "message": "explicit family context is required for text; a synthesized default may be accepted by review.",
+        "blocking": true,
+        "available_actions": [
+          "accept_default_context"
+        ],
+        "default_action": "accept_default_context"
+      }
+    ],
+    "applied_decisions": [],
+    "host_hints": {
+      "interactive": false,
+      "require_explicit_contexts": true
+    },
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "json",
+        "text"
+      ],
+      "require_explicit_contexts": true
+    }
+  }
+}

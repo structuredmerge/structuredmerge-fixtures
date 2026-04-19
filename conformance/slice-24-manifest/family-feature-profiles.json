@@ -19,226 +19,236 @@
       ]
     }
   ],
-  "text": [
-    {
-      "role": "analysis",
-      "path": [
-        "text",
-        "slice-03-analysis",
-        "whitespace-and-blocks.json"
-      ]
-    },
-    {
-      "role": "similarity",
-      "path": [
-        "text",
-        "slice-05-similarity",
-        "similarity-cases.json"
-      ]
-    },
-    {
-      "role": "matching_exact",
-      "path": [
-        "text",
-        "slice-11-matching",
-        "exact-content.json"
-      ]
-    },
-    {
-      "role": "merge_refined",
-      "path": [
-        "text",
-        "slice-13-refined-matching",
-        "content-refined-merge.json"
-      ]
-    }
-  ],
-  "json": [
-    {
-      "role": "parse_comments",
-      "path": [
-        "jsonc",
-        "slice-04-parse",
-        "comments-accepted.json"
-      ]
-    },
-    {
-      "role": "structure_json",
-      "path": [
-        "json",
-        "slice-07-structure",
-        "object-and-array.json"
-      ]
-    },
-    {
-      "role": "structure_jsonc",
-      "path": [
-        "jsonc",
-        "slice-07-structure",
-        "commented-object.json"
-      ]
-    },
-    {
-      "role": "matching",
-      "path": [
-        "json",
-        "slice-08-matching",
-        "path-equality.json"
-      ]
-    },
-    {
-      "role": "merge_object",
-      "path": [
-        "json",
-        "slice-09-merge",
-        "object-merge.json"
-      ]
-    },
-    {
-      "role": "merge_invalid_template",
-      "path": [
-        "json",
-        "slice-09-merge",
-        "invalid-template.json"
-      ]
-    },
-    {
-      "role": "merge_invalid_destination",
-      "path": [
-        "json",
-        "slice-09-merge",
-        "invalid-destination.json"
-      ]
-    },
-    {
-      "role": "fallback",
-      "path": [
-        "json",
-        "slice-14-fallback",
-        "trailing-comma-destination.json"
-      ]
-    },
-    {
-      "role": "fallback_boundary_template",
-      "path": [
-        "json",
-        "slice-15-fallback-boundaries",
-        "template-trailing-comma-not-recovered.json"
-      ]
-    },
-    {
-      "role": "fallback_boundary_comments",
-      "path": [
-        "json",
-        "slice-15-fallback-boundaries",
-        "strict-json-comments-not-recovered.json"
-      ]
-    },
-    {
-      "role": "array_policy",
-      "path": [
-        "json",
-        "slice-16-array-policy",
-        "destination-wins-array.json"
-      ]
-    },
-    {
-      "role": "tree_sitter_adapter",
-      "path": [
-        "json",
-        "slice-26-tree-sitter-adapter",
-        "strict-json.json"
-      ]
-    }
-  ],
-  "diagnostics": [
-    {
-      "role": "parser_request",
-      "path": [
-        "diagnostics",
-        "slice-06-parser-adapters",
-        "parser-request.json"
-      ]
-    },
-    {
-      "role": "diagnostic_vocabulary",
-      "path": [
-        "diagnostics",
-        "slice-02-core",
-        "diagnostic-categories.json"
-      ]
-    },
-    {
-      "role": "policy_vocabulary",
-      "path": [
-        "diagnostics",
-        "slice-17-policy-vocabulary",
-        "policy-references.json"
-      ]
-    },
-    {
-      "role": "policy_reporting",
-      "path": [
-        "diagnostics",
-        "slice-18-policy-reporting",
-        "result-policies.json"
-      ]
-    },
-    {
-      "role": "adapter_policy_support",
-      "path": [
-        "diagnostics",
-        "slice-19-adapter-policy-support",
-        "adapter-info.json"
-      ]
-    },
-    {
-      "role": "adapter_feature_profile",
-      "path": [
-        "diagnostics",
-        "slice-20-adapter-feature-profile",
-        "feature-profile.json"
-      ]
-    },
-    {
-      "role": "shared_family_feature_profile",
-      "path": [
-        "diagnostics",
-        "slice-22-shared-family-feature-profile",
-        "family-feature-profile.json"
-      ]
-    },
-    {
-      "role": "backend_registry",
-      "path": [
-        "diagnostics",
-        "slice-25-backend-registry",
-        "backend-identities.json"
-      ]
-    },
-    {
-      "role": "runner_shape",
-      "path": [
-        "diagnostics",
-        "slice-28-conformance-runner",
-        "runner-shape.json"
-      ]
-    },
-    {
-      "role": "family_profile_json",
-      "path": [
-        "diagnostics",
-        "slice-21-family-feature-profile",
-        "json-feature-profile.json"
-      ]
-    },
-    {
-      "role": "family_profile_text",
-      "path": [
-        "diagnostics",
-        "slice-23-text-family-feature-profile",
-        "text-feature-profile.json"
-      ]
-    }
-  ]
+  "families": {
+    "text": [
+      {
+        "role": "analysis",
+        "path": [
+          "text",
+          "slice-03-analysis",
+          "whitespace-and-blocks.json"
+        ]
+      },
+      {
+        "role": "similarity",
+        "path": [
+          "text",
+          "slice-05-similarity",
+          "similarity-cases.json"
+        ]
+      },
+      {
+        "role": "matching_exact",
+        "path": [
+          "text",
+          "slice-11-matching",
+          "exact-content.json"
+        ]
+      },
+      {
+        "role": "merge_refined",
+        "path": [
+          "text",
+          "slice-13-refined-matching",
+          "content-refined-merge.json"
+        ]
+      }
+    ],
+    "json": [
+      {
+        "role": "parse_comments",
+        "path": [
+          "jsonc",
+          "slice-04-parse",
+          "comments-accepted.json"
+        ]
+      },
+      {
+        "role": "structure_json",
+        "path": [
+          "json",
+          "slice-07-structure",
+          "object-and-array.json"
+        ]
+      },
+      {
+        "role": "structure_jsonc",
+        "path": [
+          "jsonc",
+          "slice-07-structure",
+          "commented-object.json"
+        ]
+      },
+      {
+        "role": "matching",
+        "path": [
+          "json",
+          "slice-08-matching",
+          "path-equality.json"
+        ]
+      },
+      {
+        "role": "merge_object",
+        "path": [
+          "json",
+          "slice-09-merge",
+          "object-merge.json"
+        ]
+      },
+      {
+        "role": "merge_invalid_template",
+        "path": [
+          "json",
+          "slice-09-merge",
+          "invalid-template.json"
+        ]
+      },
+      {
+        "role": "merge_invalid_destination",
+        "path": [
+          "json",
+          "slice-09-merge",
+          "invalid-destination.json"
+        ]
+      },
+      {
+        "role": "fallback",
+        "path": [
+          "json",
+          "slice-14-fallback",
+          "trailing-comma-destination.json"
+        ]
+      },
+      {
+        "role": "fallback_boundary_template",
+        "path": [
+          "json",
+          "slice-15-fallback-boundaries",
+          "template-trailing-comma-not-recovered.json"
+        ]
+      },
+      {
+        "role": "fallback_boundary_comments",
+        "path": [
+          "json",
+          "slice-15-fallback-boundaries",
+          "strict-json-comments-not-recovered.json"
+        ]
+      },
+      {
+        "role": "array_policy",
+        "path": [
+          "json",
+          "slice-16-array-policy",
+          "destination-wins-array.json"
+        ]
+      },
+      {
+        "role": "tree_sitter_adapter",
+        "path": [
+          "json",
+          "slice-26-tree-sitter-adapter",
+          "strict-json.json"
+        ]
+      }
+    ],
+    "diagnostics": [
+      {
+        "role": "parser_request",
+        "path": [
+          "diagnostics",
+          "slice-06-parser-adapters",
+          "parser-request.json"
+        ]
+      },
+      {
+        "role": "diagnostic_vocabulary",
+        "path": [
+          "diagnostics",
+          "slice-02-core",
+          "diagnostic-categories.json"
+        ]
+      },
+      {
+        "role": "policy_vocabulary",
+        "path": [
+          "diagnostics",
+          "slice-17-policy-vocabulary",
+          "policy-references.json"
+        ]
+      },
+      {
+        "role": "policy_reporting",
+        "path": [
+          "diagnostics",
+          "slice-18-policy-reporting",
+          "result-policies.json"
+        ]
+      },
+      {
+        "role": "adapter_policy_support",
+        "path": [
+          "diagnostics",
+          "slice-19-adapter-policy-support",
+          "adapter-info.json"
+        ]
+      },
+      {
+        "role": "adapter_feature_profile",
+        "path": [
+          "diagnostics",
+          "slice-20-adapter-feature-profile",
+          "feature-profile.json"
+        ]
+      },
+      {
+        "role": "shared_family_feature_profile",
+        "path": [
+          "diagnostics",
+          "slice-22-shared-family-feature-profile",
+          "family-feature-profile.json"
+        ]
+      },
+      {
+        "role": "backend_registry",
+        "path": [
+          "diagnostics",
+          "slice-25-backend-registry",
+          "backend-identities.json"
+        ]
+      },
+      {
+        "role": "runner_shape",
+        "path": [
+          "diagnostics",
+          "slice-28-conformance-runner",
+          "runner-shape.json"
+        ]
+      },
+      {
+        "role": "runner_summary",
+        "path": [
+          "diagnostics",
+          "slice-32-conformance-summary",
+          "summary-shape.json"
+        ]
+      },
+      {
+        "role": "family_profile_json",
+        "path": [
+          "diagnostics",
+          "slice-21-family-feature-profile",
+          "json-feature-profile.json"
+        ]
+      },
+      {
+        "role": "family_profile_text",
+        "path": [
+          "diagnostics",
+          "slice-23-text-family-feature-profile",
+          "text-feature-profile.json"
+        ]
+      }
+    ]
+  }
 }

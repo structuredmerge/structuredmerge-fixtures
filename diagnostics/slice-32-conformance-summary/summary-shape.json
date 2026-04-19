@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "ref": {
+        "family": "json",
+        "role": "merge_object",
+        "case": "object_merge"
+      },
+      "outcome": "passed",
+      "messages": []
+    },
+    {
+      "ref": {
+        "family": "json",
+        "role": "fallback",
+        "case": "trailing_comma_destination"
+      },
+      "outcome": "passed",
+      "messages": []
+    },
+    {
+      "ref": {
+        "family": "json",
+        "role": "tree_sitter_adapter",
+        "case": "jsonc_unsupported"
+      },
+      "outcome": "skipped",
+      "messages": [
+        "jsonc backend unavailable"
+      ]
+    },
+    {
+      "ref": {
+        "family": "text",
+        "role": "merge_refined",
+        "case": "content_refined_merge"
+      },
+      "outcome": "failed",
+      "messages": [
+        "similarity threshold drift"
+      ]
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 2,
+    "failed": 1,
+    "skipped": 1
+  }
+}

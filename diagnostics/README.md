@@ -6,3 +6,4 @@ Current slices:
 
 - `slice-02-core/` - shared diagnostic vocabulary and result-shape expectations
 - `slice-06-parser-adapters/` - shared parser request and adapter metadata vocabulary
+- `slice-17-policy-vocabulary/` - shared policy surface and policy reference vocabulary

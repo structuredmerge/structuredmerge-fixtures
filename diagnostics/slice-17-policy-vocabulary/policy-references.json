@@ -1,0 +1,13 @@
+{
+  "surfaces": ["fallback", "array"],
+  "policies": [
+    {
+      "surface": "fallback",
+      "name": "trailing_comma_destination_fallback"
+    },
+    {
+      "surface": "array",
+      "name": "destination_wins_array"
+    }
+  ]
+}

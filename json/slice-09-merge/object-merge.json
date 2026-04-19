@@ -1,0 +1,8 @@
+{
+  "name": "object-merge",
+  "template": "{\n  \"name\": \"structuredmerge\",\n  \"meta\": {\"enabled\": false, \"mode\": \"template\"},\n  \"tags\": [\"template\"],\n  \"template_only\": 1\n}\n",
+  "destination": "{\n  \"meta\": {\"enabled\": true},\n  \"tags\": [\"destination\"],\n  \"destination_only\": 2\n}\n",
+  "expected": {
+    "output": "{\"destination_only\":2,\"meta\":{\"enabled\":true,\"mode\":\"template\"},\"name\":\"structuredmerge\",\"tags\":[\"destination\"],\"template_only\":1}"
+  }
+}

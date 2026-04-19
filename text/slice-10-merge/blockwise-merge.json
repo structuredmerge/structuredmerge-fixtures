@@ -1,0 +1,8 @@
+{
+  "name": "blockwise-merge",
+  "template": "Alpha\n\nBeta\n\nTemplate tail",
+  "destination": "Alpha revised\n\nBeta\n\nDestination tail\n\nDestination extra",
+  "expected": {
+    "output": "Alpha revised\n\nBeta\n\nDestination tail\n\nDestination extra"
+  }
+}

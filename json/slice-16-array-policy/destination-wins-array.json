@@ -1,0 +1,9 @@
+{
+  "name": "destination-wins-array",
+  "template": "{\n  \"items\": [1, 2, 3],\n  \"meta\": {\n    \"tags\": [\"template\"],\n    \"mode\": \"template\"\n  }\n}\n",
+  "destination": "{\n  \"items\": [9],\n  \"meta\": {\n    \"tags\": [\"destination\"]\n  }\n}\n",
+  "expected": {
+    "ok": true,
+    "output": "{\"items\":[9],\"meta\":{\"mode\":\"template\",\"tags\":[\"destination\"]}}"
+  }
+}

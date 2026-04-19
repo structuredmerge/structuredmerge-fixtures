@@ -10,3 +10,4 @@ Current slices:
 - `slice-18-policy-reporting/` - shared result-level policy reporting vocabulary
 - `slice-19-adapter-policy-support/` - shared adapter policy capability vocabulary
 - `slice-20-adapter-feature-profile/` - shared adapter feature-profile vocabulary
+- `slice-21-family-feature-profile/` - shared family-level feature-profile vocabulary

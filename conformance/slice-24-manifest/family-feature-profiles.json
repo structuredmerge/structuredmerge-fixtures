@@ -142,5 +142,87 @@
         "destination-wins-array.json"
       ]
     }
+  ],
+  "diagnostics": [
+    {
+      "role": "parser_request",
+      "path": [
+        "diagnostics",
+        "slice-06-parser-adapters",
+        "parser-request.json"
+      ]
+    },
+    {
+      "role": "diagnostic_vocabulary",
+      "path": [
+        "diagnostics",
+        "slice-02-core",
+        "diagnostic-categories.json"
+      ]
+    },
+    {
+      "role": "policy_vocabulary",
+      "path": [
+        "diagnostics",
+        "slice-17-policy-vocabulary",
+        "policy-references.json"
+      ]
+    },
+    {
+      "role": "policy_reporting",
+      "path": [
+        "diagnostics",
+        "slice-18-policy-reporting",
+        "result-policies.json"
+      ]
+    },
+    {
+      "role": "adapter_policy_support",
+      "path": [
+        "diagnostics",
+        "slice-19-adapter-policy-support",
+        "adapter-info.json"
+      ]
+    },
+    {
+      "role": "adapter_feature_profile",
+      "path": [
+        "diagnostics",
+        "slice-20-adapter-feature-profile",
+        "feature-profile.json"
+      ]
+    },
+    {
+      "role": "shared_family_feature_profile",
+      "path": [
+        "diagnostics",
+        "slice-22-shared-family-feature-profile",
+        "family-feature-profile.json"
+      ]
+    },
+    {
+      "role": "backend_registry",
+      "path": [
+        "diagnostics",
+        "slice-25-backend-registry",
+        "backend-identities.json"
+      ]
+    },
+    {
+      "role": "family_profile_json",
+      "path": [
+        "diagnostics",
+        "slice-21-family-feature-profile",
+        "json-feature-profile.json"
+      ]
+    },
+    {
+      "role": "family_profile_text",
+      "path": [
+        "diagnostics",
+        "slice-23-text-family-feature-profile",
+        "text-feature-profile.json"
+      ]
+    }
   ]
 }

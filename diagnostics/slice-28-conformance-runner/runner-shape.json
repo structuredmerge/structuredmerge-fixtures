@@ -1,0 +1,16 @@
+{
+  "case_ref": {
+    "family": "json",
+    "role": "tree_sitter_adapter",
+    "case": "valid_strict_json"
+  },
+  "result": {
+    "ref": {
+      "family": "json",
+      "role": "tree_sitter_adapter",
+      "case": "valid_strict_json"
+    },
+    "outcome": "passed",
+    "messages": []
+  }
+}

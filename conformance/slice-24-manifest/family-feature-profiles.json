@@ -217,6 +217,14 @@
       ]
     },
     {
+      "role": "runner_shape",
+      "path": [
+        "diagnostics",
+        "slice-28-conformance-runner",
+        "runner-shape.json"
+      ]
+    },
+    {
       "role": "family_profile_json",
       "path": [
         "diagnostics",

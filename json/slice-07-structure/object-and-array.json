@@ -5,12 +5,12 @@
   "expected": {
     "root_kind": "object",
     "owners": [
+      {"path": "/meta", "owner_kind": "member", "match_key": "meta"},
+      {"path": "/meta/enabled", "owner_kind": "member", "match_key": "enabled"},
       {"path": "/name", "owner_kind": "member", "match_key": "name"},
       {"path": "/tags", "owner_kind": "member", "match_key": "tags"},
       {"path": "/tags/0", "owner_kind": "element"},
-      {"path": "/tags/1", "owner_kind": "element"},
-      {"path": "/meta", "owner_kind": "member", "match_key": "meta"},
-      {"path": "/meta/enabled", "owner_kind": "member", "match_key": "enabled"}
+      {"path": "/tags/1", "owner_kind": "element"}
     ]
   }
 }

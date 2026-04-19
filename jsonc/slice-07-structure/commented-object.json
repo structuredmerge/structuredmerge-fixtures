@@ -5,10 +5,10 @@
   "expected": {
     "root_kind": "object",
     "owners": [
-      {"path": "/name", "owner_kind": "member", "match_key": "name"},
       {"path": "/items", "owner_kind": "member", "match_key": "items"},
       {"path": "/items/0", "owner_kind": "element"},
-      {"path": "/items/1", "owner_kind": "element"}
+      {"path": "/items/1", "owner_kind": "element"},
+      {"path": "/name", "owner_kind": "member", "match_key": "name"}
     ]
   }
 }

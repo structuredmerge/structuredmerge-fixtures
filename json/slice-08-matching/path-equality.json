@@ -1,0 +1,20 @@
+{
+  "name": "path-equality",
+  "template": "{\n  \"name\": \"structuredmerge\",\n  \"tags\": [\"merge\", \"ast\"],\n  \"meta\": {\"enabled\": true}\n}\n",
+  "destination": "{\n  \"name\": \"structuredmerge\",\n  \"tags\": [\"merge\"],\n  \"meta\": {\"enabled\": true},\n  \"extra\": 1\n}\n",
+  "expected": {
+    "matched": [
+      ["/meta", "/meta"],
+      ["/meta/enabled", "/meta/enabled"],
+      ["/name", "/name"],
+      ["/tags", "/tags"],
+      ["/tags/0", "/tags/0"]
+    ],
+    "unmatched_template": [
+      "/tags/1"
+    ],
+    "unmatched_destination": [
+      "/extra"
+    ]
+  }
+}

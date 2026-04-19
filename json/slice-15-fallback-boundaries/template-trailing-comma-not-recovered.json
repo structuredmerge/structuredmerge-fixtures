@@ -1,0 +1,14 @@
+{
+  "name": "template-trailing-comma-not-recovered",
+  "template": "{\n  \"name\": \"structuredmerge\",\n}\n",
+  "destination": "{\n  \"enabled\": true\n}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

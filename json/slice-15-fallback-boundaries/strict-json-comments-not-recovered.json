@@ -1,0 +1,14 @@
+{
+  "name": "strict-json-comments-not-recovered",
+  "template": "{\n  \"name\": \"structuredmerge\"\n}\n",
+  "destination": "{\n  // note\n  \"enabled\": true\n}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "destination_parse_error"
+      }
+    ]
+  }
+}

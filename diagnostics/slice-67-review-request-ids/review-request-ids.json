@@ -1,0 +1,87 @@
+{
+  "manifest": {
+    "family_feature_profiles": [],
+    "suites": {
+      "json_portable": {
+        "family": "json",
+        "roles": [
+          "structure_json"
+        ]
+      },
+      "text_portable": {
+        "family": "text",
+        "roles": [
+          "analysis"
+        ]
+      }
+    },
+    "families": {
+      "json": [
+        {
+          "role": "structure_json",
+          "path": [
+            "json",
+            "slice-07-structure",
+            "object-and-array.json"
+          ]
+        }
+      ],
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "json": {
+        "family_profile": {
+          "family": "json",
+          "supported_dialects": [
+            "json",
+            "jsonc"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            },
+            {
+              "surface": "fallback",
+              "name": "trailing_comma_destination_fallback"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "kreuzberg-language-pack",
+          "supports_dialects": false,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      }
+    },
+    "family_profiles": {
+      "text": {
+        "family": "text",
+        "supported_dialects": [
+          "text"
+        ],
+        "supported_policies": []
+      }
+    },
+    "require_explicit_contexts": true
+  },
+  "expected_request_ids": [
+    "family_context:text"
+  ]
+}

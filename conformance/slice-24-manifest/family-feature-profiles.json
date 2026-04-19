@@ -530,6 +530,22 @@
         ]
       },
       {
+        "role": "review_request_ids",
+        "path": [
+          "diagnostics",
+          "slice-67-review-request-ids",
+          "review-request-ids.json"
+        ]
+      },
+      {
+        "role": "stale_review_decision",
+        "path": [
+          "diagnostics",
+          "slice-68-stale-review-decision-rejection",
+          "stale-review-decision.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

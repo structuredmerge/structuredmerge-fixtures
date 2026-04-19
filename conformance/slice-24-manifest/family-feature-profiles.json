@@ -141,6 +141,14 @@
         "slice-16-array-policy",
         "destination-wins-array.json"
       ]
+    },
+    {
+      "role": "tree_sitter_adapter",
+      "path": [
+        "json",
+        "slice-26-tree-sitter-adapter",
+        "strict-json.json"
+      ]
     }
   ],
   "diagnostics": [

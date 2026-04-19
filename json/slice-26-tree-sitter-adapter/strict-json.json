@@ -1,0 +1,57 @@
+{
+  "name": "strict json through tree-sitter adapter",
+  "cases": [
+    {
+      "name": "valid_strict_json",
+      "dialect": "json",
+      "source": "{\"alpha\":{\"beta\":1}}",
+      "expected": {
+        "ok": true,
+        "root_kind": "object",
+        "owners": [
+          {
+            "path": "/alpha",
+            "owner_kind": "member",
+            "match_key": "alpha"
+          },
+          {
+            "path": "/alpha/beta",
+            "owner_kind": "member",
+            "match_key": "beta"
+          }
+        ],
+        "diagnostics": []
+      }
+    },
+    {
+      "name": "invalid_strict_json",
+      "dialect": "json",
+      "source": "{\"alpha\":1,}",
+      "expected": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "parse_error",
+            "message": "tree-sitter-language-pack reported syntax errors for json."
+          }
+        ]
+      }
+    },
+    {
+      "name": "unsupported_jsonc",
+      "dialect": "jsonc",
+      "source": "{\n  // note\n  \"alpha\":1\n}",
+      "expected": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "unsupported_feature",
+            "message": "tree-sitter-language-pack json parsing currently supports only the json dialect."
+          }
+        ]
+      }
+    }
+  ]
+}

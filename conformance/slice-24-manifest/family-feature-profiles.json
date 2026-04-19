@@ -57,6 +57,9 @@
     "json": [
       {
         "role": "parse_comments",
+        "requirements": {
+          "dialect": "jsonc"
+        },
         "path": [
           "jsonc",
           "slice-04-parse",
@@ -303,6 +306,14 @@
           "diagnostics",
           "slice-41-planned-conformance-suite-report",
           "planned-suite-report.json"
+        ]
+      },
+      {
+        "role": "manifest_requirements",
+        "path": [
+          "diagnostics",
+          "slice-42-manifest-case-requirements",
+          "manifest-requirements.json"
         ]
       },
       {

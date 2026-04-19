@@ -1,0 +1,30 @@
+{
+  "family": "json",
+  "roles": [
+    "parse_comments",
+    "tree_sitter_adapter"
+  ],
+  "family_profile": {
+    "family": "json",
+    "supported_dialects": [
+      "json",
+      "jsonc"
+    ],
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      },
+      {
+        "surface": "fallback",
+        "name": "trailing_comma_destination_fallback"
+      }
+    ]
+  },
+  "expected_requirements": {
+    "parse_comments": {
+      "dialect": "jsonc"
+    },
+    "tree_sitter_adapter": {}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "commented-object",
+  "dialect": "jsonc",
+  "source": "{\n  // package name\n  \"name\": \"structuredmerge\",\n  \"items\": [1, 2]\n}\n",
+  "expected": {
+    "root_kind": "object",
+    "owners": [
+      {"path": "/name", "owner_kind": "member", "match_key": "name"},
+      {"path": "/items", "owner_kind": "member", "match_key": "items"},
+      {"path": "/items/0", "owner_kind": "element"},
+      {"path": "/items/1", "owner_kind": "element"}
+    ]
+  }
+}

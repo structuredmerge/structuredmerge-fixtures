@@ -346,6 +346,14 @@
         ]
       },
       {
+        "role": "named_suite_report",
+        "path": [
+          "diagnostics",
+          "slice-44-named-conformance-suite-report",
+          "named-suite-report.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

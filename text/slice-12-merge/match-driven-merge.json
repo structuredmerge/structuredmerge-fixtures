@@ -1,0 +1,8 @@
+{
+  "name": "match-driven-merge",
+  "template": "Alpha\n\nBeta\n\nAlpha\n\nTemplate only",
+  "destination": "Beta\n\nAlpha revised\n\nAlpha\n\nDestination only",
+  "expected": {
+    "output": "Beta\n\nAlpha revised\n\nAlpha\n\nDestination only\n\nAlpha\n\nTemplate only"
+  }
+}

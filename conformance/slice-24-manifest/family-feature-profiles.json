@@ -514,6 +514,22 @@
         ]
       },
       {
+        "role": "review_replay_compatibility",
+        "path": [
+          "diagnostics",
+          "slice-65-review-replay-compatibility",
+          "review-replay-compatibility.json"
+        ]
+      },
+      {
+        "role": "review_replay_rejection",
+        "path": [
+          "diagnostics",
+          "slice-66-review-replay-rejection",
+          "review-replay-rejection.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

@@ -90,7 +90,6 @@
     "review_replay_context": {
       "surface": "conformance_manifest",
       "families": [
-        "json",
         "text"
       ],
       "require_explicit_contexts": true
@@ -130,51 +129,41 @@
               "skipped": 0
             }
           }
-        },
-        {
-          "suite": "text_portable",
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "text",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 1,
-              "passed": 1,
-              "failed": 0,
-              "skipped": 0
-            }
-          }
         }
       ],
       "summary": {
-        "total": 2,
-        "passed": 2,
+        "total": 1,
+        "passed": 1,
         "failed": 0,
         "skipped": 0
       }
     },
     "diagnostics": [
       {
-        "severity": "warning",
-        "category": "assumed_default",
-        "message": "using default family context for text."
-      }
-    ],
-    "requests": [],
-    "applied_decisions": [
+        "severity": "error",
+        "category": "replay_rejected",
+        "message": "review replay context does not match the current conformance manifest state."
+      },
       {
-        "request_id": "family_context:text",
-        "action": "accept_default_context"
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "missing explicit family context for text."
       }
     ],
+    "requests": [
+      {
+        "id": "family_context:text",
+        "kind": "family_context",
+        "family": "text",
+        "message": "explicit family context is required for text; a synthesized default may be accepted by review.",
+        "blocking": true,
+        "available_actions": [
+          "accept_default_context"
+        ],
+        "default_action": "accept_default_context"
+      }
+    ],
+    "applied_decisions": [],
     "host_hints": {
       "interactive": true,
       "require_explicit_contexts": true

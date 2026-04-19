@@ -1,0 +1,25 @@
+{
+  "current_context": {
+    "surface": "conformance_manifest",
+    "families": [
+      "json",
+      "text"
+    ],
+    "require_explicit_contexts": true
+  },
+  "compatible_context": {
+    "surface": "conformance_manifest",
+    "families": [
+      "json",
+      "text"
+    ],
+    "require_explicit_contexts": true
+  },
+  "incompatible_context": {
+    "surface": "conformance_manifest",
+    "families": [
+      "text"
+    ],
+    "require_explicit_contexts": true
+  }
+}

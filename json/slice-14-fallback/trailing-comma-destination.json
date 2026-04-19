@@ -1,0 +1,15 @@
+{
+  "name": "trailing-comma-destination",
+  "template": "{\n  \"name\": \"structuredmerge\",\n  \"meta\": {\"mode\": \"template\"}\n}\n",
+  "destination": "{\n  \"meta\": {\"enabled\": true,},\n  \"tags\": [\"destination\",],\n}\n",
+  "expected": {
+    "ok": true,
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "fallback_applied"
+      }
+    ],
+    "output": "{\"meta\":{\"enabled\":true,\"mode\":\"template\"},\"name\":\"structuredmerge\",\"tags\":[\"destination\"]}"
+  }
+}

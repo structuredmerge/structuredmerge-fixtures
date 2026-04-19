@@ -1,0 +1,10 @@
+{
+  "severities": ["info", "warning", "error"],
+  "categories": [
+    "parse_error",
+    "destination_parse_error",
+    "unsupported_feature",
+    "fallback_applied",
+    "ambiguity"
+  ]
+}

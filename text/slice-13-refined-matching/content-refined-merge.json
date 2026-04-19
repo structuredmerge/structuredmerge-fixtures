@@ -1,0 +1,27 @@
+{
+  "name": "content-refined-merge",
+  "template": "Alpha beta gamma\n\nDelta anchor\n\nClosing line",
+  "destination": "Alpha beta delta\n\nDelta anchor\n\nClosing line",
+  "expected": {
+    "matched": [
+      {
+        "templateIndex": 0,
+        "destinationIndex": 0,
+        "phase": "refined"
+      },
+      {
+        "templateIndex": 1,
+        "destinationIndex": 1,
+        "phase": "exact"
+      },
+      {
+        "templateIndex": 2,
+        "destinationIndex": 2,
+        "phase": "exact"
+      }
+    ],
+    "unmatchedTemplate": [],
+    "unmatchedDestination": [],
+    "output": "Alpha beta delta\n\nDelta anchor\n\nClosing line"
+  }
+}

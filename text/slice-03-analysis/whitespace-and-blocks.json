@@ -1,8 +1,8 @@
 {
   "name": "whitespace-and-blocks",
-  "source": "  Alpha   beta\\r\\n\\r\\nGamma\\n   delta\\n\\n\\nEpsilon  \\n",
+  "source": "  Alpha   beta\r\n\r\nGamma\n   delta\n\n\nEpsilon  \n",
   "expected": {
-    "normalized_source": "Alpha beta\\n\\nGamma delta\\n\\nEpsilon",
+    "normalized_source": "Alpha beta\n\nGamma delta\n\nEpsilon",
     "blocks": [
       {
         "index": 0,

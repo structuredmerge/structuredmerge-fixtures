@@ -25,10 +25,10 @@ Fixture goals:
 - parity across Ruby, TypeScript, Rust, and Go
 - reproducible behavior for MVP merge engines
 - isolation from package-manager or templating concerns
+- direct consumption by sibling language monorepos for integration tests
 
 Non-goals:
 
 - storing generated reports
 - language-specific snapshots
 - package scaffold examples
-

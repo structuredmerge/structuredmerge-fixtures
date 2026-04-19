@@ -13,3 +13,4 @@ Current slices:
 - `slice-21-family-feature-profile/` - shared family-level feature-profile vocabulary
 - `slice-22-shared-family-feature-profile/` - shared core family feature-profile vocabulary
 - `slice-23-text-family-feature-profile/` - shared text family feature-profile vocabulary
+- `slice-25-backend-registry/` - shared backend reference and registry vocabulary

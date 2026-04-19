@@ -1,0 +1,12 @@
+{
+  "backends": [
+    {
+      "id": "native",
+      "family": "builtin"
+    },
+    {
+      "id": "tree-sitter",
+      "family": "tree-sitter"
+    }
+  ]
+}

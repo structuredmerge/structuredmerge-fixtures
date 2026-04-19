@@ -1,0 +1,43 @@
+{
+  "manifest": {
+    "family_feature_profiles": [],
+    "suites": {
+      "text_portable": {
+        "family": "text",
+        "roles": [
+          "analysis"
+        ]
+      }
+    },
+    "families": {
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {},
+    "family_profiles": {
+      "text": {
+        "family": "text",
+        "supported_dialects": [
+          "text"
+        ],
+        "supported_policies": []
+      }
+    },
+    "require_explicit_contexts": true
+  },
+  "expected_diagnostic": {
+    "severity": "error",
+    "category": "configuration_error",
+    "message": "missing explicit family context for text."
+  }
+}

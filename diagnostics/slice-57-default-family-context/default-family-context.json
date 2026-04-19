@@ -1,0 +1,24 @@
+{
+  "family": "text",
+  "family_profile": {
+    "family": "text",
+    "supported_dialects": [
+      "text"
+    ],
+    "supported_policies": []
+  },
+  "expected_context": {
+    "family_profile": {
+      "family": "text",
+      "supported_dialects": [
+        "text"
+      ],
+      "supported_policies": []
+    }
+  },
+  "expected_diagnostic": {
+    "severity": "warning",
+    "category": "assumed_default",
+    "message": "using default family context for text."
+  }
+}

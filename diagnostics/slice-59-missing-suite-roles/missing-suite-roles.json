@@ -1,0 +1,44 @@
+{
+  "manifest": {
+    "family_feature_profiles": [],
+    "suites": {
+      "broken_text": {
+        "family": "text",
+        "roles": [
+          "analysis",
+          "missing_role"
+        ]
+      }
+    },
+    "families": {
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "text": {
+        "family_profile": {
+          "family": "text",
+          "supported_dialects": [
+            "text"
+          ],
+          "supported_policies": []
+        }
+      }
+    }
+  },
+  "expected_diagnostic": {
+    "severity": "error",
+    "category": "configuration_error",
+    "message": "suite broken_text declares missing roles: missing_role."
+  }
+}

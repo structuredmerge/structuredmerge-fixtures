@@ -5,6 +5,8 @@
     "destination_parse_error",
     "unsupported_feature",
     "fallback_applied",
-    "ambiguity"
+    "ambiguity",
+    "assumed_default",
+    "configuration_error"
   ]
 }

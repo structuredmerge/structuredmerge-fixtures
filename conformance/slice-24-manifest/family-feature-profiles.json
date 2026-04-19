@@ -450,6 +450,38 @@
         ]
       },
       {
+        "role": "default_family_context",
+        "path": [
+          "diagnostics",
+          "slice-57-default-family-context",
+          "default-family-context.json"
+        ]
+      },
+      {
+        "role": "explicit_family_context_mode",
+        "path": [
+          "diagnostics",
+          "slice-58-explicit-family-context-mode",
+          "explicit-family-context-mode.json"
+        ]
+      },
+      {
+        "role": "missing_suite_roles",
+        "path": [
+          "diagnostics",
+          "slice-59-missing-suite-roles",
+          "missing-suite-roles.json"
+        ]
+      },
+      {
+        "role": "conformance_manifest_report",
+        "path": [
+          "diagnostics",
+          "slice-60-conformance-manifest-diagnostics",
+          "conformance-manifest-report.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

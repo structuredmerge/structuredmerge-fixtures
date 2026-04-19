@@ -282,6 +282,22 @@
         ]
       },
       {
+        "role": "suite_plan",
+        "path": [
+          "diagnostics",
+          "slice-39-conformance-suite-plan",
+          "suite-plan.json"
+        ]
+      },
+      {
+        "role": "planned_suite_runner",
+        "path": [
+          "diagnostics",
+          "slice-40-planned-conformance-suite-runner",
+          "planned-suite-runner.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

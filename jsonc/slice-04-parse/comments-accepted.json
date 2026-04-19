@@ -1,0 +1,10 @@
+{
+  "name": "comments-accepted",
+  "dialect": "jsonc",
+  "source": "{\n  // package status\n  \"enabled\": true,\n  /* package name */\n  \"name\": \"structuredmerge\"\n}\n",
+  "expected": {
+    "ok": true,
+    "allows_comments": true,
+    "diagnostics": []
+  }
+}

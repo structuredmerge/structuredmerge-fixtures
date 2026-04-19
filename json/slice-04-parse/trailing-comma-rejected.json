@@ -1,0 +1,13 @@
+{
+  "name": "trailing-comma-rejected",
+  "dialect": "json",
+  "source": "{\n  \"name\": \"structuredmerge\",\n  \"items\": [1, 2,],\n  \"enabled\": true\n}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "category": "parse_error"
+      }
+    ]
+  }
+}

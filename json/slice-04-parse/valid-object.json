@@ -1,0 +1,10 @@
+{
+  "name": "valid-object",
+  "dialect": "json",
+  "source": "{\n  \"name\": \"structuredmerge\",\n  \"enabled\": true,\n  \"items\": [1, 2, 3]\n}\n",
+  "expected": {
+    "ok": true,
+    "allows_comments": false,
+    "diagnostics": []
+  }
+}

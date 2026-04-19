@@ -2,6 +2,7 @@
   "family_feature_profiles": [
     {
       "family": "json",
+      "role": "family_profile",
       "path": [
         "diagnostics",
         "slice-21-family-feature-profile",
@@ -10,10 +11,135 @@
     },
     {
       "family": "text",
+      "role": "family_profile",
       "path": [
         "diagnostics",
         "slice-23-text-family-feature-profile",
         "text-feature-profile.json"
+      ]
+    }
+  ],
+  "text": [
+    {
+      "role": "analysis",
+      "path": [
+        "text",
+        "slice-03-analysis",
+        "whitespace-and-blocks.json"
+      ]
+    },
+    {
+      "role": "similarity",
+      "path": [
+        "text",
+        "slice-05-similarity",
+        "similarity-cases.json"
+      ]
+    },
+    {
+      "role": "matching_exact",
+      "path": [
+        "text",
+        "slice-11-matching",
+        "exact-content.json"
+      ]
+    },
+    {
+      "role": "merge_refined",
+      "path": [
+        "text",
+        "slice-13-refined-matching",
+        "content-refined-merge.json"
+      ]
+    }
+  ],
+  "json": [
+    {
+      "role": "parse_comments",
+      "path": [
+        "jsonc",
+        "slice-04-parse",
+        "comments-accepted.json"
+      ]
+    },
+    {
+      "role": "structure_json",
+      "path": [
+        "json",
+        "slice-07-structure",
+        "object-and-array.json"
+      ]
+    },
+    {
+      "role": "structure_jsonc",
+      "path": [
+        "jsonc",
+        "slice-07-structure",
+        "commented-object.json"
+      ]
+    },
+    {
+      "role": "matching",
+      "path": [
+        "json",
+        "slice-08-matching",
+        "path-equality.json"
+      ]
+    },
+    {
+      "role": "merge_object",
+      "path": [
+        "json",
+        "slice-09-merge",
+        "object-merge.json"
+      ]
+    },
+    {
+      "role": "merge_invalid_template",
+      "path": [
+        "json",
+        "slice-09-merge",
+        "invalid-template.json"
+      ]
+    },
+    {
+      "role": "merge_invalid_destination",
+      "path": [
+        "json",
+        "slice-09-merge",
+        "invalid-destination.json"
+      ]
+    },
+    {
+      "role": "fallback",
+      "path": [
+        "json",
+        "slice-14-fallback",
+        "trailing-comma-destination.json"
+      ]
+    },
+    {
+      "role": "fallback_boundary_template",
+      "path": [
+        "json",
+        "slice-15-fallback-boundaries",
+        "template-trailing-comma-not-recovered.json"
+      ]
+    },
+    {
+      "role": "fallback_boundary_comments",
+      "path": [
+        "json",
+        "slice-15-fallback-boundaries",
+        "strict-json-comments-not-recovered.json"
+      ]
+    },
+    {
+      "role": "array_policy",
+      "path": [
+        "json",
+        "slice-16-array-policy",
+        "destination-wins-array.json"
       ]
     }
   ]

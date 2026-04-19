@@ -1,0 +1,12 @@
+{
+  "merge_policies": [
+    {
+      "surface": "array",
+      "name": "destination_wins_array"
+    },
+    {
+      "surface": "fallback",
+      "name": "trailing_comma_destination_fallback"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "name": "normalization-equivalent",
+      "left": "Alpha   beta\n\nGamma",
+      "right": "  Alpha beta  \r\n\r\nGamma  ",
+      "expected_score": 1.0,
+      "threshold": 0.95,
+      "expected_match": true
+    },
+    {
+      "name": "near-match",
+      "left": "Alpha beta\n\nGamma delta",
+      "right": "Alpha beta\n\nGamma epsilon",
+      "expected_score": 0.6666666666666666,
+      "threshold": 0.6,
+      "expected_match": true
+    },
+    {
+      "name": "mismatch",
+      "left": "Alpha beta",
+      "right": "Zeta theta",
+      "expected_score": 0.0,
+      "threshold": 0.2,
+      "expected_match": false
+    }
+  ]
+}

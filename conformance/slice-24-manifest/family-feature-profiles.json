@@ -1,0 +1,20 @@
+{
+  "family_feature_profiles": [
+    {
+      "family": "json",
+      "path": [
+        "diagnostics",
+        "slice-21-family-feature-profile",
+        "json-feature-profile.json"
+      ]
+    },
+    {
+      "family": "text",
+      "path": [
+        "diagnostics",
+        "slice-23-text-family-feature-profile",
+        "text-feature-profile.json"
+      ]
+    }
+  ]
+}

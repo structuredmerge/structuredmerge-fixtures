@@ -4,6 +4,7 @@ This directory is reserved for language-neutral merge fixtures.
 
 Intended structure:
 
+- `conformance/`
 - `text/`
 - `json/`
 - `jsonc/`
@@ -26,6 +27,7 @@ Fixture goals:
 - reproducible behavior for MVP merge engines
 - isolation from package-manager or templating concerns
 - direct consumption by sibling language monorepos for integration tests
+- manifest-driven discovery for selected portable conformance subsets
 
 Non-goals:
 

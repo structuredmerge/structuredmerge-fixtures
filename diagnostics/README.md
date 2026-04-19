@@ -11,3 +11,5 @@ Current slices:
 - `slice-19-adapter-policy-support/` - shared adapter policy capability vocabulary
 - `slice-20-adapter-feature-profile/` - shared adapter feature-profile vocabulary
 - `slice-21-family-feature-profile/` - shared family-level feature-profile vocabulary
+- `slice-22-shared-family-feature-profile/` - shared core family feature-profile vocabulary
+- `slice-23-text-family-feature-profile/` - shared text family feature-profile vocabulary

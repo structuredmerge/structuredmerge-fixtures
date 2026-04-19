@@ -1,0 +1,15 @@
+{
+  "feature_profile": {
+    "family": "example",
+    "supported_dialects": [
+      "alpha",
+      "beta"
+    ],
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  }
+}

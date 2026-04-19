@@ -1,0 +1,194 @@
+{
+  "cases": [
+    {
+      "ref": {
+        "family": "json",
+        "role": "tree_sitter_adapter",
+        "case": "valid_strict_json"
+      },
+      "family_profile": {
+        "family": "json",
+        "supported_dialects": ["json", "jsonc"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          },
+          {
+            "surface": "fallback",
+            "name": "trailing_comma_destination_fallback"
+          }
+        ]
+      },
+      "feature_profile": {
+        "backend": "kreuzberg-language-pack",
+        "supports_dialects": false,
+        "supported_policies": []
+      },
+      "requirements": {
+        "dialect": "json"
+      },
+      "expected": {
+        "status": "selected",
+        "messages": []
+      }
+    },
+    {
+      "ref": {
+        "family": "json",
+        "role": "tree_sitter_adapter",
+        "case": "jsonc_unsupported"
+      },
+      "family_profile": {
+        "family": "json",
+        "supported_dialects": ["json", "jsonc"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          },
+          {
+            "surface": "fallback",
+            "name": "trailing_comma_destination_fallback"
+          }
+        ]
+      },
+      "feature_profile": {
+        "backend": "kreuzberg-language-pack",
+        "supports_dialects": false,
+        "supported_policies": []
+      },
+      "requirements": {
+        "dialect": "jsonc"
+      },
+      "expected": {
+        "status": "skipped",
+        "messages": [
+          "backend kreuzberg-language-pack does not support dialect jsonc for family json."
+        ]
+      }
+    },
+    {
+      "ref": {
+        "family": "json",
+        "role": "fallback",
+        "case": "trailing_comma_destination"
+      },
+      "family_profile": {
+        "family": "json",
+        "supported_dialects": ["json", "jsonc"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          },
+          {
+            "surface": "fallback",
+            "name": "trailing_comma_destination_fallback"
+          }
+        ]
+      },
+      "feature_profile": {
+        "backend": "portable-json-preprocessor",
+        "supports_dialects": true,
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          },
+          {
+            "surface": "fallback",
+            "name": "trailing_comma_destination_fallback"
+          }
+        ]
+      },
+      "requirements": {
+        "policies": [
+          {
+            "surface": "fallback",
+            "name": "trailing_comma_destination_fallback"
+          }
+        ]
+      },
+      "expected": {
+        "status": "selected",
+        "messages": []
+      }
+    },
+    {
+      "ref": {
+        "family": "json",
+        "role": "fallback",
+        "case": "trailing_comma_destination"
+      },
+      "family_profile": {
+        "family": "json",
+        "supported_dialects": ["json", "jsonc"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          },
+          {
+            "surface": "fallback",
+            "name": "trailing_comma_destination_fallback"
+          }
+        ]
+      },
+      "feature_profile": {
+        "backend": "kreuzberg-language-pack",
+        "supports_dialects": false,
+        "supported_policies": []
+      },
+      "requirements": {
+        "policies": [
+          {
+            "surface": "fallback",
+            "name": "trailing_comma_destination_fallback"
+          }
+        ]
+      },
+      "expected": {
+        "status": "skipped",
+        "messages": [
+          "backend kreuzberg-language-pack does not support policy trailing_comma_destination_fallback."
+        ]
+      }
+    },
+    {
+      "ref": {
+        "family": "json",
+        "role": "tree_sitter_adapter",
+        "case": "json5_unsupported"
+      },
+      "family_profile": {
+        "family": "json",
+        "supported_dialects": ["json", "jsonc"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          },
+          {
+            "surface": "fallback",
+            "name": "trailing_comma_destination_fallback"
+          }
+        ]
+      },
+      "feature_profile": {
+        "backend": "kreuzberg-language-pack",
+        "supports_dialects": false,
+        "supported_policies": []
+      },
+      "requirements": {
+        "dialect": "json5"
+      },
+      "expected": {
+        "status": "skipped",
+        "messages": [
+          "family json does not support dialect json5."
+        ]
+      }
+    }
+  ]
+}

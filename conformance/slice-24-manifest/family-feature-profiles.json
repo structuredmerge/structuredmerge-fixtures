@@ -234,6 +234,14 @@
         ]
       },
       {
+        "role": "capability_selection",
+        "path": [
+          "diagnostics",
+          "slice-33-capability-aware-selection",
+          "capability-selection.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

@@ -19,6 +19,27 @@
       ]
     }
   ],
+  "suites": {
+    "json_portable": {
+      "family": "json",
+      "roles": [
+        "parse_comments",
+        "structure_json",
+        "matching",
+        "merge_object",
+        "tree_sitter_adapter"
+      ]
+    },
+    "text_portable": {
+      "family": "text",
+      "roles": [
+        "analysis",
+        "similarity",
+        "matching_exact",
+        "merge_refined"
+      ]
+    }
+  },
   "families": {
     "text": [
       {
@@ -314,6 +335,14 @@
           "diagnostics",
           "slice-42-manifest-case-requirements",
           "manifest-requirements.json"
+        ]
+      },
+      {
+        "role": "suite_definitions",
+        "path": [
+          "diagnostics",
+          "slice-43-conformance-suite-definitions",
+          "suite-definitions.json"
         ]
       },
       {

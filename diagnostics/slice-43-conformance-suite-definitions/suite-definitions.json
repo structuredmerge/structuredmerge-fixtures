@@ -1,0 +1,13 @@
+{
+  "suite_name": "json_portable",
+  "expected": {
+    "family": "json",
+    "roles": [
+      "parse_comments",
+      "structure_json",
+      "matching",
+      "merge_object",
+      "tree_sitter_adapter"
+    ]
+  }
+}

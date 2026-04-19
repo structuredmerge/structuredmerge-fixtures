@@ -378,6 +378,30 @@
         ]
       },
       {
+        "role": "named_suite_plan_entry",
+        "path": [
+          "diagnostics",
+          "slice-48-named-conformance-suite-plan-entry",
+          "named-suite-plan-entry.json"
+        ]
+      },
+      {
+        "role": "family_plan_context",
+        "path": [
+          "diagnostics",
+          "slice-49-conformance-family-plan-context",
+          "family-plan-context.json"
+        ]
+      },
+      {
+        "role": "named_suite_plans",
+        "path": [
+          "diagnostics",
+          "slice-50-named-conformance-suite-plans",
+          "named-suite-plans.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

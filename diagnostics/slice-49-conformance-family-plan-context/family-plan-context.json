@@ -1,0 +1,31 @@
+{
+  "context": {
+    "family_profile": {
+      "family": "json",
+      "supported_dialects": [
+        "json",
+        "jsonc"
+      ],
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        },
+        {
+          "surface": "fallback",
+          "name": "trailing_comma_destination_fallback"
+        }
+      ]
+    },
+    "feature_profile": {
+      "backend": "kreuzberg-language-pack",
+      "supports_dialects": false,
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "request": {
+    "source": "{\"name\":\"structuredmerge\"}",
+    "language": "json",
+    "dialect": "jsonc"
+  },
+  "adapter_info": {
+    "backend": "portable-json-preprocessor",
+    "supports_dialects": true
+  }
+}

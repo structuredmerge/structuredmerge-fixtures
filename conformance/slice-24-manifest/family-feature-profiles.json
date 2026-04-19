@@ -242,6 +242,22 @@
         ]
       },
       {
+        "role": "case_runner",
+        "path": [
+          "diagnostics",
+          "slice-34-conformance-case-runner",
+          "case-runner.json"
+        ]
+      },
+      {
+        "role": "suite_runner",
+        "path": [
+          "diagnostics",
+          "slice-35-conformance-suite-runner",
+          "suite-runner.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

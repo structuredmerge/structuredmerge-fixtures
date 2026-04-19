@@ -1,0 +1,121 @@
+{
+  "entries": [
+    {
+      "suite": "json_portable",
+      "report": {
+        "results": [
+          {
+            "ref": {
+              "family": "json",
+              "role": "parse_comments",
+              "case": "parse_comments"
+            },
+            "outcome": "skipped",
+            "messages": [
+              "backend kreuzberg-language-pack does not support dialect jsonc for family json."
+            ]
+          },
+          {
+            "ref": {
+              "family": "json",
+              "role": "structure_json",
+              "case": "structure_json"
+            },
+            "outcome": "passed",
+            "messages": []
+          },
+          {
+            "ref": {
+              "family": "json",
+              "role": "matching",
+              "case": "matching"
+            },
+            "outcome": "passed",
+            "messages": []
+          },
+          {
+            "ref": {
+              "family": "json",
+              "role": "merge_object",
+              "case": "merge_object"
+            },
+            "outcome": "failed",
+            "messages": [
+              "merge drift"
+            ]
+          },
+          {
+            "ref": {
+              "family": "json",
+              "role": "tree_sitter_adapter",
+              "case": "tree_sitter_adapter"
+            },
+            "outcome": "passed",
+            "messages": []
+          }
+        ],
+        "summary": {
+          "total": 5,
+          "passed": 3,
+          "failed": 1,
+          "skipped": 1
+        }
+      }
+    },
+    {
+      "suite": "text_portable",
+      "report": {
+        "results": [
+          {
+            "ref": {
+              "family": "text",
+              "role": "analysis",
+              "case": "analysis"
+            },
+            "outcome": "passed",
+            "messages": []
+          },
+          {
+            "ref": {
+              "family": "text",
+              "role": "similarity",
+              "case": "similarity"
+            },
+            "outcome": "passed",
+            "messages": []
+          },
+          {
+            "ref": {
+              "family": "text",
+              "role": "matching_exact",
+              "case": "matching_exact"
+            },
+            "outcome": "passed",
+            "messages": []
+          },
+          {
+            "ref": {
+              "family": "text",
+              "role": "merge_refined",
+              "case": "merge_refined"
+            },
+            "outcome": "passed",
+            "messages": []
+          }
+        ],
+        "summary": {
+          "total": 4,
+          "passed": 4,
+          "failed": 0,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "expected_summary": {
+    "total": 9,
+    "passed": 7,
+    "failed": 1,
+    "skipped": 1
+  }
+}

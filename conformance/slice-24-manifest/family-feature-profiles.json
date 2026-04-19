@@ -426,6 +426,30 @@
         ]
       },
       {
+        "role": "named_suite_summary",
+        "path": [
+          "diagnostics",
+          "slice-54-named-conformance-suite-summary",
+          "named-suite-summary.json"
+        ]
+      },
+      {
+        "role": "named_suite_report_envelope",
+        "path": [
+          "diagnostics",
+          "slice-55-named-conformance-suite-report-envelope",
+          "named-suite-report-envelope.json"
+        ]
+      },
+      {
+        "role": "named_suite_report_manifest",
+        "path": [
+          "diagnostics",
+          "slice-56-named-conformance-suite-report-manifest",
+          "named-suite-report-manifest.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

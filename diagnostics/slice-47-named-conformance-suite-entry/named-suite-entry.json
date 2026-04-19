@@ -1,0 +1,106 @@
+{
+  "suite_name": "json_portable",
+  "family_profile": {
+    "family": "json",
+    "supported_dialects": [
+      "json",
+      "jsonc"
+    ],
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      },
+      {
+        "surface": "fallback",
+        "name": "trailing_comma_destination_fallback"
+      }
+    ]
+  },
+  "executions": {
+    "json:parse_comments:parse_comments": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:structure_json:structure_json": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:merge_object:merge_object": {
+      "outcome": "failed",
+      "messages": [
+        "merge drift"
+      ]
+    },
+    "json:tree_sitter_adapter:tree_sitter_adapter": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "expected_entry": {
+    "suite": "json_portable",
+    "report": {
+      "results": [
+        {
+          "ref": {
+            "family": "json",
+            "role": "parse_comments",
+            "case": "parse_comments"
+          },
+          "outcome": "skipped",
+          "messages": [
+            "backend kreuzberg-language-pack does not support dialect jsonc for family json."
+          ]
+        },
+        {
+          "ref": {
+            "family": "json",
+            "role": "structure_json",
+            "case": "structure_json"
+          },
+          "outcome": "passed",
+          "messages": []
+        },
+        {
+          "ref": {
+            "family": "json",
+            "role": "matching",
+            "case": "matching"
+          },
+          "outcome": "passed",
+          "messages": []
+        },
+        {
+          "ref": {
+            "family": "json",
+            "role": "merge_object",
+            "case": "merge_object"
+          },
+          "outcome": "failed",
+          "messages": [
+            "merge drift"
+          ]
+        },
+        {
+          "ref": {
+            "family": "json",
+            "role": "tree_sitter_adapter",
+            "case": "tree_sitter_adapter"
+          },
+          "outcome": "passed",
+          "messages": []
+        }
+      ],
+      "summary": {
+        "total": 5,
+        "passed": 3,
+        "failed": 1,
+        "skipped": 1
+      }
+    }
+  }
+}

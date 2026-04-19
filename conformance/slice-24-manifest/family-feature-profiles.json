@@ -354,6 +354,30 @@
         ]
       },
       {
+        "role": "named_suite_runner",
+        "path": [
+          "diagnostics",
+          "slice-45-named-conformance-suite-runner",
+          "named-suite-runner.json"
+        ]
+      },
+      {
+        "role": "suite_names",
+        "path": [
+          "diagnostics",
+          "slice-46-conformance-suite-names",
+          "suite-names.json"
+        ]
+      },
+      {
+        "role": "named_suite_entry",
+        "path": [
+          "diagnostics",
+          "slice-47-named-conformance-suite-entry",
+          "named-suite-entry.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

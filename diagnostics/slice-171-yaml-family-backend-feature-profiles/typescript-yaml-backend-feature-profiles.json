@@ -1,0 +1,22 @@
+{
+  "yaml": {
+    "backend": "yaml",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  },
+  "js_yaml": {
+    "backend": "js-yaml",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  }
+}

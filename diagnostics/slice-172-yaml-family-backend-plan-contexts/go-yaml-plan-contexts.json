@@ -1,0 +1,46 @@
+{
+  "yaml_v3": {
+    "family_profile": {
+      "family": "yaml",
+      "supported_dialects": ["yaml"],
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        }
+      ]
+    },
+    "feature_profile": {
+      "backend": "yaml-v3",
+      "supports_dialects": true,
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        }
+      ]
+    }
+  },
+  "goccy": {
+    "family_profile": {
+      "family": "yaml",
+      "supported_dialects": ["yaml"],
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        }
+      ]
+    },
+    "feature_profile": {
+      "backend": "goccy-go-yaml",
+      "supports_dialects": true,
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "yaml_v3": {
+    "backend": "yaml-v3",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  },
+  "goccy": {
+    "backend": "goccy-go-yaml",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  }
+}

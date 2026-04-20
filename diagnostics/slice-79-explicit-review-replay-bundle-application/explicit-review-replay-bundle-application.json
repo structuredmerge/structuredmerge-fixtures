@@ -1,0 +1,139 @@
+{
+  "manifest": {
+    "family_feature_profiles": [],
+    "suites": {
+      "text_portable": {
+        "family": "text",
+        "roles": [
+          "analysis"
+        ]
+      }
+    },
+    "families": {
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "family_profiles": {
+      "text": {
+        "family": "text",
+        "supported_dialects": [
+          "text"
+        ],
+        "supported_policies": []
+      }
+    },
+    "require_explicit_contexts": true,
+    "review_replay_bundle": {
+      "replay_context": {
+        "surface": "conformance_manifest",
+        "families": [
+          "text"
+        ],
+        "require_explicit_contexts": true
+      },
+      "decisions": [
+        {
+          "request_id": "family_context:text",
+          "action": "provide_explicit_context",
+          "context": {
+            "family_profile": {
+              "family": "text",
+              "supported_dialects": [
+                "text"
+              ],
+              "supported_policies": []
+            },
+            "feature_profile": {
+              "backend": "manual-host",
+              "supports_dialects": true,
+              "supported_policies": []
+            }
+          }
+        }
+      ]
+    }
+  },
+  "executions": {
+    "text:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "expected_state": {
+    "report": {
+      "entries": [
+        {
+          "suite": "text_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "text",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 1,
+              "passed": 1,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "diagnostics": [],
+    "requests": [],
+    "applied_decisions": [
+      {
+        "request_id": "family_context:text",
+        "action": "provide_explicit_context",
+        "context": {
+          "family_profile": {
+            "family": "text",
+            "supported_dialects": [
+              "text"
+            ],
+            "supported_policies": []
+          },
+          "feature_profile": {
+            "backend": "manual-host",
+            "supports_dialects": true,
+            "supported_policies": []
+          }
+        }
+      }
+    ],
+    "host_hints": {
+      "interactive": false,
+      "require_explicit_contexts": true
+    },
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "text"
+      ],
+      "require_explicit_contexts": true
+    }
+  }
+}

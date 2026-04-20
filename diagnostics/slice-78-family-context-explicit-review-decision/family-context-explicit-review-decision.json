@@ -1,0 +1,69 @@
+{
+  "family": "text",
+  "options": {
+    "family_profiles": {
+      "text": {
+        "family": "text",
+        "supported_dialects": [
+          "text"
+        ],
+        "supported_policies": []
+      }
+    },
+    "require_explicit_contexts": true,
+    "review_decisions": [
+      {
+        "request_id": "family_context:text",
+        "action": "provide_explicit_context",
+        "context": {
+          "family_profile": {
+            "family": "text",
+            "supported_dialects": [
+              "text"
+            ],
+            "supported_policies": []
+          },
+          "feature_profile": {
+            "backend": "manual-host",
+            "supports_dialects": true,
+            "supported_policies": []
+          }
+        }
+      }
+    ]
+  },
+  "expected_context": {
+    "family_profile": {
+      "family": "text",
+      "supported_dialects": [
+        "text"
+      ],
+      "supported_policies": []
+    },
+    "feature_profile": {
+      "backend": "manual-host",
+      "supports_dialects": true,
+      "supported_policies": []
+    }
+  },
+  "expected_applied_decisions": [
+    {
+      "request_id": "family_context:text",
+      "action": "provide_explicit_context",
+      "context": {
+        "family_profile": {
+          "family": "text",
+          "supported_dialects": [
+            "text"
+          ],
+          "supported_policies": []
+        },
+        "feature_profile": {
+          "backend": "manual-host",
+          "supports_dialects": true,
+          "supported_policies": []
+        }
+      }
+    }
+  ]
+}

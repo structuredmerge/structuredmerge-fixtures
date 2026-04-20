@@ -149,7 +149,8 @@
           }
         },
         "available_actions": [
-          "accept_default_context"
+          "accept_default_context",
+          "provide_explicit_context"
         ],
         "default_action": "accept_default_context"
       }

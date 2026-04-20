@@ -618,6 +618,22 @@
         ]
       },
       {
+        "role": "family_context_explicit_review_decision",
+        "path": [
+          "diagnostics",
+          "slice-78-family-context-explicit-review-decision",
+          "family-context-explicit-review-decision.json"
+        ]
+      },
+      {
+        "role": "explicit_review_replay_bundle_application",
+        "path": [
+          "diagnostics",
+          "slice-79-explicit-review-replay-bundle-application",
+          "explicit-review-replay-bundle-application.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

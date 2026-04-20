@@ -1,0 +1,55 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "markdown",
+        "role": "family_profile",
+        "path": ["diagnostics", "slice-194-markdown-family-feature-profile", "markdown-feature-profile.json"]
+      }
+    ],
+    "suites": {
+      "markdown_portable": { "family": "markdown", "roles": ["analysis", "matching"] }
+    },
+    "families": {
+      "markdown": [
+        { "role": "analysis", "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"] },
+        { "role": "matching", "path": ["markdown", "slice-199-matching", "path-equality.json"] }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "markdown": {
+        "family_profile": {
+          "family": "markdown",
+          "supported_dialects": ["markdown"],
+          "supported_policies": []
+        },
+        "feature_profile": {
+          "backend": "markdown-it",
+          "supports_dialects": true,
+          "supported_policies": []
+        }
+      }
+    }
+  },
+  "executions": {
+    "markdown:analysis:analysis": { "outcome": "passed", "messages": [] },
+    "markdown:matching:matching": { "outcome": "passed", "messages": [] }
+  },
+  "expected_report": {
+    "entries": [
+      {
+        "suite": "markdown_portable",
+        "report": {
+          "results": [
+            { "ref": { "family": "markdown", "role": "analysis", "case": "analysis" }, "outcome": "passed", "messages": [] },
+            { "ref": { "family": "markdown", "role": "matching", "case": "matching" }, "outcome": "passed", "messages": [] }
+          ],
+          "summary": { "total": 2, "passed": 2, "failed": 0, "skipped": 0 }
+        }
+      }
+    ],
+    "summary": { "total": 2, "passed": 2, "failed": 0, "skipped": 0 }
+  }
+}

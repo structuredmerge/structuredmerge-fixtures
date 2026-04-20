@@ -1,0 +1,84 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "markdown",
+        "role": "family_profile",
+        "path": ["diagnostics", "slice-194-markdown-family-feature-profile", "markdown-feature-profile.json"]
+      }
+    ],
+    "suites": {
+      "markdown_portable": {
+        "family": "markdown",
+        "roles": ["analysis", "matching"]
+      }
+    },
+    "families": {
+      "markdown": [
+        { "role": "analysis", "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"] },
+        { "role": "matching", "path": ["markdown", "slice-199-matching", "path-equality.json"] }
+      ]
+    }
+  },
+  "contexts": {
+    "markdown": {
+      "family_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": []
+      },
+      "feature_profile": {
+        "backend": "goldmark",
+        "supports_dialects": true,
+        "supported_policies": []
+      }
+    }
+  },
+  "expected_entries": [
+    {
+      "suite": "markdown_portable",
+      "plan": {
+        "family": "markdown",
+        "entries": [
+          {
+            "ref": { "family": "markdown", "role": "analysis", "case": "analysis" },
+            "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"],
+            "run": {
+              "ref": { "family": "markdown", "role": "analysis", "case": "analysis" },
+              "requirements": {},
+              "family_profile": {
+                "family": "markdown",
+                "supported_dialects": ["markdown"],
+                "supported_policies": []
+              },
+              "feature_profile": {
+                "backend": "goldmark",
+                "supports_dialects": true,
+                "supported_policies": []
+              }
+            }
+          },
+          {
+            "ref": { "family": "markdown", "role": "matching", "case": "matching" },
+            "path": ["markdown", "slice-199-matching", "path-equality.json"],
+            "run": {
+              "ref": { "family": "markdown", "role": "matching", "case": "matching" },
+              "requirements": {},
+              "family_profile": {
+                "family": "markdown",
+                "supported_dialects": ["markdown"],
+                "supported_policies": []
+              },
+              "feature_profile": {
+                "backend": "goldmark",
+                "supports_dialects": true,
+                "supported_policies": []
+              }
+            }
+          }
+        ],
+        "missing_roles": []
+      }
+    }
+  ]
+}

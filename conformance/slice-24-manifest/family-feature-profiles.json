@@ -83,6 +83,22 @@
         "matching_exact",
         "merge_refined"
       ]
+    },
+    "toml_portable": {
+      "family": "toml",
+      "roles": [
+        "analysis",
+        "matching",
+        "merge"
+      ]
+    },
+    "yaml_portable": {
+      "family": "yaml",
+      "roles": [
+        "analysis",
+        "matching",
+        "merge"
+      ]
     }
   },
   "families": {

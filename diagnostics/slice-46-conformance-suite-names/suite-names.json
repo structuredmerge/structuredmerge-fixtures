@@ -1,6 +1,8 @@
 {
   "suite_names": [
     "json_portable",
-    "text_portable"
+    "text_portable",
+    "toml_portable",
+    "yaml_portable"
   ]
 }

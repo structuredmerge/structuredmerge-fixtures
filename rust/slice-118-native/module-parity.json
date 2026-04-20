@@ -1,0 +1,31 @@
+{
+  "dialect": "rust",
+  "source": "use std::fmt::Debug;\nuse std::fmt::Display;\n\npub struct Greeter;\n\npub fn greet(name: &str) -> String {\n  name.to_string()\n}\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/imports/0",
+        "owner_kind": "import",
+        "match_key": "std::fmt::Debug"
+      },
+      {
+        "path": "/imports/1",
+        "owner_kind": "import",
+        "match_key": "std::fmt::Display"
+      },
+      {
+        "path": "/declarations/Greeter",
+        "owner_kind": "declaration",
+        "match_key": "Greeter"
+      },
+      {
+        "path": "/declarations/greet",
+        "owner_kind": "declaration",
+        "match_key": "greet"
+      }
+    ],
+    "output": "use std::fmt::Display;\nuse std::fmt::Debug;\n\npub fn greet(name: &str) -> String {\n  name.to_uppercase()\n}\n\npub struct Greeter;\n"
+  },
+  "template": "use std::fmt::Debug;\n\npub struct Greeter;\n\npub fn greet(name: &str) -> String {\n  name.to_string()\n}\n",
+  "destination": "use std::fmt::Display;\nuse std::fmt::Debug;\n\npub fn greet(name: &str) -> String {\n  name.to_uppercase()\n}\n"
+}

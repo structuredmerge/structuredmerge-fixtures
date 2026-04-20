@@ -1,0 +1,4 @@
+{
+  "family": "rust",
+  "backends": ["tree-sitter", "native"]
+}

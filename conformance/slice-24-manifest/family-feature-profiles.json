@@ -218,6 +218,14 @@
         ]
       },
       {
+        "role": "manifest_backend_requirements",
+        "path": [
+          "diagnostics",
+          "slice-120-manifest-backend-requirements",
+          "manifest-backend-requirements.json"
+        ]
+      },
+      {
         "role": "adapter_policy_support",
         "path": [
           "diagnostics",

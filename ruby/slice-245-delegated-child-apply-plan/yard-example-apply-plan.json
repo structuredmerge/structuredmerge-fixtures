@@ -1,0 +1,66 @@
+{
+  "family": "ruby",
+  "review_state": {
+    "requests": [
+      {
+        "id": "projected_child_group:ruby:yard-example:two",
+        "kind": "delegated_child_group",
+        "family": "ruby",
+        "message": "delegated child group ruby:yard-example:two is ready to apply for ruby.",
+        "blocking": true,
+        "delegated_group": {
+          "delegated_apply_group": "ruby:yard-example:two",
+          "parent_operation_id": "ruby:merge",
+          "child_operation_id": "ruby:yard-example:2",
+          "delegated_runtime_surface_path": "ruby:/docs/class:Example/example:2",
+          "case_ids": ["review-c"],
+          "delegated_case_ids": ["child-c"]
+        },
+        "action_offers": [
+          {
+            "action": "apply_delegated_child_group",
+            "requires_context": false
+          }
+        ],
+        "default_action": "apply_delegated_child_group"
+      }
+    ],
+    "accepted_groups": [
+      {
+        "delegated_apply_group": "ruby:yard-example:one",
+        "parent_operation_id": "ruby:merge",
+        "child_operation_id": "ruby:yard-example:1",
+        "delegated_runtime_surface_path": "ruby:/docs/class:Example/example:1",
+        "case_ids": ["review-a", "review-b"],
+        "delegated_case_ids": ["child-a", "child-b"]
+      }
+    ],
+    "applied_decisions": [
+      {
+        "request_id": "projected_child_group:ruby:yard-example:one",
+        "action": "apply_delegated_child_group"
+      }
+    ],
+    "diagnostics": []
+  },
+  "expected_plan": {
+    "entries": [
+      {
+        "request_id": "projected_child_group:ruby:yard-example:one",
+        "family": "ruby",
+        "delegated_group": {
+          "delegated_apply_group": "ruby:yard-example:one",
+          "parent_operation_id": "ruby:merge",
+          "child_operation_id": "ruby:yard-example:1",
+          "delegated_runtime_surface_path": "ruby:/docs/class:Example/example:1",
+          "case_ids": ["review-a", "review-b"],
+          "delegated_case_ids": ["child-a", "child-b"]
+        },
+        "decision": {
+          "request_id": "projected_child_group:ruby:yard-example:one",
+          "action": "apply_delegated_child_group"
+        }
+      }
+    ]
+  }
+}

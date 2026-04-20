@@ -1,0 +1,66 @@
+{
+  "family": "typescript",
+  "review_state": {
+    "requests": [
+      {
+        "id": "projected_child_group:markdown:fence:json",
+        "kind": "delegated_child_group",
+        "family": "typescript",
+        "message": "delegated child group markdown:fence:json is ready to apply for typescript.",
+        "blocking": true,
+        "delegated_group": {
+          "delegated_apply_group": "markdown:fence:json",
+          "parent_operation_id": "markdown:merge",
+          "child_operation_id": "markdown:code-fence:json",
+          "delegated_runtime_surface_path": "markdown:/document/fence:json",
+          "case_ids": ["case-3"],
+          "delegated_case_ids": ["child-case-3"]
+        },
+        "action_offers": [
+          {
+            "action": "apply_delegated_child_group",
+            "requires_context": false
+          }
+        ],
+        "default_action": "apply_delegated_child_group"
+      }
+    ],
+    "accepted_groups": [
+      {
+        "delegated_apply_group": "markdown:fence:typescript",
+        "parent_operation_id": "markdown:merge",
+        "child_operation_id": "markdown:code-fence:typescript",
+        "delegated_runtime_surface_path": "markdown:/document/fence:typescript",
+        "case_ids": ["case-1", "case-2"],
+        "delegated_case_ids": ["child-case-1", "child-case-2"]
+      }
+    ],
+    "applied_decisions": [
+      {
+        "request_id": "projected_child_group:markdown:fence:typescript",
+        "action": "apply_delegated_child_group"
+      }
+    ],
+    "diagnostics": []
+  },
+  "expected_plan": {
+    "entries": [
+      {
+        "request_id": "projected_child_group:markdown:fence:typescript",
+        "family": "typescript",
+        "delegated_group": {
+          "delegated_apply_group": "markdown:fence:typescript",
+          "parent_operation_id": "markdown:merge",
+          "child_operation_id": "markdown:code-fence:typescript",
+          "delegated_runtime_surface_path": "markdown:/document/fence:typescript",
+          "case_ids": ["case-1", "case-2"],
+          "delegated_case_ids": ["child-case-1", "child-case-2"]
+        },
+        "decision": {
+          "request_id": "projected_child_group:markdown:fence:typescript",
+          "action": "apply_delegated_child_group"
+        }
+      }
+    ]
+  }
+}

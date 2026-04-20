@@ -1,0 +1,4 @@
+{
+  "family": "typescript",
+  "backends": ["tree-sitter", "native"]
+}

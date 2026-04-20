@@ -1,0 +1,31 @@
+{
+  "dialect": "typescript",
+  "source": "import { foo } from './foo';\nimport type { Bar } from './bar';\n\nexport function greet(name: string) {\n  return foo(name);\n}\n\nexport interface Person {\n  name: string;\n}\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/imports/0",
+        "owner_kind": "import",
+        "match_key": "./foo"
+      },
+      {
+        "path": "/imports/1",
+        "owner_kind": "import",
+        "match_key": "./bar"
+      },
+      {
+        "path": "/declarations/Person",
+        "owner_kind": "declaration",
+        "match_key": "Person"
+      },
+      {
+        "path": "/declarations/greet",
+        "owner_kind": "declaration",
+        "match_key": "greet"
+      }
+    ],
+    "output": "import { foo } from './foo';\nimport { baz } from './baz';\n\nexport function greet(name: string) {\n  return foo(name).toUpperCase();\n}\n\nexport interface Person {\n  name: string;\n}\n"
+  },
+  "template": "import { foo } from './foo';\n\nexport function greet(name: string) {\n  return foo(name);\n}\n\nexport interface Person {\n  name: string;\n}\n",
+  "destination": "import { foo } from './foo';\nimport { baz } from './baz';\n\nexport function greet(name: string) {\n  return foo(name).toUpperCase();\n}\n"
+}

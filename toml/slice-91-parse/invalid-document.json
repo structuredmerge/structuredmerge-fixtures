@@ -1,0 +1,14 @@
+{
+  "name": "invalid_toml_document",
+  "dialect": "toml",
+  "source": "name = \"structuredmerge\"\n[package\nversion = \"0.1.0\"\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

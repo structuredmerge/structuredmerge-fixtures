@@ -1,0 +1,14 @@
+{
+  "name": "invalid_template",
+  "template": "title = \"Structured Merge\"\n[package\nname = \"structuredmerge\"\n",
+  "destination": "title = \"Structured Merge\"\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

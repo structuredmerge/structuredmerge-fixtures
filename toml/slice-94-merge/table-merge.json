@@ -1,0 +1,9 @@
+{
+  "name": "table_merge",
+  "template": "title = \"Structured Merge\"\n\n[package]\nname = \"structuredmerge\"\ntags = [\"template\"]\nversion = \"0.1.0\"\n\n[package.meta]\nenabled = false\n",
+  "destination": "[package]\ntags = [\"destination\"]\nversion = \"0.2.0\"\n\n[package.meta]\nauthors = [\"pb\"]\nrelease = true\n",
+  "expected": {
+    "ok": true,
+    "output": "title = \"Structured Merge\"\n\n[package]\nname = \"structuredmerge\"\ntags = [\"destination\"]\nversion = \"0.2.0\"\n\n[package.meta]\nauthors = [\"pb\"]\nenabled = false\nrelease = true\n"
+  }
+}

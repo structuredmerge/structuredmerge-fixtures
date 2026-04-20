@@ -1,0 +1,39 @@
+{
+  "name": "path_equality",
+  "template": "title = \"Structured Merge\"\ntags = [\"merge\", \"toml\"]\n\n[package]\nname = \"structuredmerge\"\nversion = \"0.1.0\"\n",
+  "destination": "title = \"Structured Merge\"\ntags = [\"merge\"]\nextra = 1\n\n[package]\nname = \"structuredmerge\"\nversion = \"0.2.0\"\n",
+  "expected": {
+    "matched": [
+      [
+        "/package",
+        "/package"
+      ],
+      [
+        "/package/name",
+        "/package/name"
+      ],
+      [
+        "/package/version",
+        "/package/version"
+      ],
+      [
+        "/tags",
+        "/tags"
+      ],
+      [
+        "/tags/0",
+        "/tags/0"
+      ],
+      [
+        "/title",
+        "/title"
+      ]
+    ],
+    "unmatched_template": [
+      "/tags/1"
+    ],
+    "unmatched_destination": [
+      "/extra"
+    ]
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "json",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-21-family-feature-profile",
+          "json-feature-profile.json"
+        ]
+      },
+      {
+        "family": "text",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-23-text-family-feature-profile",
+          "text-feature-profile.json"
+        ]
+      },
+      {
+        "family": "toml",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-90-toml-family-feature-profile",
+          "toml-feature-profile.json"
+        ]
+      },
+      {
+        "family": "yaml",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-95-yaml-family-feature-profile",
+          "yaml-feature-profile.json"
+        ]
+      }
+    ],
+    "suites": {
+      "json_portable": {
+        "family": "json",
+        "roles": [
+          "parse_comments",
+          "structure_json",
+          "matching",
+          "merge_object",
+          "tree_sitter_adapter"
+        ]
+      },
+      "text_portable": {
+        "family": "text",
+        "roles": [
+          "analysis",
+          "similarity",
+          "matching_exact",
+          "merge_refined"
+        ]
+      },
+      "toml_portable": {
+        "family": "toml",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
+      "yaml_portable": {
+        "family": "yaml",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      }
+    },
+    "families": {
+      "json": [
+        {
+          "role": "parse_comments",
+          "requirements": {
+            "dialect": "jsonc"
+          },
+          "path": [
+            "jsonc",
+            "slice-04-parse",
+            "comments-accepted.json"
+          ]
+        },
+        {
+          "role": "structure_json",
+          "path": [
+            "json",
+            "slice-07-structure",
+            "object-and-array.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "json",
+            "slice-08-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge_object",
+          "path": [
+            "json",
+            "slice-09-merge",
+            "object-merge.json"
+          ]
+        },
+        {
+          "role": "tree_sitter_adapter",
+          "path": [
+            "json",
+            "slice-26-tree-sitter-adapter",
+            "strict-json.json"
+          ]
+        }
+      ],
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        },
+        {
+          "role": "similarity",
+          "path": [
+            "text",
+            "slice-05-similarity",
+            "similarity-cases.json"
+          ]
+        },
+        {
+          "role": "matching_exact",
+          "path": [
+            "text",
+            "slice-11-matching",
+            "exact-content.json"
+          ]
+        },
+        {
+          "role": "merge_refined",
+          "path": [
+            "text",
+            "slice-13-refined-matching",
+            "content-refined-merge.json"
+          ]
+        }
+      ],
+      "toml": [
+        {
+          "role": "analysis",
+          "path": [
+            "toml",
+            "slice-92-structure",
+            "table-and-array.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "toml",
+            "slice-93-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "toml",
+            "slice-94-merge",
+            "table-merge.json"
+          ]
+        }
+      ],
+      "yaml": [
+        {
+          "role": "analysis",
+          "path": [
+            "yaml",
+            "slice-97-structure",
+            "mapping-and-sequence.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "yaml",
+            "slice-98-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "yaml",
+            "slice-99-merge",
+            "mapping-merge.json"
+          ]
+        }
+      ]
+    }
+  },
+  "suite_names": [
+    "json_portable",
+    "text_portable",
+    "toml_portable",
+    "yaml_portable"
+  ],
+  "definitions": {
+    "json_portable": {
+      "family": "json",
+      "roles": [
+        "parse_comments",
+        "structure_json",
+        "matching",
+        "merge_object",
+        "tree_sitter_adapter"
+      ]
+    },
+    "text_portable": {
+      "family": "text",
+      "roles": [
+        "analysis",
+        "similarity",
+        "matching_exact",
+        "merge_refined"
+      ]
+    },
+    "toml_portable": {
+      "family": "toml",
+      "roles": [
+        "analysis",
+        "matching",
+        "merge"
+      ]
+    },
+    "yaml_portable": {
+      "family": "yaml",
+      "roles": [
+        "analysis",
+        "matching",
+        "merge"
+      ]
+    }
+  }
+}

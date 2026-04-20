@@ -1,0 +1,572 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "json",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-21-family-feature-profile",
+          "json-feature-profile.json"
+        ]
+      },
+      {
+        "family": "text",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-23-text-family-feature-profile",
+          "text-feature-profile.json"
+        ]
+      },
+      {
+        "family": "toml",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-90-toml-family-feature-profile",
+          "toml-feature-profile.json"
+        ]
+      },
+      {
+        "family": "yaml",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-95-yaml-family-feature-profile",
+          "yaml-feature-profile.json"
+        ]
+      }
+    ],
+    "suites": {
+      "json_portable": {
+        "family": "json",
+        "roles": [
+          "parse_comments",
+          "structure_json",
+          "matching",
+          "merge_object",
+          "tree_sitter_adapter"
+        ]
+      },
+      "text_portable": {
+        "family": "text",
+        "roles": [
+          "analysis",
+          "similarity",
+          "matching_exact",
+          "merge_refined"
+        ]
+      },
+      "toml_portable": {
+        "family": "toml",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
+      "yaml_portable": {
+        "family": "yaml",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      }
+    },
+    "families": {
+      "json": [
+        {
+          "role": "parse_comments",
+          "requirements": {
+            "dialect": "jsonc"
+          },
+          "path": [
+            "jsonc",
+            "slice-04-parse",
+            "comments-accepted.json"
+          ]
+        },
+        {
+          "role": "structure_json",
+          "path": [
+            "json",
+            "slice-07-structure",
+            "object-and-array.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "json",
+            "slice-08-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge_object",
+          "path": [
+            "json",
+            "slice-09-merge",
+            "object-merge.json"
+          ]
+        },
+        {
+          "role": "tree_sitter_adapter",
+          "path": [
+            "json",
+            "slice-26-tree-sitter-adapter",
+            "strict-json.json"
+          ]
+        }
+      ],
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        },
+        {
+          "role": "similarity",
+          "path": [
+            "text",
+            "slice-05-similarity",
+            "similarity-cases.json"
+          ]
+        },
+        {
+          "role": "matching_exact",
+          "path": [
+            "text",
+            "slice-11-matching",
+            "exact-content.json"
+          ]
+        },
+        {
+          "role": "merge_refined",
+          "path": [
+            "text",
+            "slice-13-refined-matching",
+            "content-refined-merge.json"
+          ]
+        }
+      ],
+      "toml": [
+        {
+          "role": "analysis",
+          "path": [
+            "toml",
+            "slice-92-structure",
+            "table-and-array.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "toml",
+            "slice-93-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "toml",
+            "slice-94-merge",
+            "table-merge.json"
+          ]
+        }
+      ],
+      "yaml": [
+        {
+          "role": "analysis",
+          "path": [
+            "yaml",
+            "slice-97-structure",
+            "mapping-and-sequence.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "yaml",
+            "slice-98-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "yaml",
+            "slice-99-merge",
+            "mapping-merge.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "json": {
+        "family_profile": {
+          "family": "json",
+          "supported_dialects": [
+            "json",
+            "jsonc"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            },
+            {
+              "surface": "fallback",
+              "name": "trailing_comma_destination_fallback"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "kreuzberg-language-pack",
+          "supports_dialects": false,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      },
+      "toml": {
+        "family_profile": {
+          "family": "toml",
+          "supported_dialects": [
+            "toml"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "native",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      },
+      "yaml": {
+        "family_profile": {
+          "family": "yaml",
+          "supported_dialects": [
+            "yaml"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "native",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      }
+    },
+    "family_profiles": {
+      "text": {
+        "family": "text",
+        "supported_dialects": [
+          "text"
+        ],
+        "supported_policies": []
+      }
+    }
+  },
+  "executions": {
+    "json:parse_comments:parse_comments": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:structure_json:structure_json": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:merge_object:merge_object": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:tree_sitter_adapter:tree_sitter_adapter": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "text:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "text:similarity:similarity": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "text:matching_exact:matching_exact": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "text:merge_refined:merge_refined": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "toml:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "toml:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "toml:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "yaml:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "yaml:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "yaml:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "expected_report": {
+    "report": {
+      "entries": [
+        {
+          "suite": "json_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "parse_comments",
+                  "case": "parse_comments"
+                },
+                "outcome": "skipped",
+                "messages": [
+                  "backend kreuzberg-language-pack does not support dialect jsonc for family json."
+                ]
+              },
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "structure_json",
+                  "case": "structure_json"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "merge_object",
+                  "case": "merge_object"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "tree_sitter_adapter",
+                  "case": "tree_sitter_adapter"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 5,
+              "passed": 4,
+              "failed": 0,
+              "skipped": 1
+            }
+          }
+        },
+        {
+          "suite": "text_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "text",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "text",
+                  "role": "similarity",
+                  "case": "similarity"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "text",
+                  "role": "matching_exact",
+                  "case": "matching_exact"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "text",
+                  "role": "merge_refined",
+                  "case": "merge_refined"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 4,
+              "passed": 4,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "suite": "toml_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "toml",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "toml",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "toml",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "suite": "yaml_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "yaml",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "yaml",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "yaml",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total": 15,
+        "passed": 14,
+        "failed": 0,
+        "skipped": 1
+      }
+    },
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "assumed_default",
+        "message": "using default family context for text."
+      }
+    ]
+  }
+}

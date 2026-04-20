@@ -1,0 +1,66 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "toml",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-90-toml-family-feature-profile",
+          "toml-feature-profile.json"
+        ]
+      }
+    ],
+    "suites": {
+      "toml_portable": {
+        "family": "toml",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      }
+    },
+    "families": {
+      "toml": [
+        {
+          "role": "analysis",
+          "path": [
+            "toml",
+            "slice-92-structure",
+            "table-and-array.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "toml",
+            "slice-93-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "toml",
+            "slice-94-merge",
+            "table-merge.json"
+          ]
+        }
+      ]
+    }
+  },
+  "suite_names": [
+    "toml_portable"
+  ],
+  "definitions": {
+    "toml_portable": {
+      "family": "toml",
+      "roles": [
+        "analysis",
+        "matching",
+        "merge"
+      ]
+    }
+  }
+}

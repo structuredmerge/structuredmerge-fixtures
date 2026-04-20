@@ -1,0 +1,30 @@
+{
+  "native": {
+    "family_profile": {
+      "family": "markdown",
+      "supported_dialects": [
+        "markdown"
+      ],
+      "supported_policies": []
+    },
+    "feature_profile": {
+      "backend": "markdown-it",
+      "supports_dialects": true,
+      "supported_policies": []
+    }
+  },
+  "tree_sitter": {
+    "family_profile": {
+      "family": "markdown",
+      "supported_dialects": [
+        "markdown"
+      ],
+      "supported_policies": []
+    },
+    "feature_profile": {
+      "backend": "kreuzberg-language-pack",
+      "supports_dialects": false,
+      "supported_policies": []
+    }
+  }
+}

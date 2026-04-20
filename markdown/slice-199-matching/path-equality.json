@@ -1,0 +1,21 @@
+{
+  "template": "# Title\n\n```ruby\nputs 'template'\n```\n\n## Details\n",
+  "destination": "# Title\n\n## Details\n",
+  "dialect": "markdown",
+  "expected": {
+    "matched": [
+      [
+        "/heading/0",
+        "/heading/0"
+      ],
+      [
+        "/heading/1",
+        "/heading/1"
+      ]
+    ],
+    "unmatched_template": [
+      "/code_fence/0"
+    ],
+    "unmatched_destination": []
+  }
+}

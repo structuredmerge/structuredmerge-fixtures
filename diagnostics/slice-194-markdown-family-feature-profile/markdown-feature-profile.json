@@ -1,0 +1,9 @@
+{
+  "feature_profile": {
+    "family": "markdown",
+    "supported_dialects": [
+      "markdown"
+    ],
+    "supported_policies": []
+  }
+}

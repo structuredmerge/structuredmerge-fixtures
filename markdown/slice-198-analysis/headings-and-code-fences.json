@@ -1,0 +1,28 @@
+{
+  "source": "# Title\n\nIntro paragraph.\n\n```ruby\nputs 'hello'\n```\n\n## Details\n",
+  "dialect": "markdown",
+  "expected": {
+    "ok": true,
+    "root_kind": "document",
+    "owners": [
+      {
+        "path": "/heading/0",
+        "owner_kind": "heading",
+        "match_key": "h1:title",
+        "level": 1
+      },
+      {
+        "path": "/code_fence/0",
+        "owner_kind": "code_fence",
+        "match_key": "fence:ruby",
+        "info_string": "ruby"
+      },
+      {
+        "path": "/heading/1",
+        "owner_kind": "heading",
+        "match_key": "h2:details",
+        "level": 2
+      }
+    ]
+  }
+}

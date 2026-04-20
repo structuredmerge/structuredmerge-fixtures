@@ -1,0 +1,56 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "markdown",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-194-markdown-family-feature-profile",
+          "markdown-feature-profile.json"
+        ]
+      }
+    ],
+    "suites": {
+      "markdown_portable": {
+        "family": "markdown",
+        "roles": [
+          "analysis",
+          "matching"
+        ]
+      }
+    },
+    "families": {
+      "markdown": [
+        {
+          "role": "analysis",
+          "path": [
+            "markdown",
+            "slice-198-analysis",
+            "headings-and-code-fences.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "markdown",
+            "slice-199-matching",
+            "path-equality.json"
+          ]
+        }
+      ]
+    }
+  },
+  "suite_names": [
+    "markdown_portable"
+  ],
+  "definitions": {
+    "markdown_portable": {
+      "family": "markdown",
+      "roles": [
+        "analysis",
+        "matching"
+      ]
+    }
+  }
+}

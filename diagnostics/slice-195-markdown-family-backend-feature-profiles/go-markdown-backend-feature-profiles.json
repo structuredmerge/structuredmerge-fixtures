@@ -1,0 +1,10 @@
+{
+  "native": {
+    "backend": "goldmark",
+    "supported_policies": []
+  },
+  "tree_sitter": {
+    "backend": "kreuzberg-language-pack",
+    "supported_policies": []
+  }
+}

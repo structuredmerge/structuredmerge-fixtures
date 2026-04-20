@@ -1,0 +1,33 @@
+{
+  "serde_yaml": {
+    "backend": "serde_yaml",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  },
+  "yaml_serde": {
+    "backend": "yaml_serde",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  },
+  "tree_sitter": {
+    "family": null,
+    "supported_dialects": null,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ],
+    "backend": "kreuzberg-language-pack"
+  }
+}

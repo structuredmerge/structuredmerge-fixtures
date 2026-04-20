@@ -157,6 +157,15 @@
         "family": "text",
         "message": "explicit family context is required for text; a synthesized default may be accepted by review.",
         "blocking": true,
+        "proposed_context": {
+          "family_profile": {
+            "family": "text",
+            "supported_dialects": [
+              "text"
+            ],
+            "supported_policies": []
+          }
+        },
         "available_actions": [
           "accept_default_context"
         ],

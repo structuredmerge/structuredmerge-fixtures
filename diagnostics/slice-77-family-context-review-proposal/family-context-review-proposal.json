@@ -12,11 +12,6 @@
     },
     "require_explicit_contexts": true
   },
-  "expected_diagnostic": {
-    "severity": "error",
-    "category": "configuration_error",
-    "message": "missing explicit family context for text."
-  },
   "expected_request": {
     "id": "family_context:text",
     "kind": "family_context",

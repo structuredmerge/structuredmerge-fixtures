@@ -610,6 +610,14 @@
         ]
       },
       {
+        "role": "family_context_review_proposal",
+        "path": [
+          "diagnostics",
+          "slice-77-family-context-review-proposal",
+          "family-context-review-proposal.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

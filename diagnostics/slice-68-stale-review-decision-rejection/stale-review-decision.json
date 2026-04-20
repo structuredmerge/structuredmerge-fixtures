@@ -170,9 +170,11 @@
         "severity": "error",
         "category": "replay_rejected",
         "message": "review decision family_context:ghost does not match any current review request.",
-        "request_id": "family_context:ghost",
-        "action": "accept_default_context",
-        "reason": "request_not_found"
+        "review": {
+          "request_id": "family_context:ghost",
+          "action": "accept_default_context",
+          "reason": "request_not_found"
+        }
       },
       {
         "severity": "warning",

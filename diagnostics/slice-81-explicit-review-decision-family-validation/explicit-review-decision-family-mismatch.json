@@ -31,11 +31,13 @@
     "severity": "error",
     "category": "configuration_error",
     "message": "review decision family_context:text provided context for json, expected text.",
-    "request_id": "family_context:text",
-    "action": "provide_explicit_context",
-    "reason": "family_mismatch",
-    "expected_family": "text",
-    "provided_family": "json"
+    "review": {
+      "request_id": "family_context:text",
+      "action": "provide_explicit_context",
+      "reason": "family_mismatch",
+      "expected_family": "text",
+      "provided_family": "json"
+    }
   },
   "expected_request": {
     "id": "family_context:text",

@@ -1,0 +1,1517 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "json",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-21-family-feature-profile",
+          "json-feature-profile.json"
+        ]
+      },
+      {
+        "family": "text",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-23-text-family-feature-profile",
+          "text-feature-profile.json"
+        ]
+      },
+      {
+        "family": "yaml",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-95-yaml-family-feature-profile",
+          "yaml-feature-profile.json"
+        ]
+      },
+      {
+        "family": "typescript",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-101-typescript-family-feature-profile",
+          "typescript-feature-profile.json"
+        ]
+      },
+      {
+        "family": "rust",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-105-rust-family-feature-profile",
+          "rust-feature-profile.json"
+        ]
+      },
+      {
+        "family": "go",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-109-go-family-feature-profile",
+          "go-feature-profile.json"
+        ]
+      },
+      {
+        "family": "toml",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-90-toml-family-feature-profile",
+          "toml-feature-profile.json"
+        ]
+      }
+    ],
+    "suites": {
+      "json_portable": {
+        "family": "json",
+        "roles": [
+          "parse_comments",
+          "structure_json",
+          "matching",
+          "merge_object",
+          "tree_sitter_adapter"
+        ]
+      },
+      "text_portable": {
+        "family": "text",
+        "roles": [
+          "analysis",
+          "similarity",
+          "matching_exact",
+          "merge_refined"
+        ]
+      },
+      "toml_portable": {
+        "family": "toml",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
+      "yaml_portable": {
+        "family": "yaml",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
+      "typescript_portable": {
+        "family": "typescript",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
+      "rust_portable": {
+        "family": "rust",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
+      "go_portable": {
+        "family": "go",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      }
+    },
+    "families": {
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        },
+        {
+          "role": "similarity",
+          "path": [
+            "text",
+            "slice-05-similarity",
+            "similarity-cases.json"
+          ]
+        },
+        {
+          "role": "matching_exact",
+          "path": [
+            "text",
+            "slice-11-matching",
+            "exact-content.json"
+          ]
+        },
+        {
+          "role": "merge_refined",
+          "path": [
+            "text",
+            "slice-13-refined-matching",
+            "content-refined-merge.json"
+          ]
+        }
+      ],
+      "json": [
+        {
+          "role": "parse_comments",
+          "requirements": {
+            "dialect": "jsonc"
+          },
+          "path": [
+            "jsonc",
+            "slice-04-parse",
+            "comments-accepted.json"
+          ]
+        },
+        {
+          "role": "structure_json",
+          "path": [
+            "json",
+            "slice-07-structure",
+            "object-and-array.json"
+          ]
+        },
+        {
+          "role": "structure_jsonc",
+          "path": [
+            "jsonc",
+            "slice-07-structure",
+            "commented-object.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "json",
+            "slice-08-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge_object",
+          "path": [
+            "json",
+            "slice-09-merge",
+            "object-merge.json"
+          ]
+        },
+        {
+          "role": "merge_invalid_template",
+          "path": [
+            "json",
+            "slice-09-merge",
+            "invalid-template.json"
+          ]
+        },
+        {
+          "role": "merge_invalid_destination",
+          "path": [
+            "json",
+            "slice-09-merge",
+            "invalid-destination.json"
+          ]
+        },
+        {
+          "role": "fallback",
+          "path": [
+            "json",
+            "slice-14-fallback",
+            "trailing-comma-destination.json"
+          ]
+        },
+        {
+          "role": "fallback_boundary_template",
+          "path": [
+            "json",
+            "slice-15-fallback-boundaries",
+            "template-trailing-comma-not-recovered.json"
+          ]
+        },
+        {
+          "role": "fallback_boundary_comments",
+          "path": [
+            "json",
+            "slice-15-fallback-boundaries",
+            "strict-json-comments-not-recovered.json"
+          ]
+        },
+        {
+          "role": "array_policy",
+          "path": [
+            "json",
+            "slice-16-array-policy",
+            "destination-wins-array.json"
+          ]
+        },
+        {
+          "role": "tree_sitter_adapter",
+          "path": [
+            "json",
+            "slice-26-tree-sitter-adapter",
+            "strict-json.json"
+          ]
+        }
+      ],
+      "yaml": [
+        {
+          "role": "analysis",
+          "path": [
+            "yaml",
+            "slice-97-structure",
+            "mapping-and-sequence.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "yaml",
+            "slice-98-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "yaml",
+            "slice-99-merge",
+            "mapping-merge.json"
+          ]
+        }
+      ],
+      "typescript": [
+        {
+          "role": "analysis",
+          "path": [
+            "typescript",
+            "slice-102-analysis",
+            "module-owners.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "typescript",
+            "slice-103-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "typescript",
+            "slice-104-merge",
+            "module-merge.json"
+          ]
+        }
+      ],
+      "rust": [
+        {
+          "role": "analysis",
+          "path": [
+            "rust",
+            "slice-106-analysis",
+            "module-owners.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "rust",
+            "slice-107-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "rust",
+            "slice-108-merge",
+            "module-merge.json"
+          ]
+        }
+      ],
+      "go": [
+        {
+          "role": "analysis",
+          "path": [
+            "go",
+            "slice-110-analysis",
+            "module-owners.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "go",
+            "slice-111-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "go",
+            "slice-112-merge",
+            "module-merge.json"
+          ]
+        }
+      ],
+      "toml": [
+        {
+          "role": "analysis",
+          "path": [
+            "toml",
+            "slice-92-structure",
+            "table-and-array.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "toml",
+            "slice-93-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "toml",
+            "slice-94-merge",
+            "table-merge.json"
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "role": "parser_request",
+          "path": [
+            "diagnostics",
+            "slice-06-parser-adapters",
+            "parser-request.json"
+          ]
+        },
+        {
+          "role": "diagnostic_vocabulary",
+          "path": [
+            "diagnostics",
+            "slice-02-core",
+            "diagnostic-categories.json"
+          ]
+        },
+        {
+          "role": "policy_vocabulary",
+          "path": [
+            "diagnostics",
+            "slice-17-policy-vocabulary",
+            "policy-references.json"
+          ]
+        },
+        {
+          "role": "policy_reporting",
+          "path": [
+            "diagnostics",
+            "slice-18-policy-reporting",
+            "result-policies.json"
+          ]
+        },
+        {
+          "role": "backend_selection",
+          "path": [
+            "diagnostics",
+            "slice-119-conformance-backend-requirements",
+            "backend-selection.json"
+          ]
+        },
+        {
+          "role": "manifest_backend_requirements",
+          "path": [
+            "diagnostics",
+            "slice-120-manifest-backend-requirements",
+            "manifest-backend-requirements.json"
+          ]
+        },
+        {
+          "role": "manifest_backend_report",
+          "path": [
+            "diagnostics",
+            "slice-121-manifest-backend-report",
+            "manifest-backend-report.json"
+          ]
+        },
+        {
+          "role": "adapter_policy_support",
+          "path": [
+            "diagnostics",
+            "slice-19-adapter-policy-support",
+            "adapter-info.json"
+          ]
+        },
+        {
+          "role": "adapter_feature_profile",
+          "path": [
+            "diagnostics",
+            "slice-20-adapter-feature-profile",
+            "feature-profile.json"
+          ]
+        },
+        {
+          "role": "shared_family_feature_profile",
+          "path": [
+            "diagnostics",
+            "slice-22-shared-family-feature-profile",
+            "family-feature-profile.json"
+          ]
+        },
+        {
+          "role": "backend_registry",
+          "path": [
+            "diagnostics",
+            "slice-25-backend-registry",
+            "backend-identities.json"
+          ]
+        },
+        {
+          "role": "process_baseline",
+          "path": [
+            "diagnostics",
+            "slice-100-tree-haver-process-baseline",
+            "process-typescript.json"
+          ]
+        },
+        {
+          "role": "runner_shape",
+          "path": [
+            "diagnostics",
+            "slice-28-conformance-runner",
+            "runner-shape.json"
+          ]
+        },
+        {
+          "role": "runner_summary",
+          "path": [
+            "diagnostics",
+            "slice-32-conformance-summary",
+            "summary-shape.json"
+          ]
+        },
+        {
+          "role": "capability_selection",
+          "path": [
+            "diagnostics",
+            "slice-33-capability-aware-selection",
+            "capability-selection.json"
+          ]
+        },
+        {
+          "role": "case_runner",
+          "path": [
+            "diagnostics",
+            "slice-34-conformance-case-runner",
+            "case-runner.json"
+          ]
+        },
+        {
+          "role": "suite_runner",
+          "path": [
+            "diagnostics",
+            "slice-35-conformance-suite-runner",
+            "suite-runner.json"
+          ]
+        },
+        {
+          "role": "suite_report",
+          "path": [
+            "diagnostics",
+            "slice-36-conformance-suite-report",
+            "suite-report.json"
+          ]
+        },
+        {
+          "role": "repository_publication",
+          "path": [
+            "diagnostics",
+            "slice-37-repository-publication",
+            "repository-visibility.json"
+          ]
+        },
+        {
+          "role": "github_actions_baseline",
+          "path": [
+            "diagnostics",
+            "slice-38-github-actions-baseline",
+            "github-actions-baseline.json"
+          ]
+        },
+        {
+          "role": "suite_plan",
+          "path": [
+            "diagnostics",
+            "slice-39-conformance-suite-plan",
+            "suite-plan.json"
+          ]
+        },
+        {
+          "role": "planned_suite_runner",
+          "path": [
+            "diagnostics",
+            "slice-40-planned-conformance-suite-runner",
+            "planned-suite-runner.json"
+          ]
+        },
+        {
+          "role": "planned_suite_report",
+          "path": [
+            "diagnostics",
+            "slice-41-planned-conformance-suite-report",
+            "planned-suite-report.json"
+          ]
+        },
+        {
+          "role": "manifest_requirements",
+          "path": [
+            "diagnostics",
+            "slice-42-manifest-case-requirements",
+            "manifest-requirements.json"
+          ]
+        },
+        {
+          "role": "suite_definitions",
+          "path": [
+            "diagnostics",
+            "slice-43-conformance-suite-definitions",
+            "suite-definitions.json"
+          ]
+        },
+        {
+          "role": "named_suite_report",
+          "path": [
+            "diagnostics",
+            "slice-44-named-conformance-suite-report",
+            "named-suite-report.json"
+          ]
+        },
+        {
+          "role": "named_suite_runner",
+          "path": [
+            "diagnostics",
+            "slice-45-named-conformance-suite-runner",
+            "named-suite-runner.json"
+          ]
+        },
+        {
+          "role": "suite_names",
+          "path": [
+            "diagnostics",
+            "slice-46-conformance-suite-names",
+            "suite-names.json"
+          ]
+        },
+        {
+          "role": "named_suite_entry",
+          "path": [
+            "diagnostics",
+            "slice-47-named-conformance-suite-entry",
+            "named-suite-entry.json"
+          ]
+        },
+        {
+          "role": "named_suite_plan_entry",
+          "path": [
+            "diagnostics",
+            "slice-48-named-conformance-suite-plan-entry",
+            "named-suite-plan-entry.json"
+          ]
+        },
+        {
+          "role": "family_plan_context",
+          "path": [
+            "diagnostics",
+            "slice-49-conformance-family-plan-context",
+            "family-plan-context.json"
+          ]
+        },
+        {
+          "role": "named_suite_plans",
+          "path": [
+            "diagnostics",
+            "slice-50-named-conformance-suite-plans",
+            "named-suite-plans.json"
+          ]
+        },
+        {
+          "role": "named_suite_results",
+          "path": [
+            "diagnostics",
+            "slice-51-named-conformance-suite-results",
+            "named-suite-results.json"
+          ]
+        },
+        {
+          "role": "named_suite_runner_entries",
+          "path": [
+            "diagnostics",
+            "slice-52-planned-named-conformance-suite-runner",
+            "named-suite-runner-entries.json"
+          ]
+        },
+        {
+          "role": "named_suite_report_entries",
+          "path": [
+            "diagnostics",
+            "slice-53-planned-named-conformance-suite-reports",
+            "named-suite-report-entries.json"
+          ]
+        },
+        {
+          "role": "named_suite_summary",
+          "path": [
+            "diagnostics",
+            "slice-54-named-conformance-suite-summary",
+            "named-suite-summary.json"
+          ]
+        },
+        {
+          "role": "named_suite_report_envelope",
+          "path": [
+            "diagnostics",
+            "slice-55-named-conformance-suite-report-envelope",
+            "named-suite-report-envelope.json"
+          ]
+        },
+        {
+          "role": "named_suite_report_manifest",
+          "path": [
+            "diagnostics",
+            "slice-56-named-conformance-suite-report-manifest",
+            "named-suite-report-manifest.json"
+          ]
+        },
+        {
+          "role": "default_family_context",
+          "path": [
+            "diagnostics",
+            "slice-57-default-family-context",
+            "default-family-context.json"
+          ]
+        },
+        {
+          "role": "explicit_family_context_mode",
+          "path": [
+            "diagnostics",
+            "slice-58-explicit-family-context-mode",
+            "explicit-family-context-mode.json"
+          ]
+        },
+        {
+          "role": "missing_suite_roles",
+          "path": [
+            "diagnostics",
+            "slice-59-missing-suite-roles",
+            "missing-suite-roles.json"
+          ]
+        },
+        {
+          "role": "conformance_manifest_report",
+          "path": [
+            "diagnostics",
+            "slice-60-conformance-manifest-diagnostics",
+            "conformance-manifest-report.json"
+          ]
+        },
+        {
+          "role": "review_host_hints",
+          "path": [
+            "diagnostics",
+            "slice-61-review-host-hints",
+            "review-host-hints.json"
+          ]
+        },
+        {
+          "role": "family_context_review_request",
+          "path": [
+            "diagnostics",
+            "slice-62-family-context-review-request",
+            "family-context-review-request.json"
+          ]
+        },
+        {
+          "role": "conformance_manifest_review_state",
+          "path": [
+            "diagnostics",
+            "slice-63-conformance-manifest-review-state",
+            "conformance-manifest-review-state.json"
+          ]
+        },
+        {
+          "role": "reviewed_default_context",
+          "path": [
+            "diagnostics",
+            "slice-64-reviewed-default-context",
+            "reviewed-default-context.json"
+          ]
+        },
+        {
+          "role": "review_replay_compatibility",
+          "path": [
+            "diagnostics",
+            "slice-65-review-replay-compatibility",
+            "review-replay-compatibility.json"
+          ]
+        },
+        {
+          "role": "review_replay_rejection",
+          "path": [
+            "diagnostics",
+            "slice-66-review-replay-rejection",
+            "review-replay-rejection.json"
+          ]
+        },
+        {
+          "role": "review_request_ids",
+          "path": [
+            "diagnostics",
+            "slice-67-review-request-ids",
+            "review-request-ids.json"
+          ]
+        },
+        {
+          "role": "stale_review_decision",
+          "path": [
+            "diagnostics",
+            "slice-68-stale-review-decision-rejection",
+            "stale-review-decision.json"
+          ]
+        },
+        {
+          "role": "review_replay_bundle",
+          "path": [
+            "diagnostics",
+            "slice-69-review-replay-bundle",
+            "review-replay-bundle.json"
+          ]
+        },
+        {
+          "role": "review_replay_bundle_application",
+          "path": [
+            "diagnostics",
+            "slice-70-review-replay-bundle-application",
+            "review-replay-bundle-application.json"
+          ]
+        },
+        {
+          "role": "review_state_json_roundtrip",
+          "path": [
+            "diagnostics",
+            "slice-71-review-state-json-roundtrip",
+            "review-state-json-roundtrip.json"
+          ]
+        },
+        {
+          "role": "review_replay_bundle_json_roundtrip",
+          "path": [
+            "diagnostics",
+            "slice-72-review-replay-bundle-json-roundtrip",
+            "review-replay-bundle-json-roundtrip.json"
+          ]
+        },
+        {
+          "role": "review_state_envelope",
+          "path": [
+            "diagnostics",
+            "slice-73-review-state-transport-envelope",
+            "review-state-envelope.json"
+          ]
+        },
+        {
+          "role": "review_replay_bundle_envelope",
+          "path": [
+            "diagnostics",
+            "slice-74-review-replay-bundle-transport-envelope",
+            "review-replay-bundle-envelope.json"
+          ]
+        },
+        {
+          "role": "review_state_envelope_rejection",
+          "path": [
+            "diagnostics",
+            "slice-75-review-state-transport-rejection",
+            "review-state-envelope-rejection.json"
+          ]
+        },
+        {
+          "role": "review_replay_bundle_envelope_rejection",
+          "path": [
+            "diagnostics",
+            "slice-76-review-replay-bundle-transport-rejection",
+            "review-replay-bundle-envelope-rejection.json"
+          ]
+        },
+        {
+          "role": "family_context_review_proposal",
+          "path": [
+            "diagnostics",
+            "slice-77-family-context-review-proposal",
+            "family-context-review-proposal.json"
+          ]
+        },
+        {
+          "role": "family_context_explicit_review_decision",
+          "path": [
+            "diagnostics",
+            "slice-78-family-context-explicit-review-decision",
+            "family-context-explicit-review-decision.json"
+          ]
+        },
+        {
+          "role": "explicit_review_replay_bundle_application",
+          "path": [
+            "diagnostics",
+            "slice-79-explicit-review-replay-bundle-application",
+            "explicit-review-replay-bundle-application.json"
+          ]
+        },
+        {
+          "role": "explicit_review_decision_missing_context",
+          "path": [
+            "diagnostics",
+            "slice-80-explicit-review-decision-payload-validation",
+            "explicit-review-decision-missing-context.json"
+          ]
+        },
+        {
+          "role": "explicit_review_decision_family_mismatch",
+          "path": [
+            "diagnostics",
+            "slice-81-explicit-review-decision-family-validation",
+            "explicit-review-decision-family-mismatch.json"
+          ]
+        },
+        {
+          "role": "family_profile_json",
+          "path": [
+            "diagnostics",
+            "slice-21-family-feature-profile",
+            "json-feature-profile.json"
+          ]
+        },
+        {
+          "role": "family_profile_text",
+          "path": [
+            "diagnostics",
+            "slice-23-text-family-feature-profile",
+            "text-feature-profile.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "json": {
+        "family_profile": {
+          "family": "json",
+          "supported_dialects": [
+            "json",
+            "jsonc"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            },
+            {
+              "surface": "fallback",
+              "name": "trailing_comma_destination_fallback"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "kreuzberg-language-pack",
+          "supports_dialects": false,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      },
+      "toml": {
+        "family_profile": {
+          "family": "toml",
+          "supported_dialects": [
+            "toml"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "native",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      },
+      "yaml": {
+        "family_profile": {
+          "family": "yaml",
+          "supported_dialects": [
+            "yaml"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "native",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      },
+      "rust": {
+        "family_profile": {
+          "family": "rust",
+          "supported_dialects": [
+            "rust"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "syn",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      }
+    },
+    "family_profiles": {
+      "json": {
+        "family": "json",
+        "supported_dialects": [
+          "json",
+          "jsonc"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          },
+          {
+            "surface": "fallback",
+            "name": "trailing_comma_destination_fallback"
+          }
+        ]
+      },
+      "toml": {
+        "family": "toml",
+        "supported_dialects": [
+          "toml"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
+      },
+      "yaml": {
+        "family": "yaml",
+        "supported_dialects": [
+          "yaml"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
+      },
+      "typescript": {
+        "family": "typescript",
+        "supported_dialects": [
+          "typescript"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
+      },
+      "rust": {
+        "family": "rust",
+        "supported_dialects": [
+          "rust"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
+      },
+      "go": {
+        "family": "go",
+        "supported_dialects": [
+          "go"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
+      }
+    },
+    "require_explicit_contexts": true,
+    "interactive": true,
+    "review_decisions": [
+      {
+        "request_id": "family_context:typescript",
+        "action": "accept_default_context"
+      }
+    ],
+    "review_replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "go",
+        "json",
+        "rust",
+        "text",
+        "toml",
+        "typescript",
+        "yaml"
+      ],
+      "require_explicit_contexts": true
+    }
+  },
+  "executions": {
+    "json:parse_comments:parse_comments": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:structure_json:structure_json": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:merge_object:merge_object": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "json:tree_sitter_adapter:tree_sitter_adapter": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "text:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "text:similarity:similarity": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "text:matching_exact:matching_exact": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "text:merge_refined:merge_refined": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "toml:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "toml:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "toml:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "yaml:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "yaml:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "yaml:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "typescript:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "typescript:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "typescript:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "rust:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "rust:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "rust:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "expected_state": {
+    "report": {
+      "entries": [
+        {
+          "suite": "json_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "parse_comments",
+                  "case": "parse_comments"
+                },
+                "outcome": "skipped",
+                "messages": [
+                  "backend kreuzberg-language-pack does not support dialect jsonc for family json."
+                ]
+              },
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "structure_json",
+                  "case": "structure_json"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "merge_object",
+                  "case": "merge_object"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "json",
+                  "role": "tree_sitter_adapter",
+                  "case": "tree_sitter_adapter"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 5,
+              "passed": 4,
+              "failed": 0,
+              "skipped": 1
+            }
+          }
+        },
+        {
+          "suite": "rust_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "suite": "toml_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "toml",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "toml",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "toml",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "suite": "typescript_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "suite": "yaml_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "yaml",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "yaml",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "yaml",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total": 17,
+        "passed": 16,
+        "failed": 0,
+        "skipped": 1
+      }
+    },
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "missing explicit family context for go."
+      },
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "missing family context for text and no default family profile is available."
+      },
+      {
+        "severity": "warning",
+        "category": "assumed_default",
+        "message": "using default family context for typescript."
+      }
+    ],
+    "requests": [
+      {
+        "id": "family_context:go",
+        "kind": "family_context",
+        "family": "go",
+        "message": "explicit family context is required for go; a synthesized default may be accepted by review.",
+        "blocking": true,
+        "proposed_context": {
+          "family_profile": {
+            "family": "go",
+            "supported_dialects": [
+              "go"
+            ],
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              }
+            ]
+          }
+        },
+        "action_offers": [
+          {
+            "action": "accept_default_context",
+            "requires_context": false
+          },
+          {
+            "action": "provide_explicit_context",
+            "requires_context": true,
+            "payload_kind": "conformance_family_context"
+          }
+        ],
+        "default_action": "accept_default_context"
+      }
+    ],
+    "applied_decisions": [
+      {
+        "request_id": "family_context:typescript",
+        "action": "accept_default_context"
+      }
+    ],
+    "host_hints": {
+      "interactive": true,
+      "require_explicit_contexts": true
+    },
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "go",
+        "json",
+        "rust",
+        "text",
+        "toml",
+        "typescript",
+        "yaml"
+      ],
+      "require_explicit_contexts": true
+    }
+  }
+}

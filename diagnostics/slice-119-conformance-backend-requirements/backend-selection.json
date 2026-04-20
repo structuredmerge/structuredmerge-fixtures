@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "ref": {
+        "family": "go",
+        "role": "module",
+        "case": "native_backend_selected"
+      },
+      "requirements": {
+        "backend": "native"
+      },
+      "family_profile": {
+        "family": "go",
+        "supported_dialects": [
+          "go"
+        ],
+        "supported_policies": []
+      },
+      "feature_profile": {
+        "backend": "native",
+        "supports_dialects": true,
+        "supported_policies": []
+      },
+      "expected": {
+        "status": "selected",
+        "messages": []
+      }
+    },
+    {
+      "ref": {
+        "family": "go",
+        "role": "module",
+        "case": "native_backend_rejected_on_tree_sitter"
+      },
+      "requirements": {
+        "backend": "native"
+      },
+      "family_profile": {
+        "family": "go",
+        "supported_dialects": [
+          "go"
+        ],
+        "supported_policies": []
+      },
+      "feature_profile": {
+        "backend": "tree-sitter",
+        "supports_dialects": true,
+        "supported_policies": []
+      },
+      "expected": {
+        "status": "skipped",
+        "messages": [
+          "case requires backend native but backend tree-sitter is active for family go."
+        ]
+      }
+    }
+  ]
+}

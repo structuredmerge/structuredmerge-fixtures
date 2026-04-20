@@ -210,6 +210,14 @@
         ]
       },
       {
+        "role": "backend_selection",
+        "path": [
+          "diagnostics",
+          "slice-119-conformance-backend-requirements",
+          "backend-selection.json"
+        ]
+      },
+      {
         "role": "adapter_policy_support",
         "path": [
           "diagnostics",

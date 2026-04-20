@@ -634,6 +634,22 @@
         ]
       },
       {
+        "role": "explicit_review_decision_missing_context",
+        "path": [
+          "diagnostics",
+          "slice-80-explicit-review-decision-payload-validation",
+          "explicit-review-decision-missing-context.json"
+        ]
+      },
+      {
+        "role": "explicit_review_decision_family_mismatch",
+        "path": [
+          "diagnostics",
+          "slice-81-explicit-review-decision-family-validation",
+          "explicit-review-decision-family-mismatch.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

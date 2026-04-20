@@ -562,6 +562,22 @@
         ]
       },
       {
+        "role": "review_state_json_roundtrip",
+        "path": [
+          "diagnostics",
+          "slice-71-review-state-json-roundtrip",
+          "review-state-json-roundtrip.json"
+        ]
+      },
+      {
+        "role": "review_replay_bundle_json_roundtrip",
+        "path": [
+          "diagnostics",
+          "slice-72-review-replay-bundle-json-roundtrip",
+          "review-replay-bundle-json-roundtrip.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

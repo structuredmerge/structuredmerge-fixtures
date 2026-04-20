@@ -1,0 +1,22 @@
+{
+  "tree_sitter": {
+    "backend": "kreuzberg-language-pack",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  },
+  "native": {
+    "backend": "syn",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "source": "# Embedded Families\n\n```ts\nexport const answer = 42;\n```\n\n```rust\nfn main() {}\n```\n\n```go\npackage main\n```\n\n```jsonc\n// comment\n{ \"ok\": true }\n```\n\n```yaml\nname: demo\n```\n\n```toml\nname = \"demo\"\n```\n\n```text\nplain\n```\n",
+  "expected": [
+    { "path": "/code_fence/0", "language": "ts", "family": "typescript", "dialect": "typescript" },
+    { "path": "/code_fence/1", "language": "rust", "family": "rust", "dialect": "rust" },
+    { "path": "/code_fence/2", "language": "go", "family": "go", "dialect": "go" },
+    { "path": "/code_fence/3", "language": "jsonc", "family": "json", "dialect": "jsonc" },
+    { "path": "/code_fence/4", "language": "yaml", "family": "yaml", "dialect": "yaml" },
+    { "path": "/code_fence/5", "language": "toml", "family": "toml", "dialect": "toml" }
+  ]
+}

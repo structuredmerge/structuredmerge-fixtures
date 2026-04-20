@@ -143,7 +143,9 @@
       { "role": "projected_child_review_cases", "path": ["diagnostics", "slice-211-projected-child-review-cases", "projected-child-review-cases.json"] },
       { "role": "projected_child_review_groups", "path": ["diagnostics", "slice-227-projected-child-review-groups", "projected-child-review-groups.json"] },
       { "role": "projected_child_review_group_progress", "path": ["diagnostics", "slice-230-projected-child-review-group-progress", "projected-child-review-group-progress.json"] },
-      { "role": "projected_child_review_groups_ready_for_apply", "path": ["diagnostics", "slice-233-projected-child-review-groups-ready-for-apply", "projected-child-review-groups-ready-for-apply.json"] }
+      { "role": "projected_child_review_groups_ready_for_apply", "path": ["diagnostics", "slice-233-projected-child-review-groups-ready-for-apply", "projected-child-review-groups-ready-for-apply.json"] },
+      { "role": "delegated_child_group_review_request", "path": ["diagnostics", "slice-236-delegated-child-group-review-request", "delegated-child-group-review-request.json"] },
+      { "role": "delegated_child_groups_accepted_for_apply", "path": ["diagnostics", "slice-237-delegated-child-group-accepted-for-apply", "delegated-child-groups-accepted-for-apply.json"] }
     ],
     "text": [
       { "role": "analysis", "path": ["text", "slice-03-analysis", "whitespace-and-blocks.json"] },

@@ -1,0 +1,46 @@
+{
+  "tree_sitter": {
+    "family_profile": {
+      "family": "rust",
+      "supported_dialects": ["rust"],
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        }
+      ]
+    },
+    "feature_profile": {
+      "backend": "kreuzberg-language-pack",
+      "supports_dialects": true,
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        }
+      ]
+    }
+  },
+  "native": {
+    "family_profile": {
+      "family": "rust",
+      "supported_dialects": ["rust"],
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        }
+      ]
+    },
+    "feature_profile": {
+      "backend": "syn",
+      "supports_dialects": true,
+      "supported_policies": [
+        {
+          "surface": "array",
+          "name": "destination_wins_array"
+        }
+      ]
+    }
+  }
+}

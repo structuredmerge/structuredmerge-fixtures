@@ -578,6 +578,38 @@
         ]
       },
       {
+        "role": "review_state_envelope",
+        "path": [
+          "diagnostics",
+          "slice-73-review-state-transport-envelope",
+          "review-state-envelope.json"
+        ]
+      },
+      {
+        "role": "review_replay_bundle_envelope",
+        "path": [
+          "diagnostics",
+          "slice-74-review-replay-bundle-transport-envelope",
+          "review-replay-bundle-envelope.json"
+        ]
+      },
+      {
+        "role": "review_state_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-75-review-state-transport-rejection",
+          "review-state-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "review_replay_bundle_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-76-review-replay-bundle-transport-rejection",
+          "review-replay-bundle-envelope-rejection.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

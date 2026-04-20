@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "conformance_manifest_review_state",
+        "version": 1,
+        "replay_bundle": {
+          "replay_context": {
+            "surface": "conformance_manifest",
+            "families": [
+              "json",
+              "text"
+            ],
+            "require_explicit_contexts": true
+          },
+          "decisions": [
+            {
+              "request_id": "family_context:text",
+              "action": "accept_default_context"
+            }
+          ]
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected review_replay_bundle envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "review_replay_bundle",
+        "version": 2,
+        "replay_bundle": {
+          "replay_context": {
+            "surface": "conformance_manifest",
+            "families": [
+              "json",
+              "text"
+            ],
+            "require_explicit_contexts": true
+          },
+          "decisions": [
+            {
+              "request_id": "family_context:text",
+              "action": "accept_default_context"
+            }
+          ]
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported review_replay_bundle envelope version 2."
+      }
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "state": {
+    "report": {
+      "entries": [
+        {
+          "suite": "text_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "text",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 1,
+              "passed": 1,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "assumed_default",
+        "message": "using default family context for text."
+      }
+    ],
+    "requests": [],
+    "applied_decisions": [
+      {
+        "request_id": "family_context:text",
+        "action": "accept_default_context"
+      }
+    ],
+    "host_hints": {
+      "interactive": true,
+      "require_explicit_contexts": true
+    },
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "json",
+        "text"
+      ],
+      "require_explicit_contexts": true
+    }
+  },
+  "expected_envelope": {
+    "kind": "conformance_manifest_review_state",
+    "version": 1,
+    "state": {
+      "report": {
+        "entries": [
+          {
+            "suite": "text_portable",
+            "report": {
+              "results": [
+                {
+                  "ref": {
+                    "family": "text",
+                    "role": "analysis",
+                    "case": "analysis"
+                  },
+                  "outcome": "passed",
+                  "messages": []
+                }
+              ],
+              "summary": {
+                "total": 1,
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0
+              }
+            }
+          }
+        ],
+        "summary": {
+          "total": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      "diagnostics": [
+        {
+          "severity": "warning",
+          "category": "assumed_default",
+          "message": "using default family context for text."
+        }
+      ],
+      "requests": [],
+      "applied_decisions": [
+        {
+          "request_id": "family_context:text",
+          "action": "accept_default_context"
+        }
+      ],
+      "host_hints": {
+        "interactive": true,
+        "require_explicit_contexts": true
+      },
+      "replay_context": {
+        "surface": "conformance_manifest",
+        "families": [
+          "json",
+          "text"
+        ],
+        "require_explicit_contexts": true
+      }
+    }
+  }
+}

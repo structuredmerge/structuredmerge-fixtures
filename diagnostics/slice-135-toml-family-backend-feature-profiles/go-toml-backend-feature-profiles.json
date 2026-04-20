@@ -1,0 +1,22 @@
+{
+  "native": {
+    "backend": "go-toml-v2",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  },
+  "pigeon": {
+    "backend": "pigeon",
+    "supports_dialects": false,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  }
+}

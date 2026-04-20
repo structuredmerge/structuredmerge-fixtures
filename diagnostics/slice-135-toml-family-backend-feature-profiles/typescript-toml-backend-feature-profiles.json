@@ -1,0 +1,22 @@
+{
+  "native": {
+    "backend": "native",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  },
+  "peggy": {
+    "backend": "peggy",
+    "supports_dialects": false,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  }
+}

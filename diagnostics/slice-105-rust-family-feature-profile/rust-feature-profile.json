@@ -1,0 +1,12 @@
+{
+  "feature_profile": {
+    "family": "rust",
+    "supported_dialects": ["rust"],
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  }
+}

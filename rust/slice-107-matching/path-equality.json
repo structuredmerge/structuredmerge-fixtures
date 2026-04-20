@@ -1,0 +1,12 @@
+{
+  "template": "use std::fmt::Debug;\n\npub struct Greeter;\n\npub fn greet(name: &str) -> String {\n  name.to_string()\n}\n",
+  "destination": "use std::fmt::Debug;\nuse std::fmt::Display;\n\npub fn greet(name: &str) -> String {\n  name.to_uppercase()\n}\n",
+  "expected": {
+    "matched": [
+      ["/imports/0", "/imports/0"],
+      ["/declarations/greet", "/declarations/greet"]
+    ],
+    "unmatched_template": ["/declarations/Greeter"],
+    "unmatched_destination": ["/imports/1"]
+  }
+}

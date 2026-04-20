@@ -1,0 +1,13 @@
+{
+  "template": "pub fn greet(name: &str) -> String {\n  name.to_string()\n",
+  "destination": "pub fn greet(name: &str) -> String {\n  name.to_string()\n}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "module_merge",
+  "template": "use std::fmt::Debug;\n\npub struct Greeter;\n\npub fn greet(name: &str) -> String {\n  name.to_string()\n}\n",
+  "destination": "use std::fmt::Display;\nuse std::fmt::Debug;\n\npub fn greet(name: &str) -> String {\n  name.to_uppercase()\n}\n",
+  "expected": {
+    "ok": true,
+    "output": "use std::fmt::Display;\nuse std::fmt::Debug;\n\npub fn greet(name: &str) -> String {\n  name.to_uppercase()\n}\n\npub struct Greeter;\n"
+  }
+}

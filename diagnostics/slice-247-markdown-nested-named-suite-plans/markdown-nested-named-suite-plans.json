@@ -1,0 +1,54 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "markdown",
+        "role": "family_profile",
+        "path": ["diagnostics", "slice-194-markdown-family-feature-profile", "markdown-feature-profile.json"]
+      }
+    ],
+    "suites": {
+      "markdown_nested_portable": {
+        "family": "markdown",
+        "roles": ["analysis", "matching", "embedded_families", "discovered_surfaces", "delegated_child_operations", "delegated_child_review_transport", "delegated_child_review_state", "delegated_child_apply_plan"]
+      }
+    },
+    "families": {
+      "markdown": [
+        { "role": "analysis", "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"] },
+        { "role": "matching", "path": ["markdown", "slice-199-matching", "path-equality.json"] },
+        { "role": "embedded_families", "path": ["markdown", "slice-208-embedded-families", "code-fence-families.json"] },
+        { "role": "discovered_surfaces", "path": ["markdown", "slice-212-discovered-surfaces", "fenced-code-surfaces.json"] },
+        { "role": "delegated_child_operations", "path": ["markdown", "slice-213-delegated-child-operations", "fenced-code-child-operations.json"] },
+        { "role": "delegated_child_review_transport", "path": ["markdown", "slice-238-delegated-child-review-transport", "fenced-code-review-transport.json"] },
+        { "role": "delegated_child_review_state", "path": ["markdown", "slice-241-delegated-child-review-state", "fenced-code-review-state.json"] },
+        { "role": "delegated_child_apply_plan", "path": ["markdown", "slice-244-delegated-child-apply-plan", "fenced-code-apply-plan.json"] }
+      ]
+    }
+  },
+  "contexts": {
+    "markdown": {
+      "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] },
+      "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] }
+    }
+  },
+  "expected_entries": [
+    {
+      "suite": "markdown_nested_portable",
+      "plan": {
+        "family": "markdown",
+        "entries": [
+          { "ref": { "family": "markdown", "role": "analysis", "case": "analysis" }, "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"], "run": { "ref": { "family": "markdown", "role": "analysis", "case": "analysis" }, "requirements": {}, "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] }, "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] } } },
+          { "ref": { "family": "markdown", "role": "matching", "case": "matching" }, "path": ["markdown", "slice-199-matching", "path-equality.json"], "run": { "ref": { "family": "markdown", "role": "matching", "case": "matching" }, "requirements": {}, "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] }, "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] } } },
+          { "ref": { "family": "markdown", "role": "embedded_families", "case": "embedded_families" }, "path": ["markdown", "slice-208-embedded-families", "code-fence-families.json"], "run": { "ref": { "family": "markdown", "role": "embedded_families", "case": "embedded_families" }, "requirements": {}, "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] }, "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] } } },
+          { "ref": { "family": "markdown", "role": "discovered_surfaces", "case": "discovered_surfaces" }, "path": ["markdown", "slice-212-discovered-surfaces", "fenced-code-surfaces.json"], "run": { "ref": { "family": "markdown", "role": "discovered_surfaces", "case": "discovered_surfaces" }, "requirements": {}, "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] }, "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] } } },
+          { "ref": { "family": "markdown", "role": "delegated_child_operations", "case": "delegated_child_operations" }, "path": ["markdown", "slice-213-delegated-child-operations", "fenced-code-child-operations.json"], "run": { "ref": { "family": "markdown", "role": "delegated_child_operations", "case": "delegated_child_operations" }, "requirements": {}, "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] }, "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] } } },
+          { "ref": { "family": "markdown", "role": "delegated_child_review_transport", "case": "delegated_child_review_transport" }, "path": ["markdown", "slice-238-delegated-child-review-transport", "fenced-code-review-transport.json"], "run": { "ref": { "family": "markdown", "role": "delegated_child_review_transport", "case": "delegated_child_review_transport" }, "requirements": {}, "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] }, "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] } } },
+          { "ref": { "family": "markdown", "role": "delegated_child_review_state", "case": "delegated_child_review_state" }, "path": ["markdown", "slice-241-delegated-child-review-state", "fenced-code-review-state.json"], "run": { "ref": { "family": "markdown", "role": "delegated_child_review_state", "case": "delegated_child_review_state" }, "requirements": {}, "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] }, "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] } } },
+          { "ref": { "family": "markdown", "role": "delegated_child_apply_plan", "case": "delegated_child_apply_plan" }, "path": ["markdown", "slice-244-delegated-child-apply-plan", "fenced-code-apply-plan.json"], "run": { "ref": { "family": "markdown", "role": "delegated_child_apply_plan", "case": "delegated_child_apply_plan" }, "requirements": {}, "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] }, "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] } } }
+        ],
+        "missing_roles": []
+      }
+    }
+  ]
+}

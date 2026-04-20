@@ -23,7 +23,8 @@
     "category": "configuration_error",
     "message": "review decision family_context:text requires explicit context payload.",
     "request_id": "family_context:text",
-    "action": "provide_explicit_context"
+    "action": "provide_explicit_context",
+    "reason": "missing_required_payload"
   },
   "expected_request": {
     "id": "family_context:text",

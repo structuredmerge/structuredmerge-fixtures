@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {
+      "case_id": "markdown-code-block-0-matched_node-1",
+      "parent_operation_id": "markdown-document-root",
+      "child_operation_id": "markdown-code-block-0",
+      "surface_path": "document[0] > fenced_code_block[L3-L5] > matched_node[line=1]",
+      "delegated_case_id": "matched_node-1",
+      "delegated_apply_group": "markdown-code-block-0",
+      "delegated_runtime_surface_path": "document[0] > fenced_code_block[L3-L5]"
+    },
+    {
+      "case_id": "ruby-surface-1-matched_node-1",
+      "parent_operation_id": "ruby-document-0",
+      "child_operation_id": "ruby-surface-1",
+      "surface_path": "document[0] > ruby_doc_comment[greet] > yard_example[0] > matched_node[line=1]",
+      "delegated_case_id": "matched_node-1",
+      "delegated_apply_group": "ruby-surface-1",
+      "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[greet] > yard_example[0]"
+    }
+  ]
+}

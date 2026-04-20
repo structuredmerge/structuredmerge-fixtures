@@ -1,0 +1,176 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "ruby",
+        "role": "family_profile",
+        "path": ["diagnostics", "slice-214-ruby-family-feature-profile", "ruby-feature-profile.json"]
+      }
+    ],
+    "suites": {
+      "ruby_portable": {
+        "family": "ruby",
+        "roles": ["analysis", "matching", "discovered_surfaces", "delegated_child_operations"]
+      }
+    },
+    "families": {
+      "ruby": [
+        { "role": "analysis", "path": ["ruby", "slice-218-analysis", "module-owners.json"] },
+        { "role": "matching", "path": ["ruby", "slice-219-matching", "path-equality.json"] },
+        { "role": "discovered_surfaces", "path": ["ruby", "slice-220-discovered-surfaces", "doc-comment-surfaces.json"] },
+        { "role": "delegated_child_operations", "path": ["ruby", "slice-221-delegated-child-operations", "yard-example-child-operations.json"] }
+      ]
+    }
+  },
+  "contexts": {
+    "prism": {
+      "ruby": {
+        "family_profile": {
+          "family": "ruby",
+          "supported_dialects": ["ruby"],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "prism",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "expected_entries": {
+    "prism": [
+      {
+        "suite": "ruby_portable",
+        "plan": {
+          "family": "ruby",
+          "entries": [
+            {
+              "ref": { "family": "ruby", "role": "analysis", "case": "analysis" },
+              "path": ["ruby", "slice-218-analysis", "module-owners.json"],
+              "run": {
+                "ref": { "family": "ruby", "role": "analysis", "case": "analysis" },
+                "requirements": {},
+                "family_profile": {
+                  "family": "ruby",
+                  "supported_dialects": ["ruby"],
+                  "supported_policies": [
+                    {
+                      "surface": "array",
+                      "name": "destination_wins_array"
+                    }
+                  ]
+                },
+                "feature_profile": {
+                  "backend": "prism",
+                  "supports_dialects": true,
+                  "supported_policies": [
+                    {
+                      "surface": "array",
+                      "name": "destination_wins_array"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "ref": { "family": "ruby", "role": "matching", "case": "matching" },
+              "path": ["ruby", "slice-219-matching", "path-equality.json"],
+              "run": {
+                "ref": { "family": "ruby", "role": "matching", "case": "matching" },
+                "requirements": {},
+                "family_profile": {
+                  "family": "ruby",
+                  "supported_dialects": ["ruby"],
+                  "supported_policies": [
+                    {
+                      "surface": "array",
+                      "name": "destination_wins_array"
+                    }
+                  ]
+                },
+                "feature_profile": {
+                  "backend": "prism",
+                  "supports_dialects": true,
+                  "supported_policies": [
+                    {
+                      "surface": "array",
+                      "name": "destination_wins_array"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "ref": { "family": "ruby", "role": "discovered_surfaces", "case": "discovered_surfaces" },
+              "path": ["ruby", "slice-220-discovered-surfaces", "doc-comment-surfaces.json"],
+              "run": {
+                "ref": { "family": "ruby", "role": "discovered_surfaces", "case": "discovered_surfaces" },
+                "requirements": {},
+                "family_profile": {
+                  "family": "ruby",
+                  "supported_dialects": ["ruby"],
+                  "supported_policies": [
+                    {
+                      "surface": "array",
+                      "name": "destination_wins_array"
+                    }
+                  ]
+                },
+                "feature_profile": {
+                  "backend": "prism",
+                  "supports_dialects": true,
+                  "supported_policies": [
+                    {
+                      "surface": "array",
+                      "name": "destination_wins_array"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "ref": { "family": "ruby", "role": "delegated_child_operations", "case": "delegated_child_operations" },
+              "path": ["ruby", "slice-221-delegated-child-operations", "yard-example-child-operations.json"],
+              "run": {
+                "ref": { "family": "ruby", "role": "delegated_child_operations", "case": "delegated_child_operations" },
+                "requirements": {},
+                "family_profile": {
+                  "family": "ruby",
+                  "supported_dialects": ["ruby"],
+                  "supported_policies": [
+                    {
+                      "surface": "array",
+                      "name": "destination_wins_array"
+                    }
+                  ]
+                },
+                "feature_profile": {
+                  "backend": "prism",
+                  "supports_dialects": true,
+                  "supported_policies": [
+                    {
+                      "surface": "array",
+                      "name": "destination_wins_array"
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "missing_roles": []
+        }
+      }
+    ]
+  }
+}

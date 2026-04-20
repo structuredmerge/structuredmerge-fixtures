@@ -1,0 +1,65 @@
+{
+  "source": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"World\")\nclass Greeter\nend\n",
+  "parent_operation_id": "ruby-document-0",
+  "expected": [
+    {
+      "operation_id": "ruby-doc-comment-0",
+      "parent_operation_id": "ruby-document-0",
+      "requested_strategy": "delegate_child_surface",
+      "language_chain": ["ruby", "yard"],
+      "surface": {
+        "surface_kind": "ruby_doc_comment",
+        "declared_language": "yard",
+        "effective_language": "yard",
+        "address": "document[0] > ruby_doc_comment[Greeter]",
+        "parent_address": "document[0]",
+        "owner": {
+          "kind": "owned_region",
+          "address": "/declarations/Greeter"
+        },
+        "span": {
+          "start_line": 3,
+          "end_line": 6
+        },
+        "reconstruction_strategy": "rewrite_with_prefix_preservation",
+        "metadata": {
+          "owner_signature": "Greeter",
+          "comment_prefix": "# ",
+          "entries": [
+            { "line": 3, "raw": "# Greets the caller." },
+            { "line": 5, "raw": "# @example [ruby]" },
+            { "line": 6, "raw": "#   Greeter.new.greet(\"World\")" }
+          ]
+        }
+      }
+    },
+    {
+      "operation_id": "yard-example-0",
+      "parent_operation_id": "ruby-doc-comment-0",
+      "requested_strategy": "delegate_child_surface",
+      "language_chain": ["ruby", "yard", "ruby"],
+      "surface": {
+        "surface_kind": "yard_example_block",
+        "declared_language": "ruby",
+        "effective_language": "ruby",
+        "address": "document[0] > ruby_doc_comment[Greeter] > yard_example[1]",
+        "parent_address": "document[0] > ruby_doc_comment[Greeter]",
+        "owner": {
+          "kind": "owned_region",
+          "address": "document[0] > ruby_doc_comment[Greeter]"
+        },
+        "span": {
+          "start_line": 6,
+          "end_line": 6
+        },
+        "reconstruction_strategy": "rewrite_with_prefix_preservation",
+        "metadata": {
+          "tag_kind": "example",
+          "tag_index": 1,
+          "tag_text": "@example [ruby]",
+          "comment_prefix": "# "
+        }
+      }
+    }
+  ]
+}

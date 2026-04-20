@@ -1,0 +1,25 @@
+{
+  "surface": {
+    "surface_kind": "ruby_doc_comment",
+    "declared_language": "yard",
+    "effective_language": "yard",
+    "address": "document[0] > ruby_doc_comment[greet]",
+    "parent_address": "document[0]",
+    "span": {
+      "start_line": 1,
+      "end_line": 4
+    },
+    "owner": {
+      "kind": "owned_region",
+      "address": "document[0] > method[greet] > leading_comment_region"
+    },
+    "reconstruction_strategy": "rewrite_with_prefix_preservation",
+    "metadata": {
+      "comment_prefix": "# ",
+      "owner_signature": [
+        "def",
+        "greet"
+      ]
+    }
+  }
+}

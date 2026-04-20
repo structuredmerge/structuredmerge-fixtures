@@ -1,0 +1,13 @@
+{
+  "template": "require \"json\"\n\nclass Greeter\nend\n\ndef greet(name)\nend\n",
+  "destination": "require \"json\"\n\nclass Greeter\nend\n\ndef helper(name)\nend\n",
+  "dialect": "ruby",
+  "expected": {
+    "matched": [
+      ["/declarations/Greeter", "/declarations/Greeter"],
+      ["/requires/0", "/requires/0"]
+    ],
+    "unmatched_template": ["/declarations/greet"],
+    "unmatched_destination": ["/declarations/helper"]
+  }
+}

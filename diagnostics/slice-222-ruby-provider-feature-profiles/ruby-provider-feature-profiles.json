@@ -1,0 +1,17 @@
+{
+  "providers": {
+    "prism": {
+      "feature_profile": {
+        "family": "ruby",
+        "supported_dialects": ["ruby"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "prism"
+      }
+    }
+  }
+}

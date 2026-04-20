@@ -1,0 +1,32 @@
+{
+  "operation": {
+    "operation_id": "ruby-surface-1",
+    "parent_operation_id": "ruby-document-0",
+    "requested_strategy": "delegate_child_surface",
+    "language_chain": [
+      "ruby",
+      "yard",
+      "ruby"
+    ],
+    "surface": {
+      "surface_kind": "yard_example_block",
+      "declared_language": "ruby",
+      "effective_language": "ruby",
+      "address": "document[0] > ruby_doc_comment[greet] > yard_example[0]",
+      "parent_address": "document[0] > ruby_doc_comment[greet]",
+      "span": {
+        "start_line": 3,
+        "end_line": 3
+      },
+      "owner": {
+        "kind": "parent_surface",
+        "address": "document[0] > ruby_doc_comment[greet]"
+      },
+      "reconstruction_strategy": "rewrite_with_prefix_preservation",
+      "metadata": {
+        "tag_kind": "example",
+        "tag_index": 0
+      }
+    }
+  }
+}

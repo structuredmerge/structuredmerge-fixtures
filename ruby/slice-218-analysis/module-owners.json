@@ -1,0 +1,24 @@
+{
+  "name": "module_owners",
+  "dialect": "ruby",
+  "source": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"World\")\nclass Greeter\nend\n\ndef greet(name)\nend\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/declarations/Greeter",
+        "owner_kind": "declaration",
+        "match_key": "Greeter"
+      },
+      {
+        "path": "/declarations/greet",
+        "owner_kind": "declaration",
+        "match_key": "greet"
+      },
+      {
+        "path": "/requires/0",
+        "owner_kind": "require",
+        "match_key": "json"
+      }
+    ]
+  }
+}

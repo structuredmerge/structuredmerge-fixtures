@@ -1,0 +1,107 @@
+{
+  "source": "# Embedded Families\n\n```ts\nexport const answer = 42;\n```\n\n```rust\nfn main() {}\n```\n\n```go\npackage main\n```\n\n```jsonc\n// comment\n{ \"ok\": true }\n```\n\n```yaml\nname: demo\n```\n\n```toml\nname = \"demo\"\n```\n\n```text\nplain\n```\n",
+  "expected": [
+    {
+      "surface_kind": "markdown_fenced_code_block",
+      "declared_language": "ts",
+      "effective_language": "typescript",
+      "address": "document[0] > fenced_code_block[/code_fence/0]",
+      "parent_address": "document[0]",
+      "owner": {
+        "kind": "structural_owner",
+        "address": "/code_fence/0"
+      },
+      "reconstruction_strategy": "portable_write",
+      "metadata": {
+        "family": "typescript",
+        "dialect": "typescript",
+        "path": "/code_fence/0"
+      }
+    },
+    {
+      "surface_kind": "markdown_fenced_code_block",
+      "declared_language": "rust",
+      "effective_language": "rust",
+      "address": "document[0] > fenced_code_block[/code_fence/1]",
+      "parent_address": "document[0]",
+      "owner": {
+        "kind": "structural_owner",
+        "address": "/code_fence/1"
+      },
+      "reconstruction_strategy": "portable_write",
+      "metadata": {
+        "family": "rust",
+        "dialect": "rust",
+        "path": "/code_fence/1"
+      }
+    },
+    {
+      "surface_kind": "markdown_fenced_code_block",
+      "declared_language": "go",
+      "effective_language": "go",
+      "address": "document[0] > fenced_code_block[/code_fence/2]",
+      "parent_address": "document[0]",
+      "owner": {
+        "kind": "structural_owner",
+        "address": "/code_fence/2"
+      },
+      "reconstruction_strategy": "portable_write",
+      "metadata": {
+        "family": "go",
+        "dialect": "go",
+        "path": "/code_fence/2"
+      }
+    },
+    {
+      "surface_kind": "markdown_fenced_code_block",
+      "declared_language": "jsonc",
+      "effective_language": "jsonc",
+      "address": "document[0] > fenced_code_block[/code_fence/3]",
+      "parent_address": "document[0]",
+      "owner": {
+        "kind": "structural_owner",
+        "address": "/code_fence/3"
+      },
+      "reconstruction_strategy": "portable_write",
+      "metadata": {
+        "family": "json",
+        "dialect": "jsonc",
+        "path": "/code_fence/3"
+      }
+    },
+    {
+      "surface_kind": "markdown_fenced_code_block",
+      "declared_language": "yaml",
+      "effective_language": "yaml",
+      "address": "document[0] > fenced_code_block[/code_fence/4]",
+      "parent_address": "document[0]",
+      "owner": {
+        "kind": "structural_owner",
+        "address": "/code_fence/4"
+      },
+      "reconstruction_strategy": "portable_write",
+      "metadata": {
+        "family": "yaml",
+        "dialect": "yaml",
+        "path": "/code_fence/4"
+      }
+    },
+    {
+      "surface_kind": "markdown_fenced_code_block",
+      "declared_language": "toml",
+      "effective_language": "toml",
+      "address": "document[0] > fenced_code_block[/code_fence/5]",
+      "parent_address": "document[0]",
+      "owner": {
+        "kind": "structural_owner",
+        "address": "/code_fence/5"
+      },
+      "reconstruction_strategy": "portable_write",
+      "metadata": {
+        "family": "toml",
+        "dialect": "toml",
+        "path": "/code_fence/5"
+      }
+    }
+  ]
+}

@@ -38,9 +38,15 @@
         "supported_policies": []
       }
     },
-    "available_actions": [
-      "accept_default_context",
-      "provide_explicit_context"
+    "action_offers": [
+      {
+        "action": "accept_default_context",
+        "requires_context": false
+      },
+      {
+        "action": "provide_explicit_context",
+        "requires_context": true
+      }
     ],
     "default_action": "accept_default_context"
   }

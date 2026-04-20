@@ -1,0 +1,31 @@
+{
+  "groups": [
+    {
+      "delegated_apply_group": "markdown:fence:typescript",
+      "parent_operation_id": "markdown:merge",
+      "child_operation_id": "markdown:code-fence:typescript",
+      "delegated_runtime_surface_path": "markdown:/document/fence:typescript",
+      "case_ids": ["case-1", "case-2"],
+      "delegated_case_ids": ["child-case-1", "child-case-2"]
+    },
+    {
+      "delegated_apply_group": "markdown:fence:json",
+      "parent_operation_id": "markdown:merge",
+      "child_operation_id": "markdown:code-fence:json",
+      "delegated_runtime_surface_path": "markdown:/document/fence:json",
+      "case_ids": ["case-3", "case-4"],
+      "delegated_case_ids": ["child-case-3", "child-case-4"]
+    }
+  ],
+  "resolved_case_ids": ["case-1", "case-2", "case-3"],
+  "expected_ready_groups": [
+    {
+      "delegated_apply_group": "markdown:fence:typescript",
+      "parent_operation_id": "markdown:merge",
+      "child_operation_id": "markdown:code-fence:typescript",
+      "delegated_runtime_surface_path": "markdown:/document/fence:typescript",
+      "case_ids": ["case-1", "case-2"],
+      "delegated_case_ids": ["child-case-1", "child-case-2"]
+    }
+  ]
+}

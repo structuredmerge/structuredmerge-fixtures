@@ -1,0 +1,39 @@
+{
+  "groups": [
+    {
+      "delegated_apply_group": "child:fence:typescript",
+      "parent_operation_id": "markdown:merge",
+      "child_operation_id": "markdown:fence:typescript",
+      "delegated_runtime_surface_path": "markdown:/fence:typescript",
+      "case_ids": ["review-1", "review-2"],
+      "delegated_case_ids": ["child-review-1", "child-review-2"]
+    },
+    {
+      "delegated_apply_group": "child:fence:json",
+      "parent_operation_id": "markdown:merge",
+      "child_operation_id": "markdown:fence:json",
+      "delegated_runtime_surface_path": "markdown:/fence:json",
+      "case_ids": ["review-3"],
+      "delegated_case_ids": ["child-review-3"]
+    },
+    {
+      "delegated_apply_group": "child:fence:yaml",
+      "parent_operation_id": "markdown:merge",
+      "child_operation_id": "markdown:fence:yaml",
+      "delegated_runtime_surface_path": "markdown:/fence:yaml",
+      "case_ids": ["review-4", "review-5"],
+      "delegated_case_ids": ["child-review-4", "child-review-5"]
+    }
+  ],
+  "resolved_case_ids": ["review-1", "review-2", "review-4"],
+  "expected_ready_groups": [
+    {
+      "delegated_apply_group": "child:fence:typescript",
+      "parent_operation_id": "markdown:merge",
+      "child_operation_id": "markdown:fence:typescript",
+      "delegated_runtime_surface_path": "markdown:/fence:typescript",
+      "case_ids": ["review-1", "review-2"],
+      "delegated_case_ids": ["child-review-1", "child-review-2"]
+    }
+  ]
+}

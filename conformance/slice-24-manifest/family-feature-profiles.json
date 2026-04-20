@@ -141,7 +141,8 @@
       { "role": "surface_ownership", "path": ["diagnostics", "slice-209-surface-ownership", "surface-ownership.json"] },
       { "role": "delegated_child_operation", "path": ["diagnostics", "slice-210-delegated-child-operations", "delegated-child-operation.json"] },
       { "role": "projected_child_review_cases", "path": ["diagnostics", "slice-211-projected-child-review-cases", "projected-child-review-cases.json"] },
-      { "role": "projected_child_review_groups", "path": ["diagnostics", "slice-227-projected-child-review-groups", "projected-child-review-groups.json"] }
+      { "role": "projected_child_review_groups", "path": ["diagnostics", "slice-227-projected-child-review-groups", "projected-child-review-groups.json"] },
+      { "role": "projected_child_review_group_progress", "path": ["diagnostics", "slice-230-projected-child-review-group-progress", "projected-child-review-group-progress.json"] }
     ],
     "text": [
       { "role": "analysis", "path": ["text", "slice-03-analysis", "whitespace-and-blocks.json"] },

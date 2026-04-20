@@ -1,0 +1,41 @@
+{
+  "groups": [
+    {
+      "delegated_apply_group": "markdown-fence-0",
+      "parent_operation_id": "markdown-root",
+      "child_operation_id": "markdown-child-0",
+      "delegated_runtime_surface_path": "document[0] > fenced_code_block[L3-L7]",
+      "case_ids": ["root:markdown:1", "root:markdown:2"],
+      "delegated_case_ids": ["child:typescript:imports", "child:typescript:body"]
+    },
+    {
+      "delegated_apply_group": "ruby-yard-example-0",
+      "parent_operation_id": "ruby-root",
+      "child_operation_id": "ruby-child-0",
+      "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[greet] > yard_example[0]",
+      "case_ids": ["root:ruby:1", "root:ruby:2"],
+      "delegated_case_ids": ["child:ruby:imports", "child:ruby:body"]
+    }
+  ],
+  "resolved_case_ids": ["root:markdown:1", "root:ruby:1", "root:ruby:2"],
+  "expected_progress": [
+    {
+      "delegated_apply_group": "markdown-fence-0",
+      "parent_operation_id": "markdown-root",
+      "child_operation_id": "markdown-child-0",
+      "delegated_runtime_surface_path": "document[0] > fenced_code_block[L3-L7]",
+      "resolved_case_ids": ["root:markdown:1"],
+      "pending_case_ids": ["root:markdown:2"],
+      "complete": false
+    },
+    {
+      "delegated_apply_group": "ruby-yard-example-0",
+      "parent_operation_id": "ruby-root",
+      "child_operation_id": "ruby-child-0",
+      "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[greet] > yard_example[0]",
+      "resolved_case_ids": ["root:ruby:1", "root:ruby:2"],
+      "pending_case_ids": [],
+      "complete": true
+    }
+  ]
+}

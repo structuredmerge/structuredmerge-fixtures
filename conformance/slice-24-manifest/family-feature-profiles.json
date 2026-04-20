@@ -99,6 +99,30 @@
         "matching",
         "merge"
       ]
+    },
+    "typescript_portable": {
+      "family": "typescript",
+      "roles": [
+        "analysis",
+        "matching",
+        "merge"
+      ]
+    },
+    "rust_portable": {
+      "family": "rust",
+      "roles": [
+        "analysis",
+        "matching",
+        "merge"
+      ]
+    },
+    "go_portable": {
+      "family": "go",
+      "roles": [
+        "analysis",
+        "matching",
+        "merge"
+      ]
     }
   },
   "families": {

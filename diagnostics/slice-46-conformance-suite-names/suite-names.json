@@ -1,8 +1,11 @@
 {
   "suite_names": [
+    "go_portable",
     "json_portable",
+    "rust_portable",
     "text_portable",
     "toml_portable",
+    "typescript_portable",
     "yaml_portable"
   ]
 }

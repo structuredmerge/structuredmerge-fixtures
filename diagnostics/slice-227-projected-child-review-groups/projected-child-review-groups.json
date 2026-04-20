@@ -1,0 +1,49 @@
+{
+  "cases": [
+    {
+      "case_id": "root:markdown:1",
+      "parent_operation_id": "markdown-root",
+      "child_operation_id": "markdown-child-0",
+      "surface_path": "document[0].fence[0]",
+      "delegated_case_id": "child:typescript:imports",
+      "delegated_apply_group": "markdown-fence-0",
+      "delegated_runtime_surface_path": "document[0] > fenced_code_block[L3-L7]"
+    },
+    {
+      "case_id": "root:markdown:2",
+      "parent_operation_id": "markdown-root",
+      "child_operation_id": "markdown-child-0",
+      "surface_path": "document[0].fence[0]",
+      "delegated_case_id": "child:typescript:body",
+      "delegated_apply_group": "markdown-fence-0",
+      "delegated_runtime_surface_path": "document[0] > fenced_code_block[L3-L7]"
+    },
+    {
+      "case_id": "root:ruby:1",
+      "parent_operation_id": "ruby-root",
+      "child_operation_id": "ruby-child-1",
+      "surface_path": "document[0].doc[main].example[0]",
+      "delegated_case_id": "child:ruby:example",
+      "delegated_apply_group": "ruby-yard-example-0",
+      "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[main] > yard_example[0]"
+    }
+  ],
+  "expected_groups": [
+    {
+      "delegated_apply_group": "markdown-fence-0",
+      "parent_operation_id": "markdown-root",
+      "child_operation_id": "markdown-child-0",
+      "delegated_runtime_surface_path": "document[0] > fenced_code_block[L3-L7]",
+      "case_ids": ["root:markdown:1", "root:markdown:2"],
+      "delegated_case_ids": ["child:typescript:imports", "child:typescript:body"]
+    },
+    {
+      "delegated_apply_group": "ruby-yard-example-0",
+      "parent_operation_id": "ruby-root",
+      "child_operation_id": "ruby-child-1",
+      "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[main] > yard_example[0]",
+      "case_ids": ["root:ruby:1"],
+      "delegated_case_ids": ["child:ruby:example"]
+    }
+  ]
+}

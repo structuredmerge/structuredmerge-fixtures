@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "case_id": "root:ruby:1",
+      "parent_operation_id": "ruby-root",
+      "child_operation_id": "ruby-child-0",
+      "surface_path": "document[0].doc[greet].example[0]",
+      "delegated_case_id": "child:ruby:imports",
+      "delegated_apply_group": "ruby-yard-example-0",
+      "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[greet] > yard_example[0]"
+    },
+    {
+      "case_id": "root:ruby:2",
+      "parent_operation_id": "ruby-root",
+      "child_operation_id": "ruby-child-0",
+      "surface_path": "document[0].doc[greet].example[0]",
+      "delegated_case_id": "child:ruby:body",
+      "delegated_apply_group": "ruby-yard-example-0",
+      "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[greet] > yard_example[0]"
+    }
+  ],
+  "expected_groups": [
+    {
+      "delegated_apply_group": "ruby-yard-example-0",
+      "parent_operation_id": "ruby-root",
+      "child_operation_id": "ruby-child-0",
+      "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[greet] > yard_example[0]",
+      "case_ids": ["root:ruby:1", "root:ruby:2"],
+      "delegated_case_ids": ["child:ruby:imports", "child:ruby:body"]
+    }
+  ]
+}

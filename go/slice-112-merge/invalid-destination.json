@@ -1,0 +1,13 @@
+{
+  "template": "func Greet(name string) string {\n  return name\n}\n",
+  "destination": "func Greet(name string) string {\n  return name\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "destination_parse_error"
+      }
+    ]
+  }
+}

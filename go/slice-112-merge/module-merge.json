@@ -1,0 +1,9 @@
+{
+  "name": "module_merge",
+  "template": "import \"fmt\"\n\nfunc FormatName(name string) string {\n  return name\n}\n\nfunc Greet(name string) string {\n  return fmt.Sprint(FormatName(name))\n}\n",
+  "destination": "import \"fmt\"\nimport \"strings\"\n\nfunc Greet(name string) string {\n  return fmt.Sprint(strings.ToUpper(name))\n}\n",
+  "expected": {
+    "ok": true,
+    "output": "import \"fmt\"\nimport \"strings\"\n\nfunc Greet(name string) string {\n  return fmt.Sprint(strings.ToUpper(name))\n}\n\nfunc FormatName(name string) string {\n  return name\n}\n"
+  }
+}

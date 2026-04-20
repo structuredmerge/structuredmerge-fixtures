@@ -1,0 +1,103 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "yaml",
+        "role": "family_profile",
+        "path": ["diagnostics", "slice-95-yaml-family-feature-profile", "yaml-feature-profile.json"]
+      }
+    ],
+    "suites": {
+      "yaml_portable": {
+        "family": "yaml",
+        "roles": ["analysis", "matching", "merge"]
+      }
+    },
+    "families": {
+      "yaml": [
+        { "role": "analysis", "path": ["yaml", "slice-97-structure", "mapping-and-sequence.json"] },
+        { "role": "matching", "path": ["yaml", "slice-98-matching", "path-equality.json"] },
+        { "role": "merge", "path": ["yaml", "slice-99-merge", "mapping-merge.json"] }
+      ]
+    }
+  },
+  "contexts": {
+    "yaml": {
+      "family_profile": {
+        "family": "yaml",
+        "supported_dialects": ["yaml"],
+        "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+      },
+      "feature_profile": {
+        "backend": "serde_yaml",
+        "supports_dialects": true,
+        "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+      }
+    }
+  },
+  "expected_entries": [
+    {
+      "suite": "yaml_portable",
+      "plan": {
+        "family": "yaml",
+        "entries": [
+          {
+            "ref": { "family": "yaml", "role": "analysis", "case": "analysis" },
+            "path": ["yaml", "slice-97-structure", "mapping-and-sequence.json"],
+            "run": {
+              "ref": { "family": "yaml", "role": "analysis", "case": "analysis" },
+              "requirements": {},
+              "family_profile": {
+                "family": "yaml",
+                "supported_dialects": ["yaml"],
+                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+              },
+              "feature_profile": {
+                "backend": "serde_yaml",
+                "supports_dialects": true,
+                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+              }
+            }
+          },
+          {
+            "ref": { "family": "yaml", "role": "matching", "case": "matching" },
+            "path": ["yaml", "slice-98-matching", "path-equality.json"],
+            "run": {
+              "ref": { "family": "yaml", "role": "matching", "case": "matching" },
+              "requirements": {},
+              "family_profile": {
+                "family": "yaml",
+                "supported_dialects": ["yaml"],
+                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+              },
+              "feature_profile": {
+                "backend": "serde_yaml",
+                "supports_dialects": true,
+                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+              }
+            }
+          },
+          {
+            "ref": { "family": "yaml", "role": "merge", "case": "merge" },
+            "path": ["yaml", "slice-99-merge", "mapping-merge.json"],
+            "run": {
+              "ref": { "family": "yaml", "role": "merge", "case": "merge" },
+              "requirements": {},
+              "family_profile": {
+                "family": "yaml",
+                "supported_dialects": ["yaml"],
+                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+              },
+              "feature_profile": {
+                "backend": "serde_yaml",
+                "supports_dialects": true,
+                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+              }
+            }
+          }
+        ],
+        "missing_roles": []
+      }
+    }
+  ]
+}

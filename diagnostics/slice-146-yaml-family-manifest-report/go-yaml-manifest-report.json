@@ -1,0 +1,61 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "yaml",
+        "role": "family_profile",
+        "path": ["diagnostics", "slice-95-yaml-family-feature-profile", "yaml-feature-profile.json"]
+      }
+    ],
+    "suites": {
+      "yaml_portable": { "family": "yaml", "roles": ["analysis", "matching", "merge"] }
+    },
+    "families": {
+      "yaml": [
+        { "role": "analysis", "path": ["yaml", "slice-97-structure", "mapping-and-sequence.json"] },
+        { "role": "matching", "path": ["yaml", "slice-98-matching", "path-equality.json"] },
+        { "role": "merge", "path": ["yaml", "slice-99-merge", "mapping-merge.json"] }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "yaml": {
+        "family_profile": {
+          "family": "yaml",
+          "supported_dialects": ["yaml"],
+          "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+        },
+        "feature_profile": {
+          "backend": "yaml-v3",
+          "supports_dialects": true,
+          "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+        }
+      }
+    }
+  },
+  "executions": {
+    "yaml:analysis:analysis": { "outcome": "passed", "messages": [] },
+    "yaml:matching:matching": { "outcome": "passed", "messages": [] },
+    "yaml:merge:merge": { "outcome": "passed", "messages": [] }
+  },
+  "expected_report": {
+    "report": {
+      "entries": [
+        {
+          "suite": "yaml_portable",
+          "report": {
+            "results": [
+              { "ref": { "family": "yaml", "role": "analysis", "case": "analysis" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "yaml", "role": "matching", "case": "matching" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "yaml", "role": "merge", "case": "merge" }, "outcome": "passed", "messages": [] }
+            ],
+            "summary": { "total": 3, "passed": 3, "failed": 0, "skipped": 0 }
+          }
+        }
+      ],
+      "summary": { "total": 3, "passed": 3, "failed": 0, "skipped": 0 }
+    },
+    "diagnostics": []
+  }
+}

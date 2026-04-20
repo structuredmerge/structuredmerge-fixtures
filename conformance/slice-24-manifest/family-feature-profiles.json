@@ -19,6 +19,15 @@
       ]
     },
     {
+      "family": "yaml",
+      "role": "family_profile",
+      "path": [
+        "diagnostics",
+        "slice-95-yaml-family-feature-profile",
+        "yaml-feature-profile.json"
+      ]
+    },
+    {
       "family": "typescript",
       "role": "family_profile",
       "path": [
@@ -209,6 +218,32 @@
           "json",
           "slice-26-tree-sitter-adapter",
           "strict-json.json"
+        ]
+      }
+    ],
+    "yaml": [
+      {
+        "role": "analysis",
+        "path": [
+          "yaml",
+          "slice-97-structure",
+          "mapping-and-sequence.json"
+        ]
+      },
+      {
+        "role": "matching",
+        "path": [
+          "yaml",
+          "slice-98-matching",
+          "path-equality.json"
+        ]
+      },
+      {
+        "role": "merge",
+        "path": [
+          "yaml",
+          "slice-99-merge",
+          "mapping-merge.json"
         ]
       }
     ],

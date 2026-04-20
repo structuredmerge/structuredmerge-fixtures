@@ -546,6 +546,22 @@
         ]
       },
       {
+        "role": "review_replay_bundle",
+        "path": [
+          "diagnostics",
+          "slice-69-review-replay-bundle",
+          "review-replay-bundle.json"
+        ]
+      },
+      {
+        "role": "review_replay_bundle_application",
+        "path": [
+          "diagnostics",
+          "slice-70-review-replay-bundle-application",
+          "review-replay-bundle-application.json"
+        ]
+      },
+      {
         "role": "family_profile_json",
         "path": [
           "diagnostics",

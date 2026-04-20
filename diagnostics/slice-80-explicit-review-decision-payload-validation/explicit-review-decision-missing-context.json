@@ -21,7 +21,9 @@
   "expected_diagnostic": {
     "severity": "error",
     "category": "configuration_error",
-    "message": "review decision family_context:text requires explicit context payload."
+    "message": "review decision family_context:text requires explicit context payload.",
+    "request_id": "family_context:text",
+    "action": "provide_explicit_context"
   },
   "expected_request": {
     "id": "family_context:text",

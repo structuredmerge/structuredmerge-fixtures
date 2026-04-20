@@ -1,0 +1,9 @@
+{
+  "name": "mapping_merge",
+  "template": "title: Structured Merge\npackage:\n  name: structuredmerge\n  tags:\n    - template\n  version: 0.1.0\n  meta:\n    enabled: false\n",
+  "destination": "package:\n  tags:\n    - destination\n  version: 0.2.0\n  meta:\n    authors:\n      - pb\n    release: true\n",
+  "expected": {
+    "ok": true,
+    "output": "package:\n  meta:\n    authors:\n      - pb\n    enabled: false\n    release: true\n  name: structuredmerge\n  tags:\n    - destination\n  version: 0.2.0\ntitle: \"Structured Merge\"\n"
+  }
+}

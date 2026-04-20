@@ -1,0 +1,10 @@
+{
+  "name": "valid_yaml_document",
+  "dialect": "yaml",
+  "source": "# project metadata\nname: structuredmerge\nenabled: true\n\npackage:\n  version: 0.1.0\n",
+  "expected": {
+    "ok": true,
+    "root_kind": "mapping",
+    "diagnostics": []
+  }
+}

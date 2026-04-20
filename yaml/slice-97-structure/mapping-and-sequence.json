@@ -1,0 +1,48 @@
+{
+  "name": "mapping_and_sequence",
+  "dialect": "yaml",
+  "source": "title: Structured Merge\nenabled: true\ntags:\n  - merge\n  - yaml\npackage:\n  name: structuredmerge\n  version: 0.1.0\n",
+  "expected": {
+    "root_kind": "mapping",
+    "owners": [
+      {
+        "path": "/enabled",
+        "owner_kind": "key_value",
+        "match_key": "enabled"
+      },
+      {
+        "path": "/package",
+        "owner_kind": "mapping",
+        "match_key": "package"
+      },
+      {
+        "path": "/package/name",
+        "owner_kind": "key_value",
+        "match_key": "name"
+      },
+      {
+        "path": "/package/version",
+        "owner_kind": "key_value",
+        "match_key": "version"
+      },
+      {
+        "path": "/tags",
+        "owner_kind": "key_value",
+        "match_key": "tags"
+      },
+      {
+        "path": "/tags/0",
+        "owner_kind": "sequence_item"
+      },
+      {
+        "path": "/tags/1",
+        "owner_kind": "sequence_item"
+      },
+      {
+        "path": "/title",
+        "owner_kind": "key_value",
+        "match_key": "title"
+      }
+    ]
+  }
+}

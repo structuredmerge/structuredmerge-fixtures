@@ -1,0 +1,14 @@
+{
+  "name": "invalid_destination",
+  "template": "title: Structured Merge\n",
+  "destination": "title: Structured Merge\npackage:\n  name: structuredmerge\n    version: 0.1.0\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "destination_parse_error"
+      }
+    ]
+  }
+}

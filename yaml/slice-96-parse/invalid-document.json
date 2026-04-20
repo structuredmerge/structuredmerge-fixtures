@@ -1,0 +1,14 @@
+{
+  "name": "invalid_yaml_document",
+  "dialect": "yaml",
+  "source": "name: structuredmerge\npackage:\n  version: 0.1.0\n   bad_indent: true\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

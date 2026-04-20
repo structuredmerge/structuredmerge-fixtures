@@ -1,0 +1,408 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "typescript",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-101-typescript-family-feature-profile",
+          "typescript-feature-profile.json"
+        ]
+      },
+      {
+        "family": "rust",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-105-rust-family-feature-profile",
+          "rust-feature-profile.json"
+        ]
+      },
+      {
+        "family": "go",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-109-go-family-feature-profile",
+          "go-feature-profile.json"
+        ]
+      }
+    ],
+    "suites": {
+      "go_portable": {
+        "family": "go",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
+      "rust_portable": {
+        "family": "rust",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
+      "typescript_portable": {
+        "family": "typescript",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      }
+    },
+    "families": {
+      "typescript": [
+        {
+          "role": "analysis",
+          "path": [
+            "typescript",
+            "slice-102-analysis",
+            "module-owners.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "typescript",
+            "slice-103-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "typescript",
+            "slice-104-merge",
+            "module-merge.json"
+          ]
+        }
+      ],
+      "rust": [
+        {
+          "role": "analysis",
+          "path": [
+            "rust",
+            "slice-106-analysis",
+            "module-owners.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "rust",
+            "slice-107-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "rust",
+            "slice-108-merge",
+            "module-merge.json"
+          ]
+        }
+      ],
+      "go": [
+        {
+          "role": "analysis",
+          "path": [
+            "go",
+            "slice-110-analysis",
+            "module-owners.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "go",
+            "slice-111-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "go",
+            "slice-112-merge",
+            "module-merge.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "rust": {
+        "family_profile": {
+          "family": "rust",
+          "supported_dialects": [
+            "rust"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "syn",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      }
+    },
+    "family_profiles": {
+      "typescript": {
+        "family": "typescript",
+        "supported_dialects": [
+          "typescript"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
+      },
+      "rust": {
+        "family": "rust",
+        "supported_dialects": [
+          "rust"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
+      },
+      "go": {
+        "family": "go",
+        "supported_dialects": [
+          "go"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
+      }
+    },
+    "require_explicit_contexts": true,
+    "interactive": true,
+    "review_replay_bundle": {
+      "replay_context": {
+        "surface": "conformance_manifest",
+        "families": [
+          "go",
+          "rust",
+          "typescript"
+        ],
+        "require_explicit_contexts": true
+      },
+      "decisions": [
+        {
+          "request_id": "family_context:typescript",
+          "action": "accept_default_context"
+        }
+      ]
+    }
+  },
+  "executions": {
+    "rust:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "rust:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "rust:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "typescript:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "typescript:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "typescript:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "expected_state": {
+    "report": {
+      "entries": [
+        {
+          "suite": "rust_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "suite": "typescript_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "missing explicit family context for go."
+      },
+      {
+        "severity": "warning",
+        "category": "assumed_default",
+        "message": "using default family context for typescript."
+      }
+    ],
+    "requests": [
+      {
+        "id": "family_context:go",
+        "kind": "family_context",
+        "family": "go",
+        "message": "explicit family context is required for go; a synthesized default may be accepted by review.",
+        "blocking": true,
+        "proposed_context": {
+          "family_profile": {
+            "family": "go",
+            "supported_dialects": [
+              "go"
+            ],
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              }
+            ]
+          }
+        },
+        "action_offers": [
+          {
+            "action": "accept_default_context",
+            "requires_context": false
+          },
+          {
+            "action": "provide_explicit_context",
+            "requires_context": true,
+            "payload_kind": "conformance_family_context"
+          }
+        ],
+        "default_action": "accept_default_context"
+      }
+    ],
+    "applied_decisions": [
+      {
+        "request_id": "family_context:typescript",
+        "action": "accept_default_context"
+      }
+    ],
+    "host_hints": {
+      "interactive": true,
+      "require_explicit_contexts": true
+    },
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "go",
+        "rust",
+        "typescript"
+      ],
+      "require_explicit_contexts": true
+    }
+  }
+}

@@ -173,7 +173,8 @@
           },
           {
             "action": "provide_explicit_context",
-            "requires_context": true
+            "requires_context": true,
+            "payload_kind": "conformance_family_context"
           }
         ],
         "default_action": "accept_default_context"

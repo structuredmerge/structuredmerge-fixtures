@@ -1,0 +1,34 @@
+{
+  "providers": {
+    "kramdown": {
+      "package": "kramdown-merge",
+      "backend": "kramdown",
+      "feature_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": [],
+        "backend": "kramdown"
+      }
+    },
+    "commonmarker": {
+      "package": "commonmarker-merge",
+      "backend": "commonmarker",
+      "feature_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": [],
+        "backend": "commonmarker"
+      }
+    },
+    "markly": {
+      "package": "markly-merge",
+      "backend": "markly",
+      "feature_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": [],
+        "backend": "markly"
+      }
+    }
+  }
+}

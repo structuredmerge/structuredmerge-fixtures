@@ -1,0 +1,14 @@
+{
+  "providers": {
+    "goldmark": {
+      "package": "goldmarkmerge",
+      "backend": "goldmark",
+      "feature_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": [],
+        "backend": "goldmark"
+      }
+    }
+  }
+}

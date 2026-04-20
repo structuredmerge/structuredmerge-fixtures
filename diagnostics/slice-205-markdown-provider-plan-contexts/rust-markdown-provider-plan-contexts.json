@@ -1,0 +1,16 @@
+{
+  "providers": {
+    "pulldown-cmark": {
+      "family_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": []
+      },
+      "feature_profile": {
+        "backend": "pulldown-cmark",
+        "supports_dialects": true,
+        "supported_policies": []
+      }
+    }
+  }
+}

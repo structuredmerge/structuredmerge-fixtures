@@ -1,0 +1,14 @@
+{
+  "providers": {
+    "pulldown-cmark": {
+      "package": "pulldown-cmark-merge",
+      "backend": "pulldown-cmark",
+      "feature_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": [],
+        "backend": "pulldown-cmark"
+      }
+    }
+  }
+}

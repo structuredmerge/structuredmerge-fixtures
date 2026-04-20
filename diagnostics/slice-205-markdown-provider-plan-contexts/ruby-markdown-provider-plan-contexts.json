@@ -1,0 +1,40 @@
+{
+  "providers": {
+    "kramdown": {
+      "family_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": []
+      },
+      "feature_profile": {
+        "backend": "kramdown",
+        "supports_dialects": true,
+        "supported_policies": []
+      }
+    },
+    "commonmarker": {
+      "family_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": []
+      },
+      "feature_profile": {
+        "backend": "commonmarker",
+        "supports_dialects": true,
+        "supported_policies": []
+      }
+    },
+    "markly": {
+      "family_profile": {
+        "family": "markdown",
+        "supported_dialects": ["markdown"],
+        "supported_policies": []
+      },
+      "feature_profile": {
+        "backend": "markly",
+        "supports_dialects": true,
+        "supported_policies": []
+      }
+    }
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "typescript",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-101-typescript-family-feature-profile",
+          "typescript-feature-profile.json"
+        ]
+      },
+      {
+        "family": "rust",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-105-rust-family-feature-profile",
+          "rust-feature-profile.json"
+        ]
+      },
+      {
+        "family": "go",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-109-go-family-feature-profile",
+          "go-feature-profile.json"
+        ]
+      }
+    ],
+    "suites": {
+      "go_backend_sensitive": {
+        "family": "go",
+        "roles": [
+          "analysis",
+          "native_parity"
+        ]
+      },
+      "rust_backend_sensitive": {
+        "family": "rust",
+        "roles": [
+          "analysis",
+          "native_parity"
+        ]
+      },
+      "typescript_backend_sensitive": {
+        "family": "typescript",
+        "roles": [
+          "analysis",
+          "native_parity"
+        ]
+      }
+    },
+    "families": {
+      "typescript": [
+        {
+          "role": "analysis",
+          "path": [
+            "typescript",
+            "slice-102-analysis",
+            "module-owners.json"
+          ]
+        },
+        {
+          "role": "native_parity",
+          "requirements": {
+            "backend": "typescript-compiler"
+          },
+          "path": [
+            "typescript",
+            "slice-116-native",
+            "module-parity.json"
+          ]
+        }
+      ],
+      "rust": [
+        {
+          "role": "analysis",
+          "path": [
+            "rust",
+            "slice-106-analysis",
+            "module-owners.json"
+          ]
+        },
+        {
+          "role": "native_parity",
+          "requirements": {
+            "backend": "syn"
+          },
+          "path": [
+            "rust",
+            "slice-118-native",
+            "module-parity.json"
+          ]
+        }
+      ],
+      "go": [
+        {
+          "role": "analysis",
+          "path": [
+            "go",
+            "slice-110-analysis",
+            "module-owners.json"
+          ]
+        },
+        {
+          "role": "native_parity",
+          "requirements": {
+            "backend": "go-parser"
+          },
+          "path": [
+            "go",
+            "slice-114-native",
+            "module-parity.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "typescript": {
+        "family_profile": {
+          "family": "typescript",
+          "supported_dialects": [
+            "typescript"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "kreuzberg-language-pack",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      },
+      "rust": {
+        "family_profile": {
+          "family": "rust",
+          "supported_dialects": [
+            "rust"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "kreuzberg-language-pack",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      },
+      "go": {
+        "family_profile": {
+          "family": "go",
+          "supported_dialects": [
+            "go"
+          ],
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        },
+        "feature_profile": {
+          "backend": "kreuzberg-language-pack",
+          "supports_dialects": true,
+          "supported_policies": [
+            {
+              "surface": "array",
+              "name": "destination_wins_array"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "executions": {
+    "go:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "rust:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "typescript:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "expected_report": {
+    "report": {
+      "entries": [
+        {
+          "suite": "go_backend_sensitive",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "go",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "go",
+                  "role": "native_parity",
+                  "case": "native_parity"
+                },
+                "outcome": "skipped",
+                "messages": [
+                  "case requires backend go-parser but backend kreuzberg-language-pack is active for family go."
+                ]
+              }
+            ],
+            "summary": {
+              "total": 2,
+              "passed": 1,
+              "failed": 0,
+              "skipped": 1
+            }
+          }
+        },
+        {
+          "suite": "rust_backend_sensitive",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "native_parity",
+                  "case": "native_parity"
+                },
+                "outcome": "skipped",
+                "messages": [
+                  "case requires backend syn but backend kreuzberg-language-pack is active for family rust."
+                ]
+              }
+            ],
+            "summary": {
+              "total": 2,
+              "passed": 1,
+              "failed": 0,
+              "skipped": 1
+            }
+          }
+        },
+        {
+          "suite": "typescript_backend_sensitive",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "native_parity",
+                  "case": "native_parity"
+                },
+                "outcome": "skipped",
+                "messages": [
+                  "case requires backend typescript-compiler but backend kreuzberg-language-pack is active for family typescript."
+                ]
+              }
+            ],
+            "summary": {
+              "total": 2,
+              "passed": 1,
+              "failed": 0,
+              "skipped": 1
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total": 6,
+        "passed": 3,
+        "failed": 0,
+        "skipped": 3
+      }
+    },
+    "diagnostics": []
+  }
+}

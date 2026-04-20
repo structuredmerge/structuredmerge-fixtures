@@ -44,6 +44,15 @@
         "slice-109-go-family-feature-profile",
         "go-feature-profile.json"
       ]
+    },
+    {
+      "family": "toml",
+      "role": "family_profile",
+      "path": [
+        "diagnostics",
+        "slice-90-toml-family-feature-profile",
+        "toml-feature-profile.json"
+      ]
     }
   ],
   "suites": {
@@ -278,6 +287,32 @@
           "go",
           "slice-112-merge",
           "module-merge.json"
+        ]
+      }
+    ],
+    "toml": [
+      {
+        "role": "analysis",
+        "path": [
+          "toml",
+          "slice-92-structure",
+          "table-and-array.json"
+        ]
+      },
+      {
+        "role": "matching",
+        "path": [
+          "toml",
+          "slice-93-matching",
+          "path-equality.json"
+        ]
+      },
+      {
+        "role": "merge",
+        "path": [
+          "toml",
+          "slice-94-merge",
+          "table-merge.json"
         ]
       }
     ],

@@ -226,6 +226,14 @@
         ]
       },
       {
+        "role": "manifest_backend_report",
+        "path": [
+          "diagnostics",
+          "slice-121-manifest-backend-report",
+          "manifest-backend-report.json"
+        ]
+      },
+      {
         "role": "adapter_policy_support",
         "path": [
           "diagnostics",

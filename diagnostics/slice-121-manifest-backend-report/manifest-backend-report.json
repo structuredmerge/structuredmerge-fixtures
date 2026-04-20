@@ -1,0 +1,76 @@
+{
+  "manifest": {
+    "family_feature_profiles": [],
+    "families": {
+      "json": [
+        {
+          "role": "tree_sitter_adapter",
+          "requirements": {
+            "backend": "kreuzberg-language-pack"
+          },
+          "path": [
+            "json",
+            "slice-26-tree-sitter-adapter",
+            "strict-json.json"
+          ]
+        }
+      ]
+    }
+  },
+  "family": "json",
+  "roles": [
+    "tree_sitter_adapter"
+  ],
+  "family_profile": {
+    "family": "json",
+    "supported_dialects": [
+      "json",
+      "jsonc"
+    ],
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      },
+      {
+        "surface": "fallback",
+        "name": "trailing_comma_destination_fallback"
+      }
+    ]
+  },
+  "feature_profile": {
+    "backend": "native-json",
+    "supports_dialects": true,
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      },
+      {
+        "surface": "fallback",
+        "name": "trailing_comma_destination_fallback"
+      }
+    ]
+  },
+  "expected_report": {
+    "results": [
+      {
+        "ref": {
+          "family": "json",
+          "role": "tree_sitter_adapter",
+          "case": "tree_sitter_adapter"
+        },
+        "outcome": "skipped",
+        "messages": [
+          "case requires backend kreuzberg-language-pack but backend native-json is active for family json."
+        ]
+      }
+    ],
+    "summary": {
+      "total": 1,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  }
+}

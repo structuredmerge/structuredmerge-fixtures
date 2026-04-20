@@ -1,386 +1,127 @@
 {
   "manifest": {
     "family_feature_profiles": [
-      {
-        "family": "typescript",
-        "role": "family_profile",
-        "path": [
-          "diagnostics",
-          "slice-101-typescript-family-feature-profile",
-          "typescript-feature-profile.json"
-        ]
-      },
-      {
-        "family": "rust",
-        "role": "family_profile",
-        "path": [
-          "diagnostics",
-          "slice-105-rust-family-feature-profile",
-          "rust-feature-profile.json"
-        ]
-      },
-      {
-        "family": "go",
-        "role": "family_profile",
-        "path": [
-          "diagnostics",
-          "slice-109-go-family-feature-profile",
-          "go-feature-profile.json"
-        ]
-      }
+      { "family": "typescript", "role": "family_profile", "path": ["diagnostics", "slice-101-typescript-family-feature-profile", "typescript-feature-profile.json"] },
+      { "family": "rust", "role": "family_profile", "path": ["diagnostics", "slice-105-rust-family-feature-profile", "rust-feature-profile.json"] },
+      { "family": "go", "role": "family_profile", "path": ["diagnostics", "slice-109-go-family-feature-profile", "go-feature-profile.json"] },
+      { "family": "ruby", "role": "family_profile", "path": ["diagnostics", "slice-214-ruby-family-feature-profile", "ruby-feature-profile.json"] }
     ],
     "suites": {
-      "go_portable": {
-        "family": "go",
-        "roles": [
-          "analysis",
-          "matching",
-          "merge"
-        ]
-      },
-      "rust_portable": {
-        "family": "rust",
-        "roles": [
-          "analysis",
-          "matching",
-          "merge"
-        ]
-      },
-      "typescript_portable": {
-        "family": "typescript",
-        "roles": [
-          "analysis",
-          "matching",
-          "merge"
-        ]
-      }
+      "go_portable": { "family": "go", "roles": ["analysis", "matching", "merge"] },
+      "rust_portable": { "family": "rust", "roles": ["analysis", "matching", "merge"] },
+      "typescript_portable": { "family": "typescript", "roles": ["analysis", "matching", "merge"] },
+      "ruby_portable": { "family": "ruby", "roles": ["analysis", "matching", "discovered_surfaces", "delegated_child_operations"] }
     },
     "families": {
       "typescript": [
-        {
-          "role": "analysis",
-          "path": [
-            "typescript",
-            "slice-102-analysis",
-            "module-owners.json"
-          ]
-        },
-        {
-          "role": "matching",
-          "path": [
-            "typescript",
-            "slice-103-matching",
-            "path-equality.json"
-          ]
-        },
-        {
-          "role": "merge",
-          "path": [
-            "typescript",
-            "slice-104-merge",
-            "module-merge.json"
-          ]
-        }
+        { "role": "analysis", "path": ["typescript", "slice-102-analysis", "module-owners.json"] },
+        { "role": "matching", "path": ["typescript", "slice-103-matching", "path-equality.json"] },
+        { "role": "merge", "path": ["typescript", "slice-104-merge", "module-merge.json"] }
       ],
       "rust": [
-        {
-          "role": "analysis",
-          "path": [
-            "rust",
-            "slice-106-analysis",
-            "module-owners.json"
-          ]
-        },
-        {
-          "role": "matching",
-          "path": [
-            "rust",
-            "slice-107-matching",
-            "path-equality.json"
-          ]
-        },
-        {
-          "role": "merge",
-          "path": [
-            "rust",
-            "slice-108-merge",
-            "module-merge.json"
-          ]
-        }
+        { "role": "analysis", "path": ["rust", "slice-106-analysis", "module-owners.json"] },
+        { "role": "matching", "path": ["rust", "slice-107-matching", "path-equality.json"] },
+        { "role": "merge", "path": ["rust", "slice-108-merge", "module-merge.json"] }
       ],
       "go": [
-        {
-          "role": "analysis",
-          "path": [
-            "go",
-            "slice-110-analysis",
-            "module-owners.json"
-          ]
-        },
-        {
-          "role": "matching",
-          "path": [
-            "go",
-            "slice-111-matching",
-            "path-equality.json"
-          ]
-        },
-        {
-          "role": "merge",
-          "path": [
-            "go",
-            "slice-112-merge",
-            "module-merge.json"
-          ]
-        }
+        { "role": "analysis", "path": ["go", "slice-110-analysis", "module-owners.json"] },
+        { "role": "matching", "path": ["go", "slice-111-matching", "path-equality.json"] },
+        { "role": "merge", "path": ["go", "slice-112-merge", "module-merge.json"] }
+      ],
+      "ruby": [
+        { "role": "analysis", "path": ["ruby", "slice-218-analysis", "module-owners.json"] },
+        { "role": "matching", "path": ["ruby", "slice-219-matching", "path-equality.json"] },
+        { "role": "discovered_surfaces", "path": ["ruby", "slice-220-discovered-surfaces", "doc-comment-surfaces.json"] },
+        { "role": "delegated_child_operations", "path": ["ruby", "slice-221-delegated-child-operations", "yard-example-child-operations.json"] }
       ]
     }
   },
   "options": {
     "contexts": {
       "typescript": {
-        "family_profile": {
-          "family": "typescript",
-          "supported_dialects": [
-            "typescript"
-          ],
-          "supported_policies": [
-            {
-              "surface": "array",
-              "name": "destination_wins_array"
-            }
-          ]
-        },
-        "feature_profile": {
-          "backend": "typescript-compiler",
-          "supports_dialects": true,
-          "supported_policies": [
-            {
-              "surface": "array",
-              "name": "destination_wins_array"
-            }
-          ]
-        }
+        "family_profile": { "family": "typescript", "supported_dialects": ["typescript"], "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }] },
+        "feature_profile": { "backend": "typescript-compiler", "supports_dialects": true, "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }] }
       },
       "rust": {
-        "family_profile": {
-          "family": "rust",
-          "supported_dialects": [
-            "rust"
-          ],
-          "supported_policies": [
-            {
-              "surface": "array",
-              "name": "destination_wins_array"
-            }
-          ]
-        },
-        "feature_profile": {
-          "backend": "kreuzberg-language-pack",
-          "supports_dialects": true,
-          "supported_policies": [
-            {
-              "surface": "array",
-              "name": "destination_wins_array"
-            }
-          ]
-        }
+        "family_profile": { "family": "rust", "supported_dialects": ["rust"], "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }] },
+        "feature_profile": { "backend": "kreuzberg-language-pack", "supports_dialects": true, "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }] }
       },
       "go": {
-        "family_profile": {
-          "family": "go",
-          "supported_dialects": [
-            "go"
-          ],
-          "supported_policies": [
-            {
-              "surface": "array",
-              "name": "destination_wins_array"
-            }
-          ]
-        },
-        "feature_profile": {
-          "backend": "go-parser",
-          "supports_dialects": true,
-          "supported_policies": [
-            {
-              "surface": "array",
-              "name": "destination_wins_array"
-            }
-          ]
-        }
+        "family_profile": { "family": "go", "supported_dialects": ["go"], "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }] },
+        "feature_profile": { "backend": "go-parser", "supports_dialects": true, "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }] }
+      },
+      "ruby": {
+        "family_profile": { "family": "ruby", "supported_dialects": ["ruby"], "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }] },
+        "feature_profile": { "backend": "kreuzberg-language-pack", "supports_dialects": true, "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }] }
       }
     }
   },
   "executions": {
-    "go:analysis:analysis": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "go:matching:matching": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "go:merge:merge": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "rust:analysis:analysis": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "rust:matching:matching": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "rust:merge:merge": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "typescript:analysis:analysis": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "typescript:matching:matching": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "typescript:merge:merge": {
-      "outcome": "passed",
-      "messages": []
-    }
+    "go:analysis:analysis": { "outcome": "passed", "messages": [] },
+    "go:matching:matching": { "outcome": "passed", "messages": [] },
+    "go:merge:merge": { "outcome": "passed", "messages": [] },
+    "rust:analysis:analysis": { "outcome": "passed", "messages": [] },
+    "rust:matching:matching": { "outcome": "passed", "messages": [] },
+    "rust:merge:merge": { "outcome": "passed", "messages": [] },
+    "typescript:analysis:analysis": { "outcome": "passed", "messages": [] },
+    "typescript:matching:matching": { "outcome": "passed", "messages": [] },
+    "typescript:merge:merge": { "outcome": "passed", "messages": [] },
+    "ruby:analysis:analysis": { "outcome": "passed", "messages": [] },
+    "ruby:matching:matching": { "outcome": "passed", "messages": [] },
+    "ruby:discovered_surfaces:discovered_surfaces": { "outcome": "passed", "messages": [] },
+    "ruby:delegated_child_operations:delegated_child_operations": { "outcome": "passed", "messages": [] }
   },
   "expected_report": {
+    "diagnostics": [],
     "report": {
       "entries": [
         {
           "suite": "go_portable",
           "report": {
             "results": [
-              {
-                "ref": {
-                  "family": "go",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "go",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "go",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
+              { "ref": { "family": "go", "role": "analysis", "case": "analysis" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "go", "role": "matching", "case": "matching" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "go", "role": "merge", "case": "merge" }, "outcome": "passed", "messages": [] }
             ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
-            }
+            "summary": { "total": 3, "passed": 3, "failed": 0, "skipped": 0 }
+          }
+        },
+        {
+          "suite": "ruby_portable",
+          "report": {
+            "results": [
+              { "ref": { "family": "ruby", "role": "analysis", "case": "analysis" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "ruby", "role": "matching", "case": "matching" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "ruby", "role": "discovered_surfaces", "case": "discovered_surfaces" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "ruby", "role": "delegated_child_operations", "case": "delegated_child_operations" }, "outcome": "passed", "messages": [] }
+            ],
+            "summary": { "total": 4, "passed": 4, "failed": 0, "skipped": 0 }
           }
         },
         {
           "suite": "rust_portable",
           "report": {
             "results": [
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
+              { "ref": { "family": "rust", "role": "analysis", "case": "analysis" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "rust", "role": "matching", "case": "matching" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "rust", "role": "merge", "case": "merge" }, "outcome": "passed", "messages": [] }
             ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
-            }
+            "summary": { "total": 3, "passed": 3, "failed": 0, "skipped": 0 }
           }
         },
         {
           "suite": "typescript_portable",
           "report": {
             "results": [
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
+              { "ref": { "family": "typescript", "role": "analysis", "case": "analysis" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "typescript", "role": "matching", "case": "matching" }, "outcome": "passed", "messages": [] },
+              { "ref": { "family": "typescript", "role": "merge", "case": "merge" }, "outcome": "passed", "messages": [] }
             ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
-            }
+            "summary": { "total": 3, "passed": 3, "failed": 0, "skipped": 0 }
           }
         }
       ],
-      "summary": {
-        "total": 9,
-        "passed": 9,
-        "failed": 0,
-        "skipped": 0
-      }
-    },
-    "diagnostics": []
+      "summary": { "total": 13, "passed": 13, "failed": 0, "skipped": 0 }
+    }
   }
 }

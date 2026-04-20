@@ -2,6 +2,7 @@
   "suite_names": [
     "go_portable",
     "json_portable",
+    "ruby_portable",
     "rust_portable",
     "text_portable",
     "toml_portable",

@@ -1,0 +1,31 @@
+{
+  "dialect": "go",
+  "source": "import \"fmt\"\nimport \"strings\"\n\nfunc FormatName(name string) string {\n  return strings.ToUpper(name)\n}\n\nfunc Greet(name string) string {\n  return fmt.Sprint(FormatName(name))\n}\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/imports/0",
+        "owner_kind": "import",
+        "match_key": "fmt"
+      },
+      {
+        "path": "/imports/1",
+        "owner_kind": "import",
+        "match_key": "strings"
+      },
+      {
+        "path": "/declarations/FormatName",
+        "owner_kind": "declaration",
+        "match_key": "FormatName"
+      },
+      {
+        "path": "/declarations/Greet",
+        "owner_kind": "declaration",
+        "match_key": "Greet"
+      }
+    ],
+    "output": "import \"fmt\"\nimport \"strings\"\n\nfunc Greet(name string) string {\n  return fmt.Sprint(strings.ToUpper(name))\n}\n\nfunc FormatName(name string) string {\n  return name\n}\n"
+  },
+  "template": "import \"fmt\"\n\nfunc FormatName(name string) string {\n  return name\n}\n\nfunc Greet(name string) string {\n  return fmt.Sprint(FormatName(name))\n}\n",
+  "destination": "import \"fmt\"\nimport \"strings\"\n\nfunc Greet(name string) string {\n  return fmt.Sprint(strings.ToUpper(name))\n}\n"
+}

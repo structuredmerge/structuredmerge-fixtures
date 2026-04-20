@@ -1,0 +1,4 @@
+{
+  "family": "go",
+  "backends": ["tree-sitter", "native"]
+}

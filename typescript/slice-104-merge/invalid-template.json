@@ -1,0 +1,14 @@
+{
+  "name": "invalid_template",
+  "template": "export function greet(name: string) {\n  return name;\n",
+  "destination": "export function greet(name: string) {\n  return name.toUpperCase();\n}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

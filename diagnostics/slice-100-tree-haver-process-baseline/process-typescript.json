@@ -1,0 +1,23 @@
+{
+  "request": {
+    "language": "typescript",
+    "source": "import { foo } from './foo';\n\nexport function greet(name: string) {\n  return foo(name);\n}\n"
+  },
+  "expected": {
+    "language": "typescript",
+    "structure": [
+      {
+        "kind": "function",
+        "name": "greet"
+      }
+    ],
+    "imports": [
+      {
+        "source": "./foo",
+        "items": [
+          "foo"
+        ]
+      }
+    ]
+  }
+}

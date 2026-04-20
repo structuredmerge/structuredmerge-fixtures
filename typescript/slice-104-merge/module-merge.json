@@ -1,0 +1,9 @@
+{
+  "name": "module_merge",
+  "template": "import { foo } from './foo';\n\nexport function greet(name: string) {\n  return foo(name);\n}\n\nexport interface Person {\n  name: string;\n}\n",
+  "destination": "import { foo } from './foo';\nimport { baz } from './baz';\n\nexport function greet(name: string) {\n  return foo(name).toUpperCase();\n}\n",
+  "expected": {
+    "ok": true,
+    "output": "import { foo } from './foo';\nimport { baz } from './baz';\n\nexport function greet(name: string) {\n  return foo(name).toUpperCase();\n}\n\nexport interface Person {\n  name: string;\n}\n"
+  }
+}

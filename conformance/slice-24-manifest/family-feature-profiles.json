@@ -242,6 +242,14 @@
         ]
       },
       {
+        "role": "process_baseline",
+        "path": [
+          "diagnostics",
+          "slice-100-tree-haver-process-baseline",
+          "process-typescript.json"
+        ]
+      },
+      {
         "role": "runner_shape",
         "path": [
           "diagnostics",

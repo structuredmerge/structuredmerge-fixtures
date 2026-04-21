@@ -4,22 +4,22 @@ Suite:
 `ruby_portable`
 
 Target canonical set:
-Recommended next target: canonical widened suite set.
+Completed: canonical widened suite set.
 
 Canonical review-request identity surface:
-Needed. Promotion should define the canonical review-request identity for the
-Ruby family alongside the existing widened source-family request surfaces.
+Resolved for the base suite. Ruby now uses the ordinary canonical widened
+family-context review-request surface.
 
 Reviewed-default context behavior:
-Needed. Promotion should define whether `ruby_portable` behaves like the other
+Resolved for the base suite. `ruby_portable` now behaves like the other
 canonical widened source families when explicit Ruby family context is absent.
 
 Replay-compatibility behavior:
-Needed. Promotion should define replay compatibility for canonical Ruby review
-decisions using the ordinary widened canonical replay surface.
+Resolved for the base suite through the ordinary widened canonical replay
+surface.
 
 Manifest or fixture membership changes:
-Expected:
+Completed:
 
 - add `ruby_portable` to the canonical widened suite definitions,
 - add canonical widened plan/report/review/default/replay fixture coverage for
@@ -28,7 +28,6 @@ Expected:
 
 Notes:
 
-- This is the narrowest next canonical promotion candidate because Ruby already
-  has a defined family manifest and a portable non-nested suite surface.
-- Nested Ruby promotion should only be reconsidered after this base-family
-  promotion lands.
+- This base-family promotion is now landed.
+- Nested Ruby promotion may now be reconsidered, but only through a separate
+  nested promotion slice.

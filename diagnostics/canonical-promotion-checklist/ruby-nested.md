@@ -5,8 +5,8 @@ Suite:
 defined by slices 249 to 251)
 
 Target canonical set:
-Blocked pending base-family promotion. `ruby_portable` should enter the
-canonical widened suite set before this nested suite is reconsidered.
+Not ready, but no longer blocked on base-family promotion. The next plausible
+target is the canonical widened suite set.
 
 Canonical review-request identity surface:
 Unresolved. A promotion slice would need to define whether canonical review
@@ -37,6 +37,7 @@ Unresolved. Promotion would require:
 Notes:
 
 - Portable delegated-child shapes are already available.
-- The next concrete prerequisite is canonical promotion of `ruby_portable`.
+- The base-family prerequisite is now satisfied by canonical promotion of
+  `ruby_portable`.
 - Current policy is to keep this suite family-scoped until canonical
   review/default/replay semantics are shared explicitly.

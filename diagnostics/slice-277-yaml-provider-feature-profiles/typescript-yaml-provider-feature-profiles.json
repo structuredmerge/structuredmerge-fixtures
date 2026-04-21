@@ -1,0 +1,19 @@
+{
+  "providers": {
+    "js_yaml": {
+      "package": "@structuredmerge/js-yaml-merge",
+      "backend": "js-yaml",
+      "feature_profile": {
+        "family": "yaml",
+        "supported_dialects": ["yaml"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "js-yaml"
+      }
+    }
+  }
+}

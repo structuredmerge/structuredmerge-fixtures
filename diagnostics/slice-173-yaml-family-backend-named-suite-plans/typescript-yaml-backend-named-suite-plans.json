@@ -17,38 +17,22 @@
         "subject": {
           "grammar": "yaml"
         },
-        "roles": [
-          "analysis",
-          "matching",
-          "merge"
-        ]
+        "roles": ["analysis", "matching", "merge"]
       }
     ],
     "families": {
       "yaml": [
         {
           "role": "analysis",
-          "path": [
-            "yaml",
-            "slice-97-structure",
-            "mapping-and-sequence.json"
-          ]
+          "path": ["yaml", "slice-97-structure", "mapping-and-sequence.json"]
         },
         {
           "role": "matching",
-          "path": [
-            "yaml",
-            "slice-98-matching",
-            "path-equality.json"
-          ]
+          "path": ["yaml", "slice-98-matching", "path-equality.json"]
         },
         {
           "role": "merge",
-          "path": [
-            "yaml",
-            "slice-99-merge",
-            "mapping-merge.json"
-          ]
+          "path": ["yaml", "slice-99-merge", "mapping-merge.json"]
         }
       ]
     }
@@ -57,9 +41,7 @@
     "yaml": {
       "family_profile": {
         "family": "yaml",
-        "supported_dialects": [
-          "yaml"
-        ],
+        "supported_dialects": ["yaml"],
         "supported_policies": [
           {
             "surface": "array",
@@ -68,8 +50,8 @@
         ]
       },
       "feature_profile": {
-        "backend": "js-yaml",
-        "supports_dialects": true,
+        "backend": "kreuzberg-language-pack",
+        "supports_dialects": false,
         "supported_policies": [
           {
             "surface": "array",
@@ -86,11 +68,7 @@
         "subject": {
           "grammar": "yaml"
         },
-        "roles": [
-          "analysis",
-          "matching",
-          "merge"
-        ]
+        "roles": ["analysis", "matching", "merge"]
       },
       "plan": {
         "family": "yaml",
@@ -101,11 +79,7 @@
               "role": "analysis",
               "case": "analysis"
             },
-            "path": [
-              "yaml",
-              "slice-97-structure",
-              "mapping-and-sequence.json"
-            ],
+            "path": ["yaml", "slice-97-structure", "mapping-and-sequence.json"],
             "run": {
               "ref": {
                 "family": "yaml",
@@ -115,9 +89,7 @@
               "requirements": {},
               "family_profile": {
                 "family": "yaml",
-                "supported_dialects": [
-                  "yaml"
-                ],
+                "supported_dialects": ["yaml"],
                 "supported_policies": [
                   {
                     "surface": "array",
@@ -126,8 +98,8 @@
                 ]
               },
               "feature_profile": {
-                "backend": "js-yaml",
-                "supports_dialects": true,
+                "backend": "kreuzberg-language-pack",
+                "supports_dialects": false,
                 "supported_policies": [
                   {
                     "surface": "array",
@@ -143,11 +115,7 @@
               "role": "matching",
               "case": "matching"
             },
-            "path": [
-              "yaml",
-              "slice-98-matching",
-              "path-equality.json"
-            ],
+            "path": ["yaml", "slice-98-matching", "path-equality.json"],
             "run": {
               "ref": {
                 "family": "yaml",
@@ -157,9 +125,7 @@
               "requirements": {},
               "family_profile": {
                 "family": "yaml",
-                "supported_dialects": [
-                  "yaml"
-                ],
+                "supported_dialects": ["yaml"],
                 "supported_policies": [
                   {
                     "surface": "array",
@@ -168,8 +134,8 @@
                 ]
               },
               "feature_profile": {
-                "backend": "js-yaml",
-                "supports_dialects": true,
+                "backend": "kreuzberg-language-pack",
+                "supports_dialects": false,
                 "supported_policies": [
                   {
                     "surface": "array",
@@ -185,11 +151,7 @@
               "role": "merge",
               "case": "merge"
             },
-            "path": [
-              "yaml",
-              "slice-99-merge",
-              "mapping-merge.json"
-            ],
+            "path": ["yaml", "slice-99-merge", "mapping-merge.json"],
             "run": {
               "ref": {
                 "family": "yaml",
@@ -199,9 +161,7 @@
               "requirements": {},
               "family_profile": {
                 "family": "yaml",
-                "supported_dialects": [
-                  "yaml"
-                ],
+                "supported_dialects": ["yaml"],
                 "supported_policies": [
                   {
                     "surface": "array",
@@ -210,8 +170,8 @@
                 ]
               },
               "feature_profile": {
-                "backend": "js-yaml",
-                "supports_dialects": true,
+                "backend": "kreuzberg-language-pack",
+                "supports_dialects": false,
                 "supported_policies": [
                   {
                     "surface": "array",

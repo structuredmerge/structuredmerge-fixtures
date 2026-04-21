@@ -12,7 +12,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "citrus"
+        "backend": "citrus",
+        "backend_ref": {
+          "id": "citrus",
+          "family": "peg"
+        }
       }
     },
     "parslet": {
@@ -27,7 +31,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "parslet"
+        "backend": "parslet",
+        "backend_ref": {
+          "id": "parslet",
+          "family": "peg"
+        }
       }
     }
   }

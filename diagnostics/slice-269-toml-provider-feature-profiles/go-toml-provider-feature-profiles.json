@@ -12,7 +12,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "pigeon"
+        "backend": "pigeon",
+        "backend_ref": {
+          "id": "pigeon",
+          "family": "peg"
+        }
       }
     }
   }

@@ -10,7 +10,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "prism"
+        "backend": "prism",
+        "backend_ref": {
+          "id": "prism",
+          "family": "native"
+        }
       }
     }
   }

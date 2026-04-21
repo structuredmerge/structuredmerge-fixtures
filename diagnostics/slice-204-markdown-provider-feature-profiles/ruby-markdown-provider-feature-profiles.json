@@ -7,7 +7,11 @@
         "family": "markdown",
         "supported_dialects": ["markdown"],
         "supported_policies": [],
-        "backend": "kramdown"
+        "backend": "kramdown",
+        "backend_ref": {
+          "id": "kramdown",
+          "family": "native"
+        }
       }
     },
     "commonmarker": {
@@ -17,7 +21,11 @@
         "family": "markdown",
         "supported_dialects": ["markdown"],
         "supported_policies": [],
-        "backend": "commonmarker"
+        "backend": "commonmarker",
+        "backend_ref": {
+          "id": "commonmarker",
+          "family": "native"
+        }
       }
     },
     "markly": {
@@ -27,7 +35,11 @@
         "family": "markdown",
         "supported_dialects": ["markdown"],
         "supported_policies": [],
-        "backend": "markly"
+        "backend": "markly",
+        "backend_ref": {
+          "id": "markly",
+          "family": "native"
+        }
       }
     }
   }

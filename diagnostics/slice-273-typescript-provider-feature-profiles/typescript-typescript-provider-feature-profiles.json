@@ -12,7 +12,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "typescript-compiler"
+        "backend": "typescript-compiler",
+        "backendRef": {
+          "id": "typescript-compiler",
+          "family": "native"
+        }
       }
     }
   }

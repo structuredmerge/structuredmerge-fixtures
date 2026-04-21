@@ -12,7 +12,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "pest"
+        "backend": "pest",
+        "backend_ref": {
+          "id": "pest",
+          "family": "peg"
+        }
       }
     }
   }

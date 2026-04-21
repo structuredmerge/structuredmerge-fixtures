@@ -12,7 +12,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "goccy-go-yaml"
+        "backend": "goccy-go-yaml",
+        "backend_ref": {
+          "id": "goccy-go-yaml",
+          "family": "native"
+        }
       }
     }
   }

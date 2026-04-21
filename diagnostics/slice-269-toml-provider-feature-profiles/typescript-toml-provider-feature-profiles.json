@@ -12,7 +12,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "peggy"
+        "backend": "peggy",
+        "backendRef": {
+          "id": "peggy",
+          "family": "peg"
+        }
       }
     }
   }

@@ -7,7 +7,11 @@
         "family": "markdown",
         "supported_dialects": ["markdown"],
         "supported_policies": [],
-        "backend": "goldmark"
+        "backend": "goldmark",
+        "backend_ref": {
+          "id": "goldmark",
+          "family": "native"
+        }
       }
     }
   }

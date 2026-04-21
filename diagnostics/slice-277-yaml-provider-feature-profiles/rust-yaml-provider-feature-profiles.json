@@ -12,7 +12,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "yaml_serde"
+        "backend": "yaml_serde",
+        "backend_ref": {
+          "id": "yaml_serde",
+          "family": "native"
+        }
       }
     }
   }

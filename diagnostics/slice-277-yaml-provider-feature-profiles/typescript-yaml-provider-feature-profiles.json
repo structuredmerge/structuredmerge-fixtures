@@ -12,7 +12,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "js-yaml"
+        "backend": "js-yaml",
+        "backendRef": {
+          "id": "js-yaml",
+          "family": "native"
+        }
       }
     }
   }

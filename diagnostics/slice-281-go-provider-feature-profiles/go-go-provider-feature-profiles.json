@@ -12,7 +12,11 @@
             "name": "destination_wins_array"
           }
         ],
-        "backend": "go-parser"
+        "backend": "go-parser",
+        "backend_ref": {
+          "id": "go-parser",
+          "family": "native"
+        }
       }
     }
   }

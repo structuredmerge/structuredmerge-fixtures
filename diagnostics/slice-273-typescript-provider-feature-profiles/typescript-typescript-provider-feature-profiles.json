@@ -1,0 +1,19 @@
+{
+  "providers": {
+    "typescript_compiler": {
+      "package": "@structuredmerge/typescript-compiler-merge",
+      "backend": "typescript-compiler",
+      "feature_profile": {
+        "family": "typescript",
+        "supported_dialects": ["typescript"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "typescript-compiler"
+      }
+    }
+  }
+}

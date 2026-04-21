@@ -1,4 +1,4 @@
 {
   "family": "typescript",
-  "backends": ["tree-sitter", "native"]
+  "backends": ["kreuzberg-language-pack"]
 }

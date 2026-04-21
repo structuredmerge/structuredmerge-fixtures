@@ -1,0 +1,142 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "typescript",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-101-typescript-family-feature-profile",
+          "typescript-feature-profile.json"
+        ]
+      }
+    ],
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "typescript"
+        },
+        "roles": ["analysis", "matching", "merge"]
+      }
+    ],
+    "families": {
+      "typescript": [
+        {
+          "role": "analysis",
+          "path": ["typescript", "slice-102-analysis", "module-owners.json"]
+        },
+        {
+          "role": "matching",
+          "path": ["typescript", "slice-103-matching", "path-equality.json"]
+        },
+        {
+          "role": "merge",
+          "path": ["typescript", "slice-104-merge", "module-merge.json"]
+        }
+      ]
+    }
+  },
+  "options": {
+    "typescript_compiler": {
+      "contexts": {
+        "typescript": {
+          "family_profile": {
+            "family": "typescript",
+            "supported_dialects": ["typescript"],
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              }
+            ]
+          },
+          "feature_profile": {
+            "backend": "typescript-compiler",
+            "supports_dialects": true,
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "executions": {
+    "typescript_compiler": {
+      "typescript:analysis:analysis": {
+        "outcome": "passed",
+        "messages": []
+      },
+      "typescript:matching:matching": {
+        "outcome": "passed",
+        "messages": []
+      },
+      "typescript:merge:merge": {
+        "outcome": "passed",
+        "messages": []
+      }
+    }
+  },
+  "expected_reports": {
+    "typescript_compiler": {
+      "entries": [
+        {
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "typescript"
+            },
+            "roles": ["analysis", "matching", "merge"]
+          },
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0
+      }
+    }
+  }
+}

@@ -1,12 +1,52 @@
 {
-  "suite_names": [
-    "go_portable",
-    "json_portable",
-    "ruby_portable",
-    "rust_portable",
-    "text_portable",
-    "toml_portable",
-    "typescript_portable",
-    "yaml_portable"
+  "suite_selectors": [
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "go"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "json"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "ruby"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "rust"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "text"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "toml"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "typescript"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "yaml"
+      }
+    }
   ]
 }

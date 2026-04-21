@@ -11,17 +11,45 @@
         ]
       }
     ],
-    "suites": {
-      "toml_portable": {
-        "family": "toml",
-        "roles": ["analysis", "matching", "merge"]
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
       }
-    },
+    ],
     "families": {
       "toml": [
-        { "role": "analysis", "path": ["toml", "slice-92-structure", "table-and-array.json"] },
-        { "role": "matching", "path": ["toml", "slice-93-matching", "path-equality.json"] },
-        { "role": "merge", "path": ["toml", "slice-94-merge", "table-merge.json"] }
+        {
+          "role": "analysis",
+          "path": [
+            "toml",
+            "slice-92-structure",
+            "table-and-array.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "toml",
+            "slice-93-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "toml",
+            "slice-94-merge",
+            "table-merge.json"
+          ]
+        }
       ]
     }
   },
@@ -29,73 +57,167 @@
     "toml": {
       "family_profile": {
         "family": "toml",
-        "supported_dialects": ["toml"],
-        "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+        "supported_dialects": [
+          "toml"
+        ],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
       },
       "feature_profile": {
         "backend": "peggy",
         "supports_dialects": false,
-        "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ]
       }
     }
   },
   "expected_entries": [
     {
-      "suite": "toml_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "toml",
         "entries": [
           {
-            "ref": { "family": "toml", "role": "analysis", "case": "analysis" },
-            "path": ["toml", "slice-92-structure", "table-and-array.json"],
+            "ref": {
+              "family": "toml",
+              "role": "analysis",
+              "case": "analysis"
+            },
+            "path": [
+              "toml",
+              "slice-92-structure",
+              "table-and-array.json"
+            ],
             "run": {
-              "ref": { "family": "toml", "role": "analysis", "case": "analysis" },
+              "ref": {
+                "family": "toml",
+                "role": "analysis",
+                "case": "analysis"
+              },
               "requirements": {},
               "family_profile": {
                 "family": "toml",
-                "supported_dialects": ["toml"],
-                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+                "supported_dialects": [
+                  "toml"
+                ],
+                "supported_policies": [
+                  {
+                    "surface": "array",
+                    "name": "destination_wins_array"
+                  }
+                ]
               },
               "feature_profile": {
                 "backend": "peggy",
                 "supports_dialects": false,
-                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+                "supported_policies": [
+                  {
+                    "surface": "array",
+                    "name": "destination_wins_array"
+                  }
+                ]
               }
             }
           },
           {
-            "ref": { "family": "toml", "role": "matching", "case": "matching" },
-            "path": ["toml", "slice-93-matching", "path-equality.json"],
+            "ref": {
+              "family": "toml",
+              "role": "matching",
+              "case": "matching"
+            },
+            "path": [
+              "toml",
+              "slice-93-matching",
+              "path-equality.json"
+            ],
             "run": {
-              "ref": { "family": "toml", "role": "matching", "case": "matching" },
+              "ref": {
+                "family": "toml",
+                "role": "matching",
+                "case": "matching"
+              },
               "requirements": {},
               "family_profile": {
                 "family": "toml",
-                "supported_dialects": ["toml"],
-                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+                "supported_dialects": [
+                  "toml"
+                ],
+                "supported_policies": [
+                  {
+                    "surface": "array",
+                    "name": "destination_wins_array"
+                  }
+                ]
               },
               "feature_profile": {
                 "backend": "peggy",
                 "supports_dialects": false,
-                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+                "supported_policies": [
+                  {
+                    "surface": "array",
+                    "name": "destination_wins_array"
+                  }
+                ]
               }
             }
           },
           {
-            "ref": { "family": "toml", "role": "merge", "case": "merge" },
-            "path": ["toml", "slice-94-merge", "table-merge.json"],
+            "ref": {
+              "family": "toml",
+              "role": "merge",
+              "case": "merge"
+            },
+            "path": [
+              "toml",
+              "slice-94-merge",
+              "table-merge.json"
+            ],
             "run": {
-              "ref": { "family": "toml", "role": "merge", "case": "merge" },
+              "ref": {
+                "family": "toml",
+                "role": "merge",
+                "case": "merge"
+              },
               "requirements": {},
               "family_profile": {
                 "family": "toml",
-                "supported_dialects": ["toml"],
-                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+                "supported_dialects": [
+                  "toml"
+                ],
+                "supported_policies": [
+                  {
+                    "surface": "array",
+                    "name": "destination_wins_array"
+                  }
+                ]
               },
               "feature_profile": {
                 "backend": "peggy",
                 "supports_dialects": false,
-                "supported_policies": [{ "surface": "array", "name": "destination_wins_array" }]
+                "supported_policies": [
+                  {
+                    "surface": "array",
+                    "name": "destination_wins_array"
+                  }
+                ]
               }
             }
           }

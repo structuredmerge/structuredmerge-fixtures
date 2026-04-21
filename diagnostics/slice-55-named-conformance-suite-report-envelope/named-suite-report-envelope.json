@@ -1,7 +1,19 @@
 {
   "entries": [
     {
-      "suite": "json_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
+        "roles": [
+          "parse_comments",
+          "structure_json",
+          "matching",
+          "merge_object",
+          "tree_sitter_adapter"
+        ]
+      },
       "report": {
         "results": [
           {
@@ -63,7 +75,18 @@
       }
     },
     {
-      "suite": "text_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
+        "roles": [
+          "analysis",
+          "similarity",
+          "matching_exact",
+          "merge_refined"
+        ]
+      },
       "report": {
         "results": [
           {
@@ -115,7 +138,19 @@
   "expected_report": {
     "entries": [
       {
-        "suite": "json_portable",
+        "suite": {
+          "kind": "portable",
+          "subject": {
+            "grammar": "json"
+          },
+          "roles": [
+            "parse_comments",
+            "structure_json",
+            "matching",
+            "merge_object",
+            "tree_sitter_adapter"
+          ]
+        },
         "report": {
           "results": [
             {
@@ -177,7 +212,18 @@
         }
       },
       {
-        "suite": "text_portable",
+        "suite": {
+          "kind": "portable",
+          "subject": {
+            "grammar": "text"
+          },
+          "roles": [
+            "analysis",
+            "similarity",
+            "matching_exact",
+            "merge_refined"
+          ]
+        },
         "report": {
           "results": [
             {

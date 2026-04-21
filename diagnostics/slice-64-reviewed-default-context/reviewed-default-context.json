@@ -1,20 +1,26 @@
 {
   "manifest": {
     "family_feature_profiles": [],
-    "suites": {
-      "json_portable": {
-        "family": "json",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
         "roles": [
           "structure_json"
         ]
       },
-      "text_portable": {
-        "family": "text",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
         "roles": [
           "analysis"
         ]
       }
-    },
+    ],
     "families": {
       "json": [
         {
@@ -110,7 +116,15 @@
     "report": {
       "entries": [
         {
-          "suite": "json_portable",
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "json"
+            },
+            "roles": [
+              "structure_json"
+            ]
+          },
           "report": {
             "results": [
               {
@@ -132,7 +146,15 @@
           }
         },
         {
-          "suite": "text_portable",
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "text"
+            },
+            "roles": [
+              "analysis"
+            ]
+          },
           "report": {
             "results": [
               {

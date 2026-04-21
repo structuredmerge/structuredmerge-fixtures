@@ -1,4 +1,4 @@
 # Slice 47 Fixture
 
-This fixture defines the named-suite report entry envelope that preserves the
-suite name alongside its report.
+This fixture defines the suite-descriptor report entry envelope that preserves
+the full suite descriptor alongside its report.

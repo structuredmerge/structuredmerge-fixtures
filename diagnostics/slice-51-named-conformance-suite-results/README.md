@@ -1,4 +1,4 @@
 # Slice 51 Fixture
 
-This fixture defines the named-suite results envelope that preserves the suite
-name alongside execution results.
+This fixture defines the suite-descriptor results envelope that preserves the
+full suite descriptor alongside execution results.

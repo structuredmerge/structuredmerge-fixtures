@@ -1,4 +1,4 @@
 # Slice 52 Fixture
 
-This fixture defines aggregate named-suite execution results over stable
+This fixture defines aggregate suite-descriptor execution results over stable
 manifest-declared plans.

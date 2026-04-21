@@ -29,32 +29,41 @@
         ]
       }
     ],
-    "suites": {
-      "go_portable": {
-        "family": "go",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "go"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "rust_portable": {
-        "family": "rust",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "rust"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "typescript_portable": {
-        "family": "typescript",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "typescript"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       }
-    },
+    ],
     "families": {
       "typescript": [
         {
@@ -212,7 +221,17 @@
   },
   "expected_entries": [
     {
-      "suite": "go_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "go"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "go",
         "entries": [
@@ -347,7 +366,17 @@
       }
     },
     {
-      "suite": "rust_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "rust"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "rust",
         "entries": [
@@ -482,7 +511,17 @@
       }
     },
     {
-      "suite": "typescript_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "typescript"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "typescript",
         "entries": [

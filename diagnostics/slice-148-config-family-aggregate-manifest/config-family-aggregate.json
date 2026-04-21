@@ -38,9 +38,12 @@
         ]
       }
     ],
-    "suites": {
-      "json_portable": {
-        "family": "json",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
         "roles": [
           "parse_comments",
           "structure_json",
@@ -49,8 +52,11 @@
           "tree_sitter_adapter"
         ]
       },
-      "text_portable": {
-        "family": "text",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
         "roles": [
           "analysis",
           "similarity",
@@ -58,23 +64,29 @@
           "merge_refined"
         ]
       },
-      "toml_portable": {
-        "family": "toml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "yaml_portable": {
-        "family": "yaml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "yaml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       }
-    },
+    ],
     "families": {
       "json": [
         {
@@ -209,15 +221,38 @@
       ]
     }
   },
-  "suite_names": [
-    "json_portable",
-    "text_portable",
-    "toml_portable",
-    "yaml_portable"
+  "suite_selectors": [
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "json"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "text"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "toml"
+      }
+    },
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "yaml"
+      }
+    }
   ],
-  "definitions": {
-    "json_portable": {
-      "family": "json",
+  "suite_definitions": [
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "json"
+      },
       "roles": [
         "parse_comments",
         "structure_json",
@@ -226,8 +261,11 @@
         "tree_sitter_adapter"
       ]
     },
-    "text_portable": {
-      "family": "text",
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "text"
+      },
       "roles": [
         "analysis",
         "similarity",
@@ -235,21 +273,27 @@
         "merge_refined"
       ]
     },
-    "toml_portable": {
-      "family": "toml",
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "toml"
+      },
       "roles": [
         "analysis",
         "matching",
         "merge"
       ]
     },
-    "yaml_portable": {
-      "family": "yaml",
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "yaml"
+      },
       "roles": [
         "analysis",
         "matching",
         "merge"
       ]
     }
-  }
+  ]
 }

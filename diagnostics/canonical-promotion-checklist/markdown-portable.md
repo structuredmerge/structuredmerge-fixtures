@@ -1,7 +1,7 @@
 # Markdown Portable Promotion Checklist
 
 Suite:
-`markdown_portable`
+`{kind: "portable", subject: {grammar: "markdown"}}`
 
 Target canonical set:
 Blocked pending provider-policy resolution. No canonical target set should be
@@ -26,12 +26,12 @@ identity surface before imported decisions can be unambiguous.
 Manifest or fixture membership changes:
 Expected after provider policy is resolved:
 
-- add `markdown_portable` to the chosen canonical suite set,
+- add the base Markdown portable descriptor to the chosen canonical suite set,
 - add canonical plan/report/review/default/replay fixture coverage for
   Markdown,
 - keep nested Markdown blocked until base-family promotion lands first
 
 Notes:
 
-- Markdown already has a portable family contract and named suite surface.
+- Markdown already has a portable family contract and suite-descriptor surface.
 - The remaining blocker is canonical provider policy.

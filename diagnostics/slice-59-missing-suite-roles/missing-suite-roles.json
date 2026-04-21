@@ -1,15 +1,9 @@
 {
   "manifest": {
     "family_feature_profiles": [],
-    "suites": {
-      "broken_text": {
-        "family": "text",
-        "roles": [
-          "analysis",
-          "missing_role"
-        ]
-      }
-    },
+    "suite_descriptors": [
+      "broken_text"
+    ],
     "families": {
       "text": [
         {

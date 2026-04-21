@@ -1,7 +1,7 @@
 # Ruby Portable Promotion Checklist
 
 Suite:
-`ruby_portable`
+`{kind: "portable", subject: {grammar: "ruby"}}`
 
 Target canonical set:
 Completed: canonical widened suite set.
@@ -11,8 +11,9 @@ Resolved for the base suite. Ruby now uses the ordinary canonical widened
 family-context review-request surface.
 
 Reviewed-default context behavior:
-Resolved for the base suite. `ruby_portable` now behaves like the other
-canonical widened source families when explicit Ruby family context is absent.
+Resolved for the base suite. The base Ruby portable descriptor now behaves like
+the other canonical widened source families when explicit Ruby family context
+is absent.
 
 Replay-compatibility behavior:
 Resolved for the base suite through the ordinary widened canonical replay
@@ -21,7 +22,8 @@ surface.
 Manifest or fixture membership changes:
 Completed:
 
-- add `ruby_portable` to the canonical widened suite definitions,
+- add the base Ruby portable descriptor to the canonical widened suite
+  definitions,
 - add canonical widened plan/report/review/default/replay fixture coverage for
   Ruby,
 - keep nested delegated Ruby roles outside canonical membership for now

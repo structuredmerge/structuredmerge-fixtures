@@ -4,19 +4,43 @@
       {
         "family": "markdown",
         "role": "family_profile",
-        "path": ["diagnostics", "slice-194-markdown-family-feature-profile", "markdown-feature-profile.json"]
+        "path": [
+          "diagnostics",
+          "slice-194-markdown-family-feature-profile",
+          "markdown-feature-profile.json"
+        ]
       }
     ],
-    "suites": {
-      "markdown_portable": {
-        "family": "markdown",
-        "roles": ["analysis", "matching"]
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "markdown"
+        },
+        "roles": [
+          "analysis",
+          "matching"
+        ]
       }
-    },
+    ],
     "families": {
       "markdown": [
-        { "role": "analysis", "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"] },
-        { "role": "matching", "path": ["markdown", "slice-199-matching", "path-equality.json"] }
+        {
+          "role": "analysis",
+          "path": [
+            "markdown",
+            "slice-198-analysis",
+            "headings-and-code-fences.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "markdown",
+            "slice-199-matching",
+            "path-equality.json"
+          ]
+        }
       ]
     }
   },
@@ -25,7 +49,9 @@
       "markdown": {
         "family_profile": {
           "family": "markdown",
-          "supported_dialects": ["markdown"],
+          "supported_dialects": [
+            "markdown"
+          ],
           "supported_policies": []
         },
         "feature_profile": {
@@ -39,7 +65,9 @@
       "markdown": {
         "family_profile": {
           "family": "markdown",
-          "supported_dialects": ["markdown"],
+          "supported_dialects": [
+            "markdown"
+          ],
           "supported_policies": []
         },
         "feature_profile": {
@@ -53,7 +81,9 @@
       "markdown": {
         "family_profile": {
           "family": "markdown",
-          "supported_dialects": ["markdown"],
+          "supported_dialects": [
+            "markdown"
+          ],
           "supported_policies": []
         },
         "feature_profile": {
@@ -67,19 +97,42 @@
   "expected_entries": {
     "kramdown": [
       {
-        "suite": "markdown_portable",
+        "suite": {
+          "kind": "portable",
+          "subject": {
+            "grammar": "markdown"
+          },
+          "roles": [
+            "analysis",
+            "matching"
+          ]
+        },
         "plan": {
           "family": "markdown",
           "entries": [
             {
-              "ref": { "family": "markdown", "role": "analysis", "case": "analysis" },
-              "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"],
+              "ref": {
+                "family": "markdown",
+                "role": "analysis",
+                "case": "analysis"
+              },
+              "path": [
+                "markdown",
+                "slice-198-analysis",
+                "headings-and-code-fences.json"
+              ],
               "run": {
-                "ref": { "family": "markdown", "role": "analysis", "case": "analysis" },
+                "ref": {
+                  "family": "markdown",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
                 "requirements": {},
                 "family_profile": {
                   "family": "markdown",
-                  "supported_dialects": ["markdown"],
+                  "supported_dialects": [
+                    "markdown"
+                  ],
                   "supported_policies": []
                 },
                 "feature_profile": {
@@ -90,14 +143,28 @@
               }
             },
             {
-              "ref": { "family": "markdown", "role": "matching", "case": "matching" },
-              "path": ["markdown", "slice-199-matching", "path-equality.json"],
+              "ref": {
+                "family": "markdown",
+                "role": "matching",
+                "case": "matching"
+              },
+              "path": [
+                "markdown",
+                "slice-199-matching",
+                "path-equality.json"
+              ],
               "run": {
-                "ref": { "family": "markdown", "role": "matching", "case": "matching" },
+                "ref": {
+                  "family": "markdown",
+                  "role": "matching",
+                  "case": "matching"
+                },
                 "requirements": {},
                 "family_profile": {
                   "family": "markdown",
-                  "supported_dialects": ["markdown"],
+                  "supported_dialects": [
+                    "markdown"
+                  ],
                   "supported_policies": []
                 },
                 "feature_profile": {
@@ -114,19 +181,42 @@
     ],
     "commonmarker": [
       {
-        "suite": "markdown_portable",
+        "suite": {
+          "kind": "portable",
+          "subject": {
+            "grammar": "markdown"
+          },
+          "roles": [
+            "analysis",
+            "matching"
+          ]
+        },
         "plan": {
           "family": "markdown",
           "entries": [
             {
-              "ref": { "family": "markdown", "role": "analysis", "case": "analysis" },
-              "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"],
+              "ref": {
+                "family": "markdown",
+                "role": "analysis",
+                "case": "analysis"
+              },
+              "path": [
+                "markdown",
+                "slice-198-analysis",
+                "headings-and-code-fences.json"
+              ],
               "run": {
-                "ref": { "family": "markdown", "role": "analysis", "case": "analysis" },
+                "ref": {
+                  "family": "markdown",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
                 "requirements": {},
                 "family_profile": {
                   "family": "markdown",
-                  "supported_dialects": ["markdown"],
+                  "supported_dialects": [
+                    "markdown"
+                  ],
                   "supported_policies": []
                 },
                 "feature_profile": {
@@ -137,14 +227,28 @@
               }
             },
             {
-              "ref": { "family": "markdown", "role": "matching", "case": "matching" },
-              "path": ["markdown", "slice-199-matching", "path-equality.json"],
+              "ref": {
+                "family": "markdown",
+                "role": "matching",
+                "case": "matching"
+              },
+              "path": [
+                "markdown",
+                "slice-199-matching",
+                "path-equality.json"
+              ],
               "run": {
-                "ref": { "family": "markdown", "role": "matching", "case": "matching" },
+                "ref": {
+                  "family": "markdown",
+                  "role": "matching",
+                  "case": "matching"
+                },
                 "requirements": {},
                 "family_profile": {
                   "family": "markdown",
-                  "supported_dialects": ["markdown"],
+                  "supported_dialects": [
+                    "markdown"
+                  ],
                   "supported_policies": []
                 },
                 "feature_profile": {
@@ -161,19 +265,42 @@
     ],
     "markly": [
       {
-        "suite": "markdown_portable",
+        "suite": {
+          "kind": "portable",
+          "subject": {
+            "grammar": "markdown"
+          },
+          "roles": [
+            "analysis",
+            "matching"
+          ]
+        },
         "plan": {
           "family": "markdown",
           "entries": [
             {
-              "ref": { "family": "markdown", "role": "analysis", "case": "analysis" },
-              "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"],
+              "ref": {
+                "family": "markdown",
+                "role": "analysis",
+                "case": "analysis"
+              },
+              "path": [
+                "markdown",
+                "slice-198-analysis",
+                "headings-and-code-fences.json"
+              ],
               "run": {
-                "ref": { "family": "markdown", "role": "analysis", "case": "analysis" },
+                "ref": {
+                  "family": "markdown",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
                 "requirements": {},
                 "family_profile": {
                   "family": "markdown",
-                  "supported_dialects": ["markdown"],
+                  "supported_dialects": [
+                    "markdown"
+                  ],
                   "supported_policies": []
                 },
                 "feature_profile": {
@@ -184,14 +311,28 @@
               }
             },
             {
-              "ref": { "family": "markdown", "role": "matching", "case": "matching" },
-              "path": ["markdown", "slice-199-matching", "path-equality.json"],
+              "ref": {
+                "family": "markdown",
+                "role": "matching",
+                "case": "matching"
+              },
+              "path": [
+                "markdown",
+                "slice-199-matching",
+                "path-equality.json"
+              ],
               "run": {
-                "ref": { "family": "markdown", "role": "matching", "case": "matching" },
+                "ref": {
+                  "family": "markdown",
+                  "role": "matching",
+                  "case": "matching"
+                },
                 "requirements": {},
                 "family_profile": {
                   "family": "markdown",
-                  "supported_dialects": ["markdown"],
+                  "supported_dialects": [
+                    "markdown"
+                  ],
                   "supported_policies": []
                 },
                 "feature_profile": {

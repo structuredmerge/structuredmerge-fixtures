@@ -1,14 +1,17 @@
 {
   "manifest": {
     "family_feature_profiles": [],
-    "suites": {
-      "text_portable": {
-        "family": "text",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
         "roles": [
           "analysis"
         ]
       }
-    },
+    ],
     "families": {
       "text": [
         {

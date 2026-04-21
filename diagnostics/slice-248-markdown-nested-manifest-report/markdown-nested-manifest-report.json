@@ -4,67 +4,264 @@
       {
         "family": "markdown",
         "role": "family_profile",
-        "path": ["diagnostics", "slice-194-markdown-family-feature-profile", "markdown-feature-profile.json"]
+        "path": [
+          "diagnostics",
+          "slice-194-markdown-family-feature-profile",
+          "markdown-feature-profile.json"
+        ]
       }
     ],
-    "suites": {
-      "markdown_nested_portable": {
-        "family": "markdown",
-        "roles": ["analysis", "matching", "embedded_families", "discovered_surfaces", "delegated_child_operations", "delegated_child_review_transport", "delegated_child_review_state", "delegated_child_apply_plan"]
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "markdown",
+          "variant": "nested"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "embedded_families",
+          "discovered_surfaces",
+          "delegated_child_operations",
+          "delegated_child_review_transport",
+          "delegated_child_review_state",
+          "delegated_child_apply_plan"
+        ]
       }
-    },
+    ],
     "families": {
       "markdown": [
-        { "role": "analysis", "path": ["markdown", "slice-198-analysis", "headings-and-code-fences.json"] },
-        { "role": "matching", "path": ["markdown", "slice-199-matching", "path-equality.json"] },
-        { "role": "embedded_families", "path": ["markdown", "slice-208-embedded-families", "code-fence-families.json"] },
-        { "role": "discovered_surfaces", "path": ["markdown", "slice-212-discovered-surfaces", "fenced-code-surfaces.json"] },
-        { "role": "delegated_child_operations", "path": ["markdown", "slice-213-delegated-child-operations", "fenced-code-child-operations.json"] },
-        { "role": "delegated_child_review_transport", "path": ["markdown", "slice-238-delegated-child-review-transport", "fenced-code-review-transport.json"] },
-        { "role": "delegated_child_review_state", "path": ["markdown", "slice-241-delegated-child-review-state", "fenced-code-review-state.json"] },
-        { "role": "delegated_child_apply_plan", "path": ["markdown", "slice-244-delegated-child-apply-plan", "fenced-code-apply-plan.json"] }
+        {
+          "role": "analysis",
+          "path": [
+            "markdown",
+            "slice-198-analysis",
+            "headings-and-code-fences.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "markdown",
+            "slice-199-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "embedded_families",
+          "path": [
+            "markdown",
+            "slice-208-embedded-families",
+            "code-fence-families.json"
+          ]
+        },
+        {
+          "role": "discovered_surfaces",
+          "path": [
+            "markdown",
+            "slice-212-discovered-surfaces",
+            "fenced-code-surfaces.json"
+          ]
+        },
+        {
+          "role": "delegated_child_operations",
+          "path": [
+            "markdown",
+            "slice-213-delegated-child-operations",
+            "fenced-code-child-operations.json"
+          ]
+        },
+        {
+          "role": "delegated_child_review_transport",
+          "path": [
+            "markdown",
+            "slice-238-delegated-child-review-transport",
+            "fenced-code-review-transport.json"
+          ]
+        },
+        {
+          "role": "delegated_child_review_state",
+          "path": [
+            "markdown",
+            "slice-241-delegated-child-review-state",
+            "fenced-code-review-state.json"
+          ]
+        },
+        {
+          "role": "delegated_child_apply_plan",
+          "path": [
+            "markdown",
+            "slice-244-delegated-child-apply-plan",
+            "fenced-code-apply-plan.json"
+          ]
+        }
       ]
     }
   },
   "options": {
     "contexts": {
       "markdown": {
-        "family_profile": { "family": "markdown", "supported_dialects": ["markdown"], "supported_policies": [] },
-        "feature_profile": { "backend": "markdown-it", "supports_dialects": true, "supported_policies": [] }
+        "family_profile": {
+          "family": "markdown",
+          "supported_dialects": [
+            "markdown"
+          ],
+          "supported_policies": []
+        },
+        "feature_profile": {
+          "backend": "markdown-it",
+          "supports_dialects": true,
+          "supported_policies": []
+        }
       }
     }
   },
   "executions": {
-    "markdown:analysis:analysis": { "outcome": "passed", "messages": [] },
-    "markdown:matching:matching": { "outcome": "passed", "messages": [] },
-    "markdown:embedded_families:embedded_families": { "outcome": "passed", "messages": [] },
-    "markdown:discovered_surfaces:discovered_surfaces": { "outcome": "passed", "messages": [] },
-    "markdown:delegated_child_operations:delegated_child_operations": { "outcome": "passed", "messages": [] },
-    "markdown:delegated_child_review_transport:delegated_child_review_transport": { "outcome": "passed", "messages": [] },
-    "markdown:delegated_child_review_state:delegated_child_review_state": { "outcome": "passed", "messages": [] },
-    "markdown:delegated_child_apply_plan:delegated_child_apply_plan": { "outcome": "passed", "messages": [] }
+    "markdown:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "markdown:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "markdown:embedded_families:embedded_families": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "markdown:discovered_surfaces:discovered_surfaces": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "markdown:delegated_child_operations:delegated_child_operations": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "markdown:delegated_child_review_transport:delegated_child_review_transport": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "markdown:delegated_child_review_state:delegated_child_review_state": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "markdown:delegated_child_apply_plan:delegated_child_apply_plan": {
+      "outcome": "passed",
+      "messages": []
+    }
   },
   "expected_report": {
     "report": {
       "entries": [
         {
-          "suite": "markdown_nested_portable",
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "markdown",
+              "variant": "nested"
+            },
+            "roles": [
+              "analysis",
+              "matching",
+              "embedded_families",
+              "discovered_surfaces",
+              "delegated_child_operations",
+              "delegated_child_review_transport",
+              "delegated_child_review_state",
+              "delegated_child_apply_plan"
+            ]
+          },
           "report": {
             "results": [
-              { "ref": { "family": "markdown", "role": "analysis", "case": "analysis" }, "outcome": "passed", "messages": [] },
-              { "ref": { "family": "markdown", "role": "matching", "case": "matching" }, "outcome": "passed", "messages": [] },
-              { "ref": { "family": "markdown", "role": "embedded_families", "case": "embedded_families" }, "outcome": "passed", "messages": [] },
-              { "ref": { "family": "markdown", "role": "discovered_surfaces", "case": "discovered_surfaces" }, "outcome": "passed", "messages": [] },
-              { "ref": { "family": "markdown", "role": "delegated_child_operations", "case": "delegated_child_operations" }, "outcome": "passed", "messages": [] },
-              { "ref": { "family": "markdown", "role": "delegated_child_review_transport", "case": "delegated_child_review_transport" }, "outcome": "passed", "messages": [] },
-              { "ref": { "family": "markdown", "role": "delegated_child_review_state", "case": "delegated_child_review_state" }, "outcome": "passed", "messages": [] },
-              { "ref": { "family": "markdown", "role": "delegated_child_apply_plan", "case": "delegated_child_apply_plan" }, "outcome": "passed", "messages": [] }
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "embedded_families",
+                  "case": "embedded_families"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "discovered_surfaces",
+                  "case": "discovered_surfaces"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "delegated_child_operations",
+                  "case": "delegated_child_operations"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "delegated_child_review_transport",
+                  "case": "delegated_child_review_transport"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "delegated_child_review_state",
+                  "case": "delegated_child_review_state"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "delegated_child_apply_plan",
+                  "case": "delegated_child_apply_plan"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
             ],
-            "summary": { "total": 8, "passed": 8, "failed": 0, "skipped": 0 }
+            "summary": {
+              "total": 8,
+              "passed": 8,
+              "failed": 0,
+              "skipped": 0
+            }
           }
         }
       ],
-      "summary": { "total": 8, "passed": 8, "failed": 0, "skipped": 0 }
+      "summary": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0
+      }
     },
     "diagnostics": []
   }

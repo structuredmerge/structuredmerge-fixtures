@@ -65,9 +65,12 @@
         ]
       }
     ],
-    "suites": {
-      "json_portable": {
-        "family": "json",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
         "roles": [
           "parse_comments",
           "structure_json",
@@ -76,8 +79,11 @@
           "tree_sitter_adapter"
         ]
       },
-      "text_portable": {
-        "family": "text",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
         "roles": [
           "analysis",
           "similarity",
@@ -85,68 +91,98 @@
           "merge_refined"
         ]
       },
-      "toml_portable": {
-        "family": "toml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "yaml_portable": {
-        "family": "yaml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "yaml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "typescript_portable": {
-        "family": "typescript",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "typescript"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "rust_portable": {
-        "family": "rust",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "rust"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "go_portable": {
-        "family": "go",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "go"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "go_backend_sensitive": {
-        "family": "go",
+      {
+        "kind": "backend_sensitive",
+        "subject": {
+          "grammar": "go"
+        },
         "roles": [
           "analysis",
+          "matching",
+          "merge",
           "native_parity"
         ]
       },
-      "rust_backend_sensitive": {
-        "family": "rust",
+      {
+        "kind": "backend_sensitive",
+        "subject": {
+          "grammar": "rust"
+        },
         "roles": [
           "analysis",
+          "matching",
+          "merge",
           "native_parity"
         ]
       },
-      "typescript_backend_sensitive": {
-        "family": "typescript",
+      {
+        "kind": "backend_sensitive",
+        "subject": {
+          "grammar": "typescript"
+        },
         "roles": [
           "analysis",
+          "matching",
+          "merge",
           "native_parity"
         ]
       }
-    },
+    ],
     "families": {
       "text": [
         {
@@ -1123,7 +1159,16 @@
   },
   "expected_entries": [
     {
-      "suite": "go_backend_sensitive",
+      "suite": {
+        "kind": "backend_sensitive",
+        "subject": {
+          "grammar": "go"
+        },
+        "roles": [
+          "analysis",
+          "native_parity"
+        ]
+      },
       "plan": {
         "family": "go",
         "entries": [
@@ -1218,7 +1263,17 @@
       }
     },
     {
-      "suite": "go_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "go"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "go",
         "entries": [
@@ -1353,7 +1408,19 @@
       }
     },
     {
-      "suite": "json_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
+        "roles": [
+          "parse_comments",
+          "structure_json",
+          "matching",
+          "merge_object",
+          "tree_sitter_adapter"
+        ]
+      },
       "plan": {
         "family": "json",
         "entries": [
@@ -1599,7 +1666,16 @@
       }
     },
     {
-      "suite": "rust_backend_sensitive",
+      "suite": {
+        "kind": "backend_sensitive",
+        "subject": {
+          "grammar": "rust"
+        },
+        "roles": [
+          "analysis",
+          "native_parity"
+        ]
+      },
       "plan": {
         "family": "rust",
         "entries": [
@@ -1694,7 +1770,17 @@
       }
     },
     {
-      "suite": "rust_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "rust"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "rust",
         "entries": [
@@ -1829,7 +1915,17 @@
       }
     },
     {
-      "suite": "toml_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "toml",
         "entries": [
@@ -1964,7 +2060,16 @@
       }
     },
     {
-      "suite": "typescript_backend_sensitive",
+      "suite": {
+        "kind": "backend_sensitive",
+        "subject": {
+          "grammar": "typescript"
+        },
+        "roles": [
+          "analysis",
+          "native_parity"
+        ]
+      },
       "plan": {
         "family": "typescript",
         "entries": [
@@ -2059,7 +2164,17 @@
       }
     },
     {
-      "suite": "typescript_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "typescript"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "typescript",
         "entries": [
@@ -2194,7 +2309,17 @@
       }
     },
     {
-      "suite": "yaml_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "yaml"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "yaml",
         "entries": [

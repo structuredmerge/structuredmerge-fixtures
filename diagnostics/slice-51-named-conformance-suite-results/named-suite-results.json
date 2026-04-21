@@ -1,5 +1,10 @@
 {
-  "suite_name": "json_portable",
+  "suite_selector": {
+    "kind": "portable",
+    "subject": {
+      "grammar": "json"
+    }
+  },
   "family_profile": {
     "family": "json",
     "supported_dialects": [
@@ -42,7 +47,19 @@
     }
   },
   "expected_entry": {
-    "suite": "json_portable",
+    "suite": {
+      "kind": "portable",
+      "subject": {
+        "grammar": "json"
+      },
+      "roles": [
+        "parse_comments",
+        "structure_json",
+        "matching",
+        "merge_object",
+        "tree_sitter_adapter"
+      ]
+    },
     "results": [
       {
         "ref": {

@@ -11,16 +11,19 @@
         ]
       }
     ],
-    "suites": {
-      "yaml_portable": {
-        "family": "yaml",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "yaml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       }
-    },
+    ],
     "families": {
       "yaml": [
         {
@@ -96,7 +99,17 @@
     "report": {
       "entries": [
         {
-          "suite": "yaml_portable",
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "yaml"
+            },
+            "roles": [
+              "analysis",
+              "matching",
+              "merge"
+            ]
+          },
           "report": {
             "results": [
               {

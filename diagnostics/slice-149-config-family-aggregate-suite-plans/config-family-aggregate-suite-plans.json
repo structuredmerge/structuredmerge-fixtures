@@ -38,9 +38,12 @@
         ]
       }
     ],
-    "suites": {
-      "json_portable": {
-        "family": "json",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
         "roles": [
           "parse_comments",
           "structure_json",
@@ -49,8 +52,11 @@
           "tree_sitter_adapter"
         ]
       },
-      "text_portable": {
-        "family": "text",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
         "roles": [
           "analysis",
           "similarity",
@@ -58,23 +64,29 @@
           "merge_refined"
         ]
       },
-      "toml_portable": {
-        "family": "toml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "yaml_portable": {
-        "family": "yaml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "yaml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       }
-    },
+    ],
     "families": {
       "json": [
         {
@@ -299,7 +311,19 @@
   },
   "expected_entries": [
     {
-      "suite": "json_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
+        "roles": [
+          "parse_comments",
+          "structure_json",
+          "matching",
+          "merge_object",
+          "tree_sitter_adapter"
+        ]
+      },
       "plan": {
         "family": "json",
         "entries": [
@@ -545,7 +569,18 @@
       }
     },
     {
-      "suite": "text_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
+        "roles": [
+          "analysis",
+          "similarity",
+          "matching_exact",
+          "merge_refined"
+        ]
+      },
       "plan": {
         "family": "text",
         "entries": [
@@ -662,7 +697,17 @@
       }
     },
     {
-      "suite": "toml_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "toml",
         "entries": [
@@ -797,7 +842,17 @@
       }
     },
     {
-      "suite": "yaml_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "yaml"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "yaml",
         "entries": [

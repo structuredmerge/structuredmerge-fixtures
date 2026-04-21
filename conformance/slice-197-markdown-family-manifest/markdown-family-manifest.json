@@ -10,15 +10,18 @@
       ]
     }
   ],
-  "suites": {
-    "markdown_portable": {
-      "family": "markdown",
+  "suite_descriptors": [
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "markdown"
+      },
       "roles": [
         "analysis",
         "matching"
       ]
     }
-  },
+  ],
   "families": {
     "markdown": [
       {

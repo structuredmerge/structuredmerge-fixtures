@@ -11,16 +11,19 @@
         ]
       }
     ],
-    "suites": {
-      "toml_portable": {
-        "family": "toml",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       }
-    },
+    ],
     "families": {
       "toml": [
         {
@@ -50,17 +53,25 @@
       ]
     }
   },
-  "suite_names": [
-    "toml_portable"
+  "suite_selectors": [
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "toml"
+      }
+    }
   ],
-  "definitions": {
-    "toml_portable": {
-      "family": "toml",
+  "suite_definitions": [
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "toml"
+      },
       "roles": [
         "analysis",
         "matching",
         "merge"
       ]
     }
-  }
+  ]
 }

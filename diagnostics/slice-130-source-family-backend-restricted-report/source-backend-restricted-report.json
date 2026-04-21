@@ -29,29 +29,38 @@
         ]
       }
     ],
-    "suites": {
-      "go_backend_sensitive": {
-        "family": "go",
+    "suite_descriptors": [
+      {
+        "kind": "backend_sensitive",
+        "subject": {
+          "grammar": "go"
+        },
         "roles": [
           "analysis",
           "native_parity"
         ]
       },
-      "rust_backend_sensitive": {
-        "family": "rust",
+      {
+        "kind": "backend_sensitive",
+        "subject": {
+          "grammar": "rust"
+        },
         "roles": [
           "analysis",
           "native_parity"
         ]
       },
-      "typescript_backend_sensitive": {
-        "family": "typescript",
+      {
+        "kind": "backend_sensitive",
+        "subject": {
+          "grammar": "typescript"
+        },
         "roles": [
           "analysis",
           "native_parity"
         ]
       }
-    },
+    ],
     "families": {
       "typescript": [
         {
@@ -212,7 +221,16 @@
     "report": {
       "entries": [
         {
-          "suite": "go_backend_sensitive",
+          "suite": {
+            "kind": "backend_sensitive",
+            "subject": {
+              "grammar": "go"
+            },
+            "roles": [
+              "analysis",
+              "native_parity"
+            ]
+          },
           "report": {
             "results": [
               {
@@ -245,7 +263,16 @@
           }
         },
         {
-          "suite": "rust_backend_sensitive",
+          "suite": {
+            "kind": "backend_sensitive",
+            "subject": {
+              "grammar": "rust"
+            },
+            "roles": [
+              "analysis",
+              "native_parity"
+            ]
+          },
           "report": {
             "results": [
               {
@@ -278,7 +305,16 @@
           }
         },
         {
-          "suite": "typescript_backend_sensitive",
+          "suite": {
+            "kind": "backend_sensitive",
+            "subject": {
+              "grammar": "typescript"
+            },
+            "roles": [
+              "analysis",
+              "native_parity"
+            ]
+          },
           "report": {
             "results": [
               {

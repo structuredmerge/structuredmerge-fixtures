@@ -1,12 +1,12 @@
 # Markdown Nested Suite Promotion Checklist
 
 Suite:
-`markdown_nested_portable` (working name for the delegated nested Markdown
-suite defined by slices 246 to 248)
+`{kind: "portable", subject: {grammar: "markdown", variant: "nested"}}`
+(delegated nested Markdown suite defined by slices 246 to 248)
 
 Target canonical set:
-Blocked pending base-family promotion. `markdown_portable` should enter a
-canonical suite set before this nested suite is reconsidered.
+Blocked pending base-family promotion. The base Markdown portable descriptor
+should enter a canonical suite set before this nested suite is reconsidered.
 
 Canonical review-request identity surface:
 Unresolved. A promotion slice would need to define whether canonical review
@@ -36,6 +36,7 @@ Unresolved. Promotion would require:
 Notes:
 
 - Portable delegated-child shapes are already available.
-- The next concrete prerequisite is canonical promotion of `markdown_portable`.
+- The next concrete prerequisite is canonical promotion of the base Markdown
+  portable descriptor.
 - Current policy is to keep this suite family-scoped until canonical
   review/default/replay semantics are shared explicitly.

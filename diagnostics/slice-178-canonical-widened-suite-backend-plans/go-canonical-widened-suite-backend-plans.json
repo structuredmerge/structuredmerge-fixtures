@@ -74,9 +74,12 @@
         ]
       }
     ],
-    "suites": {
-      "json_portable": {
-        "family": "json",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
         "roles": [
           "parse_comments",
           "structure_json",
@@ -85,8 +88,11 @@
           "tree_sitter_adapter"
         ]
       },
-      "text_portable": {
-        "family": "text",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
         "roles": [
           "analysis",
           "similarity",
@@ -94,48 +100,66 @@
           "merge_refined"
         ]
       },
-      "toml_portable": {
-        "family": "toml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "yaml_portable": {
-        "family": "yaml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "yaml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "typescript_portable": {
-        "family": "typescript",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "typescript"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "rust_portable": {
-        "family": "rust",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "rust"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "go_portable": {
-        "family": "go",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "go"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "ruby_portable": {
-        "family": "ruby",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "ruby"
+        },
         "roles": [
           "analysis",
           "matching",
@@ -143,8 +167,12 @@
           "delegated_child_operations"
         ]
       },
-      "ruby_nested_portable": {
-        "family": "ruby",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "ruby",
+          "variant": "nested"
+        },
         "roles": [
           "analysis",
           "matching",
@@ -155,7 +183,7 @@
           "delegated_child_apply_plan"
         ]
       }
-    },
+    ],
     "families": {
       "text": [
         {
@@ -1181,7 +1209,17 @@
   },
   "expected_entries": [
     {
-      "suite": "go_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "go"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "go",
         "entries": [
@@ -1316,7 +1354,19 @@
       }
     },
     {
-      "suite": "json_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
+        "roles": [
+          "parse_comments",
+          "structure_json",
+          "matching",
+          "merge_object",
+          "tree_sitter_adapter"
+        ]
+      },
       "plan": {
         "family": "json",
         "entries": [
@@ -1562,7 +1612,22 @@
       }
     },
     {
-      "suite": "ruby_nested_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "ruby",
+          "variant": "nested"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "discovered_surfaces",
+          "delegated_child_operations",
+          "delegated_child_review_transport",
+          "delegated_child_review_state",
+          "delegated_child_apply_plan"
+        ]
+      },
       "plan": {
         "family": "ruby",
         "entries": [
@@ -1865,7 +1930,18 @@
       }
     },
     {
-      "suite": "ruby_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "ruby"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "discovered_surfaces",
+          "delegated_child_operations"
+        ]
+      },
       "plan": {
         "family": "ruby",
         "entries": [
@@ -2042,7 +2118,17 @@
       }
     },
     {
-      "suite": "rust_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "rust"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "rust",
         "entries": [
@@ -2177,7 +2263,17 @@
       }
     },
     {
-      "suite": "toml_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "toml",
         "entries": [
@@ -2312,7 +2408,17 @@
       }
     },
     {
-      "suite": "typescript_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "typescript"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "typescript",
         "entries": [
@@ -2447,7 +2553,17 @@
       }
     },
     {
-      "suite": "yaml_portable",
+      "suite": {
+        "kind": "portable",
+        "subject": {
+          "grammar": "yaml"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      },
       "plan": {
         "family": "yaml",
         "entries": [

@@ -1,5 +1,10 @@
 {
-  "suite_name": "json_portable",
+  "suite_selector": {
+    "kind": "portable",
+    "subject": {
+      "grammar": "json"
+    }
+  },
   "expected": {
     "family": "json",
     "roles": [

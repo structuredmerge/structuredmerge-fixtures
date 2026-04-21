@@ -11,15 +11,18 @@
         ]
       }
     ],
-    "suites": {
-      "markdown_portable": {
-        "family": "markdown",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "markdown"
+        },
         "roles": [
           "analysis",
           "matching"
         ]
       }
-    },
+    ],
     "families": {
       "markdown": [
         {
@@ -41,16 +44,24 @@
       ]
     }
   },
-  "suite_names": [
-    "markdown_portable"
+  "suite_selectors": [
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "markdown"
+      }
+    }
   ],
-  "definitions": {
-    "markdown_portable": {
-      "family": "markdown",
+  "suite_definitions": [
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "markdown"
+      },
       "roles": [
         "analysis",
         "matching"
       ]
     }
-  }
+  ]
 }

@@ -74,9 +74,12 @@
         ]
       }
     ],
-    "suites": {
-      "json_portable": {
-        "family": "json",
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "json"
+        },
         "roles": [
           "parse_comments",
           "structure_json",
@@ -85,8 +88,11 @@
           "tree_sitter_adapter"
         ]
       },
-      "text_portable": {
-        "family": "text",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
         "roles": [
           "analysis",
           "similarity",
@@ -94,48 +100,66 @@
           "merge_refined"
         ]
       },
-      "toml_portable": {
-        "family": "toml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "yaml_portable": {
-        "family": "yaml",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "yaml"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "typescript_portable": {
-        "family": "typescript",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "typescript"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "rust_portable": {
-        "family": "rust",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "rust"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "go_portable": {
-        "family": "go",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "go"
+        },
         "roles": [
           "analysis",
           "matching",
           "merge"
         ]
       },
-      "ruby_portable": {
-        "family": "ruby",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "ruby"
+        },
         "roles": [
           "analysis",
           "matching",
@@ -143,8 +167,12 @@
           "delegated_child_operations"
         ]
       },
-      "ruby_nested_portable": {
-        "family": "ruby",
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "ruby",
+          "variant": "nested"
+        },
         "roles": [
           "analysis",
           "matching",
@@ -155,7 +183,7 @@
           "delegated_child_apply_plan"
         ]
       }
-    },
+    ],
     "families": {
       "text": [
         {
@@ -1308,7 +1336,19 @@
     "report": {
       "entries": [
         {
-          "suite": "json_portable",
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "json"
+            },
+            "roles": [
+              "parse_comments",
+              "structure_json",
+              "matching",
+              "merge_object",
+              "tree_sitter_adapter"
+            ]
+          },
           "report": {
             "results": [
               {
@@ -1368,7 +1408,17 @@
           }
         },
         {
-          "suite": "rust_portable",
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "rust"
+            },
+            "roles": [
+              "analysis",
+              "matching",
+              "merge"
+            ]
+          },
           "report": {
             "results": [
               {
@@ -1408,7 +1458,17 @@
           }
         },
         {
-          "suite": "toml_portable",
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "toml"
+            },
+            "roles": [
+              "analysis",
+              "matching",
+              "merge"
+            ]
+          },
           "report": {
             "results": [
               {
@@ -1448,7 +1508,17 @@
           }
         },
         {
-          "suite": "yaml_portable",
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "yaml"
+            },
+            "roles": [
+              "analysis",
+              "matching",
+              "merge"
+            ]
+          },
           "report": {
             "results": [
               {

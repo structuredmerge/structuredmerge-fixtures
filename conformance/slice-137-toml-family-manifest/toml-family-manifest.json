@@ -10,16 +10,19 @@
       ]
     }
   ],
-  "suites": {
-    "toml_portable": {
-      "family": "toml",
+  "suite_descriptors": [
+    {
+      "kind": "portable",
+      "subject": {
+        "grammar": "toml"
+      },
       "roles": [
         "analysis",
         "matching",
         "merge"
       ]
     }
-  },
+  ],
   "families": {
     "toml": [
       {

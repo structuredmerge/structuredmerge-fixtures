@@ -9,24 +9,20 @@ Not ready, but no longer blocked on base-family promotion. The next plausible
 target is the canonical widened suite set.
 
 Canonical review-request identity surface:
-Unresolved. A promotion slice would need to define whether canonical review
-requests identify this suite as:
-
-- a new canonical nested Ruby member distinct from `ruby_portable`, or
-- an extension of the existing Ruby canonical family surface
+Recommended shape: keep a distinct canonical nested Ruby suite while reusing
+the existing `family_context:ruby` review-request surface.
 
 Reviewed-default context behavior:
-Unresolved. A promotion slice would need to define whether delegated nested
-Ruby behavior extends the existing `ruby_portable` default surface or requires
-its own canonical defaultable family context.
+Recommended shape: reuse the existing canonical Ruby defaultable family
+context rather than introducing a second Ruby-specific default surface.
 
 Replay-compatibility behavior:
-Unresolved. Replay is structurally portable, but canonical replay would need an
-identity surface that distinguishes nested delegated Ruby review decisions from
-ordinary `ruby_portable` review decisions.
+Recommended shape: reuse the existing canonical Ruby replay identity surface
+while keeping nested Ruby as a distinct suite member in manifest/report
+entries.
 
 Manifest or fixture membership changes:
-Unresolved. Promotion would require:
+Still required:
 
 - adding the promoted suite to the canonical suite definitions,
 - adding canonical review/default/replay fixture coverage for the promoted
@@ -39,5 +35,7 @@ Notes:
 - Portable delegated-child shapes are already available.
 - The base-family prerequisite is now satisfied by canonical promotion of
   `ruby_portable`.
+- Recommended next design: keep nested Ruby as a separate canonical suite while
+  reusing `family_context:ruby`.
 - Current policy is to keep this suite family-scoped until canonical
   review/default/replay semantics are shared explicitly.

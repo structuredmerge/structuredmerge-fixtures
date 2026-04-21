@@ -1,36 +1,11 @@
 {
-  "citrus": {
-    "family": "toml",
-    "supported_dialects": [
-      "toml"
-    ],
+  "tree_sitter": {
+    "backend": "kreuzberg-language-pack",
     "supported_policies": [
       {
         "surface": "array",
         "name": "destination_wins_array"
       }
-    ],
-    "backend": "citrus",
-    "backend_ref": {
-      "id": "citrus",
-      "family": "peg"
-    }
-  },
-  "parslet": {
-    "family": "toml",
-    "supported_dialects": [
-      "toml"
-    ],
-    "supported_policies": [
-      {
-        "surface": "array",
-        "name": "destination_wins_array"
-      }
-    ],
-    "backend": "parslet",
-    "backend_ref": {
-      "id": "parslet",
-      "family": "peg"
-    }
+    ]
   }
 }

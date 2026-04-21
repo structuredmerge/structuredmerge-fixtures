@@ -1,0 +1,19 @@
+{
+  "providers": {
+    "peggy": {
+      "package": "@structuredmerge/peggy-toml-merge",
+      "backend": "peggy",
+      "feature_profile": {
+        "family": "toml",
+        "supported_dialects": ["toml"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "peggy"
+      }
+    }
+  }
+}

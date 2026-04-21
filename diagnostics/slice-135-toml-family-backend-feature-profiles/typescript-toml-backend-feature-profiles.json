@@ -1,17 +1,6 @@
 {
-  "native": {
-    "backend": "native",
-    "supports_dialects": true,
-    "supported_policies": [
-      {
-        "surface": "array",
-        "name": "destination_wins_array"
-      }
-    ]
-  },
-  "peggy": {
-    "backend": "peggy",
-    "supports_dialects": false,
+  "tree_sitter": {
+    "backend": "kreuzberg-language-pack",
     "supported_policies": [
       {
         "surface": "array",

@@ -69,7 +69,7 @@
           ]
         },
         "feature_profile": {
-          "backend": "kreuzberg-language-pack",
+          "backend": "peggy",
           "supports_dialects": false,
           "supported_policies": [
             {
@@ -96,66 +96,63 @@
     }
   },
   "expected_report": {
-    "report": {
-      "entries": [
-        {
-          "suite": {
-            "kind": "portable",
-            "subject": {
-              "grammar": "toml"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "merge"
-            ]
+    "entries": [
+      {
+        "suite": {
+          "kind": "portable",
+          "subject": {
+            "grammar": "toml"
           },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "toml",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
+          "roles": [
+            "analysis",
+            "matching",
+            "merge"
+          ]
+        },
+        "report": {
+          "results": [
+            {
+              "ref": {
+                "family": "toml",
+                "role": "analysis",
+                "case": "analysis"
               },
-              {
-                "ref": {
-                  "family": "toml",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
+              "outcome": "passed",
+              "messages": []
+            },
+            {
+              "ref": {
+                "family": "toml",
+                "role": "matching",
+                "case": "matching"
               },
-              {
-                "ref": {
-                  "family": "toml",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
+              "outcome": "passed",
+              "messages": []
+            },
+            {
+              "ref": {
+                "family": "toml",
+                "role": "merge",
+                "case": "merge"
+              },
+              "outcome": "passed",
+              "messages": []
             }
+          ],
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0
           }
         }
-      ],
-      "summary": {
-        "total": 3,
-        "passed": 3,
-        "failed": 0,
-        "skipped": 0
       }
-    },
-    "diagnostics": []
+    ],
+    "summary": {
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    }
   }
 }

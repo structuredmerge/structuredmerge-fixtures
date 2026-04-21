@@ -1,5 +1,5 @@
 {
-  "native": {
+  "tree_sitter": {
     "family_profile": {
       "family": "toml",
       "supported_dialects": ["toml"],
@@ -11,29 +11,7 @@
       ]
     },
     "feature_profile": {
-      "backend": "native",
-      "supports_dialects": true,
-      "supported_policies": [
-        {
-          "surface": "array",
-          "name": "destination_wins_array"
-        }
-      ]
-    }
-  },
-  "pest": {
-    "family_profile": {
-      "family": "toml",
-      "supported_dialects": ["toml"],
-      "supported_policies": [
-        {
-          "surface": "array",
-          "name": "destination_wins_array"
-        }
-      ]
-    },
-    "feature_profile": {
-      "backend": "pest",
+      "backend": "kreuzberg-language-pack",
       "supports_dialects": false,
       "supported_policies": [
         {

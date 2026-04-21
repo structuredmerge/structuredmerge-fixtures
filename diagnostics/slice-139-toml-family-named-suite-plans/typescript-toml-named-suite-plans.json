@@ -68,7 +68,7 @@
         ]
       },
       "feature_profile": {
-        "backend": "peggy",
+        "backend": "kreuzberg-language-pack",
         "supports_dialects": false,
         "supported_policies": [
           {
@@ -126,7 +126,7 @@
                 ]
               },
               "feature_profile": {
-                "backend": "peggy",
+                "backend": "kreuzberg-language-pack",
                 "supports_dialects": false,
                 "supported_policies": [
                   {
@@ -168,7 +168,7 @@
                 ]
               },
               "feature_profile": {
-                "backend": "peggy",
+                "backend": "kreuzberg-language-pack",
                 "supports_dialects": false,
                 "supported_policies": [
                   {
@@ -210,7 +210,7 @@
                 ]
               },
               "feature_profile": {
-                "backend": "peggy",
+                "backend": "kreuzberg-language-pack",
                 "supports_dialects": false,
                 "supported_policies": [
                   {

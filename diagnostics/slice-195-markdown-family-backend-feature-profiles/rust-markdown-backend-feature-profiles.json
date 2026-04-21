@@ -1,6 +1,10 @@
 {
   "tree_sitter": {
     "backend": "kreuzberg-language-pack",
-    "supported_policies": []
+    "supported_policies": [],
+    "backend_ref": {
+      "id": "kreuzberg-language-pack",
+      "family": "tree-sitter"
+    }
   }
 }

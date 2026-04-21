@@ -7,6 +7,10 @@
         "surface": "array",
         "name": "destination_wins_array"
       }
-    ]
+    ],
+    "backend_ref": {
+      "id": "kreuzberg-language-pack",
+      "family": "tree-sitter"
+    }
   }
 }

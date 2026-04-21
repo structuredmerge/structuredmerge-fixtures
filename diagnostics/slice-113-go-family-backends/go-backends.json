@@ -1,4 +1,4 @@
 {
   "family": "go",
-  "backends": ["tree-sitter", "native"]
+  "backends": ["kreuzberg-language-pack"]
 }

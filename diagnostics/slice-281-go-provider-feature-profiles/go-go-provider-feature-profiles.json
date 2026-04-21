@@ -1,0 +1,19 @@
+{
+  "providers": {
+    "go_parser": {
+      "package": "goparsermerge",
+      "backend": "go-parser",
+      "feature_profile": {
+        "family": "go",
+        "supported_dialects": ["go"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "go-parser"
+      }
+    }
+  }
+}

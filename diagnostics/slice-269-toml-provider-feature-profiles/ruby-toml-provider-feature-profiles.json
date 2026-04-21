@@ -1,0 +1,34 @@
+{
+  "providers": {
+    "citrus": {
+      "package": "citrus-toml-merge",
+      "backend": "citrus",
+      "feature_profile": {
+        "family": "toml",
+        "supported_dialects": ["toml"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "citrus"
+      }
+    },
+    "parslet": {
+      "package": "parslet-toml-merge",
+      "backend": "parslet",
+      "feature_profile": {
+        "family": "toml",
+        "supported_dialects": ["toml"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "parslet"
+      }
+    }
+  }
+}

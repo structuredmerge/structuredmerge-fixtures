@@ -1,0 +1,19 @@
+{
+  "providers": {
+    "pest": {
+      "package": "pest-toml-merge",
+      "backend": "pest",
+      "feature_profile": {
+        "family": "toml",
+        "supported_dialects": ["toml"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "pest"
+      }
+    }
+  }
+}

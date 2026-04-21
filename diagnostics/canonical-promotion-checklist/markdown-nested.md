@@ -5,7 +5,8 @@ Suite:
 suite defined by slices 246 to 248)
 
 Target canonical set:
-Not ready. No canonical stable or widened target is selected yet.
+Blocked pending base-family promotion. `markdown_portable` should enter a
+canonical suite set before this nested suite is reconsidered.
 
 Canonical review-request identity surface:
 Unresolved. A promotion slice would need to define whether canonical review
@@ -35,5 +36,6 @@ Unresolved. Promotion would require:
 Notes:
 
 - Portable delegated-child shapes are already available.
+- The next concrete prerequisite is canonical promotion of `markdown_portable`.
 - Current policy is to keep this suite family-scoped until canonical
   review/default/replay semantics are shared explicitly.

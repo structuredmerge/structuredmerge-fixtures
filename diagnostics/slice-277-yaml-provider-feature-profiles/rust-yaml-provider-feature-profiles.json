@@ -1,0 +1,19 @@
+{
+  "providers": {
+    "yaml_serde": {
+      "package": "yaml-serde-merge",
+      "backend": "yaml_serde",
+      "feature_profile": {
+        "family": "yaml",
+        "supported_dialects": ["yaml"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "yaml_serde"
+      }
+    }
+  }
+}

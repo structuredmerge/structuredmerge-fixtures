@@ -38,47 +38,51 @@
     }
   },
   "options": {
-    "contexts": {
-      "yaml": {
-        "family_profile": {
-          "family": "yaml",
-          "supported_dialects": ["yaml"],
-          "supported_policies": [
-            {
-              "surface": "array",
-              "name": "destination_wins_array"
-            }
-          ]
-        },
-        "feature_profile": {
-          "backend": "kreuzberg-language-pack",
-          "supports_dialects": false,
-          "supported_policies": [
-            {
-              "surface": "array",
-              "name": "destination_wins_array"
-            }
-          ]
+    "yaml_serde": {
+      "contexts": {
+        "yaml": {
+          "family_profile": {
+            "family": "yaml",
+            "supported_dialects": ["yaml"],
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              }
+            ]
+          },
+          "feature_profile": {
+            "backend": "yaml_serde",
+            "supports_dialects": true,
+            "supported_policies": [
+              {
+                "surface": "array",
+                "name": "destination_wins_array"
+              }
+            ]
+          }
         }
       }
     }
   },
   "executions": {
-    "yaml:analysis:analysis": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "yaml:matching:matching": {
-      "outcome": "passed",
-      "messages": []
-    },
-    "yaml:merge:merge": {
-      "outcome": "passed",
-      "messages": []
+    "yaml_serde": {
+      "yaml:analysis:analysis": {
+        "outcome": "passed",
+        "messages": []
+      },
+      "yaml:matching:matching": {
+        "outcome": "passed",
+        "messages": []
+      },
+      "yaml:merge:merge": {
+        "outcome": "passed",
+        "messages": []
+      }
     }
   },
-  "expected_report": {
-    "report": {
+  "expected_reports": {
+    "yaml_serde": {
       "entries": [
         {
           "suite": {
@@ -133,7 +137,6 @@
         "failed": 0,
         "skipped": 0
       }
-    },
-    "diagnostics": []
+    }
   }
 }

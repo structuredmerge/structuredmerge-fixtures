@@ -1,0 +1,130 @@
+{
+  "manifest": {
+    "family_feature_profiles": [
+      {
+        "family": "toml",
+        "role": "family_profile",
+        "path": [
+          "diagnostics",
+          "slice-90-toml-family-feature-profile",
+          "toml-feature-profile.json"
+        ]
+      }
+    ],
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "toml"
+        },
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ]
+      }
+    ],
+    "families": {
+      "toml": [
+        {
+          "role": "analysis",
+          "path": [
+            "toml",
+            "slice-92-structure",
+            "table-and-array.json"
+          ]
+        },
+        {
+          "role": "matching",
+          "path": [
+            "toml",
+            "slice-93-matching",
+            "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "toml",
+            "slice-94-merge",
+            "table-merge.json"
+          ]
+        }
+      ]
+    }
+  },
+  "executions": {
+    "toml:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "toml:matching:matching": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "toml:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "expected_report": {
+    "entries": [
+      {
+        "suite": {
+          "kind": "portable",
+          "subject": {
+            "grammar": "toml"
+          },
+          "roles": [
+            "analysis",
+            "matching",
+            "merge"
+          ]
+        },
+        "report": {
+          "results": [
+            {
+              "ref": {
+                "family": "toml",
+                "role": "analysis",
+                "case": "analysis"
+              },
+              "outcome": "passed",
+              "messages": []
+            },
+            {
+              "ref": {
+                "family": "toml",
+                "role": "matching",
+                "case": "matching"
+              },
+              "outcome": "passed",
+              "messages": []
+            },
+            {
+              "ref": {
+                "family": "toml",
+                "role": "merge",
+                "case": "merge"
+              },
+              "outcome": "passed",
+              "messages": []
+            }
+          ],
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0
+          }
+        }
+      }
+    ],
+    "summary": {
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  }
+}

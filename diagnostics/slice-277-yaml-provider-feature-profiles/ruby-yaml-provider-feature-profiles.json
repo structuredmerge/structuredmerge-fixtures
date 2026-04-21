@@ -1,0 +1,23 @@
+{
+  "providers": {
+    "psych": {
+      "package": "psych-merge",
+      "backend": "psych",
+      "feature_profile": {
+        "family": "yaml",
+        "supported_dialects": ["yaml"],
+        "supported_policies": [
+          {
+            "surface": "array",
+            "name": "destination_wins_array"
+          }
+        ],
+        "backend": "psych",
+        "backend_ref": {
+          "id": "psych",
+          "family": "native"
+        }
+      }
+    }
+  }
+}

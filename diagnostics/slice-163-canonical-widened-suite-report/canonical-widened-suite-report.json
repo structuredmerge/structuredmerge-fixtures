@@ -1464,6 +1464,66 @@
           "suite": {
             "kind": "portable",
             "subject": {
+              "grammar": "ruby"
+            },
+            "roles": [
+              "analysis",
+              "matching",
+              "discovered_surfaces",
+              "delegated_child_operations"
+            ]
+          },
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "discovered_surfaces",
+                  "case": "discovered_surfaces"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "delegated_child_operations",
+                  "case": "delegated_child_operations"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 4,
+              "passed": 4,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "suite": {
+            "kind": "portable",
+            "subject": {
               "grammar": "ruby",
               "variant": "nested"
             },
@@ -1546,66 +1606,6 @@
             "summary": {
               "total": 7,
               "passed": 7,
-              "failed": 0,
-              "skipped": 0
-            }
-          }
-        },
-        {
-          "suite": {
-            "kind": "portable",
-            "subject": {
-              "grammar": "ruby"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "discovered_surfaces",
-              "delegated_child_operations"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "discovered_surfaces",
-                  "case": "discovered_surfaces"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "delegated_child_operations",
-                  "case": "delegated_child_operations"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 4,
-              "passed": 4,
               "failed": 0,
               "skipped": 0
             }
@@ -1813,8 +1813,8 @@
         }
       ],
       "summary": {
-        "total": 20,
-        "passed": 19,
+        "total": 31,
+        "passed": 30,
         "failed": 0,
         "skipped": 1
       }

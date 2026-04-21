@@ -1352,312 +1352,303 @@
     }
   },
   "expected_state": {
+    "applied_decisions": [],
+    "diagnostics": [
+      {
+        "category": "replay_rejected",
+        "message": "review replay context does not match the current conformance manifest state.",
+        "severity": "error"
+      },
+      {
+        "category": "configuration_error",
+        "message": "missing explicit family context for go.",
+        "severity": "error"
+      },
+      {
+        "category": "configuration_error",
+        "message": "missing family context for ruby and no default family profile is available.",
+        "severity": "error"
+      },
+      {
+        "category": "configuration_error",
+        "message": "missing family context for text and no default family profile is available.",
+        "severity": "error"
+      },
+      {
+        "category": "configuration_error",
+        "message": "missing explicit family context for typescript.",
+        "severity": "error"
+      }
+    ],
+    "host_hints": {
+      "interactive": true,
+      "require_explicit_contexts": true
+    },
+    "replay_context": {
+      "families": [
+        "go",
+        "json",
+        "ruby",
+        "rust",
+        "text",
+        "toml",
+        "typescript",
+        "yaml"
+      ],
+      "require_explicit_contexts": true,
+      "surface": "conformance_manifest"
+    },
     "report": {
       "entries": [
         {
+          "report": {
+            "results": [
+              {
+                "messages": [
+                  "backend kreuzberg-language-pack does not support dialect jsonc for family json."
+                ],
+                "outcome": "skipped",
+                "ref": {
+                  "case": "parse_comments",
+                  "family": "json",
+                  "role": "parse_comments"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "structure_json",
+                  "family": "json",
+                  "role": "structure_json"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "json",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge_object",
+                  "family": "json",
+                  "role": "merge_object"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "tree_sitter_adapter",
+                  "family": "json",
+                  "role": "tree_sitter_adapter"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 4,
+              "skipped": 1,
+              "total": 5
+            }
+          },
           "suite": {
             "kind": "portable",
-            "subject": {
-              "grammar": "json"
-            },
             "roles": [
               "parse_comments",
               "structure_json",
               "matching",
               "merge_object",
               "tree_sitter_adapter"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "parse_comments",
-                  "case": "parse_comments"
-                },
-                "outcome": "skipped",
-                "messages": [
-                  "backend kreuzberg-language-pack does not support dialect jsonc for family json."
-                ]
-              },
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "structure_json",
-                  "case": "structure_json"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "merge_object",
-                  "case": "merge_object"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "tree_sitter_adapter",
-                  "case": "tree_sitter_adapter"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
             ],
-            "summary": {
-              "total": 5,
-              "passed": 4,
-              "failed": 0,
-              "skipped": 1
+            "subject": {
+              "grammar": "json"
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "rust",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "rust",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "rust",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
+            "roles": [
+              "analysis",
+              "matching",
+              "merge"
+            ],
             "subject": {
               "grammar": "rust"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "toml",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "toml",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "toml",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
+            "roles": [
+              "analysis",
+              "matching",
+              "merge"
+            ],
             "subject": {
               "grammar": "toml"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "toml",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "toml",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "toml",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "yaml",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "yaml",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "yaml",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
-            "subject": {
-              "grammar": "typescript"
-            },
             "roles": [
               "analysis",
               "matching",
               "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
             ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
-            }
-          }
-        },
-        {
-          "suite": {
-            "kind": "portable",
             "subject": {
               "grammar": "yaml"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "yaml",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "yaml",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "yaml",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
             }
           }
         }
       ],
       "summary": {
-        "total": 17,
-        "passed": 16,
         "failed": 0,
-        "skipped": 1
+        "passed": 13,
+        "skipped": 1,
+        "total": 14
       }
     },
-    "diagnostics": [
-      {
-        "severity": "error",
-        "category": "configuration_error",
-        "message": "missing explicit family context for go."
-      },
-      {
-        "severity": "error",
-        "category": "configuration_error",
-        "message": "missing family context for text and no default family profile is available."
-      },
-      {
-        "severity": "warning",
-        "category": "assumed_default",
-        "message": "using default family context for typescript."
-      }
-    ],
     "requests": [
       {
+        "action_offers": [
+          {
+            "action": "accept_default_context",
+            "requires_context": false
+          },
+          {
+            "action": "provide_explicit_context",
+            "payload_kind": "conformance_family_context",
+            "requires_context": true
+          }
+        ],
+        "blocking": true,
+        "default_action": "accept_default_context",
+        "family": "go",
         "id": "family_context:go",
         "kind": "family_context",
-        "family": "go",
         "message": "explicit family context is required for go; a synthesized default may be accepted by review.",
-        "blocking": true,
         "proposed_context": {
           "family_profile": {
             "family": "go",
@@ -1666,12 +1657,14 @@
             ],
             "supported_policies": [
               {
-                "surface": "array",
-                "name": "destination_wins_array"
+                "name": "destination_wins_array",
+                "surface": "array"
               }
             ]
           }
-        },
+        }
+      },
+      {
         "action_offers": [
           {
             "action": "accept_default_context",
@@ -1679,68 +1672,31 @@
           },
           {
             "action": "provide_explicit_context",
-            "requires_context": true,
-            "payload_kind": "conformance_family_context"
+            "payload_kind": "conformance_family_context",
+            "requires_context": true
           }
         ],
-        "default_action": "accept_default_context"
-      },
-      {
-        "id": "family_context:ruby",
-        "kind": "family_context",
-        "family": "ruby",
-        "message": "explicit family context is required for ruby; a synthesized default may be accepted by review.",
         "blocking": true,
+        "default_action": "accept_default_context",
+        "family": "typescript",
+        "id": "family_context:typescript",
+        "kind": "family_context",
+        "message": "explicit family context is required for typescript; a synthesized default may be accepted by review.",
         "proposed_context": {
           "family_profile": {
-            "family": "ruby",
+            "family": "typescript",
             "supported_dialects": [
-              "ruby"
+              "typescript"
             ],
             "supported_policies": [
               {
-                "surface": "array",
-                "name": "destination_wins_array"
+                "name": "destination_wins_array",
+                "surface": "array"
               }
             ]
           }
-        },
-        "action_offers": [
-          {
-            "action": "accept_default_context",
-            "requires_context": false
-          },
-          {
-            "action": "provide_explicit_context",
-            "requires_context": true,
-            "payload_kind": "conformance_family_context"
-          }
-        ],
-        "default_action": "accept_default_context"
+        }
       }
-    ],
-    "applied_decisions": [
-      {
-        "request_id": "family_context:typescript",
-        "action": "accept_default_context"
-      }
-    ],
-    "host_hints": {
-      "interactive": true,
-      "require_explicit_contexts": true
-    },
-    "replay_context": {
-      "surface": "conformance_manifest",
-      "families": [
-        "go",
-        "json",
-        "rust",
-        "text",
-        "toml",
-        "typescript",
-        "yaml"
-      ],
-      "require_explicit_contexts": true
-    }
+    ]
   }
 }

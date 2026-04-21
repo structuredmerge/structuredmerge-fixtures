@@ -2,7 +2,15 @@
   "manifest": {
     "family_feature_profiles": [],
     "suite_descriptors": [
-      "broken_text"
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
+        "roles": [
+          "missing_role"
+        ]
+      }
     ],
     "families": {
       "text": [
@@ -33,6 +41,6 @@
   "expected_diagnostic": {
     "severity": "error",
     "category": "configuration_error",
-    "message": "suite broken_text declares missing roles: missing_role."
+    "message": "suite {\"kind\":\"portable\",\"subject\":{\"grammar\":\"text\"},\"roles\":[\"missing_role\"]} declares missing roles: missing_role."
   }
 }

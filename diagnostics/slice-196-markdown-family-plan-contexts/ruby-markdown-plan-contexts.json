@@ -1,18 +1,4 @@
 {
-  "native": {
-    "family_profile": {
-      "family": "markdown",
-      "supported_dialects": [
-        "markdown"
-      ],
-      "supported_policies": []
-    },
-    "feature_profile": {
-      "backend": "kramdown",
-      "supports_dialects": true,
-      "supported_policies": []
-    }
-  },
   "tree_sitter": {
     "family_profile": {
       "family": "markdown",

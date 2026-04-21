@@ -1,8 +1,4 @@
 {
-  "native": {
-    "backend": "kramdown",
-    "supported_policies": []
-  },
   "tree_sitter": {
     "backend": "kreuzberg-language-pack",
     "supported_policies": []

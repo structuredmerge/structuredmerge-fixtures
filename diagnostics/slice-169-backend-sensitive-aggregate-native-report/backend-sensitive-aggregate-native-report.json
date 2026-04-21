@@ -1256,6 +1256,8 @@
             },
             "roles": [
               "analysis",
+              "matching",
+              "merge",
               "native_parity"
             ]
           },
@@ -1273,6 +1275,28 @@
               {
                 "ref": {
                   "family": "go",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "failed",
+                "messages": [
+                  "missing execution"
+                ]
+              },
+              {
+                "ref": {
+                  "family": "go",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "failed",
+                "messages": [
+                  "missing execution"
+                ]
+              },
+              {
+                "ref": {
+                  "family": "go",
                   "role": "native_parity",
                   "case": "native_parity"
                 },
@@ -1281,9 +1305,137 @@
               }
             ],
             "summary": {
-              "total": 2,
+              "total": 4,
               "passed": 2,
-              "failed": 0,
+              "failed": 2,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "suite": {
+            "kind": "backend_sensitive",
+            "subject": {
+              "grammar": "rust"
+            },
+            "roles": [
+              "analysis",
+              "matching",
+              "merge",
+              "native_parity"
+            ]
+          },
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "failed",
+                "messages": [
+                  "missing execution"
+                ]
+              },
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "failed",
+                "messages": [
+                  "missing execution"
+                ]
+              },
+              {
+                "ref": {
+                  "family": "rust",
+                  "role": "native_parity",
+                  "case": "native_parity"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 4,
+              "passed": 2,
+              "failed": 2,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "suite": {
+            "kind": "backend_sensitive",
+            "subject": {
+              "grammar": "typescript"
+            },
+            "roles": [
+              "analysis",
+              "matching",
+              "merge",
+              "native_parity"
+            ]
+          },
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "failed",
+                "messages": [
+                  "missing execution"
+                ]
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "failed",
+                "messages": [
+                  "missing execution"
+                ]
+              },
+              {
+                "ref": {
+                  "family": "typescript",
+                  "role": "native_parity",
+                  "case": "native_parity"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 4,
+              "passed": 2,
+              "failed": 2,
               "skipped": 0
             }
           }
@@ -1416,46 +1568,6 @@
         },
         {
           "suite": {
-            "kind": "backend_sensitive",
-            "subject": {
-              "grammar": "rust"
-            },
-            "roles": [
-              "analysis",
-              "native_parity"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "native_parity",
-                  "case": "native_parity"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 2,
-              "passed": 2,
-              "failed": 0,
-              "skipped": 0
-            }
-          }
-        },
-        {
-          "suite": {
             "kind": "portable",
             "subject": {
               "grammar": "rust"
@@ -1553,46 +1665,6 @@
             "summary": {
               "total": 3,
               "passed": 3,
-              "failed": 0,
-              "skipped": 0
-            }
-          }
-        },
-        {
-          "suite": {
-            "kind": "backend_sensitive",
-            "subject": {
-              "grammar": "typescript"
-            },
-            "roles": [
-              "analysis",
-              "native_parity"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "native_parity",
-                  "case": "native_parity"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 2,
-              "passed": 2,
               "failed": 0,
               "skipped": 0
             }
@@ -1704,9 +1776,9 @@
         }
       ],
       "summary": {
-        "total": 26,
+        "total": 32,
         "passed": 19,
-        "failed": 6,
+        "failed": 12,
         "skipped": 1
       }
     },

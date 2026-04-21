@@ -359,221 +359,221 @@
     "report": {
       "entries": [
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "go",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "go",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "go",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
-            "subject": {
-              "grammar": "go"
-            },
             "roles": [
               "analysis",
               "matching",
               "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "go",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "go",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "go",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
             ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
+            "subject": {
+              "grammar": "go"
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "ruby",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "ruby",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "discovered_surfaces",
+                  "family": "ruby",
+                  "role": "discovered_surfaces"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "delegated_child_operations",
+                  "family": "ruby",
+                  "role": "delegated_child_operations"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 4,
+              "skipped": 0,
+              "total": 4
+            }
+          },
           "suite": {
             "kind": "portable",
-            "subject": {
-              "grammar": "ruby"
-            },
             "roles": [
               "analysis",
               "matching",
               "discovered_surfaces",
               "delegated_child_operations"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "discovered_surfaces",
-                  "case": "discovered_surfaces"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "delegated_child_operations",
-                  "case": "delegated_child_operations"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
             ],
-            "summary": {
-              "total": 4,
-              "passed": 4,
-              "failed": 0,
-              "skipped": 0
+            "subject": {
+              "grammar": "ruby"
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "rust",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "rust",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "rust",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
+            "roles": [
+              "analysis",
+              "matching",
+              "merge"
+            ],
             "subject": {
               "grammar": "rust"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "typescript",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "typescript",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "typescript",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
-            "subject": {
-              "grammar": "typescript"
-            },
             "roles": [
               "analysis",
               "matching",
               "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
             ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
+            "subject": {
+              "grammar": "typescript"
             }
           }
         }
       ],
       "summary": {
-        "total": 13,
-        "passed": 13,
         "failed": 0,
-        "skipped": 0
+        "passed": 13,
+        "skipped": 0,
+        "total": 13
       }
     }
   }

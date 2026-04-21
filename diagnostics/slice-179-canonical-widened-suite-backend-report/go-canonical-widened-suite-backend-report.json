@@ -1336,137 +1336,273 @@
     }
   },
   "expected_report": {
+    "diagnostics": [
+      {
+        "category": "configuration_error",
+        "message": "missing family context for text and no default family profile is available.",
+        "severity": "error"
+      }
+    ],
     "report": {
       "entries": [
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "go",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "go",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "go",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
-            "subject": {
-              "grammar": "go"
-            },
             "roles": [
               "analysis",
               "matching",
               "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "go",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "go",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "go",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
             ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
+            "subject": {
+              "grammar": "go"
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [
+                  "backend kreuzberg-language-pack does not support dialect jsonc for family json."
+                ],
+                "outcome": "skipped",
+                "ref": {
+                  "case": "parse_comments",
+                  "family": "json",
+                  "role": "parse_comments"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "structure_json",
+                  "family": "json",
+                  "role": "structure_json"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "json",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge_object",
+                  "family": "json",
+                  "role": "merge_object"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "tree_sitter_adapter",
+                  "family": "json",
+                  "role": "tree_sitter_adapter"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 4,
+              "skipped": 1,
+              "total": 5
+            }
+          },
           "suite": {
             "kind": "portable",
-            "subject": {
-              "grammar": "json"
-            },
             "roles": [
               "parse_comments",
               "structure_json",
               "matching",
               "merge_object",
               "tree_sitter_adapter"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "parse_comments",
-                  "case": "parse_comments"
-                },
-                "outcome": "skipped",
-                "messages": [
-                  "backend kreuzberg-language-pack does not support dialect jsonc for family json."
-                ]
-              },
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "structure_json",
-                  "case": "structure_json"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "merge_object",
-                  "case": "merge_object"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "json",
-                  "role": "tree_sitter_adapter",
-                  "case": "tree_sitter_adapter"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
             ],
-            "summary": {
-              "total": 5,
-              "passed": 4,
-              "failed": 0,
-              "skipped": 1
+            "subject": {
+              "grammar": "json"
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "ruby",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "ruby",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "discovered_surfaces",
+                  "family": "ruby",
+                  "role": "discovered_surfaces"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "delegated_child_operations",
+                  "family": "ruby",
+                  "role": "delegated_child_operations"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 4,
+              "skipped": 0,
+              "total": 4
+            }
+          },
           "suite": {
             "kind": "portable",
+            "roles": [
+              "analysis",
+              "matching",
+              "discovered_surfaces",
+              "delegated_child_operations"
+            ],
             "subject": {
-              "grammar": "ruby",
-              "variant": "nested"
-            },
+              "grammar": "ruby"
+            }
+          }
+        },
+        {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "ruby",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "ruby",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "discovered_surfaces",
+                  "family": "ruby",
+                  "role": "discovered_surfaces"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "delegated_child_operations",
+                  "family": "ruby",
+                  "role": "delegated_child_operations"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "delegated_child_review_transport",
+                  "family": "ruby",
+                  "role": "delegated_child_review_transport"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "delegated_child_review_state",
+                  "family": "ruby",
+                  "role": "delegated_child_review_state"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "delegated_child_apply_plan",
+                  "family": "ruby",
+                  "role": "delegated_child_apply_plan"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 7,
+              "skipped": 0,
+              "total": 7
+            }
+          },
+          "suite": {
+            "kind": "portable",
             "roles": [
               "analysis",
               "matching",
@@ -1475,356 +1611,220 @@
               "delegated_child_review_transport",
               "delegated_child_review_state",
               "delegated_child_apply_plan"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "discovered_surfaces",
-                  "case": "discovered_surfaces"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "delegated_child_operations",
-                  "case": "delegated_child_operations"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "delegated_child_review_transport",
-                  "case": "delegated_child_review_transport"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "delegated_child_review_state",
-                  "case": "delegated_child_review_state"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "delegated_child_apply_plan",
-                  "case": "delegated_child_apply_plan"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
             ],
-            "summary": {
-              "total": 7,
-              "passed": 7,
-              "failed": 0,
-              "skipped": 0
+            "subject": {
+              "grammar": "ruby",
+              "variant": "nested"
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "rust",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "rust",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "rust",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
-            "subject": {
-              "grammar": "ruby"
-            },
             "roles": [
               "analysis",
               "matching",
-              "discovered_surfaces",
-              "delegated_child_operations"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "discovered_surfaces",
-                  "case": "discovered_surfaces"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "ruby",
-                  "role": "delegated_child_operations",
-                  "case": "delegated_child_operations"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
+              "merge"
             ],
-            "summary": {
-              "total": 4,
-              "passed": 4,
-              "failed": 0,
-              "skipped": 0
-            }
-          }
-        },
-        {
-          "suite": {
-            "kind": "portable",
             "subject": {
               "grammar": "rust"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "rust",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "toml",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "toml",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "toml",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
+            "roles": [
+              "analysis",
+              "matching",
+              "merge"
+            ],
             "subject": {
               "grammar": "toml"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "toml",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "toml",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "toml",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "typescript",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "typescript",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "typescript",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
+            "roles": [
+              "analysis",
+              "matching",
+              "merge"
+            ],
             "subject": {
               "grammar": "typescript"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
             }
           }
         },
         {
+          "report": {
+            "results": [
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "analysis",
+                  "family": "yaml",
+                  "role": "analysis"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "matching",
+                  "family": "yaml",
+                  "role": "matching"
+                }
+              },
+              {
+                "messages": [],
+                "outcome": "passed",
+                "ref": {
+                  "case": "merge",
+                  "family": "yaml",
+                  "role": "merge"
+                }
+              }
+            ],
+            "summary": {
+              "failed": 0,
+              "passed": 3,
+              "skipped": 0,
+              "total": 3
+            }
+          },
           "suite": {
             "kind": "portable",
-            "subject": {
-              "grammar": "yaml"
-            },
             "roles": [
               "analysis",
               "matching",
               "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "yaml",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "yaml",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "yaml",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
             ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
+            "subject": {
+              "grammar": "yaml"
             }
           }
         }
       ],
       "summary": {
-        "total": 20,
-        "passed": 19,
         "failed": 0,
-        "skipped": 1
+        "passed": 30,
+        "skipped": 1,
+        "total": 31
       }
-    },
-    "diagnostics": [
-      {
-        "severity": "error",
-        "category": "configuration_error",
-        "message": "missing family context for text and no default family profile is available."
-      }
-    ]
+    }
   }
 }

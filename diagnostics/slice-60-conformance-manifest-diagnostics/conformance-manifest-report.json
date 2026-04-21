@@ -20,7 +20,15 @@
           "analysis"
         ]
       },
-      "broken_text"
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
+        "roles": [
+          "missing_role"
+        ]
+      }
     ],
     "families": {
       "json": [
@@ -159,11 +167,41 @@
               "skipped": 0
             }
           }
+        },
+        {
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "text"
+            },
+            "roles": [
+              "analysis"
+            ]
+          },
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "text",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 1,
+              "passed": 1,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
         }
       ],
       "summary": {
-        "total": 2,
-        "passed": 2,
+        "total": 3,
+        "passed": 3,
         "failed": 0,
         "skipped": 0
       }
@@ -173,11 +211,6 @@
         "severity": "warning",
         "category": "assumed_default",
         "message": "using default family context for text."
-      },
-      {
-        "severity": "error",
-        "category": "configuration_error",
-        "message": "suite broken_text declares missing roles: missing_role."
       }
     ]
   }

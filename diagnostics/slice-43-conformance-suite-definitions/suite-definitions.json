@@ -6,7 +6,10 @@
     }
   },
   "expected": {
-    "family": "json",
+    "kind": "portable",
+    "subject": {
+      "grammar": "json"
+    },
     "roles": [
       "parse_comments",
       "structure_json",

@@ -1574,6 +1574,11 @@
       {
         "severity": "error",
         "category": "configuration_error",
+        "message": "missing family context for ruby and no default family profile is available."
+      },
+      {
+        "severity": "error",
+        "category": "configuration_error",
         "message": "missing family context for text and no default family profile is available."
       },
       {
@@ -1594,39 +1599,6 @@
             "family": "go",
             "supported_dialects": [
               "go"
-            ],
-            "supported_policies": [
-              {
-                "surface": "array",
-                "name": "destination_wins_array"
-              }
-            ]
-          }
-        },
-        "action_offers": [
-          {
-            "action": "accept_default_context",
-            "requires_context": false
-          },
-          {
-            "action": "provide_explicit_context",
-            "requires_context": true,
-            "payload_kind": "conformance_family_context"
-          }
-        ],
-        "default_action": "accept_default_context"
-      },
-      {
-        "id": "family_context:ruby",
-        "kind": "family_context",
-        "family": "ruby",
-        "message": "explicit family context is required for ruby; a synthesized default may be accepted by review.",
-        "blocking": true,
-        "proposed_context": {
-          "family_profile": {
-            "family": "ruby",
-            "supported_dialects": [
-              "ruby"
             ],
             "supported_policies": [
               {
@@ -1693,6 +1665,7 @@
       "families": [
         "go",
         "json",
+        "ruby",
         "rust",
         "text",
         "toml",

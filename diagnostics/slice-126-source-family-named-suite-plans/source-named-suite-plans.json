@@ -300,38 +300,20 @@
   },
   "expected_entries": [
     {
-      "suite": {
-        "kind": "portable",
-        "subject": {
-          "grammar": "go"
-        },
-        "roles": [
-          "analysis",
-          "matching",
-          "merge"
-        ]
-      },
       "plan": {
-        "family": "go",
         "entries": [
           {
-            "ref": {
-              "family": "go",
-              "role": "analysis",
-              "case": "analysis"
-            },
             "path": [
               "go",
               "slice-110-analysis",
               "module-owners.json"
             ],
+            "ref": {
+              "case": "analysis",
+              "family": "go",
+              "role": "analysis"
+            },
             "run": {
-              "ref": {
-                "family": "go",
-                "role": "analysis",
-                "case": "analysis"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "go",
                 "supported_dialects": [
@@ -339,41 +321,41 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "analysis",
+                "family": "go",
+                "role": "analysis"
+              },
+              "requirements": {}
             }
           },
           {
-            "ref": {
-              "family": "go",
-              "role": "matching",
-              "case": "matching"
-            },
             "path": [
               "go",
               "slice-111-matching",
               "path-equality.json"
             ],
+            "ref": {
+              "case": "matching",
+              "family": "go",
+              "role": "matching"
+            },
             "run": {
-              "ref": {
-                "family": "go",
-                "role": "matching",
-                "case": "matching"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "go",
                 "supported_dialects": [
@@ -381,41 +363,41 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "matching",
+                "family": "go",
+                "role": "matching"
+              },
+              "requirements": {}
             }
           },
           {
-            "ref": {
-              "family": "go",
-              "role": "merge",
-              "case": "merge"
-            },
             "path": [
               "go",
               "slice-112-merge",
               "module-merge.json"
             ],
+            "ref": {
+              "case": "merge",
+              "family": "go",
+              "role": "merge"
+            },
             "run": {
-              "ref": {
-                "family": "go",
-                "role": "merge",
-                "case": "merge"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "go",
                 "supported_dialects": [
@@ -423,61 +405,60 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "merge",
+                "family": "go",
+                "role": "merge"
+              },
+              "requirements": {}
             }
           }
         ],
+        "family": "go",
         "missing_roles": []
-      }
-    },
-    {
+      },
       "suite": {
         "kind": "portable",
-        "subject": {
-          "grammar": "ruby"
-        },
         "roles": [
           "analysis",
           "matching",
-          "discovered_surfaces",
-          "delegated_child_operations"
-        ]
-      },
+          "merge"
+        ],
+        "subject": {
+          "grammar": "go"
+        }
+      }
+    },
+    {
       "plan": {
-        "family": "ruby",
         "entries": [
           {
-            "ref": {
-              "family": "ruby",
-              "role": "analysis",
-              "case": "analysis"
-            },
             "path": [
               "ruby",
               "slice-218-analysis",
               "module-owners.json"
             ],
+            "ref": {
+              "case": "analysis",
+              "family": "ruby",
+              "role": "analysis"
+            },
             "run": {
-              "ref": {
-                "family": "ruby",
-                "role": "analysis",
-                "case": "analysis"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "ruby",
                 "supported_dialects": [
@@ -485,41 +466,41 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "analysis",
+                "family": "ruby",
+                "role": "analysis"
+              },
+              "requirements": {}
             }
           },
           {
-            "ref": {
-              "family": "ruby",
-              "role": "matching",
-              "case": "matching"
-            },
             "path": [
               "ruby",
               "slice-219-matching",
               "path-equality.json"
             ],
+            "ref": {
+              "case": "matching",
+              "family": "ruby",
+              "role": "matching"
+            },
             "run": {
-              "ref": {
-                "family": "ruby",
-                "role": "matching",
-                "case": "matching"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "ruby",
                 "supported_dialects": [
@@ -527,41 +508,41 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "matching",
+                "family": "ruby",
+                "role": "matching"
+              },
+              "requirements": {}
             }
           },
           {
-            "ref": {
-              "family": "ruby",
-              "role": "discovered_surfaces",
-              "case": "discovered_surfaces"
-            },
             "path": [
               "ruby",
               "slice-220-discovered-surfaces",
               "doc-comment-surfaces.json"
             ],
+            "ref": {
+              "case": "discovered_surfaces",
+              "family": "ruby",
+              "role": "discovered_surfaces"
+            },
             "run": {
-              "ref": {
-                "family": "ruby",
-                "role": "discovered_surfaces",
-                "case": "discovered_surfaces"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "ruby",
                 "supported_dialects": [
@@ -569,41 +550,41 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "discovered_surfaces",
+                "family": "ruby",
+                "role": "discovered_surfaces"
+              },
+              "requirements": {}
             }
           },
           {
-            "ref": {
-              "family": "ruby",
-              "role": "delegated_child_operations",
-              "case": "delegated_child_operations"
-            },
             "path": [
               "ruby",
               "slice-221-delegated-child-operations",
               "yard-example-child-operations.json"
             ],
+            "ref": {
+              "case": "delegated_child_operations",
+              "family": "ruby",
+              "role": "delegated_child_operations"
+            },
             "run": {
-              "ref": {
-                "family": "ruby",
-                "role": "delegated_child_operations",
-                "case": "delegated_child_operations"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "ruby",
                 "supported_dialects": [
@@ -611,60 +592,61 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "delegated_child_operations",
+                "family": "ruby",
+                "role": "delegated_child_operations"
+              },
+              "requirements": {}
             }
           }
         ],
+        "family": "ruby",
         "missing_roles": []
-      }
-    },
-    {
+      },
       "suite": {
         "kind": "portable",
-        "subject": {
-          "grammar": "rust"
-        },
         "roles": [
           "analysis",
           "matching",
-          "merge"
-        ]
-      },
+          "discovered_surfaces",
+          "delegated_child_operations"
+        ],
+        "subject": {
+          "grammar": "ruby"
+        }
+      }
+    },
+    {
       "plan": {
-        "family": "rust",
         "entries": [
           {
-            "ref": {
-              "family": "rust",
-              "role": "analysis",
-              "case": "analysis"
-            },
             "path": [
               "rust",
               "slice-106-analysis",
               "module-owners.json"
             ],
+            "ref": {
+              "case": "analysis",
+              "family": "rust",
+              "role": "analysis"
+            },
             "run": {
-              "ref": {
-                "family": "rust",
-                "role": "analysis",
-                "case": "analysis"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "rust",
                 "supported_dialects": [
@@ -672,41 +654,41 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "analysis",
+                "family": "rust",
+                "role": "analysis"
+              },
+              "requirements": {}
             }
           },
           {
-            "ref": {
-              "family": "rust",
-              "role": "matching",
-              "case": "matching"
-            },
             "path": [
               "rust",
               "slice-107-matching",
               "path-equality.json"
             ],
+            "ref": {
+              "case": "matching",
+              "family": "rust",
+              "role": "matching"
+            },
             "run": {
-              "ref": {
-                "family": "rust",
-                "role": "matching",
-                "case": "matching"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "rust",
                 "supported_dialects": [
@@ -714,41 +696,41 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "matching",
+                "family": "rust",
+                "role": "matching"
+              },
+              "requirements": {}
             }
           },
           {
-            "ref": {
-              "family": "rust",
-              "role": "merge",
-              "case": "merge"
-            },
             "path": [
               "rust",
               "slice-108-merge",
               "module-merge.json"
             ],
+            "ref": {
+              "case": "merge",
+              "family": "rust",
+              "role": "merge"
+            },
             "run": {
-              "ref": {
-                "family": "rust",
-                "role": "merge",
-                "case": "merge"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "rust",
                 "supported_dialects": [
@@ -756,60 +738,60 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "merge",
+                "family": "rust",
+                "role": "merge"
+              },
+              "requirements": {}
             }
           }
         ],
+        "family": "rust",
         "missing_roles": []
-      }
-    },
-    {
+      },
       "suite": {
         "kind": "portable",
-        "subject": {
-          "grammar": "typescript"
-        },
         "roles": [
           "analysis",
           "matching",
           "merge"
-        ]
-      },
+        ],
+        "subject": {
+          "grammar": "rust"
+        }
+      }
+    },
+    {
       "plan": {
-        "family": "typescript",
         "entries": [
           {
-            "ref": {
-              "family": "typescript",
-              "role": "analysis",
-              "case": "analysis"
-            },
             "path": [
               "typescript",
               "slice-102-analysis",
               "module-owners.json"
             ],
+            "ref": {
+              "case": "analysis",
+              "family": "typescript",
+              "role": "analysis"
+            },
             "run": {
-              "ref": {
-                "family": "typescript",
-                "role": "analysis",
-                "case": "analysis"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "typescript",
                 "supported_dialects": [
@@ -817,41 +799,41 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "analysis",
+                "family": "typescript",
+                "role": "analysis"
+              },
+              "requirements": {}
             }
           },
           {
-            "ref": {
-              "family": "typescript",
-              "role": "matching",
-              "case": "matching"
-            },
             "path": [
               "typescript",
               "slice-103-matching",
               "path-equality.json"
             ],
+            "ref": {
+              "case": "matching",
+              "family": "typescript",
+              "role": "matching"
+            },
             "run": {
-              "ref": {
-                "family": "typescript",
-                "role": "matching",
-                "case": "matching"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "typescript",
                 "supported_dialects": [
@@ -859,41 +841,41 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "matching",
+                "family": "typescript",
+                "role": "matching"
+              },
+              "requirements": {}
             }
           },
           {
-            "ref": {
-              "family": "typescript",
-              "role": "merge",
-              "case": "merge"
-            },
             "path": [
               "typescript",
               "slice-104-merge",
               "module-merge.json"
             ],
+            "ref": {
+              "case": "merge",
+              "family": "typescript",
+              "role": "merge"
+            },
             "run": {
-              "ref": {
-                "family": "typescript",
-                "role": "merge",
-                "case": "merge"
-              },
-              "requirements": {},
               "family_profile": {
                 "family": "typescript",
                 "supported_dialects": [
@@ -901,25 +883,43 @@
                 ],
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
                 ]
               },
               "feature_profile": {
                 "backend": "kreuzberg-language-pack",
-                "supports_dialects": true,
                 "supported_policies": [
                   {
-                    "surface": "array",
-                    "name": "destination_wins_array"
+                    "name": "destination_wins_array",
+                    "surface": "array"
                   }
-                ]
-              }
+                ],
+                "supports_dialects": true
+              },
+              "ref": {
+                "case": "merge",
+                "family": "typescript",
+                "role": "merge"
+              },
+              "requirements": {}
             }
           }
         ],
+        "family": "typescript",
         "missing_roles": []
+      },
+      "suite": {
+        "kind": "portable",
+        "roles": [
+          "analysis",
+          "matching",
+          "merge"
+        ],
+        "subject": {
+          "grammar": "typescript"
+        }
       }
     }
   ]

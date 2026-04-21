@@ -1530,56 +1530,6 @@
           "suite": {
             "kind": "portable",
             "subject": {
-              "grammar": "typescript"
-            },
-            "roles": [
-              "analysis",
-              "matching",
-              "merge"
-            ]
-          },
-          "report": {
-            "results": [
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "analysis",
-                  "case": "analysis"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "matching",
-                  "case": "matching"
-                },
-                "outcome": "passed",
-                "messages": []
-              },
-              {
-                "ref": {
-                  "family": "typescript",
-                  "role": "merge",
-                  "case": "merge"
-                },
-                "outcome": "passed",
-                "messages": []
-              }
-            ],
-            "summary": {
-              "total": 3,
-              "passed": 3,
-              "failed": 0,
-              "skipped": 0
-            }
-          }
-        },
-        {
-          "suite": {
-            "kind": "portable",
-            "subject": {
               "grammar": "yaml"
             },
             "roles": [
@@ -1628,13 +1578,18 @@
         }
       ],
       "summary": {
-        "total": 17,
-        "passed": 16,
+        "total": 14,
+        "passed": 13,
         "failed": 0,
         "skipped": 1
       }
     },
     "diagnostics": [
+      {
+        "severity": "error",
+        "category": "replay_rejected",
+        "message": "review replay context does not match the current conformance manifest state."
+      },
       {
         "severity": "error",
         "category": "configuration_error",
@@ -1643,12 +1598,17 @@
       {
         "severity": "error",
         "category": "configuration_error",
+        "message": "missing family context for ruby and no default family profile is available."
+      },
+      {
+        "severity": "error",
+        "category": "configuration_error",
         "message": "missing family context for text and no default family profile is available."
       },
       {
-        "severity": "warning",
-        "category": "assumed_default",
-        "message": "using default family context for typescript."
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "missing explicit family context for typescript."
       }
     ],
     "requests": [
@@ -1686,16 +1646,16 @@
         "default_action": "accept_default_context"
       },
       {
-        "id": "family_context:ruby",
+        "id": "family_context:typescript",
         "kind": "family_context",
-        "family": "ruby",
-        "message": "explicit family context is required for ruby; a synthesized default may be accepted by review.",
+        "family": "typescript",
+        "message": "explicit family context is required for typescript; a synthesized default may be accepted by review.",
         "blocking": true,
         "proposed_context": {
           "family_profile": {
-            "family": "ruby",
+            "family": "typescript",
             "supported_dialects": [
-              "ruby"
+              "typescript"
             ],
             "supported_policies": [
               {
@@ -1719,12 +1679,7 @@
         "default_action": "accept_default_context"
       }
     ],
-    "applied_decisions": [
-      {
-        "request_id": "family_context:typescript",
-        "action": "accept_default_context"
-      }
-    ],
+    "applied_decisions": [],
     "host_hints": {
       "interactive": true,
       "require_explicit_contexts": true
@@ -1734,6 +1689,7 @@
       "families": [
         "go",
         "json",
+        "ruby",
         "rust",
         "text",
         "toml",

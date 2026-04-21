@@ -142,6 +142,18 @@
           "discovered_surfaces",
           "delegated_child_operations"
         ]
+      },
+      "ruby_nested_portable": {
+        "family": "ruby",
+        "roles": [
+          "analysis",
+          "matching",
+          "discovered_surfaces",
+          "delegated_child_operations",
+          "delegated_child_review_transport",
+          "delegated_child_review_state",
+          "delegated_child_apply_plan"
+        ]
       }
     },
     "families": {
@@ -964,6 +976,30 @@
             "slice-221-delegated-child-operations",
             "yard-example-child-operations.json"
           ]
+        },
+        {
+          "role": "delegated_child_review_transport",
+          "path": [
+            "ruby",
+            "slice-239-delegated-child-review-transport",
+            "yard-example-review-transport.json"
+          ]
+        },
+        {
+          "role": "delegated_child_review_state",
+          "path": [
+            "ruby",
+            "slice-242-delegated-child-review-state",
+            "yard-example-review-state.json"
+          ]
+        },
+        {
+          "role": "delegated_child_apply_plan",
+          "path": [
+            "ruby",
+            "slice-245-delegated-child-apply-plan",
+            "yard-example-apply-plan.json"
+          ]
         }
       ]
     }
@@ -1257,6 +1293,18 @@
     "ruby:delegated_child_operations:delegated_child_operations": {
       "outcome": "passed",
       "messages": []
+    },
+    "ruby:delegated_child_review_transport:delegated_child_review_transport": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "ruby:delegated_child_review_state:delegated_child_review_state": {
+      "outcome": "passed",
+      "messages": []
+    },
+    "ruby:delegated_child_apply_plan:delegated_child_apply_plan": {
+      "outcome": "passed",
+      "messages": []
     }
   },
   "expected_report": {
@@ -1359,6 +1407,82 @@
               "passed": 4,
               "failed": 0,
               "skipped": 1
+            }
+          }
+        },
+        {
+          "suite": "ruby_nested_portable",
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "matching",
+                  "case": "matching"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "discovered_surfaces",
+                  "case": "discovered_surfaces"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "delegated_child_operations",
+                  "case": "delegated_child_operations"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "delegated_child_review_transport",
+                  "case": "delegated_child_review_transport"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "delegated_child_review_state",
+                  "case": "delegated_child_review_state"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
+                  "role": "delegated_child_apply_plan",
+                  "case": "delegated_child_apply_plan"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 7,
+              "passed": 7,
+              "failed": 0,
+              "skipped": 0
             }
           }
         },

@@ -5,24 +5,24 @@ Suite:
 defined by slices 249 to 251)
 
 Target canonical set:
-Not ready, but no longer blocked on base-family promotion. The next plausible
-target is the canonical widened suite set.
+Completed: canonical widened suite set.
 
 Canonical review-request identity surface:
-Recommended shape: keep a distinct canonical nested Ruby suite while reusing
-the existing `family_context:ruby` review-request surface.
+Resolved for widened canonical promotion: keep a distinct canonical nested Ruby
+suite while reusing the existing `family_context:ruby` review-request surface.
 
 Reviewed-default context behavior:
-Recommended shape: reuse the existing canonical Ruby defaultable family
-context rather than introducing a second Ruby-specific default surface.
+Resolved for widened canonical promotion: reuse the existing canonical Ruby
+defaultable family context rather than introducing a second Ruby-specific
+default surface.
 
 Replay-compatibility behavior:
-Recommended shape: reuse the existing canonical Ruby replay identity surface
-while keeping nested Ruby as a distinct suite member in manifest/report
-entries.
+Resolved for widened canonical promotion: reuse the existing canonical Ruby
+replay identity surface while keeping nested Ruby as a distinct suite member in
+manifest/report entries.
 
 Manifest or fixture membership changes:
-Still required:
+Completed for widened canonical promotion:
 
 - adding the promoted suite to the canonical suite definitions,
 - adding canonical review/default/replay fixture coverage for the promoted
@@ -33,9 +33,8 @@ Still required:
 Notes:
 
 - Portable delegated-child shapes are already available.
-- The base-family prerequisite is now satisfied by canonical promotion of
+- The base-family prerequisite was satisfied by canonical promotion of
   `ruby_portable`.
-- Recommended next design: keep nested Ruby as a separate canonical suite while
-  reusing `family_context:ruby`.
-- Current policy is to keep this suite family-scoped until canonical
-  review/default/replay semantics are shared explicitly.
+- Nested Ruby is now a distinct widened canonical suite while reusing
+  `family_context:ruby`.
+- It remains outside the canonical stable suite set.

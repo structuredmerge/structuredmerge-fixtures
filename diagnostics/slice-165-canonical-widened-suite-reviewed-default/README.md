@@ -3,5 +3,5 @@
 This fixture records reviewed-default behavior for canonical widened-suite
 members only.
 
-Family-local nested or delegated suites remain outside this surface until a
-later slice promotes them explicitly.
+The Markdown delegated nested suite remains outside this surface. Nested Ruby
+coverage shares the existing canonical Ruby default surface.

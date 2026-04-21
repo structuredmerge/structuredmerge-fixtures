@@ -2,5 +2,6 @@
 
 This fixture records review state for canonical widened-suite members only.
 
-Family-local nested or delegated suites do not produce canonical review
-requests here unless a later slice promotes them into canonical membership.
+The Markdown delegated nested suite does not produce canonical review requests
+here because it is not a canonical widened member. Nested Ruby coverage reuses
+the canonical `family_context:ruby` request surface.

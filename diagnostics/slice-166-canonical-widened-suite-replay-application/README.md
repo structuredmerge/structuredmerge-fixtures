@@ -3,5 +3,6 @@
 This fixture records replay application for canonical widened-suite members
 only.
 
-Replay does not implicitly add family-local nested or delegated suites to the
-canonical surface.
+Replay does not implicitly add the Markdown delegated nested suite to the
+canonical surface. Nested Ruby coverage reuses the existing canonical Ruby
+replay identity surface.

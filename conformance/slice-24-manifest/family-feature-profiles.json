@@ -706,6 +706,22 @@
         ]
       },
       {
+        "role": "review_replay_bundle_envelope_reviewed_nested_manifest_application",
+        "path": [
+          "diagnostics",
+          "slice-324-review-replay-bundle-envelope-reviewed-nested-manifest-application",
+          "review-replay-bundle-envelope-reviewed-nested-manifest-application.json"
+        ]
+      },
+      {
+        "role": "review_replay_bundle_envelope_reviewed_nested_manifest_rejection",
+        "path": [
+          "diagnostics",
+          "slice-325-review-replay-bundle-envelope-reviewed-nested-manifest-rejection",
+          "review-replay-bundle-envelope-reviewed-nested-manifest-rejection.json"
+        ]
+      },
+      {
         "role": "family_context_review_proposal",
         "path": [
           "diagnostics",

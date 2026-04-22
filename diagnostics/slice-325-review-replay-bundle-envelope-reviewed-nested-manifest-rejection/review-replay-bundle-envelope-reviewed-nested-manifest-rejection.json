@@ -1,0 +1,244 @@
+{
+  "manifest": {
+    "family_feature_profiles": [],
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
+        "roles": [
+          "analysis"
+        ]
+      }
+    ],
+    "families": {
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "contexts": {
+      "text": {
+        "family_profile": {
+          "family": "text",
+          "supported_dialects": [
+            "text"
+          ],
+          "supported_policies": []
+        },
+        "feature_profile": {
+          "backend": "manual-host",
+          "supports_dialects": true,
+          "supported_policies": []
+        }
+      }
+    },
+    "interactive": false,
+    "require_explicit_contexts": false
+  },
+  "executions": {
+    "text:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "cases": [
+    {
+      "name": "kind mismatch",
+      "review_replay_bundle_envelope": {
+        "kind": "conformance_manifest_review_state",
+        "version": 1,
+        "replay_bundle": {
+          "replay_context": {
+            "surface": "conformance_manifest",
+            "families": [
+              "text"
+            ],
+            "require_explicit_contexts": false
+          },
+          "decisions": [],
+          "reviewed_nested_executions": [
+            {
+              "family": "markdown",
+              "review_state": {
+                "requests": [],
+                "accepted_groups": [],
+                "applied_decisions": [],
+                "diagnostics": []
+              },
+              "applied_children": []
+            }
+          ]
+        }
+      },
+      "expected_state": {
+        "report": {
+          "entries": [
+            {
+              "suite": {
+                "kind": "portable",
+                "subject": {
+                  "grammar": "text"
+                },
+                "roles": [
+                  "analysis"
+                ]
+              },
+              "report": {
+                "results": [
+                  {
+                    "ref": {
+                      "family": "text",
+                      "role": "analysis",
+                      "case": "analysis"
+                    },
+                    "outcome": "passed",
+                    "messages": []
+                  }
+                ],
+                "summary": {
+                  "total": 1,
+                  "passed": 1,
+                  "failed": 0,
+                  "skipped": 0
+                }
+              }
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "kind_mismatch",
+            "message": "expected review_replay_bundle envelope kind."
+          }
+        ],
+        "requests": [],
+        "applied_decisions": [],
+        "host_hints": {
+          "interactive": false,
+          "require_explicit_contexts": false
+        },
+        "replay_context": {
+          "surface": "conformance_manifest",
+          "families": [
+            "text"
+          ],
+          "require_explicit_contexts": false
+        }
+      },
+      "expected_application": {
+        "results": []
+      }
+    },
+    {
+      "name": "unsupported version",
+      "review_replay_bundle_envelope": {
+        "kind": "review_replay_bundle",
+        "version": 2,
+        "replay_bundle": {
+          "replay_context": {
+            "surface": "conformance_manifest",
+            "families": [
+              "text"
+            ],
+            "require_explicit_contexts": false
+          },
+          "decisions": [],
+          "reviewed_nested_executions": [
+            {
+              "family": "ruby",
+              "review_state": {
+                "requests": [],
+                "accepted_groups": [],
+                "applied_decisions": [],
+                "diagnostics": []
+              },
+              "applied_children": []
+            }
+          ]
+        }
+      },
+      "expected_state": {
+        "report": {
+          "entries": [
+            {
+              "suite": {
+                "kind": "portable",
+                "subject": {
+                  "grammar": "text"
+                },
+                "roles": [
+                  "analysis"
+                ]
+              },
+              "report": {
+                "results": [
+                  {
+                    "ref": {
+                      "family": "text",
+                      "role": "analysis",
+                      "case": "analysis"
+                    },
+                    "outcome": "passed",
+                    "messages": []
+                  }
+                ],
+                "summary": {
+                  "total": 1,
+                  "passed": 1,
+                  "failed": 0,
+                  "skipped": 0
+                }
+              }
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "unsupported_version",
+            "message": "unsupported review_replay_bundle envelope version 2."
+          }
+        ],
+        "requests": [],
+        "applied_decisions": [],
+        "host_hints": {
+          "interactive": false,
+          "require_explicit_contexts": false
+        },
+        "replay_context": {
+          "surface": "conformance_manifest",
+          "families": [
+            "text"
+          ],
+          "require_explicit_contexts": false
+        }
+      },
+      "expected_application": {
+        "results": []
+      }
+    }
+  ]
+}

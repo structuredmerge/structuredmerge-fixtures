@@ -1,0 +1,32 @@
+{
+  "shared_fixture_path": [
+    "markdown",
+    "slice-311-reviewed-nested-review-artifact-rejection",
+    "fenced-code-reviewed-nested-review-artifact-rejection.json"
+  ],
+  "providers": {
+    "markdown-it": {
+      "package": "markdown-it-merge",
+      "expected_replay_bundle": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "message": "review replay bundle does not include a reviewed nested execution for markdown."
+          }
+        ]
+      },
+      "expected_review_state": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "message": "review state does not include a reviewed nested execution for markdown."
+          }
+        ]
+      }
+    }
+  }
+}

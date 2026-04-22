@@ -1,0 +1,16 @@
+{
+  "shared_fixture_path": [
+    "markdown",
+    "slice-309-reviewed-nested-review-artifact-application",
+    "fenced-code-reviewed-nested-review-artifact-application.json"
+  ],
+  "providers": {
+    "markdown-it": {
+      "package": "markdown-it-merge",
+      "expected": {
+        "ok": true,
+        "output": "# Nested Merge\n\n```ts\nexport const answer = 2;\nexport const feature = false;\n```\n\n```yaml\nname: destination\n```\n"
+      }
+    }
+  }
+}

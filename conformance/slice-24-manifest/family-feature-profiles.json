@@ -888,6 +888,22 @@
           "slice-293-delegated-child-nested-output-rejection",
           "delegated-child-nested-output-rejection.json"
         ]
+      },
+      {
+        "role": "template_source_path_mapping",
+        "path": [
+          "diagnostics",
+          "slice-329-template-source-path-mapping",
+          "template-source-path-mapping.json"
+        ]
+      },
+      {
+        "role": "template_target_classification",
+        "path": [
+          "diagnostics",
+          "slice-330-template-target-classification",
+          "template-target-classification.json"
+        ]
       }
     ],
     "text": [

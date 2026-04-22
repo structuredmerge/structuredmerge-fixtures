@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "template_source_path": "README.md.example",
+      "expected_destination_path": "README.md"
+    },
+    {
+      "template_source_path": ".github/workflows/ci.yml.example",
+      "expected_destination_path": ".github/workflows/ci.yml"
+    },
+    {
+      "template_source_path": ".env.local.example",
+      "expected_destination_path": ".env.local"
+    },
+    {
+      "template_source_path": "config/settings.yml.no-osc.example",
+      "expected_destination_path": "config/settings.yml"
+    },
+    {
+      "template_source_path": "notes/example-snippets.md",
+      "expected_destination_path": "notes/example-snippets.md"
+    },
+    {
+      "template_source_path": "template/.junie/guidelines.md.example",
+      "expected_destination_path": "template/.junie/guidelines.md"
+    }
+  ]
+}

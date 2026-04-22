@@ -1,0 +1,157 @@
+{
+  "cases": [
+    {
+      "destination_path": "Gemfile",
+      "expected": {
+        "destination_path": "Gemfile",
+        "file_type": "gemfile",
+        "family": "ruby",
+        "dialect": "ruby"
+      }
+    },
+    {
+      "destination_path": "Appraisals",
+      "expected": {
+        "destination_path": "Appraisals",
+        "file_type": "appraisals",
+        "family": "ruby",
+        "dialect": "ruby"
+      }
+    },
+    {
+      "destination_path": "demo.gemspec",
+      "expected": {
+        "destination_path": "demo.gemspec",
+        "file_type": "gemspec",
+        "family": "ruby",
+        "dialect": "ruby"
+      }
+    },
+    {
+      "destination_path": ".git-hooks/commit-msg",
+      "expected": {
+        "destination_path": ".git-hooks/commit-msg",
+        "file_type": "ruby",
+        "family": "ruby",
+        "dialect": "ruby"
+      }
+    },
+    {
+      "destination_path": ".git-hooks/prepare-commit-msg",
+      "expected": {
+        "destination_path": ".git-hooks/prepare-commit-msg",
+        "file_type": "bash",
+        "family": "bash",
+        "dialect": "bash"
+      }
+    },
+    {
+      "destination_path": ".envrc",
+      "expected": {
+        "destination_path": ".envrc",
+        "file_type": "bash",
+        "family": "bash",
+        "dialect": "bash"
+      }
+    },
+    {
+      "destination_path": ".env.local",
+      "expected": {
+        "destination_path": ".env.local",
+        "file_type": "dotenv",
+        "family": "dotenv",
+        "dialect": "dotenv"
+      }
+    },
+    {
+      "destination_path": "README.md",
+      "expected": {
+        "destination_path": "README.md",
+        "file_type": "markdown",
+        "family": "markdown",
+        "dialect": "markdown"
+      }
+    },
+    {
+      "destination_path": "docs/guide.markdown",
+      "expected": {
+        "destination_path": "docs/guide.markdown",
+        "file_type": "markdown",
+        "family": "markdown",
+        "dialect": "markdown"
+      }
+    },
+    {
+      "destination_path": ".github/workflows/ci.yml",
+      "expected": {
+        "destination_path": ".github/workflows/ci.yml",
+        "file_type": "yaml",
+        "family": "yaml",
+        "dialect": "yaml"
+      }
+    },
+    {
+      "destination_path": "CITATION.cff",
+      "expected": {
+        "destination_path": "CITATION.cff",
+        "file_type": "yaml",
+        "family": "yaml",
+        "dialect": "yaml"
+      }
+    },
+    {
+      "destination_path": "package.json",
+      "expected": {
+        "destination_path": "package.json",
+        "file_type": "json",
+        "family": "json",
+        "dialect": "json"
+      }
+    },
+    {
+      "destination_path": "biome.jsonc",
+      "expected": {
+        "destination_path": "biome.jsonc",
+        "file_type": "json",
+        "family": "json",
+        "dialect": "jsonc"
+      }
+    },
+    {
+      "destination_path": "mise.toml",
+      "expected": {
+        "destination_path": "mise.toml",
+        "file_type": "toml",
+        "family": "toml",
+        "dialect": "toml"
+      }
+    },
+    {
+      "destination_path": "sig/version.rbs",
+      "expected": {
+        "destination_path": "sig/version.rbs",
+        "file_type": "rbs",
+        "family": "rbs",
+        "dialect": "rbs"
+      }
+    },
+    {
+      "destination_path": ".tool-versions",
+      "expected": {
+        "destination_path": ".tool-versions",
+        "file_type": "tool_versions",
+        "family": "text",
+        "dialect": "tool_versions"
+      }
+    },
+    {
+      "destination_path": "notes.txt",
+      "expected": {
+        "destination_path": "notes.txt",
+        "file_type": "text",
+        "family": "text",
+        "dialect": "text"
+      }
+    }
+  ]
+}

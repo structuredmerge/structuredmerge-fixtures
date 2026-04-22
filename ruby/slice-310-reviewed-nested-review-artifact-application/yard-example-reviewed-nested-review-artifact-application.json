@@ -1,0 +1,105 @@
+{
+  "template": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Template\")\nclass Greeter\nend\n",
+  "destination": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Destination\")\nclass Greeter\nend\n",
+  "replay_bundle": {
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "ruby"
+      ],
+      "require_explicit_contexts": false
+    },
+    "decisions": [],
+    "reviewed_nested_executions": [
+      {
+        "family": "ruby",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [
+            {
+              "delegated_apply_group": "nested_ruby_child:0",
+              "parent_operation_id": "ruby-doc-comment-0",
+              "child_operation_id": "yard-example-0",
+              "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[Greeter] > yard_example[1]",
+              "case_ids": [],
+              "delegated_case_ids": []
+            }
+          ],
+          "applied_decisions": [
+            {
+              "request_id": "projected_child_group:nested_ruby_child:0",
+              "action": "apply_delegated_child_group"
+            }
+          ],
+          "diagnostics": []
+        },
+        "applied_children": [
+          {
+            "operation_id": "yard-example-0",
+            "output": "Greeter.new.greet(\"Destination\")\nGreeter.new.wave\n"
+          }
+        ]
+      }
+    ]
+  },
+  "review_state": {
+    "report": {
+      "entries": [],
+      "summary": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "diagnostics": [],
+    "requests": [],
+    "applied_decisions": [],
+    "host_hints": {
+      "interactive": false,
+      "require_explicit_contexts": false
+    },
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "ruby"
+      ],
+      "require_explicit_contexts": false
+    },
+    "reviewed_nested_executions": [
+      {
+        "family": "ruby",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [
+            {
+              "delegated_apply_group": "nested_ruby_child:0",
+              "parent_operation_id": "ruby-doc-comment-0",
+              "child_operation_id": "yard-example-0",
+              "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[Greeter] > yard_example[1]",
+              "case_ids": [],
+              "delegated_case_ids": []
+            }
+          ],
+          "applied_decisions": [
+            {
+              "request_id": "projected_child_group:nested_ruby_child:0",
+              "action": "apply_delegated_child_group"
+            }
+          ],
+          "diagnostics": []
+        },
+        "applied_children": [
+          {
+            "operation_id": "yard-example-0",
+            "output": "Greeter.new.greet(\"Destination\")\nGreeter.new.wave\n"
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "ok": true,
+    "output": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Destination\")\n#   Greeter.new.wave\nclass Greeter\nend\n"
+  }
+}

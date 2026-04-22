@@ -1,0 +1,94 @@
+{
+  "source": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"World\")\nclass Greeter\nend\n",
+  "delegated_operations": [
+    {
+      "operation_id": "ruby-doc-comment-0",
+      "parent_operation_id": "ruby-document-0",
+      "requested_strategy": "delegate_child_surface",
+      "language_chain": ["ruby", "yard"],
+      "surface": {
+        "surface_kind": "ruby_doc_comment",
+        "declared_language": "yard",
+        "effective_language": "yard",
+        "address": "document[0] > ruby_doc_comment[Greeter]",
+        "parent_address": "document[0]",
+        "owner": {
+          "kind": "owned_region",
+          "address": "/declarations/Greeter"
+        },
+        "span": {
+          "start_line": 3,
+          "end_line": 6
+        },
+        "reconstruction_strategy": "rewrite_with_prefix_preservation",
+        "metadata": {
+          "owner_signature": "Greeter",
+          "comment_prefix": "# ",
+          "entries": [
+            { "line": 3, "raw": "# Greets the caller." },
+            { "line": 5, "raw": "# @example [ruby]" },
+            { "line": 6, "raw": "#   Greeter.new.greet(\"World\")" }
+          ]
+        }
+      }
+    },
+    {
+      "operation_id": "yard-example-0",
+      "parent_operation_id": "ruby-doc-comment-0",
+      "requested_strategy": "delegate_child_surface",
+      "language_chain": ["ruby", "yard", "ruby"],
+      "surface": {
+        "surface_kind": "yard_example_block",
+        "declared_language": "ruby",
+        "effective_language": "ruby",
+        "address": "document[0] > ruby_doc_comment[Greeter] > yard_example[1]",
+        "parent_address": "document[0] > ruby_doc_comment[Greeter]",
+        "owner": {
+          "kind": "owned_region",
+          "address": "document[0] > ruby_doc_comment[Greeter]"
+        },
+        "span": {
+          "start_line": 6,
+          "end_line": 6
+        },
+        "reconstruction_strategy": "rewrite_with_prefix_preservation",
+        "metadata": {
+          "tag_kind": "example",
+          "tag_index": 1,
+          "tag_text": "@example [ruby]",
+          "comment_prefix": "# "
+        }
+      }
+    }
+  ],
+  "apply_plan": {
+    "entries": [
+      {
+        "request_id": "projected_child_group:ruby:yard-example:greeter",
+        "family": "ruby",
+        "delegated_group": {
+          "delegated_apply_group": "ruby:yard-example:greeter",
+          "parent_operation_id": "ruby:merge",
+          "child_operation_id": "yard-example-0",
+          "delegated_runtime_surface_path": "ruby:/docs/class:Greeter/example:1",
+          "case_ids": ["review-a"],
+          "delegated_case_ids": ["child-a"]
+        },
+        "decision": {
+          "request_id": "projected_child_group:ruby:yard-example:greeter",
+          "action": "apply_delegated_child_group"
+        }
+      }
+    ]
+  },
+  "applied_children": [
+    {
+      "operation_id": "yard-example-0",
+      "output": "Greeter.new.greet(\"Universe\")\nGreeter.new.wave\n"
+    }
+  ],
+  "expected": {
+    "ok": true,
+    "output": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Universe\")\n#   Greeter.new.wave\nclass Greeter\nend\n"
+  }
+}

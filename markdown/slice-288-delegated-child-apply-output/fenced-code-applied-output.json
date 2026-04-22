@@ -1,0 +1,81 @@
+{
+  "source": "# Embedded Merge\n\n```ts\nexport const answer = 41;\n```\n\n```yaml\nname: kept\n```\n",
+  "delegated_operations": [
+    {
+      "operation_id": "markdown-fence-0",
+      "parent_operation_id": "markdown-document-0",
+      "requested_strategy": "delegate_child_surface",
+      "language_chain": ["markdown", "typescript"],
+      "surface": {
+        "surface_kind": "markdown_fenced_code_block",
+        "declared_language": "ts",
+        "effective_language": "typescript",
+        "address": "document[0] > fenced_code_block[/code_fence/0]",
+        "parent_address": "document[0]",
+        "owner": {
+          "kind": "structural_owner",
+          "address": "/code_fence/0"
+        },
+        "reconstruction_strategy": "portable_write",
+        "metadata": {
+          "family": "typescript",
+          "dialect": "typescript",
+          "path": "/code_fence/0"
+        }
+      }
+    },
+    {
+      "operation_id": "markdown-fence-1",
+      "parent_operation_id": "markdown-document-0",
+      "requested_strategy": "delegate_child_surface",
+      "language_chain": ["markdown", "yaml"],
+      "surface": {
+        "surface_kind": "markdown_fenced_code_block",
+        "declared_language": "yaml",
+        "effective_language": "yaml",
+        "address": "document[0] > fenced_code_block[/code_fence/1]",
+        "parent_address": "document[0]",
+        "owner": {
+          "kind": "structural_owner",
+          "address": "/code_fence/1"
+        },
+        "reconstruction_strategy": "portable_write",
+        "metadata": {
+          "family": "yaml",
+          "dialect": "yaml",
+          "path": "/code_fence/1"
+        }
+      }
+    }
+  ],
+  "apply_plan": {
+    "entries": [
+      {
+        "request_id": "projected_child_group:markdown:fence:typescript",
+        "family": "typescript",
+        "delegated_group": {
+          "delegated_apply_group": "markdown:fence:typescript",
+          "parent_operation_id": "markdown:merge",
+          "child_operation_id": "markdown-fence-0",
+          "delegated_runtime_surface_path": "markdown:/code_fence/0",
+          "case_ids": ["case-1"],
+          "delegated_case_ids": ["child-case-1"]
+        },
+        "decision": {
+          "request_id": "projected_child_group:markdown:fence:typescript",
+          "action": "apply_delegated_child_group"
+        }
+      }
+    ]
+  },
+  "applied_children": [
+    {
+      "operation_id": "markdown-fence-0",
+      "output": "export const answer = 42;\nexport const next = true;\n"
+    }
+  ],
+  "expected": {
+    "ok": true,
+    "output": "# Embedded Merge\n\n```ts\nexport const answer = 42;\nexport const next = true;\n```\n\n```yaml\nname: kept\n```\n"
+  }
+}

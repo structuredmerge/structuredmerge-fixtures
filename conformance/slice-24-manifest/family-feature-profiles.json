@@ -928,6 +928,14 @@
           "slice-333-template-entry-plan",
           "template-entry-plan.json"
         ]
+      },
+      {
+        "role": "template_entry_plan_state",
+        "path": [
+          "diagnostics",
+          "slice-334-template-entry-plan-state",
+          "template-entry-plan-state.json"
+        ]
       }
     ],
     "text": [

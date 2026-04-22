@@ -952,6 +952,22 @@
           "slice-336-template-entry-token-state",
           "template-entry-token-state.json"
         ]
+      },
+      {
+        "role": "template_entry_prepared_content",
+        "path": [
+          "diagnostics",
+          "slice-337-template-entry-prepared-content",
+          "template-entry-prepared-content.json"
+        ]
+      },
+      {
+        "role": "template_execution_plan",
+        "path": [
+          "diagnostics",
+          "slice-338-template-execution-plan",
+          "template-execution-plan.json"
+        ]
       }
     ],
     "text": [

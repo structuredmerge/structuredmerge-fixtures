@@ -904,6 +904,22 @@
           "slice-330-template-target-classification",
           "template-target-classification.json"
         ]
+      },
+      {
+        "role": "template_destination_mapping",
+        "path": [
+          "diagnostics",
+          "slice-331-template-destination-mapping",
+          "template-destination-mapping.json"
+        ]
+      },
+      {
+        "role": "template_strategy_selection",
+        "path": [
+          "diagnostics",
+          "slice-332-template-strategy-selection",
+          "template-strategy-selection.json"
+        ]
       }
     ],
     "text": [

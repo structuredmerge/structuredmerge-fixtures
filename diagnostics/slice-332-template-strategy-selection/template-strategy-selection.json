@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "destination_path": "README.md",
+      "default_strategy": "merge",
+      "overrides": [],
+      "expected_strategy": "merge"
+    },
+    {
+      "destination_path": "README.md",
+      "default_strategy": "merge",
+      "overrides": [
+        {
+          "path": "README.md",
+          "strategy": "accept_template"
+        }
+      ],
+      "expected_strategy": "accept_template"
+    },
+    {
+      "destination_path": "certs/demo.pem",
+      "default_strategy": "merge",
+      "overrides": [
+        {
+          "path": "certs/demo.pem",
+          "strategy": "raw_copy"
+        }
+      ],
+      "expected_strategy": "raw_copy"
+    },
+    {
+      "destination_path": "config/mise.toml",
+      "default_strategy": "merge",
+      "overrides": [
+        {
+          "path": "config/mise.toml",
+          "strategy": "keep_destination"
+        }
+      ],
+      "expected_strategy": "keep_destination"
+    },
+    {
+      "destination_path": "./README.md",
+      "default_strategy": "merge",
+      "overrides": [
+        {
+          "path": "README.md",
+          "strategy": "accept_template"
+        }
+      ],
+      "expected_strategy": "accept_template"
+    }
+  ]
+}

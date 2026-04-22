@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "logical_destination_path": ".kettle-jem.yml",
+      "context": {},
+      "expected_destination_path": null
+    },
+    {
+      "logical_destination_path": ".env.local",
+      "context": {},
+      "expected_destination_path": ".env.local.example"
+    },
+    {
+      "logical_destination_path": "gem.gemspec",
+      "context": {
+        "project_name": "demo-gem"
+      },
+      "expected_destination_path": "demo-gem.gemspec"
+    },
+    {
+      "logical_destination_path": "gem.gemspec",
+      "context": {},
+      "expected_destination_path": "gem.gemspec"
+    },
+    {
+      "logical_destination_path": "README.md",
+      "context": {
+        "project_name": "demo-gem"
+      },
+      "expected_destination_path": "README.md"
+    }
+  ]
+}

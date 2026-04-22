@@ -1,0 +1,86 @@
+{
+  "cases": [
+    {
+      "name": "kind mismatch",
+      "review_state_envelope": {
+        "kind": "review_replay_bundle",
+        "version": 1,
+        "state": {
+          "report": {
+            "entries": [],
+            "summary": {
+              "total": 0,
+              "passed": 0,
+              "failed": 0,
+              "skipped": 0
+            }
+          },
+          "diagnostics": [],
+          "requests": [],
+          "applied_decisions": [],
+          "host_hints": {
+            "interactive": false,
+            "require_explicit_contexts": false
+          },
+          "replay_context": {
+            "surface": "conformance_manifest",
+            "families": [],
+            "require_explicit_contexts": false
+          },
+          "reviewed_nested_executions": []
+        }
+      },
+      "expected_application": {
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "kind_mismatch",
+            "message": "expected conformance_manifest_review_state envelope kind."
+          }
+        ],
+        "results": []
+      }
+    },
+    {
+      "name": "unsupported version",
+      "review_state_envelope": {
+        "kind": "conformance_manifest_review_state",
+        "version": 2,
+        "state": {
+          "report": {
+            "entries": [],
+            "summary": {
+              "total": 0,
+              "passed": 0,
+              "failed": 0,
+              "skipped": 0
+            }
+          },
+          "diagnostics": [],
+          "requests": [],
+          "applied_decisions": [],
+          "host_hints": {
+            "interactive": false,
+            "require_explicit_contexts": false
+          },
+          "replay_context": {
+            "surface": "conformance_manifest",
+            "families": [],
+            "require_explicit_contexts": false
+          },
+          "reviewed_nested_executions": []
+        }
+      },
+      "expected_application": {
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "unsupported_version",
+            "message": "unsupported conformance_manifest_review_state envelope version 2."
+          }
+        ],
+        "results": []
+      }
+    }
+  ]
+}

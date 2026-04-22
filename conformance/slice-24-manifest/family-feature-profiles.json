@@ -674,6 +674,38 @@
         ]
       },
       {
+        "role": "review_replay_bundle_envelope_reviewed_nested_execution_application",
+        "path": [
+          "diagnostics",
+          "slice-320-review-replay-bundle-envelope-reviewed-nested-execution-application",
+          "review-replay-bundle-envelope-reviewed-nested-execution-application.json"
+        ]
+      },
+      {
+        "role": "review_state_envelope_reviewed_nested_execution_application",
+        "path": [
+          "diagnostics",
+          "slice-321-review-state-envelope-reviewed-nested-execution-application",
+          "review-state-envelope-reviewed-nested-execution-application.json"
+        ]
+      },
+      {
+        "role": "review_replay_bundle_envelope_reviewed_nested_execution_rejection",
+        "path": [
+          "diagnostics",
+          "slice-322-review-replay-bundle-envelope-reviewed-nested-execution-rejection",
+          "review-replay-bundle-envelope-reviewed-nested-execution-rejection.json"
+        ]
+      },
+      {
+        "role": "review_state_envelope_reviewed_nested_execution_rejection",
+        "path": [
+          "diagnostics",
+          "slice-323-review-state-envelope-reviewed-nested-execution-rejection",
+          "review-state-envelope-reviewed-nested-execution-rejection.json"
+        ]
+      },
+      {
         "role": "family_context_review_proposal",
         "path": [
           "diagnostics",

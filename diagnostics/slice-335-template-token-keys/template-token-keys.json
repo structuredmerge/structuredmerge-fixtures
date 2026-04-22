@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "content": "Hello {KJ|GEM_NAME} from {KJ|GH:ORG}.",
+      "expected_token_keys": [
+        "KJ|GEM_NAME",
+        "KJ|GH:ORG"
+      ]
+    },
+    {
+      "content": "Repeat {KJ|META:AUTHOR} and {KJ|META:AUTHOR}.",
+      "expected_token_keys": [
+        "KJ|META:AUTHOR"
+      ]
+    },
+    {
+      "content": "Ignore {BROKEN TOKEN} and {KJ|INVALID-NAME}.",
+      "expected_token_keys": []
+    },
+    {
+      "content": "Use <<NS:NAME>> and <<NS:TEAM>>.",
+      "config": {
+        "pre": "<<",
+        "post": ">>",
+        "separators": [
+          ":"
+        ],
+        "min_segments": 2,
+        "segment_pattern": "[A-Za-z0-9_]"
+      },
+      "expected_token_keys": [
+        "NS:NAME",
+        "NS:TEAM"
+      ]
+    }
+  ]
+}

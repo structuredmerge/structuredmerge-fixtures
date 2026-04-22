@@ -1,0 +1,213 @@
+{
+  "planned_entries": [
+    {
+      "template_source_path": ".kettle-jem.yml.example",
+      "logical_destination_path": ".kettle-jem.yml",
+      "destination_path": null,
+      "classification": {
+        "destination_path": ".kettle-jem.yml",
+        "file_type": "yaml",
+        "family": "yaml",
+        "dialect": "yaml"
+      },
+      "strategy": "merge",
+      "action": "omit",
+      "destination_exists": false,
+      "write_action": "omit"
+    },
+    {
+      "template_source_path": "README.md.example",
+      "logical_destination_path": "README.md",
+      "destination_path": "README.md",
+      "classification": {
+        "destination_path": "README.md",
+        "file_type": "markdown",
+        "family": "markdown",
+        "dialect": "markdown"
+      },
+      "strategy": "accept_template",
+      "action": "accept_template",
+      "destination_exists": true,
+      "write_action": "update"
+    },
+    {
+      "template_source_path": "config/mise.toml.example",
+      "logical_destination_path": "config/mise.toml",
+      "destination_path": "config/mise.toml",
+      "classification": {
+        "destination_path": "config/mise.toml",
+        "file_type": "toml",
+        "family": "toml",
+        "dialect": "toml"
+      },
+      "strategy": "keep_destination",
+      "action": "keep_destination",
+      "destination_exists": true,
+      "write_action": "keep"
+    },
+    {
+      "template_source_path": "bin/setup.sh.example",
+      "logical_destination_path": "bin/setup.sh",
+      "destination_path": "bin/setup.sh",
+      "classification": {
+        "destination_path": "bin/setup.sh",
+        "file_type": "bash",
+        "family": "bash",
+        "dialect": "bash"
+      },
+      "strategy": "raw_copy",
+      "action": "raw_copy",
+      "destination_exists": false,
+      "write_action": "create"
+    },
+    {
+      "template_source_path": "gem.gemspec.example",
+      "logical_destination_path": "gem.gemspec",
+      "destination_path": "demo.gemspec",
+      "classification": {
+        "destination_path": "gem.gemspec",
+        "file_type": "gemspec",
+        "family": "ruby",
+        "dialect": "ruby"
+      },
+      "strategy": "merge",
+      "action": "merge",
+      "destination_exists": false,
+      "write_action": "create"
+    }
+  ],
+  "template_contents": {
+    ".kettle-jem.yml.example": "project_name: {KJ|PROJECT_NAME}\n",
+    "README.md.example": "# {KJ|GEM_NAME}\nBy {KJ|META:AUTHOR}\n",
+    "config/mise.toml.example": "project = \"{KJ|GEM_NAME}\"\nowner = \"{KJ|META:AUTHOR}\"\n",
+    "bin/setup.sh.example": "echo {KJ|CLI_NAME}\n",
+    "gem.gemspec.example": "spec.name = \"{KJ|GEM_NAME}\"\nspec.summary = \"{KJ|SUMMARY}\"\n"
+  },
+  "replacements": {
+    "KJ|GEM_NAME": "demo",
+    "KJ|SUMMARY": "Example gem summary"
+  },
+  "expected_entries": [
+    {
+      "template_source_path": ".kettle-jem.yml.example",
+      "logical_destination_path": ".kettle-jem.yml",
+      "destination_path": null,
+      "classification": {
+        "destination_path": ".kettle-jem.yml",
+        "file_type": "yaml",
+        "family": "yaml",
+        "dialect": "yaml"
+      },
+      "strategy": "merge",
+      "action": "omit",
+      "destination_exists": false,
+      "write_action": "omit",
+      "token_keys": [
+        "KJ|PROJECT_NAME"
+      ],
+      "unresolved_token_keys": [
+        "KJ|PROJECT_NAME"
+      ],
+      "token_resolution_required": false,
+      "blocked": false,
+      "block_reason": null
+    },
+    {
+      "template_source_path": "README.md.example",
+      "logical_destination_path": "README.md",
+      "destination_path": "README.md",
+      "classification": {
+        "destination_path": "README.md",
+        "file_type": "markdown",
+        "family": "markdown",
+        "dialect": "markdown"
+      },
+      "strategy": "accept_template",
+      "action": "accept_template",
+      "destination_exists": true,
+      "write_action": "update",
+      "token_keys": [
+        "KJ|GEM_NAME",
+        "KJ|META:AUTHOR"
+      ],
+      "unresolved_token_keys": [
+        "KJ|META:AUTHOR"
+      ],
+      "token_resolution_required": true,
+      "blocked": true,
+      "block_reason": "unresolved_tokens"
+    },
+    {
+      "template_source_path": "config/mise.toml.example",
+      "logical_destination_path": "config/mise.toml",
+      "destination_path": "config/mise.toml",
+      "classification": {
+        "destination_path": "config/mise.toml",
+        "file_type": "toml",
+        "family": "toml",
+        "dialect": "toml"
+      },
+      "strategy": "keep_destination",
+      "action": "keep_destination",
+      "destination_exists": true,
+      "write_action": "keep",
+      "token_keys": [
+        "KJ|GEM_NAME",
+        "KJ|META:AUTHOR"
+      ],
+      "unresolved_token_keys": [
+        "KJ|META:AUTHOR"
+      ],
+      "token_resolution_required": false,
+      "blocked": false,
+      "block_reason": null
+    },
+    {
+      "template_source_path": "bin/setup.sh.example",
+      "logical_destination_path": "bin/setup.sh",
+      "destination_path": "bin/setup.sh",
+      "classification": {
+        "destination_path": "bin/setup.sh",
+        "file_type": "bash",
+        "family": "bash",
+        "dialect": "bash"
+      },
+      "strategy": "raw_copy",
+      "action": "raw_copy",
+      "destination_exists": false,
+      "write_action": "create",
+      "token_keys": [
+        "KJ|CLI_NAME"
+      ],
+      "unresolved_token_keys": [
+        "KJ|CLI_NAME"
+      ],
+      "token_resolution_required": false,
+      "blocked": false,
+      "block_reason": null
+    },
+    {
+      "template_source_path": "gem.gemspec.example",
+      "logical_destination_path": "gem.gemspec",
+      "destination_path": "demo.gemspec",
+      "classification": {
+        "destination_path": "gem.gemspec",
+        "file_type": "gemspec",
+        "family": "ruby",
+        "dialect": "ruby"
+      },
+      "strategy": "merge",
+      "action": "merge",
+      "destination_exists": false,
+      "write_action": "create",
+      "token_keys": [
+        "KJ|GEM_NAME",
+        "KJ|SUMMARY"
+      ],
+      "unresolved_token_keys": [],
+      "token_resolution_required": true,
+      "blocked": false,
+      "block_reason": null
+    }
+  ]
+}

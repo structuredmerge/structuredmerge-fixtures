@@ -936,6 +936,22 @@
           "slice-334-template-entry-plan-state",
           "template-entry-plan-state.json"
         ]
+      },
+      {
+        "role": "template_token_keys",
+        "path": [
+          "diagnostics",
+          "slice-335-template-token-keys",
+          "template-token-keys.json"
+        ]
+      },
+      {
+        "role": "template_entry_token_state",
+        "path": [
+          "diagnostics",
+          "slice-336-template-entry-token-state",
+          "template-entry-token-state.json"
+        ]
       }
     ],
     "text": [

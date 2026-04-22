@@ -736,6 +736,22 @@
           "slice-243-delegated-child-apply-plan",
           "delegated-child-apply-plan.json"
         ]
+      },
+      {
+        "role": "delegated_child_nested_output_resolution",
+        "path": [
+          "diagnostics",
+          "slice-292-delegated-child-nested-output-resolution",
+          "delegated-child-nested-output-resolution.json"
+        ]
+      },
+      {
+        "role": "delegated_child_nested_output_rejection",
+        "path": [
+          "diagnostics",
+          "slice-293-delegated-child-nested-output-rejection",
+          "delegated-child-nested-output-rejection.json"
+        ]
       }
     ],
     "text": [

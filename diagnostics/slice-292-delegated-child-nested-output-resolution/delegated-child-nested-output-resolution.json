@@ -1,0 +1,104 @@
+{
+  "default_family": "markdown",
+  "request_id_prefix": "nested_markdown_child",
+  "operations": [
+    {
+      "operation_id": "markdown:code-fence:typescript",
+      "parent_operation_id": "markdown:merge",
+      "requested_strategy": "delegate_child_surface",
+      "language_chain": ["markdown", "typescript"],
+      "surface": {
+        "surface_kind": "fenced_code_block",
+        "declared_language": "typescript",
+        "effective_language": "typescript",
+        "address": "document[0] > fenced_code_block[/code_fence/0]",
+        "parent_address": "document[0]",
+        "owner": {
+          "kind": "owned_region",
+          "address": "/code_fence/0"
+        },
+        "reconstruction_strategy": "portable_write",
+        "metadata": {
+          "family": "typescript"
+        }
+      }
+    },
+    {
+      "operation_id": "markdown:code-fence:plain",
+      "parent_operation_id": "markdown:merge",
+      "requested_strategy": "delegate_child_surface",
+      "language_chain": ["markdown"],
+      "surface": {
+        "surface_kind": "fenced_code_block",
+        "effective_language": "markdown",
+        "address": "document[0] > fenced_code_block[/code_fence/1]",
+        "parent_address": "document[0]",
+        "owner": {
+          "kind": "owned_region",
+          "address": "/code_fence/1"
+        },
+        "reconstruction_strategy": "portable_write"
+      }
+    }
+  ],
+  "nested_outputs": [
+    {
+      "surface_address": "document[0] > fenced_code_block[/code_fence/0]",
+      "output": "export const answer = 2;\n"
+    },
+    {
+      "surface_address": "document[0] > fenced_code_block[/code_fence/1]",
+      "output": "kept from nested merge\n"
+    }
+  ],
+  "expected": {
+    "ok": true,
+    "diagnostics": [],
+    "apply_plan": {
+      "entries": [
+        {
+          "request_id": "nested_markdown_child:0",
+          "family": "typescript",
+          "delegated_group": {
+            "delegated_apply_group": "nested_markdown_child:0",
+            "parent_operation_id": "markdown:merge",
+            "child_operation_id": "markdown:code-fence:typescript",
+            "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/0]",
+            "case_ids": [],
+            "delegated_case_ids": []
+          },
+          "decision": {
+            "request_id": "nested_markdown_child:0",
+            "action": "apply_delegated_child_group"
+          }
+        },
+        {
+          "request_id": "nested_markdown_child:1",
+          "family": "markdown",
+          "delegated_group": {
+            "delegated_apply_group": "nested_markdown_child:1",
+            "parent_operation_id": "markdown:merge",
+            "child_operation_id": "markdown:code-fence:plain",
+            "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/1]",
+            "case_ids": [],
+            "delegated_case_ids": []
+          },
+          "decision": {
+            "request_id": "nested_markdown_child:1",
+            "action": "apply_delegated_child_group"
+          }
+        }
+      ]
+    },
+    "applied_children": [
+      {
+        "operation_id": "markdown:code-fence:typescript",
+        "output": "export const answer = 2;\n"
+      },
+      {
+        "operation_id": "markdown:code-fence:plain",
+        "output": "kept from nested merge\n"
+      }
+    ]
+  }
+}

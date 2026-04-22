@@ -1,0 +1,44 @@
+{
+  "default_family": "ruby",
+  "request_id_prefix": "nested_ruby_child",
+  "operations": [
+    {
+      "operation_id": "ruby:yard-example:one",
+      "parent_operation_id": "ruby:doc-comment:Greeter",
+      "requested_strategy": "delegate_child_surface",
+      "language_chain": ["ruby", "yard", "ruby"],
+      "surface": {
+        "surface_kind": "yard_example_block",
+        "declared_language": "ruby",
+        "effective_language": "ruby",
+        "address": "document[0] > ruby_doc_comment[Greeter] > yard_example[1]",
+        "parent_address": "document[0] > ruby_doc_comment[Greeter]",
+        "span": {
+          "start_line": 4,
+          "end_line": 4
+        },
+        "owner": {
+          "kind": "parent_surface",
+          "address": "document[0] > ruby_doc_comment[Greeter]"
+        },
+        "reconstruction_strategy": "rewrite_with_prefix_preservation"
+      }
+    }
+  ],
+  "nested_outputs": [
+    {
+      "surface_address": "document[0] > ruby_doc_comment[Greeter] > yard_example[9]",
+      "output": "Greeter.new.wave\n"
+    }
+  ],
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "missing delegated child surface document[0] > ruby_doc_comment[Greeter] > yard_example[9]."
+      }
+    ]
+  }
+}

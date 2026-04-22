@@ -19,7 +19,8 @@
         },
         "roles": [
           "analysis",
-          "matching"
+          "matching",
+          "merge"
         ]
       }
     ],
@@ -39,6 +40,14 @@
             "markdown",
             "slice-199-matching",
             "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "markdown",
+            "slice-286-merge",
+            "section-merge.json"
           ]
         }
       ]
@@ -108,6 +117,10 @@
     "markdown:matching:matching": {
       "outcome": "passed",
       "messages": []
+    },
+    "markdown:merge:merge": {
+      "outcome": "passed",
+      "messages": []
     }
   },
   "expected_reports": {
@@ -121,7 +134,8 @@
             },
             "roles": [
               "analysis",
-              "matching"
+              "matching",
+              "merge"
             ]
           },
           "report": {
@@ -143,11 +157,20 @@
                 },
                 "outcome": "passed",
                 "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
               }
             ],
             "summary": {
-              "total": 2,
-              "passed": 2,
+              "total": 3,
+              "passed": 3,
               "failed": 0,
               "skipped": 0
             }
@@ -155,8 +178,8 @@
         }
       ],
       "summary": {
-        "total": 2,
-        "passed": 2,
+        "total": 3,
+        "passed": 3,
         "failed": 0,
         "skipped": 0
       }
@@ -171,7 +194,8 @@
             },
             "roles": [
               "analysis",
-              "matching"
+              "matching",
+              "merge"
             ]
           },
           "report": {
@@ -193,11 +217,20 @@
                 },
                 "outcome": "passed",
                 "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
               }
             ],
             "summary": {
-              "total": 2,
-              "passed": 2,
+              "total": 3,
+              "passed": 3,
               "failed": 0,
               "skipped": 0
             }
@@ -205,8 +238,8 @@
         }
       ],
       "summary": {
-        "total": 2,
-        "passed": 2,
+        "total": 3,
+        "passed": 3,
         "failed": 0,
         "skipped": 0
       }
@@ -221,7 +254,8 @@
             },
             "roles": [
               "analysis",
-              "matching"
+              "matching",
+              "merge"
             ]
           },
           "report": {
@@ -243,11 +277,20 @@
                 },
                 "outcome": "passed",
                 "messages": []
+              },
+              {
+                "ref": {
+                  "family": "markdown",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
               }
             ],
             "summary": {
-              "total": 2,
-              "passed": 2,
+              "total": 3,
+              "passed": 3,
               "failed": 0,
               "skipped": 0
             }
@@ -255,8 +298,8 @@
         }
       ],
       "summary": {
-        "total": 2,
-        "passed": 2,
+        "total": 3,
+        "passed": 3,
         "failed": 0,
         "skipped": 0
       }

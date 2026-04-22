@@ -20,6 +20,7 @@
         "roles": [
           "analysis",
           "matching",
+          "merge",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -41,6 +42,14 @@
             "ruby",
             "slice-219-matching",
             "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "ruby",
+            "slice-287-merge",
+            "module-merge.json"
           ]
         },
         {
@@ -101,6 +110,10 @@
       "outcome": "passed",
       "messages": []
     },
+    "ruby:merge:merge": {
+      "outcome": "passed",
+      "messages": []
+    },
     "ruby:discovered_surfaces:discovered_surfaces": {
       "outcome": "passed",
       "messages": []
@@ -122,6 +135,7 @@
             "roles": [
               "analysis",
               "matching",
+              "merge",
               "discovered_surfaces",
               "delegated_child_operations"
             ]
@@ -149,6 +163,15 @@
               {
                 "ref": {
                   "family": "ruby",
+                  "role": "merge",
+                  "case": "merge"
+                },
+                "outcome": "passed",
+                "messages": []
+              },
+              {
+                "ref": {
+                  "family": "ruby",
                   "role": "discovered_surfaces",
                   "case": "discovered_surfaces"
                 },
@@ -166,8 +189,8 @@
               }
             ],
             "summary": {
-              "total": 4,
-              "passed": 4,
+              "total": 5,
+              "passed": 5,
               "failed": 0,
               "skipped": 0
             }
@@ -175,8 +198,8 @@
         }
       ],
       "summary": {
-        "total": 4,
-        "passed": 4,
+        "total": 5,
+        "passed": 5,
         "failed": 0,
         "skipped": 0
       }

@@ -19,7 +19,8 @@
         },
         "roles": [
           "analysis",
-          "matching"
+          "matching",
+          "merge"
         ]
       }
     ],
@@ -39,6 +40,14 @@
             "markdown",
             "slice-199-matching",
             "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "markdown",
+            "slice-286-merge",
+            "section-merge.json"
           ]
         }
       ]
@@ -69,7 +78,8 @@
         },
         "roles": [
           "analysis",
-          "matching"
+          "matching",
+          "merge"
         ]
       },
       "plan": {
@@ -123,6 +133,38 @@
                 "family": "markdown",
                 "role": "matching",
                 "case": "matching"
+              },
+              "requirements": {},
+              "family_profile": {
+                "family": "markdown",
+                "supported_dialects": [
+                  "markdown"
+                ],
+                "supported_policies": []
+              },
+              "feature_profile": {
+                "backend": "markdown-it",
+                "supports_dialects": true,
+                "supported_policies": []
+              }
+            }
+          },
+          {
+            "ref": {
+              "family": "markdown",
+              "role": "merge",
+              "case": "merge"
+            },
+            "path": [
+              "markdown",
+              "slice-286-merge",
+              "section-merge.json"
+            ],
+            "run": {
+              "ref": {
+                "family": "markdown",
+                "role": "merge",
+                "case": "merge"
               },
               "requirements": {},
               "family_profile": {

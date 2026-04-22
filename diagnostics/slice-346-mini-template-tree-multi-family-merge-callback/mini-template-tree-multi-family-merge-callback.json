@@ -1,0 +1,105 @@
+{
+  "context": {},
+  "default_strategy": "merge",
+  "overrides": [],
+  "replacements": {},
+  "expected": {
+    "execution_plan": [
+      {
+        "template_source_path": "README.md.example",
+        "logical_destination_path": "README.md",
+        "destination_path": "README.md",
+        "classification": {
+          "destination_path": "README.md",
+          "file_type": "markdown",
+          "family": "markdown",
+          "dialect": "markdown"
+        },
+        "strategy": "merge",
+        "action": "merge",
+        "destination_exists": true,
+        "write_action": "update",
+        "token_keys": [],
+        "unresolved_token_keys": [],
+        "token_resolution_required": true,
+        "blocked": false,
+        "block_reason": null,
+        "template_content": "# Title\n\n```ruby\nputs 'template'\n```\n\n## Details\n\nTemplate details.\n",
+        "prepared_template_content": "# Title\n\n```ruby\nputs 'template'\n```\n\n## Details\n\nTemplate details.\n",
+        "preparation_action": "resolve_tokens",
+        "execution_action": "merge_prepared_content",
+        "ready": true,
+        "destination_content": "# Title\n\n## Details\n\nDestination details.\n"
+      },
+      {
+        "template_source_path": "config/app.toml.example",
+        "logical_destination_path": "config/app.toml",
+        "destination_path": "config/app.toml",
+        "classification": {
+          "destination_path": "config/app.toml",
+          "file_type": "toml",
+          "family": "toml",
+          "dialect": "toml"
+        },
+        "strategy": "merge",
+        "action": "merge",
+        "destination_exists": true,
+        "write_action": "update",
+        "token_keys": [],
+        "unresolved_token_keys": [],
+        "token_resolution_required": true,
+        "blocked": false,
+        "block_reason": null,
+        "template_content": "title = \"Structured Merge\"\n\n[package]\nname = \"structuredmerge\"\ntags = [\"template\"]\nversion = \"0.1.0\"\n\n[package.meta]\nenabled = false\n",
+        "prepared_template_content": "title = \"Structured Merge\"\n\n[package]\nname = \"structuredmerge\"\ntags = [\"template\"]\nversion = \"0.1.0\"\n\n[package.meta]\nenabled = false\n",
+        "preparation_action": "resolve_tokens",
+        "execution_action": "merge_prepared_content",
+        "ready": true,
+        "destination_content": "[package]\ntags = [\"destination\"]\nversion = \"0.2.0\"\n\n[package.meta]\nauthors = [\"pb\"]\nrelease = true\n"
+      },
+      {
+        "template_source_path": "lib/greeter.rb.example",
+        "logical_destination_path": "lib/greeter.rb",
+        "destination_path": "lib/greeter.rb",
+        "classification": {
+          "destination_path": "lib/greeter.rb",
+          "file_type": "ruby",
+          "family": "ruby",
+          "dialect": "ruby"
+        },
+        "strategy": "merge",
+        "action": "merge",
+        "destination_exists": true,
+        "write_action": "update",
+        "token_keys": [],
+        "unresolved_token_keys": [],
+        "token_resolution_required": true,
+        "blocked": false,
+        "block_reason": null,
+        "template_content": "require \"json\"\n\n# Greets callers from the template.\nclass Greeter\nend\n\ndef greet(name)\nend\n",
+        "prepared_template_content": "require \"json\"\n\n# Greets callers from the template.\nclass Greeter\nend\n\ndef greet(name)\nend\n",
+        "preparation_action": "resolve_tokens",
+        "execution_action": "merge_prepared_content",
+        "ready": true,
+        "destination_content": "require \"set\"\n\n# Greets callers from the destination.\nclass Greeter\n  def call(name)\n    name.upcase\n  end\nend\n\ndef helper(name)\nend\n"
+      }
+    ],
+    "apply_result": {
+      "result_files": {
+        "README.md": "# Title\n\n## Details\n\nDestination details.\n\n```ruby\nputs 'template'\n```\n",
+        "config/app.toml": "title = \"Structured Merge\"\n\n[package]\nname = \"structuredmerge\"\ntags = [\"destination\"]\nversion = \"0.2.0\"\n\n[package.meta]\nauthors = [\"pb\"]\nenabled = false\nrelease = true\n",
+        "lib/greeter.rb": "require \"set\"\n\n# Greets callers from the destination.\nclass Greeter\n  def call(name)\n    name.upcase\n  end\nend\n\ndef helper(name)\nend\n\ndef greet(name)\nend\n"
+      },
+      "created_paths": [],
+      "updated_paths": [
+        "README.md",
+        "config/app.toml",
+        "lib/greeter.rb"
+      ],
+      "kept_paths": [],
+      "blocked_paths": [],
+      "omitted_paths": [],
+      "diagnostics": []
+    }
+  }
+}

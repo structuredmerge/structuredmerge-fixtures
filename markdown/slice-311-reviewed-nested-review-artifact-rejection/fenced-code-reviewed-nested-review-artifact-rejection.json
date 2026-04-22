@@ -1,0 +1,83 @@
+{
+  "template": "# Nested Merge\n\n```ts\nexport const answer = 1;\n```\n",
+  "destination": "# Nested Merge\n\n```ts\nexport const answer = 2;\n```\n",
+  "replay_bundle": {
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "markdown"
+      ],
+      "require_explicit_contexts": false
+    },
+    "decisions": [],
+    "reviewed_nested_executions": [
+      {
+        "family": "ruby",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [],
+          "applied_decisions": [],
+          "diagnostics": []
+        },
+        "applied_children": []
+      }
+    ]
+  },
+  "review_state": {
+    "report": {
+      "entries": [],
+      "summary": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "diagnostics": [],
+    "requests": [],
+    "applied_decisions": [],
+    "host_hints": {
+      "interactive": false,
+      "require_explicit_contexts": false
+    },
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "markdown"
+      ],
+      "require_explicit_contexts": false
+    },
+    "reviewed_nested_executions": [
+      {
+        "family": "ruby",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [],
+          "applied_decisions": [],
+          "diagnostics": []
+        },
+        "applied_children": []
+      }
+    ]
+  },
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "review replay bundle does not include a reviewed nested execution for markdown."
+      }
+    ]
+  },
+  "expected_review_state": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "review state does not include a reviewed nested execution for markdown."
+      }
+    ]
+  }
+}

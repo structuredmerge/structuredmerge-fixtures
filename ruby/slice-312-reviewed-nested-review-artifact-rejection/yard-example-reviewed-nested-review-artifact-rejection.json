@@ -1,0 +1,83 @@
+{
+  "template": "class Greeter\nend\n",
+  "destination": "class Greeter\nend\n",
+  "replay_bundle": {
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "ruby"
+      ],
+      "require_explicit_contexts": false
+    },
+    "decisions": [],
+    "reviewed_nested_executions": [
+      {
+        "family": "markdown",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [],
+          "applied_decisions": [],
+          "diagnostics": []
+        },
+        "applied_children": []
+      }
+    ]
+  },
+  "review_state": {
+    "report": {
+      "entries": [],
+      "summary": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "diagnostics": [],
+    "requests": [],
+    "applied_decisions": [],
+    "host_hints": {
+      "interactive": false,
+      "require_explicit_contexts": false
+    },
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "ruby"
+      ],
+      "require_explicit_contexts": false
+    },
+    "reviewed_nested_executions": [
+      {
+        "family": "markdown",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [],
+          "applied_decisions": [],
+          "diagnostics": []
+        },
+        "applied_children": []
+      }
+    ]
+  },
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "review replay bundle does not include a reviewed nested execution for ruby."
+      }
+    ]
+  },
+  "expected_review_state": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "review state does not include a reviewed nested execution for ruby."
+      }
+    ]
+  }
+}

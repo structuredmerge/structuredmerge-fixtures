@@ -610,6 +610,14 @@
         ]
       },
       {
+        "role": "reviewed_nested_execution_payload",
+        "path": [
+          "diagnostics",
+          "slice-303-reviewed-nested-execution-payload",
+          "reviewed-nested-execution-payload.json"
+        ]
+      },
+      {
         "role": "family_context_review_proposal",
         "path": [
           "diagnostics",

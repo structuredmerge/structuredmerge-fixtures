@@ -1,0 +1,9 @@
+{
+  "name": "section_merge",
+  "template": "# Title\n\n```ruby\nputs 'template'\n```\n\n## Details\n\nTemplate details.\n",
+  "destination": "# Title\n\n## Details\n\nDestination details.\n",
+  "expected": {
+    "ok": true,
+    "output": "# Title\n\n## Details\n\nDestination details.\n\n```ruby\nputs 'template'\n```\n"
+  }
+}

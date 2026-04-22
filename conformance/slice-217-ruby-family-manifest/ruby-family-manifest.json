@@ -19,6 +19,7 @@
       "roles": [
         "analysis",
         "matching",
+        "merge",
         "discovered_surfaces",
         "delegated_child_operations"
       ]
@@ -40,6 +41,14 @@
           "ruby",
           "slice-219-matching",
           "path-equality.json"
+        ]
+      },
+      {
+        "role": "merge",
+        "path": [
+          "ruby",
+          "slice-287-merge",
+          "module-merge.json"
         ]
       },
       {

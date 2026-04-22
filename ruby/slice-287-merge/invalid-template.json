@@ -1,0 +1,14 @@
+{
+  "name": "invalid_template",
+  "template": "class Greeter\n",
+  "destination": "class Greeter\nend\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

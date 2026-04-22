@@ -639,11 +639,11 @@
       "surface": "conformance_manifest",
       "families": [
         "go",
-        "rust",
-        "typescript",
         "json",
+        "rust",
         "text",
         "toml",
+        "typescript",
         "yaml"
       ],
       "require_explicit_contexts": false

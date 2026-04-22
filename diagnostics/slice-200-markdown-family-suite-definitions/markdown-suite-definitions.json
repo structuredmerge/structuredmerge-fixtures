@@ -19,7 +19,8 @@
         },
         "roles": [
           "analysis",
-          "matching"
+          "matching",
+          "merge"
         ]
       }
     ],
@@ -39,6 +40,14 @@
             "markdown",
             "slice-199-matching",
             "path-equality.json"
+          ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "markdown",
+            "slice-286-merge",
+            "section-merge.json"
           ]
         }
       ]
@@ -60,7 +69,8 @@
       },
       "roles": [
         "analysis",
-        "matching"
+        "matching",
+        "merge"
       ]
     }
   ]

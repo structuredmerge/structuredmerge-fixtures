@@ -19,7 +19,8 @@
         },
         "roles": [
           "analysis",
-          "matching"
+          "matching",
+          "merge"
         ]
       }
     ],
@@ -40,6 +41,14 @@
             "slice-199-matching",
             "path-equality.json"
           ]
+        },
+        {
+          "role": "merge",
+          "path": [
+            "markdown",
+            "slice-286-merge",
+            "section-merge.json"
+          ]
         }
       ]
     }
@@ -54,8 +63,8 @@
         "supported_policies": []
       },
       "feature_profile": {
-        "backend": "pulldown-cmark",
-        "supports_dialects": true,
+        "backend": "kreuzberg-language-pack",
+        "supports_dialects": false,
         "supported_policies": []
       }
     }
@@ -69,7 +78,8 @@
         },
         "roles": [
           "analysis",
-          "matching"
+          "matching",
+          "merge"
         ]
       },
       "plan": {
@@ -101,8 +111,8 @@
                 "supported_policies": []
               },
               "feature_profile": {
-                "backend": "pulldown-cmark",
-                "supports_dialects": true,
+                "backend": "kreuzberg-language-pack",
+                "supports_dialects": false,
                 "supported_policies": []
               }
             }
@@ -133,8 +143,40 @@
                 "supported_policies": []
               },
               "feature_profile": {
-                "backend": "pulldown-cmark",
-                "supports_dialects": true,
+                "backend": "kreuzberg-language-pack",
+                "supports_dialects": false,
+                "supported_policies": []
+              }
+            }
+          },
+          {
+            "ref": {
+              "family": "markdown",
+              "role": "merge",
+              "case": "merge"
+            },
+            "path": [
+              "markdown",
+              "slice-286-merge",
+              "section-merge.json"
+            ],
+            "run": {
+              "ref": {
+                "family": "markdown",
+                "role": "merge",
+                "case": "merge"
+              },
+              "requirements": {},
+              "family_profile": {
+                "family": "markdown",
+                "supported_dialects": [
+                  "markdown"
+                ],
+                "supported_policies": []
+              },
+              "feature_profile": {
+                "backend": "kreuzberg-language-pack",
+                "supports_dialects": false,
                 "supported_policies": []
               }
             }

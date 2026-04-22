@@ -586,6 +586,30 @@
         ]
       },
       {
+        "role": "reviewed_nested_execution_json_roundtrip",
+        "path": [
+          "diagnostics",
+          "slice-300-reviewed-nested-execution-json-roundtrip",
+          "reviewed-nested-execution-json-roundtrip.json"
+        ]
+      },
+      {
+        "role": "reviewed_nested_execution_envelope",
+        "path": [
+          "diagnostics",
+          "slice-301-reviewed-nested-execution-transport-envelope",
+          "reviewed-nested-execution-envelope.json"
+        ]
+      },
+      {
+        "role": "reviewed_nested_execution_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-302-reviewed-nested-execution-transport-rejection",
+          "reviewed-nested-execution-envelope-rejection.json"
+        ]
+      },
+      {
         "role": "family_context_review_proposal",
         "path": [
           "diagnostics",

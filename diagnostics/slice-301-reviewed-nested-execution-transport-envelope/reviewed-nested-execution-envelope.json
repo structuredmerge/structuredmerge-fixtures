@@ -1,0 +1,72 @@
+{
+  "execution": {
+    "family": "markdown",
+    "review_state": {
+      "requests": [],
+      "accepted_groups": [
+        {
+          "delegated_apply_group": "projected_child_group:markdown-nested:0",
+          "parent_operation_id": "markdown-parent",
+          "child_operation_id": "markdown-child:0",
+          "delegated_runtime_surface_path": "markdown://document#fence:0",
+          "case_ids": [
+            "markdown:fence:0"
+          ],
+          "delegated_case_ids": [
+            "typescript:fence:0"
+          ]
+        }
+      ],
+      "applied_decisions": [
+        {
+          "request_id": "projected_child_group:projected_child_group:markdown-nested:0",
+          "action": "apply_delegated_child_group"
+        }
+      ],
+      "diagnostics": []
+    },
+    "applied_children": [
+      {
+        "operation_id": "markdown-child:0",
+        "output": "```typescript\\nconst answer = 42;\\n```"
+      }
+    ]
+  },
+  "expected_envelope": {
+    "kind": "reviewed_nested_execution",
+    "version": 1,
+    "execution": {
+      "family": "markdown",
+      "review_state": {
+        "requests": [],
+        "accepted_groups": [
+          {
+            "delegated_apply_group": "projected_child_group:markdown-nested:0",
+            "parent_operation_id": "markdown-parent",
+            "child_operation_id": "markdown-child:0",
+            "delegated_runtime_surface_path": "markdown://document#fence:0",
+            "case_ids": [
+              "markdown:fence:0"
+            ],
+            "delegated_case_ids": [
+              "typescript:fence:0"
+            ]
+          }
+        ],
+        "applied_decisions": [
+          {
+            "request_id": "projected_child_group:projected_child_group:markdown-nested:0",
+            "action": "apply_delegated_child_group"
+          }
+        ],
+        "diagnostics": []
+      },
+      "applied_children": [
+        {
+          "operation_id": "markdown-child:0",
+          "output": "```typescript\\nconst answer = 42;\\n```"
+        }
+      ]
+    }
+  }
+}

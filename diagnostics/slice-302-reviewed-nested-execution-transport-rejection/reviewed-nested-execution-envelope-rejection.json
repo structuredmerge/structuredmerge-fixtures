@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "review_replay_bundle",
+        "version": 1,
+        "execution": {
+          "family": "markdown",
+          "review_state": {
+            "requests": [],
+            "accepted_groups": [],
+            "applied_decisions": [],
+            "diagnostics": []
+          },
+          "applied_children": []
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected reviewed_nested_execution envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "reviewed_nested_execution",
+        "version": 2,
+        "execution": {
+          "family": "markdown",
+          "review_state": {
+            "requests": [],
+            "accepted_groups": [],
+            "applied_decisions": [],
+            "diagnostics": []
+          },
+          "applied_children": []
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported reviewed_nested_execution envelope version 2."
+      }
+    }
+  ]
+}

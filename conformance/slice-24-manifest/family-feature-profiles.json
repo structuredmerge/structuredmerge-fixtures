@@ -968,6 +968,22 @@
           "slice-338-template-execution-plan",
           "template-execution-plan.json"
         ]
+      },
+      {
+        "role": "mini_template_tree_plan",
+        "path": [
+          "diagnostics",
+          "slice-339-mini-template-tree-plan",
+          "mini-template-tree-plan.json"
+        ]
+      },
+      {
+        "role": "mini_template_tree_preview",
+        "path": [
+          "diagnostics",
+          "slice-340-mini-template-tree-preview",
+          "mini-template-tree-preview.json"
+        ]
       }
     ],
     "text": [

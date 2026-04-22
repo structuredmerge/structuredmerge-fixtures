@@ -586,6 +586,30 @@
         ]
       },
       {
+        "role": "review_replay_bundle_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-317-review-replay-bundle-envelope-application",
+          "review-replay-bundle-envelope-application.json"
+        ]
+      },
+      {
+        "role": "explicit_review_replay_bundle_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-318-explicit-review-replay-bundle-envelope-application",
+          "explicit-review-replay-bundle-envelope-application.json"
+        ]
+      },
+      {
+        "role": "review_replay_bundle_envelope_review_rejection",
+        "path": [
+          "diagnostics",
+          "slice-319-review-replay-bundle-envelope-rejection",
+          "review-replay-bundle-envelope-rejection.json"
+        ]
+      },
+      {
         "role": "reviewed_nested_execution_json_roundtrip",
         "path": [
           "diagnostics",

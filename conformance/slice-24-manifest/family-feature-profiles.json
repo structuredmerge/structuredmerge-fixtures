@@ -1000,6 +1000,14 @@
           "slice-342-mini-template-tree-convergence",
           "mini-template-tree-convergence.json"
         ]
+      },
+      {
+        "role": "mini_template_tree_run",
+        "path": [
+          "diagnostics",
+          "slice-343-mini-template-tree-run",
+          "mini-template-tree-run.json"
+        ]
       }
     ],
     "text": [

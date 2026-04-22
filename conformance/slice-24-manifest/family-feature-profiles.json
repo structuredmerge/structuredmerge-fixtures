@@ -618,6 +618,22 @@
         ]
       },
       {
+        "role": "review_replay_bundle_reviewed_nested_executions",
+        "path": [
+          "diagnostics",
+          "slice-305-review-replay-bundle-reviewed-nested-executions",
+          "review-replay-bundle-reviewed-nested-executions.json"
+        ]
+      },
+      {
+        "role": "review_state_reviewed_nested_executions",
+        "path": [
+          "diagnostics",
+          "slice-306-review-state-reviewed-nested-executions",
+          "review-state-reviewed-nested-executions.json"
+        ]
+      },
+      {
         "role": "family_context_review_proposal",
         "path": [
           "diagnostics",

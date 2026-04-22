@@ -1,0 +1,190 @@
+{
+  "manifest": {
+    "family_feature_profiles": [],
+    "suite_descriptors": [
+      {
+        "kind": "portable",
+        "subject": {
+          "grammar": "text"
+        },
+        "roles": [
+          "analysis"
+        ]
+      }
+    ],
+    "families": {
+      "text": [
+        {
+          "role": "analysis",
+          "path": [
+            "text",
+            "slice-03-analysis",
+            "whitespace-and-blocks.json"
+          ]
+        }
+      ]
+    }
+  },
+  "options": {
+    "family_profiles": {
+      "text": {
+        "family": "text",
+        "supported_dialects": [
+          "text"
+        ],
+        "supported_policies": []
+      }
+    },
+    "require_explicit_contexts": true,
+    "review_replay_bundle": {
+      "replay_context": {
+        "surface": "conformance_manifest",
+        "families": [
+          "text"
+        ],
+        "require_explicit_contexts": true
+      },
+      "decisions": [
+        {
+          "request_id": "family_context:text",
+          "action": "accept_default_context"
+        }
+      ],
+      "reviewed_nested_executions": [
+        {
+          "family": "markdown",
+          "review_state": {
+            "requests": [],
+            "accepted_groups": [
+              {
+                "delegated_apply_group": "markdown:fence:typescript",
+                "parent_operation_id": "parent:merge",
+                "child_operation_id": "operation:document[0] > fenced_code_block[/code_fence/0]",
+                "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/0]",
+                "case_ids": [],
+                "delegated_case_ids": []
+              }
+            ],
+            "applied_decisions": [
+              {
+                "request_id": "projected_child_group:markdown:fence:typescript",
+                "action": "apply_delegated_child_group"
+              }
+            ],
+            "diagnostics": []
+          },
+          "applied_children": [
+            {
+              "operation_id": "operation:document[0] > fenced_code_block[/code_fence/0]",
+              "output": "child-output\n"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "executions": {
+    "text:analysis:analysis": {
+      "outcome": "passed",
+      "messages": []
+    }
+  },
+  "expected_state": {
+    "report": {
+      "entries": [
+        {
+          "suite": {
+            "kind": "portable",
+            "subject": {
+              "grammar": "text"
+            },
+            "roles": [
+              "analysis"
+            ]
+          },
+          "report": {
+            "results": [
+              {
+                "ref": {
+                  "family": "text",
+                  "role": "analysis",
+                  "case": "analysis"
+                },
+                "outcome": "passed",
+                "messages": []
+              }
+            ],
+            "summary": {
+              "total": 1,
+              "passed": 1,
+              "failed": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "assumed_default",
+        "message": "using default family context for text."
+      }
+    ],
+    "requests": [],
+    "applied_decisions": [
+      {
+        "request_id": "family_context:text",
+        "action": "accept_default_context"
+      }
+    ],
+    "host_hints": {
+      "interactive": false,
+      "require_explicit_contexts": true
+    },
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "text"
+      ],
+      "require_explicit_contexts": true
+    },
+    "reviewed_nested_executions": [
+      {
+        "family": "markdown",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [
+            {
+              "delegated_apply_group": "markdown:fence:typescript",
+              "parent_operation_id": "parent:merge",
+              "child_operation_id": "operation:document[0] > fenced_code_block[/code_fence/0]",
+              "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/0]",
+              "case_ids": [],
+              "delegated_case_ids": []
+            }
+          ],
+          "applied_decisions": [
+            {
+              "request_id": "projected_child_group:markdown:fence:typescript",
+              "action": "apply_delegated_child_group"
+            }
+          ],
+          "diagnostics": []
+        },
+        "applied_children": [
+          {
+            "operation_id": "operation:document[0] > fenced_code_block[/code_fence/0]",
+            "output": "child-output\n"
+          }
+        ]
+      }
+    ]
+  }
+}

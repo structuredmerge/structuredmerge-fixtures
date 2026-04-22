@@ -1,0 +1,48 @@
+{
+  "replay_bundle": {
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "text"
+      ],
+      "require_explicit_contexts": true
+    },
+    "decisions": [
+      {
+        "request_id": "family_context:text",
+        "action": "accept_default_context"
+      }
+    ],
+    "reviewed_nested_executions": [
+      {
+        "family": "markdown",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [
+            {
+              "delegated_apply_group": "markdown:fence:typescript",
+              "parent_operation_id": "parent:merge",
+              "child_operation_id": "operation:document[0] > fenced_code_block[/code_fence/0]",
+              "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/0]",
+              "case_ids": [],
+              "delegated_case_ids": []
+            }
+          ],
+          "applied_decisions": [
+            {
+              "request_id": "projected_child_group:markdown:fence:typescript",
+              "action": "apply_delegated_child_group"
+            }
+          ],
+          "diagnostics": []
+        },
+        "applied_children": [
+          {
+            "operation_id": "operation:document[0] > fenced_code_block[/code_fence/0]",
+            "output": "child-output\n"
+          }
+        ]
+      }
+    ]
+  }
+}

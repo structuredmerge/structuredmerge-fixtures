@@ -1008,6 +1008,14 @@
           "slice-343-mini-template-tree-run",
           "mini-template-tree-run.json"
         ]
+      },
+      {
+        "role": "mini_template_tree_run_report",
+        "path": [
+          "diagnostics",
+          "slice-344-mini-template-tree-run-report",
+          "mini-template-tree-run-report.json"
+        ]
       }
     ],
     "text": [

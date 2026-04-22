@@ -1,0 +1,55 @@
+{
+  "expected": {
+    "entries": [
+      {
+        "template_source_path": ".env.local.example",
+        "logical_destination_path": ".env.local",
+        "destination_path": ".env.local.example",
+        "execution_action": "merge_prepared_content",
+        "status": "created"
+      },
+      {
+        "template_source_path": ".kettle-jem.yml.example",
+        "logical_destination_path": ".kettle-jem.yml",
+        "destination_path": null,
+        "execution_action": "omit",
+        "status": "omitted"
+      },
+      {
+        "template_source_path": "README.md.example",
+        "logical_destination_path": "README.md",
+        "destination_path": "README.md",
+        "execution_action": "blocked",
+        "status": "blocked"
+      },
+      {
+        "template_source_path": "bin/setup.sh.example",
+        "logical_destination_path": "bin/setup.sh",
+        "destination_path": "bin/setup.sh",
+        "execution_action": "raw_copy",
+        "status": "created"
+      },
+      {
+        "template_source_path": "config/mise.toml.example",
+        "logical_destination_path": "config/mise.toml",
+        "destination_path": "config/mise.toml",
+        "execution_action": "keep",
+        "status": "kept"
+      },
+      {
+        "template_source_path": "gem.gemspec.example",
+        "logical_destination_path": "gem.gemspec",
+        "destination_path": "demo.gemspec",
+        "execution_action": "merge_prepared_content",
+        "status": "created"
+      }
+    ],
+    "summary": {
+      "created": 3,
+      "updated": 0,
+      "kept": 1,
+      "blocked": 1,
+      "omitted": 1
+    }
+  }
+}

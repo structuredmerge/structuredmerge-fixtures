@@ -1,0 +1,69 @@
+{
+  "template": "# Nested Merge\n\n```ts\nexport const answer = 1;\n```\n",
+  "destination": "# Nested Merge\n\n```ts\nexport const answer = 2;\n```\n",
+  "replay_bundle_envelope": {
+    "kind": "conformance_manifest_review_state",
+    "version": 1,
+    "replay_bundle": {
+      "replay_context": {
+        "surface": "conformance_manifest",
+        "families": [
+          "markdown"
+        ],
+        "require_explicit_contexts": false
+      },
+      "decisions": [],
+      "reviewed_nested_executions": []
+    }
+  },
+  "review_state_envelope": {
+    "kind": "conformance_manifest_review_state",
+    "version": 2,
+    "state": {
+      "report": {
+        "entries": [],
+        "summary": {
+          "total": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      "diagnostics": [],
+      "requests": [],
+      "applied_decisions": [],
+      "host_hints": {
+        "interactive": false,
+        "require_explicit_contexts": false
+      },
+      "replay_context": {
+        "surface": "conformance_manifest",
+        "families": [
+          "markdown"
+        ],
+        "require_explicit_contexts": false
+      },
+      "reviewed_nested_executions": []
+    }
+  },
+  "expected_replay_bundle": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "kind_mismatch",
+        "message": "expected review_replay_bundle envelope kind."
+      }
+    ]
+  },
+  "expected_review_state": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "unsupported_version",
+        "message": "unsupported conformance_manifest_review_state envelope version 2."
+      }
+    ]
+  }
+}

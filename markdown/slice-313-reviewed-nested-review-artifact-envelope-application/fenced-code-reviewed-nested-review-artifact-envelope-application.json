@@ -1,0 +1,159 @@
+{
+  "template": "# Nested Merge\n\n```ts\nexport const answer = 1;\nexport const feature = false;\n```\n\n```yaml\nname: template\n```\n",
+  "destination": "# Nested Merge\n\n```ts\nexport const answer = 2;\n```\n\n```yaml\nname: destination\n```\n",
+  "replay_bundle_envelope": {
+    "kind": "review_replay_bundle",
+    "version": 1,
+    "replay_bundle": {
+      "replay_context": {
+        "surface": "conformance_manifest",
+        "families": [
+          "markdown"
+        ],
+        "require_explicit_contexts": false
+      },
+      "decisions": [],
+      "reviewed_nested_executions": [
+        {
+          "family": "markdown",
+          "review_state": {
+            "requests": [
+              {
+                "id": "projected_child_group:nested_markdown_child:1",
+                "kind": "delegated_child_group",
+                "family": "markdown",
+                "message": "delegated child group nested_markdown_child:1 is ready to apply for markdown.",
+                "blocking": true,
+                "delegated_group": {
+                  "delegated_apply_group": "nested_markdown_child:1",
+                  "parent_operation_id": "markdown-document-0",
+                  "child_operation_id": "markdown-fence-1",
+                  "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/1]",
+                  "case_ids": [],
+                  "delegated_case_ids": []
+                },
+                "action_offers": [
+                  {
+                    "action": "apply_delegated_child_group",
+                    "requires_context": false
+                  }
+                ],
+                "default_action": "apply_delegated_child_group"
+              }
+            ],
+            "accepted_groups": [
+              {
+                "delegated_apply_group": "nested_markdown_child:0",
+                "parent_operation_id": "markdown-document-0",
+                "child_operation_id": "markdown-fence-0",
+                "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/0]",
+                "case_ids": [],
+                "delegated_case_ids": []
+              }
+            ],
+            "applied_decisions": [
+              {
+                "request_id": "projected_child_group:nested_markdown_child:0",
+                "action": "apply_delegated_child_group"
+              }
+            ],
+            "diagnostics": []
+          },
+          "applied_children": [
+            {
+              "operation_id": "markdown-fence-0",
+              "output": "export const answer = 2;\nexport const feature = false;\n"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "review_state_envelope": {
+    "kind": "conformance_manifest_review_state",
+    "version": 1,
+    "state": {
+      "report": {
+        "entries": [],
+        "summary": {
+          "total": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      "diagnostics": [],
+      "requests": [],
+      "applied_decisions": [],
+      "host_hints": {
+        "interactive": false,
+        "require_explicit_contexts": false
+      },
+      "replay_context": {
+        "surface": "conformance_manifest",
+        "families": [
+          "markdown"
+        ],
+        "require_explicit_contexts": false
+      },
+      "reviewed_nested_executions": [
+        {
+          "family": "markdown",
+          "review_state": {
+            "requests": [
+              {
+                "id": "projected_child_group:nested_markdown_child:1",
+                "kind": "delegated_child_group",
+                "family": "markdown",
+                "message": "delegated child group nested_markdown_child:1 is ready to apply for markdown.",
+                "blocking": true,
+                "delegated_group": {
+                  "delegated_apply_group": "nested_markdown_child:1",
+                  "parent_operation_id": "markdown-document-0",
+                  "child_operation_id": "markdown-fence-1",
+                  "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/1]",
+                  "case_ids": [],
+                  "delegated_case_ids": []
+                },
+                "action_offers": [
+                  {
+                    "action": "apply_delegated_child_group",
+                    "requires_context": false
+                  }
+                ],
+                "default_action": "apply_delegated_child_group"
+              }
+            ],
+            "accepted_groups": [
+              {
+                "delegated_apply_group": "nested_markdown_child:0",
+                "parent_operation_id": "markdown-document-0",
+                "child_operation_id": "markdown-fence-0",
+                "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/0]",
+                "case_ids": [],
+                "delegated_case_ids": []
+              }
+            ],
+            "applied_decisions": [
+              {
+                "request_id": "projected_child_group:nested_markdown_child:0",
+                "action": "apply_delegated_child_group"
+              }
+            ],
+            "diagnostics": []
+          },
+          "applied_children": [
+            {
+              "operation_id": "markdown-fence-0",
+              "output": "export const answer = 2;\nexport const feature = false;\n"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "expected": {
+    "ok": true,
+    "output": "# Nested Merge\n\n```ts\nexport const answer = 2;\nexport const feature = false;\n```\n\n```yaml\nname: destination\n```\n"
+  }
+}

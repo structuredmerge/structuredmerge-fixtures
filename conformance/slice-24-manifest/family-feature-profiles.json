@@ -1016,6 +1016,14 @@
           "slice-344-mini-template-tree-run-report",
           "mini-template-tree-run-report.json"
         ]
+      },
+      {
+        "role": "mini_template_tree_family_merge_callback",
+        "path": [
+          "diagnostics",
+          "slice-345-mini-template-tree-family-merge-callback",
+          "mini-template-tree-family-merge-callback.json"
+        ]
       }
     ],
     "text": [

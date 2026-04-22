@@ -1,0 +1,49 @@
+{
+  "context": {},
+  "default_strategy": "merge",
+  "overrides": [],
+  "replacements": {},
+  "expected": {
+    "execution_plan": [
+      {
+        "template_source_path": "README.md.example",
+        "logical_destination_path": "README.md",
+        "destination_path": "README.md",
+        "classification": {
+          "destination_path": "README.md",
+          "file_type": "markdown",
+          "family": "markdown",
+          "dialect": "markdown"
+        },
+        "strategy": "merge",
+        "action": "merge",
+        "destination_exists": true,
+        "write_action": "update",
+        "token_keys": [],
+        "unresolved_token_keys": [],
+        "token_resolution_required": true,
+        "blocked": false,
+        "block_reason": null,
+        "template_content": "# demo\nBy Example Author\n\n## Usage\nRun it\n",
+        "prepared_template_content": "# demo\nBy Example Author\n\n## Usage\nRun it\n",
+        "preparation_action": "resolve_tokens",
+        "execution_action": "merge_prepared_content",
+        "ready": true,
+        "destination_content": "# demo\n"
+      }
+    ],
+    "apply_result": {
+      "result_files": {
+        "README.md": "# demo\n\n## Usage\nRun it\n"
+      },
+      "created_paths": [],
+      "updated_paths": [
+        "README.md"
+      ],
+      "kept_paths": [],
+      "blocked_paths": [],
+      "omitted_paths": [],
+      "diagnostics": []
+    }
+  }
+}

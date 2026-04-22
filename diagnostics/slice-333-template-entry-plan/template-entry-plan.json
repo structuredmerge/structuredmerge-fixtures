@@ -1,0 +1,90 @@
+{
+  "template_source_paths": [
+    ".kettle-jem.yml.example",
+    ".env.local.example",
+    "gem.gemspec.example",
+    "README.md.example",
+    "certs/demo.pem.example"
+  ],
+  "context": {
+    "project_name": "demo-gem"
+  },
+  "default_strategy": "merge",
+  "overrides": [
+    {
+      "path": "README.md",
+      "strategy": "accept_template"
+    },
+    {
+      "path": "certs/demo.pem",
+      "strategy": "raw_copy"
+    }
+  ],
+  "expected_entries": [
+    {
+      "template_source_path": ".kettle-jem.yml.example",
+      "logical_destination_path": ".kettle-jem.yml",
+      "destination_path": null,
+      "classification": {
+        "destination_path": ".kettle-jem.yml",
+        "file_type": "yaml",
+        "family": "yaml",
+        "dialect": "yaml"
+      },
+      "strategy": "merge",
+      "action": "omit"
+    },
+    {
+      "template_source_path": ".env.local.example",
+      "logical_destination_path": ".env.local",
+      "destination_path": ".env.local.example",
+      "classification": {
+        "destination_path": ".env.local",
+        "file_type": "dotenv",
+        "family": "dotenv",
+        "dialect": "dotenv"
+      },
+      "strategy": "merge",
+      "action": "merge"
+    },
+    {
+      "template_source_path": "gem.gemspec.example",
+      "logical_destination_path": "gem.gemspec",
+      "destination_path": "demo-gem.gemspec",
+      "classification": {
+        "destination_path": "gem.gemspec",
+        "file_type": "gemspec",
+        "family": "ruby",
+        "dialect": "ruby"
+      },
+      "strategy": "merge",
+      "action": "merge"
+    },
+    {
+      "template_source_path": "README.md.example",
+      "logical_destination_path": "README.md",
+      "destination_path": "README.md",
+      "classification": {
+        "destination_path": "README.md",
+        "file_type": "markdown",
+        "family": "markdown",
+        "dialect": "markdown"
+      },
+      "strategy": "accept_template",
+      "action": "accept_template"
+    },
+    {
+      "template_source_path": "certs/demo.pem.example",
+      "logical_destination_path": "certs/demo.pem",
+      "destination_path": "certs/demo.pem",
+      "classification": {
+        "destination_path": "certs/demo.pem",
+        "file_type": "text",
+        "family": "text",
+        "dialect": "text"
+      },
+      "strategy": "raw_copy",
+      "action": "raw_copy"
+    }
+  ]
+}

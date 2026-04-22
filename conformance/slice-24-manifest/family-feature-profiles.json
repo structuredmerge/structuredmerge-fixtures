@@ -920,6 +920,14 @@
           "slice-332-template-strategy-selection",
           "template-strategy-selection.json"
         ]
+      },
+      {
+        "role": "template_entry_plan",
+        "path": [
+          "diagnostics",
+          "slice-333-template-entry-plan",
+          "template-entry-plan.json"
+        ]
       }
     ],
     "text": [

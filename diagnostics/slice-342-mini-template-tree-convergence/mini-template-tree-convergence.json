@@ -1,0 +1,13 @@
+{
+  "replacements": {
+    "KJ|GEM_NAME": "demo",
+    "KJ|SUMMARY": "Example gem summary",
+    "KJ|APP_ENV": "development"
+  },
+  "expected": {
+    "converged": false,
+    "pending_paths": [
+      "README.md"
+    ]
+  }
+}

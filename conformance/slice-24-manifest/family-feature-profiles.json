@@ -984,6 +984,22 @@
           "slice-340-mini-template-tree-preview",
           "mini-template-tree-preview.json"
         ]
+      },
+      {
+        "role": "mini_template_tree_apply",
+        "path": [
+          "diagnostics",
+          "slice-341-mini-template-tree-apply",
+          "mini-template-tree-apply.json"
+        ]
+      },
+      {
+        "role": "mini_template_tree_convergence",
+        "path": [
+          "diagnostics",
+          "slice-342-mini-template-tree-convergence",
+          "mini-template-tree-convergence.json"
+        ]
       }
     ],
     "text": [

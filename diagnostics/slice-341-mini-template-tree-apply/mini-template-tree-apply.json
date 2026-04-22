@@ -1,0 +1,40 @@
+{
+  "merge_results": {
+    ".env.local.example": {
+      "ok": true,
+      "diagnostics": [],
+      "output": "APP_ENV=development\n",
+      "policies": []
+    },
+    "demo.gemspec": {
+      "ok": true,
+      "diagnostics": [],
+      "output": "spec.name = \"demo\"\nspec.summary = \"Example gem summary\"\n",
+      "policies": []
+    }
+  },
+  "expected_result": {
+    "result_files": {
+      ".env.local.example": "APP_ENV=development\n",
+      "bin/setup.sh": "echo setup\n",
+      "config/mise.toml": "project = \"existing\"\n",
+      "demo.gemspec": "spec.name = \"demo\"\nspec.summary = \"Example gem summary\"\n"
+    },
+    "created_paths": [
+      ".env.local.example",
+      "bin/setup.sh",
+      "demo.gemspec"
+    ],
+    "updated_paths": [],
+    "kept_paths": [
+      "config/mise.toml"
+    ],
+    "blocked_paths": [
+      "README.md"
+    ],
+    "omitted_paths": [
+      ".kettle-jem.yml"
+    ],
+    "diagnostics": []
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "replay_bundle": {
+    "replay_context": {
+      "surface": "conformance_manifest",
+      "families": [
+        "text"
+      ],
+      "require_explicit_contexts": true
+    },
+    "decisions": [
+      {
+        "request_id": "family_context:text",
+        "action": "accept_default_context"
+      }
+    ],
+    "reviewed_nested_executions": [
+      {
+        "family": "markdown",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [
+            {
+              "delegated_apply_group": "nested_markdown_child:0",
+              "parent_operation_id": "markdown-document-0",
+              "child_operation_id": "markdown-fence-0",
+              "delegated_runtime_surface_path": "document[0] > fenced_code_block[/code_fence/0]",
+              "case_ids": [],
+              "delegated_case_ids": []
+            }
+          ],
+          "applied_decisions": [
+            {
+              "request_id": "projected_child_group:nested_markdown_child:0",
+              "action": "apply_delegated_child_group"
+            }
+          ],
+          "diagnostics": []
+        },
+        "applied_children": [
+          {
+            "operation_id": "markdown-fence-0",
+            "output": "export const answer = 2;\nexport const feature = false;\n"
+          }
+        ]
+      },
+      {
+        "family": "ruby",
+        "review_state": {
+          "requests": [],
+          "accepted_groups": [
+            {
+              "delegated_apply_group": "nested_ruby_child:0",
+              "parent_operation_id": "ruby-doc-comment-0",
+              "child_operation_id": "yard-example-0",
+              "delegated_runtime_surface_path": "document[0] > ruby_doc_comment[Greeter] > yard_example[1]",
+              "case_ids": [],
+              "delegated_case_ids": []
+            }
+          ],
+          "applied_decisions": [
+            {
+              "request_id": "projected_child_group:nested_ruby_child:0",
+              "action": "apply_delegated_child_group"
+            }
+          ],
+          "diagnostics": []
+        },
+        "applied_children": [
+          {
+            "operation_id": "yard-example-0",
+            "output": "Greeter.new.greet(\"Destination\")\nGreeter.new.wave\n"
+          }
+        ]
+      }
+    ]
+  },
+  "expected_results": [
+    {
+      "execution_family": "markdown",
+      "result": {
+        "ok": true,
+        "diagnostics": [],
+        "output": "markdown-reviewed-nested-output",
+        "policies": []
+      }
+    },
+    {
+      "execution_family": "ruby",
+      "result": {
+        "ok": true,
+        "diagnostics": [],
+        "output": "ruby-reviewed-nested-output",
+        "policies": []
+      }
+    }
+  ]
+}

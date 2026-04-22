@@ -1,0 +1,14 @@
+{
+  "template": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Template\")\nclass Greeter\nend\n",
+  "destination": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Destination\")\nclass Greeter\nend\n",
+  "nested_outputs": [
+    {
+      "surface_address": "document[0] > ruby_doc_comment[Greeter] > yard_example[1]",
+      "output": "Greeter.new.greet(\"Destination\")\nGreeter.new.wave\n"
+    }
+  ],
+  "expected": {
+    "ok": true,
+    "output": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Destination\")\n#   Greeter.new.wave\nclass Greeter\nend\n"
+  }
+}

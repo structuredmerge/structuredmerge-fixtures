@@ -1040,6 +1040,22 @@
           "slice-347-mini-template-tree-multi-family-run-report",
           "mini-template-tree-multi-family-run-report.json"
         ]
+      },
+      {
+        "role": "mini_template_tree_directory_run_report",
+        "path": [
+          "diagnostics",
+          "slice-348-mini-template-tree-directory-run-report",
+          "mini-template-tree-directory-run-report.json"
+        ]
+      },
+      {
+        "role": "mini_template_tree_directory_apply_convergence",
+        "path": [
+          "diagnostics",
+          "slice-349-mini-template-tree-directory-apply-convergence",
+          "mini-template-tree-directory-apply-convergence.json"
+        ]
       }
     ],
     "text": [

@@ -1088,6 +1088,14 @@
           "slice-353-template-directory-session-report",
           "template-directory-session-report.json"
         ]
+      },
+      {
+        "role": "template_directory_adapter_registry_report",
+        "path": [
+          "diagnostics",
+          "slice-354-template-directory-adapter-registry-report",
+          "template-directory-adapter-registry-report.json"
+        ]
       }
     ],
     "text": [

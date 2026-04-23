@@ -1152,6 +1152,14 @@
           "slice-361-template-directory-session-runner-report",
           "template-directory-session-runner-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_options_report",
+        "path": [
+          "diagnostics",
+          "slice-362-template-directory-session-options-report",
+          "template-directory-session-options-report.json"
+        ]
       }
     ],
     "text": [

@@ -1,0 +1,85 @@
+{
+  "dry_run": {
+    "context": {
+      "project_name": "demo"
+    },
+    "default_strategy": "merge",
+    "overrides": [
+      {
+        "path": "README.md",
+        "strategy": "accept_template"
+      },
+      {
+        "path": "config/mise.toml",
+        "strategy": "keep_destination"
+      },
+      {
+        "path": "bin/setup.sh",
+        "strategy": "raw_copy"
+      }
+    ],
+    "replacements": {
+      "KJ|GEM_NAME": "demo",
+      "KJ|SUMMARY": "Example gem summary",
+      "KJ|APP_ENV": "development"
+    },
+    "allowed_families": null,
+    "expected": {
+      "mode": "plan",
+      "ready": false,
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_family_adapter",
+          "path": ".env.local.example",
+          "family": "dotenv",
+          "message": "missing family adapter for dotenv blocks .env.local.example"
+        },
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "unresolved_tokens",
+          "path": "README.md",
+          "message": "unresolved template tokens block README.md"
+        }
+      ]
+    }
+  },
+  "apply_run": {
+    "context": {},
+    "default_strategy": "merge",
+    "overrides": [],
+    "replacements": {},
+    "allowed_families": null,
+    "expected": {
+      "mode": "apply",
+      "ready": true,
+      "diagnostics": []
+    }
+  },
+  "filtered_discovery": {
+    "context": {},
+    "default_strategy": "merge",
+    "overrides": [],
+    "replacements": {},
+    "allowed_families": [
+      "markdown",
+      "toml"
+    ],
+    "expected": {
+      "mode": "apply",
+      "ready": false,
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_family_adapter",
+          "path": "lib/greeter.rb",
+          "family": "ruby",
+          "message": "missing family adapter for ruby blocks lib/greeter.rb"
+        }
+      ]
+    }
+  }
+}

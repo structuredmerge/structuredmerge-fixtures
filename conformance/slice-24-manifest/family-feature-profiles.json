@@ -1128,6 +1128,14 @@
           "slice-358-template-directory-session-status-report",
           "template-directory-session-status-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_diagnostics_report",
+        "path": [
+          "diagnostics",
+          "slice-359-template-directory-session-diagnostics-report",
+          "template-directory-session-diagnostics-report.json"
+        ]
       }
     ],
     "text": [

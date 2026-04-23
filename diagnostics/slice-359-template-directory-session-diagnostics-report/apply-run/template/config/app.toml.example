@@ -1,0 +1,9 @@
+title = "Structured Merge"
+
+[package]
+name = "structuredmerge"
+tags = ["template"]
+version = "0.1.0"
+
+[package.meta]
+enabled = false

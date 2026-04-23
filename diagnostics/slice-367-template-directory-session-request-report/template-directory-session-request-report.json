@@ -1,0 +1,164 @@
+{
+  "profiles": {
+    "dry_run": {
+      "mode": "plan",
+      "context": {
+        "project_name": "demo"
+      },
+      "default_strategy": "merge",
+      "overrides": [
+        {
+          "path": "README.md",
+          "strategy": "accept_template"
+        }
+      ],
+      "replacements": {
+        "KJ|GEM_NAME": "demo"
+      },
+      "allowed_families": null
+    },
+    "apply_run": {
+      "mode": "apply",
+      "context": {},
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {},
+      "allowed_families": null
+    }
+  },
+  "options_valid": {
+    "options": {
+      "mode": "plan",
+      "template_root": "dry-run/template",
+      "destination_root": "dry-run/destination",
+      "context": {
+        "project_name": "demo"
+      },
+      "default_strategy": "merge",
+      "overrides": [
+        {
+          "path": "README.md",
+          "strategy": "accept_template"
+        }
+      ],
+      "replacements": {
+        "KJ|GEM_NAME": "demo"
+      },
+      "allowed_families": null
+    },
+    "expected": {
+      "request_kind": "options",
+      "mode": "plan",
+      "ready": true,
+      "diagnostics": [],
+      "resolved_options": {
+        "mode": "plan",
+        "template_root": "dry-run/template",
+        "destination_root": "dry-run/destination",
+        "context": {
+          "project_name": "demo"
+        },
+        "default_strategy": "merge",
+        "overrides": [
+          {
+            "path": "README.md",
+            "strategy": "accept_template"
+          }
+        ],
+        "replacements": {
+          "KJ|GEM_NAME": "demo"
+        },
+        "allowed_families": null
+      }
+    }
+  },
+  "options_invalid": {
+    "options": {
+      "mode": "apply",
+      "template_root": "",
+      "destination_root": "",
+      "context": {},
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {},
+      "allowed_families": null
+    },
+    "expected": {
+      "request_kind": "options",
+      "mode": "apply",
+      "ready": false,
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_destination_root",
+          "message": "missing destination_root for template session"
+        },
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_template_root",
+          "message": "missing template_root for template session"
+        }
+      ],
+      "resolved_options": null
+    }
+  },
+  "profile_valid": {
+    "profile": "dry_run",
+    "overrides": {
+      "mode": "plan",
+      "template_root": "dry-run/template",
+      "destination_root": "dry-run/destination"
+    },
+    "expected": {
+      "request_kind": "profile",
+      "profile_name": "dry_run",
+      "mode": "plan",
+      "ready": true,
+      "diagnostics": [],
+      "resolved_options": {
+        "mode": "plan",
+        "template_root": "dry-run/template",
+        "destination_root": "dry-run/destination",
+        "context": {
+          "project_name": "demo"
+        },
+        "default_strategy": "merge",
+        "overrides": [
+          {
+            "path": "README.md",
+            "strategy": "accept_template"
+          }
+        ],
+        "replacements": {
+          "KJ|GEM_NAME": "demo"
+        },
+        "allowed_families": null
+      }
+    }
+  },
+  "profile_invalid": {
+    "profile": "missing_profile",
+    "overrides": {
+      "mode": "reapply",
+      "template_root": "apply-run/template",
+      "destination_root": "apply-run/destination"
+    },
+    "expected": {
+      "request_kind": "profile",
+      "profile_name": "missing_profile",
+      "mode": "reapply",
+      "ready": false,
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_profile",
+          "message": "unknown template session profile: missing_profile"
+        }
+      ],
+      "resolved_options": null
+    }
+  }
+}

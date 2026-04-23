@@ -1072,6 +1072,14 @@
           "slice-351-mini-template-tree-directory-plan-report",
           "mini-template-tree-directory-plan-report.json"
         ]
+      },
+      {
+        "role": "mini_template_tree_directory_runner_report",
+        "path": [
+          "diagnostics",
+          "slice-352-mini-template-tree-directory-runner-report",
+          "mini-template-tree-directory-runner-report.json"
+        ]
       }
     ],
     "text": [

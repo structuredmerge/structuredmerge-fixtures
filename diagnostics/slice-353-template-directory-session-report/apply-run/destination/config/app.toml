@@ -1,0 +1,7 @@
+[package]
+tags = ["destination"]
+version = "0.2.0"
+
+[package.meta]
+authors = ["pb"]
+release = true

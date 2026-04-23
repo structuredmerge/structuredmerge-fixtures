@@ -1080,6 +1080,14 @@
           "slice-352-mini-template-tree-directory-runner-report",
           "mini-template-tree-directory-runner-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_report",
+        "path": [
+          "diagnostics",
+          "slice-353-template-directory-session-report",
+          "template-directory-session-report.json"
+        ]
       }
     ],
     "text": [

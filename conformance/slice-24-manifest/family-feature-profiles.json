@@ -1256,6 +1256,14 @@
           "slice-374-template-directory-session-entrypoint-report",
           "template-directory-session-entrypoint-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_resolution_report",
+        "path": [
+          "diagnostics",
+          "slice-375-template-directory-session-resolution-report",
+          "template-directory-session-resolution-report.json"
+        ]
       }
     ],
     "text": [

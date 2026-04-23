@@ -1,0 +1,238 @@
+{
+  "profiles": {
+    "dry_run": {
+      "mode": "plan",
+      "context": {
+        "project_name": "demo"
+      },
+      "default_strategy": "merge",
+      "overrides": [
+        {
+          "path": "README.md",
+          "strategy": "accept_template"
+        }
+      ],
+      "replacements": {
+        "KJ|GEM_NAME": "demo"
+      },
+      "allowed_families": null
+    }
+  },
+  "payload_ready": {
+    "input": {
+      "payload": {
+        "request_kind": "options",
+        "mode": "plan",
+        "template_root": "dry-run/template",
+        "destination_root": "dry-run/destination",
+        "context": {
+          "project_name": "demo"
+        },
+        "default_strategy": "merge",
+        "overrides": [
+          {
+            "path": "README.md",
+            "strategy": "accept_template"
+          }
+        ],
+        "replacements": {
+          "KJ|GEM_NAME": "demo"
+        },
+        "allowed_families": null
+      }
+    },
+    "expected": {
+      "source_kind": "payload",
+      "runner_request": {
+        "request_kind": "options",
+        "options": {
+          "mode": "plan",
+          "template_root": "dry-run/template",
+          "destination_root": "dry-run/destination",
+          "context": {
+            "project_name": "demo"
+          },
+          "default_strategy": "merge",
+          "overrides": [
+            {
+              "path": "README.md",
+              "strategy": "accept_template"
+            }
+          ],
+          "replacements": {
+            "KJ|GEM_NAME": "demo"
+          },
+          "allowed_families": null
+        }
+      },
+      "session_request": {
+        "request_kind": "options",
+        "mode": "plan",
+        "ready": true,
+        "diagnostics": [],
+        "resolved_options": {
+          "mode": "plan",
+          "template_root": "dry-run/template",
+          "destination_root": "dry-run/destination",
+          "context": {
+            "project_name": "demo"
+          },
+          "default_strategy": "merge",
+          "overrides": [
+            {
+              "path": "README.md",
+              "strategy": "accept_template"
+            }
+          ],
+          "replacements": {
+            "KJ|GEM_NAME": "demo"
+          },
+          "allowed_families": null
+        }
+      }
+    }
+  },
+  "request_blocked": {
+    "input": {
+      "request": {
+        "request_kind": "options",
+        "options": {
+          "mode": "apply",
+          "template_root": "",
+          "destination_root": "",
+          "context": {},
+          "default_strategy": "merge",
+          "overrides": [],
+          "replacements": {},
+          "allowed_families": null
+        }
+      }
+    },
+    "expected": {
+      "source_kind": "request",
+      "runner_request": {
+        "request_kind": "options",
+        "options": {
+          "mode": "apply",
+          "template_root": "",
+          "destination_root": "",
+          "context": {},
+          "default_strategy": "merge",
+          "overrides": [],
+          "replacements": {},
+          "allowed_families": null
+        }
+      },
+      "session_request": {
+        "request_kind": "options",
+        "mode": "apply",
+        "ready": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_destination_root",
+            "message": "missing destination_root for template session"
+          },
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_template_root",
+            "message": "missing template_root for template session"
+          }
+        ],
+        "resolved_options": null
+      }
+    }
+  },
+  "request_ready": {
+    "input": {
+      "request": {
+        "request_kind": "profile",
+        "profile_name": "dry_run",
+        "overrides": {
+          "mode": "plan",
+          "template_root": "dry-run/template",
+          "destination_root": "dry-run/destination"
+        }
+      }
+    },
+    "expected": {
+      "source_kind": "request",
+      "runner_request": {
+        "request_kind": "profile",
+        "profile_name": "dry_run",
+        "overrides": {
+          "mode": "plan",
+          "template_root": "dry-run/template",
+          "destination_root": "dry-run/destination"
+        }
+      },
+      "session_request": {
+        "request_kind": "profile",
+        "profile_name": "dry_run",
+        "mode": "plan",
+        "ready": true,
+        "diagnostics": [],
+        "resolved_options": {
+          "mode": "plan",
+          "template_root": "dry-run/template",
+          "destination_root": "dry-run/destination",
+          "context": {
+            "project_name": "demo"
+          },
+          "default_strategy": "merge",
+          "overrides": [
+            {
+              "path": "README.md",
+              "strategy": "accept_template"
+            }
+          ],
+          "replacements": {
+            "KJ|GEM_NAME": "demo"
+          },
+          "allowed_families": null
+        }
+      }
+    }
+  },
+  "payload_blocked": {
+    "input": {
+      "payload": {
+        "request_kind": "profile",
+        "profile_name": "missing_profile",
+        "default_profile_name": "dry_run",
+        "mode": "reapply",
+        "template_root": "apply-run/template",
+        "destination_root": "apply-run/destination"
+      }
+    },
+    "expected": {
+      "source_kind": "payload",
+      "runner_request": {
+        "request_kind": "profile",
+        "profile_name": "missing_profile",
+        "overrides": {
+          "mode": "reapply",
+          "template_root": "apply-run/template",
+          "destination_root": "apply-run/destination"
+        }
+      },
+      "session_request": {
+        "request_kind": "profile",
+        "profile_name": "missing_profile",
+        "mode": "reapply",
+        "ready": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_profile",
+            "message": "unknown template session profile: missing_profile"
+          }
+        ],
+        "resolved_options": null
+      }
+    }
+  }
+}

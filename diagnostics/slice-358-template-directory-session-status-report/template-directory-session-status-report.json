@@ -1,0 +1,77 @@
+{
+  "dry_run": {
+    "context": {
+      "project_name": "demo"
+    },
+    "default_strategy": "merge",
+    "overrides": [
+      {
+        "path": "README.md",
+        "strategy": "accept_template"
+      },
+      {
+        "path": "config/mise.toml",
+        "strategy": "keep_destination"
+      },
+      {
+        "path": "bin/setup.sh",
+        "strategy": "raw_copy"
+      }
+    ],
+    "replacements": {
+      "KJ|GEM_NAME": "demo",
+      "KJ|SUMMARY": "Example gem summary",
+      "KJ|APP_ENV": "development"
+    },
+    "allowed_families": null,
+    "expected": {
+      "mode": "plan",
+      "ready": false,
+      "missing_families": [
+        "dotenv"
+      ],
+      "blocked_paths": [
+        "README.md"
+      ],
+      "planned_write_count": 3,
+      "written_count": 0
+    }
+  },
+  "apply_run": {
+    "context": {},
+    "default_strategy": "merge",
+    "overrides": [],
+    "replacements": {},
+    "allowed_families": null,
+    "expected": {
+      "mode": "apply",
+      "ready": true,
+      "missing_families": [],
+      "blocked_paths": [],
+      "planned_write_count": 3,
+      "written_count": 3
+    }
+  },
+  "filtered_discovery": {
+    "context": {},
+    "default_strategy": "merge",
+    "overrides": [],
+    "replacements": {},
+    "allowed_families": [
+      "markdown",
+      "toml"
+    ],
+    "expected": {
+      "mode": "apply",
+      "ready": false,
+      "missing_families": [
+        "ruby"
+      ],
+      "blocked_paths": [
+        "lib/greeter.rb"
+      ],
+      "planned_write_count": 3,
+      "written_count": 2
+    }
+  }
+}

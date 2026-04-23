@@ -1120,6 +1120,14 @@
           "slice-357-template-directory-session-envelope-report",
           "template-directory-session-envelope-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_status_report",
+        "path": [
+          "diagnostics",
+          "slice-358-template-directory-session-status-report",
+          "template-directory-session-status-report.json"
+        ]
       }
     ],
     "text": [

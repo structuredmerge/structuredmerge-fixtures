@@ -1,0 +1,453 @@
+{
+  "profiles": {
+    "dry_run": {
+      "mode": "plan",
+      "context": {
+        "project_name": "demo"
+      },
+      "default_strategy": "merge",
+      "overrides": [
+        {
+          "path": "README.md",
+          "strategy": "accept_template"
+        },
+        {
+          "path": "config/mise.toml",
+          "strategy": "keep_destination"
+        },
+        {
+          "path": "bin/setup.sh",
+          "strategy": "raw_copy"
+        }
+      ],
+      "replacements": {
+        "KJ|GEM_NAME": "demo",
+        "KJ|SUMMARY": "Example gem summary",
+        "KJ|APP_ENV": "development"
+      },
+      "allowed_families": null
+    }
+  },
+  "options_ready": {
+    "payload": {
+      "request_kind": "options",
+      "mode": "plan",
+      "template_root": "dry-run/template",
+      "destination_root": "dry-run/destination",
+      "context": {
+        "project_name": "demo"
+      },
+      "default_strategy": "merge",
+      "overrides": [
+        {
+          "path": "README.md",
+          "strategy": "accept_template"
+        },
+        {
+          "path": "config/mise.toml",
+          "strategy": "keep_destination"
+        },
+        {
+          "path": "bin/setup.sh",
+          "strategy": "raw_copy"
+        }
+      ],
+      "replacements": {
+        "KJ|GEM_NAME": "demo",
+        "KJ|SUMMARY": "Example gem summary",
+        "KJ|APP_ENV": "development"
+      },
+      "allowed_families": null
+    },
+    "expected": {
+      "session_report": {
+        "mode": "plan",
+        "runner_report": {
+          "plan_report": {
+            "entries": [
+              {
+                "template_source_path": ".env.local.example",
+                "logical_destination_path": ".env.local",
+                "destination_path": ".env.local.example",
+                "execution_action": "merge_prepared_content",
+                "write_action": "create",
+                "status": "create",
+                "previewable": true
+              },
+              {
+                "template_source_path": ".kettle-jem.yml.example",
+                "logical_destination_path": ".kettle-jem.yml",
+                "destination_path": null,
+                "execution_action": "omit",
+                "write_action": "omit",
+                "status": "omitted",
+                "previewable": true
+              },
+              {
+                "template_source_path": "README.md.example",
+                "logical_destination_path": "README.md",
+                "destination_path": "README.md",
+                "execution_action": "blocked",
+                "write_action": "update",
+                "status": "blocked",
+                "previewable": false
+              },
+              {
+                "template_source_path": "bin/setup.sh.example",
+                "logical_destination_path": "bin/setup.sh",
+                "destination_path": "bin/setup.sh",
+                "execution_action": "raw_copy",
+                "write_action": "create",
+                "status": "create",
+                "previewable": true
+              },
+              {
+                "template_source_path": "config/mise.toml.example",
+                "logical_destination_path": "config/mise.toml",
+                "destination_path": "config/mise.toml",
+                "execution_action": "keep",
+                "write_action": "keep",
+                "status": "keep",
+                "previewable": true
+              },
+              {
+                "template_source_path": "gem.gemspec.example",
+                "logical_destination_path": "gem.gemspec",
+                "destination_path": "demo.gemspec",
+                "execution_action": "merge_prepared_content",
+                "write_action": "create",
+                "status": "create",
+                "previewable": true
+              }
+            ],
+            "summary": {
+              "create": 3,
+              "update": 0,
+              "keep": 1,
+              "blocked": 1,
+              "omitted": 1
+            }
+          },
+          "preview": {
+            "result_files": {
+              ".env.local.example": "APP_ENV=development\n",
+              "bin/setup.sh": "echo setup\n",
+              "config/mise.toml": "project = \"existing\"\n",
+              "demo.gemspec": "spec.name = \"demo\"\nspec.summary = \"Example gem summary\"\n"
+            },
+            "created_paths": [
+              ".env.local.example",
+              "bin/setup.sh",
+              "demo.gemspec"
+            ],
+            "updated_paths": [],
+            "kept_paths": [
+              "config/mise.toml"
+            ],
+            "blocked_paths": [
+              "README.md"
+            ],
+            "omitted_paths": [
+              ".kettle-jem.yml"
+            ]
+          },
+          "run_report": null,
+          "apply_report": null
+        }
+      },
+      "status": {
+        "mode": "plan",
+        "ready": false,
+        "missing_families": [
+          "dotenv"
+        ],
+        "blocked_paths": [
+          "README.md"
+        ],
+        "planned_write_count": 3,
+        "written_count": 0
+      },
+      "diagnostics": {
+        "mode": "plan",
+        "ready": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_family_adapter",
+            "path": ".env.local.example",
+            "family": "dotenv",
+            "message": "missing family adapter for dotenv blocks .env.local.example"
+          },
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "unresolved_tokens",
+            "path": "README.md",
+            "message": "unresolved template tokens block README.md"
+          }
+        ]
+      }
+    }
+  },
+  "options_blocked": {
+    "payload": {
+      "mode": "apply",
+      "template_root": "",
+      "destination_root": "",
+      "context": {},
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {},
+      "allowed_families": null
+    },
+    "expected": {
+      "session_report": {
+        "mode": "apply",
+        "runner_report": {
+          "plan_report": {
+            "entries": [],
+            "summary": {
+              "create": 0,
+              "update": 0,
+              "keep": 0,
+              "blocked": 0,
+              "omitted": 0
+            }
+          },
+          "preview": {
+            "result_files": {},
+            "created_paths": [],
+            "updated_paths": [],
+            "kept_paths": [],
+            "blocked_paths": [],
+            "omitted_paths": []
+          },
+          "run_report": null,
+          "apply_report": null
+        }
+      },
+      "status": {
+        "mode": "apply",
+        "ready": false,
+        "missing_families": [],
+        "blocked_paths": [],
+        "planned_write_count": 0,
+        "written_count": 0
+      },
+      "diagnostics": {
+        "mode": "apply",
+        "ready": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_destination_root",
+            "message": "missing destination_root for template session"
+          },
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_template_root",
+            "message": "missing template_root for template session"
+          }
+        ]
+      }
+    }
+  },
+  "profile_ready": {
+    "payload": {
+      "mode": "plan",
+      "default_profile_name": "dry_run",
+      "template_root": "dry-run/template",
+      "destination_root": "dry-run/destination"
+    },
+    "expected": {
+      "session_report": {
+        "mode": "plan",
+        "runner_report": {
+          "plan_report": {
+            "entries": [
+              {
+                "template_source_path": ".env.local.example",
+                "logical_destination_path": ".env.local",
+                "destination_path": ".env.local.example",
+                "execution_action": "merge_prepared_content",
+                "write_action": "create",
+                "status": "create",
+                "previewable": true
+              },
+              {
+                "template_source_path": ".kettle-jem.yml.example",
+                "logical_destination_path": ".kettle-jem.yml",
+                "destination_path": null,
+                "execution_action": "omit",
+                "write_action": "omit",
+                "status": "omitted",
+                "previewable": true
+              },
+              {
+                "template_source_path": "README.md.example",
+                "logical_destination_path": "README.md",
+                "destination_path": "README.md",
+                "execution_action": "blocked",
+                "write_action": "update",
+                "status": "blocked",
+                "previewable": false
+              },
+              {
+                "template_source_path": "bin/setup.sh.example",
+                "logical_destination_path": "bin/setup.sh",
+                "destination_path": "bin/setup.sh",
+                "execution_action": "raw_copy",
+                "write_action": "create",
+                "status": "create",
+                "previewable": true
+              },
+              {
+                "template_source_path": "config/mise.toml.example",
+                "logical_destination_path": "config/mise.toml",
+                "destination_path": "config/mise.toml",
+                "execution_action": "keep",
+                "write_action": "keep",
+                "status": "keep",
+                "previewable": true
+              },
+              {
+                "template_source_path": "gem.gemspec.example",
+                "logical_destination_path": "gem.gemspec",
+                "destination_path": "demo.gemspec",
+                "execution_action": "merge_prepared_content",
+                "write_action": "create",
+                "status": "create",
+                "previewable": true
+              }
+            ],
+            "summary": {
+              "create": 3,
+              "update": 0,
+              "keep": 1,
+              "blocked": 1,
+              "omitted": 1
+            }
+          },
+          "preview": {
+            "result_files": {
+              ".env.local.example": "APP_ENV=development\n",
+              "bin/setup.sh": "echo setup\n",
+              "config/mise.toml": "project = \"existing\"\n",
+              "demo.gemspec": "spec.name = \"demo\"\nspec.summary = \"Example gem summary\"\n"
+            },
+            "created_paths": [
+              ".env.local.example",
+              "bin/setup.sh",
+              "demo.gemspec"
+            ],
+            "updated_paths": [],
+            "kept_paths": [
+              "config/mise.toml"
+            ],
+            "blocked_paths": [
+              "README.md"
+            ],
+            "omitted_paths": [
+              ".kettle-jem.yml"
+            ]
+          },
+          "run_report": null,
+          "apply_report": null
+        }
+      },
+      "status": {
+        "mode": "plan",
+        "ready": false,
+        "missing_families": [
+          "dotenv"
+        ],
+        "blocked_paths": [
+          "README.md"
+        ],
+        "planned_write_count": 3,
+        "written_count": 0
+      },
+      "diagnostics": {
+        "mode": "plan",
+        "ready": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_family_adapter",
+            "path": ".env.local.example",
+            "family": "dotenv",
+            "message": "missing family adapter for dotenv blocks .env.local.example"
+          },
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "unresolved_tokens",
+            "path": "README.md",
+            "message": "unresolved template tokens block README.md"
+          }
+        ]
+      }
+    }
+  },
+  "profile_blocked": {
+    "payload": {
+      "request_kind": "profile",
+      "profile_name": "missing_profile",
+      "default_profile_name": "dry_run",
+      "mode": "reapply",
+      "template_root": "apply-run/template",
+      "destination_root": "apply-run/destination"
+    },
+    "expected": {
+      "session_report": {
+        "mode": "reapply",
+        "runner_report": {
+          "plan_report": {
+            "entries": [],
+            "summary": {
+              "create": 0,
+              "update": 0,
+              "keep": 0,
+              "blocked": 0,
+              "omitted": 0
+            }
+          },
+          "preview": {
+            "result_files": {},
+            "created_paths": [],
+            "updated_paths": [],
+            "kept_paths": [],
+            "blocked_paths": [],
+            "omitted_paths": []
+          },
+          "run_report": null,
+          "apply_report": null
+        }
+      },
+      "status": {
+        "mode": "reapply",
+        "ready": false,
+        "missing_families": [],
+        "blocked_paths": [],
+        "planned_write_count": 0,
+        "written_count": 0
+      },
+      "diagnostics": {
+        "mode": "reapply",
+        "ready": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_profile",
+            "message": "unknown template session profile: missing_profile"
+          }
+        ]
+      }
+    }
+  }
+}

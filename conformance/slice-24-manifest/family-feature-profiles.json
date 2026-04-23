@@ -1232,6 +1232,14 @@
           "slice-371-template-directory-session-runner-payload-report",
           "template-directory-session-runner-payload-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_runner_payload_outcome_report",
+        "path": [
+          "diagnostics",
+          "slice-372-template-directory-session-runner-payload-outcome-report",
+          "template-directory-session-runner-payload-outcome-report.json"
+        ]
       }
     ],
     "text": [

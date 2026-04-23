@@ -1288,6 +1288,14 @@
           "slice-378-template-directory-session-command-report",
           "template-directory-session-command-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_command_payload_report",
+        "path": [
+          "diagnostics",
+          "slice-379-template-directory-session-command-payload-report",
+          "template-directory-session-command-payload-report.json"
+        ]
       }
     ],
     "text": [

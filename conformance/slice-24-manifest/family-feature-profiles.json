@@ -1184,6 +1184,14 @@
           "slice-365-template-directory-session-profile-configuration-outcome-report",
           "template-directory-session-profile-configuration-outcome-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_options_configuration_outcome_report",
+        "path": [
+          "diagnostics",
+          "slice-366-template-directory-session-options-configuration-outcome-report",
+          "template-directory-session-options-configuration-outcome-report.json"
+        ]
       }
     ],
     "text": [

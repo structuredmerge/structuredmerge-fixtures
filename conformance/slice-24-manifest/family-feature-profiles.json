@@ -1104,6 +1104,14 @@
           "slice-355-template-directory-default-adapter-discovery-report",
           "template-directory-default-adapter-discovery-report.json"
         ]
+      },
+      {
+        "role": "template_directory_adapter_capability_report",
+        "path": [
+          "diagnostics",
+          "slice-356-template-directory-adapter-capability-report",
+          "template-directory-adapter-capability-report.json"
+        ]
       }
     ],
     "text": [

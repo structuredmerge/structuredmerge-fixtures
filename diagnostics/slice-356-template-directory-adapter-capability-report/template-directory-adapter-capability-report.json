@@ -1,0 +1,68 @@
+{
+  "full_registry": {
+    "context": {},
+    "default_strategy": "merge",
+    "overrides": [],
+    "replacements": {},
+    "expected": {
+      "required_families": [
+        "markdown",
+        "ruby",
+        "toml"
+      ],
+      "adapter_families": [
+        "markdown",
+        "ruby",
+        "toml"
+      ],
+      "missing_families": [],
+      "ready": true
+    }
+  },
+  "partial_registry": {
+    "context": {},
+    "default_strategy": "merge",
+    "overrides": [],
+    "replacements": {},
+    "expected": {
+      "required_families": [
+        "markdown",
+        "ruby",
+        "toml"
+      ],
+      "adapter_families": [
+        "markdown",
+        "toml"
+      ],
+      "missing_families": [
+        "ruby"
+      ],
+      "ready": false
+    }
+  },
+  "filtered_discovery": {
+    "context": {},
+    "default_strategy": "merge",
+    "overrides": [],
+    "replacements": {},
+    "allowed_families": [
+      "markdown",
+      "toml"
+    ],
+    "expected": {
+      "required_families": [
+        "markdown",
+        "ruby",
+        "toml"
+      ],
+      "adapter_families": [
+        "markdown",
+        "toml"
+      ],
+      "missing_families": [
+        "ruby"
+      ],
+      "ready": false
+    }
+  }
+}

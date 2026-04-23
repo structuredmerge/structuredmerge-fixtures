@@ -1160,6 +1160,14 @@
           "slice-362-template-directory-session-options-report",
           "template-directory-session-options-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_profile_report",
+        "path": [
+          "diagnostics",
+          "slice-363-template-directory-session-profile-report",
+          "template-directory-session-profile-report.json"
+        ]
       }
     ],
     "text": [

@@ -1,0 +1,8 @@
+require "json"
+
+# Greets callers from the template.
+class Greeter
+end
+
+def greet(name)
+end

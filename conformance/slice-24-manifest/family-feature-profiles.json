@@ -1272,6 +1272,14 @@
           "slice-376-template-directory-session-inspection-report",
           "template-directory-session-inspection-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_dispatch_report",
+        "path": [
+          "diagnostics",
+          "slice-377-template-directory-session-dispatch-report",
+          "template-directory-session-dispatch-report.json"
+        ]
       }
     ],
     "text": [

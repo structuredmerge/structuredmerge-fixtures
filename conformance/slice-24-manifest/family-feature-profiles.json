@@ -1056,6 +1056,14 @@
           "slice-349-mini-template-tree-directory-apply-convergence",
           "mini-template-tree-directory-apply-convergence.json"
         ]
+      },
+      {
+        "role": "mini_template_tree_directory_apply_report",
+        "path": [
+          "diagnostics",
+          "slice-350-mini-template-tree-directory-apply-report",
+          "mini-template-tree-directory-apply-report.json"
+        ]
       }
     ],
     "text": [

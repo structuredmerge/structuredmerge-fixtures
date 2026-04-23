@@ -1032,6 +1032,14 @@
           "slice-346-mini-template-tree-multi-family-merge-callback",
           "mini-template-tree-multi-family-merge-callback.json"
         ]
+      },
+      {
+        "role": "mini_template_tree_multi_family_run_report",
+        "path": [
+          "diagnostics",
+          "slice-347-mini-template-tree-multi-family-run-report",
+          "mini-template-tree-multi-family-run-report.json"
+        ]
       }
     ],
     "text": [

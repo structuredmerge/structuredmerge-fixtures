@@ -1,0 +1,34 @@
+{
+  "expected": {
+    "entries": [
+      {
+        "template_source_path": "README.md.example",
+        "logical_destination_path": "README.md",
+        "destination_path": "README.md",
+        "execution_action": "merge_prepared_content",
+        "status": "updated"
+      },
+      {
+        "template_source_path": "config/app.toml.example",
+        "logical_destination_path": "config/app.toml",
+        "destination_path": "config/app.toml",
+        "execution_action": "merge_prepared_content",
+        "status": "updated"
+      },
+      {
+        "template_source_path": "lib/greeter.rb.example",
+        "logical_destination_path": "lib/greeter.rb",
+        "destination_path": "lib/greeter.rb",
+        "execution_action": "merge_prepared_content",
+        "status": "updated"
+      }
+    ],
+    "summary": {
+      "created": 0,
+      "updated": 3,
+      "kept": 0,
+      "blocked": 0,
+      "omitted": 0
+    }
+  }
+}

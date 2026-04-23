@@ -1240,6 +1240,14 @@
           "slice-372-template-directory-session-runner-payload-outcome-report",
           "template-directory-session-runner-payload-outcome-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_entrypoint_outcome_report",
+        "path": [
+          "diagnostics",
+          "slice-373-template-directory-session-entrypoint-outcome-report",
+          "template-directory-session-entrypoint-outcome-report.json"
+        ]
       }
     ],
     "text": [

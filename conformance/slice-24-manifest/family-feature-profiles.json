@@ -1280,6 +1280,14 @@
           "slice-377-template-directory-session-dispatch-report",
           "template-directory-session-dispatch-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_command_report",
+        "path": [
+          "diagnostics",
+          "slice-378-template-directory-session-command-report",
+          "template-directory-session-command-report.json"
+        ]
       }
     ],
     "text": [

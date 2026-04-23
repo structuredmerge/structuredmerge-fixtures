@@ -1,0 +1,90 @@
+{
+  "context": {
+    "project_name": "demo"
+  },
+  "default_strategy": "merge",
+  "overrides": [
+    {
+      "path": "README.md",
+      "strategy": "accept_template"
+    },
+    {
+      "path": "config/mise.toml",
+      "strategy": "keep_destination"
+    },
+    {
+      "path": "bin/setup.sh",
+      "strategy": "raw_copy"
+    }
+  ],
+  "replacements": {
+    "KJ|GEM_NAME": "demo",
+    "KJ|SUMMARY": "Example gem summary",
+    "KJ|APP_ENV": "development"
+  },
+  "expected": {
+    "entries": [
+      {
+        "template_source_path": ".env.local.example",
+        "logical_destination_path": ".env.local",
+        "destination_path": ".env.local.example",
+        "execution_action": "merge_prepared_content",
+        "write_action": "create",
+        "status": "create",
+        "previewable": true
+      },
+      {
+        "template_source_path": ".kettle-jem.yml.example",
+        "logical_destination_path": ".kettle-jem.yml",
+        "destination_path": null,
+        "execution_action": "omit",
+        "write_action": "omit",
+        "status": "omitted",
+        "previewable": true
+      },
+      {
+        "template_source_path": "README.md.example",
+        "logical_destination_path": "README.md",
+        "destination_path": "README.md",
+        "execution_action": "blocked",
+        "write_action": "update",
+        "status": "blocked",
+        "previewable": false
+      },
+      {
+        "template_source_path": "bin/setup.sh.example",
+        "logical_destination_path": "bin/setup.sh",
+        "destination_path": "bin/setup.sh",
+        "execution_action": "raw_copy",
+        "write_action": "create",
+        "status": "create",
+        "previewable": true
+      },
+      {
+        "template_source_path": "config/mise.toml.example",
+        "logical_destination_path": "config/mise.toml",
+        "destination_path": "config/mise.toml",
+        "execution_action": "keep",
+        "write_action": "keep",
+        "status": "keep",
+        "previewable": true
+      },
+      {
+        "template_source_path": "gem.gemspec.example",
+        "logical_destination_path": "gem.gemspec",
+        "destination_path": "demo.gemspec",
+        "execution_action": "merge_prepared_content",
+        "write_action": "create",
+        "status": "create",
+        "previewable": true
+      }
+    ],
+    "summary": {
+      "create": 3,
+      "update": 0,
+      "keep": 1,
+      "blocked": 1,
+      "omitted": 1
+    }
+  }
+}

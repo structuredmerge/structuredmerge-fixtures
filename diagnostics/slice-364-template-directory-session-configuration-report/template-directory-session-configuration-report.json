@@ -1,0 +1,149 @@
+{
+  "profiles": {
+    "dry_run": {
+      "mode": "plan",
+      "context": {
+        "project_name": "demo"
+      },
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {
+        "KJ|GEM_NAME": "demo"
+      },
+      "allowed_families": null
+    },
+    "apply_run": {
+      "mode": "apply",
+      "context": {},
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {},
+      "allowed_families": null
+    }
+  },
+  "options_valid": {
+    "options": {
+      "mode": "plan",
+      "template_root": "dry-run/template",
+      "destination_root": "dry-run/destination",
+      "context": {
+        "project_name": "demo"
+      },
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {
+        "KJ|GEM_NAME": "demo"
+      },
+      "allowed_families": null
+    },
+    "expected": {
+      "mode": "plan",
+      "ready": true,
+      "diagnostics": []
+    }
+  },
+  "options_missing_roots": {
+    "options": {
+      "mode": "apply",
+      "template_root": "",
+      "destination_root": "",
+      "context": {},
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {},
+      "allowed_families": null
+    },
+    "expected": {
+      "mode": "apply",
+      "ready": false,
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_destination_root",
+          "message": "missing destination_root for template session"
+        },
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_template_root",
+          "message": "missing template_root for template session"
+        }
+      ]
+    }
+  },
+  "profile_valid": {
+    "profile": "dry_run",
+    "overrides": {
+      "mode": "plan",
+      "template_root": "dry-run/template",
+      "destination_root": "dry-run/destination",
+      "context": {},
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {},
+      "allowed_families": null
+    },
+    "expected": {
+      "mode": "plan",
+      "ready": true,
+      "diagnostics": []
+    }
+  },
+  "profile_missing_profile": {
+    "profile": "missing_profile",
+    "overrides": {
+      "mode": "reapply",
+      "template_root": "apply-run/template",
+      "destination_root": "apply-run/destination",
+      "context": {},
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {},
+      "allowed_families": null
+    },
+    "expected": {
+      "mode": "reapply",
+      "ready": false,
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_profile",
+          "message": "unknown template session profile: missing_profile"
+        }
+      ]
+    }
+  },
+  "profile_missing_roots": {
+    "profile": "apply_run",
+    "overrides": {
+      "mode": "apply",
+      "template_root": "",
+      "destination_root": "",
+      "context": {},
+      "default_strategy": "merge",
+      "overrides": [],
+      "replacements": {},
+      "allowed_families": null
+    },
+    "expected": {
+      "mode": "apply",
+      "ready": false,
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_destination_root",
+          "message": "missing destination_root for template session"
+        },
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "reason": "missing_template_root",
+          "message": "missing template_root for template session"
+        }
+      ]
+    }
+  }
+}

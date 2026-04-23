@@ -1112,6 +1112,14 @@
           "slice-356-template-directory-adapter-capability-report",
           "template-directory-adapter-capability-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_envelope_report",
+        "path": [
+          "diagnostics",
+          "slice-357-template-directory-session-envelope-report",
+          "template-directory-session-envelope-report.json"
+        ]
       }
     ],
     "text": [

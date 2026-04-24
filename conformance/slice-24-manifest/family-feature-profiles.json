@@ -1296,6 +1296,14 @@
           "slice-379-template-directory-session-command-payload-report",
           "template-directory-session-command-payload-report.json"
         ]
+      },
+      {
+        "role": "template_directory_session_dispatch_rejection",
+        "path": [
+          "diagnostics",
+          "slice-380-template-directory-session-dispatch-rejection",
+          "template-directory-session-dispatch-rejection.json"
+        ]
       }
     ],
     "text": [

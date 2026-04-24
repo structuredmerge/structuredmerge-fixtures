@@ -1,0 +1,43 @@
+{
+  "cases": [
+    {
+      "label": "unsupported_operation",
+      "input": {
+        "operation": "preview",
+        "entrypoint": {
+          "payload": {
+            "request_kind": "options",
+            "mode": "plan",
+            "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+            "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+            "context": {
+              "project_name": "demo"
+            },
+            "default_strategy": "merge",
+            "overrides": [
+              {
+                "path": "README.md",
+                "strategy": "accept_template"
+              },
+              {
+                "path": "config/mise.toml",
+                "strategy": "keep_destination"
+              },
+              {
+                "path": "bin/setup.sh",
+                "strategy": "raw_copy"
+              }
+            ],
+            "replacements": {
+              "KJ|GEM_NAME": "demo",
+              "KJ|SUMMARY": "Example gem summary",
+              "KJ|APP_ENV": "development"
+            },
+            "allowed_families": null
+          }
+        }
+      },
+      "expected_error": "unsupported template directory session operation: preview"
+    }
+  ]
+}

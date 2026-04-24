@@ -1304,6 +1304,14 @@
           "slice-380-template-directory-session-dispatch-rejection",
           "template-directory-session-dispatch-rejection.json"
         ]
+      },
+      {
+        "role": "template_directory_session_command_rejection",
+        "path": [
+          "diagnostics",
+          "slice-381-template-directory-session-command-rejection",
+          "template-directory-session-command-rejection.json"
+        ]
       }
     ],
     "text": [

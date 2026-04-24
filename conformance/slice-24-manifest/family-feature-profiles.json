@@ -1312,6 +1312,14 @@
           "slice-381-template-directory-session-command-rejection",
           "template-directory-session-command-rejection.json"
         ]
+      },
+      {
+        "role": "template_directory_session_command_payload_rejection",
+        "path": [
+          "diagnostics",
+          "slice-382-template-directory-session-command-payload-rejection",
+          "template-directory-session-command-payload-rejection.json"
+        ]
       }
     ],
     "text": [

@@ -1,0 +1,67 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "template_directory_session_entrypoint",
+        "version": 1,
+        "request": {
+          "request_kind": "options",
+          "options": {
+            "mode": "plan",
+            "template_root": "dry-run/template",
+            "destination_root": "dry-run/destination",
+            "context": {
+              "project_name": "demo"
+            },
+            "default_strategy": "merge",
+            "overrides": [
+              {
+                "path": "README.md",
+                "strategy": "accept_template"
+              },
+              {
+                "path": "config/mise.toml",
+                "strategy": "keep_destination"
+              },
+              {
+                "path": "bin/setup.sh",
+                "strategy": "raw_copy"
+              }
+            ],
+            "replacements": {
+              "KJ|GEM_NAME": "demo",
+              "KJ|SUMMARY": "Example gem summary",
+              "KJ|APP_ENV": "development"
+            },
+            "allowed_families": null
+          }
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected template_directory_session_runner_request envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "template_directory_session_runner_request",
+        "version": 2,
+        "request": {
+          "request_kind": "profile",
+          "profile_name": "dry_run",
+          "overrides": {
+            "mode": "plan",
+            "template_root": "dry-run/template",
+            "destination_root": "dry-run/destination"
+          }
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported template_directory_session_runner_request envelope version 2."
+      }
+    }
+  ]
+}

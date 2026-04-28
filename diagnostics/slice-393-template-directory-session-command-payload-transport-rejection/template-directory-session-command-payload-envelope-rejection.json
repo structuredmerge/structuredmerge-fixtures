@@ -1,0 +1,57 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "template_directory_session_command",
+        "version": 1,
+        "payload": {
+          "operation": "run",
+          "default_profile_name": "dry_run",
+          "mode": "plan",
+          "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+          "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected template_directory_session_command_payload envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "template_directory_session_command_payload",
+        "version": 2,
+        "payload": {
+          "operation": "inspect",
+          "request_kind": "options",
+          "mode": "plan",
+          "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+          "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+          "context": {
+            "project_name": "demo"
+          },
+          "default_strategy": "merge",
+          "overrides": [
+            {
+              "path": "README.md",
+              "strategy": "accept_template"
+            }
+          ],
+          "replacements": {
+            "KJ|GEM_NAME": "demo"
+          },
+          "allowed_families": [
+            "ruby",
+            "toml"
+          ]
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported template_directory_session_command_payload envelope version 2."
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "template_directory_session_runner_request",
+        "version": 1,
+        "request": {
+          "request_kind": "options",
+          "mode": "plan",
+          "ready": true,
+          "diagnostics": [],
+          "resolved_options": {
+            "mode": "plan",
+            "template_root": "dry-run/template",
+            "destination_root": "dry-run/destination",
+            "context": {
+              "project_name": "demo"
+            },
+            "default_strategy": "merge",
+            "overrides": [
+              {
+                "path": "README.md",
+                "strategy": "accept_template"
+              }
+            ],
+            "replacements": {
+              "KJ|GEM_NAME": "demo"
+            },
+            "allowed_families": null
+          }
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected template_directory_session_request envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "template_directory_session_request",
+        "version": 2,
+        "request": {
+          "request_kind": "profile",
+          "profile_name": "dry_run",
+          "mode": "plan",
+          "ready": true,
+          "diagnostics": [],
+          "resolved_options": {
+            "mode": "plan",
+            "template_root": "dry-run/template",
+            "destination_root": "dry-run/destination",
+            "context": {
+              "project_name": "demo"
+            },
+            "default_strategy": "merge",
+            "overrides": [
+              {
+                "path": "README.md",
+                "strategy": "accept_template"
+              }
+            ],
+            "replacements": {
+              "KJ|GEM_NAME": "demo"
+            },
+            "allowed_families": null
+          }
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported template_directory_session_request envelope version 2."
+      }
+    }
+  ]
+}

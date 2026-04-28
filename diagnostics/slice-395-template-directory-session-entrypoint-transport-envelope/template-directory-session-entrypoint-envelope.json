@@ -1,0 +1,168 @@
+{
+  "cases": [
+    {
+      "label": "payload_ready",
+      "input": {
+        "payload": {
+          "request_kind": "options",
+          "mode": "plan",
+          "template_root": "dry-run/template",
+          "destination_root": "dry-run/destination",
+          "context": {
+            "project_name": "demo"
+          },
+          "default_strategy": "merge",
+          "overrides": [
+            {
+              "path": "README.md",
+              "strategy": "accept_template"
+            },
+            {
+              "path": "config/mise.toml",
+              "strategy": "keep_destination"
+            },
+            {
+              "path": "bin/setup.sh",
+              "strategy": "raw_copy"
+            }
+          ],
+          "replacements": {
+            "KJ|GEM_NAME": "demo",
+            "KJ|SUMMARY": "Example gem summary",
+            "KJ|APP_ENV": "development"
+          },
+          "allowed_families": null
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_entrypoint",
+        "version": 1,
+        "entrypoint": {
+          "payload": {
+            "request_kind": "options",
+            "mode": "plan",
+            "template_root": "dry-run/template",
+            "destination_root": "dry-run/destination",
+            "context": {
+              "project_name": "demo"
+            },
+            "default_strategy": "merge",
+            "overrides": [
+              {
+                "path": "README.md",
+                "strategy": "accept_template"
+              },
+              {
+                "path": "config/mise.toml",
+                "strategy": "keep_destination"
+              },
+              {
+                "path": "bin/setup.sh",
+                "strategy": "raw_copy"
+              }
+            ],
+            "replacements": {
+              "KJ|GEM_NAME": "demo",
+              "KJ|SUMMARY": "Example gem summary",
+              "KJ|APP_ENV": "development"
+            },
+            "allowed_families": null
+          }
+        }
+      }
+    },
+    {
+      "label": "request_blocked",
+      "input": {
+        "request": {
+          "request_kind": "options",
+          "options": {
+            "mode": "apply",
+            "template_root": "",
+            "destination_root": "",
+            "context": {},
+            "default_strategy": "merge",
+            "overrides": [],
+            "replacements": {},
+            "allowed_families": null
+          }
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_entrypoint",
+        "version": 1,
+        "entrypoint": {
+          "request": {
+            "request_kind": "options",
+            "options": {
+              "mode": "apply",
+              "template_root": "",
+              "destination_root": "",
+              "context": {},
+              "default_strategy": "merge",
+              "overrides": [],
+              "replacements": {},
+              "allowed_families": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "label": "request_ready",
+      "input": {
+        "request": {
+          "request_kind": "profile",
+          "profile_name": "dry_run",
+          "overrides": {
+            "mode": "plan",
+            "template_root": "dry-run/template",
+            "destination_root": "dry-run/destination"
+          }
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_entrypoint",
+        "version": 1,
+        "entrypoint": {
+          "request": {
+            "request_kind": "profile",
+            "profile_name": "dry_run",
+            "overrides": {
+              "mode": "plan",
+              "template_root": "dry-run/template",
+              "destination_root": "dry-run/destination"
+            }
+          }
+        }
+      }
+    },
+    {
+      "label": "payload_blocked",
+      "input": {
+        "payload": {
+          "request_kind": "profile",
+          "profile_name": "missing_profile",
+          "default_profile_name": "dry_run",
+          "mode": "reapply",
+          "template_root": "apply-run/template",
+          "destination_root": "apply-run/destination"
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_entrypoint",
+        "version": 1,
+        "entrypoint": {
+          "payload": {
+            "request_kind": "profile",
+            "profile_name": "missing_profile",
+            "default_profile_name": "dry_run",
+            "mode": "reapply",
+            "template_root": "apply-run/template",
+            "destination_root": "apply-run/destination"
+          }
+        }
+      }
+    }
+  ]
+}

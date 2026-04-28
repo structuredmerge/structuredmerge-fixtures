@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "review_replay_bundle",
+        "version": 1,
+        "invocation": {
+          "operation": "run",
+          "request_kind": "options",
+          "mode": "plan",
+          "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+          "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected template_directory_session_invocation envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "template_directory_session_invocation",
+        "version": 2,
+        "invocation": {
+          "operation": "run",
+          "request_kind": "profile",
+          "default_profile_name": "dry_run",
+          "profile_name": "dry_run",
+          "mode": "plan",
+          "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+          "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported template_directory_session_invocation envelope version 2."
+      }
+    }
+  ]
+}

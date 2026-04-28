@@ -1,0 +1,105 @@
+{
+  "cases": [
+    {
+      "label": "dry_run",
+      "input": {
+        "mode": "plan",
+        "ready": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_family_adapter",
+            "path": ".env.local.example",
+            "family": "dotenv",
+            "message": "missing family adapter for dotenv blocks .env.local.example"
+          },
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "unresolved_tokens",
+            "path": "README.md",
+            "message": "unresolved template tokens block README.md"
+          }
+        ]
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_diagnostics",
+        "version": 1,
+        "diagnostics": {
+          "mode": "plan",
+          "ready": false,
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "missing_family_adapter",
+              "path": ".env.local.example",
+              "family": "dotenv",
+              "message": "missing family adapter for dotenv blocks .env.local.example"
+            },
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "unresolved_tokens",
+              "path": "README.md",
+              "message": "unresolved template tokens block README.md"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "apply_run",
+      "input": {
+        "mode": "apply",
+        "ready": true,
+        "diagnostics": []
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_diagnostics",
+        "version": 1,
+        "diagnostics": {
+          "mode": "apply",
+          "ready": true,
+          "diagnostics": []
+        }
+      }
+    },
+    {
+      "label": "filtered_discovery",
+      "input": {
+        "mode": "apply",
+        "ready": false,
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "configuration_error",
+            "reason": "missing_family_adapter",
+            "path": "lib/greeter.rb",
+            "family": "ruby",
+            "message": "missing family adapter for ruby blocks lib/greeter.rb"
+          }
+        ]
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_diagnostics",
+        "version": 1,
+        "diagnostics": {
+          "mode": "apply",
+          "ready": false,
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "missing_family_adapter",
+              "path": "lib/greeter.rb",
+              "family": "ruby",
+              "message": "missing family adapter for ruby blocks lib/greeter.rb"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

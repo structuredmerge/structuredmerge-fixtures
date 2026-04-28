@@ -1,0 +1,868 @@
+{
+  "cases": [
+    {
+      "label": "payload_ready",
+      "input": {
+        "entrypoint_report": {
+          "source_kind": "payload",
+          "runner_request": {
+            "request_kind": "options",
+            "options": {
+              "mode": "plan",
+              "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+              "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+              "context": {
+                "project_name": "demo"
+              },
+              "default_strategy": "merge",
+              "overrides": [
+                {
+                  "path": "README.md",
+                  "strategy": "accept_template"
+                },
+                {
+                  "path": "config/mise.toml",
+                  "strategy": "keep_destination"
+                },
+                {
+                  "path": "bin/setup.sh",
+                  "strategy": "raw_copy"
+                }
+              ],
+              "replacements": {
+                "KJ|GEM_NAME": "demo",
+                "KJ|SUMMARY": "Example gem summary",
+                "KJ|APP_ENV": "development"
+              },
+              "allowed_families": null
+            }
+          }
+        },
+        "session_resolution": {
+          "source_kind": "payload",
+          "runner_request": {
+            "request_kind": "options",
+            "options": {
+              "mode": "plan",
+              "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+              "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+              "context": {
+                "project_name": "demo"
+              },
+              "default_strategy": "merge",
+              "overrides": [
+                {
+                  "path": "README.md",
+                  "strategy": "accept_template"
+                },
+                {
+                  "path": "config/mise.toml",
+                  "strategy": "keep_destination"
+                },
+                {
+                  "path": "bin/setup.sh",
+                  "strategy": "raw_copy"
+                }
+              ],
+              "replacements": {
+                "KJ|GEM_NAME": "demo",
+                "KJ|SUMMARY": "Example gem summary",
+                "KJ|APP_ENV": "development"
+              },
+              "allowed_families": null
+            }
+          },
+          "session_request": {
+            "request_kind": "options",
+            "mode": "plan",
+            "ready": true,
+            "diagnostics": [],
+            "resolved_options": {
+              "mode": "plan",
+              "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+              "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+              "context": {
+                "project_name": "demo"
+              },
+              "default_strategy": "merge",
+              "overrides": [
+                {
+                  "path": "README.md",
+                  "strategy": "accept_template"
+                },
+                {
+                  "path": "config/mise.toml",
+                  "strategy": "keep_destination"
+                },
+                {
+                  "path": "bin/setup.sh",
+                  "strategy": "raw_copy"
+                }
+              ],
+              "replacements": {
+                "KJ|GEM_NAME": "demo",
+                "KJ|SUMMARY": "Example gem summary",
+                "KJ|APP_ENV": "development"
+              },
+              "allowed_families": null
+            }
+          }
+        },
+        "adapter_capabilities": {
+          "required_families": [
+            "dotenv",
+            "ruby"
+          ],
+          "adapter_families": [
+            "markdown",
+            "ruby",
+            "toml"
+          ],
+          "missing_families": [
+            "dotenv"
+          ],
+          "ready": false
+        },
+        "status": {
+          "mode": "plan",
+          "ready": false,
+          "missing_families": [
+            "dotenv"
+          ],
+          "blocked_paths": [
+            "README.md"
+          ],
+          "planned_write_count": 3,
+          "written_count": 0
+        },
+        "diagnostics": {
+          "mode": "plan",
+          "ready": false,
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "missing_family_adapter",
+              "path": ".env.local.example",
+              "family": "dotenv",
+              "message": "missing family adapter for dotenv blocks .env.local.example"
+            },
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "unresolved_tokens",
+              "path": "README.md",
+              "message": "unresolved template tokens block README.md"
+            }
+          ]
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_inspection",
+        "version": 1,
+        "inspection": {
+          "entrypoint_report": {
+            "source_kind": "payload",
+            "runner_request": {
+              "request_kind": "options",
+              "options": {
+                "mode": "plan",
+                "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+                "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+                "context": {
+                  "project_name": "demo"
+                },
+                "default_strategy": "merge",
+                "overrides": [
+                  {
+                    "path": "README.md",
+                    "strategy": "accept_template"
+                  },
+                  {
+                    "path": "config/mise.toml",
+                    "strategy": "keep_destination"
+                  },
+                  {
+                    "path": "bin/setup.sh",
+                    "strategy": "raw_copy"
+                  }
+                ],
+                "replacements": {
+                  "KJ|GEM_NAME": "demo",
+                  "KJ|SUMMARY": "Example gem summary",
+                  "KJ|APP_ENV": "development"
+                },
+                "allowed_families": null
+              }
+            }
+          },
+          "session_resolution": {
+            "source_kind": "payload",
+            "runner_request": {
+              "request_kind": "options",
+              "options": {
+                "mode": "plan",
+                "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+                "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+                "context": {
+                  "project_name": "demo"
+                },
+                "default_strategy": "merge",
+                "overrides": [
+                  {
+                    "path": "README.md",
+                    "strategy": "accept_template"
+                  },
+                  {
+                    "path": "config/mise.toml",
+                    "strategy": "keep_destination"
+                  },
+                  {
+                    "path": "bin/setup.sh",
+                    "strategy": "raw_copy"
+                  }
+                ],
+                "replacements": {
+                  "KJ|GEM_NAME": "demo",
+                  "KJ|SUMMARY": "Example gem summary",
+                  "KJ|APP_ENV": "development"
+                },
+                "allowed_families": null
+              }
+            },
+            "session_request": {
+              "request_kind": "options",
+              "mode": "plan",
+              "ready": true,
+              "diagnostics": [],
+              "resolved_options": {
+                "mode": "plan",
+                "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+                "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+                "context": {
+                  "project_name": "demo"
+                },
+                "default_strategy": "merge",
+                "overrides": [
+                  {
+                    "path": "README.md",
+                    "strategy": "accept_template"
+                  },
+                  {
+                    "path": "config/mise.toml",
+                    "strategy": "keep_destination"
+                  },
+                  {
+                    "path": "bin/setup.sh",
+                    "strategy": "raw_copy"
+                  }
+                ],
+                "replacements": {
+                  "KJ|GEM_NAME": "demo",
+                  "KJ|SUMMARY": "Example gem summary",
+                  "KJ|APP_ENV": "development"
+                },
+                "allowed_families": null
+              }
+            }
+          },
+          "adapter_capabilities": {
+            "required_families": [
+              "dotenv",
+              "ruby"
+            ],
+            "adapter_families": [
+              "markdown",
+              "ruby",
+              "toml"
+            ],
+            "missing_families": [
+              "dotenv"
+            ],
+            "ready": false
+          },
+          "status": {
+            "mode": "plan",
+            "ready": false,
+            "missing_families": [
+              "dotenv"
+            ],
+            "blocked_paths": [
+              "README.md"
+            ],
+            "planned_write_count": 3,
+            "written_count": 0
+          },
+          "diagnostics": {
+            "mode": "plan",
+            "ready": false,
+            "diagnostics": [
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "missing_family_adapter",
+                "path": ".env.local.example",
+                "family": "dotenv",
+                "message": "missing family adapter for dotenv blocks .env.local.example"
+              },
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "unresolved_tokens",
+                "path": "README.md",
+                "message": "unresolved template tokens block README.md"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "request_blocked",
+      "input": {
+        "entrypoint_report": {
+          "source_kind": "request",
+          "runner_request": {
+            "request_kind": "options",
+            "options": {
+              "mode": "apply",
+              "template_root": "",
+              "destination_root": "",
+              "context": {},
+              "default_strategy": "merge",
+              "overrides": [],
+              "replacements": {},
+              "allowed_families": null
+            }
+          }
+        },
+        "session_resolution": {
+          "source_kind": "request",
+          "runner_request": {
+            "request_kind": "options",
+            "options": {
+              "mode": "apply",
+              "template_root": "",
+              "destination_root": "",
+              "context": {},
+              "default_strategy": "merge",
+              "overrides": [],
+              "replacements": {},
+              "allowed_families": null
+            }
+          },
+          "session_request": {
+            "request_kind": "options",
+            "mode": "apply",
+            "ready": false,
+            "diagnostics": [
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "missing_destination_root",
+                "message": "missing destination_root for template session"
+              },
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "missing_template_root",
+                "message": "missing template_root for template session"
+              }
+            ],
+            "resolved_options": null
+          }
+        },
+        "adapter_capabilities": {
+          "required_families": [],
+          "adapter_families": [],
+          "missing_families": [],
+          "ready": false
+        },
+        "status": {
+          "mode": "apply",
+          "ready": false,
+          "missing_families": [],
+          "blocked_paths": [],
+          "planned_write_count": 0,
+          "written_count": 0
+        },
+        "diagnostics": {
+          "mode": "apply",
+          "ready": false,
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "missing_destination_root",
+              "message": "missing destination_root for template session"
+            },
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "missing_template_root",
+              "message": "missing template_root for template session"
+            }
+          ]
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_inspection",
+        "version": 1,
+        "inspection": {
+          "entrypoint_report": {
+            "source_kind": "request",
+            "runner_request": {
+              "request_kind": "options",
+              "options": {
+                "mode": "apply",
+                "template_root": "",
+                "destination_root": "",
+                "context": {},
+                "default_strategy": "merge",
+                "overrides": [],
+                "replacements": {},
+                "allowed_families": null
+              }
+            }
+          },
+          "session_resolution": {
+            "source_kind": "request",
+            "runner_request": {
+              "request_kind": "options",
+              "options": {
+                "mode": "apply",
+                "template_root": "",
+                "destination_root": "",
+                "context": {},
+                "default_strategy": "merge",
+                "overrides": [],
+                "replacements": {},
+                "allowed_families": null
+              }
+            },
+            "session_request": {
+              "request_kind": "options",
+              "mode": "apply",
+              "ready": false,
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "reason": "missing_destination_root",
+                  "message": "missing destination_root for template session"
+                },
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "reason": "missing_template_root",
+                  "message": "missing template_root for template session"
+                }
+              ],
+              "resolved_options": null
+            }
+          },
+          "adapter_capabilities": {
+            "required_families": [],
+            "adapter_families": [],
+            "missing_families": [],
+            "ready": false
+          },
+          "status": {
+            "mode": "apply",
+            "ready": false,
+            "missing_families": [],
+            "blocked_paths": [],
+            "planned_write_count": 0,
+            "written_count": 0
+          },
+          "diagnostics": {
+            "mode": "apply",
+            "ready": false,
+            "diagnostics": [
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "missing_destination_root",
+                "message": "missing destination_root for template session"
+              },
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "missing_template_root",
+                "message": "missing template_root for template session"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "request_ready",
+      "input": {
+        "entrypoint_report": {
+          "source_kind": "request",
+          "runner_request": {
+            "request_kind": "profile",
+            "profile_name": "dry_run",
+            "overrides": {
+              "mode": "plan",
+              "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+              "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+            }
+          }
+        },
+        "session_resolution": {
+          "source_kind": "request",
+          "runner_request": {
+            "request_kind": "profile",
+            "profile_name": "dry_run",
+            "overrides": {
+              "mode": "plan",
+              "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+              "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+            }
+          },
+          "session_request": {
+            "request_kind": "profile",
+            "profile_name": "dry_run",
+            "mode": "plan",
+            "ready": true,
+            "diagnostics": [],
+            "resolved_options": {
+              "mode": "plan",
+              "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+              "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+              "context": {
+                "project_name": "demo"
+              },
+              "default_strategy": "merge",
+              "overrides": [
+                {
+                  "path": "README.md",
+                  "strategy": "accept_template"
+                },
+                {
+                  "path": "config/mise.toml",
+                  "strategy": "keep_destination"
+                },
+                {
+                  "path": "bin/setup.sh",
+                  "strategy": "raw_copy"
+                }
+              ],
+              "replacements": {
+                "KJ|GEM_NAME": "demo",
+                "KJ|SUMMARY": "Example gem summary",
+                "KJ|APP_ENV": "development"
+              },
+              "allowed_families": null
+            }
+          }
+        },
+        "adapter_capabilities": {
+          "required_families": [
+            "dotenv",
+            "ruby"
+          ],
+          "adapter_families": [
+            "markdown",
+            "ruby",
+            "toml"
+          ],
+          "missing_families": [
+            "dotenv"
+          ],
+          "ready": false
+        },
+        "status": {
+          "mode": "plan",
+          "ready": false,
+          "missing_families": [
+            "dotenv"
+          ],
+          "blocked_paths": [
+            "README.md"
+          ],
+          "planned_write_count": 3,
+          "written_count": 0
+        },
+        "diagnostics": {
+          "mode": "plan",
+          "ready": false,
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "missing_family_adapter",
+              "path": ".env.local.example",
+              "family": "dotenv",
+              "message": "missing family adapter for dotenv blocks .env.local.example"
+            },
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "unresolved_tokens",
+              "path": "README.md",
+              "message": "unresolved template tokens block README.md"
+            }
+          ]
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_inspection",
+        "version": 1,
+        "inspection": {
+          "entrypoint_report": {
+            "source_kind": "request",
+            "runner_request": {
+              "request_kind": "profile",
+              "profile_name": "dry_run",
+              "overrides": {
+                "mode": "plan",
+                "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+                "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+              }
+            }
+          },
+          "session_resolution": {
+            "source_kind": "request",
+            "runner_request": {
+              "request_kind": "profile",
+              "profile_name": "dry_run",
+              "overrides": {
+                "mode": "plan",
+                "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+                "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+              }
+            },
+            "session_request": {
+              "request_kind": "profile",
+              "profile_name": "dry_run",
+              "mode": "plan",
+              "ready": true,
+              "diagnostics": [],
+              "resolved_options": {
+                "mode": "plan",
+                "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+                "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+                "context": {
+                  "project_name": "demo"
+                },
+                "default_strategy": "merge",
+                "overrides": [
+                  {
+                    "path": "README.md",
+                    "strategy": "accept_template"
+                  },
+                  {
+                    "path": "config/mise.toml",
+                    "strategy": "keep_destination"
+                  },
+                  {
+                    "path": "bin/setup.sh",
+                    "strategy": "raw_copy"
+                  }
+                ],
+                "replacements": {
+                  "KJ|GEM_NAME": "demo",
+                  "KJ|SUMMARY": "Example gem summary",
+                  "KJ|APP_ENV": "development"
+                },
+                "allowed_families": null
+              }
+            }
+          },
+          "adapter_capabilities": {
+            "required_families": [
+              "dotenv",
+              "ruby"
+            ],
+            "adapter_families": [
+              "markdown",
+              "ruby",
+              "toml"
+            ],
+            "missing_families": [
+              "dotenv"
+            ],
+            "ready": false
+          },
+          "status": {
+            "mode": "plan",
+            "ready": false,
+            "missing_families": [
+              "dotenv"
+            ],
+            "blocked_paths": [
+              "README.md"
+            ],
+            "planned_write_count": 3,
+            "written_count": 0
+          },
+          "diagnostics": {
+            "mode": "plan",
+            "ready": false,
+            "diagnostics": [
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "missing_family_adapter",
+                "path": ".env.local.example",
+                "family": "dotenv",
+                "message": "missing family adapter for dotenv blocks .env.local.example"
+              },
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "unresolved_tokens",
+                "path": "README.md",
+                "message": "unresolved template tokens block README.md"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "payload_blocked",
+      "input": {
+        "entrypoint_report": {
+          "source_kind": "payload",
+          "runner_request": {
+            "request_kind": "profile",
+            "profile_name": "missing_profile",
+            "overrides": {
+              "mode": "reapply",
+              "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/apply-run/template",
+              "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/apply-run/destination"
+            }
+          }
+        },
+        "session_resolution": {
+          "source_kind": "payload",
+          "runner_request": {
+            "request_kind": "profile",
+            "profile_name": "missing_profile",
+            "overrides": {
+              "mode": "reapply",
+              "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/apply-run/template",
+              "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/apply-run/destination"
+            }
+          },
+          "session_request": {
+            "request_kind": "profile",
+            "profile_name": "missing_profile",
+            "mode": "reapply",
+            "ready": false,
+            "diagnostics": [
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "missing_profile",
+                "message": "unknown template session profile: missing_profile"
+              }
+            ],
+            "resolved_options": null
+          }
+        },
+        "adapter_capabilities": {
+          "required_families": [],
+          "adapter_families": [],
+          "missing_families": [],
+          "ready": false
+        },
+        "status": {
+          "mode": "reapply",
+          "ready": false,
+          "missing_families": [],
+          "blocked_paths": [],
+          "planned_write_count": 0,
+          "written_count": 0
+        },
+        "diagnostics": {
+          "mode": "reapply",
+          "ready": false,
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "reason": "missing_profile",
+              "message": "unknown template session profile: missing_profile"
+            }
+          ]
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_inspection",
+        "version": 1,
+        "inspection": {
+          "entrypoint_report": {
+            "source_kind": "payload",
+            "runner_request": {
+              "request_kind": "profile",
+              "profile_name": "missing_profile",
+              "overrides": {
+                "mode": "reapply",
+                "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/apply-run/template",
+                "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/apply-run/destination"
+              }
+            }
+          },
+          "session_resolution": {
+            "source_kind": "payload",
+            "runner_request": {
+              "request_kind": "profile",
+              "profile_name": "missing_profile",
+              "overrides": {
+                "mode": "reapply",
+                "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/apply-run/template",
+                "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/apply-run/destination"
+              }
+            },
+            "session_request": {
+              "request_kind": "profile",
+              "profile_name": "missing_profile",
+              "mode": "reapply",
+              "ready": false,
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "reason": "missing_profile",
+                  "message": "unknown template session profile: missing_profile"
+                }
+              ],
+              "resolved_options": null
+            }
+          },
+          "adapter_capabilities": {
+            "required_families": [],
+            "adapter_families": [],
+            "missing_families": [],
+            "ready": false
+          },
+          "status": {
+            "mode": "reapply",
+            "ready": false,
+            "missing_families": [],
+            "blocked_paths": [],
+            "planned_write_count": 0,
+            "written_count": 0
+          },
+          "diagnostics": {
+            "mode": "reapply",
+            "ready": false,
+            "diagnostics": [
+              {
+                "severity": "error",
+                "category": "configuration_error",
+                "reason": "missing_profile",
+                "message": "unknown template session profile: missing_profile"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

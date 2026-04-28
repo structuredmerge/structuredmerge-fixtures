@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "template_directory_session_request",
+        "version": 1,
+        "status": {
+          "mode": "plan",
+          "ready": false,
+          "missing_families": [
+            "dotenv"
+          ],
+          "blocked_paths": [
+            "README.md"
+          ],
+          "planned_write_count": 3,
+          "written_count": 0
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected template_directory_session_status envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "template_directory_session_status",
+        "version": 2,
+        "status": {
+          "mode": "apply",
+          "ready": true,
+          "missing_families": [],
+          "blocked_paths": [],
+          "planned_write_count": 3,
+          "written_count": 3
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported template_directory_session_status envelope version 2."
+      }
+    }
+  ]
+}

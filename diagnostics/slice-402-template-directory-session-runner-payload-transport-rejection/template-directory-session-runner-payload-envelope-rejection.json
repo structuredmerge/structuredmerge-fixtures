@@ -1,0 +1,62 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "template_directory_session_entrypoint",
+        "version": 1,
+        "payload": {
+          "request_kind": "options",
+          "mode": "plan",
+          "template_root": "dry-run/template",
+          "destination_root": "dry-run/destination",
+          "context": {
+            "project_name": "demo"
+          },
+          "default_strategy": "merge",
+          "overrides": [
+            {
+              "path": "README.md",
+              "strategy": "accept_template"
+            },
+            {
+              "path": "config/mise.toml",
+              "strategy": "keep_destination"
+            },
+            {
+              "path": "bin/setup.sh",
+              "strategy": "raw_copy"
+            }
+          ],
+          "replacements": {
+            "KJ|GEM_NAME": "demo",
+            "KJ|SUMMARY": "Example gem summary",
+            "KJ|APP_ENV": "development"
+          },
+          "allowed_families": null
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected template_directory_session_runner_payload envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "template_directory_session_runner_payload",
+        "version": 2,
+        "payload": {
+          "mode": "plan",
+          "default_profile_name": "dry_run",
+          "template_root": "dry-run/template",
+          "destination_root": "dry-run/destination"
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported template_directory_session_runner_payload envelope version 2."
+      }
+    }
+  ]
+}

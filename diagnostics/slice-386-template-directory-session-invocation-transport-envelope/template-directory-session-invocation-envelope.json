@@ -1,0 +1,188 @@
+{
+  "cases": [
+    {
+      "label": "nested_payload_invocation",
+      "input": {
+        "operation": "inspect",
+        "payload": {
+          "request_kind": "options",
+          "mode": "plan",
+          "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+          "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+          "context": {
+            "project_name": "demo"
+          },
+          "default_strategy": "merge",
+          "overrides": [
+            {
+              "path": "README.md",
+              "strategy": "accept_template"
+            },
+            {
+              "path": "config/mise.toml",
+              "strategy": "keep_destination"
+            },
+            {
+              "path": "bin/setup.sh",
+              "strategy": "raw_copy"
+            }
+          ],
+          "replacements": {
+            "KJ|GEM_NAME": "demo",
+            "KJ|SUMMARY": "Example gem summary",
+            "KJ|APP_ENV": "development"
+          },
+          "allowed_families": null
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_invocation",
+        "version": 1,
+        "invocation": {
+          "operation": "inspect",
+          "payload": {
+            "request_kind": "options",
+            "mode": "plan",
+            "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+            "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+            "context": {
+              "project_name": "demo"
+            },
+            "default_strategy": "merge",
+            "overrides": [
+              {
+                "path": "README.md",
+                "strategy": "accept_template"
+              },
+              {
+                "path": "config/mise.toml",
+                "strategy": "keep_destination"
+              },
+              {
+                "path": "bin/setup.sh",
+                "strategy": "raw_copy"
+              }
+            ],
+            "replacements": {
+              "KJ|GEM_NAME": "demo",
+              "KJ|SUMMARY": "Example gem summary",
+              "KJ|APP_ENV": "development"
+            },
+            "allowed_families": null
+          }
+        }
+      }
+    },
+    {
+      "label": "nested_request_invocation",
+      "input": {
+        "operation": "run",
+        "request": {
+          "request_kind": "profile",
+          "profile_name": "dry_run",
+          "overrides": {
+            "mode": "plan",
+            "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+            "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+          }
+        }
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_invocation",
+        "version": 1,
+        "invocation": {
+          "operation": "run",
+          "request": {
+            "request_kind": "profile",
+            "profile_name": "dry_run",
+            "overrides": {
+              "mode": "plan",
+              "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+              "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+            }
+          }
+        }
+      }
+    },
+    {
+      "label": "flat_options_invocation",
+      "input": {
+        "operation": "run",
+        "request_kind": "options",
+        "mode": "plan",
+        "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+        "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+        "context": {
+          "project_name": "demo"
+        },
+        "default_strategy": "merge",
+        "overrides": [
+          {
+            "path": "README.md",
+            "strategy": "accept_template"
+          }
+        ],
+        "replacements": {
+          "KJ|GEM_NAME": "demo"
+        },
+        "allowed_families": [
+          "ruby",
+          "toml"
+        ]
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_invocation",
+        "version": 1,
+        "invocation": {
+          "operation": "run",
+          "request_kind": "options",
+          "mode": "plan",
+          "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+          "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination",
+          "context": {
+            "project_name": "demo"
+          },
+          "default_strategy": "merge",
+          "overrides": [
+            {
+              "path": "README.md",
+              "strategy": "accept_template"
+            }
+          ],
+          "replacements": {
+            "KJ|GEM_NAME": "demo"
+          },
+          "allowed_families": [
+            "ruby",
+            "toml"
+          ]
+        }
+      }
+    },
+    {
+      "label": "flat_profile_invocation",
+      "input": {
+        "operation": "run",
+        "request_kind": "profile",
+        "default_profile_name": "dry_run",
+        "profile_name": "dry_run",
+        "mode": "plan",
+        "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+        "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+      },
+      "expected_envelope": {
+        "kind": "template_directory_session_invocation",
+        "version": 1,
+        "invocation": {
+          "operation": "run",
+          "request_kind": "profile",
+          "default_profile_name": "dry_run",
+          "profile_name": "dry_run",
+          "mode": "plan",
+          "template_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/template",
+          "destination_root": "../slice-372-template-directory-session-runner-payload-outcome-report/dry-run/destination"
+        }
+      }
+    }
+  ]
+}

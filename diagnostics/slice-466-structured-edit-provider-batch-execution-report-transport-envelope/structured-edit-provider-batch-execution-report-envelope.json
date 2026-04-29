@@ -1,0 +1,34 @@
+{
+  "structured_edit_provider_batch_execution_report": {
+    "applications": [],
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "assumed_default",
+        "message": "provider batch preserved routed execution order."
+      }
+    ],
+    "metadata": {
+      "batch_label": "empty_provider_execution_batch",
+      "source": "legacy_crispr_reference"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_provider_batch_execution_report",
+    "version": 1,
+    "batch_report": {
+      "applications": [],
+      "diagnostics": [
+        {
+          "severity": "info",
+          "category": "assumed_default",
+          "message": "provider batch preserved routed execution order."
+        }
+      ],
+      "metadata": {
+        "batch_label": "empty_provider_execution_batch",
+        "source": "legacy_crispr_reference"
+      }
+    }
+  }
+}

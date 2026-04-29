@@ -1,0 +1,96 @@
+{
+  "cases": [
+    {
+      "label": "wrong kind",
+      "envelope": {
+        "kind": "structured_edit_provider_execution_request",
+        "version": 1,
+        "provider_execution_application": {
+          "execution_request": {
+            "request": {
+              "operation_kind": "replace",
+              "content": "class App\n  # managed snippet\n  old_call\nend\n",
+              "source_label": "source"
+            },
+            "provider_family": "ruby"
+          },
+          "report": {
+            "application": {
+              "request": {
+                "operation_kind": "replace",
+                "content": "class App\n  # managed snippet\n  old_call\nend\n",
+                "source_label": "source"
+              },
+              "result": {
+                "operation_kind": "replace",
+                "updated_content": "class App\n  # managed snippet\n  new_call\nend\n",
+                "changed": true,
+                "operation_profile": {
+                  "operation_kind": "replace",
+                  "known_operation_kind": true,
+                  "source_requirement": "required",
+                  "destination_requirement": "none",
+                  "replacement_source": "explicit_text",
+                  "captures_source_text": true,
+                  "supports_if_missing": false
+                }
+              }
+            },
+            "provider_family": "ruby",
+            "diagnostics": []
+          }
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_execution_application envelope kind."
+      }
+    },
+    {
+      "label": "unsupported version",
+      "envelope": {
+        "kind": "structured_edit_provider_execution_application",
+        "version": 2,
+        "provider_execution_application": {
+          "execution_request": {
+            "request": {
+              "operation_kind": "replace",
+              "content": "class App\n  # managed snippet\n  old_call\nend\n",
+              "source_label": "source"
+            },
+            "provider_family": "ruby"
+          },
+          "report": {
+            "application": {
+              "request": {
+                "operation_kind": "replace",
+                "content": "class App\n  # managed snippet\n  old_call\nend\n",
+                "source_label": "source"
+              },
+              "result": {
+                "operation_kind": "replace",
+                "updated_content": "class App\n  # managed snippet\n  new_call\nend\n",
+                "changed": true,
+                "operation_profile": {
+                  "operation_kind": "replace",
+                  "known_operation_kind": true,
+                  "source_requirement": "required",
+                  "destination_requirement": "none",
+                  "replacement_source": "explicit_text",
+                  "captures_source_text": true,
+                  "supports_if_missing": false
+                }
+              }
+            },
+            "provider_family": "ruby",
+            "diagnostics": []
+          }
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_execution_application envelope version 2."
+      }
+    }
+  ]
+}

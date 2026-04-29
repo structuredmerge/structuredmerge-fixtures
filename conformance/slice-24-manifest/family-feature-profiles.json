@@ -826,6 +826,14 @@
         ]
       },
       {
+        "role": "structured_edit_selection_profile",
+        "path": [
+          "diagnostics",
+          "slice-420-structured-edit-selection-profile",
+          "structured-edit-selection-profile.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

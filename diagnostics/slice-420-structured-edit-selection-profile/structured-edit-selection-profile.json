@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "label": "ruby comment anchored managed snippet selector",
+      "profile": {
+        "owner_scope": "shared_default",
+        "owner_selector": "line_bound_statements",
+        "owner_selector_family": "line_oriented",
+        "selector_kind": "comment_region_owned_owner",
+        "selection_intent": "comment_anchored_owner",
+        "selection_intent_family": "comment_anchor",
+        "known_selection_intent": true,
+        "comment_region": "leading",
+        "include_trailing_gap": true,
+        "comment_anchored": true,
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "markdown heading section selector",
+      "profile": {
+        "owner_scope": "heading_sections",
+        "owner_selector": "heading_sections",
+        "owner_selector_family": "section_branch",
+        "selector_kind": "heading_section",
+        "selection_intent": "section_branch",
+        "selection_intent_family": "section_branch",
+        "known_selection_intent": true,
+        "comment_region": null,
+        "include_trailing_gap": false,
+        "comment_anchored": false,
+        "metadata": {
+          "family": "markdown",
+          "provider": "markly",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  ]
+}

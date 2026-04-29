@@ -922,6 +922,14 @@
         ]
       },
       {
+        "role": "structured_edit_application",
+        "path": [
+          "diagnostics",
+          "slice-432-structured-edit-application",
+          "structured-edit-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

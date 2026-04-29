@@ -1,0 +1,124 @@
+{
+  "structured_edit_execution_report": {
+    "application": {
+      "request": {
+        "operation_kind": "replace",
+        "content": "class App\n  # managed snippet\n  old_call\nend\n",
+        "source_label": "source",
+        "target_selector": "managed_snippet",
+        "target_selector_family": "comment_anchor",
+        "payload_text": "new_call\n",
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      },
+      "result": {
+        "operation_kind": "replace",
+        "updated_content": "class App\n  # managed snippet\n  new_call\nend\n",
+        "changed": true,
+        "captured_text": "old_call\n",
+        "match_count": 1,
+        "operation_profile": {
+          "operation_kind": "replace",
+          "operation_family": "rewrite",
+          "known_operation_kind": true,
+          "source_requirement": "required",
+          "destination_requirement": "none",
+          "replacement_source": "explicit_text",
+          "captures_source_text": true,
+          "supports_if_missing": false,
+          "metadata": {
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      },
+      "metadata": {
+        "family": "ruby",
+        "provider": "prism",
+        "source": "legacy_crispr_reference"
+      }
+    },
+    "provider_family": "ruby",
+    "provider_backend": "prism",
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "assumed_default",
+        "message": "using managed snippet fallback selection."
+      }
+    ],
+    "metadata": {
+      "source": "legacy_crispr_reference"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_execution_report",
+    "version": 1,
+    "report": {
+      "application": {
+        "request": {
+          "operation_kind": "replace",
+          "content": "class App\n  # managed snippet\n  old_call\nend\n",
+          "source_label": "source",
+          "target_selector": "managed_snippet",
+          "target_selector_family": "comment_anchor",
+          "payload_text": "new_call\n",
+          "metadata": {
+            "family": "ruby",
+            "provider": "prism",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "result": {
+          "operation_kind": "replace",
+          "updated_content": "class App\n  # managed snippet\n  new_call\nend\n",
+          "changed": true,
+          "captured_text": "old_call\n",
+          "match_count": 1,
+          "operation_profile": {
+            "operation_kind": "replace",
+            "operation_family": "rewrite",
+            "known_operation_kind": true,
+            "source_requirement": "required",
+            "destination_requirement": "none",
+            "replacement_source": "explicit_text",
+            "captures_source_text": true,
+            "supports_if_missing": false,
+            "metadata": {
+              "source": "legacy_crispr_reference"
+            }
+          },
+          "metadata": {
+            "family": "ruby",
+            "provider": "prism",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      },
+      "provider_family": "ruby",
+      "provider_backend": "prism",
+      "diagnostics": [
+        {
+          "severity": "warning",
+          "category": "assumed_default",
+          "message": "using managed snippet fallback selection."
+        }
+      ],
+      "metadata": {
+        "source": "legacy_crispr_reference"
+      }
+    }
+  }
+}

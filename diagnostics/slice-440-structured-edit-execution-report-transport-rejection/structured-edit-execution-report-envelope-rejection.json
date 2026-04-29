@@ -1,0 +1,79 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "structured_edit_application",
+        "version": 1,
+        "report": {
+          "application": {
+            "request": {
+              "operation_kind": "replace",
+              "content": "class App\n  # managed snippet\n  old_call\nend\n",
+              "source_label": "source"
+            },
+            "result": {
+              "operation_kind": "replace",
+              "updated_content": "class App\n  # managed snippet\n  new_call\nend\n",
+              "changed": true,
+              "operation_profile": {
+                "operation_kind": "replace",
+                "operation_family": "rewrite",
+                "known_operation_kind": true,
+                "source_requirement": "required",
+                "destination_requirement": "none",
+                "replacement_source": "explicit_text",
+                "captures_source_text": true,
+                "supports_if_missing": false
+              }
+            }
+          },
+          "provider_family": "ruby",
+          "diagnostics": []
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_execution_report envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "structured_edit_execution_report",
+        "version": 2,
+        "report": {
+          "application": {
+            "request": {
+              "operation_kind": "insert",
+              "content": "# Title\n\n## Usage\n\nExisting text.\n",
+              "source_label": "source"
+            },
+            "result": {
+              "operation_kind": "insert",
+              "updated_content": "# Title\n\n## Usage\n\nExisting text.\n### Managed\n\nInserted text.\n",
+              "changed": true,
+              "operation_profile": {
+                "operation_kind": "insert",
+                "operation_family": "insertion",
+                "known_operation_kind": true,
+                "source_requirement": "none",
+                "destination_requirement": "optional",
+                "replacement_source": "explicit_text",
+                "captures_source_text": false,
+                "supports_if_missing": true
+              }
+            }
+          },
+          "provider_family": "markdown",
+          "provider_backend": "markly",
+          "diagnostics": []
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_execution_report envelope version 2."
+      }
+    }
+  ]
+}

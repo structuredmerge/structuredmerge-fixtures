@@ -978,6 +978,30 @@
         ]
       },
       {
+        "role": "structured_edit_execution_report_envelope",
+        "path": [
+          "diagnostics",
+          "slice-439-structured-edit-execution-report-transport-envelope",
+          "structured-edit-execution-report-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_execution_report_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-440-structured-edit-execution-report-transport-rejection",
+          "structured-edit-execution-report-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_execution_report_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-441-structured-edit-execution-report-envelope-application",
+          "structured-edit-execution-report-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

@@ -858,6 +858,14 @@
         ]
       },
       {
+        "role": "ruby_structured_edit_provider_profiles",
+        "path": [
+          "diagnostics",
+          "slice-424-ruby-structured-edit-provider-profiles",
+          "ruby-structured-edit-provider-profiles.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

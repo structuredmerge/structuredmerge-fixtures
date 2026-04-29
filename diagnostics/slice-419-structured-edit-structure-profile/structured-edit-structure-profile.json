@@ -1,0 +1,36 @@
+{
+  "cases": [
+    {
+      "label": "ruby line-bound statements with leading comment ownership",
+      "profile": {
+        "owner_scope": "shared_default",
+        "owner_selector": "line_bound_statements",
+        "owner_selector_family": "line_oriented",
+        "known_owner_selector": true,
+        "supported_comment_regions": [
+          "leading"
+        ],
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "markdown heading sections without comment regions",
+      "profile": {
+        "owner_scope": "heading_sections",
+        "owner_selector": "heading_sections",
+        "owner_selector_family": "section_branch",
+        "known_owner_selector": true,
+        "supported_comment_regions": [],
+        "metadata": {
+          "family": "markdown",
+          "provider": "markly",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  ]
+}

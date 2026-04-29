@@ -818,6 +818,14 @@
         ]
       },
       {
+        "role": "structured_edit_structure_profile",
+        "path": [
+          "diagnostics",
+          "slice-419-structured-edit-structure-profile",
+          "structured-edit-structure-profile.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

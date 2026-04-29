@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "label": "wrong kind",
+      "envelope": {
+        "kind": "structured_edit_request",
+        "version": 1,
+        "execution_request": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "class App\n  # managed snippet\n  old_call\nend\n",
+            "source_label": "source"
+          },
+          "provider_family": "ruby"
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_execution_request envelope kind."
+      }
+    },
+    {
+      "label": "unsupported version",
+      "envelope": {
+        "kind": "structured_edit_provider_execution_request",
+        "version": 2,
+        "execution_request": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "class App\n  # managed snippet\n  old_call\nend\n",
+            "source_label": "source"
+          },
+          "provider_family": "ruby"
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_execution_request envelope version 2."
+      }
+    }
+  ]
+}

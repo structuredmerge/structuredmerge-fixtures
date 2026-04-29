@@ -1090,6 +1090,70 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_request",
+        "path": [
+          "diagnostics",
+          "slice-453-structured-edit-provider-execution-request",
+          "structured-edit-provider-execution-request.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_request_envelope",
+        "path": [
+          "diagnostics",
+          "slice-454-structured-edit-provider-execution-request-transport-envelope",
+          "structured-edit-provider-execution-request-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_request_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-455-structured-edit-provider-execution-request-transport-rejection",
+          "structured-edit-provider-execution-request-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_request_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-456-structured-edit-provider-execution-request-envelope-application",
+          "structured-edit-provider-execution-request-envelope-application.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_request",
+        "path": [
+          "diagnostics",
+          "slice-457-structured-edit-provider-batch-execution-request",
+          "structured-edit-provider-batch-execution-request.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_request_envelope",
+        "path": [
+          "diagnostics",
+          "slice-458-structured-edit-provider-batch-execution-request-transport-envelope",
+          "structured-edit-provider-batch-execution-request-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_request_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-459-structured-edit-provider-batch-execution-request-transport-rejection",
+          "structured-edit-provider-batch-execution-request-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_request_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-460-structured-edit-provider-batch-execution-request-envelope-application",
+          "structured-edit-provider-batch-execution-request-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

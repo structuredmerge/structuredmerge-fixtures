@@ -1,0 +1,71 @@
+{
+  "structured_edit_provider_execution_request_envelope": {
+    "kind": "structured_edit_provider_execution_request",
+    "version": 1,
+    "execution_request": {
+      "request": {
+        "operation_kind": "insert",
+        "content": "# Title\n\n## Usage\n\nExisting text.\n",
+        "source_label": "source",
+        "destination_selector": "/heading/usage",
+        "destination_selector_family": "section_branch",
+        "payload_text": "### Managed\n\nInserted text.\n",
+        "if_missing": "append",
+        "metadata": {
+          "family": "markdown",
+          "provider": "markly",
+          "source": "legacy_crispr_reference"
+        }
+      },
+      "provider_family": "markdown",
+      "provider_backend": "markly",
+      "metadata": {
+        "routing_label": "markdown_markly_insert",
+        "source": "legacy_crispr_reference"
+      }
+    }
+  },
+  "expected_execution_request": {
+    "request": {
+      "operation_kind": "insert",
+      "content": "# Title\n\n## Usage\n\nExisting text.\n",
+      "source_label": "source",
+      "destination_selector": "/heading/usage",
+      "destination_selector_family": "section_branch",
+      "payload_text": "### Managed\n\nInserted text.\n",
+      "if_missing": "append",
+      "metadata": {
+        "family": "markdown",
+        "provider": "markly",
+        "source": "legacy_crispr_reference"
+      }
+    },
+    "provider_family": "markdown",
+    "provider_backend": "markly",
+    "metadata": {
+      "routing_label": "markdown_markly_insert",
+      "source": "legacy_crispr_reference"
+    }
+  },
+  "cases": [
+    {
+      "label": "wrong kind still rejects",
+      "envelope": {
+        "kind": "structured_edit_request",
+        "version": 1,
+        "execution_request": {
+          "request": {
+            "operation_kind": "insert",
+            "content": "# Title\n\n## Usage\n\nExisting text.\n",
+            "source_label": "source"
+          },
+          "provider_family": "markdown"
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_execution_request envelope kind."
+      }
+    }
+  ]
+}

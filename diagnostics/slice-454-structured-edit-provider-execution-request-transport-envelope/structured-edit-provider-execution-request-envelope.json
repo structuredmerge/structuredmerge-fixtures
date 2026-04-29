@@ -1,0 +1,48 @@
+{
+  "structured_edit_provider_execution_request": {
+    "request": {
+      "operation_kind": "replace",
+      "content": "class App\n  # managed snippet\n  old_call\nend\n",
+      "source_label": "source",
+      "target_selector": "managed_snippet",
+      "target_selector_family": "comment_anchor",
+      "payload_text": "new_call\n",
+      "metadata": {
+        "family": "ruby",
+        "provider": "prism",
+        "source": "legacy_crispr_reference"
+      }
+    },
+    "provider_family": "ruby",
+    "provider_backend": "prism",
+    "metadata": {
+      "routing_label": "ruby_prism_replace",
+      "source": "legacy_crispr_reference"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_provider_execution_request",
+    "version": 1,
+    "execution_request": {
+      "request": {
+        "operation_kind": "replace",
+        "content": "class App\n  # managed snippet\n  old_call\nend\n",
+        "source_label": "source",
+        "target_selector": "managed_snippet",
+        "target_selector_family": "comment_anchor",
+        "payload_text": "new_call\n",
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      },
+      "provider_family": "ruby",
+      "provider_backend": "prism",
+      "metadata": {
+        "routing_label": "ruby_prism_replace",
+        "source": "legacy_crispr_reference"
+      }
+    }
+  }
+}

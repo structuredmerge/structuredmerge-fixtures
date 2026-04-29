@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "label": "cross family provider batch",
+      "batch_execution_request": {
+        "requests": [
+          {
+            "request": {
+              "operation_kind": "replace",
+              "content": "class App\n  # managed snippet\n  old_call\nend\n",
+              "source_label": "source",
+              "target_selector": "managed_snippet",
+              "target_selector_family": "comment_anchor",
+              "payload_text": "new_call\n",
+              "metadata": {
+                "family": "ruby",
+                "provider": "prism",
+                "source": "legacy_crispr_reference"
+              }
+            },
+            "provider_family": "ruby",
+            "provider_backend": "prism",
+            "metadata": {
+              "routing_label": "ruby_prism_replace",
+              "source": "legacy_crispr_reference"
+            }
+          },
+          {
+            "request": {
+              "operation_kind": "insert",
+              "content": "# Title\n\n## Usage\n\nExisting text.\n",
+              "source_label": "source",
+              "destination_selector": "/heading/usage",
+              "destination_selector_family": "section_branch",
+              "payload_text": "### Managed\n\nInserted text.\n",
+              "if_missing": "append",
+              "metadata": {
+                "family": "markdown",
+                "provider": "markly",
+                "source": "legacy_crispr_reference"
+              }
+            },
+            "provider_family": "markdown",
+            "provider_backend": "markly",
+            "metadata": {
+              "routing_label": "markdown_markly_insert",
+              "source": "legacy_crispr_reference"
+            }
+          }
+        ],
+        "metadata": {
+          "batch_label": "cross_family_provider_batch",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  ]
+}

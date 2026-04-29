@@ -866,6 +866,14 @@
         ]
       },
       {
+        "role": "markdown_structured_edit_provider_profiles",
+        "path": [
+          "diagnostics",
+          "slice-425-markdown-structured-edit-provider-profiles",
+          "markdown-structured-edit-provider-profiles.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

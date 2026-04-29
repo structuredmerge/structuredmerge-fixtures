@@ -874,6 +874,14 @@
         ]
       },
       {
+        "role": "structured_edit_request",
+        "path": [
+          "diagnostics",
+          "slice-426-structured-edit-request",
+          "structured-edit-request.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

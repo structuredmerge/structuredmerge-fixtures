@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "label": "ruby replace request for a managed snippet",
+      "request": {
+        "operation_kind": "replace",
+        "content": "class App\n  # managed snippet\n  old_call\nend\n",
+        "source_label": "source",
+        "target_selector": "managed_snippet",
+        "target_selector_family": "comment_anchor",
+        "payload_text": "new_call\n",
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "ruby delete request for a managed snippet",
+      "request": {
+        "operation_kind": "delete",
+        "content": "class App\n  # managed snippet\n  old_call\nend\n",
+        "source_label": "source",
+        "target_selector": "managed_snippet",
+        "target_selector_family": "comment_anchor",
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "markdown insert request for a heading section",
+      "request": {
+        "operation_kind": "insert",
+        "content": "# Title\n\n## Usage\n\nExisting text.\n",
+        "source_label": "source",
+        "destination_selector": "/heading/usage",
+        "destination_selector_family": "section_branch",
+        "payload_text": "### Managed\n\nInserted text.\n",
+        "if_missing": "append",
+        "metadata": {
+          "family": "markdown",
+          "provider": "markly",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "ruby move request from a snippet to a destination anchor",
+      "request": {
+        "operation_kind": "move",
+        "content": "require \"kettle/dev\"\n\n# managed snippet\nold_call\n",
+        "source_label": "source",
+        "target_selector": "managed_snippet",
+        "target_selector_family": "comment_anchor",
+        "destination_selector": "after_require_kettle_dev",
+        "destination_selector_family": "gap_preserving_statement",
+        "if_missing": "append",
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  ]
+}

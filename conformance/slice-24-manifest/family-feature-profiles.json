@@ -906,6 +906,22 @@
         ]
       },
       {
+        "role": "ruby_structured_edit_result_projection",
+        "path": [
+          "diagnostics",
+          "slice-430-ruby-structured-edit-result-projection",
+          "ruby-structured-edit-result-projection.json"
+        ]
+      },
+      {
+        "role": "markdown_structured_edit_result_projection",
+        "path": [
+          "diagnostics",
+          "slice-431-markdown-structured-edit-result-projection",
+          "markdown-structured-edit-result-projection.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

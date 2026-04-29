@@ -1002,6 +1002,14 @@
         ]
       },
       {
+        "role": "structured_edit_batch_request",
+        "path": [
+          "diagnostics",
+          "slice-442-structured-edit-batch-request",
+          "structured-edit-batch-request.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

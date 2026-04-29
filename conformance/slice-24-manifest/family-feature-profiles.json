@@ -850,6 +850,14 @@
         ]
       },
       {
+        "role": "structured_edit_destination_profile",
+        "path": [
+          "diagnostics",
+          "slice-423-structured-edit-destination-profile",
+          "structured-edit-destination-profile.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

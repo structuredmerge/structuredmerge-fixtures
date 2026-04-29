@@ -1,0 +1,63 @@
+{
+  "cases": [
+    {
+      "label": "ruby selector resolved anchor after statement",
+      "profile": {
+        "resolution_kind": "anchor_after_statement",
+        "resolution_source": "selector",
+        "anchor_boundary": "statement_end_plus_following_gap",
+        "resolution_family": "anchored",
+        "resolution_source_family": "selector",
+        "anchor_boundary_family": "gap_preserving_statement",
+        "known_resolution_kind": true,
+        "known_resolution_source": true,
+        "known_anchor_boundary": true,
+        "used_if_missing": false,
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "ruby callable resolved anchor after statement",
+      "profile": {
+        "resolution_kind": "anchor_after_statement",
+        "resolution_source": "callable",
+        "anchor_boundary": "statement_end_plus_following_gap",
+        "resolution_family": "anchored",
+        "resolution_source_family": "callable",
+        "anchor_boundary_family": "gap_preserving_statement",
+        "known_resolution_kind": true,
+        "known_resolution_source": true,
+        "known_anchor_boundary": true,
+        "used_if_missing": false,
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "append fallback used when destination is missing",
+      "profile": {
+        "resolution_kind": "append_fallback",
+        "resolution_source": "none",
+        "anchor_boundary": "none",
+        "resolution_family": "append",
+        "resolution_source_family": "implicit",
+        "anchor_boundary_family": "none",
+        "known_resolution_kind": true,
+        "known_resolution_source": true,
+        "known_anchor_boundary": true,
+        "used_if_missing": true,
+        "metadata": {
+          "family": "shared",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  ]
+}

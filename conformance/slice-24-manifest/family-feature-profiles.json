@@ -834,6 +834,14 @@
         ]
       },
       {
+        "role": "structured_edit_match_profile",
+        "path": [
+          "diagnostics",
+          "slice-421-structured-edit-match-profile",
+          "structured-edit-match-profile.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

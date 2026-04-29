@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "label": "ruby comment anchored managed snippet match",
+      "profile": {
+        "start_boundary": "comment_region_start",
+        "start_boundary_family": "comment_anchor",
+        "known_start_boundary": true,
+        "end_boundary": "owner_end_plus_trailing_gap",
+        "end_boundary_family": "gap_extension",
+        "known_end_boundary": true,
+        "payload_kind": "comment_owned_body",
+        "payload_family": "comment_owned",
+        "known_payload_kind": true,
+        "comment_anchored": true,
+        "trailing_gap_extended": true,
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "markdown heading section branch match",
+      "profile": {
+        "start_boundary": "owner_start",
+        "start_boundary_family": "structural_owner",
+        "known_start_boundary": true,
+        "end_boundary": "owner_end",
+        "end_boundary_family": "structural_owner",
+        "known_end_boundary": true,
+        "payload_kind": "section_branch",
+        "payload_family": "section_branch",
+        "known_payload_kind": true,
+        "comment_anchored": false,
+        "trailing_gap_extended": false,
+        "metadata": {
+          "family": "markdown",
+          "provider": "markly",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  ]
+}

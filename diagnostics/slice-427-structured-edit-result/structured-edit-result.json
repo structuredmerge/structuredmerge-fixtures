@@ -1,0 +1,147 @@
+{
+  "cases": [
+    {
+      "label": "ruby replace result for a managed snippet",
+      "result": {
+        "operation_kind": "replace",
+        "updated_content": "class App\n  # managed snippet\n  new_call\nend\n",
+        "changed": true,
+        "captured_text": "old_call\n",
+        "match_count": 1,
+        "operation_profile": {
+          "operation_kind": "replace",
+          "operation_family": "rewrite",
+          "known_operation_kind": true,
+          "source_requirement": "required",
+          "destination_requirement": "none",
+          "replacement_source": "explicit_text",
+          "captures_source_text": true,
+          "supports_if_missing": false,
+          "metadata": {
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "ruby delete result for a managed snippet",
+      "result": {
+        "operation_kind": "delete",
+        "updated_content": "class App\n  # managed snippet\nend\n",
+        "changed": true,
+        "captured_text": "old_call\n",
+        "match_count": 1,
+        "operation_profile": {
+          "operation_kind": "delete",
+          "operation_family": "removal",
+          "known_operation_kind": true,
+          "source_requirement": "required",
+          "destination_requirement": "none",
+          "replacement_source": "none",
+          "captures_source_text": true,
+          "supports_if_missing": false,
+          "metadata": {
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "markdown insert result with append fallback destination",
+      "result": {
+        "operation_kind": "insert",
+        "updated_content": "# Title\n\n## Usage\n\nExisting text.\n### Managed\n\nInserted text.\n",
+        "changed": true,
+        "operation_profile": {
+          "operation_kind": "insert",
+          "operation_family": "insertion",
+          "known_operation_kind": true,
+          "source_requirement": "none",
+          "destination_requirement": "optional",
+          "replacement_source": "explicit_text",
+          "captures_source_text": false,
+          "supports_if_missing": true,
+          "metadata": {
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "destination_profile": {
+          "resolution_kind": "append_fallback",
+          "resolution_source": "none",
+          "anchor_boundary": "none",
+          "resolution_family": "append",
+          "resolution_source_family": "implicit",
+          "anchor_boundary_family": "none",
+          "known_resolution_kind": true,
+          "known_resolution_source": true,
+          "known_anchor_boundary": true,
+          "used_if_missing": true,
+          "metadata": {
+            "family": "shared",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "family": "markdown",
+          "provider": "markly",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "ruby move result with anchored destination",
+      "result": {
+        "operation_kind": "move",
+        "updated_content": "require \"kettle/dev\"\n\nold_call\n",
+        "changed": true,
+        "captured_text": "old_call\n",
+        "match_count": 1,
+        "operation_profile": {
+          "operation_kind": "move",
+          "operation_family": "relocation",
+          "known_operation_kind": true,
+          "source_requirement": "optional",
+          "destination_requirement": "optional",
+          "replacement_source": "captured_text_or_explicit",
+          "captures_source_text": true,
+          "supports_if_missing": true,
+          "metadata": {
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "destination_profile": {
+          "resolution_kind": "anchor_after_statement",
+          "resolution_source": "selector",
+          "anchor_boundary": "statement_end_plus_following_gap",
+          "resolution_family": "anchored",
+          "resolution_source_family": "selector",
+          "anchor_boundary_family": "gap_preserving_statement",
+          "known_resolution_kind": true,
+          "known_resolution_source": true,
+          "known_anchor_boundary": true,
+          "used_if_missing": false,
+          "metadata": {
+            "family": "ruby",
+            "provider": "prism",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "family": "ruby",
+          "provider": "prism",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  ]
+}

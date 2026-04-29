@@ -882,6 +882,14 @@
         ]
       },
       {
+        "role": "structured_edit_result",
+        "path": [
+          "diagnostics",
+          "slice-427-structured-edit-result",
+          "structured-edit-result.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

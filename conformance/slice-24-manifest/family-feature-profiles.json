@@ -842,6 +842,14 @@
         ]
       },
       {
+        "role": "structured_edit_operation_profile",
+        "path": [
+          "diagnostics",
+          "slice-422-structured-edit-operation-profile",
+          "structured-edit-operation-profile.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

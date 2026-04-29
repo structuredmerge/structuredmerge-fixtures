@@ -1,0 +1,68 @@
+{
+  "cases": [
+    {
+      "label": "replace selected content with explicit text",
+      "profile": {
+        "operation_kind": "replace",
+        "operation_family": "rewrite",
+        "known_operation_kind": true,
+        "source_requirement": "required",
+        "destination_requirement": "none",
+        "replacement_source": "explicit_text",
+        "captures_source_text": true,
+        "supports_if_missing": false,
+        "metadata": {
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "delete selected content without replacement",
+      "profile": {
+        "operation_kind": "delete",
+        "operation_family": "removal",
+        "known_operation_kind": true,
+        "source_requirement": "required",
+        "destination_requirement": "none",
+        "replacement_source": "none",
+        "captures_source_text": true,
+        "supports_if_missing": false,
+        "metadata": {
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "insert explicit text at a destination",
+      "profile": {
+        "operation_kind": "insert",
+        "operation_family": "insertion",
+        "known_operation_kind": true,
+        "source_requirement": "none",
+        "destination_requirement": "optional",
+        "replacement_source": "explicit_text",
+        "captures_source_text": false,
+        "supports_if_missing": true,
+        "metadata": {
+          "source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "move captured or explicit text to a destination",
+      "profile": {
+        "operation_kind": "move",
+        "operation_family": "relocation",
+        "known_operation_kind": true,
+        "source_requirement": "optional",
+        "destination_requirement": "optional",
+        "replacement_source": "captured_text_or_explicit",
+        "captures_source_text": true,
+        "supports_if_missing": true,
+        "metadata": {
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  ]
+}

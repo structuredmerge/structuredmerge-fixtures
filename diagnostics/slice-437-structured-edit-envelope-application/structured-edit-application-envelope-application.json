@@ -1,0 +1,161 @@
+{
+  "structured_edit_application_envelope": {
+    "kind": "structured_edit_application",
+    "version": 1,
+    "application": {
+      "request": {
+        "operation_kind": "insert",
+        "content": "# Title\n\n## Usage\n\nExisting text.\n",
+        "source_label": "source",
+        "destination_selector": "/heading/usage",
+        "destination_selector_family": "section_branch",
+        "payload_text": "### Managed\n\nInserted text.\n",
+        "if_missing": "append",
+        "metadata": {
+          "family": "markdown",
+          "provider": "markly",
+          "source": "legacy_crispr_reference"
+        }
+      },
+      "result": {
+        "operation_kind": "insert",
+        "updated_content": "# Title\n\n## Usage\n\nExisting text.\n### Managed\n\nInserted text.\n",
+        "changed": true,
+        "operation_profile": {
+          "operation_kind": "insert",
+          "operation_family": "insertion",
+          "known_operation_kind": true,
+          "source_requirement": "none",
+          "destination_requirement": "optional",
+          "replacement_source": "explicit_text",
+          "captures_source_text": false,
+          "supports_if_missing": true,
+          "metadata": {
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "destination_profile": {
+          "resolution_kind": "append_fallback",
+          "resolution_source": "none",
+          "anchor_boundary": "none",
+          "resolution_family": "append",
+          "resolution_source_family": "implicit",
+          "anchor_boundary_family": "none",
+          "known_resolution_kind": true,
+          "known_resolution_source": true,
+          "known_anchor_boundary": true,
+          "used_if_missing": true,
+          "metadata": {
+            "family": "shared",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "family": "markdown",
+          "provider": "markly",
+          "source": "legacy_crispr_reference"
+        }
+      },
+      "metadata": {
+        "family": "markdown",
+        "provider": "markly",
+        "source": "legacy_crispr_reference"
+      }
+    }
+  },
+  "expected_application": {
+    "request": {
+      "operation_kind": "insert",
+      "content": "# Title\n\n## Usage\n\nExisting text.\n",
+      "source_label": "source",
+      "destination_selector": "/heading/usage",
+      "destination_selector_family": "section_branch",
+      "payload_text": "### Managed\n\nInserted text.\n",
+      "if_missing": "append",
+      "metadata": {
+        "family": "markdown",
+        "provider": "markly",
+        "source": "legacy_crispr_reference"
+      }
+    },
+    "result": {
+      "operation_kind": "insert",
+      "updated_content": "# Title\n\n## Usage\n\nExisting text.\n### Managed\n\nInserted text.\n",
+      "changed": true,
+      "operation_profile": {
+        "operation_kind": "insert",
+        "operation_family": "insertion",
+        "known_operation_kind": true,
+        "source_requirement": "none",
+        "destination_requirement": "optional",
+        "replacement_source": "explicit_text",
+        "captures_source_text": false,
+        "supports_if_missing": true,
+        "metadata": {
+          "source": "legacy_crispr_reference"
+        }
+      },
+      "destination_profile": {
+        "resolution_kind": "append_fallback",
+        "resolution_source": "none",
+        "anchor_boundary": "none",
+        "resolution_family": "append",
+        "resolution_source_family": "implicit",
+        "anchor_boundary_family": "none",
+        "known_resolution_kind": true,
+        "known_resolution_source": true,
+        "known_anchor_boundary": true,
+        "used_if_missing": true,
+        "metadata": {
+          "family": "shared",
+          "source": "legacy_crispr_reference"
+        }
+      },
+      "metadata": {
+        "family": "markdown",
+        "provider": "markly",
+        "source": "legacy_crispr_reference"
+      }
+    },
+    "metadata": {
+      "family": "markdown",
+      "provider": "markly",
+      "source": "legacy_crispr_reference"
+    }
+  },
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "structured_edit_request",
+        "version": 1,
+        "application": {
+          "request": {
+            "operation_kind": "insert",
+            "content": "# Title\n\n## Usage\n\nExisting text.\n",
+            "source_label": "source"
+          },
+          "result": {
+            "operation_kind": "insert",
+            "updated_content": "# Title\n\n## Usage\n\nExisting text.\n",
+            "changed": false,
+            "operation_profile": {
+              "operation_kind": "insert",
+              "operation_family": "insertion",
+              "known_operation_kind": true,
+              "source_requirement": "none",
+              "destination_requirement": "optional",
+              "replacement_source": "explicit_text",
+              "captures_source_text": false,
+              "supports_if_missing": true
+            }
+          }
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_application envelope kind."
+      }
+    }
+  ]
+}

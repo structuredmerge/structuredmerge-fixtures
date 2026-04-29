@@ -1,0 +1,91 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "structured_edit_result",
+        "version": 1,
+        "application": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "class App\n  # managed snippet\n  old_call\nend\n",
+            "source_label": "source",
+            "target_selector": "managed_snippet",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "new_call\n"
+          },
+          "result": {
+            "operation_kind": "replace",
+            "updated_content": "class App\n  # managed snippet\n  new_call\nend\n",
+            "changed": true,
+            "captured_text": "old_call\n",
+            "match_count": 1,
+            "operation_profile": {
+              "operation_kind": "replace",
+              "operation_family": "rewrite",
+              "known_operation_kind": true,
+              "source_requirement": "required",
+              "destination_requirement": "none",
+              "replacement_source": "explicit_text",
+              "captures_source_text": true,
+              "supports_if_missing": false
+            }
+          }
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_application envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "structured_edit_application",
+        "version": 2,
+        "application": {
+          "request": {
+            "operation_kind": "insert",
+            "content": "# Title\n\n## Usage\n\nExisting text.\n",
+            "source_label": "source",
+            "destination_selector": "/heading/usage",
+            "destination_selector_family": "section_branch",
+            "payload_text": "### Managed\n\nInserted text.\n",
+            "if_missing": "append"
+          },
+          "result": {
+            "operation_kind": "insert",
+            "updated_content": "# Title\n\n## Usage\n\nExisting text.\n### Managed\n\nInserted text.\n",
+            "changed": true,
+            "operation_profile": {
+              "operation_kind": "insert",
+              "operation_family": "insertion",
+              "known_operation_kind": true,
+              "source_requirement": "none",
+              "destination_requirement": "optional",
+              "replacement_source": "explicit_text",
+              "captures_source_text": false,
+              "supports_if_missing": true
+            },
+            "destination_profile": {
+              "resolution_kind": "append_fallback",
+              "resolution_source": "none",
+              "anchor_boundary": "none",
+              "resolution_family": "append",
+              "resolution_source_family": "implicit",
+              "anchor_boundary_family": "none",
+              "known_resolution_kind": true,
+              "known_resolution_source": true,
+              "known_anchor_boundary": true,
+              "used_if_missing": true
+            }
+          }
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_application envelope version 2."
+      }
+    }
+  ]
+}

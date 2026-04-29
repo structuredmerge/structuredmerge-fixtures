@@ -1,0 +1,42 @@
+{
+  "providers": {
+    "prism": {
+      "package": "prism-merge",
+      "backend": "prism",
+      "structured_edit_batch_request": {
+        "requests": [
+          {
+            "operation_kind": "replace",
+            "content": "class App\n  # managed snippet\n  old_call\n\n  # managed setup\n  setup_call\nend\n",
+            "source_label": "source",
+            "target_selector": "managed_snippet",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "new_call\n",
+            "metadata": {
+              "family": "ruby",
+              "provider": "prism",
+              "source": "legacy_crispr_reference"
+            }
+          },
+          {
+            "operation_kind": "replace",
+            "content": "class App\n  # managed snippet\n  old_call\n\n  # managed setup\n  setup_call\nend\n",
+            "source_label": "source",
+            "target_selector": "managed_setup",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "configured_call\n",
+            "metadata": {
+              "family": "ruby",
+              "provider": "prism",
+              "source": "legacy_crispr_reference"
+            }
+          }
+        ],
+        "metadata": {
+          "batch_label": "ruby_prism_pair",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  }
+}

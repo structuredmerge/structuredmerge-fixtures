@@ -1,0 +1,44 @@
+{
+  "providers": {
+    "markly": {
+      "package": "markly-merge",
+      "backend": "markly",
+      "structured_edit_batch_request": {
+        "requests": [
+          {
+            "operation_kind": "insert",
+            "content": "# Title\n\n## Usage\n\nExisting text.\n\n## Install\n\nInstall text.\n",
+            "source_label": "source",
+            "destination_selector": "/heading/usage",
+            "destination_selector_family": "section_branch",
+            "payload_text": "### Managed Usage\n\nInserted usage text.\n",
+            "if_missing": "append",
+            "metadata": {
+              "family": "markdown",
+              "provider": "markly",
+              "source": "legacy_crispr_reference"
+            }
+          },
+          {
+            "operation_kind": "insert",
+            "content": "# Title\n\n## Usage\n\nExisting text.\n\n## Install\n\nInstall text.\n",
+            "source_label": "source",
+            "destination_selector": "/heading/install",
+            "destination_selector_family": "section_branch",
+            "payload_text": "### Managed Install\n\nInserted install text.\n",
+            "if_missing": "append",
+            "metadata": {
+              "family": "markdown",
+              "provider": "markly",
+              "source": "legacy_crispr_reference"
+            }
+          }
+        ],
+        "metadata": {
+          "batch_label": "markdown_markly_pair",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  }
+}

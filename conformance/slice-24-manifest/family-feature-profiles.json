@@ -1042,6 +1042,54 @@
         ]
       },
       {
+        "role": "ruby_structured_edit_execution_report_projection",
+        "path": [
+          "diagnostics",
+          "slice-447-ruby-structured-edit-execution-report-projection",
+          "ruby-structured-edit-execution-report-projection.json"
+        ]
+      },
+      {
+        "role": "markdown_structured_edit_execution_report_projection",
+        "path": [
+          "diagnostics",
+          "slice-448-markdown-structured-edit-execution-report-projection",
+          "markdown-structured-edit-execution-report-projection.json"
+        ]
+      },
+      {
+        "role": "ruby_structured_edit_batch_request_projection",
+        "path": [
+          "diagnostics",
+          "slice-449-ruby-structured-edit-batch-request-projection",
+          "ruby-structured-edit-batch-request-projection.json"
+        ]
+      },
+      {
+        "role": "markdown_structured_edit_batch_request_projection",
+        "path": [
+          "diagnostics",
+          "slice-450-markdown-structured-edit-batch-request-projection",
+          "markdown-structured-edit-batch-request-projection.json"
+        ]
+      },
+      {
+        "role": "ruby_structured_edit_batch_report_projection",
+        "path": [
+          "diagnostics",
+          "slice-451-ruby-structured-edit-batch-report-projection",
+          "ruby-structured-edit-batch-report-projection.json"
+        ]
+      },
+      {
+        "role": "markdown_structured_edit_batch_report_projection",
+        "path": [
+          "diagnostics",
+          "slice-452-markdown-structured-edit-batch-report-projection",
+          "markdown-structured-edit-batch-report-projection.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

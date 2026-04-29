@@ -1018,6 +1018,30 @@
         ]
       },
       {
+        "role": "structured_edit_batch_report_envelope",
+        "path": [
+          "diagnostics",
+          "slice-444-structured-edit-batch-report-transport-envelope",
+          "structured-edit-batch-report-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_batch_report_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-445-structured-edit-batch-report-transport-rejection",
+          "structured-edit-batch-report-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_batch_report_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-446-structured-edit-batch-report-envelope-application",
+          "structured-edit-batch-report-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

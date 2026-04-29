@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "structured_edit_execution_report",
+        "version": 1,
+        "batch_report": {
+          "reports": [],
+          "diagnostics": []
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_batch_report envelope kind."
+      }
+    },
+    {
+      "label": "wrong_version",
+      "envelope": {
+        "kind": "structured_edit_batch_report",
+        "version": 2,
+        "batch_report": {
+          "reports": [],
+          "diagnostics": []
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_batch_report envelope version 2."
+      }
+    }
+  ]
+}

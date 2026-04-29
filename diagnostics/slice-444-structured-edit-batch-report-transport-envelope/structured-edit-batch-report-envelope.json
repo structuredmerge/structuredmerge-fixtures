@@ -1,0 +1,34 @@
+{
+  "structured_edit_batch_report": {
+    "reports": [],
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "assumed_default",
+        "message": "batch preserved request ordering."
+      }
+    ],
+    "metadata": {
+      "batch_label": "cross_family_example",
+      "source": "legacy_crispr_reference"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_batch_report",
+    "version": 1,
+    "batch_report": {
+      "reports": [],
+      "diagnostics": [
+        {
+          "severity": "info",
+          "category": "assumed_default",
+          "message": "batch preserved request ordering."
+        }
+      ],
+      "metadata": {
+        "batch_label": "cross_family_example",
+        "source": "legacy_crispr_reference"
+      }
+    }
+  }
+}

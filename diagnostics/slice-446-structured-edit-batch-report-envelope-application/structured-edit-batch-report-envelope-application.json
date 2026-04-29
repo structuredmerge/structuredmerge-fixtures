@@ -1,0 +1,43 @@
+{
+  "structured_edit_batch_report_envelope": {
+    "kind": "structured_edit_batch_report",
+    "version": 1,
+    "batch_report": {
+      "reports": [],
+      "diagnostics": [
+        {
+          "severity": "info",
+          "category": "assumed_default",
+          "message": "batch preserved request ordering."
+        }
+      ]
+    }
+  },
+  "expected_batch_report": {
+    "reports": [],
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "assumed_default",
+        "message": "batch preserved request ordering."
+      }
+    ]
+  },
+  "cases": [
+    {
+      "label": "wrong_kind",
+      "envelope": {
+        "kind": "structured_edit_batch_request",
+        "version": 1,
+        "batch_report": {
+          "reports": [],
+          "diagnostics": []
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_batch_report envelope kind."
+      }
+    }
+  ]
+}

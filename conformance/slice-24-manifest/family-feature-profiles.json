@@ -898,6 +898,14 @@
         ]
       },
       {
+        "role": "markdown_structured_edit_request_projection",
+        "path": [
+          "diagnostics",
+          "slice-429-markdown-structured-edit-request-projection",
+          "markdown-structured-edit-request-projection.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

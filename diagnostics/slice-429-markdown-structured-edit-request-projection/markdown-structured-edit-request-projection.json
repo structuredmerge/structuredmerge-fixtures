@@ -1,0 +1,22 @@
+{
+  "providers": {
+    "markly": {
+      "package": "markly-merge",
+      "backend": "markly",
+      "structured_edit_request": {
+        "operation_kind": "insert",
+        "content": "# Title\n\n## Usage\n\nExisting text.\n",
+        "source_label": "source",
+        "destination_selector": "/heading/usage",
+        "destination_selector_family": "section_branch",
+        "payload_text": "### Managed\n\nInserted text.\n",
+        "if_missing": "append",
+        "metadata": {
+          "family": "markdown",
+          "provider": "markly",
+          "source": "legacy_crispr_reference"
+        }
+      }
+    }
+  }
+}

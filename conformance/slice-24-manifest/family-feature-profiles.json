@@ -890,6 +890,14 @@
         ]
       },
       {
+        "role": "ruby_structured_edit_request_projection",
+        "path": [
+          "diagnostics",
+          "slice-428-ruby-structured-edit-request-projection",
+          "ruby-structured-edit-request-projection.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

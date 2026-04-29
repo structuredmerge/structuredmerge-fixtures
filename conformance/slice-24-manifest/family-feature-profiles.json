@@ -1010,6 +1010,14 @@
         ]
       },
       {
+        "role": "structured_edit_batch_report",
+        "path": [
+          "diagnostics",
+          "slice-443-structured-edit-batch-report",
+          "structured-edit-batch-report.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

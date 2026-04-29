@@ -930,6 +930,22 @@
         ]
       },
       {
+        "role": "ruby_structured_edit_application_projection",
+        "path": [
+          "diagnostics",
+          "slice-433-ruby-structured-edit-application-projection",
+          "ruby-structured-edit-application-projection.json"
+        ]
+      },
+      {
+        "role": "markdown_structured_edit_application_projection",
+        "path": [
+          "diagnostics",
+          "slice-434-markdown-structured-edit-application-projection",
+          "markdown-structured-edit-application-projection.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

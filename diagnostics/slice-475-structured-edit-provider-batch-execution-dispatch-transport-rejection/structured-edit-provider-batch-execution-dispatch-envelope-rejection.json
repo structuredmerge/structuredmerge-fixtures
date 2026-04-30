@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "label": "rejects wrong batch dispatch envelope kind",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_report",
+        "version": 1,
+        "batch_dispatch": {
+          "dispatches": []
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_batch_execution_dispatch envelope kind."
+      }
+    },
+    {
+      "label": "rejects unsupported batch dispatch envelope version",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_dispatch",
+        "version": 2,
+        "batch_dispatch": {
+          "dispatches": []
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_batch_execution_dispatch envelope version 2."
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "structured_edit_provider_batch_execution_dispatch": {
+    "dispatches": [],
+    "metadata": {
+      "batch_id": "dispatch_envelope_empty_batch",
+      "source": "legacy_crispr_reference"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_provider_batch_execution_dispatch",
+    "version": 1,
+    "batch_dispatch": {
+      "dispatches": [],
+      "metadata": {
+        "batch_id": "dispatch_envelope_empty_batch",
+        "source": "legacy_crispr_reference"
+      }
+    }
+  }
+}

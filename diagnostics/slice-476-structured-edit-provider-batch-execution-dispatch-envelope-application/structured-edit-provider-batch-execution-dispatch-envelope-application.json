@@ -1,0 +1,72 @@
+{
+  "structured_edit_provider_batch_execution_dispatch_envelope": {
+    "kind": "structured_edit_provider_batch_execution_dispatch",
+    "version": 1,
+    "batch_dispatch": {
+      "dispatches": [
+        {
+          "execution_request": {
+            "request": {
+              "operation_kind": "replace",
+              "content": "class App\n  # managed snippet\n  old_call\nend\n",
+              "source_label": "source",
+              "target_selector": "managed_snippet",
+              "target_selector_family": "comment_anchor",
+              "payload_text": "new_call\n"
+            },
+            "provider_family": "ruby",
+            "provider_backend": "prism"
+          },
+          "resolved_provider_family": "ruby",
+          "resolved_provider_backend": "prism",
+          "executor_label": "prism::merge::replace"
+        }
+      ],
+      "metadata": {
+        "batch_id": "dispatch_application_batch",
+        "source": "legacy_crispr_reference"
+      }
+    }
+  },
+  "expected_batch_dispatch": {
+    "dispatches": [
+      {
+        "execution_request": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "class App\n  # managed snippet\n  old_call\nend\n",
+            "source_label": "source",
+            "target_selector": "managed_snippet",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "new_call\n"
+          },
+          "provider_family": "ruby",
+          "provider_backend": "prism"
+        },
+        "resolved_provider_family": "ruby",
+        "resolved_provider_backend": "prism",
+        "executor_label": "prism::merge::replace"
+      }
+    ],
+    "metadata": {
+      "batch_id": "dispatch_application_batch",
+      "source": "legacy_crispr_reference"
+    }
+  },
+  "cases": [
+    {
+      "label": "preserves wrong-kind rejection during batch dispatch envelope application",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_report",
+        "version": 1,
+        "batch_dispatch": {
+          "dispatches": []
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_batch_execution_dispatch envelope kind."
+      }
+    }
+  ]
+}

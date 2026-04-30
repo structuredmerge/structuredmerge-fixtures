@@ -1282,6 +1282,14 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_outcome",
+        "path": [
+          "diagnostics",
+          "slice-477-structured-edit-provider-execution-outcome",
+          "structured-edit-provider-execution-outcome.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

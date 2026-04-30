@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "label": "rejects wrong dispatch envelope kind",
+      "envelope": {
+        "kind": "structured_edit_provider_execution_application",
+        "version": 1,
+        "provider_execution_dispatch": {
+          "execution_request": {
+            "request": {
+              "operation_kind": "replace",
+              "content": "class App\n  # managed snippet\n  old_call\nend\n",
+              "source_label": "source",
+              "target_selector": "managed_snippet",
+              "target_selector_family": "comment_anchor",
+              "payload_text": "new_call\n"
+            },
+            "provider_family": "ruby",
+            "provider_backend": "prism"
+          },
+          "resolved_provider_family": "ruby",
+          "resolved_provider_backend": "prism"
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_execution_dispatch envelope kind."
+      }
+    },
+    {
+      "label": "rejects unsupported dispatch envelope version",
+      "envelope": {
+        "kind": "structured_edit_provider_execution_dispatch",
+        "version": 2,
+        "provider_execution_dispatch": {
+          "execution_request": {
+            "request": {
+              "operation_kind": "replace",
+              "content": "class App\n  # managed snippet\n  old_call\nend\n",
+              "source_label": "source",
+              "target_selector": "managed_snippet",
+              "target_selector_family": "comment_anchor",
+              "payload_text": "new_call\n"
+            },
+            "provider_family": "ruby",
+            "provider_backend": "prism"
+          },
+          "resolved_provider_family": "ruby",
+          "resolved_provider_backend": "prism"
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_execution_dispatch envelope version 2."
+      }
+    }
+  ]
+}

@@ -1226,6 +1226,30 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_dispatch_envelope",
+        "path": [
+          "diagnostics",
+          "slice-470-structured-edit-provider-execution-dispatch-transport-envelope",
+          "structured-edit-provider-execution-dispatch-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_dispatch_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-471-structured-edit-provider-execution-dispatch-transport-rejection",
+          "structured-edit-provider-execution-dispatch-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_dispatch_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-472-structured-edit-provider-execution-dispatch-envelope-application",
+          "structured-edit-provider-execution-dispatch-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

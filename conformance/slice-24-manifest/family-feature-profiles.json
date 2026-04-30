@@ -1218,6 +1218,14 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_dispatch",
+        "path": [
+          "diagnostics",
+          "slice-469-structured-edit-provider-execution-dispatch",
+          "structured-edit-provider-execution-dispatch.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

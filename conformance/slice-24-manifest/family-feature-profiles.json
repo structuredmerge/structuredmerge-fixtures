@@ -1346,6 +1346,70 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_provenance",
+        "path": [
+          "diagnostics",
+          "slice-485-structured-edit-provider-execution-provenance",
+          "structured-edit-provider-execution-provenance.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_provenance_envelope",
+        "path": [
+          "diagnostics",
+          "slice-486-structured-edit-provider-execution-provenance-transport-envelope",
+          "structured-edit-provider-execution-provenance-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_provenance_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-487-structured-edit-provider-execution-provenance-transport-rejection",
+          "structured-edit-provider-execution-provenance-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_provenance_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-488-structured-edit-provider-execution-provenance-envelope-application",
+          "structured-edit-provider-execution-provenance-envelope-application.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_provenance",
+        "path": [
+          "diagnostics",
+          "slice-489-structured-edit-provider-batch-execution-provenance",
+          "structured-edit-provider-batch-execution-provenance.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_provenance_envelope",
+        "path": [
+          "diagnostics",
+          "slice-490-structured-edit-provider-batch-execution-provenance-transport-envelope",
+          "structured-edit-provider-batch-execution-provenance-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_provenance_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-491-structured-edit-provider-batch-execution-provenance-transport-rejection",
+          "structured-edit-provider-batch-execution-provenance-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_provenance_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-492-structured-edit-provider-batch-execution-provenance-envelope-application",
+          "structured-edit-provider-batch-execution-provenance-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

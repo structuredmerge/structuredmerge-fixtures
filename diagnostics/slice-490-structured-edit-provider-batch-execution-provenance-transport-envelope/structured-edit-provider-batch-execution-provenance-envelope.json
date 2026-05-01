@@ -1,0 +1,18 @@
+{
+  "structured_edit_provider_batch_execution_provenance": {
+    "provenances": [],
+    "metadata": {
+      "batch_label": "empty_provider_execution_provenance_batch"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_provider_batch_execution_provenance",
+    "version": 1,
+    "batch_provenance": {
+      "provenances": [],
+      "metadata": {
+        "batch_label": "empty_provider_execution_provenance_batch"
+      }
+    }
+  }
+}

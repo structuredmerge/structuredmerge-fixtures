@@ -1,0 +1,138 @@
+{
+  "structured_edit_provider_executor_profile": {
+    "provider_family": "ruby",
+    "provider_backend": "prism",
+    "executor_label": "prism::merge::managed_snippet",
+    "structure_profile": {
+      "owner_scope": "shared_default",
+      "owner_selector": "line_bound_statements",
+      "owner_selector_family": "line_oriented",
+      "known_owner_selector": true,
+      "supported_comment_regions": [
+        "leading"
+      ]
+    },
+    "selection_profile": {
+      "owner_scope": "shared_default",
+      "owner_selector": "line_bound_statements",
+      "owner_selector_family": "line_oriented",
+      "selector_kind": "comment_region_owned_owner",
+      "selection_intent": "comment_anchored_owner",
+      "selection_intent_family": "comment_anchor",
+      "known_selection_intent": true,
+      "comment_region": "leading",
+      "include_trailing_gap": true,
+      "comment_anchored": true
+    },
+    "match_profile": {
+      "start_boundary": "comment_region_start",
+      "start_boundary_family": "comment_anchor",
+      "known_start_boundary": true,
+      "end_boundary": "owner_end_plus_trailing_gap",
+      "end_boundary_family": "gap_extension",
+      "known_end_boundary": true,
+      "payload_kind": "comment_owned_body",
+      "payload_family": "comment_owned",
+      "known_payload_kind": true,
+      "comment_anchored": true,
+      "trailing_gap_extended": true
+    },
+    "operation_profiles": [
+      {
+        "operation_kind": "replace",
+        "operation_family": "rewrite",
+        "known_operation_kind": true,
+        "source_requirement": "required",
+        "destination_requirement": "none",
+        "replacement_source": "explicit_text",
+        "captures_source_text": true,
+        "supports_if_missing": false
+      }
+    ],
+    "destination_profile": {
+      "resolution_kind": "anchor_after_statement",
+      "resolution_source": "selector",
+      "anchor_boundary": "statement_end_plus_following_gap",
+      "resolution_family": "anchored",
+      "resolution_source_family": "selector",
+      "anchor_boundary_family": "gap_preserving_statement",
+      "known_resolution_kind": true,
+      "known_resolution_source": true,
+      "known_anchor_boundary": true,
+      "used_if_missing": false
+    },
+    "metadata": {
+      "capability_source": "legacy_crispr_reference"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_provider_executor_profile",
+    "version": 1,
+    "executor_profile": {
+      "provider_family": "ruby",
+      "provider_backend": "prism",
+      "executor_label": "prism::merge::managed_snippet",
+      "structure_profile": {
+        "owner_scope": "shared_default",
+        "owner_selector": "line_bound_statements",
+        "owner_selector_family": "line_oriented",
+        "known_owner_selector": true,
+        "supported_comment_regions": [
+          "leading"
+        ]
+      },
+      "selection_profile": {
+        "owner_scope": "shared_default",
+        "owner_selector": "line_bound_statements",
+        "owner_selector_family": "line_oriented",
+        "selector_kind": "comment_region_owned_owner",
+        "selection_intent": "comment_anchored_owner",
+        "selection_intent_family": "comment_anchor",
+        "known_selection_intent": true,
+        "comment_region": "leading",
+        "include_trailing_gap": true,
+        "comment_anchored": true
+      },
+      "match_profile": {
+        "start_boundary": "comment_region_start",
+        "start_boundary_family": "comment_anchor",
+        "known_start_boundary": true,
+        "end_boundary": "owner_end_plus_trailing_gap",
+        "end_boundary_family": "gap_extension",
+        "known_end_boundary": true,
+        "payload_kind": "comment_owned_body",
+        "payload_family": "comment_owned",
+        "known_payload_kind": true,
+        "comment_anchored": true,
+        "trailing_gap_extended": true
+      },
+      "operation_profiles": [
+        {
+          "operation_kind": "replace",
+          "operation_family": "rewrite",
+          "known_operation_kind": true,
+          "source_requirement": "required",
+          "destination_requirement": "none",
+          "replacement_source": "explicit_text",
+          "captures_source_text": true,
+          "supports_if_missing": false
+        }
+      ],
+      "destination_profile": {
+        "resolution_kind": "anchor_after_statement",
+        "resolution_source": "selector",
+        "anchor_boundary": "statement_end_plus_following_gap",
+        "resolution_family": "anchored",
+        "resolution_source_family": "selector",
+        "anchor_boundary_family": "gap_preserving_statement",
+        "known_resolution_kind": true,
+        "known_resolution_source": true,
+        "known_anchor_boundary": true,
+        "used_if_missing": false
+      },
+      "metadata": {
+        "capability_source": "legacy_crispr_reference"
+      }
+    }
+  }
+}

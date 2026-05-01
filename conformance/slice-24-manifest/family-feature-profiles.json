@@ -1474,6 +1474,38 @@
         ]
       },
       {
+        "role": "structured_edit_provider_executor_profile",
+        "path": [
+          "diagnostics",
+          "slice-501-structured-edit-provider-executor-profile",
+          "structured-edit-provider-executor-profile.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_executor_profile_envelope",
+        "path": [
+          "diagnostics",
+          "slice-502-structured-edit-provider-executor-profile-transport-envelope",
+          "structured-edit-provider-executor-profile-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_executor_profile_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-503-structured-edit-provider-executor-profile-transport-rejection",
+          "structured-edit-provider-executor-profile-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_executor_profile_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-504-structured-edit-provider-executor-profile-envelope-application",
+          "structured-edit-provider-executor-profile-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

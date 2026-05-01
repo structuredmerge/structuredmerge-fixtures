@@ -1,0 +1,211 @@
+{
+  "cases": [
+    {
+      "label": "ruby prism managed snippet executor",
+      "executor_profile": {
+        "provider_family": "ruby",
+        "provider_backend": "prism",
+        "executor_label": "prism::merge::managed_snippet",
+        "structure_profile": {
+          "owner_scope": "shared_default",
+          "owner_selector": "line_bound_statements",
+          "owner_selector_family": "line_oriented",
+          "known_owner_selector": true,
+          "supported_comment_regions": [
+            "leading"
+          ],
+          "metadata": {
+            "family": "ruby",
+            "provider": "prism",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "selection_profile": {
+          "owner_scope": "shared_default",
+          "owner_selector": "line_bound_statements",
+          "owner_selector_family": "line_oriented",
+          "selector_kind": "comment_region_owned_owner",
+          "selection_intent": "comment_anchored_owner",
+          "selection_intent_family": "comment_anchor",
+          "known_selection_intent": true,
+          "comment_region": "leading",
+          "include_trailing_gap": true,
+          "comment_anchored": true,
+          "metadata": {
+            "family": "ruby",
+            "provider": "prism",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "match_profile": {
+          "start_boundary": "comment_region_start",
+          "start_boundary_family": "comment_anchor",
+          "known_start_boundary": true,
+          "end_boundary": "owner_end_plus_trailing_gap",
+          "end_boundary_family": "gap_extension",
+          "known_end_boundary": true,
+          "payload_kind": "comment_owned_body",
+          "payload_family": "comment_owned",
+          "known_payload_kind": true,
+          "comment_anchored": true,
+          "trailing_gap_extended": true,
+          "metadata": {
+            "family": "ruby",
+            "provider": "prism",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "operation_profiles": [
+          {
+            "operation_kind": "replace",
+            "operation_family": "rewrite",
+            "known_operation_kind": true,
+            "source_requirement": "required",
+            "destination_requirement": "none",
+            "replacement_source": "explicit_text",
+            "captures_source_text": true,
+            "supports_if_missing": false,
+            "metadata": {
+              "source": "legacy_crispr_reference"
+            }
+          },
+          {
+            "operation_kind": "delete",
+            "operation_family": "removal",
+            "known_operation_kind": true,
+            "source_requirement": "required",
+            "destination_requirement": "none",
+            "replacement_source": "none",
+            "captures_source_text": true,
+            "supports_if_missing": false,
+            "metadata": {
+              "source": "legacy_crispr_reference"
+            }
+          }
+        ],
+        "destination_profile": {
+          "resolution_kind": "anchor_after_statement",
+          "resolution_source": "selector",
+          "anchor_boundary": "statement_end_plus_following_gap",
+          "resolution_family": "anchored",
+          "resolution_source_family": "selector",
+          "anchor_boundary_family": "gap_preserving_statement",
+          "known_resolution_kind": true,
+          "known_resolution_source": true,
+          "known_anchor_boundary": true,
+          "used_if_missing": false,
+          "metadata": {
+            "family": "ruby",
+            "provider": "prism",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "capability_source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "markdown markly heading section executor",
+      "executor_profile": {
+        "provider_family": "markdown",
+        "provider_backend": "markly",
+        "executor_label": "markly::merge::section_branch",
+        "structure_profile": {
+          "owner_scope": "heading_sections",
+          "owner_selector": "heading_sections",
+          "owner_selector_family": "section_branch",
+          "known_owner_selector": true,
+          "supported_comment_regions": [],
+          "metadata": {
+            "family": "markdown",
+            "provider": "markly",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "selection_profile": {
+          "owner_scope": "heading_sections",
+          "owner_selector": "heading_sections",
+          "owner_selector_family": "section_branch",
+          "selector_kind": "heading_section",
+          "selection_intent": "section_branch",
+          "selection_intent_family": "section_branch",
+          "known_selection_intent": true,
+          "comment_region": null,
+          "include_trailing_gap": false,
+          "comment_anchored": false,
+          "metadata": {
+            "family": "markdown",
+            "provider": "markly",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "match_profile": {
+          "start_boundary": "owner_start",
+          "start_boundary_family": "structural_owner",
+          "known_start_boundary": true,
+          "end_boundary": "owner_end",
+          "end_boundary_family": "structural_owner",
+          "known_end_boundary": true,
+          "payload_kind": "section_branch",
+          "payload_family": "section_branch",
+          "known_payload_kind": true,
+          "comment_anchored": false,
+          "trailing_gap_extended": false,
+          "metadata": {
+            "family": "markdown",
+            "provider": "markly",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "operation_profiles": [
+          {
+            "operation_kind": "replace",
+            "operation_family": "rewrite",
+            "known_operation_kind": true,
+            "source_requirement": "required",
+            "destination_requirement": "none",
+            "replacement_source": "explicit_text",
+            "captures_source_text": true,
+            "supports_if_missing": false,
+            "metadata": {
+              "source": "legacy_crispr_reference"
+            }
+          },
+          {
+            "operation_kind": "insert",
+            "operation_family": "insertion",
+            "known_operation_kind": true,
+            "source_requirement": "none",
+            "destination_requirement": "optional",
+            "replacement_source": "explicit_text",
+            "captures_source_text": false,
+            "supports_if_missing": true,
+            "metadata": {
+              "source": "legacy_crispr_reference"
+            }
+          }
+        ],
+        "destination_profile": {
+          "resolution_kind": "append_fallback",
+          "resolution_source": "none",
+          "anchor_boundary": "none",
+          "resolution_family": "append",
+          "resolution_source_family": "implicit",
+          "anchor_boundary_family": "none",
+          "known_resolution_kind": true,
+          "known_resolution_source": true,
+          "known_anchor_boundary": true,
+          "used_if_missing": true,
+          "metadata": {
+            "family": "shared",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "capability_source": "legacy_crispr_reference"
+        }
+      }
+    }
+  ]
+}

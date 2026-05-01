@@ -1,0 +1,182 @@
+{
+  "structured_edit_provider_batch_execution_replay_bundle": {
+    "replay_bundles": [
+      {
+        "execution_request": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "old_call\n",
+            "source_label": "source"
+          },
+          "provider_family": "ruby",
+          "provider_backend": "prism"
+        },
+        "provenance": {
+          "dispatch": {
+            "execution_request": {
+              "request": {
+                "operation_kind": "replace",
+                "content": "old_call\n",
+                "source_label": "source"
+              },
+              "provider_family": "ruby",
+              "provider_backend": "prism"
+            },
+            "resolved_provider_family": "ruby",
+            "resolved_provider_backend": "prism"
+          },
+          "outcome": {
+            "dispatch": {
+              "execution_request": {
+                "request": {
+                  "operation_kind": "replace",
+                  "content": "old_call\n",
+                  "source_label": "source"
+                },
+                "provider_family": "ruby",
+                "provider_backend": "prism"
+              },
+              "resolved_provider_family": "ruby",
+              "resolved_provider_backend": "prism"
+            },
+            "application": {
+              "execution_request": {
+                "request": {
+                  "operation_kind": "replace",
+                  "content": "old_call\n",
+                  "source_label": "source"
+                },
+                "provider_family": "ruby",
+                "provider_backend": "prism"
+              },
+              "report": {
+                "application": {
+                  "request": {
+                    "operation_kind": "replace",
+                    "content": "old_call\n",
+                    "source_label": "source"
+                  },
+                  "result": {
+                    "operation_kind": "replace",
+                    "updated_content": "new_call\n",
+                    "changed": true,
+                    "operation_profile": {
+                      "operation_kind": "replace",
+                      "known_operation_kind": true,
+                      "source_requirement": "required",
+                      "destination_requirement": "none",
+                      "replacement_source": "explicit_text",
+                      "captures_source_text": true,
+                      "supports_if_missing": false
+                    }
+                  }
+                },
+                "provider_family": "ruby",
+                "diagnostics": []
+              }
+            }
+          },
+          "diagnostics": []
+        },
+        "metadata": {
+          "replay_id": "ruby_prism_replace_replay_1"
+        }
+      }
+    ],
+    "metadata": {
+      "batch_label": "ruby_prism_execution_replay_batch"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_provider_batch_execution_replay_bundle",
+    "version": 1,
+    "batch_replay_bundle": {
+      "replay_bundles": [
+        {
+          "execution_request": {
+            "request": {
+              "operation_kind": "replace",
+              "content": "old_call\n",
+              "source_label": "source"
+            },
+            "provider_family": "ruby",
+            "provider_backend": "prism"
+          },
+          "provenance": {
+            "dispatch": {
+              "execution_request": {
+                "request": {
+                  "operation_kind": "replace",
+                  "content": "old_call\n",
+                  "source_label": "source"
+                },
+                "provider_family": "ruby",
+                "provider_backend": "prism"
+              },
+              "resolved_provider_family": "ruby",
+              "resolved_provider_backend": "prism"
+            },
+            "outcome": {
+              "dispatch": {
+                "execution_request": {
+                  "request": {
+                    "operation_kind": "replace",
+                    "content": "old_call\n",
+                    "source_label": "source"
+                  },
+                  "provider_family": "ruby",
+                  "provider_backend": "prism"
+                },
+                "resolved_provider_family": "ruby",
+                "resolved_provider_backend": "prism"
+              },
+              "application": {
+                "execution_request": {
+                  "request": {
+                    "operation_kind": "replace",
+                    "content": "old_call\n",
+                    "source_label": "source"
+                  },
+                  "provider_family": "ruby",
+                  "provider_backend": "prism"
+                },
+                "report": {
+                  "application": {
+                    "request": {
+                      "operation_kind": "replace",
+                      "content": "old_call\n",
+                      "source_label": "source"
+                    },
+                    "result": {
+                      "operation_kind": "replace",
+                      "updated_content": "new_call\n",
+                      "changed": true,
+                      "operation_profile": {
+                        "operation_kind": "replace",
+                        "known_operation_kind": true,
+                        "source_requirement": "required",
+                        "destination_requirement": "none",
+                        "replacement_source": "explicit_text",
+                        "captures_source_text": true,
+                        "supports_if_missing": false
+                      }
+                    }
+                  },
+                  "provider_family": "ruby",
+                  "diagnostics": []
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "metadata": {
+            "replay_id": "ruby_prism_replace_replay_1"
+          }
+        }
+      ],
+      "metadata": {
+        "batch_label": "ruby_prism_execution_replay_batch"
+      }
+    }
+  }
+}

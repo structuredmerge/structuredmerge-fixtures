@@ -1410,6 +1410,70 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_replay_bundle",
+        "path": [
+          "diagnostics",
+          "slice-493-structured-edit-provider-execution-replay-bundle",
+          "structured-edit-provider-execution-replay-bundle.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_replay_bundle_envelope",
+        "path": [
+          "diagnostics",
+          "slice-494-structured-edit-provider-execution-replay-bundle-transport-envelope",
+          "structured-edit-provider-execution-replay-bundle-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_replay_bundle_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-495-structured-edit-provider-execution-replay-bundle-transport-rejection",
+          "structured-edit-provider-execution-replay-bundle-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_replay_bundle_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-496-structured-edit-provider-execution-replay-bundle-envelope-application",
+          "structured-edit-provider-execution-replay-bundle-envelope-application.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_replay_bundle",
+        "path": [
+          "diagnostics",
+          "slice-497-structured-edit-provider-batch-execution-replay-bundle",
+          "structured-edit-provider-batch-execution-replay-bundle.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_replay_bundle_envelope",
+        "path": [
+          "diagnostics",
+          "slice-498-structured-edit-provider-batch-execution-replay-bundle-transport-envelope",
+          "structured-edit-provider-batch-execution-replay-bundle-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_replay_bundle_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-499-structured-edit-provider-batch-execution-replay-bundle-transport-rejection",
+          "structured-edit-provider-batch-execution-replay-bundle-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_replay_bundle_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-500-structured-edit-provider-batch-execution-replay-bundle-envelope-application",
+          "structured-edit-provider-batch-execution-replay-bundle-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

@@ -1,0 +1,179 @@
+{
+  "cases": [
+    {
+      "label": "ruby prism execution replay bundle",
+      "replay_bundle": {
+        "execution_request": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "old_call\n",
+            "source_label": "source",
+            "target_selector": "managed",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "new_call\n",
+            "metadata": {
+              "family": "ruby",
+              "provider": "prism"
+            }
+          },
+          "provider_family": "ruby",
+          "provider_backend": "prism",
+          "metadata": {
+            "routing_label": "ruby_prism_replace"
+          }
+        },
+        "provenance": {
+          "dispatch": {
+            "execution_request": {
+              "request": {
+                "operation_kind": "replace",
+                "content": "old_call\n",
+                "source_label": "source",
+                "target_selector": "managed",
+                "target_selector_family": "comment_anchor",
+                "payload_text": "new_call\n",
+                "metadata": {
+                  "family": "ruby",
+                  "provider": "prism"
+                }
+              },
+              "provider_family": "ruby",
+              "provider_backend": "prism",
+              "metadata": {
+                "routing_label": "ruby_prism_replace"
+              }
+            },
+            "resolved_provider_family": "ruby",
+            "resolved_provider_backend": "prism",
+            "executor_label": "prism::merge::replace",
+            "metadata": {
+              "dispatch_id": "ruby_prism_replace_1"
+            }
+          },
+          "outcome": {
+            "dispatch": {
+              "execution_request": {
+                "request": {
+                  "operation_kind": "replace",
+                  "content": "old_call\n",
+                  "source_label": "source",
+                  "target_selector": "managed",
+                  "target_selector_family": "comment_anchor",
+                  "payload_text": "new_call\n",
+                  "metadata": {
+                    "family": "ruby",
+                    "provider": "prism"
+                  }
+                },
+                "provider_family": "ruby",
+                "provider_backend": "prism",
+                "metadata": {
+                  "routing_label": "ruby_prism_replace"
+                }
+              },
+              "resolved_provider_family": "ruby",
+              "resolved_provider_backend": "prism",
+              "executor_label": "prism::merge::replace",
+              "metadata": {
+                "dispatch_id": "ruby_prism_replace_1"
+              }
+            },
+            "application": {
+              "execution_request": {
+                "request": {
+                  "operation_kind": "replace",
+                  "content": "old_call\n",
+                  "source_label": "source",
+                  "target_selector": "managed",
+                  "target_selector_family": "comment_anchor",
+                  "payload_text": "new_call\n",
+                  "metadata": {
+                    "family": "ruby",
+                    "provider": "prism"
+                  }
+                },
+                "provider_family": "ruby",
+                "provider_backend": "prism",
+                "metadata": {
+                  "routing_label": "ruby_prism_replace"
+                }
+              },
+              "report": {
+                "application": {
+                  "request": {
+                    "operation_kind": "replace",
+                    "content": "old_call\n",
+                    "source_label": "source",
+                    "target_selector": "managed",
+                    "target_selector_family": "comment_anchor",
+                    "payload_text": "new_call\n",
+                    "metadata": {
+                      "family": "ruby",
+                      "provider": "prism"
+                    }
+                  },
+                  "result": {
+                    "operation_kind": "replace",
+                    "updated_content": "new_call\n",
+                    "changed": true,
+                    "captured_text": "old_call\n",
+                    "match_count": 1,
+                    "operation_profile": {
+                      "operation_kind": "replace",
+                      "operation_family": "rewrite",
+                      "known_operation_kind": true,
+                      "source_requirement": "required",
+                      "destination_requirement": "none",
+                      "replacement_source": "explicit_text",
+                      "captures_source_text": true,
+                      "supports_if_missing": false
+                    },
+                    "metadata": {
+                      "family": "ruby",
+                      "provider": "prism"
+                    }
+                  },
+                  "metadata": {
+                    "family": "ruby",
+                    "provider": "prism"
+                  }
+                },
+                "provider_family": "ruby",
+                "provider_backend": "prism",
+                "diagnostics": [
+                  {
+                    "severity": "warning",
+                    "category": "assumed_default",
+                    "message": "using managed snippet fallback selection."
+                  }
+                ],
+                "metadata": {
+                  "report_id": "ruby_prism_replace_report_1"
+                }
+              },
+              "metadata": {
+                "execution_id": "ruby_prism_replace_1"
+              }
+            },
+            "metadata": {
+              "outcome_id": "ruby_prism_replace_outcome_1"
+            }
+          },
+          "diagnostics": [
+            {
+              "severity": "info",
+              "category": "assumed_default",
+              "message": "executor recorded provenance."
+            }
+          ],
+          "metadata": {
+            "provenance_id": "ruby_prism_replace_provenance_1"
+          }
+        },
+        "metadata": {
+          "replay_id": "ruby_prism_replace_replay_1"
+        }
+      }
+    }
+  ]
+}

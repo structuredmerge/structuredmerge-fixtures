@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "label": "wrong kind",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_provenance",
+        "version": 1,
+        "batch_replay_bundle": {
+          "replay_bundles": []
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_batch_execution_replay_bundle envelope kind."
+      }
+    },
+    {
+      "label": "unsupported version",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_replay_bundle",
+        "version": 2,
+        "batch_replay_bundle": {
+          "replay_bundles": []
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_batch_execution_replay_bundle envelope version 2."
+      }
+    }
+  ]
+}

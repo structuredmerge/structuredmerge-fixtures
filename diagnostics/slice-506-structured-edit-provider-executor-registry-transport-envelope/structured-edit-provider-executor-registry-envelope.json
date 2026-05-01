@@ -1,0 +1,18 @@
+{
+  "structured_edit_provider_executor_registry": {
+    "executor_profiles": [],
+    "metadata": {
+      "registry_source": "empty_registry"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_provider_executor_registry",
+    "version": 1,
+    "executor_registry": {
+      "executor_profiles": [],
+      "metadata": {
+        "registry_source": "empty_registry"
+      }
+    }
+  }
+}

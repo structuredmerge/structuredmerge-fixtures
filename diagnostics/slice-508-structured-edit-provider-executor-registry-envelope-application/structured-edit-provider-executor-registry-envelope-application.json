@@ -1,0 +1,34 @@
+{
+  "structured_edit_provider_executor_registry_envelope": {
+    "kind": "structured_edit_provider_executor_registry",
+    "version": 1,
+    "executor_registry": {
+      "executor_profiles": [],
+      "metadata": {
+        "registry_source": "empty_registry"
+      }
+    }
+  },
+  "expected_executor_registry": {
+    "executor_profiles": [],
+    "metadata": {
+      "registry_source": "empty_registry"
+    }
+  },
+  "cases": [
+    {
+      "label": "wrong kind still rejects",
+      "envelope": {
+        "kind": "structured_edit_provider_executor_profile",
+        "version": 1,
+        "executor_registry": {
+          "executor_profiles": []
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_executor_registry envelope kind."
+      }
+    }
+  ]
+}

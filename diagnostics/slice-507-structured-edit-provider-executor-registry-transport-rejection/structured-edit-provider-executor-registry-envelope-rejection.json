@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "label": "wrong kind",
+      "envelope": {
+        "kind": "structured_edit_provider_executor_profile",
+        "version": 1,
+        "executor_registry": {
+          "executor_profiles": []
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_executor_registry envelope kind."
+      }
+    },
+    {
+      "label": "unsupported version",
+      "envelope": {
+        "kind": "structured_edit_provider_executor_registry",
+        "version": 2,
+        "executor_registry": {
+          "executor_profiles": []
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_executor_registry envelope version 2."
+      }
+    }
+  ]
+}

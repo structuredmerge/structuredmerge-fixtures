@@ -1506,6 +1506,38 @@
         ]
       },
       {
+        "role": "structured_edit_provider_executor_registry",
+        "path": [
+          "diagnostics",
+          "slice-505-structured-edit-provider-executor-registry",
+          "structured-edit-provider-executor-registry.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_executor_registry_envelope",
+        "path": [
+          "diagnostics",
+          "slice-506-structured-edit-provider-executor-registry-transport-envelope",
+          "structured-edit-provider-executor-registry-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_executor_registry_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-507-structured-edit-provider-executor-registry-transport-rejection",
+          "structured-edit-provider-executor-registry-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_executor_registry_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-508-structured-edit-provider-executor-registry-envelope-application",
+          "structured-edit-provider-executor-registry-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

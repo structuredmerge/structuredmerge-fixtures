@@ -1,0 +1,46 @@
+{
+  "structured_edit_provider_executor_selection_policy_envelope": {
+    "kind": "structured_edit_provider_executor_selection_policy",
+    "version": 1,
+    "selection_policy": {
+      "provider_family": "markdown",
+      "selection_mode": "first_family_match",
+      "allow_registry_fallback": true,
+      "metadata": {
+        "notes": [
+          "backend optional",
+          "prefer registry order"
+        ]
+      }
+    }
+  },
+  "expected_selection_policy": {
+    "provider_family": "markdown",
+    "selection_mode": "first_family_match",
+    "allow_registry_fallback": true,
+    "metadata": {
+      "notes": [
+        "backend optional",
+        "prefer registry order"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "label": "wrong-kind",
+      "envelope": {
+        "kind": "structured_edit_provider_executor_profile",
+        "version": 1,
+        "selection_policy": {
+          "provider_family": "markdown",
+          "selection_mode": "first_family_match",
+          "allow_registry_fallback": true
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_executor_selection_policy envelope kind."
+      }
+    }
+  ]
+}

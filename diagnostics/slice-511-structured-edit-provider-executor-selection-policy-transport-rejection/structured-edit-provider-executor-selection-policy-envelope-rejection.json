@@ -1,0 +1,36 @@
+{
+  "cases": [
+    {
+      "label": "wrong-kind",
+      "envelope": {
+        "kind": "structured_edit_provider_executor_registry",
+        "version": 1,
+        "selection_policy": {
+          "provider_family": "ruby",
+          "selection_mode": "first_family_match",
+          "allow_registry_fallback": true
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_executor_selection_policy envelope kind."
+      }
+    },
+    {
+      "label": "unsupported-version",
+      "envelope": {
+        "kind": "structured_edit_provider_executor_selection_policy",
+        "version": 2,
+        "selection_policy": {
+          "provider_family": "markdown",
+          "selection_mode": "first_family_match",
+          "allow_registry_fallback": true
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_executor_selection_policy envelope version 2."
+      }
+    }
+  ]
+}

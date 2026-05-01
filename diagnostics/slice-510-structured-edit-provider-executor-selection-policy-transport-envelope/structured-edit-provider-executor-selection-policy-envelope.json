@@ -1,0 +1,26 @@
+{
+  "structured_edit_provider_executor_selection_policy": {
+    "provider_family": "ruby",
+    "provider_backend": "prism",
+    "executor_label": "owned_comment_region",
+    "selection_mode": "exact_match",
+    "allow_registry_fallback": false,
+    "metadata": {
+      "registry_source": "legacy_crispr_reference"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_provider_executor_selection_policy",
+    "version": 1,
+    "selection_policy": {
+      "provider_family": "ruby",
+      "provider_backend": "prism",
+      "executor_label": "owned_comment_region",
+      "selection_mode": "exact_match",
+      "allow_registry_fallback": false,
+      "metadata": {
+        "registry_source": "legacy_crispr_reference"
+      }
+    }
+  }
+}

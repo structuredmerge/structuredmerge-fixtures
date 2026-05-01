@@ -1546,6 +1546,30 @@
         ]
       },
       {
+        "role": "structured_edit_provider_executor_selection_policy_envelope",
+        "path": [
+          "diagnostics",
+          "slice-510-structured-edit-provider-executor-selection-policy-transport-envelope",
+          "structured-edit-provider-executor-selection-policy-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_executor_selection_policy_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-511-structured-edit-provider-executor-selection-policy-transport-rejection",
+          "structured-edit-provider-executor-selection-policy-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_executor_selection_policy_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-512-structured-edit-provider-executor-selection-policy-envelope-application",
+          "structured-edit-provider-executor-selection-policy-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

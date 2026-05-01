@@ -1,0 +1,142 @@
+{
+  "structured_edit_provider_execution_outcome": {
+    "dispatch": {
+      "execution_request": {
+        "request": {
+          "operation_kind": "replace",
+          "content": "class App\n  # managed snippet\n  old_call\nend\n",
+          "source_label": "source",
+          "target_selector": "managed_snippet",
+          "target_selector_family": "comment_anchor",
+          "payload_text": "new_call\n"
+        },
+        "provider_family": "ruby",
+        "provider_backend": "prism"
+      },
+      "resolved_provider_family": "ruby",
+      "resolved_provider_backend": "prism",
+      "executor_label": "prism::merge::replace"
+    },
+    "application": {
+      "execution_request": {
+        "request": {
+          "operation_kind": "replace",
+          "content": "class App\n  # managed snippet\n  old_call\nend\n",
+          "source_label": "source",
+          "target_selector": "managed_snippet",
+          "target_selector_family": "comment_anchor",
+          "payload_text": "new_call\n"
+        },
+        "provider_family": "ruby",
+        "provider_backend": "prism"
+      },
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "class App\n  # managed snippet\n  old_call\nend\n",
+            "source_label": "source",
+            "target_selector": "managed_snippet",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "new_call\n"
+          },
+          "result": {
+            "operation_kind": "replace",
+            "updated_content": "class App\n  # managed snippet\n  new_call\nend\n",
+            "changed": true,
+            "captured_text": "old_call\n",
+            "match_count": 1,
+            "operation_profile": {
+              "operation_kind": "replace",
+              "operation_family": "rewrite",
+              "known_operation_kind": true,
+              "source_requirement": "required",
+              "destination_requirement": "none",
+              "replacement_source": "explicit_text",
+              "captures_source_text": true,
+              "supports_if_missing": false
+            }
+          }
+        },
+        "provider_family": "ruby",
+        "provider_backend": "prism",
+        "diagnostics": []
+      }
+    },
+    "metadata": {
+      "outcome_id": "outcome-envelope-case"
+    }
+  },
+  "expected_envelope": {
+    "kind": "structured_edit_provider_execution_outcome",
+    "version": 1,
+    "provider_execution_outcome": {
+      "dispatch": {
+        "execution_request": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "class App\n  # managed snippet\n  old_call\nend\n",
+            "source_label": "source",
+            "target_selector": "managed_snippet",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "new_call\n"
+          },
+          "provider_family": "ruby",
+          "provider_backend": "prism"
+        },
+        "resolved_provider_family": "ruby",
+        "resolved_provider_backend": "prism",
+        "executor_label": "prism::merge::replace"
+      },
+      "application": {
+        "execution_request": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "class App\n  # managed snippet\n  old_call\nend\n",
+            "source_label": "source",
+            "target_selector": "managed_snippet",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "new_call\n"
+          },
+          "provider_family": "ruby",
+          "provider_backend": "prism"
+        },
+        "report": {
+          "application": {
+            "request": {
+              "operation_kind": "replace",
+              "content": "class App\n  # managed snippet\n  old_call\nend\n",
+              "source_label": "source",
+              "target_selector": "managed_snippet",
+              "target_selector_family": "comment_anchor",
+              "payload_text": "new_call\n"
+            },
+            "result": {
+              "operation_kind": "replace",
+              "updated_content": "class App\n  # managed snippet\n  new_call\nend\n",
+              "changed": true,
+              "captured_text": "old_call\n",
+              "match_count": 1,
+              "operation_profile": {
+                "operation_kind": "replace",
+                "operation_family": "rewrite",
+                "known_operation_kind": true,
+                "source_requirement": "required",
+                "destination_requirement": "none",
+                "replacement_source": "explicit_text",
+                "captures_source_text": true,
+                "supports_if_missing": false
+              }
+            }
+          },
+          "provider_family": "ruby",
+          "provider_backend": "prism",
+          "diagnostics": []
+        }
+      },
+      "metadata": {
+        "outcome_id": "outcome-envelope-case"
+      }
+    }
+  }
+}

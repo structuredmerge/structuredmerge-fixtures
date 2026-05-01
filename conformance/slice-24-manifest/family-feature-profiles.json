@@ -1290,6 +1290,30 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_outcome_envelope",
+        "path": [
+          "diagnostics",
+          "slice-478-structured-edit-provider-execution-outcome-transport-envelope",
+          "structured-edit-provider-execution-outcome-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_outcome_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-479-structured-edit-provider-execution-outcome-transport-rejection",
+          "structured-edit-provider-execution-outcome-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_outcome_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-480-structured-edit-provider-execution-outcome-envelope-application",
+          "structured-edit-provider-execution-outcome-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

@@ -1,0 +1,39 @@
+{
+  "structured_edit_provider_batch_execution_outcome_envelope": {
+    "kind": "structured_edit_provider_batch_execution_outcome",
+    "version": 1,
+    "batch_outcome": {
+      "outcomes": [],
+      "metadata": {
+        "batch_label": "empty_provider_execution_outcomes",
+        "source": "legacy_crispr_reference"
+      }
+    }
+  },
+  "expected_batch_outcome": {
+    "outcomes": [],
+    "metadata": {
+      "batch_label": "empty_provider_execution_outcomes",
+      "source": "legacy_crispr_reference"
+    }
+  },
+  "cases": [
+    {
+      "label": "wrong kind still rejects",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_report",
+        "version": 1,
+        "batch_outcome": {
+          "outcomes": [],
+          "metadata": {
+            "batch_label": "empty_provider_execution_outcomes"
+          }
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_batch_execution_outcome envelope kind."
+      }
+    }
+  ]
+}

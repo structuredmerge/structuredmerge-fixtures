@@ -1,0 +1,31 @@
+{
+  "cases": [
+    {
+      "label": "ruby-prism-exact-selection",
+      "selection_policy": {
+        "provider_family": "ruby",
+        "provider_backend": "prism",
+        "executor_label": "owned_comment_region",
+        "selection_mode": "exact_match",
+        "allow_registry_fallback": false,
+        "metadata": {
+          "registry_source": "legacy_crispr_reference"
+        }
+      }
+    },
+    {
+      "label": "markdown-family-fallback-selection",
+      "selection_policy": {
+        "provider_family": "markdown",
+        "selection_mode": "first_family_match",
+        "allow_registry_fallback": true,
+        "metadata": {
+          "notes": [
+            "backend optional",
+            "prefer registry order"
+          ]
+        }
+      }
+    }
+  ]
+}

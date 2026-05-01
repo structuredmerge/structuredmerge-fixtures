@@ -1538,6 +1538,14 @@
         ]
       },
       {
+        "role": "structured_edit_provider_executor_selection_policy",
+        "path": [
+          "diagnostics",
+          "slice-509-structured-edit-provider-executor-selection-policy",
+          "structured-edit-provider-executor-selection-policy.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

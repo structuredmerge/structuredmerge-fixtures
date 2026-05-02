@@ -1730,6 +1730,14 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_invocation",
+        "path": [
+          "diagnostics",
+          "slice-533-structured-edit-provider-execution-invocation",
+          "structured-edit-provider-execution-invocation.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

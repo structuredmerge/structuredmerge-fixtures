@@ -1698,6 +1698,38 @@
         ]
       },
       {
+        "role": "structured_edit_provider_batch_execution_handoff",
+        "path": [
+          "diagnostics",
+          "slice-529-structured-edit-provider-batch-execution-handoff",
+          "structured-edit-provider-batch-execution-handoff.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_handoff_envelope",
+        "path": [
+          "diagnostics",
+          "slice-530-structured-edit-provider-batch-execution-handoff-transport-envelope",
+          "structured-edit-provider-batch-execution-handoff-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_handoff_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-531-structured-edit-provider-batch-execution-handoff-transport-rejection",
+          "structured-edit-provider-batch-execution-handoff-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_handoff_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-532-structured-edit-provider-batch-execution-handoff-envelope-application",
+          "structured-edit-provider-batch-execution-handoff-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

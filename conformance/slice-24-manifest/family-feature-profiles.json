@@ -1674,6 +1674,30 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_handoff_envelope",
+        "path": [
+          "diagnostics",
+          "slice-526-structured-edit-provider-execution-handoff-transport-envelope",
+          "structured-edit-provider-execution-handoff-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_handoff_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-527-structured-edit-provider-execution-handoff-transport-rejection",
+          "structured-edit-provider-execution-handoff-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_handoff_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-528-structured-edit-provider-execution-handoff-envelope-application",
+          "structured-edit-provider-execution-handoff-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

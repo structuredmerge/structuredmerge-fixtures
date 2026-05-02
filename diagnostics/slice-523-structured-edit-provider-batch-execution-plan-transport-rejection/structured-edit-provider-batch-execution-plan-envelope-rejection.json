@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "label": "wrong-kind",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_request",
+        "version": 1,
+        "batch_execution_plan": {
+          "plans": [],
+          "metadata": {
+            "batch_label": "cross_family_execution_plan_batch"
+          }
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_batch_execution_plan envelope kind."
+      }
+    },
+    {
+      "label": "unsupported-version",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_plan",
+        "version": 2,
+        "batch_execution_plan": {
+          "plans": [],
+          "metadata": {
+            "batch_label": "cross_family_execution_plan_batch"
+          }
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_batch_execution_plan envelope version 2."
+      }
+    }
+  ]
+}

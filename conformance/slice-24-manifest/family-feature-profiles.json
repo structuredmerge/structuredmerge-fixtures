@@ -1634,6 +1634,38 @@
         ]
       },
       {
+        "role": "structured_edit_provider_batch_execution_plan",
+        "path": [
+          "diagnostics",
+          "slice-521-structured-edit-provider-batch-execution-plan",
+          "structured-edit-provider-batch-execution-plan.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_plan_envelope",
+        "path": [
+          "diagnostics",
+          "slice-522-structured-edit-provider-batch-execution-plan-transport-envelope",
+          "structured-edit-provider-batch-execution-plan-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_plan_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-523-structured-edit-provider-batch-execution-plan-transport-rejection",
+          "structured-edit-provider-batch-execution-plan-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_plan_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-524-structured-edit-provider-batch-execution-plan-envelope-application",
+          "structured-edit-provider-batch-execution-plan-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

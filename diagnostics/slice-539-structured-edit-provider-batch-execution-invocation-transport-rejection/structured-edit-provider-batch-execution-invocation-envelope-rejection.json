@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "label": "wrong-kind",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_handoff",
+        "version": 1,
+        "batch_execution_invocation": {
+          "invocations": [],
+          "metadata": {
+            "batch_label": "ruby_prism_execution_invocations"
+          }
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_batch_execution_invocation envelope kind."
+      }
+    },
+    {
+      "label": "unsupported-version",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_invocation",
+        "version": 2,
+        "batch_execution_invocation": {
+          "invocations": [],
+          "metadata": {
+            "batch_label": "ruby_prism_execution_invocations"
+          }
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_batch_execution_invocation envelope version 2."
+      }
+    }
+  ]
+}

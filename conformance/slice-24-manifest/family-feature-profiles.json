@@ -1762,6 +1762,38 @@
         ]
       },
       {
+        "role": "structured_edit_provider_batch_execution_invocation",
+        "path": [
+          "diagnostics",
+          "slice-537-structured-edit-provider-batch-execution-invocation",
+          "structured-edit-provider-batch-execution-invocation.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_invocation_envelope",
+        "path": [
+          "diagnostics",
+          "slice-538-structured-edit-provider-batch-execution-invocation-transport-envelope",
+          "structured-edit-provider-batch-execution-invocation-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_invocation_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-539-structured-edit-provider-batch-execution-invocation-transport-rejection",
+          "structured-edit-provider-batch-execution-invocation-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_invocation_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-540-structured-edit-provider-batch-execution-invocation-envelope-application",
+          "structured-edit-provider-batch-execution-invocation-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

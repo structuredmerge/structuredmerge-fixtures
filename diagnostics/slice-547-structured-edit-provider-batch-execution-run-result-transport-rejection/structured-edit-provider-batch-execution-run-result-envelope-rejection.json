@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "label": "wrong-kind",
+      "envelope": {
+        "kind": "structured_edit_provider_execution_run_result",
+        "version": 1,
+        "batch_execution_run_result": {
+          "run_results": [],
+          "metadata": {
+            "batch_label": "ruby_prism_execution_run_results"
+          }
+        }
+      },
+      "expected_error": {
+        "category": "kind_mismatch",
+        "message": "expected structured_edit_provider_batch_execution_run_result envelope kind."
+      }
+    },
+    {
+      "label": "unsupported-version",
+      "envelope": {
+        "kind": "structured_edit_provider_batch_execution_run_result",
+        "version": 2,
+        "batch_execution_run_result": {
+          "run_results": [],
+          "metadata": {
+            "batch_label": "ruby_prism_execution_run_results"
+          }
+        }
+      },
+      "expected_error": {
+        "category": "unsupported_version",
+        "message": "unsupported structured_edit_provider_batch_execution_run_result envelope version 2."
+      }
+    }
+  ]
+}

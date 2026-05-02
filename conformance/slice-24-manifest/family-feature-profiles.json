@@ -1922,6 +1922,14 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_receipt_replay_request",
+        "path": [
+          "diagnostics",
+          "slice-557-structured-edit-provider-execution-receipt-replay-request",
+          "structured-edit-provider-execution-receipt-replay-request.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

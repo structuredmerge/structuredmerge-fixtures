@@ -1890,6 +1890,38 @@
         ]
       },
       {
+        "role": "structured_edit_provider_batch_execution_receipt",
+        "path": [
+          "diagnostics",
+          "slice-553-structured-edit-provider-batch-execution-receipt",
+          "structured-edit-provider-batch-execution-receipt.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_envelope",
+        "path": [
+          "diagnostics",
+          "slice-554-structured-edit-provider-batch-execution-receipt-transport-envelope",
+          "structured-edit-provider-batch-execution-receipt-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-555-structured-edit-provider-batch-execution-receipt-transport-rejection",
+          "structured-edit-provider-batch-execution-receipt-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-556-structured-edit-provider-batch-execution-receipt-envelope-application",
+          "structured-edit-provider-batch-execution-receipt-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

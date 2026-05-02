@@ -1666,6 +1666,14 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_handoff",
+        "path": [
+          "diagnostics",
+          "slice-525-structured-edit-provider-execution-handoff",
+          "structured-edit-provider-execution-handoff.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

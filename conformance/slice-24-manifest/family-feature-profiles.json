@@ -1866,6 +1866,30 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_receipt_envelope",
+        "path": [
+          "diagnostics",
+          "slice-550-structured-edit-provider-execution-receipt-transport-envelope",
+          "structured-edit-provider-execution-receipt-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-551-structured-edit-provider-execution-receipt-transport-rejection",
+          "structured-edit-provider-execution-receipt-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-552-structured-edit-provider-execution-receipt-envelope-application",
+          "structured-edit-provider-execution-receipt-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

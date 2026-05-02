@@ -1794,6 +1794,14 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_run_result",
+        "path": [
+          "diagnostics",
+          "slice-541-structured-edit-provider-execution-run-result",
+          "structured-edit-provider-execution-run-result.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

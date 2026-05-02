@@ -1738,6 +1738,30 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_invocation_envelope",
+        "path": [
+          "diagnostics",
+          "slice-534-structured-edit-provider-execution-invocation-transport-envelope",
+          "structured-edit-provider-execution-invocation-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_invocation_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-535-structured-edit-provider-execution-invocation-transport-rejection",
+          "structured-edit-provider-execution-invocation-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_invocation_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-536-structured-edit-provider-execution-invocation-envelope-application",
+          "structured-edit-provider-execution-invocation-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

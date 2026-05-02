@@ -1802,6 +1802,38 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_run_result_envelope",
+        "path": [
+          "diagnostics",
+          "slice-542-structured-edit-provider-execution-run-result-transport-envelope",
+          "structured-edit-provider-execution-run-result-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_run_result_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-543-structured-edit-provider-execution-run-result-transport-rejection",
+          "structured-edit-provider-execution-run-result-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_run_result_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-544-structured-edit-provider-execution-run-result-envelope-application",
+          "structured-edit-provider-execution-run-result-envelope-application.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_run_result",
+        "path": [
+          "diagnostics",
+          "slice-545-structured-edit-provider-batch-execution-run-result",
+          "structured-edit-provider-batch-execution-run-result.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

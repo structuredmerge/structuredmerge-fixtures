@@ -1570,6 +1570,14 @@
         ]
       },
       {
+        "role": "structured_edit_provider_executor_resolution",
+        "path": [
+          "diagnostics",
+          "slice-513-structured-edit-provider-executor-resolution",
+          "structured-edit-provider-executor-resolution.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

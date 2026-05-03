@@ -1,0 +1,143 @@
+{
+  "cases": [
+    {
+      "label": "ruby-family-comment-owned-rewrite",
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "### MANAGED SNIPPET\nbegin\n  puts \"managed\"\nrescue LoadError\n  nil\nend\n\ntask :default do\n  puts \"ok\"\nend\n",
+            "source_label": "Rakefile",
+            "target_selector": "managed_snippet",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "begin\n  puts \"fresh\"\nrescue LoadError\n  warn(\"missing\")\nend\n",
+            "metadata": {
+              "family": "ruby",
+              "parity_scope": "ruby_family",
+              "reference_backend": "prism",
+              "source": "legacy_crispr_reference",
+              "scenario": "comment_owned_rewrite_delete",
+              "selector_kind": "comment_region_owned_owner",
+              "comment_region": "leading",
+              "comment_anchored": true,
+              "include_trailing_gap": true,
+              "match_profile": {
+                "start_boundary": "comment_region_start",
+                "end_boundary": "owner_end_plus_trailing_gap",
+                "payload_kind": "comment_owned_body"
+              }
+            }
+          },
+          "result": {
+            "operation_kind": "replace",
+            "updated_content": "### MANAGED SNIPPET\nbegin\n  puts \"fresh\"\nrescue LoadError\n  warn(\"missing\")\nend\n\ntask :default do\n  puts \"ok\"\nend\n",
+            "changed": true,
+            "captured_text": "begin\n  puts \"managed\"\nrescue LoadError\n  nil\nend\n",
+            "match_count": 1,
+            "operation_profile": {
+              "operation_kind": "replace",
+              "operation_family": "rewrite",
+              "known_operation_kind": true,
+              "source_requirement": "required",
+              "destination_requirement": "none",
+              "replacement_source": "explicit_text",
+              "captures_source_text": true,
+              "supports_if_missing": false,
+              "metadata": {
+                "source": "legacy_crispr_reference"
+              }
+            },
+            "metadata": {
+              "family": "ruby",
+              "parity_scope": "ruby_family",
+              "source": "legacy_crispr_reference",
+              "scenario": "comment_owned_rewrite_delete"
+            }
+          },
+          "metadata": {
+            "family": "ruby",
+            "parity_scope": "ruby_family",
+            "source": "legacy_crispr_reference",
+            "scenario": "comment_owned_rewrite_delete"
+          }
+        },
+        "provider_family": "ruby",
+        "diagnostics": [],
+        "metadata": {
+          "reference_backend": "prism",
+          "source": "legacy_crispr_reference",
+          "scenario": "comment_owned_rewrite_delete"
+        }
+      }
+    },
+    {
+      "label": "ruby-family-comment-owned-delete",
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "delete",
+            "content": "### MANAGED SNIPPET\nbegin\n  puts \"managed\"\nrescue LoadError\n  nil\nend\n\ntask :default do\n  puts \"ok\"\nend\n",
+            "source_label": "Rakefile",
+            "target_selector": "managed_snippet",
+            "target_selector_family": "comment_anchor",
+            "metadata": {
+              "family": "ruby",
+              "parity_scope": "ruby_family",
+              "reference_backend": "prism",
+              "source": "legacy_crispr_reference",
+              "scenario": "comment_owned_rewrite_delete",
+              "selector_kind": "comment_region_owned_owner",
+              "comment_region": "leading",
+              "comment_anchored": true,
+              "include_trailing_gap": true,
+              "match_profile": {
+                "start_boundary": "comment_region_start",
+                "end_boundary": "owner_end_plus_trailing_gap",
+                "payload_kind": "comment_owned_body"
+              }
+            }
+          },
+          "result": {
+            "operation_kind": "delete",
+            "updated_content": "task :default do\n  puts \"ok\"\nend\n",
+            "changed": true,
+            "captured_text": "begin\n  puts \"managed\"\nrescue LoadError\n  nil\nend\n",
+            "match_count": 1,
+            "operation_profile": {
+              "operation_kind": "delete",
+              "operation_family": "removal",
+              "known_operation_kind": true,
+              "source_requirement": "required",
+              "destination_requirement": "none",
+              "replacement_source": "none",
+              "captures_source_text": true,
+              "supports_if_missing": false,
+              "metadata": {
+                "source": "legacy_crispr_reference"
+              }
+            },
+            "metadata": {
+              "family": "ruby",
+              "parity_scope": "ruby_family",
+              "source": "legacy_crispr_reference",
+              "scenario": "comment_owned_rewrite_delete"
+            }
+          },
+          "metadata": {
+            "family": "ruby",
+            "parity_scope": "ruby_family",
+            "source": "legacy_crispr_reference",
+            "scenario": "comment_owned_rewrite_delete"
+          }
+        },
+        "provider_family": "ruby",
+        "diagnostics": [],
+        "metadata": {
+          "reference_backend": "prism",
+          "source": "legacy_crispr_reference",
+          "scenario": "comment_owned_rewrite_delete"
+        }
+      }
+    }
+  ]
+}

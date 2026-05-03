@@ -3411,6 +3411,15 @@
           "slice-678-structured-edit-crispr-append-fallback-insert",
           "structured-edit-crispr-append-fallback-insert.json"
         ]
+      },
+      {
+        "role": "structured_edit_crispr_ruby_comment_owned_rewrite_delete_parity",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-679-ruby-comment-owned-rewrite-and-delete-parity",
+          "structured-edit-crispr-ruby-comment-owned-rewrite-and-delete-parity.json"
+        ]
       }
     ],
     "text": [

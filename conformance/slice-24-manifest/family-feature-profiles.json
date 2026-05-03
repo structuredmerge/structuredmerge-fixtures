@@ -3402,6 +3402,15 @@
           "slice-677-structured-edit-crispr-overmatch-fail-closed",
           "structured-edit-crispr-overmatch-fail-closed.json"
         ]
+      },
+      {
+        "role": "structured_edit_crispr_append_fallback_insert",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-678-structured-edit-crispr-append-fallback-insert",
+          "structured-edit-crispr-append-fallback-insert.json"
+        ]
       }
     ],
     "text": [

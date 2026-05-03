@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "label": "ruby-family-append-fallback-insert",
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "insert",
+            "content": "task :default do\n  puts \"ok\"\nend\n",
+            "source_label": "Rakefile",
+            "payload_text": "### MANAGED SNIPPET\nputs \"managed\"\n",
+            "if_missing": "append",
+            "metadata": {
+              "family": "ruby",
+              "parity_scope": "shared_behavior",
+              "reference_backend": "prism",
+              "source": "legacy_crispr_reference",
+              "scenario": "append_fallback_insert"
+            }
+          },
+          "result": {
+            "operation_kind": "insert",
+            "updated_content": "task :default do\n  puts \"ok\"\nend\n### MANAGED SNIPPET\nputs \"managed\"\n",
+            "changed": true,
+            "operation_profile": {
+              "operation_kind": "insert",
+              "operation_family": "insertion",
+              "known_operation_kind": true,
+              "source_requirement": "none",
+              "destination_requirement": "optional",
+              "replacement_source": "explicit_text",
+              "captures_source_text": false,
+              "supports_if_missing": true,
+              "metadata": {
+                "source": "legacy_crispr_reference"
+              }
+            },
+            "destination_profile": {
+              "resolution_kind": "append_fallback",
+              "resolution_source": "none",
+              "anchor_boundary": "none",
+              "resolution_family": "append",
+              "resolution_source_family": "implicit",
+              "anchor_boundary_family": "none",
+              "known_resolution_kind": true,
+              "known_resolution_source": true,
+              "known_anchor_boundary": true,
+              "used_if_missing": true,
+              "metadata": {
+                "family": "shared",
+                "source": "legacy_crispr_reference"
+              }
+            },
+            "metadata": {
+              "family": "ruby",
+              "parity_scope": "shared_behavior",
+              "source": "legacy_crispr_reference",
+              "scenario": "append_fallback_insert"
+            }
+          },
+          "metadata": {
+            "family": "ruby",
+            "parity_scope": "shared_behavior",
+            "source": "legacy_crispr_reference",
+            "scenario": "append_fallback_insert"
+          }
+        },
+        "provider_family": "ruby",
+        "diagnostics": [],
+        "metadata": {
+          "reference_backend": "prism",
+          "source": "legacy_crispr_reference",
+          "scenario": "append_fallback_insert"
+        }
+      }
+    }
+  ]
+}

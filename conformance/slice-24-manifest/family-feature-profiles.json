@@ -2696,6 +2696,30 @@
           "slice-589-structured-edit-provider-execution-receipt-replay-workflow-result",
           "structured-edit-provider-execution-receipt-replay-workflow-result.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_result_envelope",
+        "path": [
+          "diagnostics",
+          "slice-590-structured-edit-provider-execution-receipt-replay-workflow-result-transport-envelope",
+          "structured-edit-provider-execution-receipt-replay-workflow-result-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_result_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-591-structured-edit-provider-execution-receipt-replay-workflow-result-transport-rejection",
+          "structured-edit-provider-execution-receipt-replay-workflow-result-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_result_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-592-structured-edit-provider-execution-receipt-replay-workflow-result-envelope-application",
+          "structured-edit-provider-execution-receipt-replay-workflow-result-envelope-application.json"
+        ]
       }
     ],
     "text": [

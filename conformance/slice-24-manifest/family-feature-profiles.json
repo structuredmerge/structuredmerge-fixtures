@@ -3420,6 +3420,15 @@
           "slice-679-ruby-comment-owned-rewrite-and-delete-parity",
           "structured-edit-crispr-ruby-comment-owned-rewrite-and-delete-parity.json"
         ]
+      },
+      {
+        "role": "structured_edit_crispr_ruby_callable_destination_move_parity",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-680-ruby-callable-destination-move-parity",
+          "structured-edit-crispr-ruby-callable-destination-move-parity.json"
+        ]
       }
     ],
     "text": [

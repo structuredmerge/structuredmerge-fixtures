@@ -1,0 +1,98 @@
+{
+  "cases": [
+    {
+      "label": "ruby-family-callable-destination-move",
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "move",
+            "content": "### MANAGED SNIPPET\nbegin\n  puts \"old\"\nrescue LoadError\n  nil\nend\n\n# frozen_string_literal: true\nrequire \"kettle/dev\"\n\n### TEMPLATING TASKS\n",
+            "source_label": "Rakefile",
+            "target_selector": "managed_snippet",
+            "target_selector_family": "comment_anchor",
+            "payload_text": "### MANAGED SNIPPET\nbegin\n  puts \"new\"\nrescue LoadError\n  warn(\"missing\")\nend\n",
+            "if_missing": "append",
+            "metadata": {
+              "family": "ruby",
+              "parity_scope": "ruby_family",
+              "reference_backend": "prism",
+              "source": "legacy_crispr_reference",
+              "scenario": "callable_destination_move",
+              "selector_kind": "comment_region_owned_owner",
+              "comment_region": "leading",
+              "comment_anchored": true,
+              "include_trailing_gap": true,
+              "match_profile": {
+                "start_boundary": "comment_region_start",
+                "end_boundary": "owner_end_plus_trailing_gap",
+                "payload_kind": "comment_owned_body"
+              },
+              "destination_resolution": {
+                "kind": "callable",
+                "anchor_line_match": "require \"kettle/dev\"",
+                "anchor_boundary": "statement_end_plus_following_gap"
+              }
+            }
+          },
+          "result": {
+            "operation_kind": "move",
+            "updated_content": "# frozen_string_literal: true\nrequire \"kettle/dev\"\n### MANAGED SNIPPET\nbegin\n  puts \"new\"\nrescue LoadError\n  warn(\"missing\")\nend\n\n### TEMPLATING TASKS\n",
+            "changed": true,
+            "captured_text": "begin\n  puts \"old\"\nrescue LoadError\n  nil\nend\n",
+            "match_count": 1,
+            "operation_profile": {
+              "operation_kind": "move",
+              "operation_family": "relocation",
+              "known_operation_kind": true,
+              "source_requirement": "optional",
+              "destination_requirement": "optional",
+              "replacement_source": "captured_text_or_explicit",
+              "captures_source_text": true,
+              "supports_if_missing": true,
+              "metadata": {
+                "source": "legacy_crispr_reference"
+              }
+            },
+            "destination_profile": {
+              "resolution_kind": "anchor_after_statement",
+              "resolution_source": "callable",
+              "anchor_boundary": "statement_end_plus_following_gap",
+              "resolution_family": "anchored",
+              "resolution_source_family": "callable",
+              "anchor_boundary_family": "gap_preserving_statement",
+              "known_resolution_kind": true,
+              "known_resolution_source": true,
+              "known_anchor_boundary": true,
+              "used_if_missing": false,
+              "metadata": {
+                "family": "ruby",
+                "parity_scope": "ruby_family",
+                "source": "legacy_crispr_reference",
+                "scenario": "callable_destination_move"
+              }
+            },
+            "metadata": {
+              "family": "ruby",
+              "parity_scope": "ruby_family",
+              "source": "legacy_crispr_reference",
+              "scenario": "callable_destination_move"
+            }
+          },
+          "metadata": {
+            "family": "ruby",
+            "parity_scope": "ruby_family",
+            "source": "legacy_crispr_reference",
+            "scenario": "callable_destination_move"
+          }
+        },
+        "provider_family": "ruby",
+        "diagnostics": [],
+        "metadata": {
+          "reference_backend": "prism",
+          "source": "legacy_crispr_reference",
+          "scenario": "callable_destination_move"
+        }
+      }
+    }
+  ]
+}

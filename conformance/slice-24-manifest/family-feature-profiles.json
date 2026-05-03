@@ -2961,6 +2961,33 @@
           "slice-621-structured-edit-provider-execution-receipt-replay-workflow-apply-result",
           "structured-edit-provider-execution-receipt-replay-workflow-apply-result.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_result_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-622-structured-edit-provider-execution-receipt-replay-workflow-apply-result-transport-envelope",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-result-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_result_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-623-structured-edit-provider-execution-receipt-replay-workflow-apply-result-transport-rejection",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-result-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_result_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-624-structured-edit-provider-execution-receipt-replay-workflow-apply-result-envelope-application",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-result-envelope-application.json"
+        ]
       }
     ],
     "text": [

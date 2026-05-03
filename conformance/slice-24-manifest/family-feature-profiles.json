@@ -2889,6 +2889,69 @@
           "slice-613-structured-edit-provider-execution-receipt-replay-workflow-apply-session",
           "structured-edit-provider-execution-receipt-replay-workflow-apply-session.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_session_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-614-structured-edit-provider-execution-receipt-replay-workflow-apply-session-transport-envelope",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-session-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_session_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-615-structured-edit-provider-execution-receipt-replay-workflow-apply-session-transport-rejection",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-session-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_session_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-616-structured-edit-provider-execution-receipt-replay-workflow-apply-session-envelope-application",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-session-envelope-application.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_session",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-617-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-session",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-session.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_session_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-618-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-session-transport-envelope",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-session-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_session_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-619-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-session-transport-rejection",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-session-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_session_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-620-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-session-envelope-application",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-session-envelope-application.json"
+        ]
       }
     ],
     "text": [

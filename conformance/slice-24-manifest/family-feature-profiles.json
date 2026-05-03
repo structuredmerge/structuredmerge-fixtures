@@ -3276,6 +3276,42 @@
           "slice-656-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-confirmation-envelope-application",
           "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-confirmation-envelope-application.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_confirmation",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-657-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_confirmation_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-658-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation-transport-envelope",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_confirmation_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-659-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation-transport-rejection",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_confirmation_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-660-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation-envelope-application",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation-envelope-application.json"
+        ]
       }
     ],
     "text": [

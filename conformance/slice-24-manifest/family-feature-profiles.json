@@ -2988,6 +2988,42 @@
           "slice-624-structured-edit-provider-execution-receipt-replay-workflow-apply-result-envelope-application",
           "structured-edit-provider-execution-receipt-replay-workflow-apply-result-envelope-application.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_result",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-625-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-result",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-result.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_result_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-626-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-result-transport-envelope",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-result-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_result_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-627-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-result-transport-rejection",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-result-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_result_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-628-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-result-envelope-application",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-result-envelope-application.json"
+        ]
       }
     ],
     "text": [

@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "label": "ruby move request with callable destination descriptor",
+      "request": {
+        "operation_kind": "move",
+        "content": "### MANAGED SNIPPET\nbegin\n  puts \"old\"\nrescue LoadError\n  nil\nend\n\n# frozen_string_literal: true\nrequire \"kettle/dev\"\n\n### TEMPLATING TASKS\n",
+        "source_label": "Rakefile",
+        "target_selector": "managed_snippet",
+        "target_selector_family": "comment_anchor",
+        "payload_text": "### MANAGED SNIPPET\nbegin\n  puts \"new\"\nrescue LoadError\n  warn(\"missing\")\nend\n",
+        "if_missing": "append",
+        "callable_destination": {
+          "strategy_kind": "line_match_anchor",
+          "anchor_text": "require \"kettle/dev\"",
+          "anchor_boundary": "statement_end_plus_following_gap",
+          "anchor_boundary_family": "gap_preserving_statement",
+          "known_anchor_boundary": true,
+          "metadata": {
+            "family": "ruby",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "metadata": {
+          "family": "ruby",
+          "parity_scope": "ruby_family",
+          "source": "legacy_crispr_reference",
+          "scenario": "callable_destination_move"
+        }
+      }
+    }
+  ]
+}

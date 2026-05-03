@@ -3447,6 +3447,15 @@
           "slice-682-structured-edit-crispr-example-parity-report",
           "structured-edit-crispr-example-parity-report.json"
         ]
+      },
+      {
+        "role": "structured_edit_callable_destination_request",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-683-structured-edit-callable-destination-request",
+          "structured-edit-callable-destination-request.json"
+        ]
       }
     ],
     "text": [

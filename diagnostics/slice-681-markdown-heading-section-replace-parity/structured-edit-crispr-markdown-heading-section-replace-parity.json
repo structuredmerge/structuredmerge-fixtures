@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "label": "markdown-family-heading-section-replace",
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "# Title\n\n## Synopsis\n\nOld synopsis.\n\n## Install\n\nInstall text.\n",
+            "source_label": "README.md",
+            "target_selector": "Synopsis@2",
+            "target_selector_family": "section_branch",
+            "payload_text": "## Synopsis\n\nNew synopsis.\n",
+            "metadata": {
+              "family": "markdown",
+              "parity_scope": "markdown_family",
+              "reference_backend": "markly",
+              "source": "legacy_crispr_reference",
+              "scenario": "heading_section_replace",
+              "selector_kind": "heading_section",
+              "heading_text": "Synopsis",
+              "heading_level": 2,
+              "match_profile": {
+                "start_boundary": "owner_start",
+                "end_boundary": "owner_end",
+                "payload_kind": "section_branch"
+              }
+            }
+          },
+          "result": {
+            "operation_kind": "replace",
+            "updated_content": "# Title\n\n## Synopsis\n\nNew synopsis.\n\n## Install\n\nInstall text.\n",
+            "changed": true,
+            "captured_text": "## Synopsis\n\nOld synopsis.\n",
+            "match_count": 1,
+            "operation_profile": {
+              "operation_kind": "replace",
+              "operation_family": "rewrite",
+              "known_operation_kind": true,
+              "source_requirement": "required",
+              "destination_requirement": "none",
+              "replacement_source": "explicit_text",
+              "captures_source_text": true,
+              "supports_if_missing": false,
+              "metadata": {
+                "source": "legacy_crispr_reference"
+              }
+            },
+            "metadata": {
+              "family": "markdown",
+              "parity_scope": "markdown_family",
+              "source": "legacy_crispr_reference",
+              "scenario": "heading_section_replace"
+            }
+          },
+          "metadata": {
+            "family": "markdown",
+            "parity_scope": "markdown_family",
+            "source": "legacy_crispr_reference",
+            "scenario": "heading_section_replace"
+          }
+        },
+        "provider_family": "markdown",
+        "diagnostics": [],
+        "metadata": {
+          "reference_backend": "markly",
+          "source": "legacy_crispr_reference",
+          "scenario": "heading_section_replace"
+        }
+      }
+    }
+  ]
+}

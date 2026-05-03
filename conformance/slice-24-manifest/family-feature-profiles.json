@@ -3429,6 +3429,15 @@
           "slice-680-ruby-callable-destination-move-parity",
           "structured-edit-crispr-ruby-callable-destination-move-parity.json"
         ]
+      },
+      {
+        "role": "structured_edit_crispr_markdown_heading_section_replace_parity",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-681-markdown-heading-section-replace-parity",
+          "structured-edit-crispr-markdown-heading-section-replace-parity.json"
+        ]
       }
     ],
     "text": [

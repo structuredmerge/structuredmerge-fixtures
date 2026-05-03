@@ -2688,6 +2688,14 @@
           "slice-383-template-directory-session-invocation-report",
           "template-directory-session-invocation-report.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_result",
+        "path": [
+          "diagnostics",
+          "slice-589-structured-edit-provider-execution-receipt-replay-workflow-result",
+          "structured-edit-provider-execution-receipt-replay-workflow-result.json"
+        ]
       }
     ],
     "text": [

@@ -2752,6 +2752,14 @@
           "slice-596-structured-edit-provider-batch-execution-receipt-replay-workflow-result-envelope-application",
           "structured-edit-provider-batch-execution-receipt-replay-workflow-result-envelope-application.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_review_request",
+        "path": [
+          "diagnostics",
+          "slice-597-structured-edit-provider-execution-receipt-replay-workflow-review-request",
+          "structured-edit-provider-execution-receipt-replay-workflow-review-request.json"
+        ]
       }
     ],
     "text": [

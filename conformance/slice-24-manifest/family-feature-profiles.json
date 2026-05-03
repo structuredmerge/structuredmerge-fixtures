@@ -3105,6 +3105,33 @@
           "slice-637-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome",
           "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_outcome_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-638-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome-transport-envelope",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_outcome_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-639-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome-transport-rejection",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_outcome_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-640-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome-envelope-application",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome-envelope-application.json"
+        ]
       }
     ],
     "text": [

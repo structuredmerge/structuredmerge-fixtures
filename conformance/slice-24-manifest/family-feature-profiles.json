@@ -3438,6 +3438,15 @@
           "slice-681-markdown-heading-section-replace-parity",
           "structured-edit-crispr-markdown-heading-section-replace-parity.json"
         ]
+      },
+      {
+        "role": "structured_edit_crispr_example_parity_report",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-682-structured-edit-crispr-example-parity-report",
+          "structured-edit-crispr-example-parity-report.json"
+        ]
       }
     ],
     "text": [

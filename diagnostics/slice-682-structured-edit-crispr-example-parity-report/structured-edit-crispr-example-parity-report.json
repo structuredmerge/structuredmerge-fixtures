@@ -1,0 +1,130 @@
+{
+  "report": {
+    "scenarios": [
+      {
+        "scenario": "overmatch_fail_closed",
+        "family": "shared",
+        "reproduced": true,
+        "reference_backend": "prism",
+        "implementation_notes": [
+          "Portable execution-report parity fixture exists.",
+          "Overmatch remains fail-closed with unchanged content."
+        ],
+        "backend_notes": [
+          {
+            "backend": "prism",
+            "scope": "reference_example",
+            "notes": [
+              "Reference behavior reproduced at family level."
+            ]
+          }
+        ]
+      },
+      {
+        "scenario": "append_fallback_insert",
+        "family": "shared",
+        "reproduced": true,
+        "reference_backend": "prism",
+        "implementation_notes": [
+          "Portable execution-report parity fixture exists.",
+          "Append fallback is represented by the shared destination profile."
+        ],
+        "backend_notes": [
+          {
+            "backend": "prism",
+            "scope": "reference_example",
+            "notes": [
+              "Reference behavior reproduced through shared fallback semantics."
+            ]
+          }
+        ]
+      },
+      {
+        "scenario": "comment_owned_rewrite_delete",
+        "family": "ruby",
+        "reproduced": true,
+        "reference_backend": "prism",
+        "implementation_notes": [
+          "Portable execution-report parity fixture exists for replace and delete.",
+          "Comment-owned selector semantics are currently carried in request metadata."
+        ],
+        "backend_notes": [
+          {
+            "backend": "prism",
+            "scope": "reference_example",
+            "notes": [
+              "Reference behavior reproduced."
+            ]
+          },
+          {
+            "backend": "ruby_tree_sitter",
+            "scope": "family_target",
+            "notes": [
+              "Expected family target once equivalent owner and comment-region semantics are surfaced."
+            ]
+          }
+        ]
+      },
+      {
+        "scenario": "callable_destination_move",
+        "family": "ruby",
+        "reproduced": true,
+        "reference_backend": "prism",
+        "implementation_notes": [
+          "Portable execution-report parity fixture exists.",
+          "Callable destination semantics are currently carried in metadata instead of a first-class request field."
+        ],
+        "backend_notes": [
+          {
+            "backend": "prism",
+            "scope": "reference_example",
+            "notes": [
+              "Reference behavior reproduced."
+            ]
+          }
+        ]
+      },
+      {
+        "scenario": "heading_section_replace",
+        "family": "markdown",
+        "reproduced": true,
+        "reference_backend": "markly",
+        "implementation_notes": [
+          "Portable execution-report parity fixture exists.",
+          "Heading-section ownership is represented as section-branch selector semantics."
+        ],
+        "backend_notes": [
+          {
+            "backend": "markly",
+            "scope": "reference_example",
+            "notes": [
+              "Reference behavior reproduced."
+            ]
+          },
+          {
+            "backend": "commonmarker",
+            "scope": "family_target",
+            "notes": [
+              "Expected family target once equivalent heading-section ownership is surfaced."
+            ]
+          },
+          {
+            "backend": "kramdown",
+            "scope": "family_target",
+            "notes": [
+              "Expected family target once equivalent heading-section ownership is surfaced."
+            ]
+          }
+        ]
+      }
+    ],
+    "remaining_gaps": [
+      "The shared structured edit request shape has no first-class callable destination field.",
+      "Selector and match semantics for family-level parity are still carried partly in metadata instead of first-class substrate contracts."
+    ],
+    "metadata": {
+      "source": "legacy_crispr_reference",
+      "parity_scope": "family_level_examples"
+    }
+  }
+}

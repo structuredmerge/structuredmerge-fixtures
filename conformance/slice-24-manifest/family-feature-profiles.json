@@ -3312,6 +3312,78 @@
           "slice-660-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation-envelope-application",
           "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-confirmation-envelope-application.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_closure_report",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-661-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-closure-report",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-closure-report.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_closure_report_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-662-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-closure-report-transport-envelope",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-closure-report-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_closure_report_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-663-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-closure-report-transport-rejection",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-closure-report-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_closure_report_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-664-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-closure-report-envelope-application",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-closure-report-envelope-application.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_closure_report",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-665-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-closure-report",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-closure-report.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_closure_report_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-666-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-closure-report-transport-envelope",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-closure-report-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_closure_report_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-667-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-closure-report-transport-rejection",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-closure-report-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_closure_report_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-668-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-closure-report-envelope-application",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-closure-report-envelope-application.json"
+        ]
       }
     ],
     "text": [

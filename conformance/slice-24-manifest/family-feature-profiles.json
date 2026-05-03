@@ -3168,6 +3168,15 @@
           "slice-644-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome-envelope-application",
           "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome-envelope-application.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_settlement",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-645-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement.json"
+        ]
       }
     ],
     "text": [

@@ -2720,6 +2720,38 @@
           "slice-592-structured-edit-provider-execution-receipt-replay-workflow-result-envelope-application",
           "structured-edit-provider-execution-receipt-replay-workflow-result-envelope-application.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_result",
+        "path": [
+          "diagnostics",
+          "slice-593-structured-edit-provider-batch-execution-receipt-replay-workflow-result",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-result.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_result_envelope",
+        "path": [
+          "diagnostics",
+          "slice-594-structured-edit-provider-batch-execution-receipt-replay-workflow-result-transport-envelope",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-result-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_result_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-595-structured-edit-provider-batch-execution-receipt-replay-workflow-result-transport-rejection",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-result-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_result_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-596-structured-edit-provider-batch-execution-receipt-replay-workflow-result-envelope-application",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-result-envelope-application.json"
+        ]
       }
     ],
     "text": [

@@ -3132,6 +3132,42 @@
           "slice-640-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome-envelope-application",
           "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-outcome-envelope-application.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_outcome",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-641-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_outcome_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-642-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome-transport-envelope",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_outcome_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-643-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome-transport-rejection",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_workflow_apply_decision_outcome_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-644-structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome-envelope-application",
+          "structured-edit-provider-batch-execution-receipt-replay-workflow-apply-decision-outcome-envelope-application.json"
+        ]
       }
     ],
     "text": [

@@ -2050,6 +2050,70 @@
         ]
       },
       {
+        "role": "structured_edit_provider_execution_receipt_replay_session",
+        "path": [
+          "diagnostics",
+          "slice-573-structured-edit-provider-execution-receipt-replay-session",
+          "structured-edit-provider-execution-receipt-replay-session.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_session_envelope",
+        "path": [
+          "diagnostics",
+          "slice-574-structured-edit-provider-execution-receipt-replay-session-transport-envelope",
+          "structured-edit-provider-execution-receipt-replay-session-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_session_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-575-structured-edit-provider-execution-receipt-replay-session-transport-rejection",
+          "structured-edit-provider-execution-receipt-replay-session-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_session_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-576-structured-edit-provider-execution-receipt-replay-session-envelope-application",
+          "structured-edit-provider-execution-receipt-replay-session-envelope-application.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_session",
+        "path": [
+          "diagnostics",
+          "slice-577-structured-edit-provider-batch-execution-receipt-replay-session",
+          "structured-edit-provider-batch-execution-receipt-replay-session.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_session_envelope",
+        "path": [
+          "diagnostics",
+          "slice-578-structured-edit-provider-batch-execution-receipt-replay-session-transport-envelope",
+          "structured-edit-provider-batch-execution-receipt-replay-session-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_session_envelope_rejection",
+        "path": [
+          "diagnostics",
+          "slice-579-structured-edit-provider-batch-execution-receipt-replay-session-transport-rejection",
+          "structured-edit-provider-batch-execution-receipt-replay-session-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_batch_execution_receipt_replay_session_envelope_application",
+        "path": [
+          "diagnostics",
+          "slice-580-structured-edit-provider-batch-execution-receipt-replay-session-envelope-application",
+          "structured-edit-provider-batch-execution-receipt-replay-session-envelope-application.json"
+        ]
+      },
+      {
         "role": "projected_child_review_groups",
         "path": [
           "diagnostics",

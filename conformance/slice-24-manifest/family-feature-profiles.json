@@ -3177,6 +3177,33 @@
           "slice-645-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement",
           "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_settlement_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-646-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement-transport-envelope",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_settlement_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-647-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement-transport-rejection",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_provider_execution_receipt_replay_workflow_apply_decision_settlement_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-648-structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement-envelope-application",
+          "structured-edit-provider-execution-receipt-replay-workflow-apply-decision-settlement-envelope-application.json"
+        ]
       }
     ],
     "text": [

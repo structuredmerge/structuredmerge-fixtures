@@ -1,0 +1,72 @@
+{
+  "cases": [
+    {
+      "label": "ruby comment owned managed snippet match",
+      "request": {
+        "operation_kind": "replace",
+        "content": "class App\n  # managed snippet\n  old_call\nend\n",
+        "source_label": "app.rb",
+        "target_selector": "managed_snippet",
+        "target_selector_family": "comment_anchor",
+        "target_match": {
+          "start_boundary": "comment_region_start",
+          "start_boundary_family": "comment_anchor",
+          "known_start_boundary": true,
+          "end_boundary": "owner_end_plus_trailing_gap",
+          "end_boundary_family": "gap_extension",
+          "known_end_boundary": true,
+          "payload_kind": "comment_owned_body",
+          "payload_family": "comment_owned",
+          "known_payload_kind": true,
+          "comment_anchored": true,
+          "trailing_gap_extended": true,
+          "metadata": {
+            "family": "ruby",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "payload_text": "new_call\n",
+        "metadata": {
+          "family": "ruby",
+          "parity_scope": "ruby_family",
+          "source": "legacy_crispr_reference",
+          "scenario": "comment_owned_rewrite_delete"
+        }
+      }
+    },
+    {
+      "label": "markdown heading section branch match",
+      "request": {
+        "operation_kind": "replace",
+        "content": "# Title\n\n## Synopsis\n\nOld synopsis.\n\n## Install\n\nInstall text.\n",
+        "source_label": "README.md",
+        "target_selector": "Synopsis@2",
+        "target_selector_family": "section_branch",
+        "target_match": {
+          "start_boundary": "owner_start",
+          "start_boundary_family": "structural_owner",
+          "known_start_boundary": true,
+          "end_boundary": "owner_end",
+          "end_boundary_family": "structural_owner",
+          "known_end_boundary": true,
+          "payload_kind": "section_branch",
+          "payload_family": "section_branch",
+          "known_payload_kind": true,
+          "comment_anchored": false,
+          "trailing_gap_extended": false,
+          "metadata": {
+            "family": "markdown",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "payload_text": "## Synopsis\n\nNew synopsis.\n",
+        "metadata": {
+          "family": "markdown",
+          "parity_scope": "markdown_family",
+          "source": "legacy_crispr_reference",
+          "scenario": "heading_section_replace"
+        }
+      }
+    }
+  ]
+}

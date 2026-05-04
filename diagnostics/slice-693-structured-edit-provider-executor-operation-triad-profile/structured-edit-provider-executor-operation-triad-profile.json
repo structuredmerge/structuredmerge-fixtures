@@ -1,0 +1,129 @@
+{
+  "cases": [
+    {
+      "label": "generic provider executor advertises structured edit triad",
+      "executor_profile": {
+        "provider_family": "generic_ast",
+        "provider_backend": "triad_reference",
+        "executor_label": "generic_ast::structured_edit::triad",
+        "structure_profile": {
+          "owner_scope": "ast_node",
+          "owner_selector": "node_selector",
+          "owner_selector_family": "ast_node",
+          "known_owner_selector": true,
+          "supported_comment_regions": [],
+          "metadata": {
+            "source": "structured_edit_substrate"
+          }
+        },
+        "selection_profile": {
+          "owner_scope": "ast_node",
+          "owner_selector": "node_selector",
+          "owner_selector_family": "ast_node",
+          "selector_kind": "ast_node",
+          "selection_intent": "node",
+          "selection_intent_family": "ast_node",
+          "known_selection_intent": true,
+          "comment_region": null,
+          "include_trailing_gap": false,
+          "comment_anchored": false,
+          "metadata": {
+            "source": "structured_edit_substrate"
+          }
+        },
+        "match_profile": {
+          "start_boundary": "node_start",
+          "start_boundary_family": "ast_node",
+          "known_start_boundary": true,
+          "end_boundary": "node_end",
+          "end_boundary_family": "ast_node",
+          "known_end_boundary": true,
+          "payload_kind": "node_text",
+          "payload_family": "ast_node",
+          "known_payload_kind": true,
+          "comment_anchored": false,
+          "trailing_gap_extended": false,
+          "metadata": {
+            "source": "structured_edit_substrate"
+          }
+        },
+        "operation_profiles": [
+          {
+            "operation_kind": "insert",
+            "operation_family": "insertion",
+            "known_operation_kind": true,
+            "source_requirement": "none",
+            "destination_requirement": "optional",
+            "replacement_source": "explicit_text",
+            "captures_source_text": false,
+            "supports_if_missing": true,
+            "metadata": {
+              "source": "structured_edit_substrate"
+            }
+          },
+          {
+            "operation_kind": "replace",
+            "operation_family": "rewrite",
+            "known_operation_kind": true,
+            "source_requirement": "required",
+            "destination_requirement": "none",
+            "replacement_source": "explicit_text",
+            "captures_source_text": true,
+            "supports_if_missing": false,
+            "metadata": {
+              "source": "structured_edit_substrate"
+            }
+          },
+          {
+            "operation_kind": "delete",
+            "operation_family": "removal",
+            "known_operation_kind": true,
+            "source_requirement": "required",
+            "destination_requirement": "none",
+            "replacement_source": "none",
+            "captures_source_text": true,
+            "supports_if_missing": false,
+            "metadata": {
+              "source": "structured_edit_substrate"
+            }
+          }
+        ],
+        "destination_profile": {
+          "resolution_kind": "selector",
+          "resolution_source": "destination_selector",
+          "anchor_boundary": "after",
+          "resolution_family": "ast_insertion_point",
+          "resolution_source_family": "explicit_selector",
+          "anchor_boundary_family": "node_boundary",
+          "known_resolution_kind": true,
+          "known_resolution_source": true,
+          "known_anchor_boundary": true,
+          "used_if_missing": false,
+          "metadata": {
+            "source": "structured_edit_substrate"
+          }
+        },
+        "metadata": {
+          "canonical_operation_kinds": [
+            "insert",
+            "replace",
+            "delete"
+          ],
+          "parity_scope": "provider_executor_operation_triad",
+          "remove_alias_encoded": false,
+          "source": "structured_edit_substrate"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "canonical_operation_kinds": [
+      "insert",
+      "replace",
+      "delete"
+    ],
+    "parity_scope": "provider_executor_operation_triad",
+    "remove_alias_encoded": false,
+    "source": "structured_edit_substrate"
+  }
+}

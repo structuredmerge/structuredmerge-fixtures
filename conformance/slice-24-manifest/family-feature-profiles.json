@@ -3519,6 +3519,15 @@
           "slice-692-structured-edit-operation-triad-parity",
           "structured-edit-operation-triad-parity.json"
         ]
+      },
+      {
+        "role": "structured_edit_provider_executor_operation_triad_profile",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-693-structured-edit-provider-executor-operation-triad-profile",
+          "structured-edit-provider-executor-operation-triad-profile.json"
+        ]
       }
     ],
     "text": [

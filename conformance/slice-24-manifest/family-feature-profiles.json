@@ -3636,6 +3636,15 @@
           "slice-706-ruby-gemspec-version-loader-policy-acceptance",
           "ruby-gemspec-version-loader-policy-acceptance.json"
         ]
+      },
+      {
+        "role": "project_facts_runtime_context",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-707-project-facts-runtime-context",
+          "project-facts-runtime-context.json"
+        ]
       }
     ],
     "text": [

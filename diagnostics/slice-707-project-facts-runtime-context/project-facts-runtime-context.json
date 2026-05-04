@@ -1,0 +1,347 @@
+{
+  "cases": [
+    {
+      "label": "dependency-floor-comments-from-project-facts",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_dependency_floor_comment_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\n  spec.add_dependency(\"logger\", \">= 0\")\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  # Runtime dependency\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\n  spec.add_dependency(\"logger\", \">= 0\")\nend\n",
+          "steps": [
+            {
+              "step_id": "align-dependency-floor-comments",
+              "step_kind": "native_policy",
+              "name": "align dependency Ruby floor comments",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "dependency_floor_comment_alignment",
+                "required_fact_id": "dependency.ruby_floor"
+              },
+              "metadata": {
+                "source": "project_facts_runtime_context"
+              }
+            }
+          ],
+          "runtime_context": {
+            "project_facts": {
+              "schema": "project_facts.v1",
+              "producer": "kettle-jem-wrapper",
+              "facts": [
+                {
+                  "fact_id": "ruby.minimum_version",
+                  "subject_kind": "runtime",
+                  "subject": "ruby",
+                  "value": "3.2",
+                  "source": "resolved_gemspec",
+                  "confidence": "resolved"
+                },
+                {
+                  "fact_id": "gem.identity",
+                  "subject_kind": "project",
+                  "subject": "demo",
+                  "value": {
+                    "name": "demo",
+                    "namespace": "Demo",
+                    "entrypoint_require": "demo"
+                  },
+                  "source": "wrapper_configuration",
+                  "confidence": "resolved"
+                },
+                {
+                  "fact_id": "dependency.ruby_floor",
+                  "subject_kind": "dependency",
+                  "subject": "bigdecimal",
+                  "value": {
+                    "dependency_name": "bigdecimal",
+                    "dependency_kind": "runtime",
+                    "ruby_floor": "< 3.4",
+                    "comment": "Required for Ruby < 3.4."
+                  },
+                  "source": "resolver",
+                  "confidence": "resolved"
+                },
+                {
+                  "fact_id": "dependency.ruby_floor",
+                  "subject_kind": "dependency",
+                  "subject": "logger",
+                  "value": {
+                    "dependency_name": "logger",
+                    "dependency_kind": "runtime",
+                    "ruby_floor": "< 3.5",
+                    "comment": "Required for Ruby < 3.5."
+                  },
+                  "source": "resolver",
+                  "confidence": "resolved"
+                }
+              ]
+            }
+          },
+          "metadata": {
+            "source": "project_facts_runtime_context",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_dependency_floor_comment_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\n  spec.add_dependency(\"logger\", \">= 0\")\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  # Runtime dependency\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\n  spec.add_dependency(\"logger\", \">= 0\")\nend\n",
+            "steps": [
+              {
+                "step_id": "align-dependency-floor-comments",
+                "step_kind": "native_policy",
+                "name": "align dependency Ruby floor comments",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "dependency_floor_comment_alignment",
+                  "required_fact_id": "dependency.ruby_floor"
+                },
+                "metadata": {
+                  "source": "project_facts_runtime_context"
+                }
+              }
+            ],
+            "runtime_context": {
+              "project_facts": {
+                "schema": "project_facts.v1",
+                "producer": "kettle-jem-wrapper",
+                "facts": [
+                  {
+                    "fact_id": "ruby.minimum_version",
+                    "subject_kind": "runtime",
+                    "subject": "ruby",
+                    "value": "3.2",
+                    "source": "resolved_gemspec",
+                    "confidence": "resolved"
+                  },
+                  {
+                    "fact_id": "gem.identity",
+                    "subject_kind": "project",
+                    "subject": "demo",
+                    "value": {
+                      "name": "demo",
+                      "namespace": "Demo",
+                      "entrypoint_require": "demo"
+                    },
+                    "source": "wrapper_configuration",
+                    "confidence": "resolved"
+                  },
+                  {
+                    "fact_id": "dependency.ruby_floor",
+                    "subject_kind": "dependency",
+                    "subject": "bigdecimal",
+                    "value": {
+                      "dependency_name": "bigdecimal",
+                      "dependency_kind": "runtime",
+                      "ruby_floor": "< 3.4",
+                      "comment": "Required for Ruby < 3.4."
+                    },
+                    "source": "resolver",
+                    "confidence": "resolved"
+                  },
+                  {
+                    "fact_id": "dependency.ruby_floor",
+                    "subject_kind": "dependency",
+                    "subject": "logger",
+                    "value": {
+                      "dependency_name": "logger",
+                      "dependency_kind": "runtime",
+                      "ruby_floor": "< 3.5",
+                      "comment": "Required for Ruby < 3.5."
+                    },
+                    "source": "resolver",
+                    "confidence": "resolved"
+                  }
+                ]
+              }
+            },
+            "metadata": {
+              "source": "project_facts_runtime_context",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  # Required for Ruby < 3.4.\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\n  # Required for Ruby < 3.5.\n  spec.add_dependency(\"logger\", \">= 0\")\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "align-dependency-floor-comments",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |spec|\n  # Runtime dependency\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\n  spec.add_dependency(\"logger\", \">= 0\")\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  # Required for Ruby < 3.4.\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\n  # Required for Ruby < 3.5.\n  spec.add_dependency(\"logger\", \">= 0\")\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "dependency_floor_comment_alignment",
+                "consumed_fact_id": "dependency.ruby_floor",
+                "source": "project_facts_runtime_context"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "project_facts_runtime_context"
+          }
+        }
+      }
+    },
+    {
+      "label": "dependency-floor-comments-missing-project-facts-fail-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_dependency_floor_comment_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\nend\n",
+          "steps": [
+            {
+              "step_id": "align-dependency-floor-comments",
+              "step_kind": "native_policy",
+              "name": "align dependency Ruby floor comments",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "dependency_floor_comment_alignment",
+                "required_fact_id": "dependency.ruby_floor"
+              },
+              "metadata": {
+                "source": "project_facts_runtime_context"
+              }
+            }
+          ],
+          "runtime_context": {
+            "project_facts": {
+              "schema": "project_facts.v1",
+              "producer": "kettle-jem-wrapper",
+              "facts": [
+                {
+                  "fact_id": "ruby.minimum_version",
+                  "subject_kind": "runtime",
+                  "subject": "ruby",
+                  "value": "3.2",
+                  "source": "resolved_gemspec",
+                  "confidence": "resolved"
+                }
+              ]
+            }
+          },
+          "metadata": {
+            "source": "project_facts_runtime_context",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_dependency_floor_comment_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\nend\n",
+            "steps": [
+              {
+                "step_id": "align-dependency-floor-comments",
+                "step_kind": "native_policy",
+                "name": "align dependency Ruby floor comments",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "dependency_floor_comment_alignment",
+                  "required_fact_id": "dependency.ruby_floor"
+                },
+                "metadata": {
+                  "source": "project_facts_runtime_context"
+                }
+              }
+            ],
+            "runtime_context": {
+              "project_facts": {
+                "schema": "project_facts.v1",
+                "producer": "kettle-jem-wrapper",
+                "facts": [
+                  {
+                    "fact_id": "ruby.minimum_version",
+                    "subject_kind": "runtime",
+                    "subject": "ruby",
+                    "value": "3.2",
+                    "source": "resolved_gemspec",
+                    "confidence": "resolved"
+                  }
+                ]
+              }
+            },
+            "metadata": {
+              "source": "project_facts_runtime_context",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\nend\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "align-dependency-floor-comments",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.add_dependency(\"bigdecimal\", \">= 0\")\nend\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "dependency floor comments require dependency.ruby_floor project facts",
+                  "metadata": {
+                    "missing_fact_id": "dependency.ruby_floor"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "dependency_floor_comment_alignment",
+                "source": "project_facts_runtime_context"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "dependency floor comments require dependency.ruby_floor project facts",
+              "metadata": {
+                "missing_fact_id": "dependency.ruby_floor"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "project_facts_runtime_context"
+          }
+        }
+      }
+    }
+  ]
+}

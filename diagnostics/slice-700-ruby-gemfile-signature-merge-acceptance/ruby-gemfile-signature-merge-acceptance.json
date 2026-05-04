@@ -1,0 +1,406 @@
+{
+  "cases": [
+    {
+      "label": "gemfile-signature-merge-adds-and-replaces-declarations",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemfile_signature_merge",
+          "recipe_version": "1",
+          "relative_path": "Gemfile",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "# frozen_string_literal: true\n\nsource \"https://gem.coop\"\n\nruby \"3.2.0\"\n\ngit_source(:codeberg) { |repo_name| \"https://codeberg.org/#{repo_name}\" }\n\ngemspec\n\ngem \"rake\", \"~> 13.0\"\n\ngroup :development, :test do\n  gem \"rspec\", \"~> 3.13\"\nend\n\neval_gemfile \"gemfiles/modular/style.gemfile\"\neval_gemfile \"../../erb/r4/v5.0.gemfile\"\n",
+          "destination_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\ngit_source(:github) { |repo_name| \"https://github.com/#{repo_name}\" }\n\ngemspec\n\ngem \"rake\", \"~> 12.0\"\n\n# Local dev tools\ngroup :development, :test do\n  gem \"rspec\", \"~> 3.12\"\n  gem \"debug\", \"~> 1.9\"\nend\n\neval_gemfile \"../../erb/r3/v5.0.gemfile\"\n\ngem \"yard\", \"~> 0.9\"\n",
+          "steps": [
+            {
+              "step_id": "merge-gemfile-declarations",
+              "step_kind": "smart_merge",
+              "name": "merge Gemfile declarations by signature",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "merge_profile": {
+                "preference": "template",
+                "add_missing": true,
+                "signature_profile": "gemfile_declarations",
+                "signature_rules": [
+                  {
+                    "node_kind": "call",
+                    "call_name": "source",
+                    "signature": [
+                      "source"
+                    ],
+                    "cardinality": "singleton"
+                  },
+                  {
+                    "node_kind": "call",
+                    "call_name": "ruby",
+                    "signature": [
+                      "ruby"
+                    ],
+                    "cardinality": "singleton"
+                  },
+                  {
+                    "node_kind": "call",
+                    "call_name": "git_source",
+                    "signature": [
+                      "git_source",
+                      "first_symbol_argument"
+                    ]
+                  },
+                  {
+                    "node_kind": "call",
+                    "call_name": "gem",
+                    "signature": [
+                      "gem",
+                      "first_string_argument",
+                      "declaration_context"
+                    ]
+                  },
+                  {
+                    "node_kind": "block",
+                    "call_name": "group",
+                    "signature": [
+                      "group",
+                      "symbol_argument_set"
+                    ]
+                  },
+                  {
+                    "node_kind": "call",
+                    "call_name": "eval_gemfile",
+                    "signature": [
+                      "eval_gemfile",
+                      "normalized_path_without_ruby_bucket"
+                    ]
+                  }
+                ],
+                "failure_policies": [
+                  "cross_nesting_duplicate_gems_fail_closed"
+                ]
+              },
+              "metadata": {
+                "source": "ruby_gemfile_signature_merge_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "declaration_context_policy": "block_signature",
+            "path_normalizations": [
+              {
+                "name": "strip_ruby_version_bucket",
+                "pattern": "/r\\d+/"
+              }
+            ]
+          },
+          "metadata": {
+            "source": "ruby_gemfile_signature_merge_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemfile_signature_merge",
+            "recipe_version": "1",
+            "relative_path": "Gemfile",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "# frozen_string_literal: true\n\nsource \"https://gem.coop\"\n\nruby \"3.2.0\"\n\ngit_source(:codeberg) { |repo_name| \"https://codeberg.org/#{repo_name}\" }\n\ngemspec\n\ngem \"rake\", \"~> 13.0\"\n\ngroup :development, :test do\n  gem \"rspec\", \"~> 3.13\"\nend\n\neval_gemfile \"gemfiles/modular/style.gemfile\"\neval_gemfile \"../../erb/r4/v5.0.gemfile\"\n",
+            "destination_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\ngit_source(:github) { |repo_name| \"https://github.com/#{repo_name}\" }\n\ngemspec\n\ngem \"rake\", \"~> 12.0\"\n\n# Local dev tools\ngroup :development, :test do\n  gem \"rspec\", \"~> 3.12\"\n  gem \"debug\", \"~> 1.9\"\nend\n\neval_gemfile \"../../erb/r3/v5.0.gemfile\"\n\ngem \"yard\", \"~> 0.9\"\n",
+            "steps": [
+              {
+                "step_id": "merge-gemfile-declarations",
+                "step_kind": "smart_merge",
+                "name": "merge Gemfile declarations by signature",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "merge_profile": {
+                  "preference": "template",
+                  "add_missing": true,
+                  "signature_profile": "gemfile_declarations",
+                  "signature_rules": [
+                    {
+                      "node_kind": "call",
+                      "call_name": "source",
+                      "signature": [
+                        "source"
+                      ],
+                      "cardinality": "singleton"
+                    },
+                    {
+                      "node_kind": "call",
+                      "call_name": "ruby",
+                      "signature": [
+                        "ruby"
+                      ],
+                      "cardinality": "singleton"
+                    },
+                    {
+                      "node_kind": "call",
+                      "call_name": "git_source",
+                      "signature": [
+                        "git_source",
+                        "first_symbol_argument"
+                      ]
+                    },
+                    {
+                      "node_kind": "call",
+                      "call_name": "gem",
+                      "signature": [
+                        "gem",
+                        "first_string_argument",
+                        "declaration_context"
+                      ]
+                    },
+                    {
+                      "node_kind": "block",
+                      "call_name": "group",
+                      "signature": [
+                        "group",
+                        "symbol_argument_set"
+                      ]
+                    },
+                    {
+                      "node_kind": "call",
+                      "call_name": "eval_gemfile",
+                      "signature": [
+                        "eval_gemfile",
+                        "normalized_path_without_ruby_bucket"
+                      ]
+                    }
+                  ],
+                  "failure_policies": [
+                    "cross_nesting_duplicate_gems_fail_closed"
+                  ]
+                },
+                "metadata": {
+                  "source": "ruby_gemfile_signature_merge_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "declaration_context_policy": "block_signature",
+              "path_normalizations": [
+                {
+                  "name": "strip_ruby_version_bucket",
+                  "pattern": "/r\\d+/"
+                }
+              ]
+            },
+            "metadata": {
+              "source": "ruby_gemfile_signature_merge_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# frozen_string_literal: true\n\nsource \"https://gem.coop\"\n\nruby \"3.2.0\"\n\ngit_source(:codeberg) { |repo_name| \"https://codeberg.org/#{repo_name}\" }\ngit_source(:github) { |repo_name| \"https://github.com/#{repo_name}\" }\n\ngemspec\n\ngem \"rake\", \"~> 13.0\"\n\n# Local dev tools\ngroup :development, :test do\n  gem \"rspec\", \"~> 3.13\"\n  gem \"debug\", \"~> 1.9\"\nend\n\neval_gemfile \"gemfiles/modular/style.gemfile\"\neval_gemfile \"../../erb/r4/v5.0.gemfile\"\n\ngem \"yard\", \"~> 0.9\"\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "merge-gemfile-declarations",
+              "step_kind": "smart_merge",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\ngit_source(:github) { |repo_name| \"https://github.com/#{repo_name}\" }\n\ngemspec\n\ngem \"rake\", \"~> 12.0\"\n\n# Local dev tools\ngroup :development, :test do\n  gem \"rspec\", \"~> 3.12\"\n  gem \"debug\", \"~> 1.9\"\nend\n\neval_gemfile \"../../erb/r3/v5.0.gemfile\"\n\ngem \"yard\", \"~> 0.9\"\n",
+              "output_content": "# frozen_string_literal: true\n\nsource \"https://gem.coop\"\n\nruby \"3.2.0\"\n\ngit_source(:codeberg) { |repo_name| \"https://codeberg.org/#{repo_name}\" }\ngit_source(:github) { |repo_name| \"https://github.com/#{repo_name}\" }\n\ngemspec\n\ngem \"rake\", \"~> 13.0\"\n\n# Local dev tools\ngroup :development, :test do\n  gem \"rspec\", \"~> 3.13\"\n  gem \"debug\", \"~> 1.9\"\nend\n\neval_gemfile \"gemfiles/modular/style.gemfile\"\neval_gemfile \"../../erb/r4/v5.0.gemfile\"\n\ngem \"yard\", \"~> 0.9\"\n",
+              "diagnostics": [],
+              "metadata": {
+                "signature_profile": "gemfile_declarations",
+                "matched_signatures": [
+                  [
+                    "source"
+                  ],
+                  [
+                    "gem",
+                    "rake",
+                    "top-level"
+                  ],
+                  [
+                    "group",
+                    "development,test"
+                  ],
+                  [
+                    "gem",
+                    "rspec",
+                    "group(:development,:test)"
+                  ],
+                  [
+                    "eval_gemfile",
+                    "../../erb/v5.0.gemfile"
+                  ]
+                ],
+                "added_signatures": [
+                  [
+                    "ruby"
+                  ],
+                  [
+                    "git_source",
+                    "codeberg"
+                  ],
+                  [
+                    "eval_gemfile",
+                    "gemfiles/modular/style.gemfile"
+                  ]
+                ],
+                "preserved_destination_only_signatures": [
+                  [
+                    "git_source",
+                    "github"
+                  ],
+                  [
+                    "gem",
+                    "debug",
+                    "group(:development,:test)"
+                  ],
+                  [
+                    "gem",
+                    "yard",
+                    "top-level"
+                  ]
+                ],
+                "source": "ruby_gemfile_signature_merge_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_gemfile_signature_merge_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "gemfile-cross-nesting-duplicates-fail-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemfile_signature_merge",
+          "recipe_version": "1",
+          "relative_path": "gemfiles/modular/style.gemfile",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "group :development do\n  gem \"rubocop-lts\", \"~> 10.0\"\nend\n",
+          "destination_content": "gem \"rubocop-lts\", path: \"../rubocop-lts\"\n\ngroup :development do\n  gem \"rubocop-lts\", \"~> 9.0\"\nend\n",
+          "steps": [
+            {
+              "step_id": "merge-gemfile-declarations",
+              "step_kind": "smart_merge",
+              "name": "merge Gemfile declarations by signature",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "merge_profile": {
+                "preference": "template",
+                "add_missing": true,
+                "signature_profile": "gemfile_declarations",
+                "failure_policies": [
+                  "cross_nesting_duplicate_gems_fail_closed"
+                ]
+              },
+              "metadata": {
+                "source": "ruby_gemfile_signature_merge_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "declaration_context_policy": "block_signature"
+          },
+          "metadata": {
+            "source": "ruby_gemfile_signature_merge_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemfile_signature_merge",
+            "recipe_version": "1",
+            "relative_path": "gemfiles/modular/style.gemfile",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "group :development do\n  gem \"rubocop-lts\", \"~> 10.0\"\nend\n",
+            "destination_content": "gem \"rubocop-lts\", path: \"../rubocop-lts\"\n\ngroup :development do\n  gem \"rubocop-lts\", \"~> 9.0\"\nend\n",
+            "steps": [
+              {
+                "step_id": "merge-gemfile-declarations",
+                "step_kind": "smart_merge",
+                "name": "merge Gemfile declarations by signature",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "merge_profile": {
+                  "preference": "template",
+                  "add_missing": true,
+                  "signature_profile": "gemfile_declarations",
+                  "failure_policies": [
+                    "cross_nesting_duplicate_gems_fail_closed"
+                  ]
+                },
+                "metadata": {
+                  "source": "ruby_gemfile_signature_merge_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "declaration_context_policy": "block_signature"
+            },
+            "metadata": {
+              "source": "ruby_gemfile_signature_merge_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "gem \"rubocop-lts\", path: \"../rubocop-lts\"\n\ngroup :development do\n  gem \"rubocop-lts\", \"~> 9.0\"\nend\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "merge-gemfile-declarations",
+              "step_kind": "smart_merge",
+              "status": "failed",
+              "changed": false,
+              "input_content": "gem \"rubocop-lts\", path: \"../rubocop-lts\"\n\ngroup :development do\n  gem \"rubocop-lts\", \"~> 9.0\"\nend\n",
+              "output_content": "gem \"rubocop-lts\", path: \"../rubocop-lts\"\n\ngroup :development do\n  gem \"rubocop-lts\", \"~> 9.0\"\nend\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "ambiguity",
+                  "message": "gem \"rubocop-lts\" appears in multiple declaration contexts: top-level and group(:development)."
+                }
+              ],
+              "metadata": {
+                "signature_profile": "gemfile_declarations",
+                "conflicting_signatures": [
+                  [
+                    "gem",
+                    "rubocop-lts",
+                    "top-level"
+                  ],
+                  [
+                    "gem",
+                    "rubocop-lts",
+                    "group(:development)"
+                  ]
+                ],
+                "source": "ruby_gemfile_signature_merge_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "ambiguity",
+              "message": "Gemfile merge failed closed because a gem declaration appeared in multiple block signatures."
+            }
+          ],
+          "metadata": {
+            "source": "ruby_gemfile_signature_merge_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

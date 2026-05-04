@@ -3573,6 +3573,15 @@
           "slice-699-native-structured-edit-recipe-steps",
           "native-structured-edit-recipe-steps.json"
         ]
+      },
+      {
+        "role": "ruby_gemfile_signature_merge_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-700-ruby-gemfile-signature-merge-acceptance",
+          "ruby-gemfile-signature-merge-acceptance.json"
+        ]
       }
     ],
     "text": [

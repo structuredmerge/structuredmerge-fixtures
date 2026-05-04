@@ -1,0 +1,353 @@
+{
+  "cases": [
+    {
+      "label": "structured-edit-triad-recipe-steps",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "generic_ast_structured_edit_triad",
+          "recipe_version": "1",
+          "relative_path": "component.ast",
+          "provider_family": "generic_ast",
+          "provider_backend": "generic_regions",
+          "template_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n}\n",
+          "destination_content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+          "steps": [
+            {
+              "step_id": "replace-managed-setup",
+              "step_kind": "structured_edit",
+              "name": "replace managed setup body",
+              "provider_family": "generic_ast",
+              "structured_edit_request": {
+                "operation_kind": "replace",
+                "content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                "source_label": "component.ast",
+                "target_selector": "region:managed:setup",
+                "target_selector_family": "ast_region",
+                "payload_text": "    new_call()\n",
+                "metadata": {
+                  "source": "native_structured_edit_recipe_steps"
+                }
+              },
+              "metadata": {
+                "source": "native_structured_edit_recipe_steps"
+              }
+            },
+            {
+              "step_id": "insert-managed-region",
+              "step_kind": "structured_edit",
+              "name": "insert managed region after anchor",
+              "provider_family": "generic_ast",
+              "structured_edit_request": {
+                "operation_kind": "insert",
+                "content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                "source_label": "component.ast",
+                "destination_selector": "anchor:ready",
+                "destination_selector_family": "ast_anchor",
+                "payload_text": "  region managed:inserted {\n    inserted_call()\n  }\n",
+                "if_missing": "append",
+                "metadata": {
+                  "source": "native_structured_edit_recipe_steps"
+                }
+              },
+              "metadata": {
+                "source": "native_structured_edit_recipe_steps"
+              }
+            },
+            {
+              "step_id": "delete-obsolete-region",
+              "step_kind": "structured_edit",
+              "name": "delete obsolete legacy region",
+              "provider_family": "generic_ast",
+              "structured_edit_request": {
+                "operation_kind": "delete",
+                "content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                "source_label": "component.ast",
+                "target_selector": "region:obsolete:legacy",
+                "target_selector_family": "ast_region",
+                "metadata": {
+                  "source": "native_structured_edit_recipe_steps"
+                }
+              },
+              "metadata": {
+                "source": "native_structured_edit_recipe_steps"
+              }
+            }
+          ],
+          "runtime_context": {
+            "operation_order": [
+              "replace",
+              "insert",
+              "delete"
+            ]
+          },
+          "metadata": {
+            "source": "native_structured_edit_recipe_steps"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "generic_ast_structured_edit_triad",
+            "recipe_version": "1",
+            "relative_path": "component.ast",
+            "provider_family": "generic_ast",
+            "provider_backend": "generic_regions",
+            "template_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n}\n",
+            "destination_content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+            "steps": [
+              {
+                "step_id": "replace-managed-setup",
+                "step_kind": "structured_edit",
+                "name": "replace managed setup body",
+                "provider_family": "generic_ast",
+                "structured_edit_request": {
+                  "operation_kind": "replace",
+                  "content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                  "source_label": "component.ast",
+                  "target_selector": "region:managed:setup",
+                  "target_selector_family": "ast_region",
+                  "payload_text": "    new_call()\n",
+                  "metadata": {
+                    "source": "native_structured_edit_recipe_steps"
+                  }
+                },
+                "metadata": {
+                  "source": "native_structured_edit_recipe_steps"
+                }
+              },
+              {
+                "step_id": "insert-managed-region",
+                "step_kind": "structured_edit",
+                "name": "insert managed region after anchor",
+                "provider_family": "generic_ast",
+                "structured_edit_request": {
+                  "operation_kind": "insert",
+                  "content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                  "source_label": "component.ast",
+                  "destination_selector": "anchor:ready",
+                  "destination_selector_family": "ast_anchor",
+                  "payload_text": "  region managed:inserted {\n    inserted_call()\n  }\n",
+                  "if_missing": "append",
+                  "metadata": {
+                    "source": "native_structured_edit_recipe_steps"
+                  }
+                },
+                "metadata": {
+                  "source": "native_structured_edit_recipe_steps"
+                }
+              },
+              {
+                "step_id": "delete-obsolete-region",
+                "step_kind": "structured_edit",
+                "name": "delete obsolete legacy region",
+                "provider_family": "generic_ast",
+                "structured_edit_request": {
+                  "operation_kind": "delete",
+                  "content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                  "source_label": "component.ast",
+                  "target_selector": "region:obsolete:legacy",
+                  "target_selector_family": "ast_region",
+                  "metadata": {
+                    "source": "native_structured_edit_recipe_steps"
+                  }
+                },
+                "metadata": {
+                  "source": "native_structured_edit_recipe_steps"
+                }
+              }
+            ],
+            "runtime_context": {
+              "operation_order": [
+                "replace",
+                "insert",
+                "delete"
+              ]
+            },
+            "metadata": {
+              "source": "native_structured_edit_recipe_steps"
+            }
+          },
+          "final_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n}\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "replace-managed-setup",
+              "step_kind": "structured_edit",
+              "status": "applied",
+              "changed": true,
+              "input_content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+              "output_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+              "application": {
+                "request": {
+                  "operation_kind": "replace",
+                  "content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                  "source_label": "component.ast",
+                  "target_selector": "region:managed:setup",
+                  "target_selector_family": "ast_region",
+                  "payload_text": "    new_call()\n",
+                  "metadata": {
+                    "source": "native_structured_edit_recipe_steps"
+                  }
+                },
+                "result": {
+                  "operation_kind": "replace",
+                  "updated_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                  "changed": true,
+                  "captured_text": "    old_call()\n",
+                  "match_count": 1,
+                  "operation_profile": {
+                    "operation_kind": "replace",
+                    "operation_family": "rewrite",
+                    "known_operation_kind": true,
+                    "source_requirement": "required",
+                    "destination_requirement": "none",
+                    "replacement_source": "explicit_text",
+                    "captures_source_text": true,
+                    "supports_if_missing": false,
+                    "metadata": {
+                      "source": "native_structured_edit_recipe_steps"
+                    }
+                  },
+                  "metadata": {
+                    "source": "native_structured_edit_recipe_steps"
+                  }
+                },
+                "metadata": {
+                  "source": "native_structured_edit_recipe_steps"
+                }
+              },
+              "diagnostics": [],
+              "metadata": {
+                "source": "native_structured_edit_recipe_steps"
+              }
+            },
+            {
+              "step_id": "insert-managed-region",
+              "step_kind": "structured_edit",
+              "status": "applied",
+              "changed": true,
+              "input_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+              "output_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+              "application": {
+                "request": {
+                  "operation_kind": "insert",
+                  "content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                  "source_label": "component.ast",
+                  "destination_selector": "anchor:ready",
+                  "destination_selector_family": "ast_anchor",
+                  "payload_text": "  region managed:inserted {\n    inserted_call()\n  }\n",
+                  "if_missing": "append",
+                  "metadata": {
+                    "source": "native_structured_edit_recipe_steps"
+                  }
+                },
+                "result": {
+                  "operation_kind": "insert",
+                  "updated_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                  "changed": true,
+                  "operation_profile": {
+                    "operation_kind": "insert",
+                    "operation_family": "insertion",
+                    "known_operation_kind": true,
+                    "source_requirement": "none",
+                    "destination_requirement": "optional",
+                    "replacement_source": "explicit_text",
+                    "captures_source_text": false,
+                    "supports_if_missing": true,
+                    "metadata": {
+                      "source": "native_structured_edit_recipe_steps"
+                    }
+                  },
+                  "destination_profile": {
+                    "resolution_kind": "selector",
+                    "resolution_source": "destination_selector",
+                    "anchor_boundary": "after",
+                    "resolution_family": "ast_anchor",
+                    "resolution_source_family": "explicit_selector",
+                    "anchor_boundary_family": "node_boundary",
+                    "known_resolution_kind": true,
+                    "known_resolution_source": true,
+                    "known_anchor_boundary": true,
+                    "used_if_missing": false,
+                    "metadata": {
+                      "source": "native_structured_edit_recipe_steps"
+                    }
+                  },
+                  "metadata": {
+                    "source": "native_structured_edit_recipe_steps"
+                  }
+                },
+                "metadata": {
+                  "source": "native_structured_edit_recipe_steps"
+                }
+              },
+              "diagnostics": [],
+              "metadata": {
+                "source": "native_structured_edit_recipe_steps"
+              }
+            },
+            {
+              "step_id": "delete-obsolete-region",
+              "step_kind": "structured_edit",
+              "status": "applied",
+              "changed": true,
+              "input_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+              "output_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n}\n",
+              "application": {
+                "request": {
+                  "operation_kind": "delete",
+                  "content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+                  "source_label": "component.ast",
+                  "target_selector": "region:obsolete:legacy",
+                  "target_selector_family": "ast_region",
+                  "metadata": {
+                    "source": "native_structured_edit_recipe_steps"
+                  }
+                },
+                "result": {
+                  "operation_kind": "delete",
+                  "updated_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n}\n",
+                  "changed": true,
+                  "captured_text": "  region obsolete:legacy {\n    stale_call()\n  }\n",
+                  "match_count": 1,
+                  "operation_profile": {
+                    "operation_kind": "delete",
+                    "operation_family": "removal",
+                    "known_operation_kind": true,
+                    "source_requirement": "required",
+                    "destination_requirement": "none",
+                    "replacement_source": "none",
+                    "captures_source_text": true,
+                    "supports_if_missing": false,
+                    "metadata": {
+                      "source": "native_structured_edit_recipe_steps"
+                    }
+                  },
+                  "metadata": {
+                    "source": "native_structured_edit_recipe_steps"
+                  }
+                },
+                "metadata": {
+                  "source": "native_structured_edit_recipe_steps"
+                }
+              },
+              "diagnostics": [],
+              "metadata": {
+                "source": "native_structured_edit_recipe_steps"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "native_structured_edit_recipe_steps"
+          }
+        }
+      }
+    }
+  ]
+}

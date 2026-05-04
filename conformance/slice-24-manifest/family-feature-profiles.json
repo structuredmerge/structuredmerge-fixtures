@@ -3564,6 +3564,15 @@
           "slice-698-single-file-readme-heading-section-acceptance",
           "single-file-readme-heading-section-acceptance.json"
         ]
+      },
+      {
+        "role": "native_structured_edit_recipe_steps",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-699-native-structured-edit-recipe-steps",
+          "native-structured-edit-recipe-steps.json"
+        ]
       }
     ],
     "text": [

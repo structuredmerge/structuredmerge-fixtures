@@ -3645,6 +3645,15 @@
           "slice-707-project-facts-runtime-context",
           "project-facts-runtime-context.json"
         ]
+      },
+      {
+        "role": "ruby_gemspec_self_dependency_policy_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-708-ruby-gemspec-self-dependency-policy-acceptance",
+          "ruby-gemspec-self-dependency-policy-acceptance.json"
+        ]
       }
     ],
     "text": [

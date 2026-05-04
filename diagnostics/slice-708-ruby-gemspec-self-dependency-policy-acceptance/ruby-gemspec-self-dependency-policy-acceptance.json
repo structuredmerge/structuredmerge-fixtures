@@ -1,0 +1,278 @@
+{
+  "cases": [
+    {
+      "label": "delete-active-self-dependencies-preserve-comments",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_self_dependency_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.add_dependency \"demo\", \"~> 1.0\"\n  spec.add_runtime_dependency(\"demo\", \">= 1.0\")\n  spec.add_development_dependency \"rspec\", \"~> 3.0\"\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  # spec.add_dependency \"demo\", \"~> 0\"\n  # Keep this explanatory comment.\n  spec.add_dependency \"demo\", \"~> 1.0\"\n  spec.add_runtime_dependency(\"demo\", \">= 1.0\")\n  spec.add_development_dependency \"demo\", \">= 0\"\n  spec.add_development_dependency \"rspec\", \"~> 3.0\"\nend\n",
+          "steps": [
+            {
+              "step_id": "delete-self-dependencies",
+              "step_kind": "native_policy",
+              "name": "delete active gemspec self dependencies",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "delete_self_dependency",
+                "required_fact_id": "gem.identity",
+                "operation": "delete",
+                "dependency_methods": [
+                  "add_dependency",
+                  "add_runtime_dependency",
+                  "add_development_dependency"
+                ]
+              },
+              "metadata": {
+                "source": "ruby_gemspec_self_dependency_policy_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "project_facts": {
+              "schema": "project_facts.v1",
+              "producer": "kettle-jem-wrapper",
+              "facts": [
+                {
+                  "fact_id": "gem.identity",
+                  "subject_kind": "project",
+                  "subject": "demo",
+                  "value": {
+                    "name": "demo",
+                    "namespace": "Demo",
+                    "entrypoint_require": "demo"
+                  },
+                  "source": "wrapper_configuration",
+                  "confidence": "resolved"
+                }
+              ]
+            }
+          },
+          "metadata": {
+            "source": "ruby_gemspec_self_dependency_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_self_dependency_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.add_dependency \"demo\", \"~> 1.0\"\n  spec.add_runtime_dependency(\"demo\", \">= 1.0\")\n  spec.add_development_dependency \"rspec\", \"~> 3.0\"\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  # spec.add_dependency \"demo\", \"~> 0\"\n  # Keep this explanatory comment.\n  spec.add_dependency \"demo\", \"~> 1.0\"\n  spec.add_runtime_dependency(\"demo\", \">= 1.0\")\n  spec.add_development_dependency \"demo\", \">= 0\"\n  spec.add_development_dependency \"rspec\", \"~> 3.0\"\nend\n",
+            "steps": [
+              {
+                "step_id": "delete-self-dependencies",
+                "step_kind": "native_policy",
+                "name": "delete active gemspec self dependencies",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "delete_self_dependency",
+                  "required_fact_id": "gem.identity",
+                  "operation": "delete",
+                  "dependency_methods": [
+                    "add_dependency",
+                    "add_runtime_dependency",
+                    "add_development_dependency"
+                  ]
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_self_dependency_policy_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "project_facts": {
+                "schema": "project_facts.v1",
+                "producer": "kettle-jem-wrapper",
+                "facts": [
+                  {
+                    "fact_id": "gem.identity",
+                    "subject_kind": "project",
+                    "subject": "demo",
+                    "value": {
+                      "name": "demo",
+                      "namespace": "Demo",
+                      "entrypoint_require": "demo"
+                    },
+                    "source": "wrapper_configuration",
+                    "confidence": "resolved"
+                  }
+                ]
+              }
+            },
+            "metadata": {
+              "source": "ruby_gemspec_self_dependency_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  # spec.add_dependency \"demo\", \"~> 0\"\n  # Keep this explanatory comment.\n  spec.add_development_dependency \"rspec\", \"~> 3.0\"\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "delete-self-dependencies",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  # spec.add_dependency \"demo\", \"~> 0\"\n  # Keep this explanatory comment.\n  spec.add_dependency \"demo\", \"~> 1.0\"\n  spec.add_runtime_dependency(\"demo\", \">= 1.0\")\n  spec.add_development_dependency \"demo\", \">= 0\"\n  spec.add_development_dependency \"rspec\", \"~> 3.0\"\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  # spec.add_dependency \"demo\", \"~> 0\"\n  # Keep this explanatory comment.\n  spec.add_development_dependency \"rspec\", \"~> 3.0\"\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "delete_self_dependency",
+                "operation": "delete",
+                "consumed_fact_id": "gem.identity",
+                "deleted_dependency_count": 3,
+                "source": "ruby_gemspec_self_dependency_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_gemspec_self_dependency_policy_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-project-identity-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_self_dependency_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.add_dependency \"demo\", \"~> 1.0\"\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  spec.add_dependency \"demo\", \"~> 1.0\"\nend\n",
+          "steps": [
+            {
+              "step_id": "delete-self-dependencies",
+              "step_kind": "native_policy",
+              "name": "delete active gemspec self dependencies",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "delete_self_dependency",
+                "required_fact_id": "gem.identity",
+                "operation": "delete"
+              },
+              "metadata": {
+                "source": "ruby_gemspec_self_dependency_policy_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "project_facts": {
+              "schema": "project_facts.v1",
+              "producer": "kettle-jem-wrapper",
+              "facts": []
+            }
+          },
+          "metadata": {
+            "source": "ruby_gemspec_self_dependency_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_self_dependency_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.add_dependency \"demo\", \"~> 1.0\"\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  spec.add_dependency \"demo\", \"~> 1.0\"\nend\n",
+            "steps": [
+              {
+                "step_id": "delete-self-dependencies",
+                "step_kind": "native_policy",
+                "name": "delete active gemspec self dependencies",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "delete_self_dependency",
+                  "required_fact_id": "gem.identity",
+                  "operation": "delete"
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_self_dependency_policy_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "project_facts": {
+                "schema": "project_facts.v1",
+                "producer": "kettle-jem-wrapper",
+                "facts": []
+              }
+            },
+            "metadata": {
+              "source": "ruby_gemspec_self_dependency_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  spec.add_dependency \"demo\", \"~> 1.0\"\nend\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "delete-self-dependencies",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.add_dependency \"demo\", \"~> 1.0\"\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.add_dependency \"demo\", \"~> 1.0\"\nend\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "self-dependency deletion requires gem.identity project facts",
+                  "metadata": {
+                    "missing_fact_id": "gem.identity"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "delete_self_dependency",
+                "operation": "delete",
+                "source": "ruby_gemspec_self_dependency_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "self-dependency deletion requires gem.identity project facts",
+              "metadata": {
+                "missing_fact_id": "gem.identity"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "ruby_gemspec_self_dependency_policy_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "report": {
+    "scenarios": [
+      {
+        "scenario": "comment_owned_rewrite_delete",
+        "family": "ruby",
+        "reproduced": true,
+        "reference_backend": "prism",
+        "implementation_notes": [
+          "Portable execution-report parity fixture exists for replace and delete.",
+          "Comment-owned selection semantics are represented by the first-class target_selection request descriptor.",
+          "Comment-owned match boundaries and payload semantics are represented by the first-class target_match request descriptor."
+        ],
+        "backend_notes": [
+          {
+            "backend": "prism",
+            "scope": "reference_example",
+            "notes": [
+              "Reference behavior reproduced."
+            ]
+          },
+          {
+            "backend": "ruby_tree_sitter",
+            "scope": "family_target",
+            "notes": [
+              "Equivalent owner and comment-region semantics now have a shared request substrate."
+            ]
+          }
+        ]
+      },
+      {
+        "scenario": "callable_destination_move",
+        "family": "ruby",
+        "reproduced": true,
+        "reference_backend": "prism",
+        "implementation_notes": [
+          "Portable execution-report parity fixture exists.",
+          "Callable destination semantics are represented by the first-class callable_destination request descriptor.",
+          "Callable-destination requests can be transported through the generic structured_edit_request envelope."
+        ],
+        "backend_notes": [
+          {
+            "backend": "prism",
+            "scope": "reference_example",
+            "notes": [
+              "Reference behavior reproduced."
+            ]
+          }
+        ]
+      },
+      {
+        "scenario": "heading_section_replace",
+        "family": "markdown",
+        "reproduced": true,
+        "reference_backend": "markly",
+        "implementation_notes": [
+          "Portable execution-report parity fixture exists.",
+          "Heading-section selection semantics are represented by the first-class target_selection request descriptor.",
+          "Heading-section match boundaries and section-branch payload semantics are represented by the first-class target_match request descriptor."
+        ],
+        "backend_notes": [
+          {
+            "backend": "markly",
+            "scope": "reference_example",
+            "notes": [
+              "Reference behavior reproduced."
+            ]
+          },
+          {
+            "backend": "commonmarker",
+            "scope": "family_target",
+            "notes": [
+              "Equivalent heading-section ownership now has a shared request substrate."
+            ]
+          },
+          {
+            "backend": "kramdown",
+            "scope": "family_target",
+            "notes": [
+              "Equivalent heading-section ownership now has a shared request substrate."
+            ]
+          }
+        ]
+      }
+    ],
+    "remaining_gaps": [
+      "Provider executors can now adopt callable_destination, target_selection, and target_match directly and retire compatibility metadata as follow-up."
+    ],
+    "metadata": {
+      "source": "legacy_crispr_reference",
+      "parity_scope": "family_level_examples",
+      "supersedes": "slice-682-structured-edit-crispr-example-parity-report"
+    }
+  }
+}

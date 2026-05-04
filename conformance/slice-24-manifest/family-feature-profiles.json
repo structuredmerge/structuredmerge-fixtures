@@ -3654,6 +3654,15 @@
           "slice-708-ruby-gemspec-self-dependency-policy-acceptance",
           "ruby-gemspec-self-dependency-policy-acceptance.json"
         ]
+      },
+      {
+        "role": "ruby_gemfile_self_dependency_policy_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-709-ruby-gemfile-self-dependency-policy-acceptance",
+          "ruby-gemfile-self-dependency-policy-acceptance.json"
+        ]
       }
     ],
     "text": [

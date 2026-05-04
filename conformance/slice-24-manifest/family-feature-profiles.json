@@ -3609,6 +3609,15 @@
           "slice-703-ruby-gemspec-field-policy-acceptance",
           "ruby-gemspec-field-policy-acceptance.json"
         ]
+      },
+      {
+        "role": "ruby_gemspec_dependency_section_policy_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-704-ruby-gemspec-dependency-section-policy-acceptance",
+          "ruby-gemspec-dependency-section-policy-acceptance.json"
+        ]
       }
     ],
     "text": [

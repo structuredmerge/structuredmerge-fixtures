@@ -1,0 +1,111 @@
+{
+  "cases": [
+    {
+      "label": "gemspec-dependency-section-normalization",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_dependency_section_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.add_dependency(\"json\", \">= 2.0\")\n\n  # NOTE: It is preferable to list development dependencies in the gemspec due to increased\n  #       visibility and discoverability.\n\n  spec.add_development_dependency(\"rspec\", \"~> 3.13\")\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n\n  # NOTE: It is preferable to list development dependencies in the gemspec due to increased\n  #       visibility and discoverability.\n\n  spec.add_development_dependency(\"json\", \">= 2.0\")\n  spec.add_development_dependency(\"rubocop\", \"~> 1.80\")\n\n  # Runtime dependency discovered after the development note\n  spec.add_dependency(\"json\", \">= 2.0\")\nend\n",
+          "steps": [
+            {
+              "step_id": "normalize-dependency-sections",
+              "step_kind": "native_policy",
+              "name": "normalize dependency sections",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "normalize_dependency_sections",
+                "remove_runtime_shadowed_development_dependencies": true,
+                "relocate_runtime_dependencies_before_development_note": true,
+                "preserve_destination_only_development_dependencies": true,
+                "move_attached_comments_with_dependency": true
+              },
+              "metadata": {
+                "source": "ruby_gemspec_dependency_section_policy_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "ruby_gemspec_dependency_section_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_dependency_section_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.add_dependency(\"json\", \">= 2.0\")\n\n  # NOTE: It is preferable to list development dependencies in the gemspec due to increased\n  #       visibility and discoverability.\n\n  spec.add_development_dependency(\"rspec\", \"~> 3.13\")\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n\n  # NOTE: It is preferable to list development dependencies in the gemspec due to increased\n  #       visibility and discoverability.\n\n  spec.add_development_dependency(\"json\", \">= 2.0\")\n  spec.add_development_dependency(\"rubocop\", \"~> 1.80\")\n\n  # Runtime dependency discovered after the development note\n  spec.add_dependency(\"json\", \">= 2.0\")\nend\n",
+            "steps": [
+              {
+                "step_id": "normalize-dependency-sections",
+                "step_kind": "native_policy",
+                "name": "normalize dependency sections",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "normalize_dependency_sections",
+                  "remove_runtime_shadowed_development_dependencies": true,
+                  "relocate_runtime_dependencies_before_development_note": true,
+                  "preserve_destination_only_development_dependencies": true,
+                  "move_attached_comments_with_dependency": true
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_dependency_section_policy_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "ruby_gemspec_dependency_section_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n\n  # Runtime dependency discovered after the development note\n  spec.add_dependency(\"json\", \">= 2.0\")\n\n  # NOTE: It is preferable to list development dependencies in the gemspec due to increased\n  #       visibility and discoverability.\n\n  spec.add_development_dependency(\"rubocop\", \"~> 1.80\")\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "normalize-dependency-sections",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n\n  # NOTE: It is preferable to list development dependencies in the gemspec due to increased\n  #       visibility and discoverability.\n\n  spec.add_development_dependency(\"json\", \">= 2.0\")\n  spec.add_development_dependency(\"rubocop\", \"~> 1.80\")\n\n  # Runtime dependency discovered after the development note\n  spec.add_dependency(\"json\", \">= 2.0\")\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n\n  # Runtime dependency discovered after the development note\n  spec.add_dependency(\"json\", \">= 2.0\")\n\n  # NOTE: It is preferable to list development dependencies in the gemspec due to increased\n  #       visibility and discoverability.\n\n  spec.add_development_dependency(\"rubocop\", \"~> 1.80\")\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "normalize_dependency_sections",
+                "removed_shadowed_development_dependencies": [
+                  "json"
+                ],
+                "relocated_runtime_dependencies": [
+                  "json"
+                ],
+                "preserved_destination_only_development_dependencies": [
+                  "rubocop"
+                ],
+                "source": "ruby_gemspec_dependency_section_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_gemspec_dependency_section_policy_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

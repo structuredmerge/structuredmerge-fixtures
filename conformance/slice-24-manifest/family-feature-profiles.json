@@ -3537,6 +3537,15 @@
           "slice-695-structured-edit-crispr-acceptance-scenario",
           "structured-edit-crispr-acceptance-scenario.json"
         ]
+      },
+      {
+        "role": "structured_edit_kettle_jem_primitive_gap_report",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-696-kettle-jem-templating-primitive-gap-report",
+          "kettle-jem-templating-primitive-gap-report.json"
+        ]
       }
     ],
     "text": [

@@ -1,0 +1,276 @@
+{
+  "report": {
+    "reference_project": "reference/kettle-jem",
+    "scope": "single_file_content_templating",
+    "product_target": "provider_neutral_ast_merge_and_crispr_recipe_execution",
+    "current_substrate": [
+      {
+        "capability": "structured_edit_operation_triad",
+        "status": "available",
+        "evidence": [
+          "slice-692-structured-edit-operation-triad-parity",
+          "slice-693-structured-edit-provider-executor-operation-triad-profile",
+          "slice-695-structured-edit-crispr-acceptance-scenario"
+        ],
+        "notes": [
+          "The canonical operation kinds are insert, replace, and delete.",
+          "No remove operation kind or alias is part of the shared contract."
+        ]
+      },
+      {
+        "capability": "target_selection_and_match_descriptors",
+        "status": "available",
+        "evidence": [
+          "slice-687-structured-edit-parity-selection-semantics",
+          "slice-688-structured-edit-parity-match-semantics"
+        ],
+        "notes": [
+          "CRISPR owner and payload boundaries can be carried as first-class request descriptors."
+        ]
+      },
+      {
+        "capability": "callable_destination_descriptor",
+        "status": "available",
+        "evidence": [
+          "slice-683-structured-edit-callable-destination-request",
+          "slice-684-structured-edit-callable-destination-request-transport-envelope",
+          "slice-686-structured-edit-callable-destination-request-transport-application"
+        ],
+        "notes": [
+          "Callable destination semantics can be transported as data, but recipe execution still needs a portable step envelope."
+        ]
+      },
+      {
+        "capability": "provider_neutral_acceptance_report",
+        "status": "available",
+        "evidence": [
+          "slice-695-structured-edit-crispr-acceptance-scenario"
+        ],
+        "notes": [
+          "Provider-neutral replace, insert, delete, and ambiguity fail-closed semantics are represented as execution reports."
+        ]
+      }
+    ],
+    "required_primitives": [
+      {
+        "name": "content_recipe_envelope",
+        "capability_kind": "recipe_execution",
+        "portability_status": "required_next",
+        "native_contract": "Represent template content, destination content, ordered steps, runtime context, final content, diagnostics, and step reports without file-system orchestration.",
+        "source_references": [
+          "Kettle::Jem::SourceMerger.apply",
+          "Ast::Merge::Recipe::Runner#run_content"
+        ],
+        "depends_on": [
+          "structured_edit_request",
+          "structured_edit_execution_report"
+        ],
+        "notes": [
+          "This is the immediate bridge between fixture-only CRISPR acceptance and executable templating recipes."
+        ]
+      },
+      {
+        "name": "recipe_step_envelope",
+        "capability_kind": "recipe_execution",
+        "portability_status": "required_next",
+        "native_contract": "Represent ordered smart_merge, partial_merge, and structured_edit steps as declarative data with deterministic per-step reports.",
+        "source_references": [
+          "Ast::Merge::Recipe::Config#execution_steps",
+          "Ast::Merge::Recipe::Runner#execute_step"
+        ],
+        "depends_on": [
+          "content_recipe_envelope"
+        ],
+        "notes": [
+          "The shared step kinds should be native primitives, not arbitrary Ruby script execution."
+        ]
+      },
+      {
+        "name": "heading_section_selector",
+        "capability_kind": "selector",
+        "portability_status": "required_next",
+        "native_contract": "Select a heading-owned section branch by normalized heading text, level constraints, and same-or-shallower boundary semantics.",
+        "source_references": [
+          "Kettle::Jem::Crispr::Selectors.heading_section",
+          "Kettle::Jem::MarkdownMerger.preserve_sections"
+        ],
+        "depends_on": [
+          "target_selection_and_match_descriptors"
+        ],
+        "notes": [
+          "This is the best first real-world acceptance target because README preservation is structurally generic."
+        ]
+      },
+      {
+        "name": "comment_region_owned_selector",
+        "capability_kind": "selector",
+        "portability_status": "required_follow_up",
+        "native_contract": "Select a structural owner plus leading comment region marker, with explicit match limits and trailing-gap ownership.",
+        "source_references": [
+          "Kettle::Jem::Crispr::Selectors.comment_region_owned_owner",
+          "Kettle::Jem::RakefileScaffoldSelectors"
+        ],
+        "depends_on": [
+          "target_selection_and_match_descriptors",
+          "native_delete_recipe_step"
+        ],
+        "notes": [
+          "This covers Rakefile scaffold cleanup and other managed Ruby source chunks."
+        ]
+      },
+      {
+        "name": "native_replace_recipe_step",
+        "capability_kind": "structured_edit_step",
+        "portability_status": "required_next",
+        "native_contract": "Execute a replace request inside a recipe step, fail closed on cardinality mismatch, and report captured text, changed status, and diagnostics.",
+        "source_references": [
+          "Kettle::Jem::Crispr::Replace"
+        ],
+        "depends_on": [
+          "recipe_step_envelope",
+          "structured_edit_operation_triad"
+        ],
+        "notes": [
+          "This should reuse the shared structured-edit request/result/application shape."
+        ]
+      },
+      {
+        "name": "native_insert_recipe_step",
+        "capability_kind": "structured_edit_step",
+        "portability_status": "required_next",
+        "native_contract": "Execute an insert request inside a recipe step, including explicit destination anchors and if_missing append behavior.",
+        "source_references": [
+          "Kettle::Jem::Crispr::Insert"
+        ],
+        "depends_on": [
+          "recipe_step_envelope",
+          "structured_edit_operation_triad"
+        ],
+        "notes": [
+          "This is needed for template-managed snippets that must be inserted near an anchor."
+        ]
+      },
+      {
+        "name": "native_delete_recipe_step",
+        "capability_kind": "structured_edit_step",
+        "portability_status": "required_next",
+        "native_contract": "Execute a delete request inside a recipe step using canonical operation_kind delete.",
+        "source_references": [
+          "Kettle::Jem::Crispr::Delete"
+        ],
+        "depends_on": [
+          "recipe_step_envelope",
+          "structured_edit_operation_triad"
+        ],
+        "notes": [
+          "Conversational remove maps to delete for discussion only and must not be encoded as an alias."
+        ]
+      },
+      {
+        "name": "declarative_signature_matching",
+        "capability_kind": "smart_merge_profile",
+        "portability_status": "required_follow_up",
+        "native_contract": "Represent node signatures for matching declarations without executable language-specific callbacks.",
+        "source_references": [
+          "lib/kettle/jem/recipes/gemfile/signature_generator.rb",
+          "Kettle::Jem::Signatures.gemfile",
+          "Kettle::Jem::Signatures.gemspec"
+        ],
+        "depends_on": [
+          "content_recipe_envelope"
+        ],
+        "notes": [
+          "Gemfile and gemspec templating need match profiles for source, ruby, git_source, gem, group, eval_gemfile, assignments, and dependencies."
+        ]
+      },
+      {
+        "name": "named_native_policy",
+        "capability_kind": "policy",
+        "portability_status": "required_follow_up",
+        "native_contract": "Represent domain policies such as preserve README sections, preserve semantic H1, canonicalize Unreleased changelog headings, and rewrite gemspec fields as named portable policies with diagnostics.",
+        "source_references": [
+          "Kettle::Jem::MarkdownMerger.preserve_sections",
+          "Kettle::Jem::MarkdownMerger.preserve_h1",
+          "Kettle::Jem::ChangelogMerger.merge_unreleased_content",
+          "Kettle::Jem::PrismGemspec"
+        ],
+        "depends_on": [
+          "recipe_step_envelope",
+          "heading_section_selector",
+          "declarative_signature_matching"
+        ],
+        "notes": [
+          "Policies may be implemented natively per language, but their request and report shape must remain shared."
+        ]
+      }
+    ],
+    "script_classifications": [
+      {
+        "source": "ruby_script recipe step",
+        "classification": "not_shared_api",
+        "shared_contract": "Translate each behavior into a declarative primitive or named native policy.",
+        "notes": [
+          "Do not add arbitrary Ruby, JavaScript, Go, or Rust script execution to the shared recipe contract."
+        ]
+      },
+      {
+        "source": "readme/preserve_sections.rb",
+        "classification": "named_native_policy",
+        "shared_contract": "preserve_destination_heading_section_bodies",
+        "notes": [
+          "Uses heading-section selectors and replace steps."
+        ]
+      },
+      {
+        "source": "readme/preserve_h1.rb",
+        "classification": "named_native_policy",
+        "shared_contract": "preserve_semantic_h1_when_title_differs",
+        "notes": [
+          "This is a narrow heading-line policy because an H1 section may span the whole document."
+        ]
+      },
+      {
+        "source": "rakefile/scaffold_*.rb",
+        "classification": "native_delete_step",
+        "shared_contract": "delete_comment_or_signature_owned_scaffold_chunk",
+        "notes": [
+          "Uses structural selectors, fuzzy/satellite match metadata, and canonical delete."
+        ]
+      },
+      {
+        "source": "gemspec/harmonize.rb",
+        "classification": "named_native_policy",
+        "shared_contract": "harmonize_gemspec_metadata_and_dependencies",
+        "notes": [
+          "Should become portable policy diagnostics rather than a Ruby callback."
+        ]
+      },
+      {
+        "source": "changelog/merge_unreleased.rb",
+        "classification": "named_native_policy",
+        "shared_contract": "canonicalize_changelog_unreleased_section",
+        "notes": [
+          "Requires heading-section replacement plus ordered list-item preservation."
+        ]
+      }
+    ],
+    "non_goals": [
+      "Do not port kettle-jem's RubyGem scaffold orchestration as part of ast-merge or ast-crispr.",
+      "Do not require Prism or Markly projection APIs in Go, Rust, or TypeScript.",
+      "Do not encode remove as an operation kind or alias.",
+      "Do not add arbitrary executable script callbacks to the shared recipe contract.",
+      "Do not include token resolution in the AST merge substrate; assume template content is already resolved."
+    ],
+    "next_slices": [
+      "slice-697-content-recipe-step-envelope",
+      "slice-698-single-file-readme-heading-section-acceptance",
+      "slice-699-native-structured-edit-recipe-steps",
+      "slice-700-ruby-gemfile-signature-merge-acceptance"
+    ],
+    "metadata": {
+      "source": "kettle_jem_reference_analysis",
+      "reference_scope": "single_file_merge_recipes",
+      "provider_specific_apis_are_reference_probes": true
+    }
+  }
+}

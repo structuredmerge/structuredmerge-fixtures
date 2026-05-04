@@ -1,0 +1,296 @@
+{
+  "cases": [
+    {
+      "label": "prune-supplied-table-rows-and-reference-definitions",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_markdown_pruning",
+          "recipe_version": "1",
+          "relative_path": "README.md",
+          "provider_family": "markdown",
+          "provider_backend": "generic_markdown_ast",
+          "template_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n",
+          "destination_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n| Works with JRuby | [jruby-9.4] [jruby-head] |\n\n[ruby-3.2]: https://example.test/ruby-3.2\n[jruby-9.4]: https://example.test/jruby-9.4\n[jruby-head]: https://example.test/jruby-head\n",
+          "steps": [
+            {
+              "step_id": "prune-markdown-table-rows",
+              "step_kind": "native_policy",
+              "name": "prune supplied Markdown table rows",
+              "provider_family": "markdown",
+              "provider_backend": "generic_markdown_ast",
+              "policy": {
+                "policy_kind": "prune_markdown_table_rows",
+                "required_context": "prune_selectors.table_row_prefixes",
+                "operation": "delete",
+                "match_limit": {
+                  "at_least": 1
+                }
+              },
+              "metadata": {
+                "source": "supplied_markdown_pruning_acceptance"
+              }
+            },
+            {
+              "step_id": "prune-reference-definitions",
+              "step_kind": "native_policy",
+              "name": "prune supplied Markdown reference definitions",
+              "provider_family": "markdown",
+              "provider_backend": "generic_markdown_ast",
+              "policy": {
+                "policy_kind": "prune_markdown_reference_definitions",
+                "required_context": "prune_selectors.reference_labels",
+                "operation": "delete",
+                "match_limit": {
+                  "at_least": 1
+                }
+              },
+              "metadata": {
+                "source": "supplied_markdown_pruning_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "prune_selectors": {
+              "table_row_prefixes": [
+                "| Works with JRuby"
+              ],
+              "reference_labels": [
+                "jruby-9.4",
+                "jruby-head"
+              ],
+              "source": "wrapper_supplied_compatibility_policy"
+            }
+          },
+          "metadata": {
+            "source": "supplied_markdown_pruning_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_markdown_pruning",
+            "recipe_version": "1",
+            "relative_path": "README.md",
+            "provider_family": "markdown",
+            "provider_backend": "generic_markdown_ast",
+            "template_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n",
+            "destination_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n| Works with JRuby | [jruby-9.4] [jruby-head] |\n\n[ruby-3.2]: https://example.test/ruby-3.2\n[jruby-9.4]: https://example.test/jruby-9.4\n[jruby-head]: https://example.test/jruby-head\n",
+            "steps": [
+              {
+                "step_id": "prune-markdown-table-rows",
+                "step_kind": "native_policy",
+                "name": "prune supplied Markdown table rows",
+                "provider_family": "markdown",
+                "provider_backend": "generic_markdown_ast",
+                "policy": {
+                  "policy_kind": "prune_markdown_table_rows",
+                  "required_context": "prune_selectors.table_row_prefixes",
+                  "operation": "delete",
+                  "match_limit": {
+                    "at_least": 1
+                  }
+                },
+                "metadata": {
+                  "source": "supplied_markdown_pruning_acceptance"
+                }
+              },
+              {
+                "step_id": "prune-reference-definitions",
+                "step_kind": "native_policy",
+                "name": "prune supplied Markdown reference definitions",
+                "provider_family": "markdown",
+                "provider_backend": "generic_markdown_ast",
+                "policy": {
+                  "policy_kind": "prune_markdown_reference_definitions",
+                  "required_context": "prune_selectors.reference_labels",
+                  "operation": "delete",
+                  "match_limit": {
+                    "at_least": 1
+                  }
+                },
+                "metadata": {
+                  "source": "supplied_markdown_pruning_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "prune_selectors": {
+                "table_row_prefixes": [
+                  "| Works with JRuby"
+                ],
+                "reference_labels": [
+                  "jruby-9.4",
+                  "jruby-head"
+                ],
+                "source": "wrapper_supplied_compatibility_policy"
+              }
+            },
+            "metadata": {
+              "source": "supplied_markdown_pruning_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n\n[ruby-3.2]: https://example.test/ruby-3.2\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "prune-markdown-table-rows",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n| Works with JRuby | [jruby-9.4] [jruby-head] |\n\n[ruby-3.2]: https://example.test/ruby-3.2\n[jruby-9.4]: https://example.test/jruby-9.4\n[jruby-head]: https://example.test/jruby-head\n",
+              "output_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n\n[ruby-3.2]: https://example.test/ruby-3.2\n[jruby-9.4]: https://example.test/jruby-9.4\n[jruby-head]: https://example.test/jruby-head\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "prune_markdown_table_rows",
+                "operation": "delete",
+                "consumed_context": "prune_selectors.table_row_prefixes",
+                "deleted_rows": 1,
+                "source": "supplied_markdown_pruning_acceptance"
+              }
+            },
+            {
+              "step_id": "prune-reference-definitions",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n\n[ruby-3.2]: https://example.test/ruby-3.2\n[jruby-9.4]: https://example.test/jruby-9.4\n[jruby-head]: https://example.test/jruby-head\n",
+              "output_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n\n[ruby-3.2]: https://example.test/ruby-3.2\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "prune_markdown_reference_definitions",
+                "operation": "delete",
+                "consumed_context": "prune_selectors.reference_labels",
+                "deleted_reference_definitions": 2,
+                "source": "supplied_markdown_pruning_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "supplied_markdown_pruning_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-prune-selectors-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_markdown_pruning",
+          "recipe_version": "1",
+          "relative_path": "README.md",
+          "provider_family": "markdown",
+          "provider_backend": "generic_markdown_ast",
+          "template_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n",
+          "destination_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n| Works with JRuby | [jruby-9.4] |\n",
+          "steps": [
+            {
+              "step_id": "prune-markdown-table-rows",
+              "step_kind": "native_policy",
+              "name": "prune supplied Markdown table rows",
+              "provider_family": "markdown",
+              "provider_backend": "generic_markdown_ast",
+              "policy": {
+                "policy_kind": "prune_markdown_table_rows",
+                "required_context": "prune_selectors.table_row_prefixes",
+                "operation": "delete"
+              },
+              "metadata": {
+                "source": "supplied_markdown_pruning_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_markdown_pruning_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_markdown_pruning",
+            "recipe_version": "1",
+            "relative_path": "README.md",
+            "provider_family": "markdown",
+            "provider_backend": "generic_markdown_ast",
+            "template_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n",
+            "destination_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n| Works with JRuby | [jruby-9.4] |\n",
+            "steps": [
+              {
+                "step_id": "prune-markdown-table-rows",
+                "step_kind": "native_policy",
+                "name": "prune supplied Markdown table rows",
+                "provider_family": "markdown",
+                "provider_backend": "generic_markdown_ast",
+                "policy": {
+                  "policy_kind": "prune_markdown_table_rows",
+                  "required_context": "prune_selectors.table_row_prefixes",
+                  "operation": "delete"
+                },
+                "metadata": {
+                  "source": "supplied_markdown_pruning_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "supplied_markdown_pruning_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n| Works with JRuby | [jruby-9.4] |\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "prune-markdown-table-rows",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n| Works with JRuby | [jruby-9.4] |\n",
+              "output_content": "# Demo\n\n## Compatibility\n\n| Runtime | Badges |\n| --- | --- |\n| Works with MRI Ruby | [ruby-3.2] |\n| Works with JRuby | [jruby-9.4] |\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "Supplied Markdown pruning requires prune_selectors.table_row_prefixes runtime context",
+                  "metadata": {
+                    "missing_context": "prune_selectors.table_row_prefixes"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "prune_markdown_table_rows",
+                "operation": "delete",
+                "source": "supplied_markdown_pruning_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "Supplied Markdown pruning requires prune_selectors.table_row_prefixes runtime context",
+              "metadata": {
+                "missing_context": "prune_selectors.table_row_prefixes"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_markdown_pruning_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

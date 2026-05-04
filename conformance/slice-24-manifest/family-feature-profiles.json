@@ -3663,6 +3663,15 @@
           "slice-709-ruby-gemfile-self-dependency-policy-acceptance",
           "ruby-gemfile-self-dependency-policy-acceptance.json"
         ]
+      },
+      {
+        "role": "ruby_appraisals_self_dependency_policy_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-710-ruby-appraisals-self-dependency-policy-acceptance",
+          "ruby-appraisals-self-dependency-policy-acceptance.json"
+        ]
       }
     ],
     "text": [

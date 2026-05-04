@@ -1,0 +1,272 @@
+{
+  "cases": [
+    {
+      "label": "delete-appraisals-self-dependencies",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_appraisals_self_dependency_policy",
+          "recipe_version": "1",
+          "relative_path": "Appraisals",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "# Rails appraisals\nappraise(\"rails-7\") {\n  gem \"rails\", \"~> 7.0\"\n  gem \"demo\", \"~> 1.0\"\n}\n",
+          "destination_content": "# Rails appraisals\nappraise(\"rails-6\") {\n  gem \"rails\", \"~> 6.0\"\n  gem \"demo\"\n}\n\nappraise(\"rails-7\") {\n  gem \"demo\", \"~> 1.0\"\n  gem \"rails\", \"~> 7.0\"\n  gem \"demo\", path: \"../demo\"\n  gem \"rspec\" # Testing\n}\n",
+          "steps": [
+            {
+              "step_id": "delete-appraisals-self-dependencies",
+              "step_kind": "native_policy",
+              "name": "delete active Appraisals self dependencies",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "delete_appraisals_self_dependency",
+                "required_fact_id": "gem.identity",
+                "operation": "delete",
+                "declaration_method": "gem",
+                "search_scope": "appraise_block_bodies"
+              },
+              "metadata": {
+                "source": "ruby_appraisals_self_dependency_policy_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "project_facts": {
+              "schema": "project_facts.v1",
+              "producer": "kettle-jem-wrapper",
+              "facts": [
+                {
+                  "fact_id": "gem.identity",
+                  "subject_kind": "project",
+                  "subject": "demo",
+                  "value": {
+                    "name": "demo",
+                    "namespace": "Demo",
+                    "entrypoint_require": "demo"
+                  },
+                  "source": "wrapper_configuration",
+                  "confidence": "resolved"
+                }
+              ]
+            }
+          },
+          "metadata": {
+            "source": "ruby_appraisals_self_dependency_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_appraisals_self_dependency_policy",
+            "recipe_version": "1",
+            "relative_path": "Appraisals",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "# Rails appraisals\nappraise(\"rails-7\") {\n  gem \"rails\", \"~> 7.0\"\n  gem \"demo\", \"~> 1.0\"\n}\n",
+            "destination_content": "# Rails appraisals\nappraise(\"rails-6\") {\n  gem \"rails\", \"~> 6.0\"\n  gem \"demo\"\n}\n\nappraise(\"rails-7\") {\n  gem \"demo\", \"~> 1.0\"\n  gem \"rails\", \"~> 7.0\"\n  gem \"demo\", path: \"../demo\"\n  gem \"rspec\" # Testing\n}\n",
+            "steps": [
+              {
+                "step_id": "delete-appraisals-self-dependencies",
+                "step_kind": "native_policy",
+                "name": "delete active Appraisals self dependencies",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "delete_appraisals_self_dependency",
+                  "required_fact_id": "gem.identity",
+                  "operation": "delete",
+                  "declaration_method": "gem",
+                  "search_scope": "appraise_block_bodies"
+                },
+                "metadata": {
+                  "source": "ruby_appraisals_self_dependency_policy_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "project_facts": {
+                "schema": "project_facts.v1",
+                "producer": "kettle-jem-wrapper",
+                "facts": [
+                  {
+                    "fact_id": "gem.identity",
+                    "subject_kind": "project",
+                    "subject": "demo",
+                    "value": {
+                      "name": "demo",
+                      "namespace": "Demo",
+                      "entrypoint_require": "demo"
+                    },
+                    "source": "wrapper_configuration",
+                    "confidence": "resolved"
+                  }
+                ]
+              }
+            },
+            "metadata": {
+              "source": "ruby_appraisals_self_dependency_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# Rails appraisals\nappraise(\"rails-6\") {\n  gem \"rails\", \"~> 6.0\"\n}\n\nappraise(\"rails-7\") {\n  gem \"rails\", \"~> 7.0\"\n  gem \"rspec\" # Testing\n}\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "delete-appraisals-self-dependencies",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# Rails appraisals\nappraise(\"rails-6\") {\n  gem \"rails\", \"~> 6.0\"\n  gem \"demo\"\n}\n\nappraise(\"rails-7\") {\n  gem \"demo\", \"~> 1.0\"\n  gem \"rails\", \"~> 7.0\"\n  gem \"demo\", path: \"../demo\"\n  gem \"rspec\" # Testing\n}\n",
+              "output_content": "# Rails appraisals\nappraise(\"rails-6\") {\n  gem \"rails\", \"~> 6.0\"\n}\n\nappraise(\"rails-7\") {\n  gem \"rails\", \"~> 7.0\"\n  gem \"rspec\" # Testing\n}\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "delete_appraisals_self_dependency",
+                "operation": "delete",
+                "consumed_fact_id": "gem.identity",
+                "deleted_dependency_count": 3,
+                "source": "ruby_appraisals_self_dependency_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_appraisals_self_dependency_policy_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-project-identity-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_appraisals_self_dependency_policy",
+          "recipe_version": "1",
+          "relative_path": "Appraisals",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "appraise(\"test\") {\n  gem \"demo\"\n}\n",
+          "destination_content": "appraise(\"test\") {\n  gem \"demo\"\n}\n",
+          "steps": [
+            {
+              "step_id": "delete-appraisals-self-dependencies",
+              "step_kind": "native_policy",
+              "name": "delete active Appraisals self dependencies",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "delete_appraisals_self_dependency",
+                "required_fact_id": "gem.identity",
+                "operation": "delete"
+              },
+              "metadata": {
+                "source": "ruby_appraisals_self_dependency_policy_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "project_facts": {
+              "schema": "project_facts.v1",
+              "producer": "kettle-jem-wrapper",
+              "facts": []
+            }
+          },
+          "metadata": {
+            "source": "ruby_appraisals_self_dependency_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_appraisals_self_dependency_policy",
+            "recipe_version": "1",
+            "relative_path": "Appraisals",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "appraise(\"test\") {\n  gem \"demo\"\n}\n",
+            "destination_content": "appraise(\"test\") {\n  gem \"demo\"\n}\n",
+            "steps": [
+              {
+                "step_id": "delete-appraisals-self-dependencies",
+                "step_kind": "native_policy",
+                "name": "delete active Appraisals self dependencies",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "delete_appraisals_self_dependency",
+                  "required_fact_id": "gem.identity",
+                  "operation": "delete"
+                },
+                "metadata": {
+                  "source": "ruby_appraisals_self_dependency_policy_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "project_facts": {
+                "schema": "project_facts.v1",
+                "producer": "kettle-jem-wrapper",
+                "facts": []
+              }
+            },
+            "metadata": {
+              "source": "ruby_appraisals_self_dependency_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "appraise(\"test\") {\n  gem \"demo\"\n}\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "delete-appraisals-self-dependencies",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "appraise(\"test\") {\n  gem \"demo\"\n}\n",
+              "output_content": "appraise(\"test\") {\n  gem \"demo\"\n}\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "Appraisals self-dependency deletion requires gem.identity project facts",
+                  "metadata": {
+                    "missing_fact_id": "gem.identity"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "delete_appraisals_self_dependency",
+                "operation": "delete",
+                "source": "ruby_appraisals_self_dependency_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "Appraisals self-dependency deletion requires gem.identity project facts",
+              "metadata": {
+                "missing_fact_id": "gem.identity"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "ruby_appraisals_self_dependency_policy_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

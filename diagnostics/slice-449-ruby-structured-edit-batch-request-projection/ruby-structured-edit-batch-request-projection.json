@@ -7,7 +7,7 @@
         "requests": [
           {
             "operation_kind": "replace",
-            "content": "class App\n  # managed snippet\n  old_call\n\n  # managed setup\n  setup_call\nend\n",
+            "content": "class App\n  # managed snippet\n  old_call\n\n  anchor_call\n\n  # obsolete snippet\n  obsolete_call\nend\n",
             "source_label": "source",
             "target_selector": "managed_snippet",
             "target_selector_family": "comment_anchor",
@@ -19,12 +19,25 @@
             }
           },
           {
-            "operation_kind": "replace",
-            "content": "class App\n  # managed snippet\n  old_call\n\n  # managed setup\n  setup_call\nend\n",
+            "operation_kind": "insert",
+            "content": "class App\n  # managed snippet\n  old_call\n\n  anchor_call\n\n  # obsolete snippet\n  obsolete_call\nend\n",
             "source_label": "source",
-            "target_selector": "managed_setup",
+            "destination_selector": "after_anchor_call",
+            "destination_selector_family": "gap_preserving_statement",
+            "payload_text": "inserted_call\n",
+            "if_missing": "append",
+            "metadata": {
+              "family": "ruby",
+              "provider": "prism",
+              "source": "legacy_crispr_reference"
+            }
+          },
+          {
+            "operation_kind": "delete",
+            "content": "class App\n  # managed snippet\n  old_call\n\n  anchor_call\n\n  # obsolete snippet\n  obsolete_call\nend\n",
+            "source_label": "source",
+            "target_selector": "obsolete_snippet",
             "target_selector_family": "comment_anchor",
-            "payload_text": "configured_call\n",
             "metadata": {
               "family": "ruby",
               "provider": "prism",
@@ -33,7 +46,7 @@
           }
         ],
         "metadata": {
-          "batch_label": "ruby_prism_pair",
+          "batch_label": "ruby_prism_triad",
           "source": "legacy_crispr_reference"
         }
       }

@@ -6,8 +6,21 @@
       "structured_edit_batch_request": {
         "requests": [
           {
+            "operation_kind": "replace",
+            "content": "# Title\n\n## Synopsis\n\nOld synopsis.\n\n## Usage\n\nExisting text.\n\n## Deprecated\n\nDeprecated text.\n",
+            "source_label": "README.md",
+            "target_selector": "Synopsis@2",
+            "target_selector_family": "section_branch",
+            "payload_text": "## Synopsis\n\nNew synopsis.\n",
+            "metadata": {
+              "family": "markdown",
+              "provider": "markly",
+              "source": "legacy_crispr_reference"
+            }
+          },
+          {
             "operation_kind": "insert",
-            "content": "# Title\n\n## Usage\n\nExisting text.\n\n## Install\n\nInstall text.\n",
+            "content": "# Title\n\n## Synopsis\n\nOld synopsis.\n\n## Usage\n\nExisting text.\n\n## Deprecated\n\nDeprecated text.\n",
             "source_label": "source",
             "destination_selector": "/heading/usage",
             "destination_selector_family": "section_branch",
@@ -20,13 +33,11 @@
             }
           },
           {
-            "operation_kind": "insert",
-            "content": "# Title\n\n## Usage\n\nExisting text.\n\n## Install\n\nInstall text.\n",
-            "source_label": "source",
-            "destination_selector": "/heading/install",
-            "destination_selector_family": "section_branch",
-            "payload_text": "### Managed Install\n\nInserted install text.\n",
-            "if_missing": "append",
+            "operation_kind": "delete",
+            "content": "# Title\n\n## Synopsis\n\nOld synopsis.\n\n## Usage\n\nExisting text.\n\n## Deprecated\n\nDeprecated text.\n",
+            "source_label": "README.md",
+            "target_selector": "Deprecated@2",
+            "target_selector_family": "section_branch",
             "metadata": {
               "family": "markdown",
               "provider": "markly",
@@ -35,7 +46,7 @@
           }
         ],
         "metadata": {
-          "batch_label": "markdown_markly_pair",
+          "batch_label": "markdown_markly_triad",
           "source": "legacy_crispr_reference"
         }
       }

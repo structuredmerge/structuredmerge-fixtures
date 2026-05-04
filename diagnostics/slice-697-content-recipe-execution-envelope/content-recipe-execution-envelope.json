@@ -1,0 +1,195 @@
+{
+  "cases": [
+    {
+      "label": "readme-heading-section-preservation-envelope",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "readme_heading_section_preservation",
+          "recipe_version": "1",
+          "relative_path": "README.md",
+          "provider_family": "generic_ast",
+          "provider_backend": "generic_heading_sections",
+          "template_content": "# 🍲 Demo\n\n## Synopsis\n\nTemplate synopsis.\n\n## Installation\n\nTemplate install.\n",
+          "destination_content": "# Demo\n\n## Synopsis\n\nDestination synopsis.\n\n## Installation\n\nOld install.\n",
+          "steps": [
+            {
+              "step_id": "merge-template-skeleton",
+              "step_kind": "smart_merge",
+              "name": "merge template skeleton",
+              "provider_family": "generic_ast",
+              "merge_profile": {
+                "preference": "template",
+                "add_missing": true,
+                "signature_profile": "heading_section"
+              },
+              "metadata": {
+                "source": "content_recipe_execution_envelope"
+              }
+            },
+            {
+              "step_id": "preserve-synopsis-body",
+              "step_kind": "native_policy",
+              "name": "preserve destination Synopsis body",
+              "provider_family": "generic_ast",
+              "policy": {
+                "policy_kind": "preserve_destination_heading_section_body",
+                "heading_text": "Synopsis",
+                "heading_level": 2,
+                "selection_intent": "section_body"
+              },
+              "metadata": {
+                "source": "content_recipe_execution_envelope"
+              }
+            },
+            {
+              "step_id": "preserve-semantic-h1",
+              "step_kind": "native_policy",
+              "name": "preserve semantic H1 when destination title differs",
+              "provider_family": "generic_ast",
+              "policy": {
+                "policy_kind": "preserve_semantic_h1_when_title_differs",
+                "heading_level": 1
+              },
+              "metadata": {
+                "source": "content_recipe_execution_envelope"
+              }
+            }
+          ],
+          "runtime_context": {
+            "preserve_sections": [
+              "synopsis"
+            ],
+            "preserve_patterns": [
+              "note:*"
+            ]
+          },
+          "metadata": {
+            "source": "content_recipe_execution_envelope",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "readme_heading_section_preservation",
+            "recipe_version": "1",
+            "relative_path": "README.md",
+            "provider_family": "generic_ast",
+            "provider_backend": "generic_heading_sections",
+            "template_content": "# 🍲 Demo\n\n## Synopsis\n\nTemplate synopsis.\n\n## Installation\n\nTemplate install.\n",
+            "destination_content": "# Demo\n\n## Synopsis\n\nDestination synopsis.\n\n## Installation\n\nOld install.\n",
+            "steps": [
+              {
+                "step_id": "merge-template-skeleton",
+                "step_kind": "smart_merge",
+                "name": "merge template skeleton",
+                "provider_family": "generic_ast",
+                "merge_profile": {
+                  "preference": "template",
+                  "add_missing": true,
+                  "signature_profile": "heading_section"
+                },
+                "metadata": {
+                  "source": "content_recipe_execution_envelope"
+                }
+              },
+              {
+                "step_id": "preserve-synopsis-body",
+                "step_kind": "native_policy",
+                "name": "preserve destination Synopsis body",
+                "provider_family": "generic_ast",
+                "policy": {
+                  "policy_kind": "preserve_destination_heading_section_body",
+                  "heading_text": "Synopsis",
+                  "heading_level": 2,
+                  "selection_intent": "section_body"
+                },
+                "metadata": {
+                  "source": "content_recipe_execution_envelope"
+                }
+              },
+              {
+                "step_id": "preserve-semantic-h1",
+                "step_kind": "native_policy",
+                "name": "preserve semantic H1 when destination title differs",
+                "provider_family": "generic_ast",
+                "policy": {
+                  "policy_kind": "preserve_semantic_h1_when_title_differs",
+                  "heading_level": 1
+                },
+                "metadata": {
+                  "source": "content_recipe_execution_envelope"
+                }
+              }
+            ],
+            "runtime_context": {
+              "preserve_sections": [
+                "synopsis"
+              ],
+              "preserve_patterns": [
+                "note:*"
+              ]
+            },
+            "metadata": {
+              "source": "content_recipe_execution_envelope",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# 🍲 Demo\n\n## Synopsis\n\nDestination synopsis.\n\n## Installation\n\nTemplate install.\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "merge-template-skeleton",
+              "step_kind": "smart_merge",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# Demo\n\n## Synopsis\n\nDestination synopsis.\n\n## Installation\n\nOld install.\n",
+              "output_content": "# 🍲 Demo\n\n## Synopsis\n\nTemplate synopsis.\n\n## Installation\n\nTemplate install.\n",
+              "diagnostics": [],
+              "metadata": {
+                "source": "content_recipe_execution_envelope"
+              }
+            },
+            {
+              "step_id": "preserve-synopsis-body",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# 🍲 Demo\n\n## Synopsis\n\nTemplate synopsis.\n\n## Installation\n\nTemplate install.\n",
+              "output_content": "# 🍲 Demo\n\n## Synopsis\n\nDestination synopsis.\n\n## Installation\n\nTemplate install.\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "preserve_destination_heading_section_body",
+                "source": "content_recipe_execution_envelope"
+              }
+            },
+            {
+              "step_id": "preserve-semantic-h1",
+              "step_kind": "native_policy",
+              "status": "unchanged",
+              "changed": false,
+              "input_content": "# 🍲 Demo\n\n## Synopsis\n\nDestination synopsis.\n\n## Installation\n\nTemplate install.\n",
+              "output_content": "# 🍲 Demo\n\n## Synopsis\n\nDestination synopsis.\n\n## Installation\n\nTemplate install.\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "preserve_semantic_h1_when_title_differs",
+                "reason": "semantic_title_matches",
+                "source": "content_recipe_execution_envelope"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "content_recipe_execution_envelope",
+            "scope": "single_file_content_recipe"
+          }
+        }
+      }
+    }
+  ]
+}

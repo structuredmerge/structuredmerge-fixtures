@@ -3546,6 +3546,15 @@
           "slice-696-kettle-jem-templating-primitive-gap-report",
           "kettle-jem-templating-primitive-gap-report.json"
         ]
+      },
+      {
+        "role": "content_recipe_execution_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-697-content-recipe-execution-envelope",
+          "content-recipe-execution-envelope.json"
+        ]
       }
     ],
     "text": [

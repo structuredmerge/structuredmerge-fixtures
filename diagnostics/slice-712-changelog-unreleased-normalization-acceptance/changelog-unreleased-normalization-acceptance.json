@@ -1,0 +1,236 @@
+{
+  "cases": [
+    {
+      "label": "create-unreleased-section-from-supplied-entries",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "changelog_unreleased_normalization",
+          "recipe_version": "1",
+          "relative_path": "CHANGELOG.md",
+          "provider_family": "markdown",
+          "provider_backend": "generic_markdown_ast",
+          "template_content": "# Changelog\n\n## Unreleased\n\n- Added native Markdown recipe boundary.\n- Preserved existing release history.\n",
+          "destination_content": "# Changelog\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+          "steps": [
+            {
+              "step_id": "normalize-unreleased",
+              "step_kind": "native_policy",
+              "name": "normalize CHANGELOG Unreleased section",
+              "provider_family": "markdown",
+              "provider_backend": "generic_markdown_ast",
+              "policy": {
+                "policy_kind": "normalize_markdown_heading_section",
+                "heading_level": 2,
+                "heading_text": "Unreleased",
+                "required_context": "entries",
+                "operation": "insert_or_replace_section",
+                "insert_before": "first_level_2_release_heading"
+              },
+              "metadata": {
+                "source": "changelog_unreleased_normalization_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "entries": [
+              "Added native Markdown recipe boundary.",
+              "Preserved existing release history."
+            ]
+          },
+          "metadata": {
+            "source": "changelog_unreleased_normalization_acceptance"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "changelog_unreleased_normalization",
+            "recipe_version": "1",
+            "relative_path": "CHANGELOG.md",
+            "provider_family": "markdown",
+            "provider_backend": "generic_markdown_ast",
+            "template_content": "# Changelog\n\n## Unreleased\n\n- Added native Markdown recipe boundary.\n- Preserved existing release history.\n",
+            "destination_content": "# Changelog\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+            "steps": [
+              {
+                "step_id": "normalize-unreleased",
+                "step_kind": "native_policy",
+                "name": "normalize CHANGELOG Unreleased section",
+                "provider_family": "markdown",
+                "provider_backend": "generic_markdown_ast",
+                "policy": {
+                  "policy_kind": "normalize_markdown_heading_section",
+                  "heading_level": 2,
+                  "heading_text": "Unreleased",
+                  "required_context": "entries",
+                  "operation": "insert_or_replace_section",
+                  "insert_before": "first_level_2_release_heading"
+                },
+                "metadata": {
+                  "source": "changelog_unreleased_normalization_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "entries": [
+                "Added native Markdown recipe boundary.",
+                "Preserved existing release history."
+              ]
+            },
+            "metadata": {
+              "source": "changelog_unreleased_normalization_acceptance"
+            }
+          },
+          "final_content": "# Changelog\n\n## Unreleased\n\n- Added native Markdown recipe boundary.\n- Preserved existing release history.\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "normalize-unreleased",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# Changelog\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+              "output_content": "# Changelog\n\n## Unreleased\n\n- Added native Markdown recipe boundary.\n- Preserved existing release history.\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "normalize_markdown_heading_section",
+                "operation": "insert_or_replace_section",
+                "heading_text": "Unreleased",
+                "created_section": true,
+                "entry_count": 2,
+                "source": "changelog_unreleased_normalization_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "changelog_unreleased_normalization_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-entries-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "changelog_unreleased_normalization",
+          "recipe_version": "1",
+          "relative_path": "CHANGELOG.md",
+          "provider_family": "markdown",
+          "provider_backend": "generic_markdown_ast",
+          "template_content": "# Changelog\n\n## Unreleased\n\n- Added native Markdown recipe boundary.\n",
+          "destination_content": "# Changelog\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+          "steps": [
+            {
+              "step_id": "normalize-unreleased",
+              "step_kind": "native_policy",
+              "name": "normalize CHANGELOG Unreleased section",
+              "provider_family": "markdown",
+              "provider_backend": "generic_markdown_ast",
+              "policy": {
+                "policy_kind": "normalize_markdown_heading_section",
+                "heading_level": 2,
+                "heading_text": "Unreleased",
+                "required_context": "entries",
+                "operation": "insert_or_replace_section",
+                "insert_before": "first_level_2_release_heading"
+              },
+              "metadata": {
+                "source": "changelog_unreleased_normalization_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "changelog_unreleased_normalization_acceptance"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "changelog_unreleased_normalization",
+            "recipe_version": "1",
+            "relative_path": "CHANGELOG.md",
+            "provider_family": "markdown",
+            "provider_backend": "generic_markdown_ast",
+            "template_content": "# Changelog\n\n## Unreleased\n\n- Added native Markdown recipe boundary.\n",
+            "destination_content": "# Changelog\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+            "steps": [
+              {
+                "step_id": "normalize-unreleased",
+                "step_kind": "native_policy",
+                "name": "normalize CHANGELOG Unreleased section",
+                "provider_family": "markdown",
+                "provider_backend": "generic_markdown_ast",
+                "policy": {
+                  "policy_kind": "normalize_markdown_heading_section",
+                  "heading_level": 2,
+                  "heading_text": "Unreleased",
+                  "required_context": "entries",
+                  "operation": "insert_or_replace_section",
+                  "insert_before": "first_level_2_release_heading"
+                },
+                "metadata": {
+                  "source": "changelog_unreleased_normalization_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "changelog_unreleased_normalization_acceptance"
+            }
+          },
+          "final_content": "# Changelog\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "normalize-unreleased",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "# Changelog\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+              "output_content": "# Changelog\n\n## 1.2.0 - 2026-04-01\n\n- Existing release.\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "CHANGELOG Unreleased normalization requires entries runtime context",
+                  "metadata": {
+                    "missing_context": "entries"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "normalize_markdown_heading_section",
+                "operation": "insert_or_replace_section",
+                "heading_text": "Unreleased",
+                "source": "changelog_unreleased_normalization_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "CHANGELOG Unreleased normalization requires entries runtime context",
+              "metadata": {
+                "missing_context": "entries"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "changelog_unreleased_normalization_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

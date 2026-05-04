@@ -3681,6 +3681,15 @@
           "slice-711-ruby-appraisals-min-ruby-prune-policy-acceptance",
           "ruby-appraisals-min-ruby-prune-policy-acceptance.json"
         ]
+      },
+      {
+        "role": "changelog_unreleased_normalization_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-712-changelog-unreleased-normalization-acceptance",
+          "changelog-unreleased-normalization-acceptance.json"
+        ]
       }
     ],
     "text": [

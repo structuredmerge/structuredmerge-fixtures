@@ -3483,6 +3483,15 @@
           "slice-686-structured-edit-callable-destination-request-envelope-application",
           "structured-edit-request-envelope-application.json"
         ]
+      },
+      {
+        "role": "structured_edit_parity_selection_semantics",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-687-structured-edit-parity-selection-semantics",
+          "structured-edit-parity-selection-semantics.json"
+        ]
       }
     ],
     "text": [

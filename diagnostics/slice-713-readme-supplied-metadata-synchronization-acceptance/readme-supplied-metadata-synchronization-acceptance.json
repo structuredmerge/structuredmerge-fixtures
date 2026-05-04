@@ -1,0 +1,283 @@
+{
+  "cases": [
+    {
+      "label": "sync-readme-heading-and-summary-from-supplied-metadata",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "readme_supplied_metadata_synchronization",
+          "recipe_version": "1",
+          "relative_path": "README.md",
+          "provider_family": "markdown",
+          "provider_backend": "generic_markdown_ast",
+          "template_content": "# Demo Toolkit\n\n## Summary\n\nA deterministic toolkit for structured merges.\n\n## Usage\n\nTemplate usage.\n",
+          "destination_content": "# Old Demo\n\nIntroductory prose that should remain.\n\n## Summary\n\nOld summary.\n\n## Usage\n\nDestination usage.\n",
+          "steps": [
+            {
+              "step_id": "sync-readme-h1",
+              "step_kind": "native_policy",
+              "name": "synchronize README H1 from supplied metadata",
+              "provider_family": "markdown",
+              "provider_backend": "generic_markdown_ast",
+              "policy": {
+                "policy_kind": "replace_markdown_heading_text",
+                "heading_level": 1,
+                "required_context": "readme_metadata.title",
+                "operation": "replace"
+              },
+              "metadata": {
+                "source": "readme_supplied_metadata_synchronization_acceptance"
+              }
+            },
+            {
+              "step_id": "sync-summary-section",
+              "step_kind": "native_policy",
+              "name": "synchronize README Summary section from supplied metadata",
+              "provider_family": "markdown",
+              "provider_backend": "generic_markdown_ast",
+              "policy": {
+                "policy_kind": "replace_markdown_heading_section_body",
+                "heading_level": 2,
+                "heading_text": "Summary",
+                "required_context": "readme_metadata.summary",
+                "operation": "insert_or_replace_section_body"
+              },
+              "metadata": {
+                "source": "readme_supplied_metadata_synchronization_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "readme_metadata": {
+              "title": "Demo Toolkit",
+              "summary": "A deterministic toolkit for structured merges.",
+              "source": "wrapper_supplied_gemspec_metadata"
+            }
+          },
+          "metadata": {
+            "source": "readme_supplied_metadata_synchronization_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "readme_supplied_metadata_synchronization",
+            "recipe_version": "1",
+            "relative_path": "README.md",
+            "provider_family": "markdown",
+            "provider_backend": "generic_markdown_ast",
+            "template_content": "# Demo Toolkit\n\n## Summary\n\nA deterministic toolkit for structured merges.\n\n## Usage\n\nTemplate usage.\n",
+            "destination_content": "# Old Demo\n\nIntroductory prose that should remain.\n\n## Summary\n\nOld summary.\n\n## Usage\n\nDestination usage.\n",
+            "steps": [
+              {
+                "step_id": "sync-readme-h1",
+                "step_kind": "native_policy",
+                "name": "synchronize README H1 from supplied metadata",
+                "provider_family": "markdown",
+                "provider_backend": "generic_markdown_ast",
+                "policy": {
+                  "policy_kind": "replace_markdown_heading_text",
+                  "heading_level": 1,
+                  "required_context": "readme_metadata.title",
+                  "operation": "replace"
+                },
+                "metadata": {
+                  "source": "readme_supplied_metadata_synchronization_acceptance"
+                }
+              },
+              {
+                "step_id": "sync-summary-section",
+                "step_kind": "native_policy",
+                "name": "synchronize README Summary section from supplied metadata",
+                "provider_family": "markdown",
+                "provider_backend": "generic_markdown_ast",
+                "policy": {
+                  "policy_kind": "replace_markdown_heading_section_body",
+                  "heading_level": 2,
+                  "heading_text": "Summary",
+                  "required_context": "readme_metadata.summary",
+                  "operation": "insert_or_replace_section_body"
+                },
+                "metadata": {
+                  "source": "readme_supplied_metadata_synchronization_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "readme_metadata": {
+                "title": "Demo Toolkit",
+                "summary": "A deterministic toolkit for structured merges.",
+                "source": "wrapper_supplied_gemspec_metadata"
+              }
+            },
+            "metadata": {
+              "source": "readme_supplied_metadata_synchronization_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# Demo Toolkit\n\nIntroductory prose that should remain.\n\n## Summary\n\nA deterministic toolkit for structured merges.\n\n## Usage\n\nDestination usage.\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "sync-readme-h1",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# Old Demo\n\nIntroductory prose that should remain.\n\n## Summary\n\nOld summary.\n\n## Usage\n\nDestination usage.\n",
+              "output_content": "# Demo Toolkit\n\nIntroductory prose that should remain.\n\n## Summary\n\nOld summary.\n\n## Usage\n\nDestination usage.\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "replace_markdown_heading_text",
+                "operation": "replace",
+                "heading_level": 1,
+                "consumed_context": "readme_metadata.title",
+                "source": "readme_supplied_metadata_synchronization_acceptance"
+              }
+            },
+            {
+              "step_id": "sync-summary-section",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# Demo Toolkit\n\nIntroductory prose that should remain.\n\n## Summary\n\nOld summary.\n\n## Usage\n\nDestination usage.\n",
+              "output_content": "# Demo Toolkit\n\nIntroductory prose that should remain.\n\n## Summary\n\nA deterministic toolkit for structured merges.\n\n## Usage\n\nDestination usage.\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "replace_markdown_heading_section_body",
+                "operation": "insert_or_replace_section_body",
+                "heading_text": "Summary",
+                "consumed_context": "readme_metadata.summary",
+                "source": "readme_supplied_metadata_synchronization_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "readme_supplied_metadata_synchronization_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-readme-metadata-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "readme_supplied_metadata_synchronization",
+          "recipe_version": "1",
+          "relative_path": "README.md",
+          "provider_family": "markdown",
+          "provider_backend": "generic_markdown_ast",
+          "template_content": "# Demo Toolkit\n\n## Summary\n\nA deterministic toolkit for structured merges.\n",
+          "destination_content": "# Old Demo\n\n## Summary\n\nOld summary.\n",
+          "steps": [
+            {
+              "step_id": "sync-readme-h1",
+              "step_kind": "native_policy",
+              "name": "synchronize README H1 from supplied metadata",
+              "provider_family": "markdown",
+              "provider_backend": "generic_markdown_ast",
+              "policy": {
+                "policy_kind": "replace_markdown_heading_text",
+                "heading_level": 1,
+                "required_context": "readme_metadata.title",
+                "operation": "replace"
+              },
+              "metadata": {
+                "source": "readme_supplied_metadata_synchronization_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "readme_supplied_metadata_synchronization_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "readme_supplied_metadata_synchronization",
+            "recipe_version": "1",
+            "relative_path": "README.md",
+            "provider_family": "markdown",
+            "provider_backend": "generic_markdown_ast",
+            "template_content": "# Demo Toolkit\n\n## Summary\n\nA deterministic toolkit for structured merges.\n",
+            "destination_content": "# Old Demo\n\n## Summary\n\nOld summary.\n",
+            "steps": [
+              {
+                "step_id": "sync-readme-h1",
+                "step_kind": "native_policy",
+                "name": "synchronize README H1 from supplied metadata",
+                "provider_family": "markdown",
+                "provider_backend": "generic_markdown_ast",
+                "policy": {
+                  "policy_kind": "replace_markdown_heading_text",
+                  "heading_level": 1,
+                  "required_context": "readme_metadata.title",
+                  "operation": "replace"
+                },
+                "metadata": {
+                  "source": "readme_supplied_metadata_synchronization_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "readme_supplied_metadata_synchronization_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# Old Demo\n\n## Summary\n\nOld summary.\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "sync-readme-h1",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "# Old Demo\n\n## Summary\n\nOld summary.\n",
+              "output_content": "# Old Demo\n\n## Summary\n\nOld summary.\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "README supplied metadata synchronization requires readme_metadata.title runtime context",
+                  "metadata": {
+                    "missing_context": "readme_metadata.title"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "replace_markdown_heading_text",
+                "operation": "replace",
+                "heading_level": 1,
+                "source": "readme_supplied_metadata_synchronization_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "README supplied metadata synchronization requires readme_metadata.title runtime context",
+              "metadata": {
+                "missing_context": "readme_metadata.title"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "readme_supplied_metadata_synchronization_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

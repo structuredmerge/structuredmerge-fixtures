@@ -3690,6 +3690,15 @@
           "slice-712-changelog-unreleased-normalization-acceptance",
           "changelog-unreleased-normalization-acceptance.json"
         ]
+      },
+      {
+        "role": "readme_supplied_metadata_synchronization_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-713-readme-supplied-metadata-synchronization-acceptance",
+          "readme-supplied-metadata-synchronization-acceptance.json"
+        ]
       }
     ],
     "text": [

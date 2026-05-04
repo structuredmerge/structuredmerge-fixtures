@@ -4,13 +4,44 @@
       "package": "markly-merge",
       "backend": "markly",
       "structured_edit_request": {
-        "operation_kind": "insert",
-        "content": "# Title\n\n## Usage\n\nExisting text.\n",
-        "source_label": "source",
-        "destination_selector": "/heading/usage",
-        "destination_selector_family": "section_branch",
-        "payload_text": "### Managed\n\nInserted text.\n",
-        "if_missing": "append",
+        "operation_kind": "replace",
+        "content": "# Title\n\n## Synopsis\n\nOld synopsis.\n\n## Install\n\nInstall text.\n",
+        "source_label": "README.md",
+        "target_selector": "Synopsis@2",
+        "target_selector_family": "section_branch",
+        "target_selection": {
+          "selector_kind": "heading_section",
+          "selection_intent": "section_branch",
+          "selection_intent_family": "section_branch",
+          "known_selection_intent": true,
+          "comment_region": null,
+          "include_trailing_gap": false,
+          "comment_anchored": false,
+          "metadata": {
+            "family": "markdown",
+            "provider": "markly",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "target_match": {
+          "start_boundary": "owner_start",
+          "start_boundary_family": "structural_owner",
+          "known_start_boundary": true,
+          "end_boundary": "owner_end",
+          "end_boundary_family": "structural_owner",
+          "known_end_boundary": true,
+          "payload_kind": "section_branch",
+          "payload_family": "section_branch",
+          "known_payload_kind": true,
+          "comment_anchored": false,
+          "trailing_gap_extended": false,
+          "metadata": {
+            "family": "markdown",
+            "provider": "markly",
+            "source": "legacy_crispr_reference"
+          }
+        },
+        "payload_text": "## Synopsis\n\nNew synopsis.\n",
         "metadata": {
           "family": "markdown",
           "provider": "markly",

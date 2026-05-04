@@ -1,0 +1,226 @@
+{
+  "cases": [
+    {
+      "label": "delete-ruby-appraisals-below-min-ruby",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_appraisals_min_ruby_prune_policy",
+          "recipe_version": "1",
+          "relative_path": "Appraisals",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "# frozen_string_literal: true\n\nappraise \"ruby-2-7\" do\n  eval_gemfile \"modular/x_std_libs/r2/libs.gemfile\"\nend\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"modular/style.gemfile\"\nend\n",
+          "destination_content": "# frozen_string_literal: true\n\nappraise \"ruby-2-3\" do\n  eval_gemfile \"modular/x_std_libs/r2.3/libs.gemfile\"\nend\n\nappraise \"ruby-2-7\" do\n  eval_gemfile \"modular/x_std_libs/r2/libs.gemfile\"\nend\n\nappraise \"ruby-3-0\" do\n  eval_gemfile \"modular/x_std_libs/r3.0/libs.gemfile\"\nend\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"modular/style.gemfile\"\nend\n",
+          "steps": [
+            {
+              "step_id": "prune-ruby-appraisals",
+              "step_kind": "native_policy",
+              "name": "delete Ruby appraisals below min_ruby",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "delete_appraisals_below_min_ruby",
+                "required_context": "min_ruby",
+                "operation": "delete",
+                "appraisal_name_pattern": "ruby-X-Y"
+              },
+              "metadata": {
+                "source": "ruby_appraisals_min_ruby_prune_policy_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "min_ruby": "3.2"
+          },
+          "metadata": {
+            "source": "ruby_appraisals_min_ruby_prune_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_appraisals_min_ruby_prune_policy",
+            "recipe_version": "1",
+            "relative_path": "Appraisals",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "# frozen_string_literal: true\n\nappraise \"ruby-2-7\" do\n  eval_gemfile \"modular/x_std_libs/r2/libs.gemfile\"\nend\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"modular/style.gemfile\"\nend\n",
+            "destination_content": "# frozen_string_literal: true\n\nappraise \"ruby-2-3\" do\n  eval_gemfile \"modular/x_std_libs/r2.3/libs.gemfile\"\nend\n\nappraise \"ruby-2-7\" do\n  eval_gemfile \"modular/x_std_libs/r2/libs.gemfile\"\nend\n\nappraise \"ruby-3-0\" do\n  eval_gemfile \"modular/x_std_libs/r3.0/libs.gemfile\"\nend\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"modular/style.gemfile\"\nend\n",
+            "steps": [
+              {
+                "step_id": "prune-ruby-appraisals",
+                "step_kind": "native_policy",
+                "name": "delete Ruby appraisals below min_ruby",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "delete_appraisals_below_min_ruby",
+                  "required_context": "min_ruby",
+                  "operation": "delete",
+                  "appraisal_name_pattern": "ruby-X-Y"
+                },
+                "metadata": {
+                  "source": "ruby_appraisals_min_ruby_prune_policy_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "min_ruby": "3.2"
+            },
+            "metadata": {
+              "source": "ruby_appraisals_min_ruby_prune_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# frozen_string_literal: true\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"modular/style.gemfile\"\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "prune-ruby-appraisals",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# frozen_string_literal: true\n\nappraise \"ruby-2-3\" do\n  eval_gemfile \"modular/x_std_libs/r2.3/libs.gemfile\"\nend\n\nappraise \"ruby-2-7\" do\n  eval_gemfile \"modular/x_std_libs/r2/libs.gemfile\"\nend\n\nappraise \"ruby-3-0\" do\n  eval_gemfile \"modular/x_std_libs/r3.0/libs.gemfile\"\nend\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"modular/style.gemfile\"\nend\n",
+              "output_content": "# frozen_string_literal: true\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"modular/style.gemfile\"\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "delete_appraisals_below_min_ruby",
+                "operation": "delete",
+                "min_ruby": "3.2",
+                "deleted_appraisals": [
+                  "ruby-2-3",
+                  "ruby-2-7",
+                  "ruby-3-0"
+                ],
+                "source": "ruby_appraisals_min_ruby_prune_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_appraisals_min_ruby_prune_policy_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-min-ruby-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_appraisals_min_ruby_prune_policy",
+          "recipe_version": "1",
+          "relative_path": "Appraisals",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "appraise \"ruby-2-7\" do\nend\n",
+          "destination_content": "appraise \"ruby-2-7\" do\nend\n",
+          "steps": [
+            {
+              "step_id": "prune-ruby-appraisals",
+              "step_kind": "native_policy",
+              "name": "delete Ruby appraisals below min_ruby",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "delete_appraisals_below_min_ruby",
+                "required_context": "min_ruby",
+                "operation": "delete"
+              },
+              "metadata": {
+                "source": "ruby_appraisals_min_ruby_prune_policy_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "ruby_appraisals_min_ruby_prune_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_appraisals_min_ruby_prune_policy",
+            "recipe_version": "1",
+            "relative_path": "Appraisals",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "appraise \"ruby-2-7\" do\nend\n",
+            "destination_content": "appraise \"ruby-2-7\" do\nend\n",
+            "steps": [
+              {
+                "step_id": "prune-ruby-appraisals",
+                "step_kind": "native_policy",
+                "name": "delete Ruby appraisals below min_ruby",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "delete_appraisals_below_min_ruby",
+                  "required_context": "min_ruby",
+                  "operation": "delete"
+                },
+                "metadata": {
+                  "source": "ruby_appraisals_min_ruby_prune_policy_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "ruby_appraisals_min_ruby_prune_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "appraise \"ruby-2-7\" do\nend\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "prune-ruby-appraisals",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "appraise \"ruby-2-7\" do\nend\n",
+              "output_content": "appraise \"ruby-2-7\" do\nend\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "Ruby appraisal pruning requires min_ruby runtime context",
+                  "metadata": {
+                    "missing_context": "min_ruby"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "delete_appraisals_below_min_ruby",
+                "operation": "delete",
+                "source": "ruby_appraisals_min_ruby_prune_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "Ruby appraisal pruning requires min_ruby runtime context",
+              "metadata": {
+                "missing_context": "min_ruby"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "ruby_appraisals_min_ruby_prune_policy_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

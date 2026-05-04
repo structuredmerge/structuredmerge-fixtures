@@ -3672,6 +3672,15 @@
           "slice-710-ruby-appraisals-self-dependency-policy-acceptance",
           "ruby-appraisals-self-dependency-policy-acceptance.json"
         ]
+      },
+      {
+        "role": "ruby_appraisals_min_ruby_prune_policy_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-711-ruby-appraisals-min-ruby-prune-policy-acceptance",
+          "ruby-appraisals-min-ruby-prune-policy-acceptance.json"
+        ]
       }
     ],
     "text": [

@@ -3456,6 +3456,33 @@
           "slice-683-structured-edit-callable-destination-request",
           "structured-edit-callable-destination-request.json"
         ]
+      },
+      {
+        "role": "structured_edit_request_envelope",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-684-structured-edit-callable-destination-request-transport-envelope",
+          "structured-edit-request-envelope.json"
+        ]
+      },
+      {
+        "role": "structured_edit_request_envelope_rejection",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-685-structured-edit-callable-destination-request-transport-rejection",
+          "structured-edit-request-envelope-rejection.json"
+        ]
+      },
+      {
+        "role": "structured_edit_request_envelope_application",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-686-structured-edit-callable-destination-request-envelope-application",
+          "structured-edit-request-envelope-application.json"
+        ]
       }
     ],
     "text": [

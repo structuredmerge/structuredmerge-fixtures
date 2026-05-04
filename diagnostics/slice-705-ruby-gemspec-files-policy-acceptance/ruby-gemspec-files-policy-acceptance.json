@@ -1,0 +1,252 @@
+{
+  "cases": [
+    {
+      "label": "gemspec-files-literal-dir-union-and-duplicate-cleanup",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_files_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    \"sig/**/*.rbs\"\n  ]\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    # keep executable packaging\n    \"exe/*\"\n  ]\n\n  spec.files = Dir[\n    \"tmp/generated\"\n  ]\nend\n",
+          "steps": [
+            {
+              "step_id": "union-literal-files",
+              "step_kind": "native_policy",
+              "name": "union literal spec.files Dir entries",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "union_literal_dir_files_assignment",
+                "field": "files",
+                "preserve_attached_entry_comments": true
+              },
+              "metadata": {
+                "source": "ruby_gemspec_files_policy_acceptance"
+              }
+            },
+            {
+              "step_id": "remove-duplicate-files",
+              "step_kind": "native_policy",
+              "name": "remove duplicate spec.files assignments",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "remove_duplicate_gemspec_field_assignments",
+                "field": "files",
+                "prefer": "non_boilerplate_or_last"
+              },
+              "metadata": {
+                "source": "ruby_gemspec_files_policy_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "ruby_gemspec_files_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_files_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    \"sig/**/*.rbs\"\n  ]\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    # keep executable packaging\n    \"exe/*\"\n  ]\n\n  spec.files = Dir[\n    \"tmp/generated\"\n  ]\nend\n",
+            "steps": [
+              {
+                "step_id": "union-literal-files",
+                "step_kind": "native_policy",
+                "name": "union literal spec.files Dir entries",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "union_literal_dir_files_assignment",
+                  "field": "files",
+                  "preserve_attached_entry_comments": true
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_files_policy_acceptance"
+                }
+              },
+              {
+                "step_id": "remove-duplicate-files",
+                "step_kind": "native_policy",
+                "name": "remove duplicate spec.files assignments",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "remove_duplicate_gemspec_field_assignments",
+                  "field": "files",
+                  "prefer": "non_boilerplate_or_last"
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_files_policy_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "ruby_gemspec_files_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    # keep executable packaging\n    \"exe/*\",\n    \"sig/**/*.rbs\"\n  ]\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "union-literal-files",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    # keep executable packaging\n    \"exe/*\"\n  ]\n\n  spec.files = Dir[\n    \"tmp/generated\"\n  ]\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    # keep executable packaging\n    \"exe/*\",\n    \"sig/**/*.rbs\"\n  ]\n\n  spec.files = Dir[\n    \"tmp/generated\"\n  ]\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "union_literal_dir_files_assignment",
+                "unioned_entries": [
+                  "lib/**/*.rb",
+                  "exe/*",
+                  "sig/**/*.rbs"
+                ],
+                "preserved_attached_comments": [
+                  "# keep executable packaging"
+                ],
+                "source": "ruby_gemspec_files_policy_acceptance"
+              }
+            },
+            {
+              "step_id": "remove-duplicate-files",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    # keep executable packaging\n    \"exe/*\",\n    \"sig/**/*.rbs\"\n  ]\n\n  spec.files = Dir[\n    \"tmp/generated\"\n  ]\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    # keep executable packaging\n    \"exe/*\",\n    \"sig/**/*.rbs\"\n  ]\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "remove_duplicate_gemspec_field_assignments",
+                "field": "files",
+                "removed_duplicate_assignments": 1,
+                "source": "ruby_gemspec_files_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_gemspec_files_policy_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "gemspec-files-nonliteral-destination-preservation-is-wrapper-selected",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_files_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\"\n  ]\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  enumerate_package_files = lambda do |root|\n    Dir.chdir(root) { Dir[\"lib/**/*.rb\", \"exe/*\"] }\n  end\n\n  spec.files = enumerate_package_files.call(__dir__)\nend\n",
+          "steps": [
+            {
+              "step_id": "preserve-nonliteral-files",
+              "step_kind": "native_policy",
+              "name": "preserve destination nonliteral spec.files assignment",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "preserve_destination_nonliteral_files_assignment",
+                "field": "files",
+                "selected_by_wrapper": true
+              },
+              "metadata": {
+                "source": "ruby_gemspec_files_policy_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "ruby_gemspec_files_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_files_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.files = Dir[\n    \"lib/**/*.rb\"\n  ]\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  enumerate_package_files = lambda do |root|\n    Dir.chdir(root) { Dir[\"lib/**/*.rb\", \"exe/*\"] }\n  end\n\n  spec.files = enumerate_package_files.call(__dir__)\nend\n",
+            "steps": [
+              {
+                "step_id": "preserve-nonliteral-files",
+                "step_kind": "native_policy",
+                "name": "preserve destination nonliteral spec.files assignment",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "preserve_destination_nonliteral_files_assignment",
+                  "field": "files",
+                  "selected_by_wrapper": true
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_files_policy_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "ruby_gemspec_files_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  enumerate_package_files = lambda do |root|\n    Dir.chdir(root) { Dir[\"lib/**/*.rb\", \"exe/*\"] }\n  end\n\n  spec.files = enumerate_package_files.call(__dir__)\nend\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "preserve-nonliteral-files",
+              "step_kind": "native_policy",
+              "status": "unchanged",
+              "changed": false,
+              "input_content": "Gem::Specification.new do |spec|\n  enumerate_package_files = lambda do |root|\n    Dir.chdir(root) { Dir[\"lib/**/*.rb\", \"exe/*\"] }\n  end\n\n  spec.files = enumerate_package_files.call(__dir__)\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  enumerate_package_files = lambda do |root|\n    Dir.chdir(root) { Dir[\"lib/**/*.rb\", \"exe/*\"] }\n  end\n\n  spec.files = enumerate_package_files.call(__dir__)\nend\n",
+              "diagnostics": [
+                {
+                  "severity": "info",
+                  "category": "assumed_default",
+                  "message": "Destination nonliteral spec.files assignment was preserved because the wrapper selected preserve-destination-structure mode."
+                }
+              ],
+              "metadata": {
+                "policy_kind": "preserve_destination_nonliteral_files_assignment",
+                "wrapper_selected": true,
+                "source": "ruby_gemspec_files_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_gemspec_files_policy_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

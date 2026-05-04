@@ -3618,6 +3618,15 @@
           "slice-704-ruby-gemspec-dependency-section-policy-acceptance",
           "ruby-gemspec-dependency-section-policy-acceptance.json"
         ]
+      },
+      {
+        "role": "ruby_gemspec_files_policy_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-705-ruby-gemspec-files-policy-acceptance",
+          "ruby-gemspec-files-policy-acceptance.json"
+        ]
       }
     ],
     "text": [

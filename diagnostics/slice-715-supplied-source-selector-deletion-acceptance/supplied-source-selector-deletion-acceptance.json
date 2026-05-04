@@ -1,0 +1,260 @@
+{
+  "cases": [
+    {
+      "label": "delete-supplied-structural-owner-ranges",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_source_selector_deletion",
+          "recipe_version": "1",
+          "relative_path": "Rakefile",
+          "provider_family": "generic_ast",
+          "provider_backend": "generic_structural_owners",
+          "template_content": "require \"bundler/gem_tasks\"\n\n# Keep this task.\ntask :spec do\n  sh \"bundle exec rspec\"\nend\n",
+          "destination_content": "require \"bundler/gem_tasks\"\nrequire \"kettle/scaffold\"\n\n# Generated scaffold task.\ntask :scaffold do\n  sh \"kettle scaffold\"\nend\n\n# Keep this task.\ntask :spec do\n  sh \"bundle exec rspec\"\nend\n",
+          "steps": [
+            {
+              "step_id": "delete-supplied-owners",
+              "step_kind": "native_policy",
+              "name": "delete supplied structural owners",
+              "provider_family": "generic_ast",
+              "provider_backend": "generic_structural_owners",
+              "policy": {
+                "policy_kind": "delete_supplied_structural_owners",
+                "required_context": "delete_selectors",
+                "operation": "delete",
+                "selector_family": "structural_owner_range",
+                "normalize_blank_lines": true
+              },
+              "metadata": {
+                "source": "supplied_source_selector_deletion_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "delete_selectors": [
+              {
+                "selector_id": "rakefile_scaffold_require_kettle_scaffold",
+                "selector_family": "structural_owner_range",
+                "start_line": 2,
+                "end_line": 2,
+                "reason": "wrapper_selected_scaffold_require"
+              },
+              {
+                "selector_id": "rakefile_scaffold_task_scaffold",
+                "selector_family": "structural_owner_range",
+                "start_line": 4,
+                "end_line": 7,
+                "reason": "wrapper_selected_scaffold_task"
+              }
+            ]
+          },
+          "metadata": {
+            "source": "supplied_source_selector_deletion_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_source_selector_deletion",
+            "recipe_version": "1",
+            "relative_path": "Rakefile",
+            "provider_family": "generic_ast",
+            "provider_backend": "generic_structural_owners",
+            "template_content": "require \"bundler/gem_tasks\"\n\n# Keep this task.\ntask :spec do\n  sh \"bundle exec rspec\"\nend\n",
+            "destination_content": "require \"bundler/gem_tasks\"\nrequire \"kettle/scaffold\"\n\n# Generated scaffold task.\ntask :scaffold do\n  sh \"kettle scaffold\"\nend\n\n# Keep this task.\ntask :spec do\n  sh \"bundle exec rspec\"\nend\n",
+            "steps": [
+              {
+                "step_id": "delete-supplied-owners",
+                "step_kind": "native_policy",
+                "name": "delete supplied structural owners",
+                "provider_family": "generic_ast",
+                "provider_backend": "generic_structural_owners",
+                "policy": {
+                  "policy_kind": "delete_supplied_structural_owners",
+                  "required_context": "delete_selectors",
+                  "operation": "delete",
+                  "selector_family": "structural_owner_range",
+                  "normalize_blank_lines": true
+                },
+                "metadata": {
+                  "source": "supplied_source_selector_deletion_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "delete_selectors": [
+                {
+                  "selector_id": "rakefile_scaffold_require_kettle_scaffold",
+                  "selector_family": "structural_owner_range",
+                  "start_line": 2,
+                  "end_line": 2,
+                  "reason": "wrapper_selected_scaffold_require"
+                },
+                {
+                  "selector_id": "rakefile_scaffold_task_scaffold",
+                  "selector_family": "structural_owner_range",
+                  "start_line": 4,
+                  "end_line": 7,
+                  "reason": "wrapper_selected_scaffold_task"
+                }
+              ]
+            },
+            "metadata": {
+              "source": "supplied_source_selector_deletion_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "require \"bundler/gem_tasks\"\n\n# Keep this task.\ntask :spec do\n  sh \"bundle exec rspec\"\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "delete-supplied-owners",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "require \"bundler/gem_tasks\"\nrequire \"kettle/scaffold\"\n\n# Generated scaffold task.\ntask :scaffold do\n  sh \"kettle scaffold\"\nend\n\n# Keep this task.\ntask :spec do\n  sh \"bundle exec rspec\"\nend\n",
+              "output_content": "require \"bundler/gem_tasks\"\n\n# Keep this task.\ntask :spec do\n  sh \"bundle exec rspec\"\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "delete_supplied_structural_owners",
+                "operation": "delete",
+                "consumed_context": "delete_selectors",
+                "deleted_ranges": 2,
+                "deleted_selector_ids": [
+                  "rakefile_scaffold_require_kettle_scaffold",
+                  "rakefile_scaffold_task_scaffold"
+                ],
+                "source": "supplied_source_selector_deletion_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "supplied_source_selector_deletion_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-delete-selectors-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_source_selector_deletion",
+          "recipe_version": "1",
+          "relative_path": "Rakefile",
+          "provider_family": "generic_ast",
+          "provider_backend": "generic_structural_owners",
+          "template_content": "require \"bundler/gem_tasks\"\n",
+          "destination_content": "require \"bundler/gem_tasks\"\nrequire \"kettle/scaffold\"\n",
+          "steps": [
+            {
+              "step_id": "delete-supplied-owners",
+              "step_kind": "native_policy",
+              "name": "delete supplied structural owners",
+              "provider_family": "generic_ast",
+              "provider_backend": "generic_structural_owners",
+              "policy": {
+                "policy_kind": "delete_supplied_structural_owners",
+                "required_context": "delete_selectors",
+                "operation": "delete",
+                "selector_family": "structural_owner_range"
+              },
+              "metadata": {
+                "source": "supplied_source_selector_deletion_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_source_selector_deletion_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_source_selector_deletion",
+            "recipe_version": "1",
+            "relative_path": "Rakefile",
+            "provider_family": "generic_ast",
+            "provider_backend": "generic_structural_owners",
+            "template_content": "require \"bundler/gem_tasks\"\n",
+            "destination_content": "require \"bundler/gem_tasks\"\nrequire \"kettle/scaffold\"\n",
+            "steps": [
+              {
+                "step_id": "delete-supplied-owners",
+                "step_kind": "native_policy",
+                "name": "delete supplied structural owners",
+                "provider_family": "generic_ast",
+                "provider_backend": "generic_structural_owners",
+                "policy": {
+                  "policy_kind": "delete_supplied_structural_owners",
+                  "required_context": "delete_selectors",
+                  "operation": "delete",
+                  "selector_family": "structural_owner_range"
+                },
+                "metadata": {
+                  "source": "supplied_source_selector_deletion_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "supplied_source_selector_deletion_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "require \"bundler/gem_tasks\"\nrequire \"kettle/scaffold\"\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "delete-supplied-owners",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "require \"bundler/gem_tasks\"\nrequire \"kettle/scaffold\"\n",
+              "output_content": "require \"bundler/gem_tasks\"\nrequire \"kettle/scaffold\"\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "Supplied source selector deletion requires delete_selectors runtime context",
+                  "metadata": {
+                    "missing_context": "delete_selectors"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "delete_supplied_structural_owners",
+                "operation": "delete",
+                "source": "supplied_source_selector_deletion_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "Supplied source selector deletion requires delete_selectors runtime context",
+              "metadata": {
+                "missing_context": "delete_selectors"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_source_selector_deletion_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

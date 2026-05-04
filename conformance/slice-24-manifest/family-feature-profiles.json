@@ -3708,6 +3708,15 @@
           "slice-714-supplied-markdown-pruning-acceptance",
           "supplied-markdown-pruning-acceptance.json"
         ]
+      },
+      {
+        "role": "supplied_source_selector_deletion_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-715-supplied-source-selector-deletion-acceptance",
+          "supplied-source-selector-deletion-acceptance.json"
+        ]
       }
     ],
     "text": [

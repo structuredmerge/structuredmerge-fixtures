@@ -3600,6 +3600,15 @@
           "slice-702-ruby-gemspec-signature-merge-acceptance",
           "ruby-gemspec-signature-merge-acceptance.json"
         ]
+      },
+      {
+        "role": "ruby_gemspec_field_policy_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-703-ruby-gemspec-field-policy-acceptance",
+          "ruby-gemspec-field-policy-acceptance.json"
+        ]
       }
     ],
     "text": [

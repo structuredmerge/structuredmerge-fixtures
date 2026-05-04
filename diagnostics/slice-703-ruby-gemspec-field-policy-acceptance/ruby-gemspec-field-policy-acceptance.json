@@ -1,0 +1,184 @@
+{
+  "cases": [
+    {
+      "label": "gemspec-field-policy-preserves-real-summary-and-removes-singular-license",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_field_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"1.0.0\"\n  spec.summary = \"placeholder\"\n  spec.description = \"placeholder\"\n  spec.licenses = [\"MIT\"]\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"old-demo\"\n  spec.version = \"0.1.0\"\n  spec.summary = \"Real project summary\"\n  spec.description = \"Real project description\"\n  spec.license = \"MIT\"\n  spec.licenses = [\"MIT\"]\nend\n",
+          "steps": [
+            {
+              "step_id": "replace-or-insert-fields",
+              "step_kind": "native_policy",
+              "name": "replace or insert supplied gemspec fields",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "replace_or_insert_literal_gemspec_fields",
+                "placeholder_policy": "preserve_non_placeholder_destination",
+                "replacements": {
+                  "name": "demo",
+                  "authors": [
+                    "Example Maintainer"
+                  ],
+                  "email": [
+                    "maintainer@example.test"
+                  ],
+                  "summary": "placeholder",
+                  "description": "placeholder",
+                  "homepage": "https://example.test/demo"
+                }
+              },
+              "metadata": {
+                "source": "ruby_gemspec_field_policy_acceptance"
+              }
+            },
+            {
+              "step_id": "remove-singular-license",
+              "step_kind": "native_policy",
+              "name": "delete singular license when plural licenses exists",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "remove_singular_license_when_plural_present",
+                "singular_field": "license",
+                "plural_field": "licenses"
+              },
+              "metadata": {
+                "source": "ruby_gemspec_field_policy_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "replacement_values_supplied_by_wrapper": true
+          },
+          "metadata": {
+            "source": "ruby_gemspec_field_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_field_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"1.0.0\"\n  spec.summary = \"placeholder\"\n  spec.description = \"placeholder\"\n  spec.licenses = [\"MIT\"]\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"old-demo\"\n  spec.version = \"0.1.0\"\n  spec.summary = \"Real project summary\"\n  spec.description = \"Real project description\"\n  spec.license = \"MIT\"\n  spec.licenses = [\"MIT\"]\nend\n",
+            "steps": [
+              {
+                "step_id": "replace-or-insert-fields",
+                "step_kind": "native_policy",
+                "name": "replace or insert supplied gemspec fields",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "replace_or_insert_literal_gemspec_fields",
+                  "placeholder_policy": "preserve_non_placeholder_destination",
+                  "replacements": {
+                    "name": "demo",
+                    "authors": [
+                      "Example Maintainer"
+                    ],
+                    "email": [
+                      "maintainer@example.test"
+                    ],
+                    "summary": "placeholder",
+                    "description": "placeholder",
+                    "homepage": "https://example.test/demo"
+                  }
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_field_policy_acceptance"
+                }
+              },
+              {
+                "step_id": "remove-singular-license",
+                "step_kind": "native_policy",
+                "name": "delete singular license when plural licenses exists",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "remove_singular_license_when_plural_present",
+                  "singular_field": "license",
+                  "plural_field": "licenses"
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_field_policy_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "replacement_values_supplied_by_wrapper": true
+            },
+            "metadata": {
+              "source": "ruby_gemspec_field_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\n  spec.authors = [\"Example Maintainer\"]\n  spec.email = [\"maintainer@example.test\"]\n  spec.homepage = \"https://example.test/demo\"\n  spec.summary = \"Real project summary\"\n  spec.description = \"Real project description\"\n  spec.licenses = [\"MIT\"]\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "replace-or-insert-fields",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.name = \"old-demo\"\n  spec.version = \"0.1.0\"\n  spec.summary = \"Real project summary\"\n  spec.description = \"Real project description\"\n  spec.license = \"MIT\"\n  spec.licenses = [\"MIT\"]\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\n  spec.authors = [\"Example Maintainer\"]\n  spec.email = [\"maintainer@example.test\"]\n  spec.homepage = \"https://example.test/demo\"\n  spec.summary = \"Real project summary\"\n  spec.description = \"Real project description\"\n  spec.license = \"MIT\"\n  spec.licenses = [\"MIT\"]\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "replace_or_insert_literal_gemspec_fields",
+                "replaced_fields": [
+                  "name"
+                ],
+                "inserted_fields": [
+                  "authors",
+                  "email",
+                  "homepage"
+                ],
+                "preserved_destination_fields": [
+                  "summary",
+                  "description"
+                ],
+                "source": "ruby_gemspec_field_policy_acceptance"
+              }
+            },
+            {
+              "step_id": "remove-singular-license",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\n  spec.authors = [\"Example Maintainer\"]\n  spec.email = [\"maintainer@example.test\"]\n  spec.homepage = \"https://example.test/demo\"\n  spec.summary = \"Real project summary\"\n  spec.description = \"Real project description\"\n  spec.license = \"MIT\"\n  spec.licenses = [\"MIT\"]\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\n  spec.authors = [\"Example Maintainer\"]\n  spec.email = [\"maintainer@example.test\"]\n  spec.homepage = \"https://example.test/demo\"\n  spec.summary = \"Real project summary\"\n  spec.description = \"Real project description\"\n  spec.licenses = [\"MIT\"]\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "remove_singular_license_when_plural_present",
+                "deleted_fields": [
+                  "license"
+                ],
+                "source": "ruby_gemspec_field_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_gemspec_field_policy_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

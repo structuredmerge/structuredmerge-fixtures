@@ -3591,6 +3591,15 @@
           "slice-701-ruby-gemspec-native-boundary-report",
           "ruby-gemspec-native-boundary-report.json"
         ]
+      },
+      {
+        "role": "ruby_gemspec_signature_merge_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-702-ruby-gemspec-signature-merge-acceptance",
+          "ruby-gemspec-signature-merge-acceptance.json"
+        ]
       }
     ],
     "text": [

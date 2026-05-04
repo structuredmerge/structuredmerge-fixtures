@@ -1,0 +1,230 @@
+{
+  "cases": [
+    {
+      "label": "gemspec-declaration-signature-merge",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_signature_merge",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::Version::VERSION\n  spec.summary = \"Template summary\"\n  spec.metadata[\"homepage_uri\"] = \"https://example.com/demo\"\n  spec.rdoc_options += [\"--main\", \"README.md\"]\n  spec.add_dependency(\"json\", \">= 2.0\")\n  spec.add_development_dependency(\"rspec\", \"~> 3.13\")\nend\n",
+          "destination_content": "Gem::Specification.new do |gem|\n  gem.name = \"demo-old\"\n  gem.version = \"0.1.0\"\n  gem.summary = \"Destination summary\"\n  gem.metadata[\"source_code_uri\"] = \"https://github.com/example/demo\"\n  gem.rdoc_options += [\"--title\", \"Demo\"]\n  gem.add_dependency(\"json\", \"~> 2.6\")\n  gem.add_development_dependency(\"rubocop\", \"~> 1.0\")\nend\n",
+          "steps": [
+            {
+              "step_id": "merge-gemspec-declarations",
+              "step_kind": "smart_merge",
+              "name": "merge gemspec declarations by signature",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "merge_profile": {
+                "preference": "template",
+                "add_missing": true,
+                "signature_profile": "gemspec_declarations",
+                "signature_rules": [
+                  {
+                    "node_kind": "block",
+                    "selector": "Gem::Specification.new",
+                    "signature": [
+                      "gem_specification_new"
+                    ],
+                    "cardinality": "singleton"
+                  },
+                  {
+                    "node_kind": "call",
+                    "selector": "gemspec_block_receiver.field = value",
+                    "signature": [
+                      "gemspec_field",
+                      "field_name"
+                    ]
+                  },
+                  {
+                    "node_kind": "call",
+                    "selector": "gemspec_block_receiver.metadata[key] = value",
+                    "signature": [
+                      "gemspec_metadata",
+                      "metadata_key"
+                    ]
+                  },
+                  {
+                    "node_kind": "operator_write",
+                    "selector": "gemspec_block_receiver.field += value",
+                    "signature": [
+                      "gemspec_operator_write",
+                      "field_name",
+                      "operator"
+                    ]
+                  },
+                  {
+                    "node_kind": "call",
+                    "selector": "gemspec_block_receiver.add_dependency(name, ...)",
+                    "signature": [
+                      "dependency_method",
+                      "dependency_name"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "source": "ruby_gemspec_signature_merge_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "ruby_gemspec_signature_merge_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_signature_merge",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::Version::VERSION\n  spec.summary = \"Template summary\"\n  spec.metadata[\"homepage_uri\"] = \"https://example.com/demo\"\n  spec.rdoc_options += [\"--main\", \"README.md\"]\n  spec.add_dependency(\"json\", \">= 2.0\")\n  spec.add_development_dependency(\"rspec\", \"~> 3.13\")\nend\n",
+            "destination_content": "Gem::Specification.new do |gem|\n  gem.name = \"demo-old\"\n  gem.version = \"0.1.0\"\n  gem.summary = \"Destination summary\"\n  gem.metadata[\"source_code_uri\"] = \"https://github.com/example/demo\"\n  gem.rdoc_options += [\"--title\", \"Demo\"]\n  gem.add_dependency(\"json\", \"~> 2.6\")\n  gem.add_development_dependency(\"rubocop\", \"~> 1.0\")\nend\n",
+            "steps": [
+              {
+                "step_id": "merge-gemspec-declarations",
+                "step_kind": "smart_merge",
+                "name": "merge gemspec declarations by signature",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "merge_profile": {
+                  "preference": "template",
+                  "add_missing": true,
+                  "signature_profile": "gemspec_declarations",
+                  "signature_rules": [
+                    {
+                      "node_kind": "block",
+                      "selector": "Gem::Specification.new",
+                      "signature": [
+                        "gem_specification_new"
+                      ],
+                      "cardinality": "singleton"
+                    },
+                    {
+                      "node_kind": "call",
+                      "selector": "gemspec_block_receiver.field = value",
+                      "signature": [
+                        "gemspec_field",
+                        "field_name"
+                      ]
+                    },
+                    {
+                      "node_kind": "call",
+                      "selector": "gemspec_block_receiver.metadata[key] = value",
+                      "signature": [
+                        "gemspec_metadata",
+                        "metadata_key"
+                      ]
+                    },
+                    {
+                      "node_kind": "operator_write",
+                      "selector": "gemspec_block_receiver.field += value",
+                      "signature": [
+                        "gemspec_operator_write",
+                        "field_name",
+                        "operator"
+                      ]
+                    },
+                    {
+                      "node_kind": "call",
+                      "selector": "gemspec_block_receiver.add_dependency(name, ...)",
+                      "signature": [
+                        "dependency_method",
+                        "dependency_name"
+                      ]
+                    }
+                  ]
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_signature_merge_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "ruby_gemspec_signature_merge_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::Version::VERSION\n  spec.summary = \"Template summary\"\n  spec.metadata[\"homepage_uri\"] = \"https://example.com/demo\"\n  spec.metadata[\"source_code_uri\"] = \"https://github.com/example/demo\"\n  spec.rdoc_options += [\"--main\", \"README.md\"]\n  spec.add_dependency(\"json\", \">= 2.0\")\n  spec.add_development_dependency(\"rspec\", \"~> 3.13\")\n  spec.add_development_dependency(\"rubocop\", \"~> 1.0\")\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "merge-gemspec-declarations",
+              "step_kind": "smart_merge",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |gem|\n  gem.name = \"demo-old\"\n  gem.version = \"0.1.0\"\n  gem.summary = \"Destination summary\"\n  gem.metadata[\"source_code_uri\"] = \"https://github.com/example/demo\"\n  gem.rdoc_options += [\"--title\", \"Demo\"]\n  gem.add_dependency(\"json\", \"~> 2.6\")\n  gem.add_development_dependency(\"rubocop\", \"~> 1.0\")\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::Version::VERSION\n  spec.summary = \"Template summary\"\n  spec.metadata[\"homepage_uri\"] = \"https://example.com/demo\"\n  spec.metadata[\"source_code_uri\"] = \"https://github.com/example/demo\"\n  spec.rdoc_options += [\"--main\", \"README.md\"]\n  spec.add_dependency(\"json\", \">= 2.0\")\n  spec.add_development_dependency(\"rspec\", \"~> 3.13\")\n  spec.add_development_dependency(\"rubocop\", \"~> 1.0\")\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "signature_profile": "gemspec_declarations",
+                "matched_signatures": [
+                  [
+                    "gem_specification_new"
+                  ],
+                  [
+                    "gemspec_field",
+                    "name"
+                  ],
+                  [
+                    "gemspec_field",
+                    "version"
+                  ],
+                  [
+                    "gemspec_field",
+                    "summary"
+                  ],
+                  [
+                    "gemspec_operator_write",
+                    "rdoc_options",
+                    "+="
+                  ],
+                  [
+                    "add_dependency",
+                    "json"
+                  ]
+                ],
+                "added_signatures": [
+                  [
+                    "gemspec_metadata",
+                    "homepage_uri"
+                  ],
+                  [
+                    "add_development_dependency",
+                    "rspec"
+                  ]
+                ],
+                "preserved_destination_only_signatures": [
+                  [
+                    "gemspec_metadata",
+                    "source_code_uri"
+                  ],
+                  [
+                    "add_development_dependency",
+                    "rubocop"
+                  ]
+                ],
+                "source": "ruby_gemspec_signature_merge_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_gemspec_signature_merge_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

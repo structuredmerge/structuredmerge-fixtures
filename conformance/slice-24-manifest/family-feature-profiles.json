@@ -3510,6 +3510,15 @@
           "slice-689-structured-edit-crispr-parity-substrate-report",
           "structured-edit-crispr-parity-substrate-report.json"
         ]
+      },
+      {
+        "role": "structured_edit_operation_triad_parity",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-692-structured-edit-operation-triad-parity",
+          "structured-edit-operation-triad-parity.json"
+        ]
       }
     ],
     "text": [

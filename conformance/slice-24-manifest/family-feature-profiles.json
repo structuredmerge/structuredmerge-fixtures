@@ -3528,6 +3528,15 @@
           "slice-693-structured-edit-provider-executor-operation-triad-profile",
           "structured-edit-provider-executor-operation-triad-profile.json"
         ]
+      },
+      {
+        "role": "structured_edit_crispr_acceptance_scenario",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-695-structured-edit-crispr-acceptance-scenario",
+          "structured-edit-crispr-acceptance-scenario.json"
+        ]
       }
     ],
     "text": [

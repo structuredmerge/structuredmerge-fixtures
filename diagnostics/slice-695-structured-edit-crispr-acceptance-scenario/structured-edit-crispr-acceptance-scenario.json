@@ -1,0 +1,298 @@
+{
+  "cases": [
+    {
+      "label": "acceptance-replace-managed-block",
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+            "source_label": "component.ast",
+            "target_selector": "region:managed:setup",
+            "target_selector_family": "ast_region",
+            "target_selection": {
+              "selector_kind": "named_region",
+              "selection_intent": "region_body",
+              "selection_intent_family": "ast_region",
+              "known_selection_intent": true,
+              "include_trailing_gap": false,
+              "comment_anchored": false,
+              "metadata": {
+                "source": "structured_edit_acceptance"
+              }
+            },
+            "target_match": {
+              "start_boundary": "region_body_start",
+              "start_boundary_family": "ast_region",
+              "known_start_boundary": true,
+              "end_boundary": "region_body_end",
+              "end_boundary_family": "ast_region",
+              "known_end_boundary": true,
+              "payload_kind": "region_body",
+              "payload_family": "ast_region",
+              "known_payload_kind": true,
+              "comment_anchored": false,
+              "trailing_gap_extended": false,
+              "metadata": {
+                "source": "structured_edit_acceptance"
+              }
+            },
+            "payload_text": "    new_call()\n",
+            "metadata": {
+              "scenario": "provider_neutral_crispr_acceptance",
+              "source": "structured_edit_acceptance"
+            }
+          },
+          "result": {
+            "operation_kind": "replace",
+            "updated_content": "component App {\n  region managed:setup {\n    new_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+            "changed": true,
+            "captured_text": "    old_call()\n",
+            "match_count": 1,
+            "operation_profile": {
+              "operation_kind": "replace",
+              "operation_family": "rewrite",
+              "known_operation_kind": true,
+              "source_requirement": "required",
+              "destination_requirement": "none",
+              "replacement_source": "explicit_text",
+              "captures_source_text": true,
+              "supports_if_missing": false,
+              "metadata": {
+                "source": "structured_edit_acceptance"
+              }
+            },
+            "metadata": {
+              "scenario": "provider_neutral_crispr_acceptance",
+              "source": "structured_edit_acceptance"
+            }
+          },
+          "metadata": {
+            "scenario": "provider_neutral_crispr_acceptance",
+            "source": "structured_edit_acceptance"
+          }
+        },
+        "provider_family": "generic_ast",
+        "diagnostics": [],
+        "metadata": {
+          "acceptance_case": "replace",
+          "source": "structured_edit_acceptance"
+        }
+      }
+    },
+    {
+      "label": "acceptance-insert-after-anchor",
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "insert",
+            "content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+            "source_label": "component.ast",
+            "destination_selector": "anchor:ready",
+            "destination_selector_family": "ast_anchor",
+            "payload_text": "  region managed:inserted {\n    inserted_call()\n  }\n",
+            "if_missing": "append",
+            "metadata": {
+              "scenario": "provider_neutral_crispr_acceptance",
+              "source": "structured_edit_acceptance"
+            }
+          },
+          "result": {
+            "operation_kind": "insert",
+            "updated_content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region managed:inserted {\n    inserted_call()\n  }\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+            "changed": true,
+            "operation_profile": {
+              "operation_kind": "insert",
+              "operation_family": "insertion",
+              "known_operation_kind": true,
+              "source_requirement": "none",
+              "destination_requirement": "optional",
+              "replacement_source": "explicit_text",
+              "captures_source_text": false,
+              "supports_if_missing": true,
+              "metadata": {
+                "source": "structured_edit_acceptance"
+              }
+            },
+            "destination_profile": {
+              "resolution_kind": "selector",
+              "resolution_source": "destination_selector",
+              "anchor_boundary": "after",
+              "resolution_family": "ast_anchor",
+              "resolution_source_family": "explicit_selector",
+              "anchor_boundary_family": "node_boundary",
+              "known_resolution_kind": true,
+              "known_resolution_source": true,
+              "known_anchor_boundary": true,
+              "used_if_missing": false,
+              "metadata": {
+                "source": "structured_edit_acceptance"
+              }
+            },
+            "metadata": {
+              "scenario": "provider_neutral_crispr_acceptance",
+              "source": "structured_edit_acceptance"
+            }
+          },
+          "metadata": {
+            "scenario": "provider_neutral_crispr_acceptance",
+            "source": "structured_edit_acceptance"
+          }
+        },
+        "provider_family": "generic_ast",
+        "diagnostics": [],
+        "metadata": {
+          "acceptance_case": "insert",
+          "source": "structured_edit_acceptance"
+        }
+      }
+    },
+    {
+      "label": "acceptance-delete-obsolete-block",
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "delete",
+            "content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n  region obsolete:legacy {\n    stale_call()\n  }\n}\n",
+            "source_label": "component.ast",
+            "target_selector": "region:obsolete:legacy",
+            "target_selector_family": "ast_region",
+            "target_selection": {
+              "selector_kind": "named_region",
+              "selection_intent": "region",
+              "selection_intent_family": "ast_region",
+              "known_selection_intent": true,
+              "include_trailing_gap": true,
+              "comment_anchored": false,
+              "metadata": {
+                "source": "structured_edit_acceptance"
+              }
+            },
+            "target_match": {
+              "start_boundary": "region_start",
+              "start_boundary_family": "ast_region",
+              "known_start_boundary": true,
+              "end_boundary": "region_end_plus_trailing_gap",
+              "end_boundary_family": "ast_region",
+              "known_end_boundary": true,
+              "payload_kind": "region",
+              "payload_family": "ast_region",
+              "known_payload_kind": true,
+              "comment_anchored": false,
+              "trailing_gap_extended": true,
+              "metadata": {
+                "source": "structured_edit_acceptance"
+              }
+            },
+            "metadata": {
+              "scenario": "provider_neutral_crispr_acceptance",
+              "source": "structured_edit_acceptance"
+            }
+          },
+          "result": {
+            "operation_kind": "delete",
+            "updated_content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  anchor ready\n}\n",
+            "changed": true,
+            "captured_text": "  region obsolete:legacy {\n    stale_call()\n  }\n",
+            "match_count": 1,
+            "operation_profile": {
+              "operation_kind": "delete",
+              "operation_family": "removal",
+              "known_operation_kind": true,
+              "source_requirement": "required",
+              "destination_requirement": "none",
+              "replacement_source": "none",
+              "captures_source_text": true,
+              "supports_if_missing": false,
+              "metadata": {
+                "source": "structured_edit_acceptance"
+              }
+            },
+            "metadata": {
+              "scenario": "provider_neutral_crispr_acceptance",
+              "source": "structured_edit_acceptance"
+            }
+          },
+          "metadata": {
+            "scenario": "provider_neutral_crispr_acceptance",
+            "source": "structured_edit_acceptance"
+          }
+        },
+        "provider_family": "generic_ast",
+        "diagnostics": [],
+        "metadata": {
+          "acceptance_case": "delete",
+          "source": "structured_edit_acceptance"
+        }
+      }
+    },
+    {
+      "label": "acceptance-ambiguity-fails-closed",
+      "report": {
+        "application": {
+          "request": {
+            "operation_kind": "replace",
+            "content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  region managed:setup {\n    other_call()\n  }\n}\n",
+            "source_label": "component.ast",
+            "target_selector": "region:managed:setup",
+            "target_selector_family": "ast_region",
+            "payload_text": "    new_call()\n",
+            "metadata": {
+              "scenario": "provider_neutral_crispr_acceptance",
+              "source": "structured_edit_acceptance"
+            }
+          },
+          "result": {
+            "operation_kind": "replace",
+            "updated_content": "component App {\n  region managed:setup {\n    old_call()\n  }\n  region managed:setup {\n    other_call()\n  }\n}\n",
+            "changed": false,
+            "match_count": 2,
+            "operation_profile": {
+              "operation_kind": "replace",
+              "operation_family": "rewrite",
+              "known_operation_kind": true,
+              "source_requirement": "required",
+              "destination_requirement": "none",
+              "replacement_source": "explicit_text",
+              "captures_source_text": true,
+              "supports_if_missing": false,
+              "metadata": {
+                "source": "structured_edit_acceptance"
+              }
+            },
+            "metadata": {
+              "scenario": "provider_neutral_crispr_acceptance",
+              "source": "structured_edit_acceptance"
+            }
+          },
+          "metadata": {
+            "scenario": "provider_neutral_crispr_acceptance",
+            "source": "structured_edit_acceptance"
+          }
+        },
+        "provider_family": "generic_ast",
+        "diagnostics": [
+          {
+            "severity": "error",
+            "category": "ambiguity",
+            "message": "matched 2 node(s); expected == 1"
+          }
+        ],
+        "metadata": {
+          "acceptance_case": "ambiguity_fail_closed",
+          "source": "structured_edit_acceptance"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "canonical_operation_kinds": [
+      "insert",
+      "replace",
+      "delete"
+    ],
+    "parity_scope": "provider_neutral_crispr_acceptance",
+    "remove_alias_encoded": false,
+    "source": "structured_edit_acceptance"
+  }
+}

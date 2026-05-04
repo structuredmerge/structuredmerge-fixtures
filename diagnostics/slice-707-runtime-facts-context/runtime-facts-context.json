@@ -25,13 +25,13 @@
                 "required_fact_id": "dependency.ruby_floor"
               },
               "metadata": {
-                "source": "project_facts_runtime_context"
+                "source": "runtime_facts_context"
               }
             }
           ],
           "runtime_context": {
-            "project_facts": {
-              "schema": "project_facts.v1",
+            "facts": {
+              "schema": "runtime_facts.v1",
               "producer": "kettle-jem-wrapper",
               "facts": [
                 {
@@ -44,7 +44,7 @@
                 },
                 {
                   "fact_id": "gem.identity",
-                  "subject_kind": "project",
+                  "subject_kind": "package",
                   "subject": "demo",
                   "value": {
                     "name": "demo",
@@ -84,7 +84,7 @@
             }
           },
           "metadata": {
-            "source": "project_facts_runtime_context",
+            "source": "runtime_facts_context",
             "reference_project": "reference/kettle-jem"
           }
         }
@@ -113,13 +113,13 @@
                   "required_fact_id": "dependency.ruby_floor"
                 },
                 "metadata": {
-                  "source": "project_facts_runtime_context"
+                  "source": "runtime_facts_context"
                 }
               }
             ],
             "runtime_context": {
-              "project_facts": {
-                "schema": "project_facts.v1",
+              "facts": {
+                "schema": "runtime_facts.v1",
                 "producer": "kettle-jem-wrapper",
                 "facts": [
                   {
@@ -132,7 +132,7 @@
                   },
                   {
                     "fact_id": "gem.identity",
-                    "subject_kind": "project",
+                    "subject_kind": "package",
                     "subject": "demo",
                     "value": {
                       "name": "demo",
@@ -172,7 +172,7 @@
               }
             },
             "metadata": {
-              "source": "project_facts_runtime_context",
+              "source": "runtime_facts_context",
               "reference_project": "reference/kettle-jem"
             }
           },
@@ -190,13 +190,13 @@
               "metadata": {
                 "policy_kind": "dependency_floor_comment_alignment",
                 "consumed_fact_id": "dependency.ruby_floor",
-                "source": "project_facts_runtime_context"
+                "source": "runtime_facts_context"
               }
             }
           ],
           "diagnostics": [],
           "metadata": {
-            "source": "project_facts_runtime_context"
+            "source": "runtime_facts_context"
           }
         }
       }
@@ -226,13 +226,13 @@
                 "required_fact_id": "dependency.ruby_floor"
               },
               "metadata": {
-                "source": "project_facts_runtime_context"
+                "source": "runtime_facts_context"
               }
             }
           ],
           "runtime_context": {
-            "project_facts": {
-              "schema": "project_facts.v1",
+            "facts": {
+              "schema": "runtime_facts.v1",
               "producer": "kettle-jem-wrapper",
               "facts": [
                 {
@@ -247,7 +247,7 @@
             }
           },
           "metadata": {
-            "source": "project_facts_runtime_context",
+            "source": "runtime_facts_context",
             "reference_project": "reference/kettle-jem"
           }
         }
@@ -276,13 +276,13 @@
                   "required_fact_id": "dependency.ruby_floor"
                 },
                 "metadata": {
-                  "source": "project_facts_runtime_context"
+                  "source": "runtime_facts_context"
                 }
               }
             ],
             "runtime_context": {
-              "project_facts": {
-                "schema": "project_facts.v1",
+              "facts": {
+                "schema": "runtime_facts.v1",
                 "producer": "kettle-jem-wrapper",
                 "facts": [
                   {
@@ -297,7 +297,7 @@
               }
             },
             "metadata": {
-              "source": "project_facts_runtime_context",
+              "source": "runtime_facts_context",
               "reference_project": "reference/kettle-jem"
             }
           },
@@ -315,7 +315,7 @@
                 {
                   "severity": "error",
                   "category": "configuration_error",
-                  "message": "dependency floor comments require dependency.ruby_floor project facts",
+                  "message": "dependency floor comments require dependency.ruby_floor runtime facts",
                   "metadata": {
                     "missing_fact_id": "dependency.ruby_floor"
                   }
@@ -323,7 +323,7 @@
               ],
               "metadata": {
                 "policy_kind": "dependency_floor_comment_alignment",
-                "source": "project_facts_runtime_context"
+                "source": "runtime_facts_context"
               }
             }
           ],
@@ -331,14 +331,14 @@
             {
               "severity": "error",
               "category": "configuration_error",
-              "message": "dependency floor comments require dependency.ruby_floor project facts",
+              "message": "dependency floor comments require dependency.ruby_floor runtime facts",
               "metadata": {
                 "missing_fact_id": "dependency.ruby_floor"
               }
             }
           ],
           "metadata": {
-            "source": "project_facts_runtime_context"
+            "source": "runtime_facts_context"
           }
         }
       }

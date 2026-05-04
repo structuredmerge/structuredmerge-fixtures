@@ -3638,12 +3638,12 @@
         ]
       },
       {
-        "role": "project_facts_runtime_context",
+        "role": "runtime_facts_context",
         "family": "diagnostics",
         "path": [
           "diagnostics",
-          "slice-707-project-facts-runtime-context",
-          "project-facts-runtime-context.json"
+          "slice-707-runtime-facts-context",
+          "runtime-facts-context.json"
         ]
       },
       {

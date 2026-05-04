@@ -36,13 +36,13 @@
             }
           ],
           "runtime_context": {
-            "project_facts": {
-              "schema": "project_facts.v1",
+            "facts": {
+              "schema": "runtime_facts.v1",
               "producer": "kettle-jem-wrapper",
               "facts": [
                 {
                   "fact_id": "gem.identity",
-                  "subject_kind": "project",
+                  "subject_kind": "package",
                   "subject": "demo",
                   "value": {
                     "name": "demo",
@@ -96,13 +96,13 @@
               }
             ],
             "runtime_context": {
-              "project_facts": {
-                "schema": "project_facts.v1",
+              "facts": {
+                "schema": "runtime_facts.v1",
                 "producer": "kettle-jem-wrapper",
                 "facts": [
                   {
                     "fact_id": "gem.identity",
-                    "subject_kind": "project",
+                    "subject_kind": "package",
                     "subject": "demo",
                     "value": {
                       "name": "demo",
@@ -178,8 +178,8 @@
             }
           ],
           "runtime_context": {
-            "project_facts": {
-              "schema": "project_facts.v1",
+            "facts": {
+              "schema": "runtime_facts.v1",
               "producer": "kettle-jem-wrapper",
               "facts": []
             }
@@ -220,8 +220,8 @@
               }
             ],
             "runtime_context": {
-              "project_facts": {
-                "schema": "project_facts.v1",
+              "facts": {
+                "schema": "runtime_facts.v1",
                 "producer": "kettle-jem-wrapper",
                 "facts": []
               }
@@ -245,7 +245,7 @@
                 {
                   "severity": "error",
                   "category": "configuration_error",
-                  "message": "self-dependency deletion requires gem.identity project facts",
+                  "message": "self-dependency deletion requires gem.identity runtime facts",
                   "metadata": {
                     "missing_fact_id": "gem.identity"
                   }
@@ -262,7 +262,7 @@
             {
               "severity": "error",
               "category": "configuration_error",
-              "message": "self-dependency deletion requires gem.identity project facts",
+              "message": "self-dependency deletion requires gem.identity runtime facts",
               "metadata": {
                 "missing_fact_id": "gem.identity"
               }

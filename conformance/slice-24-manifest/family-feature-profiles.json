@@ -3555,6 +3555,15 @@
           "slice-697-content-recipe-execution-envelope",
           "content-recipe-execution-envelope.json"
         ]
+      },
+      {
+        "role": "single_file_readme_heading_section_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-698-single-file-readme-heading-section-acceptance",
+          "single-file-readme-heading-section-acceptance.json"
+        ]
       }
     ],
     "text": [

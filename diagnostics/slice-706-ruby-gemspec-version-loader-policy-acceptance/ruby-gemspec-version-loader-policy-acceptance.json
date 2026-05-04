@@ -1,0 +1,210 @@
+{
+  "cases": [
+    {
+      "label": "modern-ruby-inline-version-loader",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_version_loader_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "gem_version =\n  if RUBY_VERSION >= \"3.1\"\n    Module.new.tap { |mod| Kernel.load(\"#{__dir__}/lib/demo/version.rb\", mod) }::Demo::Version::VERSION\n  else\n    require \"demo/version\"\n    Demo::Version::VERSION\n  end\n\nGem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = gem_version\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\nend\n",
+          "steps": [
+            {
+              "step_id": "rewrite-version-loader",
+              "step_kind": "native_policy",
+              "name": "rewrite gemspec version loader",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "rewrite_version_loader",
+                "modern_threshold": "3.1"
+              },
+              "metadata": {
+                "source": "ruby_gemspec_version_loader_policy_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "min_ruby": "3.2",
+            "entrypoint_require": "demo",
+            "namespace": "Demo"
+          },
+          "metadata": {
+            "source": "ruby_gemspec_version_loader_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_version_loader_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "gem_version =\n  if RUBY_VERSION >= \"3.1\"\n    Module.new.tap { |mod| Kernel.load(\"#{__dir__}/lib/demo/version.rb\", mod) }::Demo::Version::VERSION\n  else\n    require \"demo/version\"\n    Demo::Version::VERSION\n  end\n\nGem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = gem_version\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\nend\n",
+            "steps": [
+              {
+                "step_id": "rewrite-version-loader",
+                "step_kind": "native_policy",
+                "name": "rewrite gemspec version loader",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "rewrite_version_loader",
+                  "modern_threshold": "3.1"
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_version_loader_policy_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "min_ruby": "3.2",
+              "entrypoint_require": "demo",
+              "namespace": "Demo"
+            },
+            "metadata": {
+              "source": "ruby_gemspec_version_loader_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Module.new.tap { |mod| Kernel.load(\"#{__dir__}/lib/demo/version.rb\", mod) }::Demo::Version::VERSION\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "rewrite-version-loader",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\nend\n",
+              "output_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Module.new.tap { |mod| Kernel.load(\"#{__dir__}/lib/demo/version.rb\", mod) }::Demo::Version::VERSION\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "rewrite_version_loader",
+                "version_loader_mode": "modern_inline",
+                "source": "ruby_gemspec_version_loader_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_gemspec_version_loader_policy_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "legacy-ruby-gem-version-preamble",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "ruby_gemspec_version_loader_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::Version::VERSION\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\nend\n",
+          "steps": [
+            {
+              "step_id": "rewrite-version-loader",
+              "step_kind": "native_policy",
+              "name": "rewrite gemspec version loader",
+              "provider_family": "ruby_source",
+              "provider_backend": "generic_ruby_ast",
+              "policy": {
+                "policy_kind": "rewrite_version_loader",
+                "modern_threshold": "3.1"
+              },
+              "metadata": {
+                "source": "ruby_gemspec_version_loader_policy_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "min_ruby": "2.7",
+            "entrypoint_require": "demo",
+            "namespace": "Demo"
+          },
+          "metadata": {
+            "source": "ruby_gemspec_version_loader_policy_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "ruby_gemspec_version_loader_policy",
+            "recipe_version": "1",
+            "relative_path": "demo.gemspec",
+            "provider_family": "ruby_source",
+            "provider_backend": "generic_ruby_ast",
+            "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::Version::VERSION\nend\n",
+            "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\nend\n",
+            "steps": [
+              {
+                "step_id": "rewrite-version-loader",
+                "step_kind": "native_policy",
+                "name": "rewrite gemspec version loader",
+                "provider_family": "ruby_source",
+                "provider_backend": "generic_ruby_ast",
+                "policy": {
+                  "policy_kind": "rewrite_version_loader",
+                  "modern_threshold": "3.1"
+                },
+                "metadata": {
+                  "source": "ruby_gemspec_version_loader_policy_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "min_ruby": "2.7",
+              "entrypoint_require": "demo",
+              "namespace": "Demo"
+            },
+            "metadata": {
+              "source": "ruby_gemspec_version_loader_policy_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "gem_version =\n  if RUBY_VERSION >= \"3.1\" # rubocop:disable Gemspec/RubyVersionGlobalsUsage\n    Module.new.tap { |mod| Kernel.load(\"#{__dir__}/lib/demo/version.rb\", mod) }::Demo::Version::VERSION\n  else\n    lib = File.expand_path(\"lib\", __dir__)\n    $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)\n    require \"demo/version\"\n    Demo::Version::VERSION\n  end\n\nGem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = gem_version\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "rewrite-version-loader",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\nend\n",
+              "output_content": "gem_version =\n  if RUBY_VERSION >= \"3.1\" # rubocop:disable Gemspec/RubyVersionGlobalsUsage\n    Module.new.tap { |mod| Kernel.load(\"#{__dir__}/lib/demo/version.rb\", mod) }::Demo::Version::VERSION\n  else\n    lib = File.expand_path(\"lib\", __dir__)\n    $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)\n    require \"demo/version\"\n    Demo::Version::VERSION\n  end\n\nGem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = gem_version\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "rewrite_version_loader",
+                "version_loader_mode": "legacy_preamble",
+                "source": "ruby_gemspec_version_loader_policy_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "ruby_gemspec_version_loader_policy_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

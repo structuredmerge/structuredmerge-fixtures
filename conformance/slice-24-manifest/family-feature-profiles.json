@@ -3627,6 +3627,15 @@
           "slice-705-ruby-gemspec-files-policy-acceptance",
           "ruby-gemspec-files-policy-acceptance.json"
         ]
+      },
+      {
+        "role": "ruby_gemspec_version_loader_policy_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-706-ruby-gemspec-version-loader-policy-acceptance",
+          "ruby-gemspec-version-loader-policy-acceptance.json"
+        ]
       }
     ],
     "text": [

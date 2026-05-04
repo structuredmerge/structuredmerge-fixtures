@@ -1,0 +1,260 @@
+{
+  "kind": "ruby_gemspec_native_boundary_report",
+  "version": 1,
+  "reference_project": "reference/kettle-jem",
+  "scope": "single_file_gemspec_recipe_execution",
+  "product_target": "provider_neutral_ast_merge_and_crispr",
+  "native_recipe_surface": {
+    "provider_family": "ruby_source",
+    "signature_profile": "gemspec_declarations",
+    "step_kinds": [
+      "smart_merge",
+      "native_policy",
+      "structured_edit"
+    ],
+    "canonical_removal_operation": "delete"
+  },
+  "signature_rules": [
+    {
+      "name": "gemspec_constructor",
+      "node_kind": "block",
+      "selector": "Gem::Specification.new",
+      "signature": [
+        "gem_specification_new"
+      ],
+      "native_status": "supported_natively"
+    },
+    {
+      "name": "field_assignment",
+      "node_kind": "call",
+      "selector": "gemspec_block_receiver.field = value",
+      "signature": [
+        "gemspec_field",
+        "field_name"
+      ],
+      "native_status": "supported_natively",
+      "examples": [
+        "spec.name = \"demo\"",
+        "spec.summary = \"Demo\"",
+        "spec.required_ruby_version = \">= 3.2\""
+      ]
+    },
+    {
+      "name": "operator_write",
+      "node_kind": "operator_write",
+      "selector": "gemspec_block_receiver.field += value",
+      "signature": [
+        "gemspec_operator_write",
+        "field_name",
+        "operator"
+      ],
+      "native_status": "supported_natively",
+      "examples": [
+        "spec.rdoc_options += [\"--main\", \"README.md\"]"
+      ]
+    },
+    {
+      "name": "metadata_assignment",
+      "node_kind": "call",
+      "selector": "gemspec_block_receiver.metadata[key] = value",
+      "signature": [
+        "gemspec_metadata",
+        "metadata_key"
+      ],
+      "native_status": "supported_natively"
+    },
+    {
+      "name": "dependency_call",
+      "node_kind": "call",
+      "selector": "gemspec_block_receiver.add_dependency(name, ...)",
+      "signature": [
+        "dependency_method",
+        "dependency_name"
+      ],
+      "native_status": "supported_natively",
+      "methods": [
+        "add_dependency",
+        "add_runtime_dependency",
+        "add_development_dependency"
+      ]
+    }
+  ],
+  "native_policy_candidates": [
+    {
+      "name": "replace_or_insert_literal_gemspec_fields",
+      "native_status": "supported_natively_with_supplied_values",
+      "description": "Replace existing literal field assignments or insert missing fields inside the Gem::Specification block.",
+      "requires_runtime_context": [
+        "replacement_values"
+      ],
+      "cannot_derive_natively": [
+        "project_name",
+        "authors",
+        "email",
+        "homepage",
+        "licenses"
+      ]
+    },
+    {
+      "name": "preserve_non_placeholder_summary_description",
+      "native_status": "supported_natively",
+      "description": "Do not overwrite non-placeholder destination summary/description with placeholder template values."
+    },
+    {
+      "name": "union_literal_dir_files_assignment",
+      "native_status": "supported_natively",
+      "description": "Union literal string entries from template, destination, and merged spec.files Dir[...] assignments while preserving comments attached to entries."
+    },
+    {
+      "name": "preserve_destination_nonliteral_files_assignment",
+      "native_status": "wrapper_selected_native_policy",
+      "description": "If destination spec.files uses helper code or nonliteral enumeration, preserve destination structure and only run compatible follow-up policies.",
+      "wrapper_reason": "A wrapper must decide whether preserving destination structure is preferable to the normal smart-merge path for the project."
+    },
+    {
+      "name": "remove_duplicate_files_assignments",
+      "native_status": "supported_natively",
+      "description": "Delete duplicate spec.files assignments after selecting the best surviving assignment."
+    },
+    {
+      "name": "normalize_dependency_sections",
+      "native_status": "supported_natively",
+      "description": "Prefer dependency source lines, remove development dependencies shadowed by runtime dependencies, and relocate runtime dependency blocks before the development-dependency note block."
+    },
+    {
+      "name": "remove_singular_license_when_plural_present",
+      "native_status": "supported_natively",
+      "description": "Delete spec.license when spec.licenses is present."
+    },
+    {
+      "name": "rewrite_version_loader",
+      "native_status": "supported_natively_with_supplied_values",
+      "description": "Rewrite spec.version and optional gem_version preamble based on min_ruby, entrypoint_require, and namespace.",
+      "requires_runtime_context": [
+        "min_ruby",
+        "entrypoint_require",
+        "namespace"
+      ]
+    },
+    {
+      "name": "remove_self_dependency",
+      "native_status": "supported_natively_with_supplied_values",
+      "description": "Delete dependency declarations whose first argument matches a supplied gem name.",
+      "requires_runtime_context": [
+        "gem_name"
+      ]
+    }
+  ],
+  "wrapper_required_behaviors": [
+    {
+      "name": "derive_replacement_values_from_project",
+      "reason": "Native AST merge should not infer package identity, authors, email, homepage, or license policy from a project workspace."
+    },
+    {
+      "name": "readme_gemspec_emoji_synchronization",
+      "reason": "Synchronizing README H1 emoji with gemspec summary/description is a multi-file project policy, not a single-file AST merge primitive."
+    },
+    {
+      "name": "dependency_ruby_floor_comment_alignment",
+      "reason": "Aligning '# ruby >= ...' dependency comments requires resolver/package-index knowledge that is external to the AST content."
+    },
+    {
+      "name": "bootstrap_fallback_for_malformed_gemspec",
+      "reason": "Best-effort repair of empty or malformed files is setup orchestration resilience, not a deterministic AST contract."
+    },
+    {
+      "name": "project_specific_preserve_destination_structure_decision",
+      "reason": "Choosing to bypass template smart-merge for nonliteral spec.files assignments depends on project migration policy."
+    },
+    {
+      "name": "arbitrary_ruby_script_execution",
+      "reason": "Language-specific executable recipe scripts are explicitly outside the shared API surface."
+    }
+  ],
+  "example_native_recipe": {
+    "kind": "content_recipe_execution_request",
+    "version": 1,
+    "request": {
+      "recipe_name": "ruby_gemspec_native_subset",
+      "recipe_version": "1",
+      "relative_path": "demo.gemspec",
+      "provider_family": "ruby_source",
+      "provider_backend": "generic_ruby_ast",
+      "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = gem_version\n  spec.summary = \"🥘 \"\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    \"sig/**/*.rbs\"\n  ]\n  spec.add_dependency(\"json\", \">= 2.0\")\n  spec.add_development_dependency(\"rspec\", \"~> 3.13\")\nend\n",
+      "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\n  spec.summary = \"Real project summary\"\n  spec.license = \"MIT\"\n  spec.licenses = [\"MIT\"]\n  spec.files = Dir[\n    \"lib/**/*.rb\",\n    \"exe/*\"\n  ]\n  spec.add_development_dependency(\"json\", \">= 2.0\")\n  spec.add_development_dependency(\"rspec\", \"~> 3.12\")\nend\n",
+      "steps": [
+        {
+          "step_id": "merge-gemspec-declarations",
+          "step_kind": "smart_merge",
+          "name": "merge gemspec declarations by signature",
+          "provider_family": "ruby_source",
+          "merge_profile": {
+            "preference": "template",
+            "add_missing": true,
+            "signature_profile": "gemspec_declarations"
+          }
+        },
+        {
+          "step_id": "preserve-real-summary",
+          "step_kind": "native_policy",
+          "name": "preserve non-placeholder summary",
+          "provider_family": "ruby_source",
+          "policy": {
+            "policy_kind": "preserve_non_placeholder_summary_description",
+            "fields": [
+              "summary",
+              "description"
+            ]
+          }
+        },
+        {
+          "step_id": "harmonize-files",
+          "step_kind": "native_policy",
+          "name": "union literal spec.files Dir entries",
+          "provider_family": "ruby_source",
+          "policy": {
+            "policy_kind": "union_literal_dir_files_assignment",
+            "field": "files"
+          }
+        },
+        {
+          "step_id": "normalize-dependencies",
+          "step_kind": "native_policy",
+          "name": "normalize gemspec dependency sections",
+          "provider_family": "ruby_source",
+          "policy": {
+            "policy_kind": "normalize_dependency_sections",
+            "remove_runtime_shadowed_development_dependencies": true
+          }
+        },
+        {
+          "step_id": "remove-singular-license",
+          "step_kind": "structured_edit",
+          "name": "delete deprecated singular license",
+          "provider_family": "ruby_source",
+          "structured_edit_request": {
+            "operation_kind": "delete",
+            "content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = \"0.1.0\"\n  spec.summary = \"Real project summary\"\n  spec.license = \"MIT\"\n  spec.licenses = [\"MIT\"]\nend\n",
+            "source_label": "demo.gemspec",
+            "target_selector": "gemspec_field:license",
+            "target_selector_family": "ruby_gemspec_field"
+          }
+        }
+      ],
+      "runtime_context": {
+        "min_ruby": "3.2",
+        "entrypoint_require": "demo",
+        "namespace": "Demo"
+      },
+      "metadata": {
+        "source": "ruby_gemspec_native_boundary_report"
+      }
+    }
+  },
+  "recommended_next_slices": [
+    "ruby-gemspec-signature-merge-acceptance",
+    "ruby-gemspec-field-policy-acceptance",
+    "ruby-gemspec-dependency-section-policy-acceptance",
+    "ruby-gemspec-version-loader-policy-acceptance"
+  ]
+}

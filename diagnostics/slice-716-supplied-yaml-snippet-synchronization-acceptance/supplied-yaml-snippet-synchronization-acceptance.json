@@ -1,0 +1,356 @@
+{
+  "cases": [
+    {
+      "label": "apply-supplied-sections-and-scalar-pins",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_yaml_snippet_synchronization",
+          "recipe_version": "1",
+          "relative_path": ".github/workflows/ci.yml",
+          "provider_family": "yaml",
+          "provider_backend": "generic_yaml_snippets",
+          "template_content": "concurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\nsteps:\n  - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd\n  - uses: ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92\n",
+          "destination_content": "name: CI\non:\n  push:\n    branches: [main]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@v3\n      - uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
+          "steps": [
+            {
+              "step_id": "apply-supplied-yaml-sections",
+              "step_kind": "native_policy",
+              "name": "apply supplied YAML sections",
+              "provider_family": "yaml",
+              "provider_backend": "generic_yaml_snippets",
+              "policy": {
+                "policy_kind": "apply_supplied_yaml_sections",
+                "required_context": "yaml_section_updates",
+                "operation": "upsert",
+                "selector_family": "yaml_key_path"
+              },
+              "metadata": {
+                "source": "supplied_yaml_snippet_synchronization_acceptance"
+              }
+            },
+            {
+              "step_id": "apply-supplied-yaml-scalars",
+              "step_kind": "native_policy",
+              "name": "apply supplied YAML scalar replacements",
+              "provider_family": "yaml",
+              "provider_backend": "generic_yaml_snippets",
+              "policy": {
+                "policy_kind": "apply_supplied_yaml_scalars",
+                "required_context": "yaml_scalar_updates",
+                "operation": "replace",
+                "selector_family": "yaml_scalar_match"
+              },
+              "metadata": {
+                "source": "supplied_yaml_snippet_synchronization_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "yaml_section_updates": [
+              {
+                "selector_id": "workflow_concurrency",
+                "selector_family": "yaml_key_path",
+                "key_path": ["concurrency"],
+                "value": {
+                  "group": "${{ github.workflow }}-${{ github.ref }}",
+                  "cancel-in-progress": true
+                },
+                "reason": "wrapper_selected_workflow_concurrency"
+              },
+              {
+                "selector_id": "workflow_permissions",
+                "selector_family": "yaml_key_path",
+                "key_path": ["permissions"],
+                "value": {
+                  "contents": "read"
+                },
+                "reason": "wrapper_selected_workflow_permissions"
+              }
+            ],
+            "yaml_scalar_updates": [
+              {
+                "selector_id": "checkout_pin",
+                "selector_family": "yaml_scalar_match",
+                "key": "uses",
+                "match_prefix": "actions/checkout@",
+                "value": "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+                "reason": "wrapper_selected_checkout_pin"
+              },
+              {
+                "selector_id": "setup_ruby_pin",
+                "selector_family": "yaml_scalar_match",
+                "key": "uses",
+                "match_prefix": "ruby/setup-ruby@",
+                "value": "ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92",
+                "reason": "wrapper_selected_setup_ruby_pin"
+              }
+            ]
+          },
+          "metadata": {
+            "source": "supplied_yaml_snippet_synchronization_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_yaml_snippet_synchronization",
+            "recipe_version": "1",
+            "relative_path": ".github/workflows/ci.yml",
+            "provider_family": "yaml",
+            "provider_backend": "generic_yaml_snippets",
+            "template_content": "concurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\nsteps:\n  - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd\n  - uses: ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92\n",
+            "destination_content": "name: CI\non:\n  push:\n    branches: [main]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@v3\n      - uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
+            "steps": [
+              {
+                "step_id": "apply-supplied-yaml-sections",
+                "step_kind": "native_policy",
+                "name": "apply supplied YAML sections",
+                "provider_family": "yaml",
+                "provider_backend": "generic_yaml_snippets",
+                "policy": {
+                  "policy_kind": "apply_supplied_yaml_sections",
+                  "required_context": "yaml_section_updates",
+                  "operation": "upsert",
+                  "selector_family": "yaml_key_path"
+                },
+                "metadata": {
+                  "source": "supplied_yaml_snippet_synchronization_acceptance"
+                }
+              },
+              {
+                "step_id": "apply-supplied-yaml-scalars",
+                "step_kind": "native_policy",
+                "name": "apply supplied YAML scalar replacements",
+                "provider_family": "yaml",
+                "provider_backend": "generic_yaml_snippets",
+                "policy": {
+                  "policy_kind": "apply_supplied_yaml_scalars",
+                  "required_context": "yaml_scalar_updates",
+                  "operation": "replace",
+                  "selector_family": "yaml_scalar_match"
+                },
+                "metadata": {
+                  "source": "supplied_yaml_snippet_synchronization_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "yaml_section_updates": [
+                {
+                  "selector_id": "workflow_concurrency",
+                  "selector_family": "yaml_key_path",
+                  "key_path": ["concurrency"],
+                  "value": {
+                    "group": "${{ github.workflow }}-${{ github.ref }}",
+                    "cancel-in-progress": true
+                  },
+                  "reason": "wrapper_selected_workflow_concurrency"
+                },
+                {
+                  "selector_id": "workflow_permissions",
+                  "selector_family": "yaml_key_path",
+                  "key_path": ["permissions"],
+                  "value": {
+                    "contents": "read"
+                  },
+                  "reason": "wrapper_selected_workflow_permissions"
+                }
+              ],
+              "yaml_scalar_updates": [
+                {
+                  "selector_id": "checkout_pin",
+                  "selector_family": "yaml_scalar_match",
+                  "key": "uses",
+                  "match_prefix": "actions/checkout@",
+                  "value": "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+                  "reason": "wrapper_selected_checkout_pin"
+                },
+                {
+                  "selector_id": "setup_ruby_pin",
+                  "selector_family": "yaml_scalar_match",
+                  "key": "uses",
+                  "match_prefix": "ruby/setup-ruby@",
+                  "value": "ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92",
+                  "reason": "wrapper_selected_setup_ruby_pin"
+                }
+              ]
+            },
+            "metadata": {
+              "source": "supplied_yaml_snippet_synchronization_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "name: CI\non:\n  push:\n    branches: [main]\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd\n      - uses: ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "apply-supplied-yaml-sections",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "name: CI\non:\n  push:\n    branches: [main]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@v3\n      - uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
+              "output_content": "name: CI\non:\n  push:\n    branches: [main]\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@v3\n      - uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "apply_supplied_yaml_sections",
+                "operation": "upsert",
+                "consumed_context": "yaml_section_updates",
+                "updated_sections": 2,
+                "updated_section_selector_ids": [
+                  "workflow_concurrency",
+                  "workflow_permissions"
+                ],
+                "source": "supplied_yaml_snippet_synchronization_acceptance"
+              }
+            },
+            {
+              "step_id": "apply-supplied-yaml-scalars",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "name: CI\non:\n  push:\n    branches: [main]\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@v3\n      - uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
+              "output_content": "name: CI\non:\n  push:\n    branches: [main]\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd\n      - uses: ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "apply_supplied_yaml_scalars",
+                "operation": "replace",
+                "consumed_context": "yaml_scalar_updates",
+                "updated_scalars": 2,
+                "updated_scalar_selector_ids": [
+                  "checkout_pin",
+                  "setup_ruby_pin"
+                ],
+                "source": "supplied_yaml_snippet_synchronization_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "supplied_yaml_snippet_synchronization_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-yaml-updates-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_yaml_snippet_synchronization",
+          "recipe_version": "1",
+          "relative_path": ".github/workflows/ci.yml",
+          "provider_family": "yaml",
+          "provider_backend": "generic_yaml_snippets",
+          "template_content": "concurrency:\n  cancel-in-progress: true\n",
+          "destination_content": "name: CI\njobs:\n  test:\n    steps:\n      - uses: actions/checkout@v3\n",
+          "steps": [
+            {
+              "step_id": "apply-supplied-yaml-sections",
+              "step_kind": "native_policy",
+              "name": "apply supplied YAML sections",
+              "provider_family": "yaml",
+              "provider_backend": "generic_yaml_snippets",
+              "policy": {
+                "policy_kind": "apply_supplied_yaml_sections",
+                "required_context": "yaml_section_updates",
+                "operation": "upsert",
+                "selector_family": "yaml_key_path"
+              },
+              "metadata": {
+                "source": "supplied_yaml_snippet_synchronization_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_yaml_snippet_synchronization_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_yaml_snippet_synchronization",
+            "recipe_version": "1",
+            "relative_path": ".github/workflows/ci.yml",
+            "provider_family": "yaml",
+            "provider_backend": "generic_yaml_snippets",
+            "template_content": "concurrency:\n  cancel-in-progress: true\n",
+            "destination_content": "name: CI\njobs:\n  test:\n    steps:\n      - uses: actions/checkout@v3\n",
+            "steps": [
+              {
+                "step_id": "apply-supplied-yaml-sections",
+                "step_kind": "native_policy",
+                "name": "apply supplied YAML sections",
+                "provider_family": "yaml",
+                "provider_backend": "generic_yaml_snippets",
+                "policy": {
+                  "policy_kind": "apply_supplied_yaml_sections",
+                  "required_context": "yaml_section_updates",
+                  "operation": "upsert",
+                  "selector_family": "yaml_key_path"
+                },
+                "metadata": {
+                  "source": "supplied_yaml_snippet_synchronization_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "supplied_yaml_snippet_synchronization_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "name: CI\njobs:\n  test:\n    steps:\n      - uses: actions/checkout@v3\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "apply-supplied-yaml-sections",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "name: CI\njobs:\n  test:\n    steps:\n      - uses: actions/checkout@v3\n",
+              "output_content": "name: CI\njobs:\n  test:\n    steps:\n      - uses: actions/checkout@v3\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "Supplied YAML snippet synchronization requires yaml_section_updates runtime context",
+                  "metadata": {
+                    "missing_context": "yaml_section_updates"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "apply_supplied_yaml_sections",
+                "operation": "upsert",
+                "source": "supplied_yaml_snippet_synchronization_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "Supplied YAML snippet synchronization requires yaml_section_updates runtime context",
+              "metadata": {
+                "missing_context": "yaml_section_updates"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_yaml_snippet_synchronization_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

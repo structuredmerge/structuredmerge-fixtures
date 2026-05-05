@@ -3717,6 +3717,15 @@
           "slice-715-supplied-source-selector-deletion-acceptance",
           "supplied-source-selector-deletion-acceptance.json"
         ]
+      },
+      {
+        "role": "supplied_yaml_snippet_synchronization_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-716-supplied-yaml-snippet-synchronization-acceptance",
+          "supplied-yaml-snippet-synchronization-acceptance.json"
+        ]
       }
     ],
     "text": [

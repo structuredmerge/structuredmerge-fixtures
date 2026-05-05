@@ -1,0 +1,288 @@
+{
+  "cases": [
+    {
+      "label": "backfill-placeholder-and-blank-scalars",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_yaml_placeholder_scalar_backfill",
+          "recipe_version": "1",
+          "relative_path": ".kettle-jem.yml",
+          "provider_family": "yaml",
+          "provider_backend": "generic_placeholder_backfill",
+          "template_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\"\n    namespace: ''\n    homepage: \"{KJ|gem.homepage}\"\n  ci:\n    ruby: \"3.3\"\nsettings:\n  preserve: true\n",
+          "destination_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\" # ENV: KJ_GEM_NAME\n    namespace: '' # ENV: KJ_GEM_NAMESPACE\n    homepage: \"https://example.invalid/existing\" # keep concrete value\n  ci:\n    ruby: \"3.3\"\nsettings:\n  preserve: true\n",
+          "steps": [
+            {
+              "step_id": "backfill-supplied-yaml-scalars",
+              "step_kind": "native_policy",
+              "name": "backfill supplied YAML placeholder scalars",
+              "provider_family": "yaml",
+              "provider_backend": "generic_placeholder_backfill",
+              "policy": {
+                "policy_kind": "backfill_supplied_yaml_placeholder_scalars",
+                "required_context": "yaml_scalar_backfills",
+                "operation": "backfill",
+                "selector_family": "yaml_scalar_path"
+              },
+              "metadata": {
+                "source": "supplied_yaml_placeholder_scalar_backfill_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "yaml_scalar_backfills": [
+              {
+                "selector_id": "gem_name",
+                "selector_family": "yaml_scalar_path",
+                "key_path": ["tokens", "gem", "name"],
+                "value": "demo-toolkit",
+                "update_when": "blank_or_placeholder",
+                "preserve_quote_style": true,
+                "reason": "wrapper_supplied_gem_name"
+              },
+              {
+                "selector_id": "gem_namespace",
+                "selector_family": "yaml_scalar_path",
+                "key_path": ["tokens", "gem", "namespace"],
+                "value": "Demo::Toolkit",
+                "update_when": "blank_or_placeholder",
+                "preserve_quote_style": true,
+                "reason": "wrapper_supplied_gem_namespace"
+              },
+              {
+                "selector_id": "gem_homepage",
+                "selector_family": "yaml_scalar_path",
+                "key_path": ["tokens", "gem", "homepage"],
+                "value": "https://example.invalid/demo-toolkit",
+                "update_when": "blank_or_placeholder",
+                "preserve_quote_style": true,
+                "reason": "wrapper_supplied_gem_homepage"
+              }
+            ]
+          },
+          "metadata": {
+            "source": "supplied_yaml_placeholder_scalar_backfill_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_yaml_placeholder_scalar_backfill",
+            "recipe_version": "1",
+            "relative_path": ".kettle-jem.yml",
+            "provider_family": "yaml",
+            "provider_backend": "generic_placeholder_backfill",
+            "template_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\"\n    namespace: ''\n    homepage: \"{KJ|gem.homepage}\"\n  ci:\n    ruby: \"3.3\"\nsettings:\n  preserve: true\n",
+            "destination_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\" # ENV: KJ_GEM_NAME\n    namespace: '' # ENV: KJ_GEM_NAMESPACE\n    homepage: \"https://example.invalid/existing\" # keep concrete value\n  ci:\n    ruby: \"3.3\"\nsettings:\n  preserve: true\n",
+            "steps": [
+              {
+                "step_id": "backfill-supplied-yaml-scalars",
+                "step_kind": "native_policy",
+                "name": "backfill supplied YAML placeholder scalars",
+                "provider_family": "yaml",
+                "provider_backend": "generic_placeholder_backfill",
+                "policy": {
+                  "policy_kind": "backfill_supplied_yaml_placeholder_scalars",
+                  "required_context": "yaml_scalar_backfills",
+                  "operation": "backfill",
+                  "selector_family": "yaml_scalar_path"
+                },
+                "metadata": {
+                  "source": "supplied_yaml_placeholder_scalar_backfill_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "yaml_scalar_backfills": [
+                {
+                  "selector_id": "gem_name",
+                  "selector_family": "yaml_scalar_path",
+                  "key_path": ["tokens", "gem", "name"],
+                  "value": "demo-toolkit",
+                  "update_when": "blank_or_placeholder",
+                  "preserve_quote_style": true,
+                  "reason": "wrapper_supplied_gem_name"
+                },
+                {
+                  "selector_id": "gem_namespace",
+                  "selector_family": "yaml_scalar_path",
+                  "key_path": ["tokens", "gem", "namespace"],
+                  "value": "Demo::Toolkit",
+                  "update_when": "blank_or_placeholder",
+                  "preserve_quote_style": true,
+                  "reason": "wrapper_supplied_gem_namespace"
+                },
+                {
+                  "selector_id": "gem_homepage",
+                  "selector_family": "yaml_scalar_path",
+                  "key_path": ["tokens", "gem", "homepage"],
+                  "value": "https://example.invalid/demo-toolkit",
+                  "update_when": "blank_or_placeholder",
+                  "preserve_quote_style": true,
+                  "reason": "wrapper_supplied_gem_homepage"
+                }
+              ]
+            },
+            "metadata": {
+              "source": "supplied_yaml_placeholder_scalar_backfill_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "tokens:\n  gem:\n    name: \"demo-toolkit\" # ENV: KJ_GEM_NAME\n    namespace: 'Demo::Toolkit' # ENV: KJ_GEM_NAMESPACE\n    homepage: \"https://example.invalid/existing\" # keep concrete value\n  ci:\n    ruby: \"3.3\"\nsettings:\n  preserve: true\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "backfill-supplied-yaml-scalars",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\" # ENV: KJ_GEM_NAME\n    namespace: '' # ENV: KJ_GEM_NAMESPACE\n    homepage: \"https://example.invalid/existing\" # keep concrete value\n  ci:\n    ruby: \"3.3\"\nsettings:\n  preserve: true\n",
+              "output_content": "tokens:\n  gem:\n    name: \"demo-toolkit\" # ENV: KJ_GEM_NAME\n    namespace: 'Demo::Toolkit' # ENV: KJ_GEM_NAMESPACE\n    homepage: \"https://example.invalid/existing\" # keep concrete value\n  ci:\n    ruby: \"3.3\"\nsettings:\n  preserve: true\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "backfill_supplied_yaml_placeholder_scalars",
+                "operation": "backfill",
+                "consumed_context": "yaml_scalar_backfills",
+                "updated_scalars": 2,
+                "preserved_scalars": 1,
+                "updated_scalar_selector_ids": [
+                  "gem_name",
+                  "gem_namespace"
+                ],
+                "preserved_scalar_selector_ids": [
+                  "gem_homepage"
+                ],
+                "source": "supplied_yaml_placeholder_scalar_backfill_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "supplied_yaml_placeholder_scalar_backfill_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-yaml-scalar-backfills-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_yaml_placeholder_scalar_backfill",
+          "recipe_version": "1",
+          "relative_path": ".kettle-jem.yml",
+          "provider_family": "yaml",
+          "provider_backend": "generic_placeholder_backfill",
+          "template_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\"\n",
+          "destination_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\"\n",
+          "steps": [
+            {
+              "step_id": "backfill-supplied-yaml-scalars",
+              "step_kind": "native_policy",
+              "name": "backfill supplied YAML placeholder scalars",
+              "provider_family": "yaml",
+              "provider_backend": "generic_placeholder_backfill",
+              "policy": {
+                "policy_kind": "backfill_supplied_yaml_placeholder_scalars",
+                "required_context": "yaml_scalar_backfills",
+                "operation": "backfill",
+                "selector_family": "yaml_scalar_path"
+              },
+              "metadata": {
+                "source": "supplied_yaml_placeholder_scalar_backfill_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_yaml_placeholder_scalar_backfill_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_yaml_placeholder_scalar_backfill",
+            "recipe_version": "1",
+            "relative_path": ".kettle-jem.yml",
+            "provider_family": "yaml",
+            "provider_backend": "generic_placeholder_backfill",
+            "template_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\"\n",
+            "destination_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\"\n",
+            "steps": [
+              {
+                "step_id": "backfill-supplied-yaml-scalars",
+                "step_kind": "native_policy",
+                "name": "backfill supplied YAML placeholder scalars",
+                "provider_family": "yaml",
+                "provider_backend": "generic_placeholder_backfill",
+                "policy": {
+                  "policy_kind": "backfill_supplied_yaml_placeholder_scalars",
+                  "required_context": "yaml_scalar_backfills",
+                  "operation": "backfill",
+                  "selector_family": "yaml_scalar_path"
+                },
+                "metadata": {
+                  "source": "supplied_yaml_placeholder_scalar_backfill_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "supplied_yaml_placeholder_scalar_backfill_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\"\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "backfill-supplied-yaml-scalars",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\"\n",
+              "output_content": "tokens:\n  gem:\n    name: \"{KJ|gem.name}\"\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "Supplied YAML placeholder scalar backfill requires yaml_scalar_backfills runtime context",
+                  "metadata": {
+                    "missing_context": "yaml_scalar_backfills"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "backfill_supplied_yaml_placeholder_scalars",
+                "operation": "backfill",
+                "source": "supplied_yaml_placeholder_scalar_backfill_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "Supplied YAML placeholder scalar backfill requires yaml_scalar_backfills runtime context",
+              "metadata": {
+                "missing_context": "yaml_scalar_backfills"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_yaml_placeholder_scalar_backfill_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

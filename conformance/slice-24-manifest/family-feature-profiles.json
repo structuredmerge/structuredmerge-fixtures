@@ -3735,6 +3735,15 @@
           "slice-717-supplied-managed-text-block-replacement-acceptance",
           "supplied-managed-text-block-replacement-acceptance.json"
         ]
+      },
+      {
+        "role": "supplied_yaml_placeholder_scalar_backfill_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-718-supplied-yaml-placeholder-scalar-backfill-acceptance",
+          "supplied-yaml-placeholder-scalar-backfill-acceptance.json"
+        ]
       }
     ],
     "text": [

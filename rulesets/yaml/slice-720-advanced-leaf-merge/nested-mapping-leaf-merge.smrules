@@ -1,0 +1,11 @@
+# fixture yaml/slice-720-advanced-leaf-merge/nested-mapping-leaf-merge.json
+format yaml
+owners nested_mapping_leaves
+match stable_path
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render yaml_mappings_and_sequences
+capability nested_leaf_merge true
+capability destination_leaf_wins true
+capability template_missing_leaf_adds true

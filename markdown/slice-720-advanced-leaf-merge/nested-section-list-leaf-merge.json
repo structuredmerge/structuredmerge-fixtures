@@ -1,0 +1,8 @@
+{
+  "template": "# Care Plan\n\n## Goals\n\n- Mobility: walk daily\n- Nutrition: low sodium\n- Sleep: eight hours\n\n## Notes\n\nTemplate note.\n",
+  "destination": "# Care Plan\n\n## Goals\n\n- Mobility: walk with assistance\n- Nutrition: sodium adjusted by clinician\n\n## Notes\n\nDestination note.\n",
+  "expected": {
+    "ok": true,
+    "output": "# Care Plan\n\n## Goals\n\n- Mobility: walk with assistance\n- Nutrition: sodium adjusted by clinician\n- Sleep: eight hours\n\n## Notes\n\nDestination note.\n"
+  }
+}

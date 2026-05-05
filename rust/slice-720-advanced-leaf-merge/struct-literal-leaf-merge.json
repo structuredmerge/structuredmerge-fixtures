@@ -1,0 +1,8 @@
+{
+  "template": "pub fn summary() -> PatientSummary {\n    PatientSummary {\n        profile: Profile {\n            name: Name { given: \"Pat\".into(), family: \"Template\".into() },\n            contact: Contact { email: \"template@example.test\".into(), phone: Some(\"555-0100\".into()) },\n            care_plan: CarePlan { status: \"draft\".into(), goals: Goals { mobility: \"walk daily\".into(), nutrition: \"low sodium\".into() } },\n        },\n    }\n}\n",
+  "destination": "pub fn summary() -> PatientSummary {\n    PatientSummary {\n        profile: Profile {\n            name: Name { family: \"Destination\".into() },\n            contact: Contact { email: \"destination@example.test\".into() },\n            care_plan: CarePlan { status: \"active\".into(), goals: Goals { mobility: \"walk with assistance\".into() } },\n        },\n    }\n}\n",
+  "expected": {
+    "ok": true,
+    "output": "pub fn summary() -> PatientSummary {\n    PatientSummary {\n        profile: Profile {\n            name: Name { given: \"Pat\".into(), family: \"Destination\".into() },\n            contact: Contact { email: \"destination@example.test\".into(), phone: Some(\"555-0100\".into()) },\n            care_plan: CarePlan { status: \"active\".into(), goals: Goals { mobility: \"walk with assistance\".into(), nutrition: \"low sodium\".into() } },\n        },\n    }\n}\n"
+  }
+}

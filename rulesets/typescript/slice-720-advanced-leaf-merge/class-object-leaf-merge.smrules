@@ -1,0 +1,12 @@
+# fixture typescript/slice-720-advanced-leaf-merge/class-object-leaf-merge.json
+format typescript
+owners class_object_literal_leaves
+match structural_signature
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style c_style_line
+render typescript_declarations
+surface object_literal_property stable_path
+capability nested_leaf_merge true
+capability destination_leaf_wins true
+capability template_missing_leaf_adds true

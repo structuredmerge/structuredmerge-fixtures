@@ -1,0 +1,8 @@
+{
+  "template": "{\n  \"patient\": {\n    \"demographics\": {\n      \"name\": {\"given\": \"Pat\", \"family\": \"Template\"},\n      \"contact\": {\"email\": \"template@example.test\", \"phone\": \"555-0100\"}\n    },\n    \"care_plan\": {\n      \"status\": \"draft\",\n      \"goals\": {\"mobility\": \"walk daily\", \"nutrition\": \"low sodium\"}\n    }\n  }\n}\n",
+  "destination": "{\n  \"patient\": {\n    \"demographics\": {\n      \"name\": {\"family\": \"Destination\"},\n      \"contact\": {\"email\": \"destination@example.test\"}\n    },\n    \"care_plan\": {\n      \"status\": \"active\",\n      \"goals\": {\"mobility\": \"walk with assistance\"}\n    }\n  }\n}\n",
+  "expected": {
+    "ok": true,
+    "output": "{\"patient\":{\"care_plan\":{\"goals\":{\"mobility\":\"walk with assistance\",\"nutrition\":\"low sodium\"},\"status\":\"active\"},\"demographics\":{\"contact\":{\"email\":\"destination@example.test\",\"phone\":\"555-0100\"},\"name\":{\"family\":\"Destination\",\"given\":\"Pat\"}}}}"
+  }
+}

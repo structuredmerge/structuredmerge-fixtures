@@ -1,0 +1,8 @@
+{
+  "template": "[patient.demographics.name]\ngiven = \"Pat\"\nfamily = \"Template\"\n\n[patient.demographics.contact]\nemail = \"template@example.test\"\nphone = \"555-0100\"\n\n[patient.care_plan]\nstatus = \"draft\"\n\n[patient.care_plan.goals]\nmobility = \"walk daily\"\nnutrition = \"low sodium\"\n",
+  "destination": "[patient.demographics.name]\nfamily = \"Destination\"\n\n[patient.demographics.contact]\nemail = \"destination@example.test\"\n\n[patient.care_plan]\nstatus = \"active\"\n\n[patient.care_plan.goals]\nmobility = \"walk with assistance\"\n",
+  "expected": {
+    "ok": true,
+    "output": "[patient.demographics.name]\ngiven = \"Pat\"\nfamily = \"Destination\"\n\n[patient.demographics.contact]\nemail = \"destination@example.test\"\nphone = \"555-0100\"\n\n[patient.care_plan]\nstatus = \"active\"\n\n[patient.care_plan.goals]\nmobility = \"walk with assistance\"\nnutrition = \"low sodium\"\n"
+  }
+}

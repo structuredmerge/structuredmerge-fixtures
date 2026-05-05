@@ -1,0 +1,11 @@
+# fixture toml/slice-720-advanced-leaf-merge/nested-table-leaf-merge.json
+format toml
+owners nested_table_leaves
+match stable_path
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render toml_pairs_and_tables
+capability nested_leaf_merge true
+capability destination_leaf_wins true
+capability template_missing_leaf_adds true

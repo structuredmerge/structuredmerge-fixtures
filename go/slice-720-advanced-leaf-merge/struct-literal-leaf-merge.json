@@ -1,0 +1,8 @@
+{
+  "template": "type PatientSummary struct {\n\tProfile Profile\n}\n\nvar Summary = PatientSummary{\n\tProfile: Profile{\n\t\tName: Name{Given: \"Pat\", Family: \"Template\"},\n\t\tContact: Contact{Email: \"template@example.test\", Phone: \"555-0100\"},\n\t\tCarePlan: CarePlan{Status: \"draft\", Goals: Goals{Mobility: \"walk daily\", Nutrition: \"low sodium\"}},\n\t},\n}\n",
+  "destination": "type PatientSummary struct {\n\tProfile Profile\n}\n\nvar Summary = PatientSummary{\n\tProfile: Profile{\n\t\tName: Name{Family: \"Destination\"},\n\t\tContact: Contact{Email: \"destination@example.test\"},\n\t\tCarePlan: CarePlan{Status: \"active\", Goals: Goals{Mobility: \"walk with assistance\"}},\n\t},\n}\n",
+  "expected": {
+    "ok": true,
+    "output": "type PatientSummary struct {\n\tProfile Profile\n}\n\nvar Summary = PatientSummary{\n\tProfile: Profile{\n\t\tName: Name{Given: \"Pat\", Family: \"Destination\"},\n\t\tContact: Contact{Email: \"destination@example.test\", Phone: \"555-0100\"},\n\t\tCarePlan: CarePlan{Status: \"active\", Goals: Goals{Mobility: \"walk with assistance\", Nutrition: \"low sodium\"}},\n\t},\n}\n"
+  }
+}

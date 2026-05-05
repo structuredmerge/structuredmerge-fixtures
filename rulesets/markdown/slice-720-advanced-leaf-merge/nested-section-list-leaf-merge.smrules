@@ -1,0 +1,12 @@
+# fixture markdown/slice-720-advanced-leaf-merge/nested-section-list-leaf-merge.json
+format markdown
+owners section_list_items
+match normalized_heading_path
+read source_augmented_portable_write
+attach tracker_layout_merge
+comment_style html_comment
+render markdown_blocks
+surface list_item key_prefix
+capability nested_leaf_merge true
+capability destination_leaf_wins true
+capability template_missing_leaf_adds true

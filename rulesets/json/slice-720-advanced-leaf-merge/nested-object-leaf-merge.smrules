@@ -1,0 +1,10 @@
+# fixture json/slice-720-advanced-leaf-merge/nested-object-leaf-merge.json
+format json
+owners nested_object_leaves
+match stable_path
+read native_read_portable_write
+attach layout_only
+render json_object_pairs
+capability nested_leaf_merge true
+capability destination_leaf_wins true
+capability template_missing_leaf_adds true

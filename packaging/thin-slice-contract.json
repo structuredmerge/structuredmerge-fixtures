@@ -73,5 +73,5 @@
       "This contract is a fixture vocabulary, not a runtime dependency."
     ]
   },
-  "validated_ecosystems": ["rubygems", "npm", "crates"]
+  "validated_ecosystems": ["rubygems", "npm", "crates", "gomod"]
 }

@@ -1,0 +1,45 @@
+{
+  "range_semantics": "half_open",
+  "source": "alpha\ncafé = 1\nomega\n",
+  "byte_range": {
+    "start_byte": 6,
+    "end_byte": 11
+  },
+  "source_point": {
+    "row": 1,
+    "column": 5
+  },
+  "source_span": {
+    "range": {
+      "start_byte": 6,
+      "end_byte": 11
+    },
+    "start_point": {
+      "row": 1,
+      "column": 0
+    },
+    "end_point": {
+      "row": 1,
+      "column": 5
+    }
+  },
+  "expected": {
+    "length": 5,
+    "slice": "café",
+    "contains_start": true,
+    "contains_end": false,
+    "overlaps": true,
+    "disjoint": false,
+    "line_column_offset": 11
+  },
+  "comparison_ranges": {
+    "overlapping": {
+      "start_byte": 10,
+      "end_byte": 14
+    },
+    "disjoint": {
+      "start_byte": 14,
+      "end_byte": 19
+    }
+  }
+}

@@ -242,6 +242,14 @@
         ]
       },
       {
+        "role": "portable_byte_location_contract",
+        "path": [
+          "diagnostics",
+          "slice-722-portable-byte-location-contract",
+          "byte-location.json"
+        ]
+      },
+      {
         "role": "runner_shape",
         "path": [
           "diagnostics",

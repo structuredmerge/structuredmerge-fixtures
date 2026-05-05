@@ -10,6 +10,6 @@
         "category": "fallback_applied"
       }
     ],
-    "output": "{\"name\":\"structuredmerge\",\"meta\":{\"enabled\":true,\"mode\":\"template\"},\"tags\":[\"destination\"]}"
+    "output": "{\"name\":\"structuredmerge\",\"meta\":{\"mode\":\"template\",\"enabled\":true},\"tags\":[\"destination\"]}"
   }
 }

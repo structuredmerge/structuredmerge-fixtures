@@ -3,7 +3,7 @@
 
 This script validates the minimal line-oriented ruleset syntax described in the
 informational draft and verifies that every merge fixture with template,
-destination, and expected output has a mirrored `.smr` contract.
+destination, and expected output has a mirrored `.smrules` contract.
 """
 
 from __future__ import annotations
@@ -58,7 +58,7 @@ def main() -> int:
         if not ruleset.exists():
             errors.append(f"missing ruleset for {relative(fixture)}: {relative(ruleset)}")
 
-    for ruleset in sorted(RULESETS.rglob("*.smr")):
+    for ruleset in sorted(RULESETS.rglob("*.smrules")):
         errors.extend(validate_ruleset(ruleset))
         fixture = fixture_path_for(ruleset)
         if not fixture.exists():
@@ -153,7 +153,7 @@ def validate_ruleset(path: Path) -> list[str]:
 
 def ruleset_path_for(fixture: Path) -> Path:
     relative_fixture = fixture.relative_to(ROOT)
-    return RULESETS / relative_fixture.with_suffix(".smr")
+    return RULESETS / relative_fixture.with_suffix(".smrules")
 
 
 def fixture_path_for(ruleset: Path) -> Path:

@@ -4,14 +4,14 @@ This tree contains compact ruleset contracts for fixture cases that exercise a
 template, destination, and expected merge output.
 
 The files intentionally live outside the JSON fixtures. A fixture records the
-inputs and expected result; the matching `.smr` file records the merge contract
+inputs and expected result; the matching `.smrules` file records the merge contract
 that a ruleset-aware implementation is expected to parse and interpret.
 
 Ruleset paths mirror fixture paths:
 
 ```text
 json/slice-09-merge/object-merge.json
-rulesets/json/slice-09-merge/object-merge.smr
+rulesets/json/slice-09-merge/object-merge.smrules
 ```
 
 The compact syntax is the line-oriented ruleset syntax from

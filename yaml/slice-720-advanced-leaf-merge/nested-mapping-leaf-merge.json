@@ -3,6 +3,6 @@
   "destination": "patient:\n  demographics:\n    name:\n      family: Destination\n    contact:\n      email: destination@example.test\n  care_plan:\n    status: active\n    goals:\n      mobility: walk with assistance\n",
   "expected": {
     "ok": true,
-    "output": "patient:\n  care_plan:\n    goals:\n      mobility: walk with assistance\n      nutrition: low sodium\n    status: active\n  demographics:\n    contact:\n      email: destination@example.test\n      phone: 555-0100\n    name:\n      family: Destination\n      given: Pat\n"
+    "output": "patient:\n  demographics:\n    name:\n      given: Pat\n      family: Destination\n    contact:\n      email: destination@example.test\n      phone: 555-0100\n  care_plan:\n    status: active\n    goals:\n      mobility: walk with assistance\n      nutrition: low sodium\n"
   }
 }

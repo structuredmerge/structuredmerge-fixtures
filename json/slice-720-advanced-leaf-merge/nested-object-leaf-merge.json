@@ -3,6 +3,6 @@
   "destination": "{\n  \"patient\": {\n    \"demographics\": {\n      \"name\": {\"family\": \"Destination\"},\n      \"contact\": {\"email\": \"destination@example.test\"}\n    },\n    \"care_plan\": {\n      \"status\": \"active\",\n      \"goals\": {\"mobility\": \"walk with assistance\"}\n    }\n  }\n}\n",
   "expected": {
     "ok": true,
-    "output": "{\"patient\":{\"care_plan\":{\"goals\":{\"mobility\":\"walk with assistance\",\"nutrition\":\"low sodium\"},\"status\":\"active\"},\"demographics\":{\"contact\":{\"email\":\"destination@example.test\",\"phone\":\"555-0100\"},\"name\":{\"family\":\"Destination\",\"given\":\"Pat\"}}}}"
+    "output": "{\"patient\":{\"demographics\":{\"name\":{\"given\":\"Pat\",\"family\":\"Destination\"},\"contact\":{\"email\":\"destination@example.test\",\"phone\":\"555-0100\"}},\"care_plan\":{\"status\":\"active\",\"goals\":{\"mobility\":\"walk with assistance\",\"nutrition\":\"low sodium\"}}}}"
   }
 }

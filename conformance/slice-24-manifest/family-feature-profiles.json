@@ -234,6 +234,14 @@
         ]
       },
       {
+        "role": "kaitai_tree_haver_substrate",
+        "path": [
+          "diagnostics",
+          "slice-721-kaitai-tree-haver-substrate",
+          "kaitai-substrate.json"
+        ]
+      },
+      {
         "role": "runner_shape",
         "path": [
           "diagnostics",

@@ -1,0 +1,77 @@
+{
+  "contract_id": "ast-packaging-thin-slice-v1",
+  "version": 1,
+  "purpose": "Shared package-templating fixture vocabulary for ecosystem wrappers built on ast-merge content-recipe transport.",
+  "required_fact_groups": ["package"],
+  "optional_fact_groups": ["funding"],
+  "ecosystem_fact_groups": {
+    "rubygems": "rubygems",
+    "npm": "npm",
+    "crates": "cargo",
+    "gomod": "gomod"
+  },
+  "package_fact_fields": {
+    "required": ["ecosystem", "name", "slug"],
+    "recommended": [
+      "description",
+      "homepage_url",
+      "source_url",
+      "license_expression"
+    ],
+    "case_policy": "Implementations may use host-language casing at their public API boundary, but fixture contract reports should document the canonical snake_case vocabulary."
+  },
+  "canonical_recipes": [
+    {
+      "name": "readme_metadata",
+      "target_kind": "readme",
+      "provider_family": "markdown",
+      "primitive": "supplied_readme_metadata_synchronization"
+    },
+    {
+      "name": "changelog_unreleased",
+      "target_kind": "changelog",
+      "provider_family": "markdown",
+      "primitive": "changelog_unreleased_normalization"
+    },
+    {
+      "name": "generated_block_sync",
+      "target_kind": "managed_text_block",
+      "provider_family": "text",
+      "primitive": "supplied_managed_text_block_replacement"
+    }
+  ],
+  "report_contract": {
+    "required_modes": ["plan", "apply"],
+    "required_project_report_fields": [
+      "mode",
+      "ready",
+      "facts",
+      "recipe_pack",
+      "recipe_reports",
+      "changed_files",
+      "diagnostics"
+    ],
+    "required_recipe_report_fields": [
+      "recipe_name",
+      "relative_path",
+      "changed",
+      "request_envelope",
+      "report_envelope",
+      "final_content",
+      "diagnostics"
+    ],
+    "request_envelope_kind": "content_recipe_execution_request",
+    "report_envelope_kind": "content_recipe_execution_report"
+  },
+  "fixture_contract": {
+    "required_fixture_fields": ["case_id", "ecosystem", "inputs", "expected"],
+    "required_input_fields": ["files"],
+    "required_expected_fields": ["facts", "changed_files", "files"],
+    "notes": [
+      "Language-local tests may adapt field casing, for example changed_files to changedFiles.",
+      "Ecosystem-specific files and managed block markers remain wrapper-owned.",
+      "This contract is a fixture vocabulary, not a runtime dependency."
+    ]
+  },
+  "validated_ecosystems": ["rubygems", "npm"]
+}

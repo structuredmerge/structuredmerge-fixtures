@@ -1,0 +1,9 @@
+# fixture go/slice-114-native/module-parity.json
+format go
+owners top_level_declarations
+match structural_signature
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style c_style_line
+render go_declarations
+capability native_backend_parity true

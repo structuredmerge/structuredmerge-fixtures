@@ -1,0 +1,8 @@
+# fixture text/slice-10-merge/blockwise-merge.json
+format text
+owners blank_line_blocks
+match content_similarity
+read source_augmented_portable_write
+attach layout_only
+render text_blocks
+capability structural_only false

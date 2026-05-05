@@ -1,0 +1,8 @@
+# fixture text/slice-13-refined-matching/content-refined-merge.json
+format text
+owners blank_line_blocks
+match content_refined_similarity
+read source_augmented_portable_write
+attach layout_only
+render text_blocks
+capability refined_matching true

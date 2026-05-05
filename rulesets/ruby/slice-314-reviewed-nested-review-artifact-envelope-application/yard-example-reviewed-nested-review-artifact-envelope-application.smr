@@ -1,0 +1,11 @@
+# fixture ruby/slice-314-reviewed-nested-review-artifact-envelope-application/yard-example-reviewed-nested-review-artifact-envelope-application.json
+format ruby
+owners top_level_declarations
+match structural_signature
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+surface doc_comment fixed_kind
+delegate doc_comment same_ruleset
+capability review_artifact_envelope_application true

@@ -1,0 +1,11 @@
+# fixture markdown/slice-313-reviewed-nested-review-artifact-envelope-application/fenced-code-reviewed-nested-review-artifact-envelope-application.json
+format markdown
+owners heading_sections
+match normalized_heading_path
+read source_augmented_portable_write
+attach tracker_layout_merge
+comment_style html_comment
+render markdown_blocks
+surface fenced_code_block language_tag
+delegate fenced_code_block by_language
+capability review_artifact_envelope_application true

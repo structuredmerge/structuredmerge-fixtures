@@ -1,0 +1,9 @@
+# fixture json/slice-16-array-policy/destination-wins-array.json
+format json
+owners line_bound_statements
+match stable_path
+read native_read_portable_write
+attach layout_only
+render json_object_pairs
+capability structural_only true
+capability arrays_destination_wins true

@@ -1,0 +1,9 @@
+# fixture yaml/slice-99-merge/mapping-merge.json
+format yaml
+owners line_bound_statements
+match stable_path
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render yaml_mappings_and_sequences
+capability nested_mapping_merge true

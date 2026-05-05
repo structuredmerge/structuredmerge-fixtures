@@ -1,0 +1,8 @@
+# fixture text/slice-12-merge/match-driven-merge.json
+format text
+owners blank_line_blocks
+match exact_content
+read source_augmented_portable_write
+attach layout_only
+render text_blocks
+capability match_driven_merge true

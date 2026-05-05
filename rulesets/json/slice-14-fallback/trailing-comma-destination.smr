@@ -1,0 +1,9 @@
+# fixture json/slice-14-fallback/trailing-comma-destination.json
+format json
+owners line_bound_statements
+match stable_path
+read source_augmented_portable_write
+attach layout_only
+render json_object_pairs
+repair destination_trailing_comma recover
+capability fallback_parse_recovery true

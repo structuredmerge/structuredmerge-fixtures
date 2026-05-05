@@ -1,0 +1,11 @@
+# fixture markdown/slice-290-nested-merge/fenced-code-nested-merge.json
+format markdown
+owners heading_sections
+match normalized_heading_path
+read source_augmented_portable_write
+attach tracker_layout_merge
+comment_style html_comment
+render markdown_blocks
+surface fenced_code_block language_tag
+delegate fenced_code_block by_language
+capability nested_merge true

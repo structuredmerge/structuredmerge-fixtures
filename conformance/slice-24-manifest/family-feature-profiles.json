@@ -3726,6 +3726,15 @@
           "slice-716-supplied-yaml-snippet-synchronization-acceptance",
           "supplied-yaml-snippet-synchronization-acceptance.json"
         ]
+      },
+      {
+        "role": "supplied_managed_text_block_replacement_acceptance",
+        "family": "diagnostics",
+        "path": [
+          "diagnostics",
+          "slice-717-supplied-managed-text-block-replacement-acceptance",
+          "supplied-managed-text-block-replacement-acceptance.json"
+        ]
       }
     ],
     "text": [

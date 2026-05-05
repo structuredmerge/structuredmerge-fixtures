@@ -1,0 +1,377 @@
+{
+  "cases": [
+    {
+      "label": "replace-existing-managed-text-block",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_managed_text_block_replacement",
+          "recipe_version": "1",
+          "relative_path": "gemfiles/modular/shunted.gemfile",
+          "provider_family": "text",
+          "provider_backend": "generic_managed_blocks",
+          "template_content": "# <<kettle-jem:generated>> -- do not edit below this line\ngem \"debug\", \"~> 1.9\" # ruby >= 3.3\ngem \"irb\", \"~> 1.15\" # ruby >= 3.3\n# <</kettle-jem:generated>>\n",
+          "destination_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\n# Custom dependency kept by destination.\ngem \"rake\"\n\n# <<kettle-jem:generated>> -- do not edit below this line\ngem \"old-debug\", \"~> 0.1\"\n# <</kettle-jem:generated>>\n\ngroup :test do\n  gem \"rspec\"\nend\n",
+          "steps": [
+            {
+              "step_id": "replace-supplied-managed-blocks",
+              "step_kind": "native_policy",
+              "name": "replace supplied managed text blocks",
+              "provider_family": "text",
+              "provider_backend": "generic_managed_blocks",
+              "policy": {
+                "policy_kind": "replace_supplied_managed_text_blocks",
+                "required_context": "managed_block_updates",
+                "operation": "replace_or_append",
+                "selector_family": "text_sentinel_block"
+              },
+              "metadata": {
+                "source": "supplied_managed_text_block_replacement_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "managed_block_updates": [
+              {
+                "selector_id": "shunted_dependencies",
+                "selector_family": "text_sentinel_block",
+                "open_sentinel": "# <<kettle-jem:generated>> -- do not edit below this line",
+                "close_sentinel": "# <</kettle-jem:generated>>",
+                "generated_content": "gem \"debug\", \"~> 1.9\" # ruby >= 3.3\ngem \"irb\", \"~> 1.15\" # ruby >= 3.3\n",
+                "append_if_missing": true,
+                "reason": "wrapper_supplied_shunted_dependencies"
+              }
+            ]
+          },
+          "metadata": {
+            "source": "supplied_managed_text_block_replacement_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_managed_text_block_replacement",
+            "recipe_version": "1",
+            "relative_path": "gemfiles/modular/shunted.gemfile",
+            "provider_family": "text",
+            "provider_backend": "generic_managed_blocks",
+            "template_content": "# <<kettle-jem:generated>> -- do not edit below this line\ngem \"debug\", \"~> 1.9\" # ruby >= 3.3\ngem \"irb\", \"~> 1.15\" # ruby >= 3.3\n# <</kettle-jem:generated>>\n",
+            "destination_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\n# Custom dependency kept by destination.\ngem \"rake\"\n\n# <<kettle-jem:generated>> -- do not edit below this line\ngem \"old-debug\", \"~> 0.1\"\n# <</kettle-jem:generated>>\n\ngroup :test do\n  gem \"rspec\"\nend\n",
+            "steps": [
+              {
+                "step_id": "replace-supplied-managed-blocks",
+                "step_kind": "native_policy",
+                "name": "replace supplied managed text blocks",
+                "provider_family": "text",
+                "provider_backend": "generic_managed_blocks",
+                "policy": {
+                  "policy_kind": "replace_supplied_managed_text_blocks",
+                  "required_context": "managed_block_updates",
+                  "operation": "replace_or_append",
+                  "selector_family": "text_sentinel_block"
+                },
+                "metadata": {
+                  "source": "supplied_managed_text_block_replacement_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "managed_block_updates": [
+                {
+                  "selector_id": "shunted_dependencies",
+                  "selector_family": "text_sentinel_block",
+                  "open_sentinel": "# <<kettle-jem:generated>> -- do not edit below this line",
+                  "close_sentinel": "# <</kettle-jem:generated>>",
+                  "generated_content": "gem \"debug\", \"~> 1.9\" # ruby >= 3.3\ngem \"irb\", \"~> 1.15\" # ruby >= 3.3\n",
+                  "append_if_missing": true,
+                  "reason": "wrapper_supplied_shunted_dependencies"
+                }
+              ]
+            },
+            "metadata": {
+              "source": "supplied_managed_text_block_replacement_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\n# Custom dependency kept by destination.\ngem \"rake\"\n\n# <<kettle-jem:generated>> -- do not edit below this line\ngem \"debug\", \"~> 1.9\" # ruby >= 3.3\ngem \"irb\", \"~> 1.15\" # ruby >= 3.3\n# <</kettle-jem:generated>>\n\ngroup :test do\n  gem \"rspec\"\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "replace-supplied-managed-blocks",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\n# Custom dependency kept by destination.\ngem \"rake\"\n\n# <<kettle-jem:generated>> -- do not edit below this line\ngem \"old-debug\", \"~> 0.1\"\n# <</kettle-jem:generated>>\n\ngroup :test do\n  gem \"rspec\"\nend\n",
+              "output_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\n# Custom dependency kept by destination.\ngem \"rake\"\n\n# <<kettle-jem:generated>> -- do not edit below this line\ngem \"debug\", \"~> 1.9\" # ruby >= 3.3\ngem \"irb\", \"~> 1.15\" # ruby >= 3.3\n# <</kettle-jem:generated>>\n\ngroup :test do\n  gem \"rspec\"\nend\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "replace_supplied_managed_text_blocks",
+                "operation": "replace_or_append",
+                "consumed_context": "managed_block_updates",
+                "replaced_blocks": 1,
+                "appended_blocks": 0,
+                "updated_block_selector_ids": [
+                  "shunted_dependencies"
+                ],
+                "source": "supplied_managed_text_block_replacement_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "supplied_managed_text_block_replacement_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "append-missing-managed-text-block",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_managed_text_block_replacement",
+          "recipe_version": "1",
+          "relative_path": "gemfiles/modular/shunted.gemfile",
+          "provider_family": "text",
+          "provider_backend": "generic_managed_blocks",
+          "template_content": "# <<kettle-jem:generated>> -- do not edit below this line\n# (no shunted dependencies)\n# <</kettle-jem:generated>>\n",
+          "destination_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n",
+          "steps": [
+            {
+              "step_id": "replace-supplied-managed-blocks",
+              "step_kind": "native_policy",
+              "name": "replace supplied managed text blocks",
+              "provider_family": "text",
+              "provider_backend": "generic_managed_blocks",
+              "policy": {
+                "policy_kind": "replace_supplied_managed_text_blocks",
+                "required_context": "managed_block_updates",
+                "operation": "replace_or_append",
+                "selector_family": "text_sentinel_block"
+              },
+              "metadata": {
+                "source": "supplied_managed_text_block_replacement_acceptance"
+              }
+            }
+          ],
+          "runtime_context": {
+            "managed_block_updates": [
+              {
+                "selector_id": "shunted_dependencies",
+                "selector_family": "text_sentinel_block",
+                "open_sentinel": "# <<kettle-jem:generated>> -- do not edit below this line",
+                "close_sentinel": "# <</kettle-jem:generated>>",
+                "generated_content": "# (no shunted dependencies)\n",
+                "append_if_missing": true,
+                "reason": "wrapper_supplied_empty_shunted_dependencies"
+              }
+            ]
+          },
+          "metadata": {
+            "source": "supplied_managed_text_block_replacement_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_managed_text_block_replacement",
+            "recipe_version": "1",
+            "relative_path": "gemfiles/modular/shunted.gemfile",
+            "provider_family": "text",
+            "provider_backend": "generic_managed_blocks",
+            "template_content": "# <<kettle-jem:generated>> -- do not edit below this line\n# (no shunted dependencies)\n# <</kettle-jem:generated>>\n",
+            "destination_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n",
+            "steps": [
+              {
+                "step_id": "replace-supplied-managed-blocks",
+                "step_kind": "native_policy",
+                "name": "replace supplied managed text blocks",
+                "provider_family": "text",
+                "provider_backend": "generic_managed_blocks",
+                "policy": {
+                  "policy_kind": "replace_supplied_managed_text_blocks",
+                  "required_context": "managed_block_updates",
+                  "operation": "replace_or_append",
+                  "selector_family": "text_sentinel_block"
+                },
+                "metadata": {
+                  "source": "supplied_managed_text_block_replacement_acceptance"
+                }
+              }
+            ],
+            "runtime_context": {
+              "managed_block_updates": [
+                {
+                  "selector_id": "shunted_dependencies",
+                  "selector_family": "text_sentinel_block",
+                  "open_sentinel": "# <<kettle-jem:generated>> -- do not edit below this line",
+                  "close_sentinel": "# <</kettle-jem:generated>>",
+                  "generated_content": "# (no shunted dependencies)\n",
+                  "append_if_missing": true,
+                  "reason": "wrapper_supplied_empty_shunted_dependencies"
+                }
+              ]
+            },
+            "metadata": {
+              "source": "supplied_managed_text_block_replacement_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\n# <<kettle-jem:generated>> -- do not edit below this line\n# (no shunted dependencies)\n# <</kettle-jem:generated>>\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "replace-supplied-managed-blocks",
+              "step_kind": "native_policy",
+              "status": "applied",
+              "changed": true,
+              "input_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n",
+              "output_content": "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\n# <<kettle-jem:generated>> -- do not edit below this line\n# (no shunted dependencies)\n# <</kettle-jem:generated>>\n",
+              "diagnostics": [],
+              "metadata": {
+                "policy_kind": "replace_supplied_managed_text_blocks",
+                "operation": "replace_or_append",
+                "consumed_context": "managed_block_updates",
+                "replaced_blocks": 0,
+                "appended_blocks": 1,
+                "updated_block_selector_ids": [
+                  "shunted_dependencies"
+                ],
+                "source": "supplied_managed_text_block_replacement_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [],
+          "metadata": {
+            "source": "supplied_managed_text_block_replacement_acceptance"
+          }
+        }
+      }
+    },
+    {
+      "label": "missing-managed-block-updates-fails-closed",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "supplied_managed_text_block_replacement",
+          "recipe_version": "1",
+          "relative_path": "gemfiles/modular/shunted.gemfile",
+          "provider_family": "text",
+          "provider_backend": "generic_managed_blocks",
+          "template_content": "# <<kettle-jem:generated>> -- do not edit below this line\n# (no shunted dependencies)\n# <</kettle-jem:generated>>\n",
+          "destination_content": "# frozen_string_literal: true\n",
+          "steps": [
+            {
+              "step_id": "replace-supplied-managed-blocks",
+              "step_kind": "native_policy",
+              "name": "replace supplied managed text blocks",
+              "provider_family": "text",
+              "provider_backend": "generic_managed_blocks",
+              "policy": {
+                "policy_kind": "replace_supplied_managed_text_blocks",
+                "required_context": "managed_block_updates",
+                "operation": "replace_or_append",
+                "selector_family": "text_sentinel_block"
+              },
+              "metadata": {
+                "source": "supplied_managed_text_block_replacement_acceptance"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_managed_text_block_replacement_acceptance",
+            "reference_project": "reference/kettle-jem"
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "request": {
+            "recipe_name": "supplied_managed_text_block_replacement",
+            "recipe_version": "1",
+            "relative_path": "gemfiles/modular/shunted.gemfile",
+            "provider_family": "text",
+            "provider_backend": "generic_managed_blocks",
+            "template_content": "# <<kettle-jem:generated>> -- do not edit below this line\n# (no shunted dependencies)\n# <</kettle-jem:generated>>\n",
+            "destination_content": "# frozen_string_literal: true\n",
+            "steps": [
+              {
+                "step_id": "replace-supplied-managed-blocks",
+                "step_kind": "native_policy",
+                "name": "replace supplied managed text blocks",
+                "provider_family": "text",
+                "provider_backend": "generic_managed_blocks",
+                "policy": {
+                  "policy_kind": "replace_supplied_managed_text_blocks",
+                  "required_context": "managed_block_updates",
+                  "operation": "replace_or_append",
+                  "selector_family": "text_sentinel_block"
+                },
+                "metadata": {
+                  "source": "supplied_managed_text_block_replacement_acceptance"
+                }
+              }
+            ],
+            "metadata": {
+              "source": "supplied_managed_text_block_replacement_acceptance",
+              "reference_project": "reference/kettle-jem"
+            }
+          },
+          "final_content": "# frozen_string_literal: true\n",
+          "changed": false,
+          "step_reports": [
+            {
+              "step_id": "replace-supplied-managed-blocks",
+              "step_kind": "native_policy",
+              "status": "failed",
+              "changed": false,
+              "input_content": "# frozen_string_literal: true\n",
+              "output_content": "# frozen_string_literal: true\n",
+              "diagnostics": [
+                {
+                  "severity": "error",
+                  "category": "configuration_error",
+                  "message": "Supplied managed text block replacement requires managed_block_updates runtime context",
+                  "metadata": {
+                    "missing_context": "managed_block_updates"
+                  }
+                }
+              ],
+              "metadata": {
+                "policy_kind": "replace_supplied_managed_text_blocks",
+                "operation": "replace_or_append",
+                "source": "supplied_managed_text_block_replacement_acceptance"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "error",
+              "category": "configuration_error",
+              "message": "Supplied managed text block replacement requires managed_block_updates runtime context",
+              "metadata": {
+                "missing_context": "managed_block_updates"
+              }
+            }
+          ],
+          "metadata": {
+            "source": "supplied_managed_text_block_replacement_acceptance"
+          }
+        }
+      }
+    }
+  ]
+}

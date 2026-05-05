@@ -250,6 +250,14 @@
         ]
       },
       {
+        "role": "binary_core_contract",
+        "path": [
+          "diagnostics",
+          "slice-723-binary-core-contract",
+          "binary-core.json"
+        ]
+      },
+      {
         "role": "runner_shape",
         "path": [
           "diagnostics",

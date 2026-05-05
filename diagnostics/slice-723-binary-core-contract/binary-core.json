@@ -1,0 +1,131 @@
+{
+  "scalar_values": [
+    {
+      "kind": "string",
+      "value": "Author"
+    },
+    {
+      "kind": "integer",
+      "value": 42
+    },
+    {
+      "kind": "float",
+      "value": 3.5
+    },
+    {
+      "kind": "boolean",
+      "value": true
+    },
+    {
+      "kind": "enum",
+      "symbol": "tEXt",
+      "raw_value": 1950701684
+    },
+    {
+      "kind": "bytes",
+      "encoding": "base64",
+      "value": "dGVtcGxhdGU="
+    },
+    {
+      "kind": "timestamp",
+      "value": "2026-05-05T00:00:00Z"
+    },
+    {
+      "kind": "opaque",
+      "format": "compressed-deflate",
+      "description": "payload is preserved unless the owning format renderer expands it"
+    },
+    {
+      "kind": "null"
+    }
+  ],
+  "render_policies": [
+    {
+      "schema_path": "/chunks/0",
+      "byte_range": {
+        "start_byte": 8,
+        "end_byte": 33
+      },
+      "operation": "preserve",
+      "disposition": "safe",
+      "reason": "unchanged critical header chunk"
+    },
+    {
+      "schema_path": "/chunks/1",
+      "byte_range": {
+        "start_byte": 33,
+        "end_byte": 78
+      },
+      "operation": "rewrite",
+      "disposition": "requires_renderer",
+      "reason": "metadata text changed and chunk length/crc must be recomputed"
+    },
+    {
+      "schema_path": "/chunks/2",
+      "byte_range": {
+        "start_byte": 78,
+        "end_byte": 96
+      },
+      "operation": "reject",
+      "disposition": "unsafe",
+      "reason": "critical image data mutation is not enabled"
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "error",
+      "category": "unsupported_checksum_rewrite",
+      "message": "Renderer cannot update CRC for /chunks/1.",
+      "schema_path": "/chunks/1",
+      "byte_range": {
+        "start_byte": 33,
+        "end_byte": 78
+      }
+    },
+    {
+      "severity": "warning",
+      "category": "lossy_field_projection",
+      "message": "Decoded value omits compressed payload internals.",
+      "schema_path": "/chunks/2"
+    }
+  ],
+  "merge_report": {
+    "format": "png",
+    "schema": "png.ksy",
+    "matched_schema_paths": [
+      "/chunks/0",
+      "/chunks/1"
+    ],
+    "preserved_ranges": [
+      {
+        "start_byte": 8,
+        "end_byte": 33
+      }
+    ],
+    "rewritten_nodes": [
+      "/chunks/1"
+    ],
+    "checksum_updates": [
+      "/chunks/1/crc"
+    ],
+    "nested_dispatches": [
+      {
+        "schema_path": "/chunks/1/data/text",
+        "family": "text",
+        "status": "planned"
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "unsupported_checksum_rewrite",
+        "message": "Renderer cannot update CRC for /chunks/1.",
+        "schema_path": "/chunks/1",
+        "byte_range": {
+          "start_byte": 33,
+          "end_byte": 78
+        }
+      }
+    ]
+  }
+}

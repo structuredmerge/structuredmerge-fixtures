@@ -23,6 +23,23 @@
       "column": 5
     }
   },
+  "edit_span": {
+    "start_byte": 14,
+    "old_end_byte": 15,
+    "new_end_byte": 16,
+    "start_point": {
+      "row": 1,
+      "column": 8
+    },
+    "old_end_point": {
+      "row": 1,
+      "column": 9
+    },
+    "new_end_point": {
+      "row": 1,
+      "column": 10
+    }
+  },
   "expected": {
     "length": 5,
     "slice": "café",
@@ -30,7 +47,11 @@
     "contains_end": false,
     "overlaps": true,
     "disjoint": false,
-    "line_column_offset": 11
+    "line_column_offset": 11,
+    "old_edit_length": 1,
+    "new_edit_length": 2,
+    "edit_delta": 1,
+    "old_edit_slice": "1"
   },
   "comparison_ranges": {
     "overlapping": {

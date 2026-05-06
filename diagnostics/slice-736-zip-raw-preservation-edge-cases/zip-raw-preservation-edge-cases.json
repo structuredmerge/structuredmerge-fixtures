@@ -1,0 +1,36 @@
+{
+  "success": {
+    "label": "deflated-member-raw-copy",
+    "preserved_member": "META-INF/MANIFEST.MF",
+    "changed_member": "docs/readme.md",
+    "expected_preserved_range_count": 1,
+    "expected_nested_family": "markdown"
+  },
+  "rejections": [
+    {
+      "label": "unsupported-compression",
+      "category": "unsupported_compression",
+      "schema_path": "/entries/by_path/payload.bin"
+    },
+    {
+      "label": "archive-comment",
+      "category": "archive_comment",
+      "schema_path": "/archive/comment"
+    },
+    {
+      "label": "central-extra-field",
+      "category": "central_directory_extra_field",
+      "schema_path": "/entries/by_path/payload.bin"
+    },
+    {
+      "label": "member-comment",
+      "category": "member_comment",
+      "schema_path": "/entries/by_path/payload.bin"
+    },
+    {
+      "label": "encrypted-member",
+      "category": "encrypted_member",
+      "schema_path": "/entries/by_path/secret.txt"
+    }
+  ]
+}

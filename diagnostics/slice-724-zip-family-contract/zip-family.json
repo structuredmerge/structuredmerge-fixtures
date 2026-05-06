@@ -1,0 +1,197 @@
+{
+  "archive": {
+    "format": "zip",
+    "schema": "zip.ksy",
+    "entry_count": 4,
+    "central_directory_range": {
+      "start_byte": 420,
+      "end_byte": 612
+    }
+  },
+  "entries": [
+    {
+      "path": "META-INF/MANIFEST.MF",
+      "normalized_path": "META-INF/MANIFEST.MF",
+      "directory": false,
+      "compression": "stored",
+      "compressed_size": 46,
+      "uncompressed_size": 46,
+      "crc32": "7f83b165",
+      "local_header_range": {
+        "start_byte": 0,
+        "end_byte": 30
+      },
+      "data_range": {
+        "start_byte": 30,
+        "end_byte": 76
+      },
+      "central_directory_range": {
+        "start_byte": 420,
+        "end_byte": 480
+      }
+    },
+    {
+      "path": "word/document.xml",
+      "normalized_path": "word/document.xml",
+      "directory": false,
+      "compression": "deflate",
+      "compressed_size": 120,
+      "uncompressed_size": 512,
+      "crc32": "0cc175b9",
+      "local_header_range": {
+        "start_byte": 76,
+        "end_byte": 106
+      },
+      "data_range": {
+        "start_byte": 106,
+        "end_byte": 226
+      },
+      "central_directory_range": {
+        "start_byte": 480,
+        "end_byte": 540
+      }
+    },
+    {
+      "path": "config/settings.yml",
+      "normalized_path": "config/settings.yml",
+      "directory": false,
+      "compression": "deflate",
+      "compressed_size": 80,
+      "uncompressed_size": 210,
+      "crc32": "92eb5ffe",
+      "local_header_range": {
+        "start_byte": 226,
+        "end_byte": 256
+      },
+      "data_range": {
+        "start_byte": 256,
+        "end_byte": 336
+      },
+      "central_directory_range": {
+        "start_byte": 540,
+        "end_byte": 600
+      }
+    },
+    {
+      "path": "assets/",
+      "normalized_path": "assets/",
+      "directory": true,
+      "compression": "stored",
+      "compressed_size": 0,
+      "uncompressed_size": 0,
+      "crc32": "00000000",
+      "local_header_range": {
+        "start_byte": 336,
+        "end_byte": 366
+      },
+      "data_range": {
+        "start_byte": 366,
+        "end_byte": 366
+      },
+      "central_directory_range": {
+        "start_byte": 600,
+        "end_byte": 612
+      }
+    }
+  ],
+  "member_decisions": [
+    {
+      "normalized_path": "META-INF/MANIFEST.MF",
+      "operation": "preserve",
+      "disposition": "safe",
+      "reason": "unchanged stored metadata member"
+    },
+    {
+      "normalized_path": "word/document.xml",
+      "operation": "delegate",
+      "disposition": "requires_renderer",
+      "nested_family": "xml",
+      "reason": "structured document XML can be merged by a nested family before ZIP rendering"
+    },
+    {
+      "normalized_path": "config/settings.yml",
+      "operation": "delegate",
+      "disposition": "requires_renderer",
+      "nested_family": "yaml",
+      "reason": "configuration member can be merged by the YAML family before recompression"
+    },
+    {
+      "normalized_path": "META-INF/SIGNATURE.RSA",
+      "operation": "reject",
+      "disposition": "unsafe",
+      "reason": "signature-bearing member mutation is not enabled"
+    }
+  ],
+  "unsafe_entries": [
+    {
+      "path": "../evil.sh",
+      "normalized_path": "../evil.sh",
+      "category": "path_traversal",
+      "reason": "entry escapes the archive root"
+    },
+    {
+      "path": "config/../config/settings.yml",
+      "normalized_path": "config/settings.yml",
+      "category": "duplicate_normalized_path",
+      "reason": "normalized path collides with an existing entry"
+    },
+    {
+      "path": "secret.txt",
+      "normalized_path": "secret.txt",
+      "category": "encrypted_member",
+      "reason": "encrypted member cannot be rendered by the default provider"
+    },
+    {
+      "path": "META-INF/SIGNATURE.RSA",
+      "normalized_path": "META-INF/SIGNATURE.RSA",
+      "category": "signing_sensitive_member",
+      "reason": "signature-bearing member mutation is not enabled"
+    }
+  ],
+  "merge_report": {
+    "format": "zip",
+    "schema": "zip.ksy",
+    "matched_schema_paths": [
+      "/entries/0",
+      "/entries/1",
+      "/entries/2"
+    ],
+    "preserved_ranges": [
+      {
+        "start_byte": 0,
+        "end_byte": 76
+      }
+    ],
+    "rewritten_nodes": [
+      "/entries/1",
+      "/entries/2",
+      "/central_directory"
+    ],
+    "checksum_updates": [
+      "/entries/1/crc32",
+      "/entries/2/crc32",
+      "/central_directory/size",
+      "/central_directory/offset"
+    ],
+    "nested_dispatches": [
+      {
+        "schema_path": "/entries/1/data",
+        "family": "xml",
+        "status": "planned"
+      },
+      {
+        "schema_path": "/entries/2/data",
+        "family": "yaml",
+        "status": "planned"
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "dangerous_executable_mutation",
+        "message": "Signature-bearing member META-INF/SIGNATURE.RSA cannot be changed without explicit policy.",
+        "schema_path": "/entries/by_path/META-INF/SIGNATURE.RSA"
+      }
+    ]
+  }
+}

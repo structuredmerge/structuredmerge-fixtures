@@ -1,4 +1,47 @@
 {
+  "raw_payload": {
+    "encoding": "hex",
+    "value": "89504e470d0a1a0a0000000d49484452a1b2c3d4deadbeef",
+    "byte_length": 24,
+    "regions": [
+      {
+        "kind": "header",
+        "schema_path": "/signature",
+        "byte_range": {
+          "start_byte": 0,
+          "end_byte": 8
+        },
+        "expected_hex": "89504e470d0a1a0a"
+      },
+      {
+        "kind": "length",
+        "schema_path": "/chunks/0/length",
+        "byte_range": {
+          "start_byte": 8,
+          "end_byte": 12
+        },
+        "expected_hex": "0000000d"
+      },
+      {
+        "kind": "body",
+        "schema_path": "/chunks/0/body",
+        "byte_range": {
+          "start_byte": 12,
+          "end_byte": 20
+        },
+        "expected_hex": "49484452a1b2c3d4"
+      },
+      {
+        "kind": "checksum",
+        "schema_path": "/chunks/0/crc",
+        "byte_range": {
+          "start_byte": 20,
+          "end_byte": 24
+        },
+        "expected_hex": "deadbeef"
+      }
+    ]
+  },
   "scalar_values": [
     {
       "kind": "string",

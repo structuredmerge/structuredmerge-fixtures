@@ -258,6 +258,14 @@
         ]
       },
       {
+        "role": "zip_family_contract",
+        "path": [
+          "diagnostics",
+          "slice-724-zip-family-contract",
+          "zip-family.json"
+        ]
+      },
+      {
         "role": "runner_shape",
         "path": [
           "diagnostics",

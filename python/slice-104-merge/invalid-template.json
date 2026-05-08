@@ -1,0 +1,13 @@
+{
+  "template": "def greet(name)\n    return name\n",
+  "destination": "def format_name(name):\n    return name\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

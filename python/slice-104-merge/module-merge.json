@@ -1,0 +1,8 @@
+{
+  "template": "import os\nfrom pathlib import Path\n\nclass Greeter:\n    pass\n\ndef format_name(name):\n    return name.title()\n",
+  "destination": "import os\nimport sys\n\ndef format_name(name):\n    return name\n",
+  "expected": {
+    "ok": true,
+    "output": "import os\nimport sys\n\ndef format_name(name):\n    return name\n\nclass Greeter:\n    pass\n"
+  }
+}

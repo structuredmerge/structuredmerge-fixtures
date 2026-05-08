@@ -1,0 +1,14 @@
+{
+  "name": "invalid_template",
+  "template": "public class Greeter {",
+  "destination": "package com.example;\n\npublic class Greeter {\n  private final String name;\n\n  public Greeter(String name) {\n    this.name = name;\n  }\n}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

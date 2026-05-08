@@ -1,0 +1,8 @@
+{
+  "template": "import java.util.Map;\nimport java.util.Set;\n\npublic class Greeter {\n  private final String name;\n\n  public Greeter(String name) {\n    this.name = name;\n  }\n\n  public String greet(String suffix) {\n    return name + suffix;\n  }\n}\n\nclass Utility {\n  public static int score(String value) {\n    return value.length();\n  }\n}\n",
+  "destination": "import java.util.Map;\n\npublic class Greeter {\n  private final String name;\n\n  public Greeter(String name) {\n    this.name = name;\n  }\n\n  public String greet(String suffix) {\n    return name + suffix;\n  }\n}\n",
+  "expected": {
+    "ok": true,
+    "output": "import java.util.Map;\n\npublic class Greeter {\n  private final String name;\n\n  public Greeter(String name) {\n    this.name = name;\n  }\n\n  public String greet(String suffix) {\n    return name + suffix;\n  }\n}\n\nclass Utility {\n  public static int score(String value) {\n    return value.length();\n  }\n}\n"
+  }
+}

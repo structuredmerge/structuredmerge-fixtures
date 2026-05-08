@@ -1,0 +1,12 @@
+{
+  "template": "import java.util.List;\nimport java.util.Map;\n\npublic class Greeter {\n  private final String name;\n\n  public Greeter(String name) {\n    this.name = name;\n  }\n\n  public String greet(String suffix) {\n    return name + suffix;\n  }\n}\n",
+  "destination": "import java.util.List;\n\npublic class Greeter {\n  private final String name;\n\n  public Greeter(String name) {\n    this.name = name;\n  }\n\n  public String greet(String suffix) {\n    return name + suffix;\n  }\n}\n",
+  "expected": {
+    "matched": [
+      ["/imports/0", "/imports/0"],
+      ["/declarations/Greeter", "/declarations/Greeter"]
+    ],
+    "unmatched_template": ["/imports/1"],
+    "unmatched_destination": []
+  }
+}

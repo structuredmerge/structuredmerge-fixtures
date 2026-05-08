@@ -1,0 +1,14 @@
+{
+  "template": "import os\nfrom pathlib import Path\n\nclass Greeter:\n    pass\n\ndef format_name(name):\n    return name\n\ndef greet(name):\n    return name\n",
+  "destination": "import os\nfrom json import loads\n\nclass Greeter:\n    pass\n\ndef greet(name):\n    return loads(name)\n",
+  "expected": {
+    "matched": [
+      ["/imports/0", "/imports/0"],
+      ["/imports/1", "/imports/1"],
+      ["/declarations/Greeter", "/declarations/Greeter"],
+      ["/declarations/greet", "/declarations/greet"]
+    ],
+    "unmatched_template": ["/declarations/format_name"],
+    "unmatched_destination": []
+  }
+}

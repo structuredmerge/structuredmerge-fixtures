@@ -1,0 +1,24 @@
+{
+  "name": "module_owners",
+  "dialect": "java",
+  "source": "package com.example;\n\nimport java.util.List;\nimport java.util.Map;\n\npublic class Greeter {\n  private final String name;\n\n  public Greeter(String name) {\n    this.name = name;\n  }\n\n  public String greet(String suffix) {\n    return name + suffix;\n  }\n}\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/imports/0",
+        "owner_kind": "import",
+        "match_key": "java.util.List"
+      },
+      {
+        "path": "/imports/1",
+        "owner_kind": "import",
+        "match_key": "java.util.Map"
+      },
+      {
+        "path": "/declarations/Greeter",
+        "owner_kind": "declaration",
+        "match_key": "Greeter"
+      }
+    ]
+  }
+}

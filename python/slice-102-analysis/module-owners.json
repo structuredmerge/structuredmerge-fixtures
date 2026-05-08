@@ -1,0 +1,34 @@
+{
+  "name": "module_owners",
+  "dialect": "python",
+  "source": "import os\nfrom pathlib import Path\n\nclass Greeter:\n    def __init__(self, name):\n        self.name = name\n\n\ndef format_name(name):\n    return name.title()\n\ndef greet(name):\n    return Path(name).name\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/imports/0",
+        "owner_kind": "import",
+        "match_key": "os"
+      },
+      {
+        "path": "/imports/1",
+        "owner_kind": "import",
+        "match_key": "pathlib"
+      },
+      {
+        "path": "/declarations/Greeter",
+        "owner_kind": "declaration",
+        "match_key": "Greeter"
+      },
+      {
+        "path": "/declarations/format_name",
+        "owner_kind": "declaration",
+        "match_key": "format_name"
+      },
+      {
+        "path": "/declarations/greet",
+        "owner_kind": "declaration",
+        "match_key": "greet"
+      }
+    ]
+  }
+}

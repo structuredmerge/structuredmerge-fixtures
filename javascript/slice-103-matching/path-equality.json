@@ -1,0 +1,23 @@
+{
+  "name": "path_equality",
+  "template": "import { formatName } from './format-name';\n\nfunction greet(name) {\n  return formatName(name);\n}\n\nclass Person {\n  constructor(name) {\n    this.name = name;\n  }\n}\n",
+  "destination": "import { formatName } from './format-name';\nimport { sanitizeName } from './sanitize-name';\n\nfunction greet(name) {\n  return sanitizeName(formatName(name));\n}\n",
+  "expected": {
+    "matched": [
+      [
+        "/imports/0",
+        "/imports/0"
+      ],
+      [
+        "/declarations/greet",
+        "/declarations/greet"
+      ]
+    ],
+    "unmatched_template": [
+      "/declarations/Person"
+    ],
+    "unmatched_destination": [
+      "/imports/1"
+    ]
+  }
+}

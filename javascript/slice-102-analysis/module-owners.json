@@ -1,0 +1,29 @@
+{
+  "name": "module_owners",
+  "dialect": "javascript",
+  "source": "import { formatName } from './format-name';\nimport { trimName } from './trim-name';\n\nfunction greet(name) {\n  return trimName(formatName(name));\n}\n\nclass Person {\n  constructor(name) {\n    this.name = name;\n  }\n}\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/imports/0",
+        "owner_kind": "import",
+        "match_key": "./format-name"
+      },
+      {
+        "path": "/imports/1",
+        "owner_kind": "import",
+        "match_key": "./trim-name"
+      },
+      {
+        "path": "/declarations/Person",
+        "owner_kind": "declaration",
+        "match_key": "Person"
+      },
+      {
+        "path": "/declarations/greet",
+        "owner_kind": "declaration",
+        "match_key": "greet"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "module_merge",
+  "template": "import { formatName } from './format-name';\n\nfunction greet(name) {\n  return formatName(name);\n}\n\nclass Person {\n  constructor(name) {\n    this.name = name;\n  }\n}\n",
+  "destination": "import { formatName } from './format-name';\nimport { sanitizeName } from './sanitize-name';\n\nfunction greet(name) {\n  return sanitizeName(formatName(name));\n}\n",
+  "expected": {
+    "ok": true,
+    "output": "import { formatName } from './format-name';\nimport { sanitizeName } from './sanitize-name';\n\nfunction greet(name) {\n  return sanitizeName(formatName(name));\n}\n\nclass Person {\n  constructor(name) {\n    this.name = name;\n  }\n}\n"
+  }
+}

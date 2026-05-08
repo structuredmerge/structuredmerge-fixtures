@@ -1,0 +1,12 @@
+{
+  "feature_profile": {
+    "family": "javascript",
+    "supported_dialects": ["javascript"],
+    "supported_policies": [
+      {
+        "surface": "array",
+        "name": "destination_wins_array"
+      }
+    ]
+  }
+}

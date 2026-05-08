@@ -1,0 +1,14 @@
+{
+  "name": "invalid_template",
+  "template": "function greet(name) {\n  return name;\n",
+  "destination": "function greet(name) {\n  return name.toUpperCase();\n}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

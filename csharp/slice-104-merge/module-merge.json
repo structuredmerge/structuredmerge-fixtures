@@ -1,0 +1,9 @@
+{
+  "name": "module_merge",
+  "template": "using System;\n\npublic class Shape {}\n\npublic class Point {}\n",
+  "destination": "using System;\nusing System.Text;\n\npublic class Shape {}\n",
+  "expected": {
+    "ok": true,
+    "output": "using System;\nusing System.Text;\n\npublic class Shape {}\n\npublic class Point {}\n"
+  }
+}

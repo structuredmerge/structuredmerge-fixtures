@@ -1,0 +1,13 @@
+{
+  "template": "public class Shape {\n  public int Area(int a) {\n    return a;\n}\n",
+  "destination": "public class FormatName {}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "parse_error"
+      }
+    ]
+  }
+}

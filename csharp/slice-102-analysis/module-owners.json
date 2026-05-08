@@ -1,0 +1,29 @@
+{
+  "name": "module_owners",
+  "dialect": "csharp",
+  "source": "using System;\nusing System.Collections.Generic;\n\npublic class FormatName {}\npublic class Shape {}\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/imports/0",
+        "owner_kind": "import",
+        "match_key": "System"
+      },
+      {
+        "path": "/imports/1",
+        "owner_kind": "import",
+        "match_key": "System.Collections.Generic"
+      },
+      {
+        "path": "/declarations/FormatName",
+        "owner_kind": "declaration",
+        "match_key": "FormatName"
+      },
+      {
+        "path": "/declarations/Shape",
+        "owner_kind": "declaration",
+        "match_key": "Shape"
+      }
+    ]
+  }
+}

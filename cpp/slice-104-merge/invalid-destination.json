@@ -1,0 +1,13 @@
+{
+  "template": "int format_name(int value) {\n  return value;\n}\n",
+  "destination": "int add(int a, int b {\n  return a + b;\n}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "destination_parse_error"
+      }
+    ]
+  }
+}

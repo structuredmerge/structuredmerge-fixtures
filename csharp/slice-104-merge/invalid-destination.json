@@ -1,0 +1,13 @@
+{
+  "template": "public class Shape {}\n",
+  "destination": "public class Point {\n  public int X(int a) {\n    return a;\n}\n",
+  "expected": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "destination_parse_error"
+      }
+    ]
+  }
+}

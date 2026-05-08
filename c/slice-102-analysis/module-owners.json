@@ -1,0 +1,29 @@
+{
+  "name": "module_owners",
+  "dialect": "c",
+  "source": "#include <stdio.h>\n#include \"math.h\"\n\nint add(int a, int b) {\n  return a + b;\n}\n\nint format_name(int value) {\n  return value;\n}\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/imports/0",
+        "owner_kind": "import",
+        "match_key": "stdio.h"
+      },
+      {
+        "path": "/imports/1",
+        "owner_kind": "import",
+        "match_key": "math.h"
+      },
+      {
+        "path": "/declarations/add",
+        "owner_kind": "declaration",
+        "match_key": "add"
+      },
+      {
+        "path": "/declarations/format_name",
+        "owner_kind": "declaration",
+        "match_key": "format_name"
+      }
+    ]
+  }
+}

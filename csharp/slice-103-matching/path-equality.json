@@ -1,0 +1,13 @@
+{
+  "name": "path_equality",
+  "template": "using System;\n\npublic class Shape {}\n",
+  "destination": "using System;\nusing System.Text;\n\npublic class Shape {}\n",
+  "expected": {
+    "matched": [
+      ["/imports/0", "/imports/0"],
+      ["/declarations/Shape", "/declarations/Shape"]
+    ],
+    "unmatched_template": [],
+    "unmatched_destination": ["/imports/1"]
+  }
+}

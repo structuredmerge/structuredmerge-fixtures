@@ -2,7 +2,7 @@
 
 Shared conformance fixtures for StructuredMerge.
 
-This repository contains language-neutral fixture data used by the Go, TypeScript, Rust, and Ruby implementations. The fixtures are part of the public contract: they keep independent implementations aligned without making any one runtime canonical.
+This repository contains shared language-neutral fixture families along with implementation-specific fixture slices for the Go, TypeScript, Rust, and Ruby implementations. The shared fixtures are part of the public contract: they keep independent implementations aligned without making any one runtime canonical, while the language directories hold implementation-specific cases and metadata where needed.
 
 Project links:
 

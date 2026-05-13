@@ -23,7 +23,7 @@ The corpus is organized around document families and conformance slices, includi
 - `toml/`
 - `yaml/`
 - `markdown/`
-- `rulesets/`
+- `diagnostics/`
 
 Each fixture set should include the smallest useful combination of:
 

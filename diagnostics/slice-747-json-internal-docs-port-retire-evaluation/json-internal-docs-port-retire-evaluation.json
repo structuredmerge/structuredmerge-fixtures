@@ -1,0 +1,143 @@
+{
+  "source": {
+    "old_files": [
+      "reference/json-merge/README.md",
+      "reference/json-merge/lib/json/merge/conflict_resolver.rb",
+      "reference/json-merge/lib/json/merge/emitter.rb",
+      "reference/json-merge/lib/json/merge/freeze_node.rb",
+      "reference/json-merge/lib/json/merge/debug_logger.rb",
+      "reference/json-merge/spec/json/merge/conflict_resolver_spec.rb",
+      "reference/json-merge/spec/json/merge/emitter_spec.rb",
+      "reference/json-merge/spec/json/merge/freeze_node_spec.rb",
+      "reference/json-merge/spec/json/merge/debug_logger_spec.rb",
+      "reference/json-merge/spec/integration/jsonc_comment_preservation_spec.rb",
+      "reference/json-merge/spec/integration/jsonc_file_analysis_behavior_spec.rb"
+    ],
+    "current_contracts": [
+      "spec/slices/slice-09-json-merge-resolution.md",
+      "spec/slices/slice-14-json-merge-fallback.md",
+      "spec/slices/slice-15-json-fallback-boundaries.md",
+      "spec/slices/slice-16-json-array-policy.md",
+      "spec/slices/slice-18-policy-reporting.md",
+      "fixtures/json/slice-09-merge/",
+      "fixtures/json/slice-14-fallback/",
+      "fixtures/json/slice-15-fallback-boundaries/",
+      "fixtures/json/slice-16-array-policy/",
+      "fixtures/diagnostics/slice-743-reusable-readme-configuration-examples/"
+    ]
+  },
+  "classification": [
+    {
+      "old_surface": "Json::Merge::ConflictResolver",
+      "old_value": [
+        "destination/template preference",
+        "template-only insertion",
+        "destination parse errors",
+        "trailing comma recovery",
+        "array handling",
+        "removal mode",
+        "custom match_refiner integration"
+      ],
+      "ported_current_value": [
+        "destination-wins scalar conflict behavior via slice-09",
+        "template-only object member insertion via slice-09",
+        "destination parse-error classification via slice-09",
+        "trailing comma destination fallback via slice-14 and slice-15",
+        "destination-wins array policy via slice-16",
+        "policy reporting via slice-18"
+      ],
+      "not_ported": [
+        "public ConflictResolver class API",
+        "template-wins preference",
+        "removal mode",
+        "custom resolver callback API",
+        "match_refiner integration"
+      ],
+      "decision": "port_fixture_backed_concepts_retire_old_public_class_docs"
+    },
+    {
+      "old_surface": "Json::Merge::Emitter",
+      "old_value": [
+        "formatting-preserving output",
+        "line and block comment emission",
+        "inline comment placement",
+        "raw line replay",
+        "array and object pretty rendering"
+      ],
+      "ported_current_value": [
+        "canonical JSON output for strict JSON merge"
+      ],
+      "not_ported": [
+        "public Emitter class API",
+        "format-preserving output contract",
+        "JSONC comment-preserving output contract"
+      ],
+      "decision": "retire_from_current_json_readme_defer_comment_emitter_to_jsonc_policy"
+    },
+    {
+      "old_surface": "Json::Merge::FreezeNode",
+      "old_value": [
+        "comment-marked freeze blocks",
+        "custom freeze token",
+        "JSONC line-comment freeze markers"
+      ],
+      "ported_current_value": [
+        "shared README example inventory records freeze-token value in slice-743"
+      ],
+      "not_ported": [
+        "JSON-specific freeze block fixture",
+        "current JSON merge freeze behavior",
+        "public FreezeNode class API"
+      ],
+      "decision": "defer_to_cross_cutting_freeze_block_infrastructure_and_jsonc_task"
+    },
+    {
+      "old_surface": "Json::Merge::DebugLogger",
+      "old_value": [
+        "JSON_MERGE_DEBUG environment variable",
+        "textual merge decision logging",
+        "debug examples in README"
+      ],
+      "ported_current_value": [
+        "structured diagnostics on parse, fallback, and unsupported feature outcomes",
+        "policy references on merge results",
+        "shared debug report inspection README example in slice-743"
+      ],
+      "not_ported": [
+        "JSON_MERGE_DEBUG environment variable",
+        "textual debug logger API"
+      ],
+      "decision": "retire_textual_debug_docs_use_structured_diagnostics"
+    }
+  ],
+  "readme_policy": {
+    "allowed_now": [
+      "basic merge behavior backed by current JSON fixtures",
+      "destination-wins arrays",
+      "trailing-comma fallback boundaries",
+      "structured diagnostics and policy reporting"
+    ],
+    "not_allowed_now": [
+      "ConflictResolver class usage examples",
+      "Emitter class usage examples",
+      "FreezeNode class usage examples",
+      "JSON_MERGE_DEBUG=1 examples",
+      "JSONC comment-preserving merge claims beyond existing parse/structure fixtures",
+      "template-wins or removal-mode claims"
+    ]
+  },
+  "follow_up_targets": [
+    {
+      "tracker_section": "jsonc-merge",
+      "reason": "JSONC comments, freeze blocks, object insertion, emitter, and conflict resolver behavior need package-shape and fixture decisions."
+    },
+    {
+      "tracker_section": "Freeze block infrastructure",
+      "reason": "Freeze markers should be normalized across comment syntaxes before JSON-specific docs claim behavior."
+    },
+    {
+      "tracker_section": "Template-only insertion and partial-template merge helpers",
+      "reason": "Template-only policies beyond current object member insertion need shared fixture vocabulary."
+    }
+  ]
+}

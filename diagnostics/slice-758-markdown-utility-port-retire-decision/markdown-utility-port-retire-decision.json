@@ -1,0 +1,65 @@
+{
+  "source": {
+    "old_package": "reference/markdown-merge",
+    "previous_slice": "spec/slices/slice-757-markdown-fixture-coverage-verification.md"
+  },
+  "defer_until_fixture_backed": [
+    {
+      "name": "OutputBuilder",
+      "future_contract": "source-preserving Markdown output assembly"
+    },
+    {
+      "name": "LinkParser",
+      "future_contract": "reference definitions, inline links, images, linked images, emoji labels, nested constructs, and positions"
+    },
+    {
+      "name": "LinkReferenceRehydrator",
+      "future_contract": "inline-to-reference link restoration"
+    },
+    {
+      "name": "LinkDefinitionFormatter and LinkDefinitionNode",
+      "future_contract": "reference definition formatting and metadata"
+    },
+    {
+      "name": "DocumentProblems",
+      "future_contract": "structured document issue reporting"
+    },
+    {
+      "name": "TableMatchRefiner and TableMatchAlgorithm",
+      "future_contract": "fuzzy table matching"
+    },
+    {
+      "name": "ListMatchRefiner",
+      "future_contract": "corrupted or duplicated list matching"
+    },
+    {
+      "name": "CodeBlockMerger",
+      "future_contract": "utility-level code block merge decisions outside delegated child fixtures"
+    },
+    {
+      "name": "Cleanse passes",
+      "future_contract": "block spacing, code fence spacing, condensed link refs, list marker duplication, and templating corruption cleanup"
+    },
+    {
+      "name": "WhitespaceNormalizer",
+      "future_contract": "Markdown whitespace normalization policy"
+    }
+  ],
+  "retired_as_public_contract": [
+    {
+      "id": "ruby-private-class-surface",
+      "decision": "do_not_port_as_cross_language_contract",
+      "reason": "The portable contract should be fixture-backed behavior, not old Ruby class names or private helper APIs."
+    }
+  ],
+  "recommended_future_order": [
+    "Markdown link parser and link definition formatting fixtures",
+    "Markdown link reference rehydration plus duplicate definition problem reporting fixtures",
+    "Markdown OutputBuilder/source-preserving assembly fixtures",
+    "Markdown table/list fuzzy matching fixtures",
+    "Markdown CodeBlockMerger utility outcome fixtures outside delegated child operations",
+    "Markdown cleanse and whitespace normalization fixtures",
+    "Markdown comment preservation fixtures"
+  ],
+  "readme_policy": "Generated Markdown READMEs should not claim old advanced utility behavior until future fixtures define and implementations satisfy the portable contract."
+}

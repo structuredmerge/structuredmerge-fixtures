@@ -1,0 +1,50 @@
+{
+  "source": {
+    "old_package": "reference/dotenv-merge",
+    "old_readme": "reference/dotenv-merge/README.md",
+    "old_specs": "reference/dotenv-merge/spec",
+    "old_reproducible_fixtures": "reference/dotenv-merge/spec/fixtures/reproducible"
+  },
+  "active_package_search": {
+    "paths_checked": [
+      "ruby/gems",
+      "go",
+      "rust/crates",
+      "typescript/packages"
+    ],
+    "active_dotenv_package_found": false
+  },
+  "old_value": [
+    "assignment/export/comment/blank/invalid line model",
+    "key/value parsing",
+    "empty values",
+    "single-quoted and double-quoted values",
+    "escaped double-quoted values",
+    "hash handling inside quoted and unquoted values",
+    "inline comment stripping",
+    "assignment identity by key",
+    "destination/template preference for matched keys",
+    "template-only entry insertion",
+    "heading/footer/grouped/inline comment preservation",
+    "duplicate key comment association",
+    "freeze markers and freeze blocks"
+  ],
+  "old_reproducible_fixture_topics": [
+    "variable removed",
+    "variable added",
+    "value changed",
+    "grouped export comments template preference",
+    "duplicate keys comment association",
+    "quoted hash values grouped comments"
+  ],
+  "decision": "Dotenv needs a future dedicated dotenv/config-env family. It is not retired and is not already covered by generic plain text/config aggregate work.",
+  "future_fixture_order": [
+    "env line parsing",
+    "value parsing",
+    "assignment identity and duplicate key policy",
+    "matched-key preference and template-only insertion",
+    "comment preservation",
+    "freeze markers and freeze blocks",
+    "dotenv README examples"
+  ]
+}

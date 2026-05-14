@@ -1,0 +1,55 @@
+{
+  "name": "inconsistency_detection",
+  "purpose": "prototype inconsistency detection over raw merged change sets",
+  "inconsistency_report": {
+    "report_id": "go-imports-inconsistency-report",
+    "raw_merge_id": "go-imports-raw-merge",
+    "inconsistencies": [
+      {
+        "inconsistency_id": "order-import-fmt-strings",
+        "category": "order_conflict",
+        "severity": "warning",
+        "class_ids": ["class-import-fmt", "class-import-strings"],
+        "change_ids": ["right-move-import-strings"],
+        "message": "right branch reverses the base import ordering relation"
+      },
+      {
+        "inconsistency_id": "delete-edit-greet",
+        "category": "delete_edit_conflict",
+        "severity": "error",
+        "class_ids": ["class-decl-greet"],
+        "change_ids": ["left-edit-greet", "right-delete-greet"],
+        "message": "left edits a declaration that right deletes"
+      },
+      {
+        "inconsistency_id": "duplicate-import-os",
+        "category": "duplicate_insertion_conflict",
+        "severity": "error",
+        "class_ids": ["class-import-os"],
+        "change_ids": ["left-insert-import-os", "right-insert-import-os"],
+        "message": "both branches insert the same class with incompatible content hashes"
+      },
+      {
+        "inconsistency_id": "content-greet",
+        "category": "content_conflict",
+        "severity": "error",
+        "class_ids": ["class-decl-greet"],
+        "change_ids": ["left-edit-greet", "right-edit-greet"],
+        "message": "both branches change declaration content differently"
+      }
+    ],
+    "diagnostics": [
+      "inconsistency detection classifies raw merge candidates before any conflict rendering"
+    ]
+  },
+  "expected": {
+    "inconsistency_count": 4,
+    "categories": [
+      "order_conflict",
+      "delete_edit_conflict",
+      "duplicate_insertion_conflict",
+      "content_conflict"
+    ],
+    "blocking_count": 3
+  }
+}

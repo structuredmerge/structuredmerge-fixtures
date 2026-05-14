@@ -1,0 +1,40 @@
+{
+  "source": {
+    "spec": "spec/slices/slice-774-kettle-jem-report-utilities.md",
+    "implementation": "ruby/gems/kettle-jem/lib/kettle/jem.rb",
+    "tests": "ruby/gems/kettle-jem/spec/thin_slice_spec.rb",
+    "contract": "fixtures/diagnostics/slice-773-kettle-jem-recipe-report-fixture-contract/kettle-jem-recipe-report-fixture-contract.json"
+  },
+  "implemented_modules": [
+    "Kettle::Jem::TemplateChecksums",
+    "Kettle::Jem::TemplatingReport",
+    "Kettle::Jem::SelfTest::Manifest",
+    "Kettle::Jem::SelfTest::Reporter"
+  ],
+  "implemented_behavior": [
+    "template checksum computation",
+    "stored checksum loading from .kettle-jem.yml",
+    "checksum drift classification",
+    "checksum drift summaries and detail lines",
+    "checksum block write-back",
+    "merge-gem environment snapshots",
+    "environment console and Markdown rendering",
+    "local workspace mismatch warnings",
+    "templating run report rendering and writing",
+    "self-test manifest generation",
+    "self-test manifest comparison",
+    "self-test unified diff generation",
+    "self-test Markdown summary rendering"
+  ],
+  "not_implemented_here": [
+    "plugin lifecycle callbacks",
+    "old phase class framework",
+    "remaining-files phase policy",
+    "environment template policy",
+    "old setup/install/prepare task APIs"
+  ],
+  "verification": {
+    "command": "mise exec -C ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "301 examples, 0 failures"
+  }
+}

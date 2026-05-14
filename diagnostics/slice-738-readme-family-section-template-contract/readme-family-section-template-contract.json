@@ -1,0 +1,200 @@
+{
+  "canonical_language_order": [
+    "go",
+    "ruby",
+    "rust",
+    "typescript"
+  ],
+  "alias_derivation_cases": [
+    {
+      "self": "go",
+      "expected_aliases": {
+        "SELF_LANG": "Go",
+        "IMP_LANG1": "Ruby",
+        "IMP_LANG2": "Rust",
+        "IMP_LANG3": "TypeScript"
+      },
+      "expected_alternative_ids": [
+        "ruby",
+        "rust",
+        "typescript"
+      ]
+    },
+    {
+      "self": "ruby",
+      "expected_aliases": {
+        "SELF_LANG": "Ruby",
+        "IMP_LANG1": "Go",
+        "IMP_LANG2": "Rust",
+        "IMP_LANG3": "TypeScript"
+      },
+      "expected_alternative_ids": [
+        "go",
+        "rust",
+        "typescript"
+      ]
+    },
+    {
+      "self": "rust",
+      "expected_aliases": {
+        "SELF_LANG": "Rust",
+        "IMP_LANG1": "Go",
+        "IMP_LANG2": "Ruby",
+        "IMP_LANG3": "TypeScript"
+      },
+      "expected_alternative_ids": [
+        "go",
+        "ruby",
+        "typescript"
+      ]
+    },
+    {
+      "self": "typescript",
+      "expected_aliases": {
+        "SELF_LANG": "TypeScript",
+        "IMP_LANG1": "Go",
+        "IMP_LANG2": "Ruby",
+        "IMP_LANG3": "Rust"
+      },
+      "expected_alternative_ids": [
+        "go",
+        "ruby",
+        "rust"
+      ]
+    }
+  ],
+  "metadata_case": {
+    "label": "ruby-package-family-section",
+    "package": {
+      "name": "json-merge",
+      "summary": "StructuredMerge adapter for JSON documents.",
+      "ecosystem": "rubygems",
+      "package_url": "https://rubygems.org/gems/json-merge",
+      "repository_url": "https://github.com/structuredmerge/structuredmerge-ruby/tree/main/gems/json-merge"
+    },
+    "family": {
+      "id": "config",
+      "label": "Configuration formats",
+      "section_heading": "StructuredMerge Package Family",
+      "description": "The configuration-format packages share one merge contract across language implementations.",
+      "self": {
+        "id": "ruby",
+        "label": "Ruby",
+        "package_root": "ruby/gems",
+        "package_manager": "RubyGems"
+      },
+      "implementations": [
+        {
+          "id": "go",
+          "label": "Go",
+          "package_root": "go",
+          "package_manager": "Go modules",
+          "repository_url": "https://github.com/structuredmerge/structuredmerge-go"
+        },
+        {
+          "id": "ruby",
+          "label": "Ruby",
+          "package_root": "ruby/gems",
+          "package_manager": "RubyGems",
+          "repository_url": "https://github.com/structuredmerge/structuredmerge-ruby"
+        },
+        {
+          "id": "rust",
+          "label": "Rust",
+          "package_root": "rust/crates",
+          "package_manager": "crates.io",
+          "repository_url": "https://github.com/structuredmerge/structuredmerge-rust"
+        },
+        {
+          "id": "typescript",
+          "label": "TypeScript",
+          "package_root": "typescript/packages",
+          "package_manager": "npm",
+          "repository_url": "https://github.com/structuredmerge/structuredmerge-typescript"
+        }
+      ]
+    },
+    "expected_token_values": {
+      "SELF_LANG": "Ruby",
+      "SELF_LANG_ID": "ruby",
+      "SELF_PACKAGE_ROOT": "ruby/gems",
+      "SELF_PACKAGE_MANAGER": "RubyGems",
+      "IMP_LANG1": "Go",
+      "IMP_LANG1_ID": "go",
+      "IMP_LANG1_PACKAGE_ROOT": "go",
+      "IMP_LANG1_PACKAGE_MANAGER": "Go modules",
+      "IMP_LANG2": "Rust",
+      "IMP_LANG2_ID": "rust",
+      "IMP_LANG2_PACKAGE_ROOT": "rust/crates",
+      "IMP_LANG2_PACKAGE_MANAGER": "crates.io",
+      "IMP_LANG3": "TypeScript",
+      "IMP_LANG3_ID": "typescript",
+      "IMP_LANG3_PACKAGE_ROOT": "typescript/packages",
+      "IMP_LANG3_PACKAGE_MANAGER": "npm"
+    }
+  },
+  "template_partial": "## {SM|FAMILY_SECTION_HEADING}\n\n{SM|FAMILY_DESCRIPTION}\n\nThis package is the {SM|SELF_LANG} implementation. Alternative implementations are available for {SM|IMP_LANG1}, {SM|IMP_LANG2}, and {SM|IMP_LANG3}.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| {SM|SELF_LANG} | `{SM|SELF_PACKAGE_ROOT}` | {SM|SELF_PACKAGE_MANAGER} |\n| {SM|IMP_LANG1} | `{SM|IMP_LANG1_PACKAGE_ROOT}` | {SM|IMP_LANG1_PACKAGE_MANAGER} |\n| {SM|IMP_LANG2} | `{SM|IMP_LANG2_PACKAGE_ROOT}` | {SM|IMP_LANG2_PACKAGE_MANAGER} |\n| {SM|IMP_LANG3} | `{SM|IMP_LANG3_PACKAGE_ROOT}` | {SM|IMP_LANG3_PACKAGE_MANAGER} |\n",
+  "expected_rendered_partial": "## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n",
+  "readme_application_cases": [
+    {
+      "label": "replace-existing-family-section",
+      "operation": {
+        "provider_family": "markdown",
+        "provider_backend": "generic_markdown_ast",
+        "policy_kind": "replace_markdown_heading_section",
+        "heading_level": 2,
+        "heading_text": "StructuredMerge Package Family",
+        "when_missing": "insert_after_summary",
+        "when_readme_missing": "create"
+      },
+      "destination_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## StructuredMerge Package Family\n\nOld family matrix.\n\n## Usage\n\nDestination usage.\n",
+      "expected_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n\n## Usage\n\nDestination usage.\n",
+      "changed": true
+    },
+    {
+      "label": "insert-missing-family-section",
+      "operation": {
+        "provider_family": "markdown",
+        "provider_backend": "generic_markdown_ast",
+        "policy_kind": "replace_markdown_heading_section",
+        "heading_level": 2,
+        "heading_text": "StructuredMerge Package Family",
+        "when_missing": "insert_after_summary",
+        "when_readme_missing": "create"
+      },
+      "destination_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## Usage\n\nDestination usage.\n",
+      "expected_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n\n## Usage\n\nDestination usage.\n",
+      "changed": true
+    },
+    {
+      "label": "create-missing-readme",
+      "operation": {
+        "provider_family": "markdown",
+        "provider_backend": "generic_markdown_ast",
+        "policy_kind": "replace_markdown_heading_section",
+        "heading_level": 2,
+        "heading_text": "StructuredMerge Package Family",
+        "when_missing": "insert_after_summary",
+        "when_readme_missing": "create"
+      },
+      "destination_content": null,
+      "expected_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n",
+      "changed": true
+    },
+    {
+      "label": "reapply-converges",
+      "operation": {
+        "provider_family": "markdown",
+        "provider_backend": "generic_markdown_ast",
+        "policy_kind": "replace_markdown_heading_section",
+        "heading_level": 2,
+        "heading_text": "StructuredMerge Package Family",
+        "when_missing": "insert_after_summary",
+        "when_readme_missing": "create"
+      },
+      "destination_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n\n## Usage\n\nDestination usage.\n",
+      "expected_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n\n## Usage\n\nDestination usage.\n",
+      "changed": false
+    }
+  ]
+}

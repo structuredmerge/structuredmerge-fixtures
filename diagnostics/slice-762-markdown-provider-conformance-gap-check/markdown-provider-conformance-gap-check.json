@@ -1,0 +1,34 @@
+{
+  "covered_provider_behavior": [
+    "provider feature profiles",
+    "provider plan contexts",
+    "provider named-suite plans",
+    "provider manifest reports",
+    "provider parse/analysis/matching/merge conformance",
+    "unsupported provider backend override rejection",
+    "provider reviewed nested review artifact application",
+    "provider reviewed nested review artifact rejection",
+    "provider reviewed nested review artifact envelope application",
+    "Markly structured-edit provider projection as an optional provider extension"
+  ],
+  "covered_fixtures": [
+    "fixtures/diagnostics/slice-204-markdown-provider-feature-profiles/",
+    "fixtures/diagnostics/slice-205-markdown-provider-plan-contexts/",
+    "fixtures/diagnostics/slice-206-markdown-provider-named-suite-plans/",
+    "fixtures/diagnostics/slice-207-markdown-provider-manifest-report/",
+    "fixtures/diagnostics/slice-326-markdown-provider-reviewed-nested-review-artifact-application/",
+    "fixtures/diagnostics/slice-327-markdown-provider-reviewed-nested-review-artifact-rejection/",
+    "fixtures/diagnostics/slice-328-markdown-provider-reviewed-nested-review-artifact-envelope-application/",
+    "fixtures/diagnostics/slice-425-markdown-structured-edit-provider-profiles/"
+  ],
+  "remaining_provider_specific_gaps": [
+    "Commonmarker parser options",
+    "Markly flags and extensions",
+    "Kramdown parser options",
+    "Pulldown CMark parser options",
+    "markdown-it parser options and plugins",
+    "Goldmark parser options",
+    "runtime/platform caveats beyond fixture-backed provider metadata"
+  ],
+  "decision": "No additional provider conformance fixture is required for the current README migration pass. Add parser-option, plugin, and runtime caveat fixtures later before documenting those as current behavior."
+}

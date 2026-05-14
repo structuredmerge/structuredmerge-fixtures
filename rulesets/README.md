@@ -15,7 +15,7 @@ rulesets/json/slice-09-merge/object-merge.smrules
 ```
 
 The compact syntax is the line-oriented ruleset syntax from
-`MERGE_RULESET_INFORMATIONAL_DRAFT_01.md`, Appendix A.
+`MERGE_RULESET_INFORMATIONAL_DRAFT_02.md`, Appendix A.
 
 Validate coverage and syntax with:
 

@@ -25,8 +25,13 @@ SINGLETON_DIRECTIVES = {
     "attach",
     "comment_style",
     "render",
+    "render_strategy",
 }
 REPEATABLE_KEYED_DIRECTIVES = {
+    "backend",
+    "node_role",
+    "atomic",
+    "child_group",
     "capability",
     "logical_owner",
     "repair",
@@ -133,10 +138,9 @@ def validate_ruleset(path: Path) -> list[str]:
             seen_singletons[directive] = line_number
 
         if directive in REPEATABLE_KEYED_DIRECTIVES:
-            key = args[0]
-            keyed = (directive, key)
+            keyed = repeatable_key(directive, args)
             if keyed in seen_repeatable_keys:
-                errors.append(f"{context}: repeated {directive!r} key {key!r}")
+                errors.append(f"{context}: repeated {directive!r} key {args[0]!r}")
             seen_repeatable_keys.add(keyed)
 
         if directive == "read" and args[0] not in READ_VALUES:
@@ -149,6 +153,12 @@ def validate_ruleset(path: Path) -> list[str]:
         errors.append(f"{relative(path)}: missing required directives: {', '.join(sorted(missing))}")
 
     return errors
+
+
+def repeatable_key(directive: str, args: list[str]) -> tuple[str, ...]:
+    if directive == "child_group" and len(args) > 1:
+        return (directive, args[0], args[1])
+    return (directive, args[0])
 
 
 def ruleset_path_for(fixture: Path) -> Path:

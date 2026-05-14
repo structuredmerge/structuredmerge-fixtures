@@ -1,0 +1,21 @@
+# fixture go/slice-780-profile-vocabulary/module-profile.json
+format go
+owners top_level_declarations
+match structural_signature
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style c_style_line
+render go_declarations
+render_strategy source_fragment_reuse
+backend go-dst supported
+backend go-parser supported
+backend kreuzberg-language-pack supported
+node_role import_declaration structural
+node_role line_comment comment
+node_role semicolon separator
+atomic string_literal true
+atomic function_body false
+child_group source_file imports unordered
+child_group source_file declarations ordered
+capability imports_destination_wins true
+capability native_backend_parity true

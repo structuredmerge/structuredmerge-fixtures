@@ -1,0 +1,9 @@
+# fixture csharp/slice-104-merge/module-merge.json
+format csharp
+owners top_level_declarations
+match structural_signature
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style c_style_line
+render csharp_declarations
+capability using_directives_destination_wins true

@@ -1,0 +1,60 @@
+{
+  "family_docs": {
+    "package": "markdown-merge",
+    "owns": [
+      "family feature profile",
+      "fixture-backed owner analysis and matching",
+      "section merge",
+      "fenced-code discovery and nested merge",
+      "reviewed nested merge and review artifact behavior",
+      "provider overview"
+    ]
+  },
+  "provider_docs": [
+    {
+      "package": "commonmarker-merge",
+      "owns": [
+        "Commonmarker/Comrak parser dependency",
+        "Commonmarker parser options",
+        "runtime caveats"
+      ]
+    },
+    {
+      "package": "markly-merge",
+      "owns": [
+        "Markly/libcmark-gfm parser dependency",
+        "Markly flags and extensions",
+        "structured-edit provider projections",
+        "runtime caveats"
+      ]
+    },
+    {
+      "package": "kramdown-merge",
+      "owns": [
+        "Kramdown parser dependency",
+        "Kramdown parser options",
+        "runtime caveats"
+      ]
+    },
+    {
+      "package": "pulldown-cmark-merge",
+      "owns": [
+        "Rust Pulldown CMark provider behavior"
+      ]
+    },
+    {
+      "package": "@structuredmerge/markdown-it-merge",
+      "owns": [
+        "TypeScript markdown-it provider behavior"
+      ]
+    },
+    {
+      "package": "goldmarkmerge",
+      "owns": [
+        "Go Goldmark provider behavior"
+      ]
+    }
+  ],
+  "generated_readme_policy": "The shared generated family/backend section should include only the provider overview. Parser-specific setup, options, and platform claims belong in provider package READMEs.",
+  "decision": "Keep portable Markdown behavior in markdown-merge docs and backend-specific parser behavior in provider package docs."
+}

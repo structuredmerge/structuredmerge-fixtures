@@ -1,0 +1,128 @@
+{
+  "source": {
+    "old_files": [
+      "reference/json-merge/README.md",
+      "reference/json-merge/lib/json/merge/object_match_refiner.rb",
+      "reference/json-merge/spec/json/merge/object_match_refiner_spec.rb",
+      "reference/json-merge/spec/integration/jsonc_comment_preservation_spec.rb",
+      "reference/json-merge/spec/integration/jsonc_reproducible_merge_spec.rb"
+    ],
+    "current_files": [
+      "spec/slices/slice-16-json-array-policy.md",
+      "fixtures/json/slice-16-array-policy/destination-wins-array.json",
+      "go/jsonmerge/types.go",
+      "rust/crates/json-merge/src/lib.rs",
+      "typescript/packages/json-merge/src/contracts.ts",
+      "ruby/gems/json-merge/lib/json/merge.rb"
+    ]
+  },
+  "current_policy": {
+    "name": "destination_wins_array",
+    "behavior": [
+      "preserve destination array as a whole when template and destination both define an array",
+      "do not append template elements",
+      "do not interleave template and destination elements",
+      "do not element-match template and destination arrays"
+    ],
+    "fixture": "fixtures/json/slice-16-array-policy/destination-wins-array.json"
+  },
+  "old_array_element_claims": [
+    {
+      "id": "object-elements-with-id",
+      "example": {
+        "template": [
+          {
+            "id": 1,
+            "userName": "alice"
+          },
+          {
+            "id": 2,
+            "userName": "bob"
+          }
+        ],
+        "destination": [
+          {
+            "id": 1,
+            "user_name": "alice_custom"
+          },
+          {
+            "id": 3,
+            "user_name": "charlie"
+          }
+        ]
+      },
+      "old_claim": "array elements with matching IDs or similar structure are paired",
+      "current_status": "not_current_behavior"
+    },
+    {
+      "id": "object-elements-by-key-overlap",
+      "example": {
+        "template_keys": [
+          "id",
+          "name",
+          "email"
+        ],
+        "destination_keys": [
+          "id",
+          "name",
+          "email"
+        ]
+      },
+      "old_claim": "object array elements can be matched by structural key overlap",
+      "current_status": "not_current_behavior"
+    },
+    {
+      "id": "array-value-similarity",
+      "example": {
+        "template_length": 3,
+        "destination_length": 2
+      },
+      "old_claim": "array values can be scored by length ratio for fuzzy matching",
+      "current_status": "implementation_detail_not_ported"
+    },
+    {
+      "id": "jsonc-array-comment-preservation",
+      "example": {
+        "concern": "comments attached to matched, inserted, removed, or retained array elements"
+      },
+      "old_claim": "JSONC array merge should preserve comments around array elements",
+      "current_status": "future_policy_requirement"
+    }
+  ],
+  "decision": {
+    "port_now": false,
+    "readme_claim_allowed": false,
+    "classification": "future_opt_in_array_policy",
+    "reason": "The active JSON conformance contract explicitly preserves destination arrays whole and forbids element matching. Old element matching can only return as a separately named policy with fixtures and diagnostics."
+  },
+  "future_fixture_requirements": [
+    {
+      "id": "id-key-element-match",
+      "required_contract": "objects in arrays can match by configured identity key when the element policy is enabled"
+    },
+    {
+      "id": "template-only-element-policy",
+      "required_contract": "template-only elements are inserted, skipped, or reported according to explicit policy"
+    },
+    {
+      "id": "destination-only-element-policy",
+      "required_contract": "destination-only elements are preserved, removed, or reported according to explicit policy"
+    },
+    {
+      "id": "matched-object-recursive-merge",
+      "required_contract": "matched object elements use the same object merge conflict rules as object members"
+    },
+    {
+      "id": "array-element-ordering",
+      "required_contract": "merged arrays have deterministic element ordering"
+    },
+    {
+      "id": "jsonc-array-comments",
+      "required_contract": "JSONC comments attached to array elements have deterministic preservation or movement rules"
+    },
+    {
+      "id": "array-element-diagnostics",
+      "required_contract": "merge reports include matched, inserted, skipped, and destination-owned element decisions"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "name": "pairwise_matchings",
+  "purpose": "prototype base-left, base-right, and left-right node matching inputs for class mapping",
+  "pairwise_matchings": [
+    {
+      "matching_id": "base-left",
+      "from_revision": "base",
+      "to_revision": "left",
+      "matches": [
+        {
+          "from_node_id": "base-import-fmt",
+          "to_node_id": "left-import-fmt",
+          "class_id": "class-import-fmt",
+          "strategy": "signature",
+          "confidence": 1.0,
+          "diagnostics": []
+        },
+        {
+          "from_node_id": "base-import-strings",
+          "to_node_id": "left-import-strings",
+          "class_id": "class-import-strings",
+          "strategy": "signature",
+          "confidence": 1.0,
+          "diagnostics": []
+        },
+        {
+          "from_node_id": "base-decl-greet",
+          "to_node_id": "left-decl-greet",
+          "class_id": "class-decl-greet",
+          "strategy": "signature",
+          "confidence": 0.95,
+          "diagnostics": ["content differs inside matched declaration"]
+        }
+      ],
+      "unmatched_from": [],
+      "unmatched_to": ["left-import-os"]
+    },
+    {
+      "matching_id": "base-right",
+      "from_revision": "base",
+      "to_revision": "right",
+      "matches": [
+        {
+          "from_node_id": "base-import-fmt",
+          "to_node_id": "right-import-fmt",
+          "class_id": "class-import-fmt",
+          "strategy": "signature",
+          "confidence": 1.0,
+          "diagnostics": []
+        },
+        {
+          "from_node_id": "base-import-strings",
+          "to_node_id": "right-import-strings",
+          "class_id": "class-import-strings",
+          "strategy": "signature",
+          "confidence": 0.98,
+          "diagnostics": ["sibling position changed"]
+        }
+      ],
+      "unmatched_from": ["base-decl-greet"],
+      "unmatched_to": []
+    },
+    {
+      "matching_id": "left-right",
+      "from_revision": "left",
+      "to_revision": "right",
+      "matches": [
+        {
+          "from_node_id": "left-import-fmt",
+          "to_node_id": "right-import-fmt",
+          "class_id": "class-import-fmt",
+          "strategy": "signature",
+          "confidence": 1.0,
+          "diagnostics": []
+        },
+        {
+          "from_node_id": "left-import-strings",
+          "to_node_id": "right-import-strings",
+          "class_id": "class-import-strings",
+          "strategy": "signature",
+          "confidence": 0.98,
+          "diagnostics": ["sibling position changed"]
+        }
+      ],
+      "unmatched_from": ["left-import-os", "left-decl-greet"],
+      "unmatched_to": []
+    }
+  ],
+  "expected": {
+    "matching_ids": ["base-left", "base-right", "left-right"],
+    "total_match_count": 7,
+    "unmatched_insertions": ["left-import-os"],
+    "unmatched_deletions": ["base-decl-greet"]
+  }
+}

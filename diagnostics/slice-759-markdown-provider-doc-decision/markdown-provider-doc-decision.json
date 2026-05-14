@@ -1,0 +1,49 @@
+{
+  "source": {
+    "current_family": "markdown-merge",
+    "provider_fixtures": [
+      "fixtures/diagnostics/slice-204-markdown-provider-feature-profiles/go-markdown-provider-feature-profiles.json",
+      "fixtures/diagnostics/slice-204-markdown-provider-feature-profiles/ruby-markdown-provider-feature-profiles.json",
+      "fixtures/diagnostics/slice-204-markdown-provider-feature-profiles/rust-markdown-provider-feature-profiles.json",
+      "fixtures/diagnostics/slice-204-markdown-provider-feature-profiles/typescript-markdown-provider-feature-profiles.json"
+    ]
+  },
+  "providers": [
+    {
+      "language": "Go",
+      "package": "goldmarkmerge",
+      "backend": "goldmark"
+    },
+    {
+      "language": "Ruby",
+      "package": "commonmarker-merge",
+      "backend": "commonmarker"
+    },
+    {
+      "language": "Ruby",
+      "package": "markly-merge",
+      "backend": "markly"
+    },
+    {
+      "language": "Ruby",
+      "package": "kramdown-merge",
+      "backend": "kramdown"
+    },
+    {
+      "language": "Rust",
+      "package": "pulldown-cmark-merge",
+      "backend": "pulldown-cmark"
+    },
+    {
+      "language": "TypeScript",
+      "package": "@structuredmerge/markdown-it-merge",
+      "backend": "markdown-it"
+    }
+  ],
+  "decision": {
+    "markdown_merge_role": "canonical cross-language Markdown family package",
+    "provider_package_role": "parser-specific package with backend defaults, parser options, runtime constraints, and provider conformance",
+    "readme_policy": "Generated family/backend sections should mention provider packages from current fixtures and avoid old Ruby-only runtime compatibility tables."
+  },
+  "generated_readme_requirement": "Add a Markdown provider note to the shared generated family/backend section."
+}

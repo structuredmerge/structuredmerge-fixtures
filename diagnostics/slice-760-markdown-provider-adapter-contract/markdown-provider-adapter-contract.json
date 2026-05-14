@@ -1,0 +1,58 @@
+{
+  "source": {
+    "active_packages": [
+      "ruby/gems/commonmarker-merge",
+      "ruby/gems/markly-merge",
+      "ruby/gems/kramdown-merge"
+    ],
+    "provider_fixtures": [
+      "fixtures/diagnostics/slice-204-markdown-provider-feature-profiles/",
+      "fixtures/diagnostics/slice-205-markdown-provider-plan-contexts/",
+      "fixtures/diagnostics/slice-206-markdown-provider-named-suite-plans/",
+      "fixtures/diagnostics/slice-207-markdown-provider-manifest-report/",
+      "fixtures/diagnostics/slice-326-markdown-provider-reviewed-nested-review-artifact-application/",
+      "fixtures/diagnostics/slice-327-markdown-provider-reviewed-nested-review-artifact-rejection/",
+      "fixtures/diagnostics/slice-328-markdown-provider-reviewed-nested-review-artifact-envelope-application/"
+    ]
+  },
+  "adapter_contract": [
+    "provider package name",
+    "single backend reference registration",
+    "family feature profile delegation",
+    "provider-only available backends",
+    "backend feature profile with provider backend metadata",
+    "plan context with family and provider profiles",
+    "provider parser syntax check",
+    "family owner model projection",
+    "family owner matching delegation",
+    "family section merge delegation",
+    "family reviewed nested merge delegation",
+    "unsupported backend override rejection",
+    "provider fixture conformance"
+  ],
+  "ruby_evidence": [
+    {
+      "package": "commonmarker-merge",
+      "backend": "commonmarker",
+      "role": "Commonmarker provider adapter"
+    },
+    {
+      "package": "markly-merge",
+      "backend": "markly",
+      "role": "Markly provider adapter with additional structured-edit projections"
+    },
+    {
+      "package": "kramdown-merge",
+      "backend": "kramdown",
+      "role": "Kramdown provider adapter"
+    }
+  ],
+  "optional_provider_extensions": [
+    {
+      "package": "markly-merge",
+      "extension": "structured-edit projections",
+      "contract_status": "fixture_backed_provider_extension_not_required_of_all_markdown_providers"
+    }
+  ],
+  "decision": "The common Markdown provider adapter contract is the fixture-backed family/provider surface. Parser-specific options and extra provider APIs may exist, but are not required unless fixtures define them."
+}

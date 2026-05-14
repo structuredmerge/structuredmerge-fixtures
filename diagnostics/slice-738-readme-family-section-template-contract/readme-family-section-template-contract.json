@@ -196,5 +196,182 @@
       "expected_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n\n## Usage\n\nDestination usage.\n",
       "changed": false
     }
-  ]
+  ],
+  "package_directory_case": {
+    "label": "sync-readme-family-section-across-package-directories",
+    "packages": [
+      {
+        "id": "json-merge",
+        "readme_path": "gems/json-merge/README.md",
+        "package": {
+          "name": "json-merge",
+          "summary": "StructuredMerge adapter for JSON documents."
+        },
+        "family": {
+          "id": "config",
+          "label": "Configuration formats",
+          "section_heading": "StructuredMerge Package Family",
+          "description": "The configuration-format packages share one merge contract across language implementations.",
+          "self": {
+            "id": "ruby",
+            "label": "Ruby",
+            "package_root": "ruby/gems",
+            "package_manager": "RubyGems"
+          },
+          "implementations": [
+            {
+              "id": "go",
+              "label": "Go",
+              "package_root": "go",
+              "package_manager": "Go modules"
+            },
+            {
+              "id": "ruby",
+              "label": "Ruby",
+              "package_root": "ruby/gems",
+              "package_manager": "RubyGems"
+            },
+            {
+              "id": "rust",
+              "label": "Rust",
+              "package_root": "rust/crates",
+              "package_manager": "crates.io"
+            },
+            {
+              "id": "typescript",
+              "label": "TypeScript",
+              "package_root": "typescript/packages",
+              "package_manager": "npm"
+            }
+          ]
+        },
+        "initial_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## StructuredMerge Package Family\n\nOld family matrix.\n\n## Usage\n\nDestination usage.\n",
+        "expected_content": "# json-merge\n\nStructuredMerge adapter for JSON documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n\n## Usage\n\nDestination usage.\n",
+        "expected_changed": true
+      },
+      {
+        "id": "toml-merge",
+        "readme_path": "gems/toml-merge/README.md",
+        "package": {
+          "name": "toml-merge",
+          "summary": "StructuredMerge adapter for TOML documents."
+        },
+        "family": {
+          "id": "config",
+          "label": "Configuration formats",
+          "section_heading": "StructuredMerge Package Family",
+          "description": "The configuration-format packages share one merge contract across language implementations.",
+          "self": {
+            "id": "ruby",
+            "label": "Ruby",
+            "package_root": "ruby/gems",
+            "package_manager": "RubyGems"
+          },
+          "implementations": [
+            {
+              "id": "go",
+              "label": "Go",
+              "package_root": "go",
+              "package_manager": "Go modules"
+            },
+            {
+              "id": "ruby",
+              "label": "Ruby",
+              "package_root": "ruby/gems",
+              "package_manager": "RubyGems"
+            },
+            {
+              "id": "rust",
+              "label": "Rust",
+              "package_root": "rust/crates",
+              "package_manager": "crates.io"
+            },
+            {
+              "id": "typescript",
+              "label": "TypeScript",
+              "package_root": "typescript/packages",
+              "package_manager": "npm"
+            }
+          ]
+        },
+        "initial_content": null,
+        "expected_content": "# toml-merge\n\nStructuredMerge adapter for TOML documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n",
+        "expected_changed": true
+      },
+      {
+        "id": "yaml-merge",
+        "readme_path": "gems/yaml-merge/README.md",
+        "package": {
+          "name": "yaml-merge",
+          "summary": "StructuredMerge adapter for YAML documents."
+        },
+        "family": {
+          "id": "config",
+          "label": "Configuration formats",
+          "section_heading": "StructuredMerge Package Family",
+          "description": "The configuration-format packages share one merge contract across language implementations.",
+          "self": {
+            "id": "ruby",
+            "label": "Ruby",
+            "package_root": "ruby/gems",
+            "package_manager": "RubyGems"
+          },
+          "implementations": [
+            {
+              "id": "go",
+              "label": "Go",
+              "package_root": "go",
+              "package_manager": "Go modules"
+            },
+            {
+              "id": "ruby",
+              "label": "Ruby",
+              "package_root": "ruby/gems",
+              "package_manager": "RubyGems"
+            },
+            {
+              "id": "rust",
+              "label": "Rust",
+              "package_root": "rust/crates",
+              "package_manager": "crates.io"
+            },
+            {
+              "id": "typescript",
+              "label": "TypeScript",
+              "package_root": "typescript/packages",
+              "package_manager": "npm"
+            }
+          ]
+        },
+        "initial_content": "# yaml-merge\n\nStructuredMerge adapter for YAML documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n",
+        "expected_content": "# yaml-merge\n\nStructuredMerge adapter for YAML documents.\n\n## StructuredMerge Package Family\n\nThe configuration-format packages share one merge contract across language implementations.\n\nThis package is the Ruby implementation. Alternative implementations are available for Go, Rust, and TypeScript.\n\n| Implementation | Package root | Package manager |\n|---|---|---|\n| Ruby | `ruby/gems` | RubyGems |\n| Go | `go` | Go modules |\n| Rust | `rust/crates` | crates.io |\n| TypeScript | `typescript/packages` | npm |\n",
+        "expected_changed": false
+      }
+    ],
+    "expected_report": {
+      "package_count": 3,
+      "changed_count": 2,
+      "created_count": 1,
+      "entries": [
+        {
+          "id": "json-merge",
+          "readme_path": "gems/json-merge/README.md",
+          "changed": true,
+          "created": false
+        },
+        {
+          "id": "toml-merge",
+          "readme_path": "gems/toml-merge/README.md",
+          "changed": true,
+          "created": true
+        },
+        {
+          "id": "yaml-merge",
+          "readme_path": "gems/yaml-merge/README.md",
+          "changed": false,
+          "created": false
+        }
+      ]
+    }
+  }
 }

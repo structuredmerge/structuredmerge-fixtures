@@ -1,0 +1,103 @@
+{
+  "old_package": "jsonc-merge",
+  "decision": {
+    "shape": "json_family_dialect",
+    "active_cross_language_package": false,
+    "active_fixture_family": "fixtures/jsonc",
+    "active_implementation_package": "json-merge",
+    "optional_compatibility_wrapper": {
+      "language": "ruby",
+      "condition": "only if a current packaging task requires legacy require \"jsonc/merge\" compatibility"
+    }
+  },
+  "evidence": {
+    "old_readme": [
+      "reference/jsonc-merge/README.md describes Jsonc::Merge as a compatibility shim for json-merge",
+      "reference/jsonc-merge/README.md tells new setups to prefer json-merge"
+    ],
+    "current_implementations": [
+      "go/jsonmerge exposes DialectJSONC and parses JSONC comments",
+      "rust/crates/json-merge exposes JsonDialect::Jsonc and parses JSONC comments",
+      "typescript/packages/json-merge exposes JsonDialect = 'json' | 'jsonc' and parses JSONC comments",
+      "ruby/gems/json-merge exposes dialect 'jsonc' and parses JSONC comments"
+    ],
+    "current_fixtures": [
+      "fixtures/jsonc/slice-04-parse/comments-accepted.json",
+      "fixtures/jsonc/slice-04-parse/trailing-comma-rejected.json",
+      "fixtures/jsonc/slice-07-structure/commented-object.json"
+    ],
+    "current_readmes": [
+      "ruby/gems/json-merge/README.md states old jsonc-merge is superseded",
+      "rust/crates/json-merge/README.md states old jsonc-merge is superseded",
+      "typescript/packages/json-merge/README.md states old jsonc-merge is superseded"
+    ]
+  },
+  "porting_policy": {
+    "use_json_merge_for": [
+      "JSONC dialect parse",
+      "JSONC owner structure",
+      "future JSONC merge behavior once fixture-backed"
+    ],
+    "use_jsonc_fixtures_for": [
+      "comment acceptance",
+      "comment-neutral owner extraction",
+      "future comment preservation",
+      "future freeze-block behavior"
+    ],
+    "do_not_create": [
+      "go/jsonc-merge package",
+      "rust jsonc-merge crate",
+      "typescript @structuredmerge/jsonc-merge package"
+    ]
+  },
+  "remaining_old_value": [
+    {
+      "id": "comments",
+      "status": "partially_fixture_backed",
+      "covered_by": [
+        "fixtures/jsonc/slice-04-parse/comments-accepted.json",
+        "fixtures/jsonc/slice-07-structure/commented-object.json"
+      ],
+      "missing": [
+        "comment-preserving merge output"
+      ]
+    },
+    {
+      "id": "freeze_blocks",
+      "status": "missing_fixture",
+      "missing": [
+        "JSONC freeze and unfreeze marker behavior"
+      ]
+    },
+    {
+      "id": "object_insertion",
+      "status": "partially_covered_by_json",
+      "covered_by": [
+        "fixtures/json/slice-09-merge/object-merge.json"
+      ],
+      "missing": [
+        "JSONC object insertion while preserving comments"
+      ]
+    },
+    {
+      "id": "emitter",
+      "status": "missing_fixture",
+      "missing": [
+        "format-preserving JSONC emitter behavior",
+        "line and block comment placement"
+      ]
+    },
+    {
+      "id": "conflict_resolver",
+      "status": "partially_covered_by_json",
+      "covered_by": [
+        "fixtures/json/slice-09-merge/object-merge.json",
+        "fixtures/json/slice-16-array-policy/destination-wins-array.json"
+      ],
+      "missing": [
+        "JSONC template-wins comment behavior",
+        "JSONC removal-mode comment behavior"
+      ]
+    }
+  ]
+}

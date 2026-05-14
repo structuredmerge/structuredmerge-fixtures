@@ -1,0 +1,43 @@
+{
+  "source": {
+    "old_package": "reference/prism-merge",
+    "previous_slices": [
+      "spec/slices/slice-763-prism-utility-classification.md",
+      "spec/slices/slice-764-prism-ruby-fixture-coverage-verification.md"
+    ]
+  },
+  "decision": "Do not port additional old Prism utilities in this README migration pass.",
+  "current_public_contract_is_already_fixture_backed_by": [
+    "Ruby family/provider metadata",
+    "Prism provider metadata",
+    "owner analysis and path/equality matching",
+    "module merge",
+    "doc-comment nested merge",
+    "reviewed nested merge",
+    "structured-edit Prism provider projections",
+    "Gemfile/gemspec policy fixtures"
+  ],
+  "destination_rules": [
+    {
+      "destination": "ruby-merge",
+      "owns": "portable Ruby family behavior once fixture-backed"
+    },
+    {
+      "destination": "prism-merge",
+      "owns": "Prism parser/provider behavior once fixture-backed"
+    },
+    {
+      "destination": "kettle-jem or recipe/tooling fixture",
+      "owns": "gem templating, gemspec variable rename, and scaffold cleanup behavior once fixture-backed"
+    }
+  ],
+  "recommended_future_order": [
+    "magic comments and nocov wrappers",
+    "Ruby freeze blocks",
+    "begin/rescue semantics",
+    "recursive class/module/call body merge",
+    "method fuzzy matching and moved-node detection",
+    "Kettle/Jem gemspec variable rename and scaffold chunk removal recipes"
+  ],
+  "readme_policy": "Generated ruby-merge and prism-merge READMEs should avoid old advanced Prism claims until future fixtures define the behavior and destination package."
+}

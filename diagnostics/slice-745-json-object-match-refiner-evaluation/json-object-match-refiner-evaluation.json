@@ -1,0 +1,155 @@
+{
+  "source": {
+    "old_files": [
+      "reference/json-merge/lib/json/merge/object_match_refiner.rb",
+      "reference/json-merge/spec/json/merge/object_match_refiner_spec.rb",
+      "reference/json-merge/README.md"
+    ],
+    "current_files": [
+      "go/jsonmerge/types.go",
+      "rust/crates/json-merge/src/lib.rs",
+      "typescript/packages/json-merge/src/contracts.ts",
+      "ruby/gems/json-merge/lib/json/merge.rb",
+      "fixtures/json/slice-08-matching/path-equality.json",
+      "fixtures/json/slice-09-merge/object-merge.json",
+      "fixtures/json/slice-16-array-policy/destination-wins-array.json"
+    ]
+  },
+  "old_refiner_contract": {
+    "class_name": "Json::Merge::ObjectMatchRefiner",
+    "constructor_options": {
+      "threshold": {
+        "default": 0.5,
+        "meaning": "minimum combined score to accept a match"
+      },
+      "key_weight": {
+        "default": 0.7,
+        "meaning": "weight applied to key-name similarity"
+      },
+      "value_weight": {
+        "default": 0.3,
+        "meaning": "weight applied to value similarity"
+      }
+    },
+    "scoring": {
+      "key_normalization": [
+        "convert camelCase capital boundaries to separators",
+        "lowercase",
+        "remove '-' and '_' separators"
+      ],
+      "key_similarity": "normalized Levenshtein similarity",
+      "value_similarity": [
+        "same JSON value type required",
+        "string values use normalized Levenshtein similarity",
+        "object values use structural key overlap plus fuzzy key score",
+        "array values use length ratio",
+        "other same-type scalar values receive a neutral similarity"
+      ],
+      "matching": "greedy one-to-one selection among scores above threshold"
+    }
+  },
+  "current_conformance": {
+    "owner_model": [
+      "JSON object members have owner_kind member and path-based match keys",
+      "JSON array elements have owner_kind element and path-based ownership"
+    ],
+    "matching_model": "exact owner path equality",
+    "merge_model": [
+      "recursive object merge",
+      "destination-owned scalar conflicts win",
+      "destination arrays win as whole arrays"
+    ],
+    "fuzzy_json_owner_matching": "not implemented"
+  },
+  "evaluation": {
+    "decision": "defer_port_until_fixture_contract_exists",
+    "readme_claim_allowed": false,
+    "portable_value": "future fuzzy JSON owner matching",
+    "ruby_class_shape": "do_not_port_verbatim",
+    "reason": "Current active JSON implementations do not expose fuzzy matching, and the old Ruby algorithm combines public API, implementation detail, and array-element behavior that conflicts with the current destination-wins array policy."
+  },
+  "fixture_gaps": [
+    {
+      "id": "accepted-camel-snake-member-match",
+      "example": {
+        "template_member": "databaseUrl",
+        "destination_member": "database_url"
+      },
+      "expected_contract": "members are considered equivalent by fuzzy owner matching when enabled"
+    },
+    {
+      "id": "rejected-low-score-member-match",
+      "example": {
+        "template_member": "apiEndpoint",
+        "destination_member": "errorHandler"
+      },
+      "expected_contract": "members remain unmatched when the score is below threshold"
+    },
+    {
+      "id": "threshold-controls-acceptance",
+      "example": {
+        "low_threshold": 0.5,
+        "high_threshold": 0.9
+      },
+      "expected_contract": "higher thresholds accept fewer fuzzy matches"
+    },
+    {
+      "id": "weights-affect-score",
+      "example": {
+        "key_weight": 0.8,
+        "value_weight": 0.2
+      },
+      "expected_contract": "key-centric and value-centric scoring choices produce observable match diagnostics"
+    },
+    {
+      "id": "greedy-one-to-one",
+      "example": {
+        "template_members": [
+          "foo",
+          "bar",
+          "baz"
+        ],
+        "destination_members": [
+          "fooo",
+          "barr"
+        ]
+      },
+      "expected_contract": "each accepted destination owner is consumed at most once"
+    },
+    {
+      "id": "fuzzy-match-diagnostics",
+      "example": {
+        "diagnostic_fields": [
+          "template_path",
+          "destination_path",
+          "score",
+          "threshold",
+          "strategy"
+        ]
+      },
+      "expected_contract": "fuzzy matching reports enough structured data to explain accepted and rejected decisions"
+    }
+  ],
+  "implementation_status_by_language": [
+    {
+      "language": "go",
+      "package": "go/jsonmerge",
+      "status": "absent"
+    },
+    {
+      "language": "rust",
+      "package": "rust/crates/json-merge",
+      "status": "absent"
+    },
+    {
+      "language": "typescript",
+      "package": "typescript/packages/json-merge",
+      "status": "absent"
+    },
+    {
+      "language": "ruby",
+      "package": "ruby/gems/json-merge",
+      "status": "absent_in_new_package"
+    }
+  ]
+}

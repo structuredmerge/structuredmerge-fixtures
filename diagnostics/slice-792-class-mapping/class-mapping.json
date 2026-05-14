@@ -1,0 +1,63 @@
+{
+  "name": "class_mapping",
+  "purpose": "prototype class mapping over pairwise matchings with diagnostics when matchings disagree",
+  "class_mapping": {
+    "mapping_id": "go-imports-class-map",
+    "source_matching_ids": ["base-left", "base-right", "left-right"],
+    "node_classes": [
+      {
+        "class_id": "class-import-fmt",
+        "signature": "import:fmt",
+        "node_ids": {
+          "base": "base-import-fmt",
+          "left": "left-import-fmt",
+          "right": "right-import-fmt"
+        },
+        "matching_ids": ["base-left", "base-right", "left-right"],
+        "diagnostics": []
+      },
+      {
+        "class_id": "class-import-strings",
+        "signature": "import:strings",
+        "node_ids": {
+          "base": "base-import-strings",
+          "left": "left-import-strings",
+          "right": "right-import-strings"
+        },
+        "matching_ids": ["base-left", "base-right", "left-right"],
+        "diagnostics": ["right branch changed sibling position"]
+      },
+      {
+        "class_id": "class-decl-greet",
+        "signature": "declaration:Greet",
+        "node_ids": {
+          "base": "base-decl-greet",
+          "left": "left-decl-greet"
+        },
+        "matching_ids": ["base-left"],
+        "diagnostics": ["base-right matching reports deletion while base-left reports content change"]
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "matching_disagreement",
+        "class_id": "class-import-strings",
+        "message": "base-right and left-right agree by signature but report a sibling-position change",
+        "matching_ids": ["base-right", "left-right"]
+      },
+      {
+        "severity": "error",
+        "category": "delete_edit_disagreement",
+        "class_id": "class-decl-greet",
+        "message": "base-left matched an edited declaration while base-right left the base declaration unmatched",
+        "matching_ids": ["base-left", "base-right"]
+      }
+    ]
+  },
+  "expected": {
+    "class_count": 3,
+    "diagnostic_categories": ["matching_disagreement", "delete_edit_disagreement"],
+    "conflicted_class_ids": ["class-import-strings", "class-decl-greet"]
+  }
+}

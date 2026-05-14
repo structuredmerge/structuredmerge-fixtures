@@ -1,0 +1,92 @@
+{
+  "profile": {
+    "profile_id": "go-dst-normalized-tree-v1",
+    "language": "go",
+    "backend_ref": {
+      "id": "go-dst",
+      "family": "native"
+    },
+    "provider_id": "go-dst",
+    "node_roles": [
+      "structural",
+      "token",
+      "trivia",
+      "comment",
+      "delimiter",
+      "separator",
+      "virtual",
+      "error",
+      "opaque"
+    ],
+    "normalized_node_fields": [
+      "id",
+      "kind",
+      "role",
+      "parent_id",
+      "child_ids",
+      "span",
+      "field_name",
+      "named",
+      "anonymous",
+      "has_source_text",
+      "source_fragment",
+      "backend_kind",
+      "semantic_roles",
+      "backend_roles",
+      "unsupported_features",
+      "metadata"
+    ],
+    "optional_node_features": [
+      "field_name",
+      "source_fragment",
+      "backend_kind",
+      "semantic_roles",
+      "backend_roles",
+      "metadata"
+    ],
+    "unsupported_defaults": {
+      "field_name": "null",
+      "source_fragment": "empty_string",
+      "semantic_roles": "empty_array",
+      "backend_roles": "empty_array",
+      "metadata": "empty_object"
+    },
+    "capability": {
+      "backend_ref": {
+        "id": "go-dst",
+        "family": "native"
+      },
+      "language": "go",
+      "parser_identity": {
+        "name": "github.com/dave/dst",
+        "version": "fixture",
+        "implementation": "go"
+      },
+      "language_version": {
+        "version": "go1.22",
+        "dialect": null
+      },
+      "parse_error_behavior": "diagnostic_and_partial_tree",
+      "source_span_support": "byte_range_and_points",
+      "source_fragment_support": "lossless_when_decorations_available",
+      "render_strategies": [
+        "source_fragment_reuse",
+        "native_printer",
+        "full_file_fallback"
+      ],
+      "semantic_role_support": "backend_specific_with_portable_mapping",
+      "normalized_tree_support": true,
+      "native_node_access": true,
+      "diagnostics": []
+    },
+    "fixture_slices": [
+      "slice-782-normalized-tree-node",
+      "slice-783-backend-capability-report",
+      "slice-784-source-fragment-extraction",
+      "slice-785-parse-error-tolerance",
+      "slice-786-progressive-node-metadata",
+      "slice-787-native-parser-adapter-contract"
+    ],
+    "diagnostics": []
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "source": {
+    "old_package": "reference/jsonc-merge",
+    "current_fixture_root": "fixtures/jsonc",
+    "current_implementation_package": "json-merge"
+  },
+  "coverage": [
+    {
+      "id": "jsonc-comment-parse",
+      "old_value": "JSONC line and block comments are valid input.",
+      "current_fixtures": [
+        "fixtures/jsonc/slice-04-parse/comments-accepted.json"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "jsonc-trailing-comma-rejection",
+      "old_value": "JSONC input still rejects trailing commas in the current dialect contract.",
+      "current_fixtures": [
+        "fixtures/jsonc/slice-04-parse/trailing-comma-rejected.json"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "jsonc-comment-neutral-structure",
+      "old_value": "Comments do not become merge owners and do not change JSON owner extraction.",
+      "current_fixtures": [
+        "fixtures/jsonc/slice-07-structure/commented-object.json"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "jsonc-object-insertion-baseline",
+      "old_value": "Template-only object members can be inserted into JSONC destinations.",
+      "current_fixtures": [
+        "fixtures/json/slice-09-merge/object-merge.json"
+      ],
+      "status": "partially_covered_by_strict_json",
+      "missing": [
+        "JSONC-specific object insertion fixture with leading comments",
+        "JSONC-specific object insertion fixture with inline comments"
+      ]
+    },
+    {
+      "id": "jsonc-comment-preserving-merge-output",
+      "old_value": "Destination comments survive merge output.",
+      "old_examples": [
+        "reference/jsonc-merge/spec/fixtures/reproducible/01_nested_object_comment_block_template_preference",
+        "reference/jsonc-merge/spec/fixtures/reproducible/04_devcontainer_whitespace_only_comment_preservation"
+      ],
+      "current_fixtures": [],
+      "status": "missing_fixture"
+    },
+    {
+      "id": "jsonc-keyed-array-comments",
+      "old_value": "Array object merge can preserve comments attached to matched elements.",
+      "old_examples": [
+        "reference/jsonc-merge/spec/fixtures/reproducible/02_recursive_keyed_array_object_comments"
+      ],
+      "current_fixtures": [],
+      "status": "missing_fixture_and_conflicts_with_current_destination_wins_array_policy"
+    },
+    {
+      "id": "jsonc-removal-mode-comment-promotion",
+      "old_value": "Comments from removed destination-only array elements can be promoted safely.",
+      "old_examples": [
+        "reference/jsonc-merge/spec/fixtures/reproducible/03_removed_array_item_comment_promotion"
+      ],
+      "current_fixtures": [],
+      "status": "missing_fixture_and_policy_not_current"
+    },
+    {
+      "id": "jsonc-freeze-blocks",
+      "old_value": "Line-comment freeze and unfreeze markers protect destination-owned regions.",
+      "old_examples": [
+        "reference/jsonc-merge/README.md",
+        "reference/jsonc-merge/spec/jsonc/merge/freeze_node_spec.rb",
+        "reference/jsonc-merge/spec/integration/file_analysis_spec.rb"
+      ],
+      "current_fixtures": [],
+      "status": "missing_fixture"
+    },
+    {
+      "id": "jsonc-emitter",
+      "old_value": "Emitter preserves formatting, comments, inline comments, raw lines, and indentation.",
+      "old_examples": [
+        "reference/jsonc-merge/spec/jsonc/merge/emitter_spec.rb"
+      ],
+      "current_fixtures": [],
+      "status": "missing_fixture"
+    },
+    {
+      "id": "jsonc-conflict-resolver",
+      "old_value": "Conflict resolver handles template preference, removal mode, match refiners, and comment replay.",
+      "old_examples": [
+        "reference/jsonc-merge/spec/jsonc/merge/conflict_resolver_spec.rb",
+        "reference/jsonc-merge/spec/integration/conflict_resolver_spec.rb"
+      ],
+      "current_fixtures": [
+        "fixtures/json/slice-09-merge/object-merge.json",
+        "fixtures/json/slice-16-array-policy/destination-wins-array.json"
+      ],
+      "status": "partially_covered_by_strict_json_current_policy"
+    },
+    {
+      "id": "legacy-jsonc-merge-compatibility-wrapper",
+      "old_value": "Ruby require path jsonc/merge forwards to json/merge.",
+      "old_examples": [
+        "reference/jsonc-merge/spec/integration/compatibility_shim_spec.rb"
+      ],
+      "current_fixtures": [],
+      "status": "missing_fixture_but_optional_ruby_packaging_only"
+    }
+  ],
+  "readme_claims": {
+    "allowed": [
+      "JSONC comments are accepted during parse",
+      "JSONC trailing commas are rejected",
+      "JSONC comments do not change structural owner extraction",
+      "JSONC is modeled as a json-merge dialect"
+    ],
+    "blocked_until_fixture_backed": [
+      "comment-preserving JSONC merge output",
+      "JSONC freeze blocks",
+      "JSONC emitter formatting preservation",
+      "JSONC template-wins conflict resolver behavior",
+      "JSONC removal-mode comment promotion",
+      "legacy jsonc-merge wrapper in active packages"
+    ]
+  },
+  "next_fixture_slices": [
+    {
+      "id": "jsonc-comment-preserving-object-merge",
+      "source_old_example": "reference/jsonc-merge/spec/fixtures/reproducible/01_nested_object_comment_block_template_preference"
+    },
+    {
+      "id": "jsonc-freeze-block-preservation",
+      "source_old_example": "reference/jsonc-merge/README.md"
+    },
+    {
+      "id": "jsonc-emitter-comment-placement",
+      "source_old_example": "reference/jsonc-merge/spec/jsonc/merge/emitter_spec.rb"
+    },
+    {
+      "id": "jsonc-compatibility-wrapper",
+      "source_old_example": "reference/jsonc-merge/spec/integration/compatibility_shim_spec.rb",
+      "scope": "ruby_only_optional"
+    }
+  ]
+}

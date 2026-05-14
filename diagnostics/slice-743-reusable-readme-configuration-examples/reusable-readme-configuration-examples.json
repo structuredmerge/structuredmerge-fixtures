@@ -1,0 +1,173 @@
+{
+  "examples": [
+    {
+      "id": "freeze-token-preserve-destination-region",
+      "category": "freeze_tokens",
+      "purpose": "Protect a destination-owned region from template updates.",
+      "portable_markers": {
+        "line_comment": [
+          "# <tool>:freeze custom settings",
+          "# <tool>:unfreeze"
+        ],
+        "html_comment": [
+          "<!-- <tool>:freeze custom section -->",
+          "<!-- <tool>:unfreeze -->"
+        ]
+      },
+      "portable_usage": [
+        "configure freeze_token to match the project marker prefix",
+        "merge template and destination",
+        "preserve destination content between freeze and unfreeze markers"
+      ],
+      "source_old_readmes": [
+        "reference/ast-merge/README.md",
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/markdown-merge/README.md"
+      ],
+      "migration_status": "ready_for_rendering"
+    },
+    {
+      "id": "match-preference-destination-wins",
+      "category": "match_preference",
+      "purpose": "Keep destination-owned values when both template and destination define the same logical entry.",
+      "portable_usage": [
+        "set conflict preference to destination",
+        "merge equivalent owner entries",
+        "retain destination value while preserving template-only additions according to template-only policy"
+      ],
+      "source_old_readmes": [
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/json-merge/README.md",
+        "reference/rbs-merge/README.md"
+      ],
+      "migration_status": "requires_policy_name_mapping"
+    },
+    {
+      "id": "match-preference-template-wins",
+      "category": "match_preference",
+      "purpose": "Accept template-owned updates for generated or centrally managed values.",
+      "portable_usage": [
+        "set conflict preference to template",
+        "merge equivalent owner entries",
+        "replace destination value with template value for managed fields"
+      ],
+      "source_old_readmes": [
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/json-merge/README.md"
+      ],
+      "migration_status": "requires_policy_name_mapping"
+    },
+    {
+      "id": "template-only-skip",
+      "category": "template_only_behavior",
+      "purpose": "Skip template-only entries when a template contains placeholders or examples that should not be copied.",
+      "portable_usage": [
+        "set template-only policy to skip",
+        "merge template and destination",
+        "omit unmatched template entries from the result"
+      ],
+      "source_old_readmes": [
+        "reference/ast-merge/README.md",
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/json-merge/README.md"
+      ],
+      "migration_status": "ready_for_fixture_mapping"
+    },
+    {
+      "id": "template-only-accept",
+      "category": "template_only_behavior",
+      "purpose": "Add template-only entries when new managed defaults or required declarations are introduced.",
+      "portable_usage": [
+        "set template-only policy to accept",
+        "merge template and destination",
+        "append or insert unmatched template entries according to family ordering rules"
+      ],
+      "source_old_readmes": [
+        "reference/ast-merge/README.md",
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/json-merge/README.md"
+      ],
+      "migration_status": "ready_for_fixture_mapping"
+    },
+    {
+      "id": "debug-report-inspection",
+      "category": "debug_logging",
+      "purpose": "Inspect merge decisions without relying on ad hoc textual debug output.",
+      "portable_usage": [
+        "run a plan or merge in diagnostic mode",
+        "read the structured report envelope",
+        "inspect diagnostics, changed flag, step reports, and policy decisions"
+      ],
+      "source_old_readmes": [
+        "reference/prism-merge/README.md",
+        "reference/json-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/markdown-merge/README.md",
+        "reference/tree_haver/README.md"
+      ],
+      "migration_status": "ready_for_rendering"
+    },
+    {
+      "id": "backend-selection-portable",
+      "category": "backend_selection",
+      "purpose": "Select the portable backend profile for a family without advertising old Ruby runtime tables.",
+      "portable_usage": [
+        "choose the family backend profile",
+        "prefer tree-sitter-language-pack where available",
+        "fall back to implementation-native adapters only where fixtures declare them"
+      ],
+      "source_old_readmes": [
+        "reference/tree_haver/README.md",
+        "reference/markdown-merge/README.md"
+      ],
+      "migration_status": "ready_for_rendering"
+    },
+    {
+      "id": "backend-selection-temporary",
+      "category": "backend_selection",
+      "purpose": "Temporarily run a merge or parse operation with a non-default backend.",
+      "portable_usage": [
+        "enter scoped backend context",
+        "run parse or merge operation",
+        "restore previous backend context after the operation"
+      ],
+      "source_old_readmes": [
+        "reference/tree_haver/README.md"
+      ],
+      "migration_status": "requires_current_api_verification"
+    },
+    {
+      "id": "package-directory-readme-command",
+      "category": "cli_flags",
+      "purpose": "Apply a shared README family section or package README profile across discovered packages.",
+      "portable_usage": [
+        "discover package directories",
+        "plan README updates",
+        "apply updates only when the plan is acceptable",
+        "rerun to verify convergence"
+      ],
+      "source_old_readmes": [
+        "reference/ast-merge/GEM_FAMILY_SECTION.md",
+        "reference/ast-merge/bin/update_gem_family_section"
+      ],
+      "migration_status": "implemented_by_ast_template_profile_api"
+    },
+    {
+      "id": "retired-secure-installation",
+      "category": "cli_flags",
+      "purpose": "Old RubyGems trust-policy commands are not reusable examples.",
+      "portable_usage": [],
+      "source_old_readmes": [
+        "reference/ast-merge/README.md",
+        "reference/json-merge/README.md",
+        "reference/tree_haver/README.md"
+      ],
+      "migration_status": "discarded"
+    }
+  ]
+}

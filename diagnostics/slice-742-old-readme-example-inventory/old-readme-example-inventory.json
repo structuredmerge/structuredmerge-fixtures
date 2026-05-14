@@ -1,0 +1,150 @@
+{
+  "classification_values": [
+    "fixture_behavior",
+    "readme_prose",
+    "retired",
+    "discarded"
+  ],
+  "examples": [
+    {
+      "id": "shared-smart-merger-options",
+      "old_sources": [
+        "reference/ast-merge/README.md",
+        "reference/json-merge/README.md",
+        "reference/markdown-merge/README.md",
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md"
+      ],
+      "classification": "readme_prose",
+      "value": "Shows common SmartMerger options such as match preference, template-only behavior, freeze tokens, and debug mode.",
+      "destination": "generated README Basic Usage or shared package example snippets",
+      "next_action": "Render a concise cross-language equivalent once each implementation exposes stable public API examples."
+    },
+    {
+      "id": "freeze-block-preservation",
+      "old_sources": [
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/markdown-merge/README.md",
+        "reference/commonmarker-merge/README.md",
+        "reference/markly-merge/README.md"
+      ],
+      "classification": "fixture_behavior",
+      "value": "Freeze markers preserve destination-owned regions across template merge.",
+      "destination": "family merge fixtures and generated README prose",
+      "next_action": "Map each surviving family marker style to an existing or new fixture before rendering docs."
+    },
+    {
+      "id": "template-only-node-policy",
+      "old_sources": [
+        "reference/ast-merge/README.md",
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/json-merge/README.md",
+        "reference/markdown-merge/README.md"
+      ],
+      "classification": "fixture_behavior",
+      "value": "Template-only entries may be accepted, skipped, or filtered by callable policy.",
+      "destination": "source/config family fixtures and README usage summaries",
+      "next_action": "Verify current fixtures cover accept/skip/filter behavior before documenting."
+    },
+    {
+      "id": "match-preference-and-conflict-policy",
+      "old_sources": [
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/json-merge/README.md",
+        "reference/rbs-merge/README.md"
+      ],
+      "classification": "fixture_behavior",
+      "value": "Examples describe template-wins versus destination-wins conflict choices.",
+      "destination": "policy fixtures and generated README summaries",
+      "next_action": "Use current policy vocabulary fixtures rather than old Ruby option names when rendering."
+    },
+    {
+      "id": "debug-output-and-provenance",
+      "old_sources": [
+        "reference/prism-merge/README.md",
+        "reference/json-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/markdown-merge/README.md",
+        "reference/tree_haver/README.md"
+      ],
+      "classification": "fixture_behavior",
+      "value": "Debug examples show decision counts, line provenance, backend availability, and dependency summaries.",
+      "destination": "diagnostic vocabulary fixtures and generated troubleshooting docs",
+      "next_action": "Map old debug fields to current report envelopes and diagnostics before rendering."
+    },
+    {
+      "id": "backend-selection",
+      "old_sources": [
+        "reference/tree_haver/README.md",
+        "reference/markdown-merge/README.md"
+      ],
+      "classification": "readme_prose",
+      "value": "Examples show automatic and explicit backend selection.",
+      "destination": "tree-haver package README and backend compatibility docs",
+      "next_action": "Document current tree-sitter-language-pack and provider/adaptor selection without old Ruby runtime claims."
+    },
+    {
+      "id": "grammar-discovery-and-trusted-paths",
+      "old_sources": [
+        "reference/tree_haver/README.md"
+      ],
+      "classification": "fixture_behavior",
+      "value": "Examples show trusted directory configuration, grammar discovery, and path validation errors.",
+      "destination": "security/path-discovery fixtures and tree-haver README",
+      "next_action": "Compare old trusted path behavior to current language-pack discovery before porting."
+    },
+    {
+      "id": "backend-registry-and-rspec-tags",
+      "old_sources": [
+        "reference/tree_haver/README.md"
+      ],
+      "classification": "readme_prose",
+      "value": "Examples show backend registry checks and conditional RSpec dependency tags.",
+      "destination": "tree-haver README or development docs if still supported",
+      "next_action": "Verify current backend registry surface before documenting."
+    },
+    {
+      "id": "package-specific-basic-usage",
+      "old_sources": [
+        "reference/json-merge/README.md",
+        "reference/toml-merge/README.md",
+        "reference/markdown-merge/README.md",
+        "reference/prism-merge/README.md",
+        "reference/psych-merge/README.md",
+        "reference/commonmarker-merge/README.md",
+        "reference/markly-merge/README.md"
+      ],
+      "classification": "readme_prose",
+      "value": "Shows basic package-specific merge invocation and before/after content examples.",
+      "destination": "package README Basic Usage sections",
+      "next_action": "Render only after stable cross-language package APIs are selected."
+    },
+    {
+      "id": "retired-bash-dotenv-rbs-examples",
+      "old_sources": [
+        "reference/bash-merge/README.md",
+        "reference/dotenv-merge/README.md",
+        "reference/rbs-merge/README.md"
+      ],
+      "classification": "retired",
+      "value": "Examples are useful only if these packages return to scope.",
+      "destination": "explicit discard/scope-decision record",
+      "next_action": "Keep excluded from generated READMEs until package scope decisions exist."
+    },
+    {
+      "id": "secure-installation-and-trust-policy",
+      "old_sources": [
+        "reference/ast-merge/README.md",
+        "reference/json-merge/README.md",
+        "reference/tree_haver/README.md"
+      ],
+      "classification": "discarded",
+      "value": "Old RubyGems trust-policy and secure installation snippets are intentionally removed.",
+      "destination": "discarded by tracker decision",
+      "next_action": "Do not port."
+    }
+  ]
+}

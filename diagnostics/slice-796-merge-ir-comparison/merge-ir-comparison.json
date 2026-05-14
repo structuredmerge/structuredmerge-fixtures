@@ -1,0 +1,69 @@
+{
+  "name": "merge_ir_comparison",
+  "purpose": "compare current owner-path behavior against the experimental merge IR prototype on representative fixture families",
+  "comparison": {
+    "comparison_id": "phase-4-owner-path-vs-merge-ir",
+    "baseline": "owner_path",
+    "prototype": "merge_ir_experimental",
+    "cases": [
+      {
+        "case_id": "json-keyed-members",
+        "family": "json",
+        "scenario": "independent keyed object member edits",
+        "owner_path_outcome": "clean_merge",
+        "merge_ir_outcome": "clean_merge",
+        "merge_ir_advantage": "neutral",
+        "diagnostics": ["owner paths already model JSON object keys well"]
+      },
+      {
+        "case_id": "go-import-reorder-insert",
+        "family": "go",
+        "scenario": "left inserts import while right reorders existing imports",
+        "owner_path_outcome": "delete_insert_or_conflict_risk",
+        "merge_ir_outcome": "order_conflict_with_insert_preserved",
+        "merge_ir_advantage": "better_diagnostics",
+        "diagnostics": ["merge IR preserves insertion and classifies right-side order change"]
+      },
+      {
+        "case_id": "rust-use-reorder",
+        "family": "rust",
+        "scenario": "branches reorder equivalent use declarations",
+        "owner_path_outcome": "delete_insert_or_conflict_risk",
+        "merge_ir_outcome": "order_conflict",
+        "merge_ir_advantage": "better_order_model",
+        "diagnostics": ["predecessor/successor constraints make ordering disagreement explicit"]
+      },
+      {
+        "case_id": "typescript-import-edit",
+        "family": "typescript",
+        "scenario": "branches edit import groups and declaration content",
+        "owner_path_outcome": "mixed_owner_conflict",
+        "merge_ir_outcome": "typed_order_and_content_conflicts",
+        "merge_ir_advantage": "better_conflict_classification",
+        "diagnostics": ["class mapping separates import order from declaration content"]
+      },
+      {
+        "case_id": "nested-markdown-typescript",
+        "family": "markdown",
+        "scenario": "nested TypeScript fenced block participates in parent Markdown merge",
+        "owner_path_outcome": "delegated_surface_merge",
+        "merge_ir_outcome": "requires_nested_ir_boundary",
+        "merge_ir_advantage": "defer",
+        "diagnostics": ["nested surfaces need explicit IR boundary before PCS can improve behavior"]
+      }
+    ],
+    "summary": {
+      "owner_path_wins": 0,
+      "merge_ir_wins": 3,
+      "neutral": 1,
+      "defer": 1,
+      "recommendation": "continue as opt-in experimental backend with class/signature mapping promoted first"
+    }
+  },
+  "expected": {
+    "case_count": 5,
+    "families": ["json", "go", "rust", "typescript", "markdown"],
+    "merge_ir_wins": 3,
+    "recommendation": "continue as opt-in experimental backend with class/signature mapping promoted first"
+  }
+}

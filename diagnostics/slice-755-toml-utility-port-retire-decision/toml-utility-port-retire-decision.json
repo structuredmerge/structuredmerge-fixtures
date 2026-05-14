@@ -1,0 +1,54 @@
+{
+  "source": {
+    "old_package": "reference/toml-merge",
+    "previous_slice": "spec/slices/slice-754-toml-fixture-coverage-verification.md"
+  },
+  "utilities": [
+    {
+      "name": "KeySorter",
+      "old_sources": [
+        "reference/toml-merge/lib/toml/merge/key_sorter.rb"
+      ],
+      "old_value": [
+        "sort key/value pairs alphabetically within contiguous blocks",
+        "keep leading comments attached to the following key",
+        "use blank lines as block separators",
+        "use table and array-of-table headers as structural boundaries",
+        "preserve trailing comments without a following key as non-sortable content"
+      ],
+      "decision": "defer_until_fixture_backed",
+      "reason": "Output key ordering is a portable behavior decision and needs a fixture that defines ordering, comment attachment, structural boundaries, and convergence before implementation."
+    },
+    {
+      "name": "TableMatchRefiner",
+      "old_sources": [
+        "reference/toml-merge/lib/toml/merge/table_match_refiner.rb",
+        "reference/toml-merge/spec/toml/merge/table_match_refiner_spec.rb"
+      ],
+      "old_value": [
+        "match tables by table name similarity",
+        "score key overlap",
+        "score position similarity",
+        "support configurable weights",
+        "filter by threshold",
+        "return scored match results"
+      ],
+      "decision": "defer_until_fixture_backed",
+      "reason": "Current TOML owner matching is path/equality based. Fuzzy matching needs a deterministic fixture before cross-language implementation."
+    }
+  ],
+  "retired": [
+    {
+      "id": "ruby-private-class-surface",
+      "decision": "do_not_port_as_public_contract",
+      "reason": "The portable contract should be fixture-backed behavior, not the old Ruby class names or private helper APIs."
+    }
+  ],
+  "recommended_future_order": [
+    "TOML fuzzy table matching fixture",
+    "TOML key ordering with comment attachment fixture",
+    "TOML comment-preserving table and array-of-tables merge fixture",
+    "TOML emitter conformance fixture"
+  ],
+  "readme_policy": "Generated TOML READMEs should not claim KeySorter or TableMatchRefiner behavior until future fixtures define and implementations satisfy the portable contract."
+}

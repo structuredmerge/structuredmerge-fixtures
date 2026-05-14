@@ -1,0 +1,34 @@
+{
+  "parse_error_tolerance": {
+    "backend_ref": {
+      "id": "tree-sitter-go",
+      "family": "tree-sitter"
+    },
+    "language": "go",
+    "behavior": "diagnostic_and_partial_tree",
+    "tolerates_errors": true,
+    "error_nodes": [
+      {
+        "kind": "ERROR",
+        "span": {
+          "range": {
+            "start_byte": 27,
+            "end_byte": 28
+          },
+          "start_point": {
+            "row": 2,
+            "column": 13
+          },
+          "end_point": {
+            "row": 2,
+            "column": 14
+          }
+        },
+        "message": "unexpected token in function body"
+      }
+    ],
+    "diagnostics": [
+      "partial tree contains parser error nodes"
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "enhanced_node": {
+    "id": "go-dst:decl:0",
+    "kind": "function_declaration",
+    "role": "structural",
+    "parent_id": "go-dst:file:0",
+    "child_ids": [
+      "go-dst:ident:Greet",
+      "go-dst:block:0"
+    ],
+    "span": {
+      "range": {
+        "start_byte": 14,
+        "end_byte": 45
+      },
+      "start_point": {
+        "row": 2,
+        "column": 0
+      },
+      "end_point": {
+        "row": 4,
+        "column": 1
+      }
+    },
+    "field_name": "declaration",
+    "named": true,
+    "anonymous": false,
+    "has_source_text": true,
+    "source_fragment": "func Greet() {\n\tprintln(\"hi\")\n}",
+    "backend_kind": "FuncDecl",
+    "semantic_roles": [
+      "declaration",
+      "function",
+      "named_symbol"
+    ],
+    "backend_roles": [
+      "go_dst.FuncDecl",
+      "go_ast.Decl"
+    ],
+    "unsupported_features": [],
+    "metadata": {
+      "go_dst": {
+        "decorations": "available",
+        "node_path": "decls[0]",
+        "raw_identifier": "Greet"
+      }
+    }
+  },
+  "limited_node": {
+    "id": "psych:node:0",
+    "kind": "mapping",
+    "role": "structural",
+    "parent_id": null,
+    "child_ids": [],
+    "span": {
+      "range": {
+        "start_byte": 0,
+        "end_byte": 0
+      },
+      "start_point": {
+        "row": 0,
+        "column": 0
+      },
+      "end_point": {
+        "row": 0,
+        "column": 0
+      }
+    },
+    "field_name": null,
+    "named": true,
+    "anonymous": false,
+    "has_source_text": false,
+    "source_fragment": "",
+    "backend_kind": "Psych::Nodes::Mapping",
+    "semantic_roles": [],
+    "backend_roles": [
+      "psych.mapping"
+    ],
+    "unsupported_features": [
+      "field_name",
+      "source_fragment"
+    ],
+    "metadata": {
+      "psych": {
+        "location_support": "line_column_only",
+        "anchor_support": "not_applicable"
+      }
+    }
+  }
+}

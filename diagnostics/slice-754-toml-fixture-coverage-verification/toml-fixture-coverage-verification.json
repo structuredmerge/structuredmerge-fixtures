@@ -1,0 +1,180 @@
+{
+  "source": {
+    "old_package": "reference/toml-merge",
+    "current_family": "toml-merge",
+    "prior_decision": "spec/slices/slice-753-toml-provider-doc-split.md"
+  },
+  "current_fixture_backed_claims": [
+    {
+      "id": "toml-parse",
+      "fixtures": [
+        "fixtures/toml/slice-91-parse/valid-document.json",
+        "fixtures/toml/slice-91-parse/invalid-document.json"
+      ],
+      "readme_claim": "TOML parse success and parse failure"
+    },
+    {
+      "id": "toml-structure",
+      "fixtures": [
+        "fixtures/toml/slice-92-structure/table-and-array.json"
+      ],
+      "readme_claim": "Table and array owner extraction"
+    },
+    {
+      "id": "toml-owner-matching",
+      "fixtures": [
+        "fixtures/toml/slice-93-matching/path-equality.json"
+      ],
+      "readme_claim": "Path/equality owner matching"
+    },
+    {
+      "id": "toml-merge",
+      "fixtures": [
+        "fixtures/toml/slice-94-merge/table-merge.json",
+        "fixtures/toml/slice-720-advanced-leaf-merge/nested-table-leaf-merge.json"
+      ],
+      "readme_claim": "Recursive table merge with destination-wins scalar conflicts and destination-wins array policy"
+    },
+    {
+      "id": "toml-backend-provider-metadata",
+      "fixtures": [
+        "fixtures/diagnostics/slice-135-toml-family-backend-feature-profiles/",
+        "fixtures/diagnostics/slice-136-toml-family-plan-contexts/",
+        "fixtures/diagnostics/slice-269-toml-provider-feature-profiles/",
+        "fixtures/diagnostics/slice-270-toml-provider-plan-contexts/",
+        "fixtures/diagnostics/slice-271-toml-provider-named-suite-plans/",
+        "fixtures/diagnostics/slice-272-toml-provider-manifest-report/"
+      ],
+      "readme_claim": "Family and provider backend metadata"
+    }
+  ],
+  "missing_fixture_obligations": [
+    {
+      "id": "fuzzy-table-match-refiner",
+      "old_sources": [
+        "reference/toml-merge/spec/toml/merge/table_match_refiner_spec.rb",
+        "reference/toml-merge/lib/toml/merge/table_match_refiner.rb"
+      ],
+      "old_examples": [
+        "server matches servers",
+        "different table names are rejected at high threshold",
+        "name similarity uses normalized Levenshtein distance",
+        "key overlap contributes to score",
+        "position similarity contributes to score",
+        "custom weights override defaults",
+        "match results expose template node, destination node, and score"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/toml slice for fuzzy table matching"
+    },
+    {
+      "id": "key-sorter",
+      "old_sources": [
+        "reference/toml-merge/lib/toml/merge/key_sorter.rb"
+      ],
+      "old_examples": [
+        "sort key/value pairs alphabetically within contiguous blocks",
+        "keep leading comments attached to the following key",
+        "use blank lines as block separators",
+        "use table and array-of-table headers as structural boundaries",
+        "leave trailing comments without following keys as non-sortable"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/toml slice for output key ordering policy"
+    },
+    {
+      "id": "comment-preserving-table-output",
+      "old_sources": [
+        "reference/toml-merge/spec/toml/merge/conflict_resolver_spec.rb",
+        "reference/toml-merge/spec/toml/merge/comment_behavior_matrix_spec.rb",
+        "reference/toml-merge/spec/integration/comment_block_dedup_spec.rb",
+        "reference/toml-merge/spec/fixtures/reproducible/01_adjacent_table_comment_template_preference"
+      ],
+      "old_examples": [
+        "preserve destination leading comments under template preference",
+        "preserve destination inline comments under template preference",
+        "preserve adjacent matched table docs",
+        "keep a single first-node preamble",
+        "deduplicate repeated shared preamble prefixes",
+        "promote comments from removed destination-only keys"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/toml comment-preserving merge corpus"
+    },
+    {
+      "id": "array-of-tables-comment-transfer",
+      "old_sources": [
+        "reference/toml-merge/spec/fixtures/reproducible/02_array_of_tables_comment_template_preference"
+      ],
+      "old_examples": [
+        "template preference keeps destination docs on matched array-of-tables entries"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/toml array-of-tables matching/comment slice"
+    },
+    {
+      "id": "template-preference-and-removal-policy",
+      "old_sources": [
+        "reference/toml-merge/spec/toml/merge/conflict_resolver_spec.rb",
+        "reference/toml-merge/spec/toml/merge/removal_mode_compliance_spec.rb"
+      ],
+      "old_examples": [
+        "template values win with preference template",
+        "template-only sections are inserted when add_template_only_nodes is true",
+        "destination-only keys are removed when removal mode is enabled",
+        "removed key comments are preserved/promoted"
+      ],
+      "current_status": "partially_overlaps_current_merge_fixture_but_missing_portable_policy_fixture",
+      "recommended_destination": "future TOML conflict policy fixtures"
+    },
+    {
+      "id": "inline-table-and-emitter-formatting",
+      "old_sources": [
+        "reference/toml-merge/spec/toml/merge/conflict_resolver_spec.rb",
+        "reference/toml-merge/lib/toml/merge/emitter.rb"
+      ],
+      "old_examples": [
+        "merge inline table nodes",
+        "merge arrays",
+        "format emitted TOML beyond canonical output",
+        "place comments in emitted TOML output"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/toml emitter conformance slice"
+    },
+    {
+      "id": "freeze-blocks",
+      "old_sources": [
+        "reference/toml-merge/spec/toml/merge/conflict_resolver_spec.rb",
+        "reference/toml-merge/README.md"
+      ],
+      "old_examples": [
+        "preserve destination node lines under a freeze decision",
+        "README claims freeze blocks for preserving sections during merges"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future cross-cutting freeze-block fixture plus TOML marker profile if retained"
+    }
+  ],
+  "readme_policy": {
+    "may_claim_now": [
+      "TOML parsing",
+      "table and array owner extraction",
+      "path/equality owner matching",
+      "recursive table merge",
+      "destination-wins array policy",
+      "family and provider backend metadata"
+    ],
+    "must_not_claim_until_fixture_backed": [
+      "fuzzy table matching",
+      "key sorting",
+      "comment-preserving TOML merge output",
+      "array-of-tables comment transfer",
+      "template-preference TOML examples",
+      "removal-mode TOML examples",
+      "emitter formatting beyond canonical output",
+      "freeze-block behavior"
+    ]
+  },
+  "decision": "Do not copy old TOML README examples for advanced smart merge behavior into generated package READMEs until the behavior has a portable TOML fixture and cross-language implementation plan."
+}

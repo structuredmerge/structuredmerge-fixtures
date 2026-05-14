@@ -1,0 +1,63 @@
+{
+  "name": "raw_merge_change_set_union",
+  "purpose": "prototype raw merge as a union of branch change sets before inconsistency detection",
+  "raw_merge": {
+    "raw_merge_id": "go-imports-raw-merge",
+    "input_change_set_ids": ["left-change-set", "right-change-set"],
+    "changes": [
+      {
+        "change_id": "left-insert-import-os",
+        "source_change_set_id": "left-change-set",
+        "side": "left",
+        "kind": "insert",
+        "class_id": "class-import-os",
+        "parent_class_id": "class-imports",
+        "predecessor_class_id": null,
+        "successor_class_id": "class-import-fmt",
+        "content_hash": "sha256:left-import-os"
+      },
+      {
+        "change_id": "left-edit-greet",
+        "source_change_set_id": "left-change-set",
+        "side": "left",
+        "kind": "content_change",
+        "class_id": "class-decl-greet",
+        "parent_class_id": "class-file",
+        "predecessor_class_id": "class-imports",
+        "successor_class_id": null,
+        "content_hash": "sha256:left-decl-greet"
+      },
+      {
+        "change_id": "right-move-import-strings",
+        "source_change_set_id": "right-change-set",
+        "side": "right",
+        "kind": "move",
+        "class_id": "class-import-strings",
+        "parent_class_id": "class-imports",
+        "predecessor_class_id": null,
+        "successor_class_id": "class-import-fmt",
+        "content_hash": "sha256:import-strings"
+      },
+      {
+        "change_id": "right-delete-greet",
+        "source_change_set_id": "right-change-set",
+        "side": "right",
+        "kind": "delete",
+        "class_id": "class-decl-greet",
+        "parent_class_id": "class-file",
+        "predecessor_class_id": "class-imports",
+        "successor_class_id": null,
+        "content_hash": "sha256:base-decl-greet"
+      }
+    ],
+    "diagnostics": [
+      "raw merge intentionally preserves both sides before inconsistency detection"
+    ]
+  },
+  "expected": {
+    "raw_change_count": 4,
+    "input_change_set_count": 2,
+    "sides": ["left", "right"],
+    "conflicting_class_candidates": ["class-decl-greet"]
+  }
+}

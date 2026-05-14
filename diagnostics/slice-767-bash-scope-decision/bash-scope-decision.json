@@ -1,0 +1,49 @@
+{
+  "source": {
+    "old_package": "reference/bash-merge",
+    "old_readme": "reference/bash-merge/README.md",
+    "old_specs": "reference/bash-merge/spec"
+  },
+  "active_package_search": {
+    "paths_checked": [
+      "ruby/gems",
+      "go",
+      "rust/crates",
+      "typescript/packages"
+    ],
+    "active_bash_or_shell_package_found": false
+  },
+  "active_fixture_search": {
+    "paths_checked": [
+      "fixtures",
+      "spec/slices"
+    ],
+    "active_shell_fixture_found": false
+  },
+  "old_value": [
+    "tree-sitter-bash parsing through TreeHaver backends",
+    "line-bound statement ownership",
+    "function signature matching",
+    "variable assignment signature matching",
+    "command, pipeline, conditional, and loop signatures",
+    "shebang handling",
+    "hash-comment attachment and preservation",
+    "conservative inline comments",
+    "template-only node insertion",
+    "freeze markers and freeze blocks",
+    "duplicate template preamble corruption handling",
+    "multi-backend execution"
+  ],
+  "decision": "Bash belongs to a future shell family, not the current source/Ruby family, and is not retired.",
+  "future_fixture_order": [
+    "parse/profile metadata",
+    "function, assignment, and command identity",
+    "shebang and document boundary handling",
+    "comment attachment and inline comment preservation",
+    "template-only insertion",
+    "freeze markers and freeze blocks",
+    "pipeline, conditional, and loop identity",
+    "duplicate template preamble corruption handling",
+    "backend/provider compatibility"
+  ]
+}

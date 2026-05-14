@@ -1,0 +1,160 @@
+{
+  "provider": {
+    "id": "go-dst",
+    "family": "native",
+    "language": "go",
+    "operations": [
+      "capabilities",
+      "parse",
+      "extract_source_fragment",
+      "render"
+    ],
+    "retains_native_tree": true,
+    "native_tree_visibility": "provider_internal",
+    "metadata_policy": "opaque_namespaced_transport"
+  },
+  "parse_request": {
+    "source": "package demo\n\nfunc Greet() {\n\tprintln(\"hi\")\n}\n",
+    "language": "go",
+    "dialect": "go1.22"
+  },
+  "parse_result": {
+    "ok": true,
+    "backend_capability": {
+      "backend_ref": {
+        "id": "go-dst",
+        "family": "native"
+      },
+      "language": "go",
+      "parser_identity": {
+        "name": "github.com/dave/dst",
+        "version": "fixture",
+        "implementation": "go"
+      },
+      "language_version": {
+        "version": "go1.22",
+        "dialect": null
+      },
+      "parse_error_behavior": "diagnostic_and_partial_tree",
+      "source_span_support": "byte_range_and_points",
+      "source_fragment_support": "lossless_when_decorations_available",
+      "render_strategies": [
+        "source_fragment_reuse",
+        "native_printer",
+        "full_file_fallback"
+      ],
+      "semantic_role_support": "backend_specific_with_portable_mapping",
+      "normalized_tree_support": true,
+      "native_node_access": true,
+      "diagnostics": []
+    },
+    "root_id": "go-dst:file:0",
+    "nodes": [
+      {
+        "id": "go-dst:file:0",
+        "kind": "source_file",
+        "role": "structural",
+        "parent_id": null,
+        "child_ids": [
+          "go-dst:decl:0"
+        ],
+        "span": {
+          "range": {
+            "start_byte": 0,
+            "end_byte": 46
+          },
+          "start_point": {
+            "row": 0,
+            "column": 0
+          },
+          "end_point": {
+            "row": 5,
+            "column": 0
+          }
+        },
+        "field_name": null,
+        "named": true,
+        "anonymous": false,
+        "has_source_text": true,
+        "source_fragment": "package demo\n\nfunc Greet() {\n\tprintln(\"hi\")\n}\n",
+        "backend_kind": "File",
+        "semantic_roles": [
+          "compilation_unit"
+        ],
+        "backend_roles": [
+          "go_dst.File",
+          "go_ast.File"
+        ],
+        "unsupported_features": [],
+        "metadata": {
+          "go_dst": {
+            "node_path": "file",
+            "decorations": "available"
+          }
+        }
+      },
+      {
+        "id": "go-dst:decl:0",
+        "kind": "function_declaration",
+        "role": "structural",
+        "parent_id": "go-dst:file:0",
+        "child_ids": [],
+        "span": {
+          "range": {
+            "start_byte": 14,
+            "end_byte": 45
+          },
+          "start_point": {
+            "row": 2,
+            "column": 0
+          },
+          "end_point": {
+            "row": 4,
+            "column": 1
+          }
+        },
+        "field_name": "declaration",
+        "named": true,
+        "anonymous": false,
+        "has_source_text": true,
+        "source_fragment": "func Greet() {\n\tprintln(\"hi\")\n}",
+        "backend_kind": "FuncDecl",
+        "semantic_roles": [
+          "declaration",
+          "function",
+          "named_symbol"
+        ],
+        "backend_roles": [
+          "go_dst.FuncDecl",
+          "go_ast.Decl"
+        ],
+        "unsupported_features": [],
+        "metadata": {
+          "go_dst": {
+            "node_path": "decls[0]",
+            "raw_identifier": "Greet"
+          }
+        }
+      }
+    ],
+    "parse_error_tolerance": {
+      "backend_ref": {
+        "id": "go-dst",
+        "family": "native"
+      },
+      "language": "go",
+      "behavior": "diagnostic_and_partial_tree",
+      "tolerates_errors": true,
+      "error_nodes": [],
+      "diagnostics": []
+    },
+    "source_fragments_available": true,
+    "diagnostics": [],
+    "metadata": {
+      "go_dst": {
+        "native_tree_retained": "true",
+        "native_tree_visibility": "provider_internal"
+      }
+    }
+  }
+}

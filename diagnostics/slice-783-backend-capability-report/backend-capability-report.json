@@ -1,0 +1,30 @@
+{
+  "capability": {
+    "backend_ref": {
+      "id": "go-dst",
+      "family": "native"
+    },
+    "language": "go",
+    "parser_identity": {
+      "name": "github.com/dave/dst",
+      "version": "fixture",
+      "implementation": "go"
+    },
+    "language_version": {
+      "version": "go1.22",
+      "dialect": null
+    },
+    "parse_error_behavior": "diagnostic_and_partial_tree",
+    "source_span_support": "byte_range_and_points",
+    "source_fragment_support": "lossless_when_decorations_available",
+    "render_strategies": [
+      "source_fragment_reuse",
+      "native_printer",
+      "full_file_fallback"
+    ],
+    "semantic_role_support": "backend_specific_with_portable_mapping",
+    "normalized_tree_support": true,
+    "native_node_access": true,
+    "diagnostics": []
+  }
+}

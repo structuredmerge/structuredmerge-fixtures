@@ -1,0 +1,128 @@
+{
+  "source": {
+    "old_package": "reference/toml-merge",
+    "old_readme": "reference/toml-merge/README.md",
+    "current_family": "toml-merge"
+  },
+  "general_toml_semantics": [
+    {
+      "id": "toml-parse",
+      "old_value": "TOML-aware parsing and parse errors.",
+      "current_fixtures": [
+        "fixtures/toml/slice-91-parse/valid-document.json",
+        "fixtures/toml/slice-91-parse/invalid-document.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "toml-structure",
+      "old_value": "Tables, arrays, values, and nested keys are TOML structure.",
+      "current_fixtures": [
+        "fixtures/toml/slice-92-structure/table-and-array.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "toml-owner-matching",
+      "old_value": "TOML owners match by structural paths.",
+      "current_fixtures": [
+        "fixtures/toml/slice-93-matching/path-equality.json"
+      ],
+      "status": "fixture_backed_for_current_path_policy"
+    },
+    {
+      "id": "toml-merge",
+      "old_value": "Tables merge recursively while destination scalar conflicts win.",
+      "current_fixtures": [
+        "fixtures/toml/slice-94-merge/table-merge.json",
+        "fixtures/toml/slice-720-advanced-leaf-merge/nested-table-leaf-merge.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "toml-backend-metadata",
+      "old_value": "The old README described parser backends and platform behavior.",
+      "current_fixtures": [
+        "fixtures/diagnostics/slice-135-toml-family-backend-feature-profiles/",
+        "fixtures/diagnostics/slice-136-toml-family-plan-contexts/",
+        "fixtures/diagnostics/slice-269-toml-provider-feature-profiles/",
+        "fixtures/diagnostics/slice-270-toml-provider-plan-contexts/",
+        "fixtures/diagnostics/slice-271-toml-provider-named-suite-plans/",
+        "fixtures/diagnostics/slice-272-toml-provider-manifest-report/"
+      ],
+      "status": "fixture_backed_as_family_and_provider_metadata"
+    }
+  ],
+  "provider_specific": [
+    {
+      "package": "citrus-toml-merge",
+      "role": "Ruby Citrus/toml-rb TOML provider package",
+      "status": "provider_docs_only"
+    },
+    {
+      "package": "parslet-toml-merge",
+      "role": "Ruby Parslet/toml TOML provider package",
+      "status": "provider_docs_only"
+    },
+    {
+      "package": "pest-toml-merge",
+      "role": "Rust Pest TOML provider package",
+      "status": "provider_docs_only"
+    },
+    {
+      "package": "peggy-toml-merge",
+      "role": "TypeScript Peggy TOML provider package",
+      "status": "provider_docs_only"
+    }
+  ],
+  "future_fixture_work": [
+    {
+      "id": "table-match-refiner",
+      "old_value": "Weighted table matching by table name similarity, key overlap, and position.",
+      "destination": "future TOML table matching fixture",
+      "status": "missing_fixture_before_port"
+    },
+    {
+      "id": "key-sorter",
+      "old_value": "Sort key/value pairs alphabetically within gap-separated blocks while keeping leading comments with their keys.",
+      "destination": "future TOML key ordering fixture",
+      "status": "missing_fixture_before_port"
+    },
+    {
+      "id": "comment-preserving-output",
+      "old_value": "Preserve adjacent table comments and array-of-tables comments in merged TOML output.",
+      "destination": "future TOML comment-preserving merge fixture",
+      "status": "missing_fixture_before_port"
+    },
+    {
+      "id": "emitter-formatting",
+      "old_value": "TOML emitter formatting beyond current canonical output.",
+      "destination": "future TOML emitter conformance fixture",
+      "status": "missing_fixture_before_port"
+    },
+    {
+      "id": "freeze-blocks",
+      "old_value": "Freeze block behavior mentioned by old README synopsis.",
+      "destination": "future cross-cutting freeze-block fixture plus TOML marker profile if retained",
+      "status": "missing_fixture_before_port"
+    }
+  ],
+  "readme_policy": {
+    "toml_merge_may_claim": [
+      "TOML parsing",
+      "table and array owner extraction",
+      "path/equality owner matching",
+      "recursive table merge",
+      "destination-wins array policy",
+      "provider metadata from current backend/provider fixtures"
+    ],
+    "toml_merge_must_not_claim_yet": [
+      "TableMatchRefiner fuzzy table matching",
+      "KeySorter output ordering",
+      "comment-preserving TOML merge output",
+      "TOML emitter formatting beyond canonical output",
+      "freeze-block behavior"
+    ]
+  },
+  "decision": "Keep toml-merge as the portable TOML family package. Keep parser-specific claims in provider package docs and provider fixtures."
+}

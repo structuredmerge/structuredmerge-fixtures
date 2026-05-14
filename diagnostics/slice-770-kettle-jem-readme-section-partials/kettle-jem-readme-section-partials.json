@@ -1,0 +1,26 @@
+{
+  "source": {
+    "old_docs": [
+      "reference/kettle-jem/README.md",
+      "reference/kettle-jem/KETTLE_JEM_PLUGINS.md"
+    ],
+    "active_implementation": "ruby/gems/kettle-jem/lib/kettle/jem.rb",
+    "active_tests": "ruby/gems/kettle-jem/spec/thin_slice_spec.rb",
+    "packaged_partials": "ruby/gems/kettle-jem/lib/kettle/jem/templates/readme/partials"
+  },
+  "configured_sections": [
+    "synopsis",
+    "configuration",
+    "basic_usage"
+  ],
+  "behavior": [
+    "default README sections remain empty and destination-preserved",
+    "configured section partials are template-owned for the run",
+    "partial paths resolve through the configured template root",
+    "partial paths support .example source preference",
+    "partial content uses existing KJ token resolution",
+    "underscore and dash section keys normalize to README headings",
+    "configured partial sections are removed from default preserve targets"
+  ],
+  "decision": "Use README section partials as the reusable mechanism for filling Synopsis, Configuration, and Basic Usage. Do not special-case kettle-jem in the renderer."
+}

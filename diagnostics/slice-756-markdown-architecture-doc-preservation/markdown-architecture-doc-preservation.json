@@ -1,0 +1,110 @@
+{
+  "source": {
+    "old_package": "reference/markdown-merge",
+    "old_architecture_doc": "reference/markdown-merge/ARCHITECTURE.md",
+    "old_readme": "reference/markdown-merge/README.md",
+    "current_family": "markdown-merge"
+  },
+  "preserved_architecture_concepts": [
+    "family package plus parser/provider packages",
+    "node-by-node merge strategy for Markdown source preservation",
+    "top-level block analysis and owner matching",
+    "heading/section-oriented merge behavior",
+    "fenced-code embedded-family detection",
+    "delegated child operations for fenced code blocks",
+    "nested merge and reviewed nested merge workflows",
+    "source-preserving output assembly as an architectural goal",
+    "link reference parsing and rehydration as future source-preservation value",
+    "document-problem reporting",
+    "provider conformance through fixtures"
+  ],
+  "current_fixture_backed_claims": [
+    {
+      "id": "markdown-family-and-provider-metadata",
+      "fixtures": [
+        "fixtures/diagnostics/slice-194-markdown-family-feature-profile/markdown-feature-profile.json",
+        "fixtures/diagnostics/slice-195-markdown-family-backend-feature-profiles/",
+        "fixtures/diagnostics/slice-196-markdown-family-plan-contexts/",
+        "fixtures/diagnostics/slice-204-markdown-provider-feature-profiles/",
+        "fixtures/diagnostics/slice-205-markdown-provider-plan-contexts/",
+        "fixtures/diagnostics/slice-206-markdown-provider-named-suite-plans/",
+        "fixtures/diagnostics/slice-207-markdown-provider-manifest-report/"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "markdown-analysis-and-matching",
+      "fixtures": [
+        "fixtures/markdown/slice-198-analysis/headings-and-code-fences.json",
+        "fixtures/markdown/slice-199-matching/path-equality.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "markdown-section-merge",
+      "fixtures": [
+        "fixtures/markdown/slice-286-merge/section-merge.json",
+        "fixtures/markdown/slice-720-advanced-leaf-merge/nested-section-list-leaf-merge.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "fenced-code-nested-merge",
+      "fixtures": [
+        "fixtures/markdown/slice-208-embedded-families/code-fence-families.json",
+        "fixtures/markdown/slice-212-discovered-surfaces/fenced-code-surfaces.json",
+        "fixtures/markdown/slice-213-delegated-child-operations/fenced-code-child-operations.json",
+        "fixtures/markdown/slice-288-delegated-child-apply-output/fenced-code-applied-output.json",
+        "fixtures/markdown/slice-290-nested-merge/fenced-code-nested-merge.json",
+        "fixtures/markdown/slice-298-reviewed-nested-merge/fenced-code-reviewed-nested-merge.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "reviewed-nested-review-artifacts",
+      "fixtures": [
+        "fixtures/markdown/slice-309-reviewed-nested-review-artifact-application/fenced-code-reviewed-nested-review-artifact-application.json",
+        "fixtures/markdown/slice-311-reviewed-nested-review-artifact-rejection/fenced-code-reviewed-nested-review-artifact-rejection.json",
+        "fixtures/markdown/slice-313-reviewed-nested-review-artifact-envelope-application/fenced-code-reviewed-nested-review-artifact-envelope-application.json",
+        "fixtures/markdown/slice-315-reviewed-nested-review-artifact-envelope-rejection/fenced-code-reviewed-nested-review-artifact-envelope-rejection.json",
+        "fixtures/diagnostics/slice-326-markdown-provider-reviewed-nested-review-artifact-application/",
+        "fixtures/diagnostics/slice-327-markdown-provider-reviewed-nested-review-artifact-rejection/",
+        "fixtures/diagnostics/slice-328-markdown-provider-reviewed-nested-review-artifact-envelope-application/"
+      ],
+      "status": "fixture_backed"
+    }
+  ],
+  "provider_specific_docs": [
+    {
+      "package": "commonmarker-merge",
+      "role": "Ruby Commonmarker provider package"
+    },
+    {
+      "package": "markly-merge",
+      "role": "Ruby Markly provider package"
+    },
+    {
+      "package": "kramdown-merge",
+      "role": "Ruby Kramdown provider package"
+    },
+    {
+      "package": "pulldown-cmark-merge",
+      "role": "Rust Pulldown CMark provider package"
+    },
+    {
+      "package": "markdown-it-merge",
+      "role": "TypeScript markdown-it provider package"
+    }
+  ],
+  "future_fixture_work": [
+    "OutputBuilder source-preserving assembly contract",
+    "LinkParser reference definition, inline link, image, nested bracket, emoji label, and UTF-8 position behavior",
+    "LinkReferenceRehydrator inline-to-reference behavior",
+    "LinkDefinitionFormatter behavior",
+    "DocumentProblems reporting for duplicate link definitions",
+    "fuzzy table/list/code match refiners",
+    "cleanse passes",
+    "whitespace normalization policy"
+  ],
+  "decision": "Preserve old Markdown architecture as migration guidance through fixtures and future slices. Do not copy old Ruby class-level architecture docs into generated package READMEs as-is."
+}

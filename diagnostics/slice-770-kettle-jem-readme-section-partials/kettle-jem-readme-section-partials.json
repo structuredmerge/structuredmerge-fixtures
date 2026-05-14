@@ -20,7 +20,8 @@
     "partial paths support .example source preference",
     "partial content uses existing KJ token resolution",
     "underscore and dash section keys normalize to README headings",
-    "configured partial sections are removed from default preserve targets"
+    "configured partial sections are removed from default preserve targets",
+    "packaged partials document strategies, tokens, freeze blocks, merge routing, workflows, runtime controls, and plugin registration"
   ],
   "decision": "Use README section partials as the reusable mechanism for filling Synopsis, Configuration, and Basic Usage. Do not special-case kettle-jem in the renderer."
 }

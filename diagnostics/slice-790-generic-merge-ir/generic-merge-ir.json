@@ -1,0 +1,119 @@
+{
+  "name": "generic_merge_ir",
+  "purpose": "define the smallest ast-merge-owned IR needed to evaluate class mapping and ordered-tree change sets",
+  "merge_ir": {
+    "version": "merge-ir-0",
+    "tree_id": "go-imports-reorder-and-edit",
+    "source": "experimental",
+    "node_classes": [
+      {
+        "class_id": "class-import-fmt",
+        "signature": "import:fmt",
+        "node_ids": {
+          "base": "base-import-fmt",
+          "left": "left-import-fmt",
+          "right": "right-import-fmt"
+        },
+        "roles": ["import"]
+      },
+      {
+        "class_id": "class-import-strings",
+        "signature": "import:strings",
+        "node_ids": {
+          "base": "base-import-strings",
+          "left": "left-import-strings",
+          "right": "right-import-strings"
+        },
+        "roles": ["import"]
+      },
+      {
+        "class_id": "class-decl-greet",
+        "signature": "declaration:Greet",
+        "node_ids": {
+          "base": "base-decl-greet",
+          "left": "left-decl-greet",
+          "right": "right-decl-greet"
+        },
+        "roles": ["declaration", "function"]
+      }
+    ],
+    "ordered_nodes": [
+      {
+        "node_id": "base-imports",
+        "parent_id": "base-file",
+        "child_ids": ["base-import-fmt", "base-import-strings"],
+        "previous_sibling_id": null,
+        "next_sibling_id": "base-decl-greet"
+      },
+      {
+        "node_id": "left-imports",
+        "parent_id": "left-file",
+        "child_ids": ["left-import-os", "left-import-fmt", "left-import-strings"],
+        "previous_sibling_id": null,
+        "next_sibling_id": "left-decl-greet"
+      },
+      {
+        "node_id": "right-imports",
+        "parent_id": "right-file",
+        "child_ids": ["right-import-strings", "right-import-fmt"],
+        "previous_sibling_id": null,
+        "next_sibling_id": "right-decl-greet"
+      }
+    ],
+    "changes": [
+      {
+        "change_id": "left-insert-import-os",
+        "side": "left",
+        "kind": "insert",
+        "node_id": "left-import-os",
+        "class_id": null,
+        "parent_id": "left-imports",
+        "previous_sibling_id": null,
+        "next_sibling_id": "left-import-fmt",
+        "content_hash": "sha256:left-import-os"
+      },
+      {
+        "change_id": "right-reorder-import-strings",
+        "side": "right",
+        "kind": "move",
+        "node_id": "right-import-strings",
+        "class_id": "class-import-strings",
+        "parent_id": "right-imports",
+        "previous_sibling_id": null,
+        "next_sibling_id": "right-import-fmt",
+        "content_hash": "sha256:import-strings"
+      },
+      {
+        "change_id": "left-edit-greet",
+        "side": "left",
+        "kind": "content_change",
+        "node_id": "left-decl-greet",
+        "class_id": "class-decl-greet",
+        "parent_id": "left-file",
+        "previous_sibling_id": "left-imports",
+        "next_sibling_id": null,
+        "content_hash": "sha256:left-decl-greet"
+      },
+      {
+        "change_id": "right-delete-greet",
+        "side": "right",
+        "kind": "delete",
+        "node_id": "right-decl-greet",
+        "class_id": "class-decl-greet",
+        "parent_id": "right-file",
+        "previous_sibling_id": "right-imports",
+        "next_sibling_id": null,
+        "content_hash": "sha256:base-decl-greet"
+      }
+    ],
+    "diagnostics": [
+      "generic merge IR is owned by ast-merge and derived from tree-haver ordered-tree facts"
+    ]
+  },
+  "expected": {
+    "version": "merge-ir-0",
+    "node_class_count": 3,
+    "change_kinds": ["insert", "move", "content_change", "delete"],
+    "ordered_node_count": 3
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "source": {
+    "old_packages": [
+      "reference/ast-crispr",
+      "reference/ast-crispr-ruby-prism",
+      "reference/ast-crispr-markdown-markly"
+    ],
+    "old_core": "reference/ast-crispr/lib/ast/crispr.rb",
+    "old_core_specs": "reference/ast-crispr/spec/ast/crispr_spec.rb"
+  },
+  "old_value": [
+    "cardinality limits",
+    "match profile",
+    "structure profile",
+    "selection profile",
+    "destination profile",
+    "operation profile",
+    "document contexts",
+    "adapter structure profiles",
+    "owner-filter selectors",
+    "comment-region-owned selectors",
+    "replace operation",
+    "delete operation",
+    "insert operation",
+    "move operation",
+    "destination anchors",
+    "append fallback",
+    "Ruby/Prism provider shell",
+    "Markdown/Markly provider shell"
+  ],
+  "decision": "The old ast-crispr package identity is superseded for the current README migration pass. Preserve concepts in structured-edit envelopes and ast-template recipe/session workflows instead of listing ast-crispr as active support.",
+  "concept_mapping": {
+    "Limit": "structured-edit selection cardinality or review policy",
+    "StructureProfile": "provider structure profile fixtures",
+    "SelectionProfile": "structured-edit selection policy/profile fixtures",
+    "MatchProfile": "structured-edit match profile fixtures",
+    "OperationProfile": "structured-edit operation profile and operation kind",
+    "DestinationProfile": "structured-edit destination policy/profile",
+    "replace/delete/insert/move": "structured-edit operation requests and provider execution",
+    "append fallback": "structured-edit destination fallback policy",
+    "Ruby/Prism provider shell": "ruby-merge/prism-merge provider fixtures if revived",
+    "Markdown/Markly provider shell": "markdown-merge/markly-merge provider fixtures if revived",
+    "recipe/template usage": "ast-template or Kettle recipe fixtures"
+  },
+  "active_readme_claim": false
+}

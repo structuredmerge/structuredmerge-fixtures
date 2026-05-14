@@ -1,0 +1,27 @@
+{
+  "source": {
+    "old_readme": "reference/kettle-jem/README.md",
+    "old_plugin_guide": "reference/kettle-jem/KETTLE_JEM_PLUGINS.md",
+    "partial_contract": "spec/slices/slice-770-kettle-jem-readme-section-partials.md"
+  },
+  "generated_readme_partial_docs": [
+    ".kettle-jem.yml purpose",
+    "minimal configuration shape",
+    "strategies",
+    "per-file and pattern overrides",
+    "token substitution",
+    "freeze blocks",
+    "workflow and runtime controls",
+    "basic plugin loading and registrar entrypoints"
+  ],
+  "source_docs": [
+    "complete configuration schema",
+    "phase internals",
+    "recipe authoring internals",
+    "plugin callback contracts",
+    "migration notes",
+    "troubleshooting",
+    "large compatibility matrices"
+  ],
+  "decision": "Keep README partials thin and operational. Move complete schema, internals, plugin authoring, migration, troubleshooting, and large compatibility docs to source documentation."
+}

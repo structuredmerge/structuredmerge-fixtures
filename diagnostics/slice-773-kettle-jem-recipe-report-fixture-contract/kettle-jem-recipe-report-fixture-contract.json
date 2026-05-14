@@ -1,0 +1,125 @@
+{
+  "source": {
+    "old_templating_report": "reference/kettle-jem/lib/kettle/jem/templating_report.rb",
+    "old_template_checksums": "reference/kettle-jem/lib/kettle/jem/template_checksums.rb",
+    "old_self_test_manifest": "reference/kettle-jem/lib/kettle/jem/self_test/manifest.rb",
+    "old_self_test_reporter": "reference/kettle-jem/lib/kettle/jem/self_test/reporter.rb",
+    "active_recipe_runner": "ruby/gems/kettle-jem/lib/kettle/jem.rb"
+  },
+  "active_recipe_report_contract": {
+    "canonical": true,
+    "required_fields": [
+      "recipe_name",
+      "recipe_version",
+      "relative_path",
+      "provider_family",
+      "provider_backend",
+      "primitive",
+      "selectors",
+      "request_envelope",
+      "report_envelope",
+      "final_content",
+      "changed",
+      "diagnostics",
+      "metadata",
+      "step_reports"
+    ],
+    "metadata_surfaces": [
+      "delete_file",
+      "template_source_preference",
+      "template_tokens",
+      "readme_style"
+    ]
+  },
+  "pending_fixture_targets": [
+    {
+      "name": "templating_environment_snapshot",
+      "fields": [
+        "kettle_jem",
+        "workspace_root",
+        "merge_gems.name",
+        "merge_gems.version",
+        "merge_gems.path",
+        "merge_gems.local_path",
+        "merge_gems.loaded"
+      ],
+      "report_expectations": [
+        "console_lines include source labels",
+        "markdown_section renders merge gem table",
+        "local workspace mismatch emits warning and hint"
+      ]
+    },
+    {
+      "name": "template_checksum_drift",
+      "fields": [
+        "added",
+        "changed",
+        "removed"
+      ],
+      "report_expectations": [
+        "diff_count is the sum of added, changed, and removed",
+        "summary reports no-change state",
+        "summary reports changed counts by class",
+        "detail_lines use +, ~, and - prefixes"
+      ]
+    },
+    {
+      "name": "self_test_manifest_comparison",
+      "fields": [
+        "matched",
+        "changed",
+        "added",
+        "removed",
+        "skipped"
+      ],
+      "report_expectations": [
+        "matching checksums are classified as matched",
+        "new paths are classified as added",
+        "missing paths are classified as removed",
+        "changed checksums are classified as changed",
+        "skipped source-only paths are rendered separately from unexpected removals"
+      ]
+    },
+    {
+      "name": "self_test_markdown_summary",
+      "fields": [
+        "score",
+        "divergence",
+        "changed_files",
+        "new_files",
+        "unexpected_removed_files",
+        "skipped_files",
+        "diff_count"
+      ],
+      "report_expectations": [
+        "score is matched divided by total compared files",
+        "divergence is changed plus added plus removed divided by total compared files",
+        "changed/new/removed sections are omitted when empty",
+        "skipped files are hidden in a details block"
+      ]
+    },
+    {
+      "name": "templating_run_markdown_report",
+      "fields": [
+        "started",
+        "finished",
+        "status",
+        "project_root",
+        "output_dir",
+        "template_commit_sha",
+        "warnings",
+        "error",
+        "template_diff",
+        "environment"
+      ],
+      "report_expectations": [
+        "report includes run metadata",
+        "report includes environment table when snapshot is present",
+        "warnings are de-duplicated",
+        "error includes class, message, and first backtrace lines",
+        "template diff section is rendered from checksum drift"
+      ]
+    }
+  ],
+  "decision": "Keep recipe execution reports as the canonical active API. Add checksum drift and self-test report rendering as fixture-backed diagnostics around the recipe-pack runner before considering plugin lifecycle or old phase object parity."
+}

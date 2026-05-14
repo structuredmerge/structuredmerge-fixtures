@@ -1,0 +1,174 @@
+{
+  "name": "ordered_tree_primitives",
+  "purpose": "confirm tree-haver exposes ordered normalized tree facts without merge-specific PCS or conflict concepts",
+  "root_id": "file",
+  "nodes": [
+    {
+      "id": "file",
+      "kind": "source_file",
+      "role": "structural",
+      "parent_id": null,
+      "child_ids": ["imports", "declarations"],
+      "span": {
+        "range": { "start_byte": 0, "end_byte": 50 },
+        "start_point": { "row": 0, "column": 0 },
+        "end_point": { "row": 5, "column": 0 }
+      },
+      "field_name": null,
+      "named": true,
+      "anonymous": false,
+      "has_source_text": true,
+      "source_fragment": "import fmt\nimport strings\n\nfunc Greet() {}\n"
+    },
+    {
+      "id": "imports",
+      "kind": "import_declaration_list",
+      "role": "structural",
+      "parent_id": "file",
+      "child_ids": ["import-fmt", "import-strings"],
+      "span": {
+        "range": { "start_byte": 0, "end_byte": 26 },
+        "start_point": { "row": 0, "column": 0 },
+        "end_point": { "row": 1, "column": 14 }
+      },
+      "field_name": "imports",
+      "named": true,
+      "anonymous": false,
+      "has_source_text": true,
+      "source_fragment": "import fmt\nimport strings"
+    },
+    {
+      "id": "import-fmt",
+      "kind": "import_declaration",
+      "role": "structural",
+      "parent_id": "imports",
+      "child_ids": [],
+      "span": {
+        "range": { "start_byte": 0, "end_byte": 10 },
+        "start_point": { "row": 0, "column": 0 },
+        "end_point": { "row": 0, "column": 10 }
+      },
+      "field_name": "declaration",
+      "named": true,
+      "anonymous": false,
+      "has_source_text": true,
+      "source_fragment": "import fmt",
+      "semantic_roles": ["import"],
+      "metadata": {
+        "smorg": {
+          "match_key": "fmt"
+        }
+      }
+    },
+    {
+      "id": "import-strings",
+      "kind": "import_declaration",
+      "role": "structural",
+      "parent_id": "imports",
+      "child_ids": [],
+      "span": {
+        "range": { "start_byte": 11, "end_byte": 26 },
+        "start_point": { "row": 1, "column": 0 },
+        "end_point": { "row": 1, "column": 14 }
+      },
+      "field_name": "declaration",
+      "named": true,
+      "anonymous": false,
+      "has_source_text": true,
+      "source_fragment": "import strings",
+      "semantic_roles": ["import"],
+      "metadata": {
+        "smorg": {
+          "match_key": "strings"
+        }
+      }
+    },
+    {
+      "id": "declarations",
+      "kind": "declaration_list",
+      "role": "structural",
+      "parent_id": "file",
+      "child_ids": ["decl-greet"],
+      "span": {
+        "range": { "start_byte": 28, "end_byte": 43 },
+        "start_point": { "row": 3, "column": 0 },
+        "end_point": { "row": 3, "column": 15 }
+      },
+      "field_name": "declarations",
+      "named": true,
+      "anonymous": false,
+      "has_source_text": true,
+      "source_fragment": "func Greet() {}"
+    },
+    {
+      "id": "decl-greet",
+      "kind": "function_declaration",
+      "role": "structural",
+      "parent_id": "declarations",
+      "child_ids": [],
+      "span": {
+        "range": { "start_byte": 28, "end_byte": 43 },
+        "start_point": { "row": 3, "column": 0 },
+        "end_point": { "row": 3, "column": 15 }
+      },
+      "field_name": "declaration",
+      "named": true,
+      "anonymous": false,
+      "has_source_text": true,
+      "source_fragment": "func Greet() {}",
+      "semantic_roles": ["declaration", "function"],
+      "metadata": {
+        "smorg": {
+          "match_key": "Greet"
+        }
+      }
+    }
+  ],
+  "ordered_tree": {
+    "root_id": "file",
+    "child_order": {
+      "file": ["imports", "declarations"],
+      "imports": ["import-fmt", "import-strings"],
+      "import-fmt": [],
+      "import-strings": [],
+      "declarations": ["decl-greet"],
+      "decl-greet": []
+    },
+    "sibling_edges": [
+      {
+        "parent_id": "file",
+        "node_id": "imports",
+        "previous_sibling_id": null,
+        "next_sibling_id": "declarations"
+      },
+      {
+        "parent_id": "file",
+        "node_id": "declarations",
+        "previous_sibling_id": "imports",
+        "next_sibling_id": null
+      },
+      {
+        "parent_id": "imports",
+        "node_id": "import-fmt",
+        "previous_sibling_id": null,
+        "next_sibling_id": "import-strings"
+      },
+      {
+        "parent_id": "imports",
+        "node_id": "import-strings",
+        "previous_sibling_id": "import-fmt",
+        "next_sibling_id": null
+      },
+      {
+        "parent_id": "declarations",
+        "node_id": "decl-greet",
+        "previous_sibling_id": null,
+        "next_sibling_id": null
+      }
+    ],
+    "diagnostics": [
+      "ordered tree facts are parser output primitives, not merge policy"
+    ]
+  },
+  "forbidden_merge_terms": ["pcs", "3dm", "change_set", "conflict", "merged_tree"]
+}

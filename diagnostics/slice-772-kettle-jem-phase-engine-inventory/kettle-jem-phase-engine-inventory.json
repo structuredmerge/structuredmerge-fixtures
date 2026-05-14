@@ -1,0 +1,98 @@
+{
+  "source": {
+    "old_root": "reference/kettle-jem/lib/kettle/jem",
+    "new_root": "ruby/gems/kettle-jem/lib/kettle/jem.rb"
+  },
+  "old_surfaces": {
+    "phases": [
+      "config_sync",
+      "dev_container",
+      "duplicate_check",
+      "environment_templates",
+      "git_hooks",
+      "github_workflows",
+      "license_files",
+      "modular_gemfiles",
+      "quality_config",
+      "remaining_files",
+      "spec_helper",
+      "template_phase",
+      "template_run",
+      "phase_context",
+      "phase_stats"
+    ],
+    "presets": [
+      "appraisals",
+      "dotenv",
+      "gemfile",
+      "gemspec",
+      "json",
+      "markdown",
+      "rakefile",
+      "rbs",
+      "yaml"
+    ],
+    "recipes": [
+      "appraisals",
+      "changelog",
+      "dotenv",
+      "gemfile",
+      "gemspec",
+      "markdown",
+      "rakefile",
+      "readme"
+    ],
+    "plugin_lifecycle": [
+      "plugin_loader",
+      "plugin_registrar",
+      "plugin_registry"
+    ],
+    "drift_and_selftest": [
+      "template_checksums",
+      "self_test_manifest",
+      "self_test_reporter",
+      "templating_report"
+    ],
+    "tasks": [
+      "setup_cli",
+      "install_task",
+      "prepare_task",
+      "self_test_task",
+      "template_task",
+      "rakelib/install.rake",
+      "rakelib/prepare.rake",
+      "rakelib/selftest.rake",
+      "rakelib/template.rake"
+    ]
+  },
+  "active_transferred": [
+    "plan/apply recipe pack",
+    "content recipe request and report envelopes",
+    "template source preference and application",
+    ".example template source preference",
+    "token projection and resolution",
+    "thin README generation",
+    "README section partials",
+    "GitHub funding and workflow generation",
+    "workflow snippet synchronization",
+    "obsolete workflow cleanup",
+    "OpenCollective cleanup",
+    "Rakefile scaffold cleanup",
+    ".kettle-jem.yml bootstrap"
+  ],
+  "pending_fixtures": [
+    "plugin lifecycle callbacks",
+    "phase stats and report output",
+    "checksum drift detection",
+    "self-test manifest/reporter output",
+    "remaining-files phase policy",
+    "environment template policy",
+    "git hook policy",
+    "devcontainer policy",
+    "quality config policy",
+    "modular Gemfile policy",
+    "license file policy",
+    "explicit setup/install/prepare task retirement"
+  ],
+  "decision": "Do not port the old phase class framework wholesale. Preserve current old value as fixture-backed recipe/report behavior in the active Ruby kettle-jem recipe-pack runner, and move only portable README/template/session concepts into shared cross-language tools."
+}

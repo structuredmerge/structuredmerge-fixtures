@@ -1,0 +1,25 @@
+{
+  "source": "package demo\n\nfunc Greet() {\n\tprintln(\"hi\")\n}\n",
+  "strategy": "source_fragment_reuse",
+  "span": {
+    "range": {
+      "start_byte": 14,
+      "end_byte": 45
+    },
+    "start_point": {
+      "row": 2,
+      "column": 0
+    },
+    "end_point": {
+      "row": 4,
+      "column": 1
+    }
+  },
+  "fragment": {
+    "text": "func Greet() {\n\tprintln(\"hi\")\n}",
+    "available": true,
+    "strategy": "source_fragment_reuse",
+    "byte_length": 31,
+    "diagnostics": []
+  }
+}

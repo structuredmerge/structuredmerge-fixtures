@@ -2338,6 +2338,14 @@
         ]
       },
       {
+        "role": "readme_family_section_template_contract",
+        "path": [
+          "diagnostics",
+          "slice-738-readme-family-section-template-contract",
+          "readme-family-section-template-contract.json"
+        ]
+      },
+      {
         "role": "template_entry_token_state",
         "path": [
           "diagnostics",

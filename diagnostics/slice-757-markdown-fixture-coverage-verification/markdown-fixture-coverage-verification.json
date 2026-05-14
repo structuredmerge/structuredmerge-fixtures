@@ -1,0 +1,223 @@
+{
+  "source": {
+    "old_package": "reference/markdown-merge",
+    "current_family": "markdown-merge",
+    "prior_decision": "spec/slices/slice-756-markdown-architecture-doc-preservation.md"
+  },
+  "current_fixture_backed_claims": [
+    {
+      "id": "analysis-and-matching",
+      "fixtures": [
+        "fixtures/markdown/slice-198-analysis/headings-and-code-fences.json",
+        "fixtures/markdown/slice-199-matching/path-equality.json"
+      ],
+      "readme_claim": "Markdown analysis and path/equality owner matching"
+    },
+    {
+      "id": "section-merge",
+      "fixtures": [
+        "fixtures/markdown/slice-286-merge/section-merge.json",
+        "fixtures/markdown/slice-720-advanced-leaf-merge/nested-section-list-leaf-merge.json"
+      ],
+      "readme_claim": "Section merge and nested section/list leaf merge"
+    },
+    {
+      "id": "fenced-code-nested-merge",
+      "fixtures": [
+        "fixtures/markdown/slice-208-embedded-families/code-fence-families.json",
+        "fixtures/markdown/slice-212-discovered-surfaces/fenced-code-surfaces.json",
+        "fixtures/markdown/slice-213-delegated-child-operations/fenced-code-child-operations.json",
+        "fixtures/markdown/slice-288-delegated-child-apply-output/fenced-code-applied-output.json",
+        "fixtures/markdown/slice-290-nested-merge/fenced-code-nested-merge.json",
+        "fixtures/markdown/slice-298-reviewed-nested-merge/fenced-code-reviewed-nested-merge.json"
+      ],
+      "readme_claim": "Fenced-code embedded families and nested merge"
+    },
+    {
+      "id": "reviewed-nested-artifacts",
+      "fixtures": [
+        "fixtures/markdown/slice-309-reviewed-nested-review-artifact-application/fenced-code-reviewed-nested-review-artifact-application.json",
+        "fixtures/markdown/slice-311-reviewed-nested-review-artifact-rejection/fenced-code-reviewed-nested-review-artifact-rejection.json",
+        "fixtures/markdown/slice-313-reviewed-nested-review-artifact-envelope-application/fenced-code-reviewed-nested-review-artifact-envelope-application.json",
+        "fixtures/markdown/slice-315-reviewed-nested-review-artifact-envelope-rejection/fenced-code-reviewed-nested-review-artifact-envelope-rejection.json"
+      ],
+      "readme_claim": "Reviewed nested review artifact handling"
+    },
+    {
+      "id": "backend-provider-metadata",
+      "fixtures": [
+        "fixtures/diagnostics/slice-195-markdown-family-backend-feature-profiles/",
+        "fixtures/diagnostics/slice-196-markdown-family-plan-contexts/",
+        "fixtures/diagnostics/slice-204-markdown-provider-feature-profiles/",
+        "fixtures/diagnostics/slice-205-markdown-provider-plan-contexts/",
+        "fixtures/diagnostics/slice-206-markdown-provider-named-suite-plans/",
+        "fixtures/diagnostics/slice-207-markdown-provider-manifest-report/"
+      ],
+      "readme_claim": "Family and provider backend metadata"
+    }
+  ],
+  "missing_fixture_obligations": [
+    {
+      "id": "link-parser",
+      "old_sources": [
+        "reference/markdown-merge/spec/markdown/merge/link_parser_spec.rb",
+        "reference/markdown-merge/lib/markdown/merge/link_parser.rb"
+      ],
+      "old_examples": [
+        "parse link reference definitions with optional titles",
+        "parse emoji labels",
+        "find inline links with positions",
+        "find inline images",
+        "detect linked images as parent-child structures",
+        "flatten nested link/image constructs leaf-first"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/markdown link parser conformance slice"
+    },
+    {
+      "id": "link-reference-rehydration",
+      "old_sources": [
+        "reference/markdown-merge/spec/markdown/merge/link_reference_rehydrator_spec.rb",
+        "reference/markdown-merge/spec/integration/link_reference_rehydration_spec.rb",
+        "reference/markdown-merge/spec/fixtures/02_rehydrate"
+      ],
+      "old_examples": [
+        "convert parser-normalized inline links back to reference-style links",
+        "preserve link reference definitions",
+        "report duplicate definitions"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/markdown link rehydration slice"
+    },
+    {
+      "id": "link-definition-formatting",
+      "old_sources": [
+        "reference/markdown-merge/spec/markdown/merge/link_definition_formatter_spec.rb",
+        "reference/markdown-merge/spec/markdown/merge/link_definition_node_spec.rb"
+      ],
+      "old_examples": [
+        "format link reference definitions",
+        "preserve labels, URLs, titles, and source line metadata"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/markdown link definition formatting slice"
+    },
+    {
+      "id": "document-problems",
+      "old_sources": [
+        "reference/markdown-merge/spec/markdown/merge/document_problems_spec.rb"
+      ],
+      "old_examples": [
+        "duplicate_link_definition warning",
+        "excessive_whitespace info or error",
+        "link_has_title info",
+        "filter problems by category",
+        "filter problems by severity",
+        "summarize by category and severity",
+        "convert problems to hashes"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future diagnostics fixture for Markdown document problem reporting"
+    },
+    {
+      "id": "output-builder",
+      "old_sources": [
+        "reference/markdown-merge/spec/markdown/merge/output_builder_spec.rb",
+        "reference/markdown-merge/lib/markdown/merge/output_builder.rb"
+      ],
+      "old_examples": [
+        "add raw text",
+        "add gap lines",
+        "add formatted link definitions",
+        "extract source ranges from parser nodes",
+        "fall back to to_commonmark when source positions are unavailable"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/markdown source-preserving output assembly slice"
+    },
+    {
+      "id": "table-list-code-refiners",
+      "old_sources": [
+        "reference/markdown-merge/spec/markdown/merge/table_match_refiner_spec.rb",
+        "reference/markdown-merge/spec/markdown/merge/table_match_algorithm_spec.rb",
+        "reference/markdown-merge/spec/markdown/merge/list_match_refiner_spec.rb",
+        "reference/markdown-merge/spec/markdown/merge/code_block_merger_spec.rb"
+      ],
+      "old_examples": [
+        "table-only match refinement",
+        "table match algorithm options",
+        "corrupted/duplicated list block matching",
+        "code block merger disabled mode",
+        "unsupported code language diagnostics",
+        "identical code block decision stats",
+        "custom code merger callbacks"
+      ],
+      "current_status": "partially_overlaps_current_fenced_code_fixtures_but_missing_utility_contracts",
+      "recommended_destination": "future fixtures/markdown table, list, and code utility slices"
+    },
+    {
+      "id": "cleanse-and-whitespace",
+      "old_sources": [
+        "reference/markdown-merge/spec/markdown/merge/cleanse/block_spacing_spec.rb",
+        "reference/markdown-merge/spec/markdown/merge/cleanse/code_fence_spacing_spec.rb",
+        "reference/markdown-merge/spec/markdown/merge/cleanse/condensed_link_refs_spec.rb",
+        "reference/markdown-merge/spec/markdown/merge/cleanse/list_marker_duplication_spec.rb",
+        "reference/markdown-merge/spec/markdown/merge/cleanse/templating_corruption_spec.rb",
+        "reference/markdown-merge/spec/markdown/merge/whitespace_normalizer_spec.rb",
+        "reference/markdown-merge/spec/fixtures/01_cleanse",
+        "reference/markdown-merge/spec/fixtures/whitespace_bug"
+      ],
+      "old_examples": [
+        "block spacing cleanup",
+        "code fence spacing cleanup",
+        "condensed link reference cleanup",
+        "list marker duplication cleanup",
+        "templating corruption cleanup",
+        "whitespace normalization"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/markdown cleanup and whitespace policy slice"
+    },
+    {
+      "id": "comment-preservation",
+      "old_sources": [
+        "reference/markdown-merge/spec/integration/partial_template_comment_preservation_spec.rb",
+        "reference/markdown-merge/spec/integration/smart_merger_comment_preservation_spec.rb",
+        "reference/markdown-merge/spec/fixtures/03_partial_replace_comments",
+        "reference/markdown-merge/spec/fixtures/04_full_document_comment_gap"
+      ],
+      "old_examples": [
+        "partial template replacement preserves comments",
+        "full document merge preserves comment gaps"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/markdown comment preservation slice"
+    }
+  ],
+  "readme_policy": {
+    "may_claim_now": [
+      "heading and code-fence analysis",
+      "path/equality owner matching",
+      "section merge",
+      "nested section/list leaf merge",
+      "fenced-code embedded family discovery",
+      "delegated child operations",
+      "nested merge and reviewed nested merge",
+      "reviewed nested review artifact handling",
+      "backend and provider metadata"
+    ],
+    "must_not_claim_until_fixture_backed": [
+      "LinkParser behavior",
+      "link reference rehydration",
+      "link definition formatting",
+      "DocumentProblems reporting",
+      "OutputBuilder source-preserving assembly",
+      "table/list fuzzy refiners",
+      "CodeBlockMerger utility behavior beyond delegated child fixtures",
+      "cleanse passes",
+      "whitespace normalization",
+      "comment preservation"
+    ]
+  },
+  "decision": "Do not copy old advanced Markdown utility examples into generated package READMEs until each behavior has a portable Markdown fixture and implementation plan."
+}

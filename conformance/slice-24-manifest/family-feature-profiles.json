@@ -2346,6 +2346,14 @@
         ]
       },
       {
+        "role": "kettle_readme_style_profile",
+        "path": [
+          "diagnostics",
+          "slice-740-kettle-readme-style-profile",
+          "kettle-readme-style-profile.json"
+        ]
+      },
+      {
         "role": "template_entry_token_state",
         "path": [
           "diagnostics",

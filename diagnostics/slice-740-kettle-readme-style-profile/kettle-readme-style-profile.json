@@ -1,0 +1,305 @@
+{
+  "profile": {
+    "name": "kettle-readme-style-profile",
+    "config_file_policy": {
+      "ruby": ".kettle-jem.yml",
+      "go": "kettle.yml",
+      "rust": "kettle.yml",
+      "typescript": "kettle.yml",
+      "shared_shape": "All ecosystems use the same nested readme keys even when the file name is ecosystem-specific."
+    },
+    "readme_config_shape": {
+      "readme": {
+        "style": "thin",
+        "project_emoji": "💎",
+        "family": {
+          "enabled": true,
+          "name": "structuredmerge",
+          "inject_from_synopsis": true
+        },
+        "logo_row": {
+          "enabled": true,
+          "max_count": 3,
+          "logos": [
+            {
+              "type": "language",
+              "slug": "ruby-lang",
+              "alt": "Ruby language logo"
+            },
+            {
+              "type": "org",
+              "slug": "galtzo-floss",
+              "alt": "Galtzo FLOSS logo"
+            },
+            {
+              "type": "project",
+              "slug": "structuredmerge/ast-template",
+              "alt": "ast-template project logo"
+            }
+          ]
+        },
+        "badges": {
+          "visible_core": [
+            "package_version",
+            "license",
+            "primary_ci",
+            "security_policy",
+            "documentation"
+          ],
+          "collapsed_groups": [
+            "coverage",
+            "maintainability",
+            "runtime_matrix",
+            "dependency_matrix",
+            "license_compatibility",
+            "community"
+          ],
+          "disabled": []
+        },
+        "preserve_sections": [
+          "Synopsis",
+          "Configuration",
+          "Basic Usage"
+        ],
+        "preserve_patterns": [
+          "note:*"
+        ],
+        "section_aliases": {
+          "Summary": "Synopsis",
+          "Usage": "Basic Usage",
+          "Configuration Options": "Configuration",
+          "Setup": "Basic Usage"
+        },
+        "conditional_sections": {
+          "floss_funding": "default_for_mit_opt_in_otherwise",
+          "security": "include_when_security_md_exists",
+          "hostile_rubygems_takeover": "ruby_only",
+          "secure_installation": "removed"
+        },
+        "integrations": {
+          "codecov": "auto_detect_or_report_missing",
+          "coveralls": "auto_detect_or_report_missing",
+          "qlty": "auto_detect_or_report_missing",
+          "codeql": "auto_detect_or_report_missing",
+          "tidelift": "config_or_report_missing",
+          "federated_dvcs": "config_or_collapse_as_future_work"
+        },
+        "license": {
+          "spdx": [
+            "MIT"
+          ],
+          "generate_license_files": true,
+          "include_git_blame_authors": true,
+          "sync_readme_copyright_authors": true
+        }
+      }
+    }
+  },
+  "section_order": [
+    {
+      "number": 1,
+      "name": "Logos",
+      "heading": null,
+      "applicability": "optional_all_ecosystems",
+      "managed": true
+    },
+    {
+      "number": 2,
+      "name": "Project Name",
+      "heading": "# {PROJECT_EMOJI} {PROJECT_NAME}",
+      "applicability": "all_ecosystems",
+      "managed": true,
+      "rule": "First character is an emoji and second character is one blank space."
+    },
+    {
+      "number": 3,
+      "name": "Badges",
+      "heading": null,
+      "applicability": "all_ecosystems",
+      "managed": true,
+      "thin_policy": "small visible cloud plus optional collapsed badge details"
+    },
+    {
+      "number": 4,
+      "name": "if badges are not green let me know",
+      "heading": null,
+      "applicability": "all_ecosystems",
+      "managed": true,
+      "thin_policy": "visible only when badge status data reports non-green or unknown"
+    },
+    {
+      "number": 5,
+      "name": "Hostile RubyGems Takeover",
+      "heading": "details summary retained from old kettle-jem",
+      "applicability": "ruby_only",
+      "managed": true
+    },
+    {
+      "number": 6,
+      "name": "Synopsis",
+      "heading": "## 🌻 Synopsis",
+      "applicability": "all_ecosystems",
+      "managed": false,
+      "preserved": true,
+      "family_partial_input": true
+    },
+    {
+      "number": 7,
+      "name": "Info you can shake a stick at",
+      "heading": "## 💡 Info you can shake a stick at",
+      "applicability": "all_ecosystems",
+      "managed": true,
+      "thin_policy": "visible compatibility summary with details for compatibility, federated DVCS, and enterprise support"
+    },
+    {
+      "number": 8,
+      "name": "Installation",
+      "heading": "## ✨ Installation",
+      "applicability": "all_ecosystems",
+      "managed": true,
+      "ecosystem_specific": true,
+      "removed_subsections": [
+        "### 🔒 Secure Installation"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Configuration",
+      "heading": "## ⚙️ Configuration",
+      "applicability": "all_ecosystems",
+      "managed": false,
+      "preserved": true
+    },
+    {
+      "number": 10,
+      "name": "Basic Usage",
+      "heading": "## 🔧 Basic Usage",
+      "applicability": "all_ecosystems",
+      "managed": false,
+      "preserved": true
+    },
+    {
+      "number": 11,
+      "name": "FLOSS Funding",
+      "heading": "## 🦷 FLOSS Funding",
+      "applicability": "mit_default_other_licenses_opt_in",
+      "managed": true
+    },
+    {
+      "number": 12,
+      "name": "Security",
+      "heading": "## 🔐 Security",
+      "applicability": "include_when_security_md_exists",
+      "managed": true
+    },
+    {
+      "number": 13,
+      "name": "Contributing",
+      "heading": "## 🤝 Contributing",
+      "applicability": "all_ecosystems",
+      "managed": true,
+      "report_missing_integrations": true
+    },
+    {
+      "number": 14,
+      "name": "Versioning",
+      "heading": "## 📌 Versioning",
+      "applicability": "all_ecosystems",
+      "managed": true,
+      "thin_policy": "softer SemVer statement with expanded platform-support nuance in details"
+    },
+    {
+      "number": 15,
+      "name": "License",
+      "heading": "## 📄 License",
+      "applicability": "all_ecosystems",
+      "managed": true,
+      "requires_blame_author_collection": true
+    },
+    {
+      "number": 16,
+      "name": "A request for help",
+      "heading": "## 🤑 A request for help",
+      "applicability": "all_ecosystems",
+      "managed": true,
+      "thin_policy": "short ask with collapsed extra support options"
+    }
+  ],
+  "logo_resolution": {
+    "base_url": "https://logos.galtzo.com/assets/images",
+    "types": [
+      "language",
+      "org",
+      "project",
+      "affiliated_project"
+    ],
+    "max_top_row_logos": 3,
+    "reference_examples": [
+      {
+        "type": "language",
+        "slug": "ruby-lang",
+        "image_url": "https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg"
+      },
+      {
+        "type": "org",
+        "slug": "galtzo-floss",
+        "image_url": "https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg"
+      },
+      {
+        "type": "project",
+        "slug": "acme/example-project",
+        "image_url": "https://logos.galtzo.com/assets/images/acme/example-project/avatar-192px.svg"
+      },
+      {
+        "type": "affiliated_project",
+        "slug": "tree-sitter/tree-sitter",
+        "image_url": "https://logos.galtzo.com/assets/images/tree-sitter/tree-sitter/avatar-192px.svg"
+      }
+    ],
+    "diagnostic_policy": "Report unresolved slugs and omit broken image references."
+  },
+  "generator_report_contract": {
+    "required_fields": [
+      "readme_path",
+      "changed",
+      "style",
+      "preserved_sections",
+      "rendered_sections",
+      "omitted_sections",
+      "missing_integrations",
+      "disabled_integrations",
+      "unresolved_logo_slugs",
+      "license_files_changed",
+      "copyright_authors"
+    ],
+    "missing_integration_example": {
+      "name": "codecov",
+      "reason": "no codecov.yml, coverage workflow, or configured Codecov URL was found",
+      "config_key": "readme.integrations.codecov"
+    }
+  },
+  "old_sources": [
+    "reference/kettle-jem/template/README.md.example",
+    "reference/kettle-jem/template/README.md.no-osc.example",
+    "reference/kettle-jem/lib/kettle/jem.rb",
+    "reference/kettle-jem/AGENTS.md"
+  ],
+  "transfer_decisions": [
+    {
+      "old_behavior": "README_TOP_LOGO_MODES only allowed org, project, or org_and_project.",
+      "new_behavior": "Normalize individual logo entries by type so any three of language, org, project, and affiliated_project can be used."
+    },
+    {
+      "old_behavior": "Secure Installation content was generated for Ruby gems.",
+      "new_behavior": "Remove secure installation prose from the new README template."
+    },
+    {
+      "old_behavior": "Many badge and service links were rendered unconditionally.",
+      "new_behavior": "Render only detected or configured integrations and report missing setup work."
+    },
+    {
+      "old_behavior": "The README was dense by default.",
+      "new_behavior": "Use a thin default README with secondary material collapsed in details blocks."
+    }
+  ]
+}

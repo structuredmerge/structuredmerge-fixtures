@@ -1,0 +1,65 @@
+{
+  "source": {
+    "family_package": "ruby/gems/yaml-merge",
+    "provider_package": "ruby/gems/psych-merge",
+    "previous_slices": [
+      "spec/slices/slice-750-yaml-psych-doc-split.md",
+      "spec/slices/slice-751-yaml-psych-fixture-coverage-verification.md"
+    ]
+  },
+  "active_package_evidence": {
+    "yaml_merge": {
+      "path": "ruby/gems/yaml-merge/lib/yaml/merge.rb",
+      "role": "canonical Ruby YAML family package",
+      "package_name": "yaml-merge",
+      "backend_default": "tree-sitter-language-pack"
+    },
+    "psych_merge": {
+      "path": "ruby/gems/psych-merge/lib/psych/merge.rb",
+      "role": "Ruby Psych provider package for the YAML family",
+      "package_name": "psych-merge",
+      "backend_id": "psych",
+      "depends_on": "yaml-merge",
+      "delegates_family_behavior_to": "Yaml::Merge",
+      "fixture_coverage": [
+        "fixtures/diagnostics/slice-95-yaml-family-feature-profile/yaml-feature-profile.json",
+        "fixtures/diagnostics/slice-277-yaml-provider-feature-profiles/ruby-yaml-provider-feature-profiles.json",
+        "fixtures/diagnostics/slice-278-yaml-provider-plan-contexts/ruby-yaml-provider-plan-contexts.json",
+        "fixtures/yaml/slice-96-parse/valid-document.json",
+        "fixtures/yaml/slice-97-structure/mapping-and-sequence.json",
+        "fixtures/yaml/slice-98-matching/path-equality.json",
+        "fixtures/yaml/slice-99-merge/mapping-merge.json"
+      ]
+    }
+  },
+  "options": [
+    {
+      "id": "retire",
+      "description": "Remove psych-merge from current docs and package matrix.",
+      "decision": "rejected",
+      "reason": "The active Ruby package exists, has provider fixture coverage, and preserves a useful native Psych backend identity."
+    },
+    {
+      "id": "compatibility_alias_only",
+      "description": "Keep psych-merge only as an old-name alias for yaml-merge.",
+      "decision": "rejected",
+      "reason": "The package is more than an alias: it registers the psych backend and exposes provider feature/profile APIs."
+    },
+    {
+      "id": "ruby_provider_package",
+      "description": "Keep psych-merge as the Ruby/Psych provider package for the YAML family.",
+      "decision": "accepted",
+      "reason": "This matches the current code, keeps backend-specific facts separate from portable yaml-merge docs, and preserves the old package name through a current provider role."
+    }
+  ],
+  "decision": {
+    "yaml_merge_role": "canonical cross-language YAML family package",
+    "psych_merge_role": "Ruby/Psych provider package for yaml-merge",
+    "compatibility_policy": "psych-merge may preserve old Ruby require paths and names as compatibility affordances, but it is documented as a provider package rather than the family package",
+    "readme_policy": [
+      "portable YAML examples belong in yaml-merge",
+      "Psych backend/provider examples belong in psych-merge",
+      "old Psych-only class examples require new fixtures before appearing as current behavior claims"
+    ]
+  }
+}

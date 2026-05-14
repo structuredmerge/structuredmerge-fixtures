@@ -1,0 +1,214 @@
+{
+  "source": {
+    "old_package": "reference/prism-merge",
+    "current_family": "ruby-merge",
+    "provider_package": "prism-merge",
+    "previous_slice": "spec/slices/slice-763-prism-utility-classification.md"
+  },
+  "current_fixture_backed_claims": [
+    {
+      "id": "ruby-family-provider-metadata",
+      "fixtures": [
+        "fixtures/diagnostics/slice-214-ruby-family-feature-profile/ruby-feature-profile.json",
+        "fixtures/diagnostics/slice-215-ruby-family-backend-feature-profiles/ruby-ruby-backend-feature-profiles.json",
+        "fixtures/diagnostics/slice-216-ruby-family-plan-contexts/ruby-ruby-plan-contexts.json",
+        "fixtures/diagnostics/slice-222-ruby-provider-feature-profiles/ruby-provider-feature-profiles.json",
+        "fixtures/diagnostics/slice-223-ruby-provider-plan-contexts/ruby-provider-plan-contexts.json",
+        "fixtures/diagnostics/slice-224-ruby-provider-named-suite-plans/ruby-provider-named-suite-plans.json",
+        "fixtures/diagnostics/slice-225-ruby-provider-manifest-report/ruby-provider-manifest-report.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "ruby-analysis-matching-and-merge",
+      "fixtures": [
+        "fixtures/ruby/slice-218-analysis/module-owners.json",
+        "fixtures/ruby/slice-219-matching/path-equality.json",
+        "fixtures/ruby/slice-287-merge/module-merge.json",
+        "fixtures/ruby/slice-720-advanced-leaf-merge/class-hash-leaf-merge.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "ruby-doc-comment-nested-merge",
+      "fixtures": [
+        "fixtures/ruby/slice-220-discovered-surfaces/doc-comment-surfaces.json",
+        "fixtures/ruby/slice-221-delegated-child-operations/yard-example-child-operations.json",
+        "fixtures/ruby/slice-291-nested-merge/yard-example-nested-merge.json",
+        "fixtures/ruby/slice-299-reviewed-nested-merge/yard-example-reviewed-nested-merge.json",
+        "fixtures/ruby/slice-310-reviewed-nested-review-artifact-application/yard-example-reviewed-nested-review-artifact-application.json",
+        "fixtures/ruby/slice-312-reviewed-nested-review-artifact-rejection/yard-example-reviewed-nested-review-artifact-rejection.json",
+        "fixtures/ruby/slice-314-reviewed-nested-review-artifact-envelope-application/yard-example-reviewed-nested-review-artifact-envelope-application.json",
+        "fixtures/ruby/slice-316-reviewed-nested-review-artifact-envelope-rejection/yard-example-reviewed-nested-review-artifact-envelope-rejection.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "gemfile-and-gemspec-policies",
+      "fixtures": [
+        "fixtures/diagnostics/slice-700-ruby-gemfile-signature-merge-acceptance/ruby-gemfile-signature-merge-acceptance.json",
+        "fixtures/diagnostics/slice-702-ruby-gemspec-signature-merge-acceptance/ruby-gemspec-signature-merge-acceptance.json",
+        "fixtures/diagnostics/slice-703-ruby-gemspec-field-policy-acceptance/ruby-gemspec-field-policy-acceptance.json",
+        "fixtures/diagnostics/slice-704-ruby-gemspec-dependency-section-policy-acceptance/ruby-gemspec-dependency-section-policy-acceptance.json",
+        "fixtures/diagnostics/slice-705-ruby-gemspec-files-policy-acceptance/ruby-gemspec-files-policy-acceptance.json",
+        "fixtures/diagnostics/slice-706-ruby-gemspec-version-loader-policy-acceptance/ruby-gemspec-version-loader-policy-acceptance.json",
+        "fixtures/diagnostics/slice-708-ruby-gemspec-self-dependency-policy-acceptance/ruby-gemspec-self-dependency-policy-acceptance.json",
+        "fixtures/diagnostics/slice-709-ruby-gemfile-self-dependency-policy-acceptance/ruby-gemfile-self-dependency-policy-acceptance.json",
+        "fixtures/diagnostics/slice-710-ruby-appraisals-self-dependency-policy-acceptance/ruby-appraisals-self-dependency-policy-acceptance.json",
+        "fixtures/diagnostics/slice-711-ruby-appraisals-min-ruby-prune-policy-acceptance/ruby-appraisals-min-ruby-prune-policy-acceptance.json"
+      ],
+      "status": "fixture_backed"
+    }
+  ],
+  "missing_fixture_obligations": [
+    {
+      "id": "begin-rescue-semantics",
+      "old_sources": [
+        "reference/prism-merge/lib/prism/merge/begin_node_rescue_semantics.rb",
+        "reference/prism-merge/spec/prism/merge/begin_node_rescue_semantics_spec.rb",
+        "reference/prism-merge/spec/prism/merge/smart_merger_spec.rb"
+      ],
+      "old_examples": [
+        "rescue clause ordering",
+        "broad versus specific rescue ordering",
+        "equivalent explicit and bare StandardError rescue",
+        "rescue binding preservation and rewrite",
+        "recursive merge of rescue and ensure bodies",
+        "comment preservation inside clauses"
+      ],
+      "current_status": "missing_portable_fixture"
+    },
+    {
+      "id": "magic-comments",
+      "old_sources": [
+        "reference/prism-merge/lib/prism/merge/magic_comment_support.rb",
+        "reference/prism-merge/spec/integration/magic_comment_handling_spec.rb",
+        "reference/prism-merge/spec/prism/merge/smart_merger_magic_comment_spec.rb"
+      ],
+      "old_examples": [
+        "preserve magic comment prefix",
+        "preserve blank line before first node",
+        "ignore magic-comment-only leading regions for doc surfaces"
+      ],
+      "current_status": "missing_portable_fixture"
+    },
+    {
+      "id": "nocov",
+      "old_sources": [
+        "reference/prism-merge/lib/prism/merge/nocov_node.rb",
+        "reference/prism-merge/lib/prism/merge/nocov_wrapper.rb",
+        "reference/prism-merge/spec/integration/nocov_in_rescue_and_block_spec.rb",
+        "reference/prism-merge/spec/integration/nocov_trailing_statement_ownership_spec.rb"
+      ],
+      "old_examples": [
+        "preserve nocov wrappers in rescue clauses",
+        "preserve nocov wrappers in blocks",
+        "detect malformed or unbalanced nocov pairs",
+        "handle trailing statement ownership"
+      ],
+      "current_status": "missing_portable_fixture"
+    },
+    {
+      "id": "gemspec-var-renamer",
+      "old_sources": [
+        "reference/prism-merge/lib/prism/merge/gemspec_var_renamer.rb",
+        "reference/prism-merge/spec/integration/gemspec_var_renaming_spec.rb"
+      ],
+      "old_examples": [
+        "rewrite legacy gemspec block receiver from gem to spec",
+        "rewrite receiver method calls consistently"
+      ],
+      "current_status": "likely_kettle_jem_recipe_fixture_needed"
+    },
+    {
+      "id": "top-level-runner",
+      "old_sources": [
+        "reference/prism-merge/lib/prism/merge/top_level_merge_runner.rb",
+        "reference/prism-merge/spec/prism/merge/top_level_merge_runner_spec.rb"
+      ],
+      "old_examples": [
+        "top-level merge orchestration"
+      ],
+      "current_status": "likely_recipe_or_provider_internal_fixture_needed"
+    },
+    {
+      "id": "recursive-body-merge",
+      "old_sources": [
+        "reference/prism-merge/lib/prism/merge/recursive_node_body_merger.rb",
+        "reference/prism-merge/lib/prism/merge/recursive_merge_policy.rb",
+        "reference/prism-merge/spec/prism/merge/recursive_node_body_merger_spec.rb",
+        "reference/prism-merge/spec/prism/merge/smart_merger_spec.rb"
+      ],
+      "old_examples": [
+        "recursive class and module body merge",
+        "recursive call block merge",
+        "recursion depth limits",
+        "nested freeze block handling",
+        "trailing blank line preservation"
+      ],
+      "current_status": "partially_overlaps_nested_class_leaf_fixture_but_missing_behavior_fixtures"
+    },
+    {
+      "id": "scaffold-chunk-removal",
+      "old_sources": [
+        "reference/prism-merge/lib/prism/merge/scaffold_chunk_remover.rb",
+        "reference/prism-merge/spec/prism/merge/scaffold_chunk_remover_spec.rb"
+      ],
+      "old_examples": [
+        "remove bundle-gem scaffold boilerplate from Rakefiles"
+      ],
+      "current_status": "likely_kettle_jem_recipe_fixture_needed"
+    },
+    {
+      "id": "method-fuzzy-matching-and-moved-node-detection",
+      "old_sources": [
+        "reference/prism-merge/lib/prism/merge/method_match_refiner.rb",
+        "reference/prism-merge/spec/integration/signature_matching_spec.rb",
+        "reference/prism-merge/spec/prism/merge/moved_node_matching_spec.rb"
+      ],
+      "old_examples": [
+        "similar method matching",
+        "moved node detection across control-flow wrappers"
+      ],
+      "current_status": "missing_portable_fixture"
+    },
+    {
+      "id": "freeze-blocks",
+      "old_sources": [
+        "reference/prism-merge/lib/prism/merge/freeze_node.rb",
+        "reference/prism-merge/spec/integration/freeze_block_detection_spec.rb",
+        "reference/prism-merge/spec/integration/freeze_blocks_advanced_spec.rb"
+      ],
+      "old_examples": [
+        "prism-merge freeze and unfreeze markers",
+        "frozen node wrapper signatures",
+        "nested freeze block behavior"
+      ],
+      "current_status": "missing_portable_fixture"
+    }
+  ],
+  "readme_policy": {
+    "may_claim_now": [
+      "Ruby family metadata",
+      "Prism provider metadata",
+      "module owner analysis",
+      "path/equality owner matching",
+      "module merge",
+      "YARD doc-comment nested merge fixtures",
+      "Gemfile and gemspec policy fixtures"
+    ],
+    "must_not_claim_until_fixture_backed": [
+      "begin/rescue semantics",
+      "magic comment preservation",
+      "nocov wrappers",
+      "gemspec variable rename",
+      "top-level runner",
+      "full recursive body merge",
+      "scaffold chunk removal",
+      "method fuzzy matching",
+      "moved-node detection",
+      "Ruby freeze blocks"
+    ]
+  },
+  "decision": "Do not copy old Prism README claims for these advanced behaviors into generated ruby-merge or prism-merge READMEs until future fixtures define the behavior and destination package."
+}

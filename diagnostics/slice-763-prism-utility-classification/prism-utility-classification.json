@@ -66,7 +66,7 @@
     "fixtures/ruby/slice-291-nested-merge/yard-example-nested-merge.json",
     "fixtures/ruby/slice-299-reviewed-nested-merge/yard-example-reviewed-nested-merge.json",
     "fixtures/diagnostics/slice-700-ruby-gemfile-signature-merge-acceptance/ruby-gemfile-signature-merge-acceptance.json",
-    "fixtures/diagnostics/slice-702-ruby-gemspec-signature-merge-acceptance/gemspec-signature-merge-acceptance.json",
+    "fixtures/diagnostics/slice-702-ruby-gemspec-signature-merge-acceptance/ruby-gemspec-signature-merge-acceptance.json",
     "fixtures/diagnostics/slice-703-ruby-gemspec-field-policy-acceptance/ruby-gemspec-field-policy-acceptance.json",
     "fixtures/diagnostics/slice-704-ruby-gemspec-dependency-section-policy-acceptance/ruby-gemspec-dependency-section-policy-acceptance.json"
   ],

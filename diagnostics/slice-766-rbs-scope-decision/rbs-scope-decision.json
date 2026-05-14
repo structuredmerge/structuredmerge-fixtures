@@ -1,0 +1,58 @@
+{
+  "source": {
+    "old_package": "reference/rbs-merge",
+    "old_readme": "reference/rbs-merge/README.md",
+    "old_fixtures": "reference/rbs-merge/spec/fixtures/reproducible"
+  },
+  "active_package_search": {
+    "paths_checked": [
+      "ruby/gems",
+      "go",
+      "rust/crates",
+      "typescript/packages"
+    ],
+    "active_rbs_package_found": false
+  },
+  "old_value": [
+    "official RBS parser backend adapter",
+    "type declaration matching by structural signature",
+    "custom signature generator",
+    "recursive class/module/member merge",
+    "comment attachment and preservation",
+    "template-only declaration policy",
+    "freeze markers and freeze blocks",
+    "merge result summaries and provenance"
+  ],
+  "old_reproducible_fixture_topics": [
+    "method removed",
+    "method added",
+    "signature changed",
+    "adjacent declaration comment template preference",
+    "adjacent removed declaration comment promotion",
+    "recursive overloaded member template preference",
+    "recursive member comment template preference",
+    "alias declaration comment template preference",
+    "frozen type alias destination preserved",
+    "comment-only destination preserved",
+    "frozen alias destination preserved",
+    "freeze marker not attached to following declaration",
+    "custom freeze marker not attached to following declaration",
+    "reason-bearing freeze marker not attached to following declaration",
+    "reason-bearing custom freeze marker not attached to following declaration",
+    "freeze block leading docs preserved",
+    "custom freeze block leading docs preserved",
+    "reason-bearing freeze block leading docs preserved",
+    "reason-bearing custom freeze block leading docs preserved"
+  ],
+  "decision": "RBS is later, not retired. Exclude it from current generated README support claims until an active package and fixture-backed contract exist.",
+  "future_fixture_order": [
+    "declaration identity",
+    "method and member identity",
+    "recursive member merge",
+    "comment attachment and preservation",
+    "template-only declaration policy",
+    "freeze markers and freeze blocks",
+    "custom signature generation",
+    "merge result summaries and provenance"
+  ]
+}

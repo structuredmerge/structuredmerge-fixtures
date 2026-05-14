@@ -1,0 +1,183 @@
+{
+  "source": {
+    "old_package": "reference/psych-merge",
+    "current_family": "yaml-merge",
+    "prior_decision": "spec/slices/slice-750-yaml-psych-doc-split.md"
+  },
+  "current_fixture_backed_claims": [
+    {
+      "id": "yaml-parse",
+      "fixtures": [
+        "fixtures/yaml/slice-96-parse/valid-document.json",
+        "fixtures/yaml/slice-96-parse/invalid-document.json"
+      ],
+      "readme_claim": "YAML parse success and parse failure"
+    },
+    {
+      "id": "yaml-structure",
+      "fixtures": [
+        "fixtures/yaml/slice-97-structure/mapping-and-sequence.json"
+      ],
+      "readme_claim": "Mapping and sequence owner extraction"
+    },
+    {
+      "id": "yaml-owner-matching",
+      "fixtures": [
+        "fixtures/yaml/slice-98-matching/path-equality.json"
+      ],
+      "readme_claim": "Path/equality owner matching"
+    },
+    {
+      "id": "yaml-merge",
+      "fixtures": [
+        "fixtures/yaml/slice-99-merge/mapping-merge.json",
+        "fixtures/yaml/slice-720-advanced-leaf-merge/nested-mapping-leaf-merge.json"
+      ],
+      "readme_claim": "Recursive mapping merge with destination-wins scalar conflicts and destination-wins sequence policy"
+    }
+  ],
+  "missing_fixture_obligations": [
+    {
+      "id": "fuzzy-mapping-match-refiner",
+      "old_sources": [
+        "reference/psych-merge/spec/psych/merge/mapping_match_refiner_spec.rb",
+        "reference/psych-merge/lib/psych/merge/mapping_match_refiner.rb"
+      ],
+      "old_examples": [
+        "database_url matches database_uri",
+        "cache_timeout matches cache_ttl",
+        "database-url matches database_url",
+        "api-key matches apiKey",
+        "weighted score threshold defaults to 0.5",
+        "greedy one-to-one template/destination matches"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/yaml slice for fuzzy owner matching"
+    },
+    {
+      "id": "sequence-mapping-item-identity",
+      "old_sources": [
+        "reference/psych-merge/spec/fixtures/reproducible/14_sequence_mapping_items_match_on_orcid_email_and_value"
+      ],
+      "old_examples": [
+        "match sequence mapping items by ORCID",
+        "match sequence mapping items by email",
+        "match sequence mapping items by scalar value"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/yaml slice for sequence item matching policy"
+    },
+    {
+      "id": "partial-template-key-path-merge",
+      "old_sources": [
+        "reference/psych-merge/spec/psych/merge/partial_template_merger_spec.rb",
+        "reference/psych-merge/lib/psych/merge/partial_template_merger.rb"
+      ],
+      "old_examples": [
+        "merge template sequence into AllCops.Exclude",
+        "merge template mapping into AllCops",
+        "skip when key path is missing by default",
+        "add missing key path with when_missing add",
+        "remove destination items when remove_missing is true",
+        "apply template preference at a deep scalar key path"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/yaml slice for key-path partial template merge"
+    },
+    {
+      "id": "diff-mapper-report",
+      "old_sources": [
+        "reference/psych-merge/spec/psych/merge/diff_mapper_spec.rb",
+        "reference/psych-merge/lib/psych/merge/diff_mapper.rb"
+      ],
+      "old_examples": [
+        "map changed YAML regions between template and destination",
+        "report structural diff context for partial merges"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future diagnostics fixture defining report shape before implementation"
+    },
+    {
+      "id": "comment-preserving-merge-output",
+      "old_sources": [
+        "reference/psych-merge/spec/psych/merge/comment_tracker_spec.rb",
+        "reference/psych-merge/spec/psych/merge/comment_behavior_matrix_spec.rb",
+        "reference/psych-merge/spec/fixtures/reproducible/05_deep_nested_comment_block_template_preference",
+        "reference/psych-merge/spec/fixtures/reproducible/06_recursive_mixed_siblings_comment_only_section_blank_lines",
+        "reference/psych-merge/spec/fixtures/reproducible/07_recursive_sequence_mapping_items_comment_promotion_blank_lines",
+        "reference/psych-merge/spec/fixtures/reproducible/08_recursive_nested_sequence_groups_comment_promotion",
+        "reference/psych-merge/spec/fixtures/reproducible/09_sequence_item_nested_mapping_comment_sections",
+        "reference/psych-merge/spec/fixtures/reproducible/10_sequence_item_nested_mapping_nested_sequence_comments",
+        "reference/psych-merge/spec/fixtures/reproducible/11_sequence_item_nested_mapping_nested_sequence_mapping_comments",
+        "reference/psych-merge/spec/fixtures/reproducible/12_sequence_item_nested_mapping_nested_sequence_multiple_keeps_removed_comments_stable_identity",
+        "reference/psych-merge/spec/fixtures/reproducible/13_sequence_item_nested_mapping_nested_sequence_duplicate_inner_id_comments_order_stability",
+        "reference/psych-merge/spec/fixtures/reproducible/15_preferred_document_boundary_comments_are_preserved",
+        "reference/psych-merge/spec/fixtures/reproducible/16_sequence_item_nested_mapping_parent_gap_stability",
+        "reference/psych-merge/spec/fixtures/reproducible/17_destination_preference_trailing_comments_preserved",
+        "reference/psych-merge/spec/fixtures/reproducible/18_compact_mapping_trailing_comment_not_duplicated",
+        "reference/psych-merge/spec/fixtures/reproducible/19_attached_trailing_comment_not_duplicated"
+      ],
+      "old_examples": [
+        "preserve leading comments",
+        "preserve inline comments",
+        "preserve blank gaps between comment lines",
+        "promote comments from removed sequence mapping items",
+        "preserve document boundary comments",
+        "avoid duplicate trailing comments"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/yaml comment-preserving merge corpus"
+    },
+    {
+      "id": "freeze-blocks",
+      "old_sources": [
+        "reference/psych-merge/spec/psych/merge/freeze_node_spec.rb",
+        "reference/psych-merge/lib/psych/merge/freeze_node.rb"
+      ],
+      "old_examples": [
+        "# psych-merge:freeze",
+        "# psych-merge:unfreeze",
+        "custom marker storage",
+        "invalid structure detection"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future cross-cutting freeze-block fixture plus YAML marker profile"
+    },
+    {
+      "id": "yaml-emitter-formatting",
+      "old_sources": [
+        "reference/psych-merge/spec/psych/merge/emitter_spec.rb",
+        "reference/psych-merge/lib/psych/merge/emitter.rb"
+      ],
+      "old_examples": [
+        "indentation control",
+        "anchors and aliases",
+        "YAML merge keys",
+        "literal and folded scalar styles",
+        "quote strings that YAML may reinterpret",
+        "align inline comments to tracked source columns"
+      ],
+      "current_status": "missing_portable_fixture",
+      "recommended_destination": "future fixtures/yaml emitter conformance slice"
+    }
+  ],
+  "readme_policy": {
+    "may_claim_now": [
+      "YAML parsing",
+      "mapping and sequence structure extraction",
+      "path/equality owner matching",
+      "recursive mapping merge",
+      "destination-wins sequence policy"
+    ],
+    "must_not_claim_until_fixture_backed": [
+      "fuzzy mapping matching",
+      "sequence item identity matching",
+      "partial-template key-path merge",
+      "diff mapper reports",
+      "comment-preserving merge output",
+      "freeze blocks",
+      "YAML emitter formatting beyond canonical output"
+    ]
+  },
+  "decision": "Do not copy old Psych README examples for these features into generated yaml-merge package READMEs until the feature has a portable YAML fixture and cross-language implementation plan."
+}

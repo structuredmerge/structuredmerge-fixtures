@@ -1,0 +1,65 @@
+{
+  "node_roles": [
+    "structural",
+    "token",
+    "trivia",
+    "comment",
+    "delimiter",
+    "separator",
+    "virtual",
+    "error",
+    "opaque"
+  ],
+  "node": {
+    "id": "source:0",
+    "kind": "source_file",
+    "role": "structural",
+    "parent_id": null,
+    "child_ids": ["import:fmt", "func:greet"],
+    "span": {
+      "range": {
+        "start_byte": 0,
+        "end_byte": 42
+      },
+      "start_point": {
+        "row": 0,
+        "column": 0
+      },
+      "end_point": {
+        "row": 5,
+        "column": 1
+      }
+    },
+    "field_name": null,
+    "named": true,
+    "anonymous": false,
+    "has_source_text": true,
+    "source_fragment": "import \"fmt\"\n\nfunc Greet() {\n}\n"
+  },
+  "child": {
+    "id": "func:greet",
+    "kind": "function_declaration",
+    "role": "structural",
+    "parent_id": "source:0",
+    "child_ids": [],
+    "span": {
+      "range": {
+        "start_byte": 14,
+        "end_byte": 42
+      },
+      "start_point": {
+        "row": 2,
+        "column": 0
+      },
+      "end_point": {
+        "row": 5,
+        "column": 1
+      }
+    },
+    "field_name": "declaration",
+    "named": true,
+    "anonymous": false,
+    "has_source_text": true,
+    "source_fragment": "func Greet() {\n}\n"
+  }
+}

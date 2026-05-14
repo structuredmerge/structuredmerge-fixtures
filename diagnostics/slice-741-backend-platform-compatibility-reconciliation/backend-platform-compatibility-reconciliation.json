@@ -1,0 +1,154 @@
+{
+  "source_of_truth": "family backend feature-profile fixtures",
+  "old_claims": [
+    {
+      "claim": "tree_haver supports MRI, JRuby, and TruffleRuby through runtime-specific parser backends",
+      "current_disposition": "prior_art_only",
+      "note": "The new cross-language docs use family backend fixtures and tree-sitter-language-pack support instead of Ruby runtime badge tables."
+    },
+    {
+      "claim": "Citrus and Parslet are pure Ruby PEG backends available on MRI, JRuby, and TruffleRuby",
+      "current_disposition": "provider_prior_art",
+      "note": "Citrus and Parslet remain Ruby TOML provider/adaptor prior art, not a cross-language support promise."
+    },
+    {
+      "claim": "Prism, Psych, Commonmarker, and Markly provide parser-specific merge packages",
+      "current_disposition": "provider_prior_art",
+      "note": "These map to Ruby provider/adaptor packages while portable behavior lives in ruby-merge, yaml-merge, and markdown-merge fixtures."
+    },
+    {
+      "claim": "bash-merge, dotenv-merge, and rbs-merge are documented family packages",
+      "current_disposition": "unresolved",
+      "note": "No active StructuredMerge family is advertised for these until explicit scope decisions are made."
+    }
+  ],
+  "current_backend_profiles": [
+    {
+      "backend_category": "portable tree-sitter substrate",
+      "backend": "tree-sitter-language-pack",
+      "languages": [
+        "go",
+        "ruby",
+        "rust",
+        "typescript"
+      ],
+      "families": [
+        "markdown",
+        "toml",
+        "yaml",
+        "source"
+      ],
+      "fixture_sources": [
+        "slice-122-source-family-backend-feature-profiles",
+        "slice-135-toml-family-backend-feature-profiles",
+        "slice-171-yaml-family-backend-feature-profiles",
+        "slice-195-markdown-family-backend-feature-profiles",
+        "slice-215-ruby-family-backend-feature-profiles"
+      ],
+      "documentation_status": "current"
+    },
+    {
+      "backend_category": "implementation-native parser",
+      "backend": "native parser/adaptor",
+      "languages": [
+        "go",
+        "ruby",
+        "rust",
+        "typescript"
+      ],
+      "families": [
+        "yaml",
+        "ruby-source",
+        "rust-source"
+      ],
+      "fixture_sources": [
+        "slice-122-source-family-backend-feature-profiles",
+        "slice-183-yaml-family-polyglot-backend-feature-profiles"
+      ],
+      "documentation_status": "implementation_specific"
+    },
+    {
+      "backend_category": "parser-free structured data",
+      "backend": "plain structured text",
+      "languages": [
+        "go",
+        "ruby",
+        "rust",
+        "typescript"
+      ],
+      "families": [
+        "plain",
+        "binary",
+        "zip"
+      ],
+      "fixture_sources": [
+        "slice-03-analysis",
+        "slice-721-kaitai-tree-haver-substrate",
+        "slice-723-binary-core-contract",
+        "slice-724-zip-family",
+        "slice-729-zip-raw-preservation"
+      ],
+      "documentation_status": "current"
+    }
+  ],
+  "provider_adaptors": [
+    {
+      "language": "ruby",
+      "providers": [
+        "psych",
+        "commonmarker",
+        "markly",
+        "prism",
+        "citrus",
+        "parslet"
+      ],
+      "status": "provider_prior_art_or_adapter",
+      "portable_family_destination": [
+        "yaml-merge",
+        "markdown-merge",
+        "ruby-merge",
+        "toml-merge"
+      ]
+    },
+    {
+      "language": "go",
+      "providers": [
+        "yaml-v3",
+        "goccy-go-yaml"
+      ],
+      "status": "implementation_specific_backend",
+      "portable_family_destination": [
+        "yaml-merge"
+      ]
+    },
+    {
+      "language": "rust",
+      "providers": [
+        "syn",
+        "serde_yaml",
+        "yaml_serde"
+      ],
+      "status": "implementation_specific_backend",
+      "portable_family_destination": [
+        "rust-merge",
+        "yaml-merge"
+      ]
+    },
+    {
+      "language": "typescript",
+      "providers": [
+        "yaml",
+        "js-yaml"
+      ],
+      "status": "implementation_specific_backend",
+      "portable_family_destination": [
+        "yaml-merge"
+      ]
+    }
+  ],
+  "excluded_until_scope_decision": [
+    "bash-merge",
+    "dotenv-merge",
+    "rbs-merge"
+  ]
+}

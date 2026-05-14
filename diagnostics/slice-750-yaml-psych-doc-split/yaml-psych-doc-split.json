@@ -1,0 +1,121 @@
+{
+  "source": {
+    "old_package": "reference/psych-merge",
+    "old_readme": "reference/psych-merge/README.md",
+    "current_family": "yaml-merge",
+    "backend_prior_art": "psych-merge"
+  },
+  "general_yaml_semantics": [
+    {
+      "id": "yaml-parse",
+      "old_value": "YAML-aware parsing of mappings, sequences, and scalars.",
+      "current_fixtures": [
+        "fixtures/yaml/slice-96-parse/valid-document.json",
+        "fixtures/yaml/slice-96-parse/invalid-document.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "supported-node-types",
+      "old_value": "Mappings, sequences, scalars, and aliases are YAML node concepts.",
+      "current_fixtures": [
+        "fixtures/yaml/slice-97-structure/mapping-and-sequence.json"
+      ],
+      "status": "partially_fixture_backed",
+      "missing": [
+        "alias-specific owner/signature fixture"
+      ]
+    },
+    {
+      "id": "owner-matching",
+      "old_value": "YAML owners match by structural signatures.",
+      "current_fixtures": [
+        "fixtures/yaml/slice-98-matching/path-equality.json"
+      ],
+      "status": "fixture_backed_for_current_path_policy"
+    },
+    {
+      "id": "recursive-mapping-merge",
+      "old_value": "Mappings merge recursively while destination scalar conflicts win.",
+      "current_fixtures": [
+        "fixtures/yaml/slice-99-merge/mapping-merge.json",
+        "fixtures/yaml/slice-720-advanced-leaf-merge/nested-mapping-leaf-merge.json"
+      ],
+      "status": "fixture_backed"
+    },
+    {
+      "id": "sequence-policy",
+      "old_value": "Sequences are recognized as YAML structure.",
+      "current_fixtures": [
+        "fixtures/yaml/slice-99-merge/mapping-merge.json",
+        "fixtures/diagnostics/slice-95-yaml-family-feature-profile/yaml-feature-profile.json"
+      ],
+      "status": "fixture_backed_as_destination_wins_array_policy"
+    },
+    {
+      "id": "backend-plurality",
+      "old_value": "Psych was the Ruby parser backend.",
+      "current_fixtures": [
+        "fixtures/diagnostics/slice-171-yaml-family-backend-feature-profiles/",
+        "fixtures/diagnostics/slice-183-yaml-family-polyglot-backend-feature-profiles/"
+      ],
+      "status": "fixture_backed_as_provider_backend_metadata"
+    }
+  ],
+  "psych_specific_or_future": [
+    {
+      "id": "ruby-class-api",
+      "old_value": "require \"psych/merge\" and Psych::Merge::SmartMerger examples.",
+      "destination": "Ruby provider docs only, not cross-language YAML README claims",
+      "status": "do_not_port_to_general_yaml"
+    },
+    {
+      "id": "mapping-match-refiner",
+      "old_value": "Psych::Merge::MappingMatchRefiner fuzzy key matching with threshold, key_weight, and value_weight.",
+      "destination": "future YAML fuzzy mapping fixtures",
+      "status": "missing_fixture_before_port"
+    },
+    {
+      "id": "freeze-blocks",
+      "old_value": "psych-merge:freeze and psych-merge:unfreeze markers plus custom freeze_token.",
+      "destination": "cross-cutting freeze-block infrastructure and YAML-specific fixtures",
+      "status": "missing_fixture_before_port"
+    },
+    {
+      "id": "comment-preserving-emitter",
+      "old_value": "Comment-preserving YAML output and emitter behavior.",
+      "destination": "future YAML comment/emitter fixtures",
+      "status": "missing_fixture_before_port"
+    },
+    {
+      "id": "debug-logging",
+      "old_value": "PSYCH_MERGE_DEBUG=1 textual debug logging.",
+      "destination": "structured diagnostics/report examples",
+      "status": "retire_textual_debug_docs"
+    },
+    {
+      "id": "secure-installation",
+      "old_value": "RubyGems secure installation and trust-policy commands.",
+      "destination": "discarded",
+      "status": "discarded"
+    }
+  ],
+  "readme_policy": {
+    "yaml_merge_may_claim": [
+      "YAML mapping-root parse",
+      "mapping and sequence owner extraction",
+      "path-equality owner matching",
+      "recursive mapping merge",
+      "destination-wins sequence policy",
+      "backend/provider metadata from current backend fixtures"
+    ],
+    "yaml_merge_must_not_claim_yet": [
+      "MappingMatchRefiner fuzzy key matching",
+      "freeze-block behavior",
+      "comment-preserving emitter behavior",
+      "template-wins YAML conflict preference",
+      "PSYCH_MERGE_DEBUG textual logging"
+    ],
+    "psych_merge_role": "Ruby/Psych provider prior art or optional compatibility wrapper, not the cross-language YAML family identity"
+  }
+}

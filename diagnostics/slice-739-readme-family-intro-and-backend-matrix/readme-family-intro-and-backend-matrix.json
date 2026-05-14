@@ -1,0 +1,221 @@
+{
+  "intro": {
+    "heading": "StructuredMerge Package Family",
+    "body": "StructuredMerge packages provide fixture-backed merge behavior for document, configuration, source, archive, and binary formats. Shared contracts live in fixtures, while Go, Ruby, Rust, and TypeScript packages expose language-native APIs over the same behavior.",
+    "old_sources": [
+      "reference/ast-merge/README.md",
+      "reference/ast-merge/GEM_FAMILY_SECTION.md",
+      "reference/tree_haver/README.md"
+    ]
+  },
+  "package_matrix": {
+    "columns": [
+      "package",
+      "layer",
+      "families",
+      "current_status",
+      "readme_role"
+    ],
+    "rows": [
+      {
+        "package": "ast-template",
+        "layer": "workflow",
+        "families": [
+          "template",
+          "readme"
+        ],
+        "current_status": "active",
+        "readme_role": "applies shared templates, package README sections, and package-directory sync workflows"
+      },
+      {
+        "package": "ast-merge",
+        "layer": "core",
+        "families": [
+          "template",
+          "review",
+          "structured-edit"
+        ],
+        "current_status": "active",
+        "readme_role": "documents provider-neutral contracts, token resolution, review state, and execution reports"
+      },
+      {
+        "package": "tree-haver",
+        "layer": "backend substrate",
+        "families": [
+          "parser",
+          "backend"
+        ],
+        "current_status": "active",
+        "readme_role": "documents backend selection, language-pack integration, position data, and capability reporting"
+      },
+      {
+        "package": "markdown-merge",
+        "layer": "family",
+        "families": [
+          "markdown"
+        ],
+        "current_status": "active",
+        "readme_role": "documents Markdown heading, fenced-code, nested-family, and provider behavior"
+      },
+      {
+        "package": "json-merge",
+        "layer": "family",
+        "families": [
+          "json",
+          "jsonc"
+        ],
+        "current_status": "active",
+        "readme_role": "documents JSON and JSONC merge behavior; old jsonc-merge is superseded"
+      },
+      {
+        "package": "toml-merge",
+        "layer": "family",
+        "families": [
+          "toml"
+        ],
+        "current_status": "active",
+        "readme_role": "documents TOML table, value, parser, and backend behavior"
+      },
+      {
+        "package": "yaml-merge",
+        "layer": "family",
+        "families": [
+          "yaml"
+        ],
+        "current_status": "active",
+        "readme_role": "documents YAML mapping, sequence, scalar, and backend behavior"
+      },
+      {
+        "package": "ruby-merge",
+        "layer": "family",
+        "families": [
+          "ruby-source"
+        ],
+        "current_status": "active",
+        "readme_role": "documents Ruby source merge behavior; old prism-merge is a backend/provider prior art source"
+      },
+      {
+        "package": "zip-merge",
+        "layer": "family",
+        "families": [
+          "zip",
+          "archive"
+        ],
+        "current_status": "active",
+        "readme_role": "documents ZIP member planning and raw-preservation behavior"
+      },
+      {
+        "package": "binary-merge",
+        "layer": "family",
+        "families": [
+          "binary"
+        ],
+        "current_status": "active",
+        "readme_role": "documents binary preservation and diagnostics behavior"
+      }
+    ]
+  },
+  "backend_matrix": {
+    "source_of_truth": "family feature-profile fixtures",
+    "profile_fixtures": [
+      "fixtures/diagnostics/slice-122-source-family-backend-feature-profiles/",
+      "fixtures/diagnostics/slice-135-toml-family-backend-feature-profiles/",
+      "fixtures/diagnostics/slice-171-yaml-family-backend-feature-profiles/",
+      "fixtures/diagnostics/slice-183-yaml-family-polyglot-backend-feature-profiles/",
+      "fixtures/diagnostics/slice-195-markdown-family-backend-feature-profiles/",
+      "fixtures/diagnostics/slice-215-ruby-family-backend-feature-profiles/"
+    ],
+    "rows": [
+      {
+        "backend": "tree-sitter-language-pack",
+        "languages": [
+          "go",
+          "ruby",
+          "rust",
+          "typescript"
+        ],
+        "families": [
+          "markdown",
+          "toml",
+          "yaml",
+          "source"
+        ],
+        "documentation_note": "Preferred cross-language parser substrate where a family has language-pack support."
+      },
+      {
+        "backend": "native ecosystem parser",
+        "languages": [
+          "ruby"
+        ],
+        "families": [
+          "ruby",
+          "yaml",
+          "markdown",
+          "toml"
+        ],
+        "documentation_note": "Backend-specific Ruby packages such as prism, psych, commonmarker, markly, citrus, and parslet are provider prior art or adapters, not the source schema."
+      },
+      {
+        "backend": "plain structured text",
+        "languages": [
+          "go",
+          "ruby",
+          "rust",
+          "typescript"
+        ],
+        "families": [
+          "plain",
+          "binary",
+          "zip"
+        ],
+        "documentation_note": "Families without parser requirements document preservation, byte ranges, archive members, and diagnostics instead of parser support."
+      }
+    ]
+  },
+  "old_package_decisions": [
+    {
+      "old_package": "jsonc-merge",
+      "decision": "superseded",
+      "new_destination": "json-merge JSONC behavior and fixtures"
+    },
+    {
+      "old_package": "prism-merge",
+      "decision": "backend_prior_art",
+      "new_destination": "ruby-merge plus Prism provider docs"
+    },
+    {
+      "old_package": "psych-merge",
+      "decision": "backend_prior_art",
+      "new_destination": "yaml-merge plus Psych provider docs"
+    },
+    {
+      "old_package": "commonmarker-merge",
+      "decision": "backend_prior_art",
+      "new_destination": "markdown-merge plus Commonmarker provider docs"
+    },
+    {
+      "old_package": "markly-merge",
+      "decision": "backend_prior_art",
+      "new_destination": "markdown-merge plus Markly provider docs"
+    },
+    {
+      "old_package": "rbs-merge",
+      "decision": "unresolved",
+      "new_destination": "needs explicit scope decision"
+    },
+    {
+      "old_package": "bash-merge",
+      "decision": "unresolved",
+      "new_destination": "needs explicit scope decision"
+    },
+    {
+      "old_package": "dotenv-merge",
+      "decision": "unresolved",
+      "new_destination": "needs explicit scope decision"
+    }
+  ],
+  "readme_gap_report": {
+    "current_observation": "Active package directories generally do not have package-local README.md files yet.",
+    "required_next_step": "Generate or author package-local README.md files from fixture-backed sections instead of copying old README prose directly."
+  }
+}

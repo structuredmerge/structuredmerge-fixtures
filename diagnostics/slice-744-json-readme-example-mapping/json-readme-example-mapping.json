@@ -1,0 +1,243 @@
+{
+  "source": "reference/json-merge/README.md",
+  "package": "json-merge",
+  "mapped_examples": [
+    {
+      "id": "json-strict-parse",
+      "old_readme_sections": [
+        "Synopsis",
+        "Key Features"
+      ],
+      "portable_behavior": "Strict JSON accepts valid JSON and rejects comments and trailing commas.",
+      "existing_fixtures": [
+        "fixtures/json/slice-04-parse/valid-object.json",
+        "fixtures/json/slice-04-parse/trailing-comma-rejected.json"
+      ],
+      "missing_fixtures": [
+        "strict JSON comment rejection is currently covered by JSONC fallback-boundary fixtures, not a direct slice-04 JSON parse case"
+      ],
+      "migration_decision": "fixture_backed_with_minor_gap"
+    },
+    {
+      "id": "jsonc-comments",
+      "old_readme_sections": [
+        "Synopsis",
+        "Key Features"
+      ],
+      "portable_behavior": "JSONC comments are accepted when the JSONC parser exposes them, and comments do not change the structural owner model.",
+      "existing_fixtures": [
+        "fixtures/jsonc/slice-04-parse/comments-accepted.json",
+        "fixtures/jsonc/slice-04-parse/trailing-comma-rejected.json",
+        "fixtures/jsonc/slice-07-structure/commented-object.json"
+      ],
+      "missing_fixtures": [],
+      "migration_decision": "fixture_backed"
+    },
+    {
+      "id": "supported-node-types",
+      "old_readme_sections": [
+        "Supported Node Types"
+      ],
+      "portable_behavior": "Objects, arrays, pairs, and scalar JSON values expose merge-relevant owner and match-key candidates.",
+      "existing_fixtures": [
+        "fixtures/json/slice-07-structure/object-and-array.json",
+        "fixtures/json/slice-08-matching/path-equality.json"
+      ],
+      "missing_fixtures": [
+        "direct scalar signature fixture for string, number, boolean, and null examples from the old table"
+      ],
+      "migration_decision": "fixture_backed_with_minor_gap"
+    },
+    {
+      "id": "basic-object-merge",
+      "old_readme_sections": [
+        "Example",
+        "Basic Usage / Merging Two JSON Files"
+      ],
+      "portable_behavior": "Merging two JSON files preserves destination-owned values while adding template-owned missing object members.",
+      "existing_fixtures": [
+        "fixtures/json/slice-09-merge/object-merge.json",
+        "fixtures/json/slice-720-advanced-leaf-merge/nested-object-leaf-merge.json"
+      ],
+      "missing_fixtures": [],
+      "migration_decision": "fixture_backed"
+    },
+    {
+      "id": "invalid-input-reporting",
+      "old_readme_sections": [
+        "Key Features",
+        "Basic Usage"
+      ],
+      "portable_behavior": "Invalid template and destination inputs produce distinct parse-error outcomes.",
+      "existing_fixtures": [
+        "fixtures/json/slice-09-merge/invalid-template.json",
+        "fixtures/json/slice-09-merge/invalid-destination.json"
+      ],
+      "missing_fixtures": [],
+      "migration_decision": "fixture_backed"
+    },
+    {
+      "id": "template-only-nodes",
+      "old_readme_sections": [
+        "Configuration / Template-Only Nodes"
+      ],
+      "portable_behavior": "Template-only object members can be added to the destination when the template-only policy allows insertion.",
+      "existing_fixtures": [
+        "fixtures/json/slice-09-merge/object-merge.json"
+      ],
+      "missing_fixtures": [
+        "JSON-specific skip/filter template-only policy examples; shared policy examples exist in slice 743"
+      ],
+      "migration_decision": "partially_fixture_backed"
+    },
+    {
+      "id": "match-preference",
+      "old_readme_sections": [
+        "Configuration / Signature Match Preference"
+      ],
+      "portable_behavior": "Equivalent JSON owners can use template-wins or destination-wins conflict preference.",
+      "existing_fixtures": [
+        "fixtures/json/slice-09-merge/object-merge.json",
+        "fixtures/diagnostics/slice-743-reusable-readme-configuration-examples/reusable-readme-configuration-examples.json"
+      ],
+      "missing_fixtures": [
+        "JSON-specific template-wins example for an equivalent scalar or object member"
+      ],
+      "migration_decision": "partially_fixture_backed"
+    },
+    {
+      "id": "destination-wins-array-policy",
+      "old_readme_sections": [
+        "Supported Node Types",
+        "Basic Usage / Array Element Matching"
+      ],
+      "portable_behavior": "Baseline JSON array merge keeps the destination array when template and destination both define the same array owner.",
+      "existing_fixtures": [
+        "fixtures/json/slice-16-array-policy/destination-wins-array.json"
+      ],
+      "missing_fixtures": [],
+      "migration_decision": "fixture_backed_for_current_policy"
+    },
+    {
+      "id": "tree-sitter-strict-json-adapter",
+      "old_readme_sections": [
+        "Key Features"
+      ],
+      "portable_behavior": "The strict JSON tree-sitter adapter reports successful analysis, backend syntax errors, and unsupported dialect requests.",
+      "existing_fixtures": [
+        "fixtures/json/slice-26-tree-sitter-adapter/strict-json.json"
+      ],
+      "missing_fixtures": [],
+      "migration_decision": "fixture_backed"
+    },
+    {
+      "id": "fallback-boundaries",
+      "old_readme_sections": [
+        "Synopsis",
+        "Key Features"
+      ],
+      "portable_behavior": "Destination-only trailing-comma recovery is explicit, while template trailing commas and strict JSON comments are not silently recovered.",
+      "existing_fixtures": [
+        "fixtures/json/slice-14-fallback/trailing-comma-destination.json",
+        "fixtures/json/slice-15-fallback-boundaries/template-trailing-comma-not-recovered.json",
+        "fixtures/json/slice-15-fallback-boundaries/strict-json-comments-not-recovered.json"
+      ],
+      "missing_fixtures": [],
+      "migration_decision": "fixture_backed"
+    },
+    {
+      "id": "file-analysis-signatures",
+      "old_readme_sections": [
+        "Basic Usage / Analyzing a JSON File"
+      ],
+      "portable_behavior": "A JSON analysis can enumerate top-level owners and expose generated signatures for merge matching.",
+      "existing_fixtures": [
+        "fixtures/json/slice-07-structure/object-and-array.json",
+        "fixtures/json/slice-08-matching/path-equality.json"
+      ],
+      "missing_fixtures": [
+        "current public analysis API example per language"
+      ],
+      "migration_decision": "fixture_backed_behavior_readme_api_pending"
+    },
+    {
+      "id": "object-match-refiner-fuzzy-properties",
+      "old_readme_sections": [
+        "Configuration / Object Match Refiner",
+        "Basic Usage / Fuzzy Property Matching"
+      ],
+      "portable_behavior": "Similar object member names such as camelCase and snake_case can be paired when the fuzzy threshold accepts them.",
+      "existing_fixtures": [],
+      "missing_fixtures": [
+        "fuzzy property match fixture for databaseUrl versus database_url",
+        "threshold fixture showing accepted and rejected matches",
+        "weight fixture for key_weight and value_weight"
+      ],
+      "migration_decision": "missing_fixture_before_port"
+    },
+    {
+      "id": "array-element-fuzzy-matching",
+      "old_readme_sections": [
+        "Basic Usage / Array Element Matching"
+      ],
+      "portable_behavior": "Array elements with matching identifiers or similar structure can be paired by a JSON object match refiner.",
+      "existing_fixtures": [],
+      "missing_fixtures": [
+        "array object element fixture for id-matched objects with userName versus user_name",
+        "array object element fixture for unmatched destination-only and template-only elements"
+      ],
+      "migration_decision": "missing_fixture_before_port"
+    },
+    {
+      "id": "conflict-resolver-emitter-freeze-debug",
+      "old_readme_sections": [
+        "Key Features",
+        "Configuration / Debug Logging"
+      ],
+      "portable_behavior": "Old docs refer to conflict resolution, emitter/provenance behavior, freeze comments, and textual debug logging.",
+      "existing_fixtures": [
+        "fixtures/diagnostics/slice-743-reusable-readme-configuration-examples/reusable-readme-configuration-examples.json"
+      ],
+      "missing_fixtures": [
+        "JSON conflict resolver policy fixture beyond destination/template preference",
+        "JSON emitter/comment preservation fixture",
+        "JSON freeze comment fixture",
+        "current structured debug report fixture for JSON merge decisions"
+      ],
+      "migration_decision": "requires_follow_up_evaluation"
+    },
+    {
+      "id": "secure-installation",
+      "old_readme_sections": [
+        "Installation / Secure Installation"
+      ],
+      "portable_behavior": "Old RubyGems trust-policy prose is intentionally not part of generated READMEs.",
+      "existing_fixtures": [
+        "fixtures/diagnostics/slice-742-old-readme-example-inventory/old-readme-example-inventory.json",
+        "fixtures/diagnostics/slice-743-reusable-readme-configuration-examples/reusable-readme-configuration-examples.json"
+      ],
+      "missing_fixtures": [],
+      "migration_decision": "discarded"
+    }
+  ],
+  "next_actions": [
+    {
+      "tracker_task": "Evaluate ObjectMatchRefiner against current conformance behavior.",
+      "blocking_examples": [
+        "object-match-refiner-fuzzy-properties"
+      ]
+    },
+    {
+      "tracker_task": "Evaluate array element matching against current behavior.",
+      "blocking_examples": [
+        "array-element-fuzzy-matching"
+      ]
+    },
+    {
+      "tracker_task": "Port or retire conflict resolver, emitter, freeze comments, and debug logging docs.",
+      "blocking_examples": [
+        "conflict-resolver-emitter-freeze-debug"
+      ]
+    }
+  ]
+}

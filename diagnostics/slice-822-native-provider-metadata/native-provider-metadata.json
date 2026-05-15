@@ -1,0 +1,39 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "822",
+  "name": "native-provider-metadata",
+  "description": "Native parser providers expose generic metadata and required capability declarations through tree-haver and ast-merge.",
+  "provider_metadata": {
+    "provider_id": "go-parser",
+    "family": "native",
+    "host_language": "go",
+    "target_language": "go",
+    "parser_name": "go/parser",
+    "parser_version": "go1.26",
+    "language_version": "go1.26",
+    "dialect": "go",
+    "parse_error_behavior": "fail_fast",
+    "source_span_support": "byte_offsets",
+    "render_support": "native_printer",
+    "semantic_role_support": "generic_roles",
+    "retains_native_tree": true,
+    "native_tree_visibility": "provider_internal",
+    "metadata_policy": "opaque_transport",
+    "diagnostics": [
+      "native provider metadata is normalized before downstream merge tooling consumes it"
+    ]
+  },
+  "expected": {
+    "provider_id": "go-parser",
+    "family": "native",
+    "host_language": "go",
+    "target_language": "go",
+    "parser_name": "go/parser",
+    "parse_error_behavior": "fail_fast",
+    "source_span_support": "byte_offsets",
+    "render_support": "native_printer",
+    "semantic_role_support": "generic_roles",
+    "retains_native_tree": true,
+    "metadata_policy": "opaque_transport"
+  }
+}

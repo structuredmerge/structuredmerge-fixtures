@@ -1,0 +1,65 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "805",
+  "name": "fallback-scopes",
+  "description": "Fallback scopes are runtime/reporting vocabulary for choosing the smallest coherent region that can safely fall back.",
+  "fallback": {
+    "report_id": "fallback-scopes-runtime-report",
+    "version": "1",
+    "scopes": [
+      {
+        "scope": "node",
+        "path": "/declarations/Greet/body/0",
+        "owner_path": "/declarations/Greet",
+        "covers_children": false,
+        "requires_source_span": true,
+        "description": "fallback only the selected node"
+      },
+      {
+        "scope": "subtree",
+        "path": "/declarations/Greet",
+        "owner_path": "/declarations/Greet",
+        "covers_children": true,
+        "requires_source_span": true,
+        "description": "fallback the selected node and descendants"
+      },
+      {
+        "scope": "owned_region",
+        "path": "/declarations/Greet",
+        "owner_path": "/declarations/Greet",
+        "covers_children": true,
+        "requires_source_span": true,
+        "description": "fallback the complete source region owned by a structural owner"
+      },
+      {
+        "scope": "whole_file",
+        "path": "/",
+        "owner_path": "/",
+        "covers_children": true,
+        "requires_source_span": false,
+        "description": "fallback the entire file when smaller scopes are unsafe"
+      }
+    ],
+    "default_order": [
+      "node",
+      "subtree",
+      "owned_region",
+      "whole_file"
+    ],
+    "diagnostics": [
+      "fallback scopes are reported by ast-merge before any ruleset vocabulary is promoted"
+    ]
+  },
+  "expected": {
+    "scope_count": 4,
+    "default_order": [
+      "node",
+      "subtree",
+      "owned_region",
+      "whole_file"
+    ],
+    "first_scope": "node",
+    "last_scope": "whole_file",
+    "whole_file_requires_source_span": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "807",
+  "name": "local-line-based-fallback",
+  "description": "A structured merge can fall back to a local line merge for a subtree or owned region while preserving machine-readable scope reporting.",
+  "fallback": {
+    "fallback_id": "local-line-fallback-greet",
+    "strategy": "local_line_based",
+    "scope": "owned_region",
+    "path": "/declarations/Greet",
+    "owner_path": "/declarations/Greet",
+    "base_span": {
+      "start_line": 10,
+      "end_line": 18
+    },
+    "left_span": {
+      "start_line": 10,
+      "end_line": 20
+    },
+    "right_span": {
+      "start_line": 10,
+      "end_line": 19
+    },
+    "result": "conflicted",
+    "conflict_category": "edit_edit",
+    "diagnostics": [
+      "line-based fallback was limited to the owned region"
+    ]
+  },
+  "expected": {
+    "strategy": "local_line_based",
+    "scope": "owned_region",
+    "path": "/declarations/Greet",
+    "result": "conflicted",
+    "conflict_category": "edit_edit",
+    "left_line_count": 11,
+    "right_line_count": 10
+  }
+}

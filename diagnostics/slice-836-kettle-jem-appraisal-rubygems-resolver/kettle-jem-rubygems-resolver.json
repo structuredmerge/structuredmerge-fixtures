@@ -1,12 +1,12 @@
 {
   "source": {
-    "old_package": "reference/kettle-jem-appraisals",
-    "old_behavior": "Kettle::Jem::Appraisals::GemVersionResolver",
+    "old_package": "reference/kettle-jem and reference/kettle-jem-appraisals",
+    "old_behavior": "Kettle::Jem::GemRubyFloor::Resolver and Kettle::Jem::Appraisals::GemVersionResolver",
     "active_destination": "ruby/gems/kettle-jem/lib/kettle/jem.rb"
   },
   "decision": {
     "owner": "kettle-jem",
-    "rationale": "RubyGems resolution is Ruby package-ecosystem templating behavior, so active kettle-jem owns it instead of relying on a generic envelope-only metadata adapter.",
+    "rationale": "RubyGems resolution is Ruby package-ecosystem templating behavior used by gemfiles, gemspecs, and appraisals, so active kettle-jem owns it instead of relying on a generic envelope-only metadata adapter or an appraisal-only client.",
     "network_boundary": "Production resolver can query RubyGems; fixtures and tests inject HTTP responses for deterministic conformance."
   },
   "http_fixtures": {

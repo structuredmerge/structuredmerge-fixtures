@@ -1,0 +1,306 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "915",
+  "name": "structured-edit-profile-promotion-envelope",
+  "description": "Structured edit transport envelopes carry profile selection request fields and response promotion diagnostics as structured data.",
+  "structured_edit_request": {
+    "operation_kind": "replace",
+    "content": "{\n  \"name\": \"old\"\n}\n",
+    "source_label": "package.json",
+    "target_selector": "name",
+    "target_selector_family": "json_key",
+    "payload_text": "\"new\"",
+    "metadata": {
+      "family": "json"
+    }
+  },
+  "profile_selection_requirement": {
+    "profile_id": "json.keyed-object",
+    "promotion_policy_id": "initial-profile-promotion-policy",
+    "minimum_profile_status": "recommended",
+    "enforcement_mode": "required"
+  },
+  "active_profile": {
+    "profile_id": "json.keyed-object",
+    "family": "json",
+    "backend": "tree-sitter-json",
+    "backend_family": "tree-sitter",
+    "parser": "tree-sitter-json",
+    "parser_version": "0.24.8",
+    "language_version": "json",
+    "dialect": "json",
+    "supported_dialects": ["json"],
+    "rule_counts": {
+      "node_roles": 7,
+      "atomic_nodes": 2,
+      "signatures": 3,
+      "commutative_parents": 1,
+      "child_groups": 2,
+      "comment_attachment": 0
+    },
+    "validation": {
+      "ok": true,
+      "error_count": 0,
+      "warning_count": 0
+    }
+  },
+  "profile_promotion_evaluation": {
+    "profile_id": "json.keyed-object",
+    "status": "available",
+    "blocking_reasons": [
+      "passed fixture count is below required fixture count"
+    ],
+    "diagnostics": []
+  },
+  "profile_selection_decision": {
+    "profile_id": "json.keyed-object",
+    "promotion_policy_id": "initial-profile-promotion-policy",
+    "minimum_profile_status": "recommended",
+    "evaluated_status": "available",
+    "enforcement_mode": "required",
+    "satisfied": false,
+    "enforced": true,
+    "allowed": false,
+    "rejection_code": "profile_status_unmet",
+    "profile_promotion_evaluation": {
+      "profile_id": "json.keyed-object",
+      "status": "available",
+      "blocking_reasons": [
+        "passed fixture count is below required fixture count"
+      ],
+      "diagnostics": []
+    },
+    "blocking_reasons": [
+      "profile status available is below required recommended",
+      "passed fixture count is below required fixture count"
+    ],
+    "diagnostics": []
+  },
+  "expected_request_envelope": {
+    "kind": "structured_edit_request",
+    "version": 1,
+    "profile_id": "json.keyed-object",
+    "minimum_profile_status": "recommended",
+    "promotion_policy_id": "initial-profile-promotion-policy",
+    "request": {
+      "operation_kind": "replace",
+      "content": "{\n  \"name\": \"old\"\n}\n",
+      "source_label": "package.json",
+      "target_selector": "name",
+      "target_selector_family": "json_key",
+      "payload_text": "\"new\"",
+      "metadata": {
+        "family": "json"
+      }
+    }
+  },
+  "structured_edit_execution_report": {
+    "application": {
+      "request": {
+        "operation_kind": "replace",
+        "content": "{\n  \"name\": \"old\"\n}\n",
+        "source_label": "package.json",
+        "target_selector": "name",
+        "target_selector_family": "json_key",
+        "payload_text": "\"new\"",
+        "metadata": {
+          "family": "json"
+        }
+      },
+      "result": {
+        "operation_kind": "replace",
+        "updated_content": "{\n  \"name\": \"old\"\n}\n",
+        "changed": false,
+        "operation_profile": {
+          "operation_kind": "replace",
+          "operation_family": "rewrite",
+          "known_operation_kind": true,
+          "source_requirement": "required",
+          "destination_requirement": "none",
+          "replacement_source": "explicit_text",
+          "captures_source_text": true,
+          "supports_if_missing": false
+        }
+      }
+    },
+    "provider_family": "json",
+    "provider_backend": "tree-sitter-json",
+    "active_profile": {
+      "profile_id": "json.keyed-object",
+      "family": "json",
+      "backend": "tree-sitter-json",
+      "backend_family": "tree-sitter",
+      "parser": "tree-sitter-json",
+      "parser_version": "0.24.8",
+      "language_version": "json",
+      "dialect": "json",
+      "supported_dialects": ["json"],
+      "rule_counts": {
+        "node_roles": 7,
+        "atomic_nodes": 2,
+        "signatures": 3,
+        "commutative_parents": 1,
+        "child_groups": 2,
+        "comment_attachment": 0
+      },
+      "validation": {
+        "ok": true,
+        "error_count": 0,
+        "warning_count": 0
+      }
+    },
+    "profile_promotion_evaluation": {
+      "profile_id": "json.keyed-object",
+      "status": "available",
+      "blocking_reasons": [
+        "passed fixture count is below required fixture count"
+      ],
+      "diagnostics": []
+    },
+    "profile_selection_decision": {
+      "profile_id": "json.keyed-object",
+      "promotion_policy_id": "initial-profile-promotion-policy",
+      "minimum_profile_status": "recommended",
+      "evaluated_status": "available",
+      "enforcement_mode": "required",
+      "satisfied": false,
+      "enforced": true,
+      "allowed": false,
+      "rejection_code": "profile_status_unmet",
+      "profile_promotion_evaluation": {
+        "profile_id": "json.keyed-object",
+        "status": "available",
+        "blocking_reasons": [
+          "passed fixture count is below required fixture count"
+        ],
+        "diagnostics": []
+      },
+      "blocking_reasons": [
+        "profile status available is below required recommended",
+        "passed fixture count is below required fixture count"
+      ],
+      "diagnostics": []
+    },
+    "profile_blocking_reasons": [
+      "profile status available is below required recommended",
+      "passed fixture count is below required fixture count"
+    ],
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "configuration_error",
+        "message": "profile status available is below required recommended"
+      }
+    ]
+  },
+  "expected_execution_report_envelope": {
+    "kind": "structured_edit_execution_report",
+    "version": 1,
+    "report": {
+      "application": {
+        "request": {
+          "operation_kind": "replace",
+          "content": "{\n  \"name\": \"old\"\n}\n",
+          "source_label": "package.json",
+          "target_selector": "name",
+          "target_selector_family": "json_key",
+          "payload_text": "\"new\"",
+          "metadata": {
+            "family": "json"
+          }
+        },
+        "result": {
+          "operation_kind": "replace",
+          "updated_content": "{\n  \"name\": \"old\"\n}\n",
+          "changed": false,
+          "operation_profile": {
+            "operation_kind": "replace",
+            "operation_family": "rewrite",
+            "known_operation_kind": true,
+            "source_requirement": "required",
+            "destination_requirement": "none",
+            "replacement_source": "explicit_text",
+            "captures_source_text": true,
+            "supports_if_missing": false
+          }
+        }
+      },
+      "provider_family": "json",
+      "provider_backend": "tree-sitter-json",
+      "active_profile": {
+        "profile_id": "json.keyed-object",
+        "family": "json",
+        "backend": "tree-sitter-json",
+        "backend_family": "tree-sitter",
+        "parser": "tree-sitter-json",
+        "parser_version": "0.24.8",
+        "language_version": "json",
+        "dialect": "json",
+        "supported_dialects": ["json"],
+        "rule_counts": {
+          "node_roles": 7,
+          "atomic_nodes": 2,
+          "signatures": 3,
+          "commutative_parents": 1,
+          "child_groups": 2,
+          "comment_attachment": 0
+        },
+        "validation": {
+          "ok": true,
+          "error_count": 0,
+          "warning_count": 0
+        }
+      },
+      "profile_promotion_evaluation": {
+        "profile_id": "json.keyed-object",
+        "status": "available",
+        "blocking_reasons": [
+          "passed fixture count is below required fixture count"
+        ],
+        "diagnostics": []
+      },
+      "profile_selection_decision": {
+        "profile_id": "json.keyed-object",
+        "promotion_policy_id": "initial-profile-promotion-policy",
+        "minimum_profile_status": "recommended",
+        "evaluated_status": "available",
+        "enforcement_mode": "required",
+        "satisfied": false,
+        "enforced": true,
+        "allowed": false,
+        "rejection_code": "profile_status_unmet",
+        "profile_promotion_evaluation": {
+          "profile_id": "json.keyed-object",
+          "status": "available",
+          "blocking_reasons": [
+            "passed fixture count is below required fixture count"
+          ],
+          "diagnostics": []
+        },
+        "blocking_reasons": [
+          "profile status available is below required recommended",
+          "passed fixture count is below required fixture count"
+        ],
+        "diagnostics": []
+      },
+      "profile_blocking_reasons": [
+        "profile status available is below required recommended",
+        "passed fixture count is below required fixture count"
+      ],
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "configuration_error",
+          "message": "profile status available is below required recommended"
+        }
+      ]
+    }
+  },
+  "expected": {
+    "profile_id": "json.keyed-object",
+    "minimum_profile_status": "recommended",
+    "promotion_policy_id": "initial-profile-promotion-policy",
+    "rejection_code": "profile_status_unmet",
+    "profile_blocking_reason_count": 2
+  }
+}

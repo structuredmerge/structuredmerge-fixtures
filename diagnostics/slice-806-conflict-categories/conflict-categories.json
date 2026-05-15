@@ -1,0 +1,88 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "806",
+  "name": "conflict-categories",
+  "description": "Conflict categories are runtime/reporting vocabulary for classifying why structured merge could not safely produce a resolved tree.",
+  "conflicts": {
+    "report_id": "conflict-categories-runtime-report",
+    "version": "1",
+    "categories": [
+      "ordering",
+      "duplicate_signature",
+      "delete_edit",
+      "edit_edit",
+      "parse_limited",
+      "render_limited",
+      "unsupported_node",
+      "backend_mismatch"
+    ],
+    "conflicts": [
+      {
+        "conflict_id": "conflict-order-imports",
+        "category": "ordering",
+        "path": "/imports",
+        "fallback_scope": "subtree",
+        "message": "both sides changed sibling order in incompatible ways"
+      },
+      {
+        "conflict_id": "conflict-duplicate-import",
+        "category": "duplicate_signature",
+        "path": "/imports",
+        "fallback_scope": "owned_region",
+        "message": "multiple candidates share the same signature"
+      },
+      {
+        "conflict_id": "conflict-delete-edit",
+        "category": "delete_edit",
+        "path": "/declarations/Greet",
+        "fallback_scope": "owned_region",
+        "message": "one side deleted a node while the other edited it"
+      },
+      {
+        "conflict_id": "conflict-edit-edit",
+        "category": "edit_edit",
+        "path": "/declarations/Greet/body/0",
+        "fallback_scope": "node",
+        "message": "both sides edited the same node incompatibly"
+      },
+      {
+        "conflict_id": "conflict-parse-limited",
+        "category": "parse_limited",
+        "path": "/",
+        "fallback_scope": "whole_file",
+        "message": "parse errors prevent a narrower structured merge"
+      },
+      {
+        "conflict_id": "conflict-render-limited",
+        "category": "render_limited",
+        "path": "/declarations/Greet",
+        "fallback_scope": "owned_region",
+        "message": "backend cannot render the merged subtree safely"
+      },
+      {
+        "conflict_id": "conflict-unsupported-node",
+        "category": "unsupported_node",
+        "path": "/declarations/Greet/type_parameters",
+        "fallback_scope": "subtree",
+        "message": "backend exposed a node kind without merge support"
+      },
+      {
+        "conflict_id": "conflict-backend-mismatch",
+        "category": "backend_mismatch",
+        "path": "/",
+        "fallback_scope": "whole_file",
+        "message": "revisions were parsed by incompatible backends"
+      }
+    ],
+    "diagnostics": [
+      "conflict categories are reported before any ruleset configuration vocabulary is promoted"
+    ]
+  },
+  "expected": {
+    "category_count": 8,
+    "conflict_count": 8,
+    "first_category": "ordering",
+    "last_category": "backend_mismatch",
+    "parse_limited_fallback_scope": "whole_file"
+  }
+}

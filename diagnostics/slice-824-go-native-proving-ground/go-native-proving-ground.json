@@ -1,0 +1,38 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "824",
+  "name": "go-native-proving-ground",
+  "description": "Go is the first deep native-provider proving ground for parser plurality and graceful backend deficiency handling.",
+  "proving_ground": {
+    "report_id": "go-native-proving-ground",
+    "version": "1",
+    "language": "go",
+    "providers": [
+      "go-parser",
+      "go-dst",
+      "tree-sitter-go"
+    ],
+    "checks": [
+      "parser_plurality",
+      "graceful_backend_deficiency",
+      "native_and_tree_sitter_comparison"
+    ],
+    "diagnostics": [
+      "Go has native and tree-sitter providers available for provider primitive validation"
+    ]
+  },
+  "expected": {
+    "language": "go",
+    "provider_count": 3,
+    "providers": [
+      "go-parser",
+      "go-dst",
+      "tree-sitter-go"
+    ],
+    "checks": [
+      "parser_plurality",
+      "graceful_backend_deficiency",
+      "native_and_tree_sitter_comparison"
+    ]
+  }
+}

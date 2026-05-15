@@ -1,0 +1,51 @@
+{
+  "source": {
+    "old_package": "reference/kettle-jem-appraisals",
+    "reviewed_files": [
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/appraisals_generator.rb",
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/cli.rb",
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/gem_abbreviations.rb",
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/gem_version_resolver.rb",
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/matrix_builder.rb",
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/modular_gemfile_generator.rb",
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/ruby_series_detector.rb",
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/sub_dep_resolver.rb",
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/workflow_strategy_generator.rb",
+      "reference/kettle-jem-appraisals/lib/kettle/jem/appraisals/x_std_libs_exclusion.rb"
+    ]
+  },
+  "decision": "Fold surviving kettle-jem-appraisals value into active Ruby kettle-jem recipes and fixtures instead of keeping a separate active package.",
+  "old_value": [
+    "dependency version selection",
+    "RubyGems version metadata and minimum Ruby floor resolution",
+    "Ruby series seam detection",
+    "secondary dependency resolution",
+    "modular gemfile generation",
+    "Appraisals file generation",
+    "GitHub Actions matrix snippet generation",
+    "extracted standard-library gem exclusions",
+    "standalone CLI workflow"
+  ],
+  "active_destination": {
+    "package": "ruby/gems/kettle-jem",
+    "contract": "fixture-backed recipe/report behavior",
+    "network_boundary": "supplied resolver metadata first; optional RubyGems adapter later",
+    "cli_boundary": "future Kettle/Jem command wrapper over plan/apply/report APIs"
+  },
+  "porting_order": [
+    "pure naming and rendering helpers",
+    "deterministic matrix planning from supplied version metadata",
+    "Ruby series seam detection and bucket assignment",
+    "secondary dependency resolution from supplied dependency metadata",
+    "optional RubyGems resolver adapter and stale-output cleanup"
+  ],
+  "rejected_contracts": [
+    "separate active kettle-jem-appraisals package boundary",
+    "old executable name as public structuredmerge contract",
+    "network access as a required fixture behavior"
+  ],
+  "verification": {
+    "command": "evaluation only",
+    "result": "package boundary decision recorded before porting generator behavior"
+  }
+}

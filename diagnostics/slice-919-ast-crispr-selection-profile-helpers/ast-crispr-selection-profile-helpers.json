@@ -1,0 +1,116 @@
+{
+  "cases": [
+    {
+      "name": "owner_filter",
+      "profile": {
+        "owner_scope": "shared_default",
+        "owner_selector": "line_bound_statements",
+        "selector_kind": "owner_filter",
+        "selection_intent": "predicate_filter",
+        "comment_region": null,
+        "include_trailing_gap": true
+      },
+      "expected": {
+        "owner_scope": "shared_default",
+        "owner_selector": "line_bound_statements",
+        "owner_selector_family": "line_oriented",
+        "known_owner_selector": true,
+        "selector_kind": "owner_filter",
+        "selector_kind_family": "owner_filter",
+        "known_selector_kind": true,
+        "selection_intent": "predicate_filter",
+        "selection_intent_family": "predicate",
+        "known_selection_intent": true,
+        "comment_region": null,
+        "comment_region_family": "none",
+        "known_comment_region": false,
+        "comment_anchored": false,
+        "include_trailing_gap": true
+      }
+    },
+    {
+      "name": "comment_owned",
+      "profile": {
+        "owner_scope": "shared_default",
+        "owner_selector": "line_bound_statements",
+        "selector_kind": "comment_region_owner",
+        "selection_intent": "comment_region_filter",
+        "comment_region": "leading",
+        "include_trailing_gap": false
+      },
+      "expected": {
+        "owner_scope": "shared_default",
+        "owner_selector": "line_bound_statements",
+        "owner_selector_family": "line_oriented",
+        "known_owner_selector": true,
+        "selector_kind": "comment_region_owner",
+        "selector_kind_family": "comment_anchor",
+        "known_selector_kind": true,
+        "selection_intent": "comment_region_filter",
+        "selection_intent_family": "comment",
+        "known_selection_intent": true,
+        "comment_region": "leading",
+        "comment_region_family": "leading",
+        "known_comment_region": true,
+        "comment_anchored": true,
+        "include_trailing_gap": false
+      }
+    },
+    {
+      "name": "heading_section",
+      "profile": {
+        "owner_scope": "markdown",
+        "owner_selector": "heading_sections",
+        "selector_kind": "heading_section",
+        "selection_intent": "section_heading",
+        "comment_region": null,
+        "include_trailing_gap": false
+      },
+      "expected": {
+        "owner_scope": "markdown",
+        "owner_selector": "heading_sections",
+        "owner_selector_family": "section",
+        "known_owner_selector": true,
+        "selector_kind": "heading_section",
+        "selector_kind_family": "section_branch",
+        "known_selector_kind": true,
+        "selection_intent": "section_heading",
+        "selection_intent_family": "section",
+        "known_selection_intent": true,
+        "comment_region": null,
+        "comment_region_family": "none",
+        "known_comment_region": false,
+        "comment_anchored": false,
+        "include_trailing_gap": false
+      }
+    },
+    {
+      "name": "unknown_values",
+      "profile": {
+        "owner_scope": "provider_specific",
+        "owner_selector": "provider_owner",
+        "selector_kind": "provider_selector",
+        "selection_intent": "provider_intent",
+        "comment_region": "provider_comment",
+        "include_trailing_gap": true
+      },
+      "expected": {
+        "owner_scope": "provider_specific",
+        "owner_selector": "provider_owner",
+        "owner_selector_family": "unknown",
+        "known_owner_selector": false,
+        "selector_kind": "provider_selector",
+        "selector_kind_family": "unknown",
+        "known_selector_kind": false,
+        "selection_intent": "provider_intent",
+        "selection_intent_family": "unknown",
+        "known_selection_intent": false,
+        "comment_region": "provider_comment",
+        "comment_region_family": "unknown",
+        "known_comment_region": false,
+        "comment_anchored": false,
+        "include_trailing_gap": true
+      }
+    }
+  ]
+}

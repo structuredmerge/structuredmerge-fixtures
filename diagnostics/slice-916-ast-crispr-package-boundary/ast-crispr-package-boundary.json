@@ -53,10 +53,10 @@
       "boundary report",
       "ast-merge structured-edit contract anchor",
       "limit helpers",
-      "match profile helpers"
+      "match profile helpers",
+      "selection profile helpers"
     ],
     "future_exports": [
-      "selection profile helpers",
       "destination profile helpers",
       "operation profile helpers",
       "replace/delete/insert/move helpers",

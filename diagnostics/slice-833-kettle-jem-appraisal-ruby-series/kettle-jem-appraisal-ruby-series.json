@@ -1,0 +1,37 @@
+{
+  "source": {
+    "old_package": "reference/kettle-jem-appraisals",
+    "old_helpers": ["RubySeriesDetector", "MatrixBuilder.assign_version_buckets"],
+    "active_destination": "ruby/gems/kettle-jem/lib/kettle/jem.rb"
+  },
+  "input": {
+    "versions": [
+      { "number": "5.2.8", "min_ruby": "2.3" },
+      { "number": "6.0.6", "min_ruby": "2.5" },
+      { "number": "6.1.7", "min_ruby": "2.5" },
+      { "number": "7.0.8", "min_ruby": "2.7" },
+      { "number": "7.1.5", "min_ruby": "2.7" },
+      { "number": "7.2.2", "min_ruby": "3.1" }
+    ],
+    "selected_versions": ["5.2", "6.1", "7.2"]
+  },
+  "expected": {
+    "seams": [
+      { "version": "5.2", "min_ruby": "2.3" },
+      { "version": "6.0", "min_ruby": "2.5" },
+      { "version": "7.0", "min_ruby": "2.7" },
+      { "version": "7.2", "min_ruby": "3.1" }
+    ],
+    "buckets": ["r2.4", "r2.6", "r2", "r3"],
+    "assignments": [
+      { "version": "5.2", "bucket": "r2.4" },
+      { "version": "6.1", "bucket": "r2.6" },
+      { "version": "7.1", "bucket": "r2", "filler": true },
+      { "version": "7.2", "bucket": "r3" }
+    ]
+  },
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "382 examples, 0 failures"
+  }
+}

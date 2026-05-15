@@ -27,7 +27,7 @@
   "cases": [
     {
       "label": "kettle-jem-gemfile-template-policy",
-      "implementation_status": "implemented_without_dedicated_step_report",
+      "implementation_status": "implemented_with_policy_metadata",
       "request_envelope": {
         "kind": "content_recipe_execution_request",
         "version": 1,
@@ -119,7 +119,7 @@
     },
     {
       "label": "kettle-jem-gemspec-template-policy",
-      "implementation_status": "implemented_without_dedicated_step_report",
+      "implementation_status": "implemented_with_policy_metadata",
       "request_envelope": {
         "kind": "content_recipe_execution_request",
         "version": 1,
@@ -187,7 +187,7 @@
     },
     {
       "label": "kettle-jem-appraisals-template-policy",
-      "implementation_status": "implemented_without_dedicated_step_report",
+      "implementation_status": "implemented_with_policy_metadata",
       "request_envelope": {
         "kind": "content_recipe_execution_request",
         "version": 1,
@@ -282,7 +282,7 @@
     }
   ],
   "verification": {
-    "command": "fixture contract only; implementation follows in classifier and dependency policy port",
-    "result": "pending implementation for required and partial cases"
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "379 examples, 0 failures"
   }
 }

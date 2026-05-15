@@ -1,0 +1,52 @@
+{
+  "support": {
+    "backend_ref": {
+      "id": "go-dst",
+      "family": "native"
+    },
+    "language": "go",
+    "supports_edit_projection": true,
+    "native_edit_target": "provider_internal_native_tree",
+    "normalized_edit_target": "normalized_tree_patch",
+    "supported_operations": [
+      "replace_node",
+      "insert_child",
+      "delete_node",
+      "move_node"
+    ],
+    "required_node_fields": [
+      "id",
+      "backend_kind",
+      "metadata"
+    ],
+    "correlation_keys": [
+      "id",
+      "metadata.go_dst.node_path"
+    ],
+    "preserves_source_fragments": true,
+    "unsupported_reason": null,
+    "diagnostics": []
+  },
+  "unsupported": {
+    "backend_ref": {
+      "id": "psych",
+      "family": "native"
+    },
+    "language": "yaml",
+    "supports_edit_projection": false,
+    "native_edit_target": "unavailable",
+    "normalized_edit_target": "normalized_tree_patch",
+    "supported_operations": [],
+    "required_node_fields": [
+      "id"
+    ],
+    "correlation_keys": [
+      "id"
+    ],
+    "preserves_source_fragments": false,
+    "unsupported_reason": "backend_does_not_retain_native_tree",
+    "diagnostics": [
+      "edit projection unavailable: native tree not retained"
+    ]
+  }
+}

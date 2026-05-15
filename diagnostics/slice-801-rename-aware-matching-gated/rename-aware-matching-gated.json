@@ -1,0 +1,57 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "801",
+  "name": "rename-aware-matching-gated",
+  "description": "Rename-aware matching is a future matcher capability and must stay gated behind explicit fixtures and diagnostics.",
+  "matching": {
+    "matching_id": "rename-aware-declarations",
+    "strategy": "rename_aware",
+    "from_revision": "template",
+    "to_revision": "destination",
+    "capability": {
+      "name": "rename_aware_matching",
+      "status": "future",
+      "enabled": false,
+      "requires_explicit_profile": true,
+      "requires_diagnostics": true
+    },
+    "candidates": [
+      {
+        "from_path": "/declarations/OldName",
+        "to_path": "/declarations/NewName",
+        "from_node_id": "template-decl-old-name",
+        "to_node_id": "destination-decl-new-name",
+        "from_signature": "function:OldName",
+        "to_signature": "function:NewName",
+        "stable_body_hash": "sha256:body-same",
+        "rename_distance": 0.42,
+        "selected": false,
+        "diagnostics": [
+          "rename-aware matching is gated and therefore reports this as an unselected candidate"
+        ]
+      }
+    ],
+    "matches": [],
+    "unmatched_from": [
+      "/declarations/OldName"
+    ],
+    "unmatched_to": [
+      "/declarations/NewName"
+    ],
+    "diagnostics": [
+      "rename-aware matching remains disabled until a profile explicitly enables it with fixture coverage"
+    ]
+  },
+  "expected": {
+    "strategy": "rename_aware",
+    "capability": "rename_aware_matching",
+    "status": "future",
+    "enabled": false,
+    "requires_explicit_profile": true,
+    "requires_diagnostics": true,
+    "candidate_count": 1,
+    "match_count": 0,
+    "first_candidate_selected": false,
+    "first_candidate_body_hash": "sha256:body-same"
+  }
+}

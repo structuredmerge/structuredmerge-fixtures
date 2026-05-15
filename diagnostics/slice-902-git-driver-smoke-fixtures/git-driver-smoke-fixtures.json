@@ -1,0 +1,47 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "902",
+  "name": "git-driver-smoke-fixtures",
+  "description": "Git merge-driver smoke fixtures exercise temporary %O, %A, %B, and %P path placeholders.",
+  "suite": {
+    "suite_id": "git-driver-smoke-fixtures",
+    "version": "1",
+    "driver_name": "smorg-go",
+    "cases": [
+      {
+        "case_id": "three-way-clean-json",
+        "family": "json",
+        "ancestor_placeholder": "%O",
+        "current_placeholder": "%A",
+        "other_placeholder": "%B",
+        "path_placeholder": "%P",
+        "expected_exit_code": 0,
+        "expected_current_file_updated": true
+      },
+      {
+        "case_id": "three-way-source-fallback",
+        "family": "go",
+        "ancestor_placeholder": "%O",
+        "current_placeholder": "%A",
+        "other_placeholder": "%B",
+        "path_placeholder": "%P",
+        "expected_exit_code": 0,
+        "expected_current_file_updated": true
+      }
+    ],
+    "diagnostics": [
+      "merge-driver smoke fixtures verify git placeholder plumbing before implementation-specific installer symlinks exist"
+    ]
+  },
+  "expected": {
+    "driver_name": "smorg-go",
+    "case_count": 2,
+    "placeholder_set": [
+      "%O",
+      "%A",
+      "%B",
+      "%P"
+    ],
+    "updated_current_file_count": 2
+  }
+}

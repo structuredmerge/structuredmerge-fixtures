@@ -1,0 +1,58 @@
+{
+  "clean_report": {
+    "provider_id": "go-parser",
+    "backend_ref": {
+      "id": "go-parser",
+      "family": "native"
+    },
+    "language": "go",
+    "status": "clean",
+    "diagnostics": []
+  },
+  "warning_report": {
+    "provider_id": "go-dst",
+    "backend_ref": {
+      "id": "go-dst",
+      "family": "native"
+    },
+    "language": "go",
+    "status": "warning",
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "capability_gap",
+        "code": "source_fragment_partial",
+        "message": "provider can preserve formatting for declarations but not arbitrary expressions",
+        "path": "metadata.go_dst",
+        "blocking": false
+      }
+    ]
+  },
+  "blocked_report": {
+    "provider_id": "java-tree-sitter",
+    "backend_ref": {
+      "id": "java-tree-sitter",
+      "family": "tree-sitter"
+    },
+    "language": "java",
+    "status": "blocked",
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "backend_unavailable",
+        "code": "host_runtime_unavailable",
+        "message": "JRuby runtime is not active",
+        "path": "backend.host_runtime",
+        "blocking": true
+      },
+      {
+        "severity": "info",
+        "category": "fallback_available",
+        "code": "tree_sitter_language_pack_available",
+        "message": "tree-sitter language pack can parse this language with reduced native edit support",
+        "path": "backend.fallback",
+        "blocking": false
+      }
+    ]
+  }
+}

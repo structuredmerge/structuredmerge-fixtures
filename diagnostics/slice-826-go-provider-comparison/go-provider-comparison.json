@@ -1,0 +1,33 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "826",
+  "name": "go-provider-comparison",
+  "description": "go/parser, github.com/dave/dst, and tree-sitter-go are compared to prove generic native-provider primitives across Go backends.",
+  "comparison": {
+    "comparison_id": "go-provider-comparison",
+    "version": "1",
+    "language": "go",
+    "providers": [
+      "go-parser",
+      "go-dst",
+      "tree-sitter-go"
+    ],
+    "dimensions": [
+      "parse_result",
+      "normalized_tree_shape",
+      "source_spans",
+      "semantic_roles",
+      "render_support",
+      "backend_deficiencies"
+    ],
+    "diagnostics": [
+      "comparison keeps provider-specific gaps explicit while preserving one downstream tree shape"
+    ]
+  },
+  "expected": {
+    "language": "go",
+    "provider_count": 3,
+    "dimension_count": 6,
+    "includes_backend_deficiencies": true
+  }
+}

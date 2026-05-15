@@ -1,0 +1,94 @@
+{
+  "source": {
+    "old_package": "reference/kettle-jem-appraisals",
+    "old_behavior": "Kettle::Jem::Appraisals::CLI helper orchestration",
+    "active_destination": "ruby/gems/kettle-jem/lib/kettle/jem.rb"
+  },
+  "input": {
+    "gemspec_content": "Gem::Specification.new do |spec|\\n  spec.add_dependency \"activerecord\", \"~> 7.1\"\\n  spec.add_runtime_dependency(\"erb\", \">= 0\")\\n  # spec.add_dependency \"ignored\"\\n  spec.add_runtime_dependency \"sequel\", \">= 5.0\"\\nend\\n",
+    "existing_config": {
+      "appraisal_matrix": {
+        "gems": {
+          "tier2": [
+            {
+              "name": "omniauth"
+            }
+          ]
+        }
+      }
+    },
+    "exclusions": [
+      "erb"
+    ],
+    "version_selection": {
+      "base_versions": [
+        "7.1.0",
+        "7.1.1"
+      ],
+      "include_versions": [
+        "6.0.9"
+      ],
+      "exclude_versions": [
+        "7.1.0"
+      ]
+    },
+    "freshness": {
+      "resolved_at": 100,
+      "freshness_ttl": 50,
+      "fresh_now": 149,
+      "stale_now": 150
+    },
+    "tier2_bucket_check": {
+      "gem": "omniauth",
+      "requested_version": "2.1",
+      "latest_patch": "2.1.3",
+      "min_ruby": "3.2",
+      "bucket": "r3.1",
+      "bucket_ceiling": "3.1"
+    }
+  },
+  "expected": {
+    "scaffold_config": {
+      "appraisal_matrix": {
+        "mode": "semver",
+        "freshness_ttl": 86400,
+        "gems": {
+          "tier1": [
+            {
+              "name": "activerecord"
+            },
+            {
+              "name": "sequel"
+            }
+          ],
+          "tier2": [
+            {
+              "name": "omniauth"
+            }
+          ]
+        }
+      }
+    },
+    "matrix_has_versions": true,
+    "fresh_at_149": true,
+    "fresh_at_150": false,
+    "time_ago_90000_seconds": "1d",
+    "final_versions": [
+      "6.0.9",
+      "7.1.1"
+    ],
+    "all_patch_versions": [
+      "6.0.9",
+      "7.1.1"
+    ],
+    "all_minor_versions": [
+      "5.0",
+      "5.9"
+    ],
+    "tier2_bucket_compatible": false
+  },
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "386 examples, 0 failures"
+  }
+}

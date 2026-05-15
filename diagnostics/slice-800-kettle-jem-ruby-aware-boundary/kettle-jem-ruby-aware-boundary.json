@@ -1,0 +1,60 @@
+{
+  "source": {
+    "old_package": "reference/kettle-jem",
+    "reviewed_files": [
+      "reference/kettle-jem/lib/kettle/jem/prism_gemfile.rb",
+      "reference/kettle-jem/lib/kettle/jem/prism_gemspec.rb",
+      "reference/kettle-jem/lib/kettle/jem/prism_appraisals.rb",
+      "reference/kettle-jem/lib/kettle/jem/classifiers/",
+      "reference/kettle-jem/lib/kettle/jem/presets/",
+      "reference/kettle-jem/lib/kettle/jem/gem_ruby_floor/",
+      "reference/kettle-jem/lib/kettle/jem/modular_gemfiles.rb"
+    ],
+    "related_slices": [
+      "spec/slices/slice-763-prism-utility-classification.md",
+      "spec/slices/slice-764-prism-ruby-fixture-coverage-verification.md",
+      "spec/slices/slice-765-prism-utility-port-decision.md"
+    ],
+    "active_implementation": "ruby/gems/kettle-jem/lib/kettle/jem.rb"
+  },
+  "decision": "Separate parser-neutral Ruby merge behavior from Kettle/Jem recipe policy before porting additional old helpers.",
+  "portable_ruby_merge_candidates": [
+    "Gemfile top-level declaration signatures",
+    "gemspec field, dependency, file-list, version-loader, and self-dependency policies",
+    "Appraisals block and dependency declaration signatures",
+    "leading Ruby source region preservation",
+    "cross-nesting duplicate dependency detection if parser-neutral fixtures define it"
+  ],
+  "provider_or_private_implementation_details": [
+    "Prism-specific AST classifiers",
+    "Prism literal extraction and traversal helpers",
+    "structural delete/edit helper classes",
+    "old SmartMerger runner wiring"
+  ],
+  "kettle_jem_recipe_policy": [
+    "packaged template application",
+    "template-owned generated file preference with project-owned region preservation",
+    "self-dependency removal based on active package name",
+    "Kettle/Jem conflict removal such as old appraisal declarations",
+    "local workspace override generation for modular Gemfiles",
+    "minimum-Ruby floor resolution and dependency comment alignment",
+    "gemspec variable harmonization during template application",
+    "README and gemspec metadata synchronization",
+    "RuboCop LTS and CI matrix token selection",
+    "bundle-gem scaffold cleanup"
+  ],
+  "active_boundary": {
+    "ruby_family": "owns parser-neutral Ruby merge behavior once fixture-backed",
+    "ruby_provider": "owns parser-specific implementation details behind normalized behavior",
+    "kettle_jem": "owns template application, package facts, generated reports, and recipe-specific preservation"
+  },
+  "next_fixture_order": [
+    "Gemfile/Gemspec/Appraisals policy behavior",
+    "surviving classifiers and dependency policies",
+    "template-specific modular Gemfile, minimum-Ruby floor, conflict removal, and scaffold cleanup policies"
+  ],
+  "verification": {
+    "command": "evaluation only; no code behavior changed",
+    "result": "boundary recorded for the next kettle-jem Ruby-aware recipe utility tasks"
+  }
+}

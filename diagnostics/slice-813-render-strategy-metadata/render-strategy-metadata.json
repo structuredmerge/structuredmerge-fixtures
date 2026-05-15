@@ -1,0 +1,73 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "813",
+  "name": "render-strategy-metadata",
+  "description": "Render plans report which formatting-preservation strategy is used for each output region.",
+  "render_plan": {
+    "plan_id": "go-render-plan",
+    "version": "1",
+    "language": "go",
+    "strategies": [
+      {
+        "strategy": "source_span_reuse",
+        "path": "/package",
+        "span": {
+          "start_byte": 0,
+          "end_byte": 12
+        },
+        "preserves_source_fragment": true,
+        "requires_reparse": false
+      },
+      {
+        "strategy": "native_printer",
+        "path": "/declarations/Greet",
+        "span": {
+          "start_byte": 14,
+          "end_byte": 71
+        },
+        "preserves_source_fragment": false,
+        "requires_reparse": true
+      },
+      {
+        "strategy": "normalized_pretty_printer",
+        "path": "/imports",
+        "span": null,
+        "preserves_source_fragment": false,
+        "requires_reparse": true
+      },
+      {
+        "strategy": "local_fallback",
+        "path": "/declarations/Greet/body",
+        "span": {
+          "start_byte": 41,
+          "end_byte": 70
+        },
+        "preserves_source_fragment": false,
+        "requires_reparse": true
+      },
+      {
+        "strategy": "full_file_fallback",
+        "path": "/",
+        "span": null,
+        "preserves_source_fragment": false,
+        "requires_reparse": true
+      }
+    ],
+    "diagnostics": [
+      "render strategies are explicit so formatting metrics can explain output churn"
+    ]
+  },
+  "expected": {
+    "language": "go",
+    "strategy_count": 5,
+    "strategies": [
+      "source_span_reuse",
+      "native_printer",
+      "normalized_pretty_printer",
+      "local_fallback",
+      "full_file_fallback"
+    ],
+    "source_reuse_preserves_fragment": true,
+    "full_file_requires_reparse": true
+  }
+}

@@ -51,10 +51,10 @@
     "initial_exports": [
       "package identity",
       "boundary report",
-      "ast-merge structured-edit contract anchor"
+      "ast-merge structured-edit contract anchor",
+      "limit helpers"
     ],
     "future_exports": [
-      "limit helpers",
       "match profile helpers",
       "selection profile helpers",
       "destination profile helpers",

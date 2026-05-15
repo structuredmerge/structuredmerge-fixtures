@@ -1,0 +1,75 @@
+{
+  "cases": [
+    {
+      "name": "default_exactly_one",
+      "spec": null,
+      "expected_description": "== 1",
+      "expectations": [
+        {"count": 0, "allowed": false},
+        {"count": 1, "allowed": true},
+        {"count": 2, "allowed": false}
+      ]
+    },
+    {
+      "name": "exactly_two",
+      "spec": {"exactly": 2},
+      "expected_description": "== 2",
+      "expectations": [
+        {"count": 1, "allowed": false},
+        {"count": 2, "allowed": true},
+        {"count": 3, "allowed": false}
+      ]
+    },
+    {
+      "name": "between_one_and_three",
+      "spec": [{"at_least": 1}, {"at_most": 3}],
+      "expected_description": ">= 1 and <= 3",
+      "expectations": [
+        {"count": 0, "allowed": false},
+        {"count": 2, "allowed": true},
+        {"count": 4, "allowed": false}
+      ]
+    },
+    {
+      "name": "none_or_one",
+      "spec": {"none_or_one": true},
+      "expected_description": "<= 1",
+      "expectations": [
+        {"count": 0, "allowed": true},
+        {"count": 1, "allowed": true},
+        {"count": 2, "allowed": false}
+      ]
+    },
+    {
+      "name": "operator_array",
+      "spec": [">= 1", "<= 3"],
+      "expected_description": ">= 1 and <= 3",
+      "expectations": [
+        {"count": 0, "allowed": false},
+        {"count": 2, "allowed": true},
+        {"count": 4, "allowed": false}
+      ]
+    },
+    {
+      "name": "not_zero",
+      "spec": "!= 0",
+      "expected_description": "!= 0",
+      "expectations": [
+        {"count": 0, "allowed": false},
+        {"count": 1, "allowed": true}
+      ]
+    }
+  ],
+  "invalid_cases": [
+    {
+      "name": "empty_object",
+      "spec": {},
+      "expected_error": "ast_crispr_limit_empty"
+    },
+    {
+      "name": "invalid_operator",
+      "spec": "~~ 1",
+      "expected_error": "ast_crispr_limit_invalid_expression"
+    }
+  ]
+}

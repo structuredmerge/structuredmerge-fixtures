@@ -1,0 +1,45 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "820",
+  "name": "formatting-edge-fixtures",
+  "description": "Formatting fixture inventory covers whitespace-only changes, branch-local formatting, comment placement, and conflict marker placement.",
+  "fixture_suite": {
+    "suite_id": "formatting-edge-fixtures",
+    "version": "1",
+    "cases": [
+      {
+        "case_id": "whitespace-only-change",
+        "category": "whitespace_only_change",
+        "requires_conflict_markers": false
+      },
+      {
+        "case_id": "branch-local-formatting-change",
+        "category": "branch_local_formatting_change",
+        "requires_conflict_markers": false
+      },
+      {
+        "case_id": "comment-placement",
+        "category": "comment_placement",
+        "requires_conflict_markers": false
+      },
+      {
+        "case_id": "conflict-marker-placement",
+        "category": "conflict_marker_placement",
+        "requires_conflict_markers": true
+      }
+    ],
+    "diagnostics": [
+      "formatting edge fixtures define the minimum renderer regression inventory"
+    ]
+  },
+  "expected": {
+    "case_count": 4,
+    "categories": [
+      "whitespace_only_change",
+      "branch_local_formatting_change",
+      "comment_placement",
+      "conflict_marker_placement"
+    ],
+    "conflict_marker_case_count": 1
+  }
+}

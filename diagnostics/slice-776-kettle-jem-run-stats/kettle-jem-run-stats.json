@@ -1,0 +1,49 @@
+{
+  "source": {
+    "old_phase_stats": "reference/kettle-jem/lib/kettle/jem/phases/phase_stats.rb",
+    "old_template_phase": "reference/kettle-jem/lib/kettle/jem/phases/template_phase.rb",
+    "active_implementation": "ruby/gems/kettle-jem/lib/kettle/jem.rb",
+    "active_tests": "ruby/gems/kettle-jem/spec/thin_slice_spec.rb"
+  },
+  "decision": "Do not port the old PhaseStats class. Derive run_stats from recipe execution reports and plugin diagnostics in the active recipe-pack runner.",
+  "old_counters": [
+    "templates",
+    "created",
+    "pre_existing",
+    "identical",
+    "changed"
+  ],
+  "active_counters": [
+    "recipes",
+    "created",
+    "pre_existing",
+    "identical",
+    "changed",
+    "deleted",
+    "plugin_file_changes"
+  ],
+  "classification_rules": {
+    "recipes": "count all recipe reports",
+    "created": "changed non-delete report whose destination did not exist before execution",
+    "pre_existing": "non-delete report whose destination existed before execution",
+    "identical": "pre-existing non-delete report whose final content is unchanged",
+    "changed": "pre-existing non-delete report whose final content changed",
+    "deleted": "changed delete-file report",
+    "plugin_file_changes": "plugin_file_change diagnostics appended by apply-time plugin lifecycle hooks"
+  },
+  "report_contract": {
+    "plan": "includes run_stats derived from recipe reports with plugin_file_changes equal to 0",
+    "apply": "includes run_stats derived from recipe reports and any plugin file-change diagnostics",
+    "summary": "ASCII one-line summary suitable for CLI/report rendering"
+  },
+  "not_implemented_here": [
+    "old PhaseStats class",
+    "old phase summary lines",
+    "git dirty snapshot classification",
+    "per-phase stats"
+  ],
+  "verification": {
+    "command": "mise exec -C ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "376 examples, 0 failures"
+  }
+}

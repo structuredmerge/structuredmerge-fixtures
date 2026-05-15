@@ -1,0 +1,61 @@
+{
+  "available_report": {
+    "backend_ref": {
+      "id": "kreuzberg-language-pack",
+      "family": "tree-sitter"
+    },
+    "status": "available",
+    "checks": [
+      {
+        "name": "runtime_dependency",
+        "status": "available",
+        "required": true,
+        "diagnostics": []
+      },
+      {
+        "name": "grammar_inventory",
+        "status": "available",
+        "required": false,
+        "diagnostics": []
+      }
+    ],
+    "diagnostics": []
+  },
+  "unavailable_report": {
+    "backend_ref": {
+      "id": "java-tree-sitter",
+      "family": "tree-sitter"
+    },
+    "status": "unavailable",
+    "checks": [
+      {
+        "name": "host_runtime",
+        "status": "unavailable",
+        "required": true,
+        "diagnostics": [
+          "JRuby runtime is not active"
+        ]
+      },
+      {
+        "name": "grammar_inventory",
+        "status": "available",
+        "required": false,
+        "diagnostics": []
+      }
+    ],
+    "diagnostics": [
+      "backend unavailable: required check host_runtime is unavailable"
+    ]
+  },
+  "unknown_report": {
+    "backend_ref": {
+      "id": "external-go-dst",
+      "family": "native"
+    },
+    "status": "unknown",
+    "checks": [],
+    "diagnostics": [
+      "backend availability unknown: no checks supplied"
+    ]
+  }
+}

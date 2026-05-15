@@ -94,7 +94,7 @@
       "id": "native-go-parser",
       "family": "native"
     },
-    "known_node_kinds": ["source_file", "import_declaration"],
+    "known_node_kinds": ["source_file", "import_declaration", "import_spec", "comment"],
     "known_fields": ["path"],
     "grammar_inventory": "partial"
   },

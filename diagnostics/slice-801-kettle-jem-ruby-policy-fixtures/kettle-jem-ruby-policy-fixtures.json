@@ -27,7 +27,7 @@
   "cases": [
     {
       "label": "kettle-jem-gemfile-template-policy",
-      "implementation_status": "partial",
+      "implementation_status": "implemented_without_dedicated_step_report",
       "request_envelope": {
         "kind": "content_recipe_execution_request",
         "version": 1,
@@ -102,7 +102,7 @@
             },
             {
               "step_id": "delete-kettle-jem-conflicts",
-              "status": "required",
+              "status": "applied",
               "changed": true,
               "metadata": {
                 "deleted_self_dependencies": [

@@ -1,0 +1,284 @@
+{
+  "source": {
+    "old_package": "reference/kettle-jem",
+    "old_helpers": [
+      "reference/kettle-jem/lib/kettle/jem/prism_gemfile.rb",
+      "reference/kettle-jem/lib/kettle/jem/prism_gemspec.rb",
+      "reference/kettle-jem/lib/kettle/jem/prism_appraisals.rb",
+      "reference/kettle-jem/lib/kettle/jem/prism_gemfile/dependency_removal_policy.rb",
+      "reference/kettle-jem/lib/kettle/jem/prism_gemfile/declaration_context_policy.rb",
+      "reference/kettle-jem/lib/kettle/jem/prism_gemspec/dependency_removal_policy.rb",
+      "reference/kettle-jem/lib/kettle/jem/prism_gemspec/field_assignment_policy.rb",
+      "reference/kettle-jem/lib/kettle/jem/prism_gemspec/version_loader_policy.rb"
+    ],
+    "existing_portable_fixtures": [
+      "fixtures/diagnostics/slice-700-ruby-gemfile-signature-merge-acceptance/",
+      "fixtures/diagnostics/slice-702-ruby-gemspec-signature-merge-acceptance/",
+      "fixtures/diagnostics/slice-703-ruby-gemspec-field-policy-acceptance/",
+      "fixtures/diagnostics/slice-704-ruby-gemspec-dependency-section-policy-acceptance/",
+      "fixtures/diagnostics/slice-705-ruby-gemspec-files-policy-acceptance/",
+      "fixtures/diagnostics/slice-706-ruby-gemspec-version-loader-policy-acceptance/",
+      "fixtures/diagnostics/slice-708-ruby-gemspec-self-dependency-policy-acceptance/",
+      "fixtures/diagnostics/slice-709-ruby-gemfile-self-dependency-policy-acceptance/",
+      "fixtures/diagnostics/slice-710-ruby-appraisals-self-dependency-policy-acceptance/",
+      "fixtures/diagnostics/slice-711-ruby-appraisals-min-ruby-prune-policy-acceptance/"
+    ]
+  },
+  "cases": [
+    {
+      "label": "kettle-jem-gemfile-template-policy",
+      "implementation_status": "partial",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "kettle_jem_gemfile_template_policy",
+          "recipe_version": "1",
+          "relative_path": "Gemfile",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "# frozen_string_literal: true\n\n# Gemfile is for local development ONLY\n# Include dependencies from demo.gemspec\ngemspec\n\neval_gemfile \"gemfiles/modular/style.gemfile\"\neval_gemfile \"gemfiles/modular/coverage.gemfile\"\n\ngem \"appraisal\"\ngem \"demo\", path: \".\"\ngem \"rake\", \"~> 13.0\"\n",
+          "destination_content": "# frozen_string_literal: true\n\n# Gemfile is for local development ONLY\n# IMPORTANT: keep local notes\n# Include dependencies from demo.gemspec\ngemspec\n\neval_gemfile \"gemfiles/modular/style.gemfile\"\n\ngem \"rspec\", \"~> 3.13\"\ngem \"demo\", path: \"../demo\"\n",
+          "steps": [
+            {
+              "step_id": "resolve-template-tokens",
+              "step_kind": "template_policy",
+              "name": "resolve Kettle/Jem tokens before Ruby merge"
+            },
+            {
+              "step_id": "merge-gemfile-declarations",
+              "step_kind": "smart_merge",
+              "name": "merge Gemfile declarations by Ruby signatures"
+            },
+            {
+              "step_id": "delete-kettle-jem-conflicts",
+              "step_kind": "native_policy",
+              "name": "delete active gem self-dependencies and conflicting appraisal gem declarations"
+            }
+          ],
+          "runtime_context": {
+            "facts": {
+              "schema": "runtime_facts.v1",
+              "producer": "kettle-jem-wrapper",
+              "facts": [
+                {
+                  "fact_id": "gem.identity",
+                  "subject_kind": "package",
+                  "subject": "demo",
+                  "value": {
+                    "name": "demo"
+                  },
+                  "source": "gemspec",
+                  "confidence": "resolved"
+                }
+              ]
+            },
+            "conflicting_gems": [
+              "appraisal"
+            ]
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "final_content": "# frozen_string_literal: true\n\n# Gemfile is for local development ONLY\n# IMPORTANT: keep local notes\n# Include dependencies from demo.gemspec\ngemspec\n\neval_gemfile \"gemfiles/modular/style.gemfile\"\neval_gemfile \"gemfiles/modular/coverage.gemfile\"\n\ngem \"rspec\", \"~> 3.13\"\ngem \"rake\", \"~> 13.0\"\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "resolve-template-tokens",
+              "status": "applied",
+              "changed": true
+            },
+            {
+              "step_id": "merge-gemfile-declarations",
+              "status": "applied",
+              "changed": true,
+              "metadata": {
+                "deduplicated_eval_gemfile_count": 1,
+                "inserted_eval_gemfile_count": 1
+              }
+            },
+            {
+              "step_id": "delete-kettle-jem-conflicts",
+              "status": "required",
+              "changed": true,
+              "metadata": {
+                "deleted_self_dependencies": [
+                  "demo"
+                ],
+                "deleted_conflicting_gems": [
+                  "appraisal"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "kettle-jem-gemspec-template-policy",
+      "implementation_status": "partial",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "kettle_jem_gemspec_template_policy",
+          "recipe_version": "1",
+          "relative_path": "demo.gemspec",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::VERSION\n  spec.summary = \"TODO: Write a short summary\"\n  spec.description = \"TODO: Write a longer description\"\n  spec.required_ruby_version = \">= 3.1\"\n  spec.add_runtime_dependency \"json\", \">= 2.0\"\n  spec.add_development_dependency \"rspec\", \"~> 3.13\"\nend\n",
+          "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::VERSION\n  spec.summary = \"Real summary\"\n  spec.description = \"Real description\"\n  spec.required_ruby_version = \">= 3.2\"\n  spec.add_runtime_dependency \"json\", \">= 2.7\"\n  spec.add_development_dependency \"rubocop\", \"~> 1.70\"\nend\n",
+          "steps": [
+            {
+              "step_id": "preserve-project-fields",
+              "step_kind": "template_policy",
+              "name": "preserve destination project metadata over placeholders"
+            },
+            {
+              "step_id": "preserve-destination-dependencies",
+              "step_kind": "native_policy",
+              "name": "preserve destination dependency requirements and append destination-only dependencies"
+            }
+          ]
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "final_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::VERSION\n  spec.summary = \"Real summary\"\n  spec.description = \"Real description\"\n  spec.required_ruby_version = \">= 3.2\"\n  spec.add_runtime_dependency \"json\", \">= 2.7\"\n  spec.add_development_dependency \"rspec\", \"~> 3.13\"\n  spec.add_development_dependency \"rubocop\", \"~> 1.70\"\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "preserve-project-fields",
+              "status": "applied",
+              "changed": true,
+              "metadata": {
+                "preserved_fields": [
+                  "summary",
+                  "description",
+                  "required_ruby_version"
+                ]
+              }
+            },
+            {
+              "step_id": "preserve-destination-dependencies",
+              "status": "applied",
+              "changed": true,
+              "metadata": {
+                "preserved_requirements": [
+                  "json"
+                ],
+                "appended_destination_dependencies": [
+                  "rubocop"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "kettle-jem-appraisals-template-policy",
+      "implementation_status": "required",
+      "request_envelope": {
+        "kind": "content_recipe_execution_request",
+        "version": 1,
+        "request": {
+          "recipe_name": "kettle_jem_appraisals_template_policy",
+          "recipe_version": "1",
+          "relative_path": "Appraisals",
+          "provider_family": "ruby_source",
+          "provider_backend": "generic_ruby_ast",
+          "template_content": "# frozen_string_literal: true\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"gemfiles/modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"gemfiles/modular/style.gemfile\"\nend\n",
+          "destination_content": "# frozen_string_literal: true\n\nappraise \"ruby-2-7\" do\n  gem \"demo\"\n  eval_gemfile \"gemfiles/modular/x_std_libs/r2/libs.gemfile\"\nend\n\nappraise \"ruby-3-2\" do\n  gem \"demo\", path: \"../demo\"\n  eval_gemfile \"gemfiles/modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"coverage\" do\n  gem \"simplecov\"\nend\n",
+          "steps": [
+            {
+              "step_id": "merge-appraisal-blocks",
+              "step_kind": "smart_merge",
+              "name": "merge Appraisals blocks by appraisal name"
+            },
+            {
+              "step_id": "delete-appraisals-self-dependencies",
+              "step_kind": "native_policy",
+              "name": "delete active package self-dependencies inside appraisal blocks"
+            },
+            {
+              "step_id": "prune-ruby-appraisals",
+              "step_kind": "native_policy",
+              "name": "delete ruby-X-Y appraisals below min_ruby"
+            }
+          ],
+          "runtime_context": {
+            "min_ruby": "3.2",
+            "facts": {
+              "schema": "runtime_facts.v1",
+              "producer": "kettle-jem-wrapper",
+              "facts": [
+                {
+                  "fact_id": "gem.identity",
+                  "subject_kind": "package",
+                  "subject": "demo",
+                  "value": {
+                    "name": "demo"
+                  },
+                  "source": "gemspec",
+                  "confidence": "resolved"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "report_envelope": {
+        "kind": "content_recipe_execution_report",
+        "version": 1,
+        "report": {
+          "final_content": "# frozen_string_literal: true\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"gemfiles/modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"coverage\" do\n  gem \"simplecov\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"gemfiles/modular/style.gemfile\"\nend\n",
+          "changed": true,
+          "step_reports": [
+            {
+              "step_id": "merge-appraisal-blocks",
+              "status": "required",
+              "changed": true,
+              "metadata": {
+                "inserted_appraisals": [
+                  "style"
+                ],
+                "preserved_destination_appraisals": [
+                  "coverage"
+                ]
+              }
+            },
+            {
+              "step_id": "delete-appraisals-self-dependencies",
+              "status": "required",
+              "changed": true,
+              "metadata": {
+                "deleted_dependency_count": 2
+              }
+            },
+            {
+              "step_id": "prune-ruby-appraisals",
+              "status": "required",
+              "changed": true,
+              "metadata": {
+                "min_ruby": "3.2",
+                "deleted_appraisals": [
+                  "ruby-2-7"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "command": "fixture contract only; implementation follows in classifier and dependency policy port",
+    "result": "pending implementation for required and partial cases"
+  }
+}

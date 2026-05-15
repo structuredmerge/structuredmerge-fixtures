@@ -40,7 +40,7 @@
         "diagnostics": ["data-format profile may become default after recommendation soak time"]
       },
       {
-        "profile_id": "go.imports",
+        "profile_id": "go.import-declarations",
         "family": "go",
         "scope": "source_subprofile",
         "eligible_statuses": ["available", "recommended"],
@@ -65,7 +65,7 @@
         "diagnostics": ["source-language profile is narrow and not language-wide"]
       },
       {
-        "profile_id": "rust.imports",
+        "profile_id": "rust.use-declarations",
         "family": "rust",
         "scope": "source_subprofile",
         "eligible_statuses": ["available", "recommended"],
@@ -90,7 +90,7 @@
         "diagnostics": ["source-language profile is narrow and not language-wide"]
       },
       {
-        "profile_id": "typescript.imports",
+        "profile_id": "typescript.import-declarations",
         "family": "typescript",
         "scope": "source_subprofile",
         "eligible_statuses": ["available", "recommended"],
@@ -115,7 +115,7 @@
         "diagnostics": ["source-language profile is narrow and not language-wide"]
       },
       {
-        "profile_id": "ruby.gemspec-dependencies",
+        "profile_id": "ruby.gemspec-dependency-declarations",
         "family": "ruby",
         "scope": "source_subprofile",
         "eligible_statuses": ["available", "recommended"],

@@ -1,0 +1,105 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "910",
+  "name": "active-profile-reporting",
+  "description": "Conformance and debug reports expose the active language/backend profile without requiring consumers to understand parser-native details.",
+  "active_profile": {
+    "profile_id": "go-default-v1",
+    "family": "go",
+    "backend": "tree-sitter-go",
+    "backend_family": "tree-sitter",
+    "parser": "tree-sitter-go",
+    "parser_version": "0.23.x",
+    "language_version": "go1.22",
+    "dialect": "go",
+    "supported_dialects": ["go"],
+    "rule_counts": {
+      "node_roles": 9,
+      "atomic_nodes": 2,
+      "signatures": 2,
+      "commutative_parents": 1,
+      "child_groups": 1,
+      "comment_attachment": 1
+    },
+    "validation": {
+      "ok": true,
+      "error_count": 0,
+      "warning_count": 0
+    }
+  },
+  "conformance_report": {
+    "report_id": "go-default-profile-report",
+    "version": "1",
+    "profile": "go-default-v1",
+    "active_profile": {
+      "profile_id": "go-default-v1",
+      "family": "go",
+      "backend": "tree-sitter-go",
+      "backend_family": "tree-sitter",
+      "parser": "tree-sitter-go",
+      "parser_version": "0.23.x",
+      "language_version": "go1.22",
+      "dialect": "go",
+      "supported_dialects": ["go"],
+      "rule_counts": {
+        "node_roles": 9,
+        "atomic_nodes": 2,
+        "signatures": 2,
+        "commutative_parents": 1,
+        "child_groups": 1,
+        "comment_attachment": 1
+      },
+      "validation": {
+        "ok": true,
+        "error_count": 0,
+        "warning_count": 0
+      }
+    },
+    "enabled_rules": [
+      "commutative_member_insert",
+      "signature_matching",
+      "comment_anchor_preservation"
+    ],
+    "skipped_rules": [],
+    "fallback_count": 0,
+    "unresolved_conflict_count": 0,
+    "diagnostics": ["active profile details make conformance reports reproducible"]
+  },
+  "debug_output": {
+    "mode": "profile",
+    "active_profile": {
+      "profile_id": "go-default-v1",
+      "family": "go",
+      "backend": "tree-sitter-go",
+      "backend_family": "tree-sitter",
+      "parser": "tree-sitter-go",
+      "parser_version": "0.23.x",
+      "language_version": "go1.22",
+      "dialect": "go",
+      "supported_dialects": ["go"],
+      "rule_counts": {
+        "node_roles": 9,
+        "atomic_nodes": 2,
+        "signatures": 2,
+        "commutative_parents": 1,
+        "child_groups": 1,
+        "comment_attachment": 1
+      },
+      "validation": {
+        "ok": true,
+        "error_count": 0,
+        "warning_count": 0
+      }
+    },
+    "diagnostics": ["profile debug output uses the same active profile view as conformance reports"]
+  },
+  "expected": {
+    "profile_id": "go-default-v1",
+    "family": "go",
+    "backend": "tree-sitter-go",
+    "parser": "tree-sitter-go",
+    "signature_count": 2,
+    "validation_ok": true,
+    "debug_mode": "profile"
+  }
+}

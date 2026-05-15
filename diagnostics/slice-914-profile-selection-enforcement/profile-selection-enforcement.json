@@ -1,0 +1,79 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "914",
+  "name": "profile-selection-enforcement",
+  "description": "Profile selection enforcement compares an evaluated promotion status with a requested minimum status and returns a structured advisory or required decision.",
+  "active_profile": {
+    "profile_id": "json.keyed-object",
+    "family": "json",
+    "backend": "tree-sitter-json",
+    "backend_family": "tree-sitter",
+    "parser": "tree-sitter-json",
+    "parser_version": "0.24.8",
+    "language_version": "json",
+    "dialect": "json",
+    "supported_dialects": ["json"],
+    "rule_counts": {
+      "node_roles": 7,
+      "atomic_nodes": 2,
+      "signatures": 3,
+      "commutative_parents": 1,
+      "child_groups": 2,
+      "comment_attachment": 0
+    },
+    "validation": {
+      "ok": true,
+      "error_count": 0,
+      "warning_count": 0
+    }
+  },
+  "available_evaluation": {
+    "profile_id": "json.keyed-object",
+    "status": "available",
+    "blocking_reasons": [
+      "passed fixture count is below required fixture count",
+      "formatting preservation score is below threshold"
+    ],
+    "diagnostics": []
+  },
+  "recommended_evaluation": {
+    "profile_id": "json.keyed-object",
+    "status": "recommended",
+    "blocking_reasons": [],
+    "diagnostics": []
+  },
+  "advisory_requirement": {
+    "profile_id": "json.keyed-object",
+    "promotion_policy_id": "initial-profile-promotion-policy",
+    "minimum_profile_status": "recommended",
+    "enforcement_mode": "advisory"
+  },
+  "required_requirement": {
+    "profile_id": "json.keyed-object",
+    "promotion_policy_id": "initial-profile-promotion-policy",
+    "minimum_profile_status": "recommended",
+    "enforcement_mode": "required"
+  },
+  "satisfied_requirement": {
+    "profile_id": "json.keyed-object",
+    "promotion_policy_id": "initial-profile-promotion-policy",
+    "minimum_profile_status": "recommended",
+    "enforcement_mode": "required"
+  },
+  "expected": {
+    "advisory_allowed": true,
+    "advisory_satisfied": false,
+    "advisory_enforced": false,
+    "advisory_rejection_code": "",
+    "required_allowed": false,
+    "required_satisfied": false,
+    "required_enforced": true,
+    "required_rejection_code": "profile_status_unmet",
+    "required_first_blocking_reason": "profile status available is below required recommended",
+    "satisfied_allowed": true,
+    "satisfied_satisfied": true,
+    "satisfied_enforced": true,
+    "satisfied_rejection_code": "",
+    "status_order": ["disabled", "experimental", "available", "recommended", "default"]
+  }
+}

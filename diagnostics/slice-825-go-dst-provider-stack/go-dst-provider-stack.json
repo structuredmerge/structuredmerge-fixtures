@@ -1,0 +1,27 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "825",
+  "name": "go-dst-provider-stack",
+  "description": "github.com/dave/dst is declared as the second Go-native/source-analysis stack beside go/parser.",
+  "provider_stack": {
+    "provider_id": "go-dst",
+    "module": "github.com/dave/dst",
+    "backend_family": "native",
+    "language": "go",
+    "role": "second_go_native_stack",
+    "compares_with": [
+      "go-parser",
+      "tree-sitter-go"
+    ],
+    "diagnostics": [
+      "go-dst decorates Go ASTs for source-aware native-provider validation"
+    ]
+  },
+  "expected": {
+    "provider_id": "go-dst",
+    "module": "github.com/dave/dst",
+    "backend_family": "native",
+    "language": "go",
+    "comparison_count": 2
+  }
+}

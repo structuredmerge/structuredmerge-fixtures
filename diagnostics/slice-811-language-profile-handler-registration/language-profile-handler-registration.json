@@ -1,0 +1,71 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "811",
+  "name": "language-profile-handler-registration",
+  "description": "Language profiles can register typed conflict handlers for portable semantic roles without exposing parser-native node classes.",
+  "profile_handlers": {
+    "profile_id": "go-source-profile",
+    "language": "go",
+    "version": "1",
+    "registrations": [
+      {
+        "role": "imports",
+        "handler_id": "generic-independent-commutative-insertions",
+        "conflict_categories": [
+          "ordering",
+          "duplicate_signature"
+        ],
+        "enabled": true
+      },
+      {
+        "role": "modifiers",
+        "handler_id": "generic-independent-commutative-insertions",
+        "conflict_categories": [
+          "ordering"
+        ],
+        "enabled": true
+      },
+      {
+        "role": "declarations",
+        "handler_id": "generic-independent-commutative-insertions",
+        "conflict_categories": [
+          "ordering"
+        ],
+        "enabled": true
+      },
+      {
+        "role": "comments",
+        "handler_id": "local-line-fallback",
+        "conflict_categories": [
+          "edit_edit"
+        ],
+        "enabled": true
+      },
+      {
+        "role": "duplicate_members",
+        "handler_id": "generic-keyed-member-edit",
+        "conflict_categories": [
+          "duplicate_signature",
+          "edit_edit"
+        ],
+        "enabled": true
+      }
+    ],
+    "diagnostics": [
+      "profile handler registrations are keyed by portable semantic role"
+    ]
+  },
+  "expected": {
+    "language": "go",
+    "registration_count": 5,
+    "enabled_count": 5,
+    "roles": [
+      "imports",
+      "modifiers",
+      "declarations",
+      "comments",
+      "duplicate_members"
+    ],
+    "duplicate_member_handler": "generic-keyed-member-edit"
+  }
+}

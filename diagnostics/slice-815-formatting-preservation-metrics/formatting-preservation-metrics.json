@@ -1,0 +1,28 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "815",
+  "name": "formatting-preservation-metrics",
+  "description": "Conformance reports include formatting-preservation metrics for rendered merge output.",
+  "conformance_report": {
+    "report_id": "go-formatting-conformance",
+    "version": "1",
+    "suite": "go-rendering",
+    "case_id": "go-function-local-edit",
+    "language": "go",
+    "formatting_metrics": {
+      "expected_output_line_diff_size": 2,
+      "expected_output_character_diff_size": 18,
+      "formatting_preservation_score": 0.97
+    },
+    "diagnostics": [
+      "formatting metrics compare rendered output against expected output"
+    ]
+  },
+  "expected": {
+    "suite": "go-rendering",
+    "language": "go",
+    "line_diff_size": 2,
+    "character_diff_size": 18,
+    "score": 0.97
+  }
+}

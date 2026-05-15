@@ -9,6 +9,16 @@
     "source": "prior-art-synthesis",
     "cases": [
       {
+        "case_id": "rust-moved-function-edited",
+        "language": "rust",
+        "category": "move_edit",
+        "base_path": "rust/functions/base.rs",
+        "ours_path": "rust/functions/ours.rs",
+        "theirs_path": "rust/functions/theirs.rs",
+        "expected_strategy": "move_aware_edit_reconcile",
+        "expected_unresolved_conflict": false
+      },
+      {
         "case_id": "go-independent-function-insertions",
         "language": "go",
         "category": "independent_insertion",
@@ -16,6 +26,26 @@
         "ours_path": "go/functions/ours.go",
         "theirs_path": "go/functions/theirs.go",
         "expected_strategy": "commutative_member_insert",
+        "expected_unresolved_conflict": false
+      },
+      {
+        "case_id": "json-duplicate-keyed-insertion",
+        "language": "json",
+        "category": "duplicate_insertion",
+        "base_path": "json/members/base.json",
+        "ours_path": "json/members/ours.json",
+        "theirs_path": "json/members/theirs.json",
+        "expected_strategy": "duplicate_insert_collapse",
+        "expected_unresolved_conflict": false
+      },
+      {
+        "case_id": "ruby-delete-edit-method",
+        "language": "ruby",
+        "category": "delete_edit",
+        "base_path": "ruby/methods/base.rb",
+        "ours_path": "ruby/methods/ours.rb",
+        "theirs_path": "ruby/methods/theirs.rb",
+        "expected_strategy": "delete_edit_policy_diagnostic",
         "expected_unresolved_conflict": false
       },
       {
@@ -44,14 +74,20 @@
     ]
   },
   "expected": {
-    "case_count": 3,
+    "case_count": 6,
     "languages": [
+      "rust",
       "go",
+      "json",
+      "ruby",
       "typescript",
       "ruby"
     ],
     "categories": [
+      "move_edit",
       "independent_insertion",
+      "duplicate_insertion",
+      "delete_edit",
       "ordering",
       "comment_attachment"
     ],

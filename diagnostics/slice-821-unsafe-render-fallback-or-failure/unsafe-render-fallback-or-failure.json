@@ -1,0 +1,27 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "821",
+  "name": "unsafe-render-fallback-or-failure",
+  "description": "Providers that cannot safely render a merged tree must fall back or produce a diagnostic failure.",
+  "render_safety": {
+    "report_id": "unsafe-render-provider",
+    "version": "1",
+    "provider_id": "go-tree-sitter-experimental-renderer",
+    "safe_to_render": false,
+    "outcome": "diagnostic_failure",
+    "fallback_strategy": "full_file_fallback",
+    "diagnostics": [
+      "provider cannot safely render merged tree"
+    ]
+  },
+  "expected": {
+    "safe_to_render": false,
+    "allowed_outcomes": [
+      "fallback",
+      "diagnostic_failure"
+    ],
+    "outcome": "diagnostic_failure",
+    "fallback_strategy": "full_file_fallback",
+    "diagnostic_count": 1
+  }
+}

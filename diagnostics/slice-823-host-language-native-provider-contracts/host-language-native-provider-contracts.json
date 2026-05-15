@@ -1,0 +1,57 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "823",
+  "name": "host-language-native-provider-contracts",
+  "description": "Host-language native parser providers are declared as portable contracts before implementation-specific parsing behavior is wired.",
+  "native_provider_contracts": {
+    "suite_id": "host-language-native-providers",
+    "version": "1",
+    "providers": [
+      {
+        "provider_id": "go-parser",
+        "host_language": "go",
+        "target_language": "go",
+        "parser_name": "go/parser"
+      },
+      {
+        "provider_id": "typescript-compiler-api",
+        "host_language": "typescript",
+        "target_language": "typescript",
+        "parser_name": "typescript"
+      },
+      {
+        "provider_id": "rust-syn",
+        "host_language": "rust",
+        "target_language": "rust",
+        "parser_name": "syn"
+      },
+      {
+        "provider_id": "ruby-prism",
+        "host_language": "ruby",
+        "target_language": "ruby",
+        "parser_name": "prism"
+      },
+      {
+        "provider_id": "ruby-rbs",
+        "host_language": "ruby",
+        "target_language": "rbs",
+        "parser_name": "rbs"
+      }
+    ],
+    "diagnostics": [
+      "host-language provider contracts establish the first native parser inventory"
+    ]
+  },
+  "expected": {
+    "provider_count": 5,
+    "provider_ids": [
+      "go-parser",
+      "typescript-compiler-api",
+      "rust-syn",
+      "ruby-prism",
+      "ruby-rbs"
+    ],
+    "ruby_provider_count": 2,
+    "first_provider_parser": "go/parser"
+  }
+}

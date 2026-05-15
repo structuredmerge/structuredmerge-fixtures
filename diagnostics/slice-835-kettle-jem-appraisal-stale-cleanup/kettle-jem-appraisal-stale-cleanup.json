@@ -1,0 +1,27 @@
+{
+  "source": {
+    "old_package": "reference/kettle-jem-appraisals",
+    "old_behavior": "CLI.cleanup_stale_gemfiles",
+    "active_destination": "ruby/gems/kettle-jem/lib/kettle/jem.rb"
+  },
+  "input": {
+    "existing_paths": [
+      "gemfiles/kja-ar-7-1-r3.gemfile",
+      "gemfiles/kja-ar-6-1-r2.gemfile",
+      "gemfiles/manual.gemfile",
+      "gemfiles/modular/activerecord/r3/v7.1.gemfile"
+    ],
+    "current_entries": [
+      { "name": "kja-ar-7-1-r3" }
+    ]
+  },
+  "expected": {
+    "stale_paths": [
+      "gemfiles/kja-ar-6-1-r2.gemfile"
+    ]
+  },
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "384 examples, 0 failures"
+  }
+}

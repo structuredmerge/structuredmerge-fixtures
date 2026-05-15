@@ -1,0 +1,140 @@
+{
+  "library_path_cases": [
+    {
+      "name": "valid_so",
+      "path": "/usr/lib/libtree-sitter-toml.so",
+      "expected_valid": true,
+      "expected_errors": []
+    },
+    {
+      "name": "versioned_so",
+      "path": "/usr/lib64/libtree-sitter.so.14",
+      "expected_valid": true,
+      "expected_errors": []
+    },
+    {
+      "name": "windows_forward_slash_dll",
+      "path": "D:/libs/tree-sitter.dll",
+      "expected_valid": true,
+      "expected_errors": []
+    },
+    {
+      "name": "relative_path",
+      "path": "../lib/libtree-sitter.so",
+      "expected_valid": false,
+      "expected_errors": [
+        "path_not_absolute",
+        "path_contains_parent_traversal"
+      ]
+    },
+    {
+      "name": "traversal_parent",
+      "path": "/usr/lib/../etc/passwd.so",
+      "expected_valid": false,
+      "expected_errors": [
+        "path_contains_parent_traversal"
+      ]
+    },
+    {
+      "name": "traversal_current",
+      "path": "/usr/lib/./libtest.so",
+      "expected_valid": false,
+      "expected_errors": [
+        "path_contains_current_directory_traversal"
+      ]
+    },
+    {
+      "name": "invalid_extension",
+      "path": "/usr/lib/libtree-sitter.txt",
+      "expected_valid": false,
+      "expected_errors": [
+        "path_extension_not_allowed"
+      ]
+    },
+    {
+      "name": "unsafe_filename",
+      "path": "/usr/lib/lib;rm-rf.so",
+      "expected_valid": false,
+      "expected_errors": [
+        "filename_contains_invalid_characters"
+      ]
+    },
+    {
+      "name": "hidden_filename",
+      "path": "/usr/lib/.hidden.so",
+      "expected_valid": false,
+      "expected_errors": [
+        "filename_contains_invalid_characters"
+      ]
+    },
+    {
+      "name": "null_byte",
+      "path": "/usr/lib/evil\u0000.so",
+      "expected_valid": false,
+      "expected_errors": [
+        "path_contains_null_byte",
+        "filename_contains_invalid_characters"
+      ]
+    }
+  ],
+  "language_name_cases": [
+    {
+      "name": "valid_language",
+      "value": "toml",
+      "expected_valid": true,
+      "expected_sanitized": "toml"
+    },
+    {
+      "name": "uppercase_sanitized",
+      "value": "TOML",
+      "expected_valid": false,
+      "expected_sanitized": "toml"
+    },
+    {
+      "name": "number_prefix",
+      "value": "2toml",
+      "expected_valid": false,
+      "expected_sanitized": null
+    },
+    {
+      "name": "symbol_characters_removed",
+      "value": "c++",
+      "expected_valid": false,
+      "expected_sanitized": "c"
+    }
+  ],
+  "symbol_name_cases": [
+    {
+      "name": "tree_sitter_symbol",
+      "value": "tree_sitter_toml",
+      "expected_valid": true
+    },
+    {
+      "name": "number_prefix",
+      "value": "123symbol",
+      "expected_valid": false
+    },
+    {
+      "name": "shell_metacharacters",
+      "value": "evil;rm",
+      "expected_valid": false
+    }
+  ],
+  "backend_name_cases": [
+    {
+      "name": "auto",
+      "value": "auto",
+      "expected_valid": true
+    },
+    {
+      "name": "registered_backend",
+      "value": "kreuzberg-language-pack",
+      "expected_valid": true
+    },
+    {
+      "name": "unknown_backend",
+      "value": "evil",
+      "expected_valid": false
+    }
+  ]
+}

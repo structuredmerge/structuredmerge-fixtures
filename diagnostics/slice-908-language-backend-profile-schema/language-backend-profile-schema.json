@@ -1,0 +1,76 @@
+{
+  "profile": {
+    "profile_id": "go-tree-sitter-git-profile-v1",
+    "family": "go",
+    "version": "1",
+    "parser_identity": {
+      "parser": "tree-sitter-go",
+      "backend": "kreuzberg-language-pack",
+      "backend_family": "tree-sitter",
+      "parser_version": "0.23.x",
+      "language_version": "go1.22"
+    },
+    "extensions": [".go"],
+    "aliases": ["go", "golang"],
+    "git_attributes": {
+      "attribute_namespace": "smorg",
+      "language_attributes": ["smorg.language", "linguist-language"],
+      "language": "go",
+      "merge_driver": "smorg-go",
+      "diff_driver": "smorg-go",
+      "conflict_marker_size_attribute": "conflict-marker-size"
+    },
+    "supported_dialects": ["go"],
+    "backends": [
+      {
+        "backend": "tree-sitter-go",
+        "family": "tree-sitter",
+        "default": true,
+        "capabilities": ["parse", "source_spans", "normalized_tree"]
+      }
+    ],
+    "rules": {
+      "node_roles": ["structural", "token", "trivia", "comment", "delimiter", "separator", "virtual", "error", "opaque"],
+      "atomic_nodes": [
+        {
+          "selector": "string_literal",
+          "reason": "literal_token"
+        }
+      ],
+      "signatures": [
+        {
+          "name": "import_path",
+          "selector": "import_spec",
+          "extractor": "field:path"
+        }
+      ],
+      "commutative_parents": [
+        {
+          "selector": "import_declaration",
+          "child_group": "imports"
+        }
+      ],
+      "child_groups": [
+        {
+          "name": "imports",
+          "separator": "\\n",
+          "delimiter": null
+        }
+      ],
+      "comment_attachment": [
+        {
+          "selector": "comment",
+          "strategy": "nearest_following_semantic_node"
+        }
+      ]
+    }
+  },
+  "expected": {
+    "profile_id": "go-tree-sitter-git-profile-v1",
+    "family": "go",
+    "default_backend": "tree-sitter-go",
+    "primary_language_attribute": "smorg.language",
+    "first_signature": "import_path",
+    "first_commutative_parent": "import_declaration"
+  }
+}

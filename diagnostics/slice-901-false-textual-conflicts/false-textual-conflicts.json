@@ -1,0 +1,60 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "901",
+  "name": "false-textual-conflicts",
+  "description": "Prior-art-inspired cases where textual merge commonly reports a conflict that structured merge should be able to resolve.",
+  "suite": {
+    "suite_id": "false-textual-conflicts",
+    "version": "1",
+    "source": "prior-art-synthesis",
+    "cases": [
+      {
+        "case_id": "go-independent-function-insertions",
+        "language": "go",
+        "category": "independent_insertion",
+        "base_path": "go/functions/base.go",
+        "ours_path": "go/functions/ours.go",
+        "theirs_path": "go/functions/theirs.go",
+        "expected_strategy": "commutative_member_insert",
+        "expected_unresolved_conflict": false
+      },
+      {
+        "case_id": "ts-import-ordering",
+        "language": "typescript",
+        "category": "ordering",
+        "base_path": "typescript/imports/base.ts",
+        "ours_path": "typescript/imports/ours.ts",
+        "theirs_path": "typescript/imports/theirs.ts",
+        "expected_strategy": "ordered_member_reconcile",
+        "expected_unresolved_conflict": false
+      },
+      {
+        "case_id": "ruby-comment-attached-edit",
+        "language": "ruby",
+        "category": "comment_attachment",
+        "base_path": "ruby/comments/base.rb",
+        "ours_path": "ruby/comments/ours.rb",
+        "theirs_path": "ruby/comments/theirs.rb",
+        "expected_strategy": "comment_anchor_preservation",
+        "expected_unresolved_conflict": false
+      }
+    ],
+    "diagnostics": [
+      "false textual conflict fixtures establish expected structured-resolution categories before executable merge assertions are added"
+    ]
+  },
+  "expected": {
+    "case_count": 3,
+    "languages": [
+      "go",
+      "typescript",
+      "ruby"
+    ],
+    "categories": [
+      "independent_insertion",
+      "ordering",
+      "comment_attachment"
+    ],
+    "expected_unresolved_conflict_count": 0
+  }
+}

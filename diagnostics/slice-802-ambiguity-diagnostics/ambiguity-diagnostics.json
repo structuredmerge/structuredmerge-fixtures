@@ -1,0 +1,50 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "802",
+  "name": "ambiguity-diagnostics",
+  "description": "Matchers must report ambiguity when multiple candidates share the same signature in the same scope.",
+  "matching": {
+    "matching_id": "ambiguous-import-signatures",
+    "strategy": "signature",
+    "scope_path": "/imports",
+    "ambiguous": true,
+    "matches": [],
+    "ambiguities": [
+      {
+        "signature": "import:fmt",
+        "scope_path": "/imports",
+        "from_candidates": [
+          "/imports/0",
+          "/imports/1"
+        ],
+        "to_candidates": [
+          "/imports/0"
+        ],
+        "selected": false,
+        "reason": "duplicate_signature",
+        "diagnostics": [
+          "two source candidates share import:fmt in the same matcher scope"
+        ]
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "ambiguity",
+        "message": "signature import:fmt is ambiguous in /imports",
+        "path": "/imports"
+      }
+    ]
+  },
+  "expected": {
+    "strategy": "signature",
+    "scope_path": "/imports",
+    "ambiguous": true,
+    "match_count": 0,
+    "ambiguity_count": 1,
+    "diagnostic_category": "ambiguity",
+    "first_ambiguity_signature": "import:fmt",
+    "first_ambiguity_reason": "duplicate_signature",
+    "first_ambiguity_selected": false
+  }
+}

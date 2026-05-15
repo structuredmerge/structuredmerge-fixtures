@@ -119,7 +119,7 @@
     },
     {
       "label": "kettle-jem-gemspec-template-policy",
-      "implementation_status": "partial",
+      "implementation_status": "implemented_without_dedicated_step_report",
       "request_envelope": {
         "kind": "content_recipe_execution_request",
         "version": 1,
@@ -130,7 +130,7 @@
           "provider_family": "ruby_source",
           "provider_backend": "generic_ruby_ast",
           "template_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::VERSION\n  spec.summary = \"TODO: Write a short summary\"\n  spec.description = \"TODO: Write a longer description\"\n  spec.required_ruby_version = \">= 3.1\"\n  spec.add_runtime_dependency \"json\", \">= 2.0\"\n  spec.add_development_dependency \"rspec\", \"~> 3.13\"\nend\n",
-          "destination_content": "Gem::Specification.new do |spec|\n  spec.name = \"demo\"\n  spec.version = Demo::VERSION\n  spec.summary = \"Real summary\"\n  spec.description = \"Real description\"\n  spec.required_ruby_version = \">= 3.2\"\n  spec.add_runtime_dependency \"json\", \">= 2.7\"\n  spec.add_development_dependency \"rubocop\", \"~> 1.70\"\nend\n",
+          "destination_content": "Gem::Specification.new do |gem|\n  gem.name = \"demo\"\n  gem.version = Demo::VERSION\n  gem.summary = \"Real summary\"\n  gem.description = \"Real description\"\n  gem.required_ruby_version = \">= 3.2\"\n  gem.add_runtime_dependency \"json\", \">= 2.7\"\n  gem.add_development_dependency \"rubocop\", \"~> 1.70\"\nend\n",
           "steps": [
             {
               "step_id": "preserve-project-fields",
@@ -169,6 +169,10 @@
               "status": "applied",
               "changed": true,
               "metadata": {
+                "normalized_receiver": {
+                  "from": "gem",
+                  "to": "spec"
+                },
                 "preserved_requirements": [
                   "json"
                 ],

@@ -1,0 +1,35 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "905",
+  "name": "profile-conformance-reports",
+  "description": "Per-profile reports expose enabled rules, skipped rules, fallback counts, and unresolved conflicts.",
+  "report": {
+    "report_id": "source-default-profile-report",
+    "version": "1",
+    "profile": "source-default",
+    "enabled_rules": [
+      "commutative_member_insert",
+      "signature_matching",
+      "comment_anchor_preservation"
+    ],
+    "skipped_rules": [
+      {
+        "rule": "pcs_change_set_merge",
+        "reason": "experimental_disabled"
+      }
+    ],
+    "fallback_count": 1,
+    "unresolved_conflict_count": 0,
+    "diagnostics": [
+      "profile reports make rule selection and fallback behavior auditable"
+    ]
+  },
+  "expected": {
+    "profile": "source-default",
+    "enabled_rule_count": 3,
+    "skipped_rule_count": 1,
+    "fallback_count": 1,
+    "unresolved_conflict_count": 0,
+    "skipped_rule": "pcs_change_set_merge"
+  }
+}

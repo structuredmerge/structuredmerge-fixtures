@@ -1,0 +1,31 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "904",
+  "name": "performance-guardrails",
+  "description": "Performance guardrails expose resource limits and timeout diagnostics for structured merge planning.",
+  "guardrails": {
+    "guardrail_id": "default-performance-guardrails",
+    "version": "1",
+    "max_bytes": 1048576,
+    "max_nodes": 50000,
+    "max_match_candidates": 250000,
+    "timeout_ms": 5000,
+    "timeout_diagnostic": {
+      "severity": "warning",
+      "category": "performance_guardrail",
+      "code": "performance.timeout",
+      "fallback": "line_merge"
+    },
+    "diagnostics": [
+      "performance guardrails report bounded fallback instead of allowing unbounded matching work"
+    ]
+  },
+  "expected": {
+    "max_bytes": 1048576,
+    "max_nodes": 50000,
+    "max_match_candidates": 250000,
+    "timeout_ms": 5000,
+    "timeout_code": "performance.timeout",
+    "fallback": "line_merge"
+  }
+}

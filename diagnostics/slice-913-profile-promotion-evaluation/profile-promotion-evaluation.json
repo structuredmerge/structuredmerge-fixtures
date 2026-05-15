@@ -1,0 +1,133 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "913",
+  "name": "profile-promotion-evaluation",
+  "description": "Promotion evaluation applies a profile promotion policy to a measured promotion report and returns the highest allowed status with blocking reasons.",
+  "policy": {
+    "policy_id": "initial-profile-promotion-policy",
+    "version": "1",
+    "global_hard_gates": [
+      "parse_or_fail_closed",
+      "render_or_fail_closed",
+      "coherent_conflict_markers",
+      "performance_guardrails"
+    ],
+    "profiles": [
+      {
+        "profile_id": "json.keyed-object",
+        "family": "json",
+        "scope": "data_format",
+        "eligible_statuses": ["available", "recommended", "default"],
+        "recommendation_gate": {
+          "required_fixture_count": 12,
+          "formatting_threshold": 0.95,
+          "fallback_threshold": 1,
+          "unresolved_conflict_threshold": 0,
+          "requires_backend_parity": true,
+          "requires_cross_implementation_parity": true
+        },
+        "default_gate": {
+          "requires_recommended_status": true,
+          "requires_explicit_package_rollout": true,
+          "minimum_recommended_days": 30,
+          "requires_narrow_scope": true
+        },
+        "required_suites": [
+          "slice-901-false-textual-conflicts",
+          "slice-902-git-driver-smoke-fixtures",
+          "slice-815-formatting-preservation-metrics"
+        ],
+        "diagnostics": []
+      }
+    ],
+    "diagnostics": []
+  },
+  "recommended_report": {
+    "report_id": "json-keyed-object-promotion",
+    "version": "1",
+    "profile_id": "json.keyed-object",
+    "backend": "tree-sitter-json",
+    "status": "available",
+    "hard_gates": [
+      {
+        "name": "parse_or_fail_closed",
+        "passed": true,
+        "required": true,
+        "diagnostics": []
+      },
+      {
+        "name": "render_or_fail_closed",
+        "passed": true,
+        "required": true,
+        "diagnostics": []
+      },
+      {
+        "name": "coherent_conflict_markers",
+        "passed": true,
+        "required": true,
+        "diagnostics": []
+      },
+      {
+        "name": "performance_guardrails",
+        "passed": true,
+        "required": true,
+        "diagnostics": []
+      }
+    ],
+    "metrics": {
+      "required_fixture_count": 12,
+      "passed_fixture_count": 12,
+      "formatting_preservation_score": 0.98,
+      "formatting_threshold": 0.95,
+      "fallback_count": 0,
+      "fallback_threshold": 1,
+      "unresolved_conflict_count": 0,
+      "backend_parity_passed": true
+    },
+    "required_suites": [
+      "slice-901-false-textual-conflicts",
+      "slice-902-git-driver-smoke-fixtures",
+      "slice-815-formatting-preservation-metrics"
+    ],
+    "blocking_reasons": [],
+    "diagnostics": []
+  },
+  "blocked_report": {
+    "report_id": "json-keyed-object-blocked-promotion",
+    "version": "1",
+    "profile_id": "json.keyed-object",
+    "backend": "tree-sitter-json",
+    "status": "available",
+    "hard_gates": [
+      {
+        "name": "render_or_fail_closed",
+        "passed": false,
+        "required": true,
+        "diagnostics": ["render verification failed"]
+      }
+    ],
+    "metrics": {
+      "required_fixture_count": 12,
+      "passed_fixture_count": 11,
+      "formatting_preservation_score": 0.90,
+      "formatting_threshold": 0.95,
+      "fallback_count": 2,
+      "fallback_threshold": 1,
+      "unresolved_conflict_count": 1,
+      "backend_parity_passed": false
+    },
+    "required_suites": [
+      "slice-901-false-textual-conflicts"
+    ],
+    "blocking_reasons": [],
+    "diagnostics": []
+  },
+  "expected": {
+    "recommended_status": "recommended",
+    "recommended_blocking_reason_count": 0,
+    "blocked_status": "available",
+    "blocked_blocking_reason_count": 6,
+    "first_blocking_reason": "required hard gate render_or_fail_closed failed",
+    "unknown_profile_status": "experimental"
+  }
+}

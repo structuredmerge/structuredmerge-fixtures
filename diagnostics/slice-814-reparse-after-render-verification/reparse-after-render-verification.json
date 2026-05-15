@@ -1,0 +1,29 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "814",
+  "name": "reparse-after-render-verification",
+  "description": "Merge-driver render output is reparsed before it can be recommended as successful.",
+  "render_verification": {
+    "verification_id": "merge-driver-render-reparse",
+    "version": "1",
+    "mode": "merge_driver",
+    "language": "go",
+    "render_strategy": "native_printer",
+    "attempted": true,
+    "passed": true,
+    "hard_gate": true,
+    "parse_errors": [],
+    "diagnostics": [
+      "rendered output reparsed cleanly after merge-driver rendering"
+    ]
+  },
+  "expected": {
+    "mode": "merge_driver",
+    "language": "go",
+    "attempted": true,
+    "passed": true,
+    "hard_gate": true,
+    "parse_error_count": 0,
+    "render_strategy": "native_printer"
+  }
+}

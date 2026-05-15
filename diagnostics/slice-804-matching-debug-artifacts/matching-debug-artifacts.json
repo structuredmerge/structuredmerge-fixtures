@@ -1,0 +1,64 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "804",
+  "name": "matching-debug-artifacts",
+  "description": "Matcher debug output records owner sets, candidate construction, selected matches, rejected matches, and rejection reasons.",
+  "debug_artifacts": {
+    "artifact_id": "matching-debug-imports",
+    "matching_id": "signature-commutative-imports",
+    "enabled": true,
+    "owner_sets": [
+      {
+        "owner_id": "owner:/imports",
+        "scope_path": "/imports",
+        "node_paths": [
+          "/imports/0",
+          "/imports/1",
+          "/imports/2"
+        ]
+      }
+    ],
+    "candidates": [
+      {
+        "candidate_id": "candidate:fmt:0",
+        "signature": "import:fmt",
+        "from_path": "/imports/0",
+        "to_path": "/imports/1",
+        "confidence": 1.0,
+        "reason": "signature"
+      },
+      {
+        "candidate_id": "candidate:fmt:1",
+        "signature": "import:fmt",
+        "from_path": "/imports/2",
+        "to_path": "/imports/1",
+        "confidence": 0.7,
+        "reason": "signature"
+      }
+    ],
+    "selected_matches": [
+      {
+        "candidate_id": "candidate:fmt:0",
+        "selected_by": "highest_confidence"
+      }
+    ],
+    "rejected_matches": [
+      {
+        "candidate_id": "candidate:fmt:1",
+        "rejected_by": "highest_confidence",
+        "reason": "lower_confidence_duplicate_signature"
+      }
+    ],
+    "diagnostics": [
+      "matching debug artifacts are machine-readable and optional"
+    ]
+  },
+  "expected": {
+    "enabled": true,
+    "owner_set_count": 1,
+    "candidate_count": 2,
+    "selected_count": 1,
+    "rejected_count": 1,
+    "first_rejection_reason": "lower_confidence_duplicate_signature"
+  }
+}

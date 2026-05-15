@@ -1,0 +1,26 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "906",
+  "name": "merge-engine-suite-setting",
+  "description": "Conformance options can carry owner-path and experimental merge-IR suite settings through the same suite plan.",
+  "settings": {
+    "default_engine": "owner_path",
+    "experimental_engine": "merge_ir_experimental",
+    "supported_engines": [
+      "owner_path",
+      "merge_ir_experimental"
+    ],
+    "environment_variable": "SMORG_MERGE_ENGINE",
+    "experimental_policy": "accepted_with_owner_path_fallback",
+    "runs_same_suite": true
+  },
+  "expected": {
+    "default_engine": "owner_path",
+    "experimental_engine": "merge_ir_experimental",
+    "supported_engine_count": 2,
+    "environment_variable": "SMORG_MERGE_ENGINE",
+    "experimental_policy": "accepted_with_owner_path_fallback",
+    "runs_same_suite": true,
+    "fallback_engine": "owner_path"
+  }
+}

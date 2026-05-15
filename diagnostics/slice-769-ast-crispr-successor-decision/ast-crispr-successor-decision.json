@@ -28,7 +28,7 @@
     "Ruby/Prism provider shell",
     "Markdown/Markly provider shell"
   ],
-  "decision": "The old ast-crispr package identity is superseded for the current README migration pass. Preserve concepts in structured-edit envelopes and ast-template recipe/session workflows instead of listing ast-crispr as active support.",
+  "decision": "The current implementation keeps ast-merge as the structured-edit contract substrate and revives ast-crispr as a thin package in each implementation. Preserve old concepts through structured-edit envelopes first; add ergonomic ast-crispr helpers only when fixture-backed.",
   "concept_mapping": {
     "Limit": "structured-edit selection cardinality or review policy",
     "StructureProfile": "provider structure profile fixtures",
@@ -42,5 +42,6 @@
     "Markdown/Markly provider shell": "markdown-merge/markly-merge provider fixtures if revived",
     "recipe/template usage": "ast-template or Kettle recipe fixtures"
   },
-  "active_readme_claim": false
+  "active_readme_claim": true,
+  "successor_package_boundary_fixture": "slice-916-ast-crispr-package-boundary"
 }

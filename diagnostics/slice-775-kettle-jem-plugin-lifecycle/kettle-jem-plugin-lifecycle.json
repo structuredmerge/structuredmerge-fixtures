@@ -1,0 +1,85 @@
+{
+  "source": {
+    "old_loader": "reference/kettle-jem/lib/kettle/jem/plugin_loader.rb",
+    "old_registrar": "reference/kettle-jem/lib/kettle/jem/plugin_registrar.rb",
+    "old_registry": "reference/kettle-jem/lib/kettle/jem/plugin_registry.rb",
+    "old_specs": "reference/kettle-jem/spec/kettle/jem/plugin_loader_spec.rb",
+    "active_implementation": "ruby/gems/kettle-jem/lib/kettle/jem.rb",
+    "active_tests": "ruby/gems/kettle-jem/spec/thin_slice_spec.rb"
+  },
+  "decision": "Keep the old plugin registration vocabulary, but attach it to the active recipe-pack runner only at apply-time after_phase(:remaining_files). Do not port old phase objects.",
+  "loader_contract": {
+    "registration_method": "register_kettle_jem_plugin",
+    "name_normalization": [
+      "array/string input is flattened",
+      "blank names are ignored",
+      "duplicates are removed"
+    ],
+    "require_path": "dashed plugin names become slash-separated require paths",
+    "constant_resolution": "dashed plugin names become CamelCase namespace paths"
+  },
+  "registrar_contract": {
+    "methods": [
+      "before_phase",
+      "after_phase",
+      "on_phase"
+    ],
+    "timings": [
+      "before",
+      "after"
+    ],
+    "blank_phase": "error",
+    "unsupported_timing": "error",
+    "callback_without_block": "error"
+  },
+  "active_runner_contract": {
+    "plan": {
+      "loads_plugins": true,
+      "reports_plugin_load_errors": true,
+      "runs_callbacks": false,
+      "mutates_files": false
+    },
+    "apply": {
+      "loads_plugins": true,
+      "reports_plugin_load_errors": true,
+      "runs_callbacks": [
+        {
+          "timing": "after",
+          "phase": "remaining_files"
+        }
+      ],
+      "records_plugin_file_changes": true,
+      "appends_plugin_diagnostics": true
+    }
+  },
+  "context_contract": {
+    "fields": [
+      "project_root",
+      "mode",
+      "facts",
+      "recipe_pack",
+      "recipe_reports",
+      "changed_files",
+      "diagnostics",
+      "helpers",
+      "out"
+    ],
+    "helpers": [
+      "record_template_result(path, action)"
+    ],
+    "out": [
+      "report_detail(message)",
+      "warning(message)"
+    ]
+  },
+  "not_implemented_here": [
+    "old phase classes",
+    "phase_stats object parity",
+    "before-phase runner integration",
+    "kettle-drift plugin port"
+  ],
+  "verification": {
+    "command": "mise exec -C ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "375 examples, 0 failures"
+  }
+}

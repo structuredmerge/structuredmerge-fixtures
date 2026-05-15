@@ -1,0 +1,23 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "818",
+  "name": "secondary-formatting-metrics",
+  "description": "Conformance output records secondary explanatory metrics for formatting churn and source-fragment retention.",
+  "secondary_metrics": {
+    "report_id": "secondary-formatting-metrics",
+    "version": "1",
+    "unchanged_line_churn": 1,
+    "output_diff_size": 20,
+    "source_fragment_retention": 0.82,
+    "weighted": false,
+    "diagnostics": [
+      "secondary metrics explain formatting behavior but do not change the initial recommendation score"
+    ]
+  },
+  "expected": {
+    "unchanged_line_churn": 1,
+    "output_diff_size": 20,
+    "source_fragment_retention": 0.82,
+    "weighted": false
+  }
+}

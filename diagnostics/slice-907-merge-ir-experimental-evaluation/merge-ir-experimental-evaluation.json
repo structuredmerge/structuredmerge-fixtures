@@ -1,0 +1,105 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "907",
+  "name": "merge-ir-experimental-evaluation",
+  "description": "The merge_ir_experimental setting evaluates PCS-style change sets behind the opt-in engine flag.",
+  "request": {
+    "merge_engine": "merge_ir_experimental",
+    "raw_merge_id": "go-imports-raw-merge",
+    "report_id": "go-imports-inconsistency-report",
+    "change_sets": [
+      {
+        "change_set_id": "left-change-set",
+        "side": "left",
+        "changes": [
+          {
+            "change_id": "left-insert-import-os",
+            "kind": "insert",
+            "class_id": "class-import-os",
+            "parent_class_id": "class-imports",
+            "predecessor_class_id": null,
+            "successor_class_id": "class-import-fmt",
+            "content_hash": "sha256:left-import-os"
+          },
+          {
+            "change_id": "left-edit-greet",
+            "kind": "content_change",
+            "class_id": "class-decl-greet",
+            "parent_class_id": "class-file",
+            "predecessor_class_id": "class-imports",
+            "successor_class_id": null,
+            "content_hash": "sha256:left-decl-greet"
+          },
+          {
+            "change_id": "left-insert-duplicate-os",
+            "kind": "insert",
+            "class_id": "class-import-os",
+            "parent_class_id": "class-imports",
+            "predecessor_class_id": null,
+            "successor_class_id": "class-import-fmt",
+            "content_hash": "sha256:left-import-os"
+          }
+        ],
+        "diagnostics": []
+      },
+      {
+        "change_set_id": "right-change-set",
+        "side": "right",
+        "changes": [
+          {
+            "change_id": "right-move-import-strings",
+            "kind": "move",
+            "class_id": "class-import-strings",
+            "parent_class_id": "class-imports",
+            "predecessor_class_id": null,
+            "successor_class_id": "class-import-fmt",
+            "content_hash": "sha256:import-strings"
+          },
+          {
+            "change_id": "right-delete-greet",
+            "kind": "delete",
+            "class_id": "class-decl-greet",
+            "parent_class_id": "class-file",
+            "predecessor_class_id": "class-imports",
+            "successor_class_id": null,
+            "content_hash": "sha256:base-decl-greet"
+          },
+          {
+            "change_id": "right-insert-duplicate-os",
+            "kind": "insert",
+            "class_id": "class-import-os",
+            "parent_class_id": "class-imports",
+            "predecessor_class_id": null,
+            "successor_class_id": "class-import-fmt",
+            "content_hash": "sha256:right-import-os"
+          },
+          {
+            "change_id": "right-edit-greet",
+            "kind": "content_change",
+            "class_id": "class-decl-greet",
+            "parent_class_id": "class-file",
+            "predecessor_class_id": "class-imports",
+            "successor_class_id": null,
+            "content_hash": "sha256:right-decl-greet"
+          }
+        ],
+        "diagnostics": [
+          "right branch reverses base import predecessor/successor relation"
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "merge_engine": "merge_ir_experimental",
+    "raw_change_count": 7,
+    "input_change_set_count": 2,
+    "categories": [
+      "order_conflict",
+      "duplicate_insertion_conflict",
+      "delete_edit_conflict",
+      "content_conflict"
+    ],
+    "blocking_count": 3,
+    "outcome": "blocked_by_inconsistency"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "cases": [
+    {
+      "name": "canonical_operation_batch",
+      "helpers": ["replace", "delete", "insert", "move"],
+      "expected": {
+        "operation_count": 4,
+        "operation_kinds": ["replace", "delete", "insert", "move"],
+        "operation_profiles": [
+          {
+            "operation_kind": "replace",
+            "operation_family": "rewrite",
+            "known_operation_kind": true,
+            "source_requirement": "required",
+            "known_source_requirement": true,
+            "destination_requirement": "none",
+            "known_destination_requirement": true,
+            "replacement_source": "explicit_text",
+            "known_replacement_source": true,
+            "captures_source_text": true,
+            "supports_if_missing": false,
+            "selects_source": true,
+            "requires_source": true,
+            "supports_destination": false,
+            "requires_destination": false,
+            "explicit_replacement": true,
+            "may_reuse_captured_text": false
+          },
+          {
+            "operation_kind": "delete",
+            "operation_family": "removal",
+            "known_operation_kind": true,
+            "source_requirement": "required",
+            "known_source_requirement": true,
+            "destination_requirement": "none",
+            "known_destination_requirement": true,
+            "replacement_source": "none",
+            "known_replacement_source": true,
+            "captures_source_text": true,
+            "supports_if_missing": false,
+            "selects_source": true,
+            "requires_source": true,
+            "supports_destination": false,
+            "requires_destination": false,
+            "explicit_replacement": false,
+            "may_reuse_captured_text": false
+          },
+          {
+            "operation_kind": "insert",
+            "operation_family": "insertion",
+            "known_operation_kind": true,
+            "source_requirement": "none",
+            "known_source_requirement": true,
+            "destination_requirement": "optional",
+            "known_destination_requirement": true,
+            "replacement_source": "explicit_text",
+            "known_replacement_source": true,
+            "captures_source_text": false,
+            "supports_if_missing": true,
+            "selects_source": false,
+            "requires_source": false,
+            "supports_destination": true,
+            "requires_destination": false,
+            "explicit_replacement": true,
+            "may_reuse_captured_text": false
+          },
+          {
+            "operation_kind": "move",
+            "operation_family": "relocation",
+            "known_operation_kind": true,
+            "source_requirement": "optional",
+            "known_source_requirement": true,
+            "destination_requirement": "optional",
+            "known_destination_requirement": true,
+            "replacement_source": "captured_text_or_explicit",
+            "known_replacement_source": true,
+            "captures_source_text": true,
+            "supports_if_missing": true,
+            "selects_source": true,
+            "requires_source": false,
+            "supports_destination": true,
+            "requires_destination": false,
+            "explicit_replacement": false,
+            "may_reuse_captured_text": true
+          }
+        ]
+      }
+    }
+  ]
+}

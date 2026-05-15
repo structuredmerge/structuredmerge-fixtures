@@ -1,0 +1,69 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "798",
+  "name": "signature-matching-commutative-parent",
+  "description": "Signature matching pairs children of a commutative parent without treating sibling order as identity.",
+  "parent": {
+    "kind": "import_list",
+    "role": "import_declarations",
+    "from_path": "/imports",
+    "to_path": "/imports",
+    "from_node_id": "template-import-list",
+    "to_node_id": "destination-import-list",
+    "child_order": "commutative"
+  },
+  "matching": {
+    "matching_id": "signature-commutative-imports",
+    "strategy": "signature",
+    "parent_policy": "commutative",
+    "signature_components": [
+      "semantic_role",
+      "match_key"
+    ],
+    "from_revision": "template",
+    "to_revision": "destination",
+    "matches": [
+      {
+        "signature": "import:fmt",
+        "from_path": "/imports/0",
+        "to_path": "/imports/1",
+        "from_node_id": "template-import-fmt",
+        "to_node_id": "destination-import-fmt",
+        "confidence": 1.0,
+        "diagnostics": []
+      },
+      {
+        "signature": "import:os",
+        "from_path": "/imports/1",
+        "to_path": "/imports/2",
+        "from_node_id": "template-import-os",
+        "to_node_id": "destination-import-os",
+        "confidence": 1.0,
+        "diagnostics": []
+      }
+    ],
+    "unmatched_from": [
+      "/imports/2"
+    ],
+    "unmatched_to": [
+      "/imports/0"
+    ],
+    "diagnostics": [
+      "signature matching ignores sibling order when the parent policy is commutative"
+    ]
+  },
+  "expected": {
+    "strategy": "signature",
+    "parent_policy": "commutative",
+    "signature_components": [
+      "semantic_role",
+      "match_key"
+    ],
+    "match_count": 2,
+    "unmatched_from_count": 1,
+    "unmatched_to_count": 1,
+    "order_sensitive": false,
+    "first_match_signature": "import:fmt",
+    "first_match_to_path": "/imports/1"
+  }
+}

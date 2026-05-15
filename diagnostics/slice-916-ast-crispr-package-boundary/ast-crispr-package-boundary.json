@@ -52,10 +52,10 @@
       "package identity",
       "boundary report",
       "ast-merge structured-edit contract anchor",
-      "limit helpers"
+      "limit helpers",
+      "match profile helpers"
     ],
     "future_exports": [
-      "match profile helpers",
       "selection profile helpers",
       "destination profile helpers",
       "operation profile helpers",

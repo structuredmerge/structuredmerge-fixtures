@@ -1,0 +1,51 @@
+{
+  "source": {
+    "old_phase": "reference/kettle-jem/lib/kettle/jem/phases/github_workflows.rb",
+    "old_specs": "reference/kettle-jem/spec/kettle/jem/phases/github_workflows_spec.rb",
+    "active_implementation": "ruby/gems/kettle-jem/lib/kettle/jem.rb",
+    "active_tests": [
+      "ruby/gems/kettle-jem/spec/thin_slice_spec.rb",
+      "ruby/gems/kettle-jem/spec/system/bundle_gem_scaffold_spec.rb"
+    ]
+  },
+  "decision": "Do not port the old GithubWorkflows phase. Keep active workflow behavior as explicit recipes plus template inventory entries.",
+  "active_parity": [
+    ".github/FUNDING.yml synchronization",
+    "default CI workflow generation",
+    "framework CI workflow generation",
+    "coverage workflow generation",
+    "obsolete workflow deletion",
+    "custom workflow snippet repair",
+    "OpenCollective workflow cleanup when disabled",
+    "packaged .github workflow template inventory"
+  ],
+  "active_recipe_names": [
+    "github_funding_yml",
+    "github_actions_ci",
+    "github_actions_framework_ci",
+    "github_actions_coverage_ci",
+    "github_actions_obsolete_workflow_cleanup_*",
+    "github_actions_workflow_snippets_*",
+    "opencollective_disabled_file_cleanup_*",
+    "template_source_application_github_*"
+  ],
+  "superseded": [
+    {
+      "old_behavior": "ENV include filter for discord-notifier.yml",
+      "replacement": "explicit templates.entries selection"
+    },
+    {
+      "old_behavior": "phase-local prompt/copy helper behavior",
+      "replacement": "recipe reports and apply_project file writes"
+    }
+  ],
+  "future_fixture_work": [
+    "appraisal matrix pruning policy",
+    "engine matrix pruning policy",
+    "workflow document separator preservation if current YAML rendering regresses"
+  ],
+  "verification": {
+    "command": "mise exec -C ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "377 examples, 0 failures"
+  }
+}

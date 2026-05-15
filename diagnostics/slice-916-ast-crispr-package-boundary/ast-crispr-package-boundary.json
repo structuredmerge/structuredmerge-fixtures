@@ -55,10 +55,10 @@
       "limit helpers",
       "match profile helpers",
       "selection profile helpers",
-      "destination profile helpers"
+      "destination profile helpers",
+      "operation profile helpers"
     ],
     "future_exports": [
-      "operation profile helpers",
       "replace/delete/insert/move helpers",
       "batch operation helpers"
     ],

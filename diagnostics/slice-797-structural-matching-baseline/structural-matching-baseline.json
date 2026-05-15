@@ -1,0 +1,38 @@
+{
+  "name": "structural_matching_baseline",
+  "purpose": "define exact stable-path structural matching as the baseline matcher before signature matching",
+  "matching": {
+    "matching_id": "stable-path-baseline",
+    "strategy": "stable_path",
+    "from_revision": "template",
+    "to_revision": "destination",
+    "matches": [
+      {
+        "from_path": "/imports/0",
+        "to_path": "/imports/0",
+        "from_node_id": "template-import-fmt",
+        "to_node_id": "destination-import-fmt",
+        "confidence": 1.0
+      },
+      {
+        "from_path": "/declarations/Greet",
+        "to_path": "/declarations/Greet",
+        "from_node_id": "template-decl-greet",
+        "to_node_id": "destination-decl-greet",
+        "confidence": 1.0
+      }
+    ],
+    "unmatched_from": ["/imports/1"],
+    "unmatched_to": ["/imports/2"],
+    "diagnostics": [
+      "stable-path matching is deterministic and does not infer moves"
+    ]
+  },
+  "expected": {
+    "strategy": "stable_path",
+    "match_count": 2,
+    "unmatched_from_count": 1,
+    "unmatched_to_count": 1,
+    "move_detection": false
+  }
+}

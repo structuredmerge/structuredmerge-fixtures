@@ -1,0 +1,31 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "816",
+  "name": "formatting-recommendation-gate",
+  "description": "Initial default-provider recommendation uses an equally weighted line-diff and character-diff formatting score with a 95% pass gate.",
+  "recommendation_gate": {
+    "gate_id": "default-provider-formatting-gate",
+    "version": "1",
+    "threshold": 0.95,
+    "passed": true,
+    "weights": {
+      "expected_output_line_diff_size": 0.5,
+      "expected_output_character_diff_size": 0.5
+    },
+    "metrics": {
+      "expected_output_line_diff_size": 2,
+      "expected_output_character_diff_size": 18,
+      "formatting_preservation_score": 0.97
+    },
+    "diagnostics": [
+      "initial recommendation gate weights line diff and character diff equally"
+    ]
+  },
+  "expected": {
+    "threshold": 0.95,
+    "passed": true,
+    "line_weight": 0.5,
+    "character_weight": 0.5,
+    "score": 0.97
+  }
+}

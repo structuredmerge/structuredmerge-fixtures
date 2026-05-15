@@ -1,0 +1,188 @@
+{
+  "structural_profile": {
+    "profile_id": "go-invalid-structural-profile-v1",
+    "family": "go",
+    "version": "1",
+    "parser_identity": {
+      "parser": "tree-sitter-go",
+      "backend": "kreuzberg-language-pack",
+      "backend_family": "tree-sitter",
+      "parser_version": "0.23.x",
+      "language_version": "go1.22"
+    },
+    "extensions": [".go"],
+    "aliases": ["go"],
+    "git_attributes": {
+      "attribute_namespace": "smorg",
+      "language_attributes": ["smorg.language"],
+      "language": "go",
+      "merge_driver": "smorg-go",
+      "diff_driver": "smorg-go",
+      "conflict_marker_size_attribute": "conflict-marker-size"
+    },
+    "supported_dialects": ["go"],
+    "backends": [
+      {
+        "backend": "tree-sitter-go",
+        "family": "tree-sitter",
+        "default": true,
+        "capabilities": ["parse", "normalized_tree"]
+      }
+    ],
+    "rules": {
+      "node_roles": ["structural", "not-a-role"],
+      "atomic_nodes": [
+        {
+          "selector": "",
+          "reason": "missing_selector"
+        }
+      ],
+      "signatures": [
+        {
+          "name": "import_path",
+          "selector": "import_spec",
+          "extractor": "field:path"
+        },
+        {
+          "name": "import_path",
+          "selector": "import_spec",
+          "extractor": "field:name"
+        },
+        {
+          "name": "bad_extractor",
+          "selector": "import_spec",
+          "extractor": "xpath:path"
+        }
+      ],
+      "commutative_parents": [
+        {
+          "selector": "import_declaration",
+          "child_group": "missing_group"
+        }
+      ],
+      "child_groups": [
+        {
+          "name": "imports",
+          "separator": "\\n",
+          "delimiter": null
+        },
+        {
+          "name": "imports",
+          "separator": ",",
+          "delimiter": null
+        }
+      ],
+      "comment_attachment": [
+        {
+          "selector": "comment",
+          "strategy": ""
+        }
+      ]
+    }
+  },
+  "backend_metadata": {
+    "backend_ref": {
+      "id": "tree-sitter-go",
+      "family": "tree-sitter"
+    },
+    "known_node_kinds": ["source_file", "import_declaration", "import_spec", "string_literal", "comment"],
+    "known_fields": ["path", "name"],
+    "grammar_inventory": "exhaustive"
+  },
+  "partial_backend_metadata": {
+    "backend_ref": {
+      "id": "native-go-parser",
+      "family": "native"
+    },
+    "known_node_kinds": ["source_file", "import_declaration"],
+    "known_fields": ["path"],
+    "grammar_inventory": "partial"
+  },
+  "unknown_selector_profile": {
+    "profile_id": "go-unknown-selector-profile-v1",
+    "family": "go",
+    "version": "1",
+    "parser_identity": {
+      "parser": "tree-sitter-go",
+      "backend": "kreuzberg-language-pack",
+      "backend_family": "tree-sitter",
+      "parser_version": "0.23.x",
+      "language_version": "go1.22"
+    },
+    "extensions": [".go"],
+    "aliases": ["go"],
+    "git_attributes": {
+      "attribute_namespace": "smorg",
+      "language_attributes": ["smorg.language"],
+      "language": "go",
+      "merge_driver": "smorg-go",
+      "diff_driver": "smorg-go",
+      "conflict_marker_size_attribute": "conflict-marker-size"
+    },
+    "supported_dialects": ["go"],
+    "backends": [
+      {
+        "backend": "tree-sitter-go",
+        "family": "tree-sitter",
+        "default": true,
+        "capabilities": ["parse", "normalized_tree"]
+      }
+    ],
+    "rules": {
+      "node_roles": ["structural", "comment"],
+      "atomic_nodes": [
+        {
+          "selector": "unknown_literal",
+          "reason": "literal_token"
+        }
+      ],
+      "signatures": [
+        {
+          "name": "missing_field",
+          "selector": "import_spec",
+          "extractor": "field:missing"
+        }
+      ],
+      "commutative_parents": [
+        {
+          "selector": "missing_parent",
+          "child_group": "imports"
+        }
+      ],
+      "child_groups": [
+        {
+          "name": "imports",
+          "separator": "\\n",
+          "delimiter": null
+        }
+      ],
+      "comment_attachment": [
+        {
+          "selector": "comment",
+          "strategy": "nearest_following_semantic_node"
+        }
+      ]
+    }
+  },
+  "expected": {
+    "structural_errors": [
+      "invalid node role not-a-role",
+      "atomic node selector is required",
+      "duplicate signature name import_path",
+      "unsupported signature extractor xpath:path",
+      "commutative parent import_declaration references unknown child group missing_group",
+      "duplicate child group name imports",
+      "comment attachment strategy is required"
+    ],
+    "exhaustive_backend_errors": [
+      "unknown atomic node selector unknown_literal",
+      "unknown signature field missing",
+      "unknown commutative parent selector missing_parent"
+    ],
+    "partial_backend_warnings": [
+      "unknown atomic node selector unknown_literal",
+      "unknown signature field missing",
+      "unknown commutative parent selector missing_parent"
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "request": {
+    "provider_id": "go-dst",
+    "backend_ref": {
+      "id": "go-dst",
+      "family": "native"
+    },
+    "language": "go",
+    "source": "package demo\n\nfunc Greet() {\n\tprintln(\"hi\")\n}\n",
+    "operations": [
+      {
+        "operation": "replace_node",
+        "target_node_id": "go-dst:decl:0",
+        "target_node_path": "decls[0]",
+        "replacement_source": "func Greet() {\n\tprintln(\"hello\")\n}\n"
+      }
+    ]
+  },
+  "expected_result": {
+    "ok": true,
+    "status": "applied",
+    "source": "package demo\n\nfunc Greet() {\n\tprintln(\"hello\")\n}\n",
+    "applied_operations": [
+      {
+        "operation": "replace_node",
+        "target_node_id": "go-dst:decl:0",
+        "correlation_key": "metadata.go_dst.node_path",
+        "correlation_value": "decls[0]"
+      }
+    ],
+    "diagnostics": []
+  },
+  "unsupported_request": {
+    "provider_id": "psych",
+    "backend_ref": {
+      "id": "psych",
+      "family": "native"
+    },
+    "language": "yaml",
+    "source": "name: demo\n",
+    "operations": [
+      {
+        "operation": "replace_node",
+        "target_node_id": "psych:map:0",
+        "target_node_path": "root",
+        "replacement_source": "name: changed\n"
+      }
+    ]
+  },
+  "unsupported_result": {
+    "ok": false,
+    "status": "rejected",
+    "source": "name: demo\n",
+    "applied_operations": [],
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "unsupported_feature",
+        "code": "provider_edit_projection_unsupported",
+        "message": "provider psych does not support edit projection execution",
+        "path": "provider_id",
+        "blocking": true
+      }
+    ]
+  }
+}

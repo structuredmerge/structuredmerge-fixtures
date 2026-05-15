@@ -1,0 +1,55 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "803",
+  "name": "duplicate-signature-tie-break",
+  "description": "Duplicate signatures are resolved only by deterministic tie-break rules that are reported with the selected match.",
+  "matching": {
+    "matching_id": "duplicate-signature-tie-break",
+    "strategy": "signature",
+    "scope_path": "/imports",
+    "tie_break_rules": [
+      "highest_confidence",
+      "nearest_original_index",
+      "lexicographic_node_id"
+    ],
+    "matches": [
+      {
+        "signature": "import:fmt",
+        "from_path": "/imports/1",
+        "to_path": "/imports/0",
+        "from_node_id": "template-import-fmt-doc",
+        "to_node_id": "destination-import-fmt",
+        "confidence": 0.96,
+        "selected_by": "highest_confidence",
+        "rejected_candidates": [
+          {
+            "from_path": "/imports/0",
+            "from_node_id": "template-import-fmt-unused",
+            "confidence": 0.71,
+            "rejected_by": "highest_confidence"
+          }
+        ],
+        "diagnostics": [
+          "selected the duplicate-signature candidate with highest confidence"
+        ]
+      }
+    ],
+    "diagnostics": [
+      "duplicate signatures were resolved with deterministic tie-break rules"
+    ]
+  },
+  "expected": {
+    "strategy": "signature",
+    "scope_path": "/imports",
+    "tie_break_rules": [
+      "highest_confidence",
+      "nearest_original_index",
+      "lexicographic_node_id"
+    ],
+    "match_count": 1,
+    "first_match_signature": "import:fmt",
+    "first_match_selected_by": "highest_confidence",
+    "rejected_candidate_count": 1,
+    "first_rejected_by": "highest_confidence"
+  }
+}

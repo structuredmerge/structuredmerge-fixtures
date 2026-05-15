@@ -1,0 +1,33 @@
+{
+  "request": {
+    "provider_id": "go-dst",
+    "backend_ref": {
+      "id": "go-dst",
+      "family": "native"
+    },
+    "language": "go",
+    "source": "package demo\n\nfunc Greet() {\n\tprintln(\"hi\")\n}\n",
+    "operations": [
+      {
+        "operation": "insert_child",
+        "target_node_id": "go-dst:file:0",
+        "target_node_path": "decls[1]",
+        "replacement_source": "func Farewell() {\n\tprintln(\"bye\")\n}\n"
+      }
+    ]
+  },
+  "expected_result": {
+    "ok": true,
+    "status": "applied",
+    "source": "package demo\n\nfunc Greet() {\n\tprintln(\"hi\")\n}\n\nfunc Farewell() {\n\tprintln(\"bye\")\n}\n",
+    "applied_operations": [
+      {
+        "operation": "insert_child",
+        "target_node_id": "go-dst:file:0",
+        "correlation_key": "metadata.go_dst.node_path",
+        "correlation_value": "decls[1]"
+      }
+    ],
+    "diagnostics": []
+  }
+}

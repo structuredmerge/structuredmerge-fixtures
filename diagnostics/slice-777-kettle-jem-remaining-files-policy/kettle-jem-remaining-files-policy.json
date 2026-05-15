@@ -1,0 +1,38 @@
+{
+  "source": {
+    "old_phase": "reference/kettle-jem/lib/kettle/jem/phases/remaining_files.rb",
+    "active_implementation": "ruby/gems/kettle-jem/lib/kettle/jem.rb",
+    "active_tests": "ruby/gems/kettle-jem/spec/thin_slice_spec.rb"
+  },
+  "decision": "Do not port the old RemainingFiles phase class. Preserve surviving behavior as active template inventory, preference metadata, and deletion recipes.",
+  "already_active": [
+    "inventory template files when templates.entries is omitted",
+    "strip .example and .no-osc.example suffixes",
+    "rename gem.gemspec to an existing destination gemspec",
+    "prefer .no-osc.example when Open Collective is disabled",
+    "apply configured file and pattern strategies",
+    "merge README, Ruby-family, YAML, TOML, Markdown, and text template files through active recipes"
+  ],
+  "implemented_policy": {
+    "copy_only_when_missing": [
+      "REEK",
+      "bin/setup"
+    ],
+    "legacy_destination_cleanup": {
+      ".github/copilot_instructions.md": ".github/COPILOT_INSTRUCTIONS.md"
+    }
+  },
+  "report_contract": {
+    "copy_only_when_missing": "existing destination produces a template preference with strategy=keep_destination and policy=copy_only_when_missing",
+    "legacy_destination_cleanup": "legacy path produces a supplied_legacy_destination_file_deletion recipe when canonical content is active"
+  },
+  "not_implemented_here": [
+    "old RemainingFiles phase class",
+    "interactive environment-file review abort",
+    "old helper-based copy prompts"
+  ],
+  "verification": {
+    "command": "mise exec -C ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "377 examples, 0 failures"
+  }
+}

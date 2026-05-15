@@ -1,0 +1,32 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "817",
+  "name": "formatting-hard-gates",
+  "description": "Reparse-after-render and coherent conflict-marker placement are hard gates outside the weighted formatting score.",
+  "hard_gate_report": {
+    "report_id": "formatting-hard-gates",
+    "version": "1",
+    "gates": [
+      {
+        "name": "reparse_after_render",
+        "passed": true,
+        "weighted": false
+      },
+      {
+        "name": "coherent_conflict_marker_placement",
+        "passed": true,
+        "weighted": false
+      }
+    ],
+    "diagnostics": [
+      "hard gates fail recommendation independently of formatting score"
+    ]
+  },
+  "expected": {
+    "gate_count": 2,
+    "all_passed": true,
+    "weighted_gate_count": 0,
+    "first_gate": "reparse_after_render",
+    "second_gate": "coherent_conflict_marker_placement"
+  }
+}

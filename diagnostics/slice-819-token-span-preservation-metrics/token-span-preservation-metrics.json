@@ -1,0 +1,23 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "819",
+  "name": "token-span-preservation-metrics",
+  "description": "Token and span preservation metrics are reported only when source spans are available.",
+  "token_span_metrics": {
+    "report_id": "token-span-preservation",
+    "version": "1",
+    "source_spans_available": true,
+    "token_preservation": 0.91,
+    "span_preservation": 0.88,
+    "weighted": false,
+    "diagnostics": [
+      "token and span metrics are explanatory until enough providers expose stable source spans"
+    ]
+  },
+  "expected": {
+    "source_spans_available": true,
+    "token_preservation": 0.91,
+    "span_preservation": 0.88,
+    "weighted": false
+  }
+}

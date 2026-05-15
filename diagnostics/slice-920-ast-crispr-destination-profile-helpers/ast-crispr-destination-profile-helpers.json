@@ -1,0 +1,96 @@
+{
+  "cases": [
+    {
+      "name": "append_fallback_without_destination",
+      "profile": {
+        "resolution_kind": "append_fallback",
+        "resolution_source": "none",
+        "anchor_boundary": "none",
+        "used_if_missing": true
+      },
+      "expected": {
+        "resolution_kind": "append_fallback",
+        "resolution_family": "append",
+        "known_resolution_kind": true,
+        "resolution_source": "none",
+        "resolution_source_family": "implicit",
+        "known_resolution_source": true,
+        "anchor_boundary": "none",
+        "anchor_boundary_family": "none",
+        "known_anchor_boundary": true,
+        "used_if_missing": true,
+        "append_fallback": true,
+        "anchored": false
+      }
+    },
+    {
+      "name": "callable_anchor_after_statement",
+      "profile": {
+        "resolution_kind": "anchor_after_statement",
+        "resolution_source": "callable",
+        "anchor_boundary": "statement_end_plus_following_gap",
+        "used_if_missing": false
+      },
+      "expected": {
+        "resolution_kind": "anchor_after_statement",
+        "resolution_family": "anchored",
+        "known_resolution_kind": true,
+        "resolution_source": "callable",
+        "resolution_source_family": "callable",
+        "known_resolution_source": true,
+        "anchor_boundary": "statement_end_plus_following_gap",
+        "anchor_boundary_family": "gap_preserving_statement",
+        "known_anchor_boundary": true,
+        "used_if_missing": false,
+        "append_fallback": false,
+        "anchored": true
+      }
+    },
+    {
+      "name": "selector_anchor_after_statement",
+      "profile": {
+        "resolution_kind": "anchor_after_statement",
+        "resolution_source": "selector",
+        "anchor_boundary": "statement_end_plus_following_gap",
+        "used_if_missing": false
+      },
+      "expected": {
+        "resolution_kind": "anchor_after_statement",
+        "resolution_family": "anchored",
+        "known_resolution_kind": true,
+        "resolution_source": "selector",
+        "resolution_source_family": "selector",
+        "known_resolution_source": true,
+        "anchor_boundary": "statement_end_plus_following_gap",
+        "anchor_boundary_family": "gap_preserving_statement",
+        "known_anchor_boundary": true,
+        "used_if_missing": false,
+        "append_fallback": false,
+        "anchored": true
+      }
+    },
+    {
+      "name": "unknown_values",
+      "profile": {
+        "resolution_kind": "provider_resolution",
+        "resolution_source": "provider_source",
+        "anchor_boundary": "provider_boundary",
+        "used_if_missing": true
+      },
+      "expected": {
+        "resolution_kind": "provider_resolution",
+        "resolution_family": "unknown",
+        "known_resolution_kind": false,
+        "resolution_source": "provider_source",
+        "resolution_source_family": "unknown",
+        "known_resolution_source": false,
+        "anchor_boundary": "provider_boundary",
+        "anchor_boundary_family": "unknown",
+        "known_anchor_boundary": false,
+        "used_if_missing": true,
+        "append_fallback": false,
+        "anchored": false
+      }
+    }
+  ]
+}

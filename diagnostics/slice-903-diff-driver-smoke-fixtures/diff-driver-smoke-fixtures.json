@@ -1,0 +1,68 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "903",
+  "name": "diff-driver-smoke-fixtures",
+  "description": "Git diff-driver smoke fixtures cover two-argument, seven-argument, and nine-argument invocation forms.",
+  "suite": {
+    "suite_id": "diff-driver-smoke-fixtures",
+    "version": "1",
+    "driver_name": "smorg-go",
+    "cases": [
+      {
+        "case_id": "two-argument-working-tree",
+        "argument_count": 2,
+        "argument_roles": [
+          "old_path",
+          "new_path"
+        ],
+        "expected_exit_code": 0,
+        "expected_output_kind": "structured_diff"
+      },
+      {
+        "case_id": "seven-argument-external-diff",
+        "argument_count": 7,
+        "argument_roles": [
+          "path",
+          "old_file",
+          "old_hex",
+          "old_mode",
+          "new_file",
+          "new_hex",
+          "new_mode"
+        ],
+        "expected_exit_code": 0,
+        "expected_output_kind": "structured_diff"
+      },
+      {
+        "case_id": "nine-argument-external-diff-with-prefixes",
+        "argument_count": 9,
+        "argument_roles": [
+          "path",
+          "old_file",
+          "old_hex",
+          "old_mode",
+          "new_file",
+          "new_hex",
+          "new_mode",
+          "old_prefix",
+          "new_prefix"
+        ],
+        "expected_exit_code": 0,
+        "expected_output_kind": "structured_diff"
+      }
+    ],
+    "diagnostics": [
+      "diff-driver smoke fixtures verify git-compatible argument decoding independently of package-manager smorg symlinks"
+    ]
+  },
+  "expected": {
+    "driver_name": "smorg-go",
+    "case_count": 3,
+    "argument_counts": [
+      2,
+      7,
+      9
+    ],
+    "structured_diff_count": 3
+  }
+}

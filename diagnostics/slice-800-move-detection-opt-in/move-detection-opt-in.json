@@ -1,0 +1,69 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "800",
+  "name": "move-detection-opt-in",
+  "description": "Move detection is an explicit matcher capability and reports moved nodes separately from ordinary stable-path matches.",
+  "matching": {
+    "matching_id": "move-aware-declarations",
+    "strategy": "move_detection",
+    "from_revision": "template",
+    "to_revision": "destination",
+    "capability": {
+      "name": "move_detection",
+      "enabled": true,
+      "default_enabled": false,
+      "requires_stable_node_identity": true
+    },
+    "matches": [
+      {
+        "from_path": "/declarations/1",
+        "to_path": "/declarations/0",
+        "from_node_id": "template-decl-helper",
+        "to_node_id": "destination-decl-helper",
+        "signature": "function:helper",
+        "moved": true,
+        "from_parent_path": "/declarations",
+        "to_parent_path": "/declarations",
+        "from_index": 1,
+        "to_index": 0,
+        "confidence": 0.98,
+        "diagnostics": [
+          "same signature and stable node identity observed at a different sibling position"
+        ]
+      },
+      {
+        "from_path": "/declarations/0",
+        "to_path": "/declarations/1",
+        "from_node_id": "template-decl-main",
+        "to_node_id": "destination-decl-main",
+        "signature": "function:main",
+        "moved": false,
+        "from_parent_path": "/declarations",
+        "to_parent_path": "/declarations",
+        "from_index": 0,
+        "to_index": 1,
+        "confidence": 0.9,
+        "diagnostics": [
+          "matched but not classified as the primary moved node"
+        ]
+      }
+    ],
+    "unmatched_from": [],
+    "unmatched_to": [],
+    "diagnostics": [
+      "move detection is opt-in and must be reported in matcher capabilities"
+    ]
+  },
+  "expected": {
+    "strategy": "move_detection",
+    "capability": "move_detection",
+    "enabled": true,
+    "default_enabled": false,
+    "requires_stable_node_identity": true,
+    "match_count": 2,
+    "move_count": 1,
+    "first_moved_signature": "function:helper",
+    "first_moved_from_index": 1,
+    "first_moved_to_index": 0
+  }
+}

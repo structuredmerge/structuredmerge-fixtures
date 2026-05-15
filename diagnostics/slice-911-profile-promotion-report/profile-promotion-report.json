@@ -1,0 +1,127 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "911",
+  "name": "profile-promotion-report",
+  "description": "Profile promotion reports decide whether a deep merge profile is experimental, available, recommended, default-ready, or disabled based on hard gates and metrics.",
+  "report": {
+    "report_id": "go-default-v1-promotion",
+    "version": "1",
+    "profile_id": "go-default-v1",
+    "backend": "tree-sitter-go",
+    "status": "recommended",
+    "active_profile": {
+      "profile_id": "go-default-v1",
+      "family": "go",
+      "backend": "tree-sitter-go",
+      "backend_family": "tree-sitter",
+      "parser": "tree-sitter-go",
+      "parser_version": "0.23.x",
+      "language_version": "go1.22",
+      "dialect": "go",
+      "supported_dialects": ["go"],
+      "rule_counts": {
+        "node_roles": 9,
+        "atomic_nodes": 2,
+        "signatures": 2,
+        "commutative_parents": 1,
+        "child_groups": 1,
+        "comment_attachment": 1
+      },
+      "validation": {
+        "ok": true,
+        "error_count": 0,
+        "warning_count": 0
+      }
+    },
+    "hard_gates": [
+      {
+        "name": "parse_or_fail_closed",
+        "passed": true,
+        "required": true,
+        "diagnostics": []
+      },
+      {
+        "name": "render_or_fail_closed",
+        "passed": true,
+        "required": true,
+        "diagnostics": []
+      },
+      {
+        "name": "coherent_conflict_markers",
+        "passed": true,
+        "required": true,
+        "diagnostics": []
+      },
+      {
+        "name": "performance_guardrails",
+        "passed": true,
+        "required": true,
+        "diagnostics": []
+      }
+    ],
+    "metrics": {
+      "required_fixture_count": 24,
+      "passed_fixture_count": 24,
+      "formatting_preservation_score": 0.97,
+      "formatting_threshold": 0.95,
+      "fallback_count": 1,
+      "fallback_threshold": 2,
+      "unresolved_conflict_count": 0,
+      "backend_parity_passed": true
+    },
+    "required_suites": [
+      "slice-901-false-textual-conflicts",
+      "slice-902-git-driver-smoke-fixtures",
+      "slice-903-diff-driver-smoke-fixtures",
+      "slice-815-formatting-preservation-metrics",
+      "slice-827-backend-parity-fixtures"
+    ],
+    "blocking_reasons": [],
+    "diagnostics": [
+      "profile is recommended but not default until package-level rollout policy selects it"
+    ]
+  },
+  "blocked_report": {
+    "report_id": "go-default-v1-blocked-promotion",
+    "version": "1",
+    "profile_id": "go-default-v1",
+    "backend": "tree-sitter-go",
+    "status": "available",
+    "hard_gates": [
+      {
+        "name": "render_or_fail_closed",
+        "passed": false,
+        "required": true,
+        "diagnostics": ["render verification failed for comment placement fixture"]
+      }
+    ],
+    "metrics": {
+      "required_fixture_count": 24,
+      "passed_fixture_count": 23,
+      "formatting_preservation_score": 0.91,
+      "formatting_threshold": 0.95,
+      "fallback_count": 3,
+      "fallback_threshold": 2,
+      "unresolved_conflict_count": 1,
+      "backend_parity_passed": false
+    },
+    "required_suites": ["slice-815-formatting-preservation-metrics"],
+    "blocking_reasons": [
+      "required hard gate render_or_fail_closed failed",
+      "formatting preservation score 0.91 is below threshold 0.95",
+      "fallback count 3 exceeds threshold 2",
+      "unresolved conflict count must be 0",
+      "backend parity did not pass"
+    ],
+    "diagnostics": ["profile remains available but should not be recommended as a default"]
+  },
+  "expected": {
+    "profile_id": "go-default-v1",
+    "recommended_status": "recommended",
+    "blocked_status": "available",
+    "hard_gate_count": 4,
+    "required_fixture_count": 24,
+    "formatting_threshold": 0.95,
+    "blocking_reason_count": 5
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "799",
+  "name": "source-text-normalized-leaf-matching",
+  "description": "Leaf-like nodes can be matched by normalized source text when structural identity and semantic signatures are not enough.",
+  "matching": {
+    "matching_id": "source-text-normalized-leaves",
+    "strategy": "source_text_normalized",
+    "from_revision": "template",
+    "to_revision": "destination",
+    "normalization": [
+      "trim_outer_whitespace",
+      "collapse_internal_whitespace"
+    ],
+    "leaf_kinds": [
+      "comment",
+      "string_literal"
+    ],
+    "matches": [
+      {
+        "normalized_text": "comment: keep generated block",
+        "from_path": "/body/0/comment",
+        "to_path": "/body/2/comment",
+        "from_node_id": "template-comment-generated",
+        "to_node_id": "destination-comment-generated",
+        "from_source_text": "// keep   generated block",
+        "to_source_text": "// keep generated block",
+        "confidence": 0.92,
+        "diagnostics": [
+          "matched after whitespace normalization"
+        ]
+      },
+      {
+        "normalized_text": "string:hello world",
+        "from_path": "/body/1/value",
+        "to_path": "/body/0/value",
+        "from_node_id": "template-string-hello",
+        "to_node_id": "destination-string-hello",
+        "from_source_text": "\"hello   world\"",
+        "to_source_text": "\"hello world\"",
+        "confidence": 0.95,
+        "diagnostics": [
+          "matched after literal whitespace normalization"
+        ]
+      }
+    ],
+    "unmatched_from": [],
+    "unmatched_to": [
+      "/body/1/comment"
+    ],
+    "diagnostics": [
+      "source-text normalization applies only to configured leaf-like node kinds"
+    ]
+  },
+  "expected": {
+    "strategy": "source_text_normalized",
+    "normalization": [
+      "trim_outer_whitespace",
+      "collapse_internal_whitespace"
+    ],
+    "leaf_kinds": [
+      "comment",
+      "string_literal"
+    ],
+    "match_count": 2,
+    "unmatched_from_count": 0,
+    "unmatched_to_count": 1,
+    "first_match_normalized_text": "comment: keep generated block",
+    "minimum_confidence": 0.9
+  }
+}

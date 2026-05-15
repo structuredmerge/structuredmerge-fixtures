@@ -183,7 +183,7 @@
     },
     {
       "label": "kettle-jem-appraisals-template-policy",
-      "implementation_status": "required",
+      "implementation_status": "implemented_without_dedicated_step_report",
       "request_envelope": {
         "kind": "content_recipe_execution_request",
         "version": 1,
@@ -237,12 +237,12 @@
         "kind": "content_recipe_execution_report",
         "version": 1,
         "report": {
-          "final_content": "# frozen_string_literal: true\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"gemfiles/modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"coverage\" do\n  gem \"simplecov\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"gemfiles/modular/style.gemfile\"\nend\n",
+          "final_content": "# frozen_string_literal: true\n\nappraise \"ruby-3-2\" do\n  eval_gemfile \"gemfiles/modular/x_std_libs/r3/libs.gemfile\"\nend\n\nappraise \"style\" do\n  eval_gemfile \"gemfiles/modular/style.gemfile\"\nend\n\nappraise \"coverage\" do\n  gem \"simplecov\"\nend\n",
           "changed": true,
           "step_reports": [
             {
               "step_id": "merge-appraisal-blocks",
-              "status": "required",
+              "status": "applied",
               "changed": true,
               "metadata": {
                 "inserted_appraisals": [
@@ -255,7 +255,7 @@
             },
             {
               "step_id": "delete-appraisals-self-dependencies",
-              "status": "required",
+              "status": "applied",
               "changed": true,
               "metadata": {
                 "deleted_dependency_count": 2
@@ -263,7 +263,7 @@
             },
             {
               "step_id": "prune-ruby-appraisals",
-              "status": "required",
+              "status": "applied",
               "changed": true,
               "metadata": {
                 "min_ruby": "3.2",

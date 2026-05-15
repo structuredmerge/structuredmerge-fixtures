@@ -1,0 +1,120 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "810",
+  "name": "generic-conflict-handler-execution",
+  "description": "Generic conflict handlers resolve independent insertions into commutative parents and independent edits to keyed members.",
+  "execution": {
+    "execution_id": "generic-handler-execution",
+    "version": "1",
+    "cases": [
+      {
+        "case_id": "independent-commutative-insertions",
+        "handler_id": "generic-independent-commutative-insertions",
+        "conflict_category": "ordering",
+        "parent_policy": "commutative",
+        "base_children": [
+          {
+            "node_id": "base-import-fmt",
+            "signature": "import:fmt",
+            "source": "base"
+          }
+        ],
+        "left_insertions": [
+          {
+            "node_id": "left-import-os",
+            "signature": "import:os",
+            "source": "left"
+          }
+        ],
+        "right_insertions": [
+          {
+            "node_id": "right-import-strings",
+            "signature": "import:strings",
+            "source": "right"
+          }
+        ],
+        "expected_result": {
+          "resolved": true,
+          "merged_children": [
+            {
+              "node_id": "base-import-fmt",
+              "signature": "import:fmt",
+              "source": "base"
+            },
+            {
+              "node_id": "left-import-os",
+              "signature": "import:os",
+              "source": "left"
+            },
+            {
+              "node_id": "right-import-strings",
+              "signature": "import:strings",
+              "source": "right"
+            }
+          ],
+          "diagnostics": [
+            "independent insertions into a commutative parent were unioned deterministically"
+          ]
+        }
+      },
+      {
+        "case_id": "independent-keyed-member-edits",
+        "handler_id": "generic-keyed-member-edit",
+        "conflict_category": "edit_edit",
+        "base_members": [
+          {
+            "key": "name",
+            "value": "demo"
+          },
+          {
+            "key": "version",
+            "value": "1.0.0"
+          }
+        ],
+        "left_edits": [
+          {
+            "key": "version",
+            "value": "1.1.0"
+          }
+        ],
+        "right_edits": [
+          {
+            "key": "description",
+            "value": "demo package"
+          }
+        ],
+        "expected_result": {
+          "resolved": true,
+          "merged_members": [
+            {
+              "key": "name",
+              "value": "demo"
+            },
+            {
+              "key": "version",
+              "value": "1.1.0"
+            },
+            {
+              "key": "description",
+              "value": "demo package"
+            }
+          ],
+          "diagnostics": [
+            "independent keyed member edits were merged by key"
+          ]
+        }
+      }
+    ],
+    "diagnostics": [
+      "generic handlers operate on normalized roles and keys, not parser-native node classes"
+    ]
+  },
+  "expected": {
+    "case_count": 2,
+    "resolved_count": 2,
+    "first_handler_id": "generic-independent-commutative-insertions",
+    "first_merged_child_count": 3,
+    "second_handler_id": "generic-keyed-member-edit",
+    "second_merged_member_count": 3
+  }
+}

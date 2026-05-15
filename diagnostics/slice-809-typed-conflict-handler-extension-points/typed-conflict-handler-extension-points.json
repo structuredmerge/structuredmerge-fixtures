@@ -1,0 +1,41 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "809",
+  "name": "typed-conflict-handler-extension-points",
+  "description": "Conflict handlers are typed extension points registered by category, scope, and node role.",
+  "handlers": {
+    "registry_id": "generic-conflict-handlers",
+    "version": "1",
+    "handlers": [
+      {
+        "handler_id": "generic-independent-commutative-insertions",
+        "conflict_category": "ordering",
+        "fallback_scope": "subtree",
+        "node_roles": [
+          "commutative_parent"
+        ],
+        "capability": "resolve_independent_insertions",
+        "enabled": true
+      },
+      {
+        "handler_id": "generic-keyed-member-edit",
+        "conflict_category": "edit_edit",
+        "fallback_scope": "node",
+        "node_roles": [
+          "keyed_member"
+        ],
+        "capability": "resolve_independent_keyed_edits",
+        "enabled": true
+      }
+    ],
+    "diagnostics": [
+      "handlers are registered by typed conflict contracts, not by parser-specific node classes"
+    ]
+  },
+  "expected": {
+    "handler_count": 2,
+    "enabled_count": 2,
+    "first_handler_category": "ordering",
+    "second_handler_scope": "node"
+  }
+}

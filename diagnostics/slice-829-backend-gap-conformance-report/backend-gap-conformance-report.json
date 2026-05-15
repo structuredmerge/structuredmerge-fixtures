@@ -1,0 +1,46 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "829",
+  "name": "backend-gap-conformance-report",
+  "description": "Backend-specific gaps are reported as conformance diagnostics instead of being silently normalized away.",
+  "report": {
+    "report_id": "go-provider-backend-gap-conformance",
+    "version": "1",
+    "language": "go",
+    "provider_id": "go-parser",
+    "compared_provider_id": "go-dst",
+    "gaps": [
+      {
+        "capability": "source_fragment_retention",
+        "status": "missing",
+        "impact": "formatting_preservation",
+        "diagnostic_code": "backend_gap.source_fragment_retention",
+        "normalized_fallback": "source_span_render"
+      },
+      {
+        "capability": "decorated_syntax",
+        "status": "partial",
+        "impact": "comment_attachment",
+        "diagnostic_code": "backend_gap.decorated_syntax",
+        "normalized_fallback": "semantic_role_projection"
+      }
+    ],
+    "summary": {
+      "gap_count": 2,
+      "fallback_count": 2,
+      "silently_normalized": false
+    },
+    "diagnostics": [
+      "backend-specific gaps remain visible even when a normalized fallback exists"
+    ]
+  },
+  "expected": {
+    "language": "go",
+    "provider_id": "go-parser",
+    "compared_provider_id": "go-dst",
+    "gap_count": 2,
+    "fallback_count": 2,
+    "silently_normalized": false,
+    "first_diagnostic_code": "backend_gap.source_fragment_retention"
+  }
+}

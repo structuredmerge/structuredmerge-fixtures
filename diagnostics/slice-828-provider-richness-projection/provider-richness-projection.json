@@ -1,0 +1,42 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "828",
+  "name": "provider-richness-projection",
+  "description": "Provider-specific AST richness is projected into generic roles and signatures while private parser fields remain metadata.",
+  "projection": {
+    "projection_id": "go-dst-richness-projection",
+    "version": "1",
+    "provider_id": "go-dst",
+    "node_path": "/declarations/Greet",
+    "generic_roles": [
+      "declaration",
+      "function"
+    ],
+    "generic_signature": {
+      "kind": "function",
+      "name": "Greet",
+      "parameters": [
+        "name"
+      ],
+      "result": "string"
+    },
+    "private_metadata": {
+      "go_dst": {
+        "decorations": "available",
+        "declaration_index": "0"
+      }
+    },
+    "requires_private_fields": false,
+    "diagnostics": [
+      "generic roles and signatures carry matching value without exposing provider-private AST fields"
+    ]
+  },
+  "expected": {
+    "provider_id": "go-dst",
+    "role_count": 2,
+    "signature_kind": "function",
+    "signature_name": "Greet",
+    "requires_private_fields": false,
+    "private_metadata_namespace": "go_dst"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "812",
+  "name": "fallback-usage-machine-output",
+  "description": "Fallback usage is reported in machine output while git-driver output remains quiet by default.",
+  "fallback_usage": {
+    "report_id": "fallback-usage-report",
+    "version": "1",
+    "mode": "merge_driver",
+    "quiet_by_default": true,
+    "machine_output": {
+      "fallbacks": [
+        {
+          "fallback_id": "local-line-fallback-greet",
+          "strategy": "local_line_based",
+          "scope": "owned_region",
+          "path": "/declarations/Greet",
+          "conflict_category": "edit_edit"
+        }
+      ],
+      "summary": {
+        "fallback_count": 1,
+        "conflict_count": 1,
+        "resolved_count": 0
+      }
+    },
+    "git_driver_output": {
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 1
+    },
+    "diagnostics": [
+      "machine output records fallback usage even when git-driver output is quiet"
+    ]
+  },
+  "expected": {
+    "mode": "merge_driver",
+    "quiet_by_default": true,
+    "fallback_count": 1,
+    "conflict_count": 1,
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 1,
+    "first_fallback_scope": "owned_region"
+  }
+}

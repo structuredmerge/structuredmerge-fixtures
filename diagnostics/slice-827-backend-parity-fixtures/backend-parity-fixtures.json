@@ -1,0 +1,47 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "827",
+  "name": "backend-parity-fixtures",
+  "description": "Backend parity fixtures compare native and tree-sitter providers where both exist.",
+  "parity_suite": {
+    "suite_id": "backend-parity-fixtures",
+    "version": "1",
+    "language": "go",
+    "cases": [
+      {
+        "case_id": "go-parser-vs-tree-sitter",
+        "native_provider": "go-parser",
+        "tree_sitter_provider": "tree-sitter-go",
+        "dimensions": [
+          "parse_result",
+          "normalized_tree_shape",
+          "semantic_roles"
+        ]
+      },
+      {
+        "case_id": "go-dst-vs-tree-sitter",
+        "native_provider": "go-dst",
+        "tree_sitter_provider": "tree-sitter-go",
+        "dimensions": [
+          "parse_result",
+          "normalized_tree_shape",
+          "source_spans",
+          "render_support"
+        ]
+      }
+    ],
+    "diagnostics": [
+      "parity fixtures compare portable behavior without hiding backend-specific gaps"
+    ]
+  },
+  "expected": {
+    "language": "go",
+    "case_count": 2,
+    "native_providers": [
+      "go-parser",
+      "go-dst"
+    ],
+    "tree_sitter_provider": "tree-sitter-go",
+    "source_span_case_count": 1
+  }
+}

@@ -56,10 +56,10 @@
       "match profile helpers",
       "selection profile helpers",
       "destination profile helpers",
-      "operation profile helpers"
+      "operation profile helpers",
+      "replace/delete/insert/move helpers"
     ],
     "future_exports": [
-      "replace/delete/insert/move helpers",
       "batch operation helpers"
     ],
     "metadata": {

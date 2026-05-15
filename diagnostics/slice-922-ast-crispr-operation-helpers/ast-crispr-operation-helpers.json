@@ -1,16 +1,9 @@
 {
   "cases": [
     {
-      "name": "replace_explicit_text",
-      "profile": {
-        "operation_kind": "replace",
-        "source_requirement": "required",
-        "destination_requirement": "none",
-        "replacement_source": "explicit_text",
-        "captures_source_text": true,
-        "supports_if_missing": false
-      },
-      "expected": {
+      "name": "replace",
+      "helper": "replace",
+      "expected_operation_profile": {
         "operation_kind": "replace",
         "operation_family": "rewrite",
         "known_operation_kind": true,
@@ -31,16 +24,9 @@
       }
     },
     {
-      "name": "delete_required_source",
-      "profile": {
-        "operation_kind": "delete",
-        "source_requirement": "required",
-        "destination_requirement": "none",
-        "replacement_source": "none",
-        "captures_source_text": false,
-        "supports_if_missing": false
-      },
-      "expected": {
+      "name": "delete",
+      "helper": "delete",
+      "expected_operation_profile": {
         "operation_kind": "delete",
         "operation_family": "removal",
         "known_operation_kind": true,
@@ -50,7 +36,7 @@
         "known_destination_requirement": true,
         "replacement_source": "none",
         "known_replacement_source": true,
-        "captures_source_text": false,
+        "captures_source_text": true,
         "supports_if_missing": false,
         "selects_source": true,
         "requires_source": true,
@@ -61,16 +47,9 @@
       }
     },
     {
-      "name": "insert_optional_destination",
-      "profile": {
-        "operation_kind": "insert",
-        "source_requirement": "none",
-        "destination_requirement": "optional",
-        "replacement_source": "explicit_text",
-        "captures_source_text": false,
-        "supports_if_missing": true
-      },
-      "expected": {
+      "name": "insert",
+      "helper": "insert",
+      "expected_operation_profile": {
         "operation_kind": "insert",
         "operation_family": "insertion",
         "known_operation_kind": true,
@@ -91,55 +70,18 @@
       }
     },
     {
-      "name": "move_captured_or_explicit",
-      "profile": {
-        "operation_kind": "move",
-        "source_requirement": "required",
-        "destination_requirement": "required",
-        "replacement_source": "captured_text_or_explicit",
-        "captures_source_text": true,
-        "supports_if_missing": false
-      },
-      "expected": {
+      "name": "move",
+      "helper": "move",
+      "expected_operation_profile": {
         "operation_kind": "move",
         "operation_family": "relocation",
         "known_operation_kind": true,
-        "source_requirement": "required",
+        "source_requirement": "optional",
         "known_source_requirement": true,
-        "destination_requirement": "required",
+        "destination_requirement": "optional",
         "known_destination_requirement": true,
         "replacement_source": "captured_text_or_explicit",
         "known_replacement_source": true,
-        "captures_source_text": true,
-        "supports_if_missing": false,
-        "selects_source": true,
-        "requires_source": true,
-        "supports_destination": true,
-        "requires_destination": true,
-        "explicit_replacement": false,
-        "may_reuse_captured_text": true
-      }
-    },
-    {
-      "name": "unknown_values",
-      "profile": {
-        "operation_kind": "provider_operation",
-        "source_requirement": "provider_source",
-        "destination_requirement": "provider_destination",
-        "replacement_source": "provider_replacement",
-        "captures_source_text": true,
-        "supports_if_missing": true
-      },
-      "expected": {
-        "operation_kind": "provider_operation",
-        "operation_family": "unknown",
-        "known_operation_kind": false,
-        "source_requirement": "provider_source",
-        "known_source_requirement": false,
-        "destination_requirement": "provider_destination",
-        "known_destination_requirement": false,
-        "replacement_source": "provider_replacement",
-        "known_replacement_source": false,
         "captures_source_text": true,
         "supports_if_missing": true,
         "selects_source": true,
@@ -147,7 +89,7 @@
         "supports_destination": true,
         "requires_destination": false,
         "explicit_replacement": false,
-        "may_reuse_captured_text": false
+        "may_reuse_captured_text": true
       }
     }
   ]

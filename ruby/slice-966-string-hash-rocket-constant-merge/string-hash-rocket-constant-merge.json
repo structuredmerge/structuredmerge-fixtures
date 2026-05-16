@@ -1,0 +1,9 @@
+{
+  "name": "string_hash_rocket_constant_merge",
+  "template": "class Headers\n  DEFAULTS = {\"Accept\" => \"application/json\", \"X-Trace\" => \"enabled\"}\nend\n",
+  "destination": "class Headers\n  DEFAULTS = {\n    \"Accept\" => \"text/plain\"\n  }\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Headers\n  DEFAULTS = {\n    \"Accept\" => \"text/plain\",\n    \"X-Trace\" => \"enabled\"\n  }\nend\n"
+  }
+}

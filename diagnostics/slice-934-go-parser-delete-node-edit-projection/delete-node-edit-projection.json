@@ -1,0 +1,33 @@
+{
+  "request": {
+    "provider_id": "go-parser",
+    "backend_ref": {
+      "id": "go-parser",
+      "family": "native"
+    },
+    "language": "go",
+    "source": "package demo\n\nfunc Greet() {\n\tprintln(\"hi\")\n}\n",
+    "operations": [
+      {
+        "operation": "delete_node",
+        "target_node_id": "go-parser:decl:0",
+        "target_node_path": "decls[0]",
+        "replacement_source": ""
+      }
+    ]
+  },
+  "expected_result": {
+    "ok": true,
+    "status": "applied",
+    "source": "package demo\n",
+    "applied_operations": [
+      {
+        "operation": "delete_node",
+        "target_node_id": "go-parser:decl:0",
+        "correlation_key": "metadata.go_parser.node_path",
+        "correlation_value": "decls[0]"
+      }
+    ],
+    "diagnostics": []
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "nested_class_method_merge",
+  "template": "class Namespace\n  class Greeter\n    def greet(name)\n      \"Hello #{name}\"\n    end\n  end\nend\n",
+  "destination": "class Namespace\n  class Greeter\n    def call(name)\n      name.upcase\n    end\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Namespace\n  class Greeter\n    def call(name)\n      name.upcase\n    end\n\n    def greet(name)\n      \"Hello #{name}\"\n    end\n  end\nend\n"
+  }
+}

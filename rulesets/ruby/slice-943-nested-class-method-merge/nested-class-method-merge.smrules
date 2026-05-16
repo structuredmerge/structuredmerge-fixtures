@@ -1,0 +1,14 @@
+# fixture ruby/slice-943-nested-class-method-merge/nested-class-method-merge.json
+format ruby
+owners nested_class_body_methods
+match declaration_path_then_method_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+surface nested_declaration stable_signature
+surface method stable_signature
+capability recursive_declaration_merge true
+capability nested_declaration_merge true
+capability destination_method_body_wins true
+capability template_missing_method_adds true

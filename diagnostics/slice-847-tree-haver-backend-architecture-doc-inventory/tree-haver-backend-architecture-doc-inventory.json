@@ -1,0 +1,94 @@
+{
+  "source": {
+    "old_package": "reference/tree_haver",
+    "old_documents": [
+      "reference/tree_haver/README.md",
+      "reference/tree_haver/POSITION-API-SUMMARY.md",
+      "reference/tree_haver/WRAPPING-ARCHITECTURE.md"
+    ],
+    "active_destination": "ruby/gems/tree_haver contracts plus shared backend/profile/capability fixtures"
+  },
+  "kept_contracts": [
+    {
+      "id": "normalized-position-api",
+      "old_behavior": "Expose start_line, end_line, source_position, and child traversal consistently across backend node classes.",
+      "active_contract": "Normalized nodes and capability reports expose source spans with 1-based lines plus explicit columns/byte ranges when available."
+    },
+    {
+      "id": "capability-reporting",
+      "old_behavior": "Document backend support differences and parser-specific capabilities.",
+      "active_contract": "BackendCapability reports parser identity, language/version, parse-error behavior, source span/fragment support, render strategies, semantic roles, normalized tree support, native node access, and diagnostics."
+    },
+    {
+      "id": "explicit-backend-context",
+      "old_behavior": "Allow backend selection and backend-specific suite execution.",
+      "active_contract": "Backend selection is explicit through registry/context/profile fields and appears in suite planning, skipped results, and reports."
+    },
+    {
+      "id": "scoped-context-restoration",
+      "old_behavior": "Backend selection can be scoped for one operation.",
+      "active_contract": "Temporary backend context is scoped and restored after the operation."
+    },
+    {
+      "id": "single-normalized-tree-shape",
+      "old_behavior": "Top-level wrappers hide backend-specific object shapes from user code.",
+      "active_contract": "Providers may keep native objects internally, but downstream consumers receive one normalized tree shape with metadata/sidecars for parser-specific value."
+    }
+  ],
+  "retired_or_downgraded_claims": [
+    {
+      "id": "universal-ruby-backend-adapter",
+      "old_claim": "One Ruby TreeHaver adapter abstracts MRI, Rust, FFI, Java, Prism, Psych, Commonmarker, Markly, Citrus, and Parslet.",
+      "classification": "prior_art_not_portable_claim",
+      "replacement": "active providers register capabilities and prove backend behavior through fixtures"
+    },
+    {
+      "id": "raw-object-wrapping-as-api",
+      "old_claim": "TreeHaver::Parser owns all wrapping and unwrapping while backends use raw objects.",
+      "classification": "provider_design_pattern",
+      "replacement": "normalized output and capability contracts; implementation internals are provider-owned"
+    },
+    {
+      "id": "thread-local-backend-switching",
+      "old_claim": "Backend selection may be switched at runtime for tests and parser choice.",
+      "classification": "replaced",
+      "replacement": "explicit scoped backend context, profile fields, and observable reports"
+    },
+    {
+      "id": "backend-availability-as-rspec-tags",
+      "old_claim": "Backend dependency tags decide which specs execute.",
+      "classification": "replaced",
+      "replacement": "feature-profile requirements and explicit skipped conformance results"
+    }
+  ],
+  "current_fixture_evidence": [
+    "slice-25-backend-registry",
+    "slice-783-backend-capability-report",
+    "slice-784-source-fragment-extraction",
+    "slice-785-parse-error-tolerance",
+    "slice-787-native-parser-adapter-contract",
+    "slice-788-tree-haver-profile",
+    "slice-822-native-provider-metadata",
+    "slice-924-tree_haver-edit-projection-support",
+    "slice-926-tree_haver-backend-availability",
+    "slice-927-tree_haver-provider-diagnostics",
+    "temporary backend context selection spec"
+  ],
+  "provider_guidance": {
+    "native_object_retention": "allowed_internal_only",
+    "downstream_tree_shape": "normalized_tree",
+    "project_parser_specific_value_into": [
+      "node fields",
+      "node metadata",
+      "capabilities",
+      "diagnostics",
+      "semantic sidecars"
+    ],
+    "do_not_require_downstream_users_to_understand": "native parser object shapes"
+  },
+  "decision": "Port the old position and capability ideas as normalized contracts. Treat old wrapping/unwrapping and multi-backend Ruby adapter details as provider-owned implementation patterns, not shared portable API.",
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/tree_haver/spec/fixtures_integration_spec.rb",
+    "result": "423 examples, 0 failures"
+  }
+}

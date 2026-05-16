@@ -1,0 +1,11 @@
+# fixture ruby/slice-954-nested-class-constant-merge/nested-class-constant-merge.json
+format ruby
+owners nested_class_body_constants
+match declaration_path_then_constant_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+capability recursive_declaration_merge true
+capability destination_constant_text_preserve true
+capability template_only_nested_constants_insert true

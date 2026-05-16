@@ -1,0 +1,9 @@
+{
+  "name": "nested_class_constant_merge",
+  "template": "class Greeter\n  class Config\n    DEFAULT_LOCALE = \"en\"\n\n    def enabled?\n      true\n    end\n  end\nend\n",
+  "destination": "class Greeter\n  class Config\n    CACHE_KEY = \"greeter\"\n\n    def enabled?\n      ENV.fetch(\"GREETER_ENABLED\", \"1\") == \"1\"\n    end\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  class Config\n    DEFAULT_LOCALE = \"en\"\n\n    CACHE_KEY = \"greeter\"\n\n    def enabled?\n      ENV.fetch(\"GREETER_ENABLED\", \"1\") == \"1\"\n    end\n  end\nend\n"
+  }
+}

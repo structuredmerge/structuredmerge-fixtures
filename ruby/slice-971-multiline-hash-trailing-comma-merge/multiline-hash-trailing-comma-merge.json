@@ -1,0 +1,9 @@
+{
+  "name": "multiline_hash_trailing_comma_merge",
+  "template": "class Greeter\n  SETTINGS = {\n    locale: \"en\",\n    timezone: \"UTC\"\n  }\nend\n",
+  "destination": "class Greeter\n  SETTINGS = {\n    locale: \"de\",\n  }\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  SETTINGS = {\n    locale: \"de\",\n    timezone: \"UTC\",\n  }\nend\n"
+  }
+}

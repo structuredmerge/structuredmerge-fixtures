@@ -1,0 +1,164 @@
+{
+  "source": "class Demo\n  def call\n    :ok\n  end\nend\n",
+  "dialect": "ruby",
+  "expected": {
+    "ok": true,
+    "backend_capability": {
+      "backend_ref": {
+        "id": "prism",
+        "family": "native"
+      },
+      "language": "ruby",
+      "parser_identity": {
+        "name": "prism",
+        "version": "1.9.0",
+        "implementation": "ruby"
+      },
+      "language_version": {
+        "version": "ruby",
+        "dialect": "ruby"
+      },
+      "parse_error_behavior": "diagnostic_without_tree",
+      "source_span_support": "byte_range_and_points",
+      "source_fragment_support": "source_slice",
+      "render_strategies": ["source_fragment_reuse", "full_file_fallback"],
+      "semantic_role_support": "backend_specific_with_portable_mapping",
+      "normalized_tree_support": true,
+      "native_node_access": true,
+      "known_node_kinds": [],
+      "known_fields": [],
+      "grammar_inventory": null,
+      "diagnostics": []
+    },
+    "root_id": "prism:program:0",
+    "nodes": [
+      {
+        "id": "prism:program:0",
+        "kind": "program",
+        "role": "structural",
+        "parent_id": null,
+        "child_ids": ["prism:class:0"],
+        "span": {
+          "range": {
+            "start_byte": 0,
+            "end_byte": 40
+          },
+          "start_point": {
+            "row": 0,
+            "column": 0
+          },
+          "end_point": {
+            "row": 5,
+            "column": 0
+          }
+        },
+        "field_name": null,
+        "named": true,
+        "anonymous": false,
+        "has_source_text": true,
+        "source_fragment": "class Demo\n  def call\n    :ok\n  end\nend\n",
+        "backend_kind": "Prism::ProgramNode",
+        "semantic_roles": ["compilation_unit"],
+        "backend_roles": ["prism.ProgramNode"],
+        "unsupported_features": [],
+        "metadata": {
+          "prism": {
+            "node_path": "program",
+            "native_tree_visibility": "provider_internal"
+          }
+        }
+      },
+      {
+        "id": "prism:class:0",
+        "kind": "class_declaration",
+        "role": "structural",
+        "parent_id": "prism:program:0",
+        "child_ids": ["prism:def:0"],
+        "span": {
+          "range": {
+            "start_byte": 0,
+            "end_byte": 39
+          },
+          "start_point": {
+            "row": 0,
+            "column": 0
+          },
+          "end_point": {
+            "row": 4,
+            "column": 3
+          }
+        },
+        "field_name": "declaration",
+        "named": true,
+        "anonymous": false,
+        "has_source_text": true,
+        "source_fragment": "class Demo\n  def call\n    :ok\n  end\nend",
+        "backend_kind": "Prism::ClassNode",
+        "semantic_roles": ["declaration", "class", "named_symbol"],
+        "backend_roles": ["prism.ClassNode"],
+        "unsupported_features": [],
+        "metadata": {
+          "prism": {
+            "node_path": "statements.body[0]",
+            "raw_identifier": "Demo"
+          }
+        }
+      },
+      {
+        "id": "prism:def:0",
+        "kind": "method_declaration",
+        "role": "structural",
+        "parent_id": "prism:class:0",
+        "child_ids": [],
+        "span": {
+          "range": {
+            "start_byte": 13,
+            "end_byte": 35
+          },
+          "start_point": {
+            "row": 1,
+            "column": 2
+          },
+          "end_point": {
+            "row": 3,
+            "column": 5
+          }
+        },
+        "field_name": "body",
+        "named": true,
+        "anonymous": false,
+        "has_source_text": true,
+        "source_fragment": "def call\n    :ok\n  end",
+        "backend_kind": "Prism::DefNode",
+        "semantic_roles": ["declaration", "method", "named_symbol"],
+        "backend_roles": ["prism.DefNode"],
+        "unsupported_features": [],
+        "metadata": {
+          "prism": {
+            "node_path": "statements.body[0].body.body[0]",
+            "raw_identifier": "call"
+          }
+        }
+      }
+    ],
+    "parse_error_tolerance": {
+      "backend_ref": {
+        "id": "prism",
+        "family": "native"
+      },
+      "language": "ruby",
+      "behavior": "diagnostic_without_tree",
+      "tolerates_errors": false,
+      "error_nodes": [],
+      "diagnostics": []
+    },
+    "source_fragments_available": true,
+    "diagnostics": [],
+    "metadata": {
+      "prism": {
+        "native_tree_retained": "true",
+        "native_tree_visibility": "provider_internal"
+      }
+    }
+  }
+}

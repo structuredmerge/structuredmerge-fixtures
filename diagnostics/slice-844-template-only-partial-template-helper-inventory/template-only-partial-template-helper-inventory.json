@@ -1,0 +1,111 @@
+{
+  "source": {
+    "old_package": "reference/ast-merge",
+    "old_surfaces": [
+      "PartialTemplateMergerBase",
+      "KeyPathPartialTemplateMergerBase",
+      "TrailingGroups::Core",
+      "TrailingGroups::DestIterate",
+      "TrailingGroups::AlignmentSort",
+      "DiffMapperBase",
+      "FileAlignerBase"
+    ],
+    "active_destination": "structured edit, normalized tree metadata, family fixtures, and private implementation helpers"
+  },
+  "portable_template_only_contracts": [
+    {
+      "id": "exact-match-before-insertion",
+      "old_behavior": "FileAlignerBase builds exact signature matches before adding template-only and destination-only entries.",
+      "active_contract": "Matched peers are established before template-only insertion decisions."
+    },
+    {
+      "id": "destination-order-preservation",
+      "old_behavior": "Alignment sort keeps match and destination-only entries in destination order.",
+      "active_contract": "Destination-backed nodes retain destination order unless an explicit move/edit policy applies."
+    },
+    {
+      "id": "neighbor-anchored-template-only",
+      "old_behavior": "Trailing groups anchor template-only runs to the previous matched template node, with a prefix group before the first match.",
+      "active_contract": "Template-only nodes are placed relative to matched template neighbors and language ordering policy."
+    },
+    {
+      "id": "delayed-interior-group-flush",
+      "old_behavior": "Interior groups flush only after all matched template indices through the group anchor have been consumed.",
+      "active_contract": "Destination reordering cannot cause premature insertion of a template-only group."
+    },
+    {
+      "id": "deterministic-prefix-tail",
+      "old_behavior": "Prefix groups are emitted before destination iteration; remaining groups are emitted by sorted anchor order after iteration.",
+      "active_contract": "Prefix and tail template-only groups have deterministic placement and reportable fallback basis."
+    }
+  ],
+  "portable_partial_template_contracts": [
+    {
+      "id": "section-selector",
+      "old_surface": "PartialTemplateMergerBase",
+      "active_contract": "A partial template may target a selected region and merge only that region."
+    },
+    {
+      "id": "key-path-selector",
+      "old_surface": "KeyPathPartialTemplateMergerBase",
+      "active_contract": "A partial template may target a structured key path and preserve the rest of the document."
+    },
+    {
+      "id": "missing-target-policy",
+      "old_surface": "PartialTemplateMergerBase and KeyPathPartialTemplateMergerBase",
+      "active_contract": "Missing targets use explicit skip, append, prepend, or add policies and report the fallback."
+    },
+    {
+      "id": "diff-node-mapping",
+      "old_surface": "DiffMapperBase",
+      "active_contract": "Diff-to-node mapping belongs in reports/profiles and structured edit planning, not a public base class."
+    }
+  ],
+  "retired_public_surfaces": [
+    {
+      "old_surface": "PartialTemplateMergerBase",
+      "reason": "coupled to legacy SmartMerger/FileAnalysis APIs",
+      "replacement": "structured edit target profiles plus family-local helpers"
+    },
+    {
+      "old_surface": "KeyPathPartialTemplateMergerBase",
+      "reason": "assumes old structured entry duck types and SmartMerger wrapping",
+      "replacement": "normalized node/key-path metadata plus explicit missing-target reports"
+    },
+    {
+      "old_surface": "DiffMapperBase",
+      "reason": "useful parser belongs behind provider reports rather than shared public base inheritance",
+      "replacement": "provider diagnostics and change-to-node report fixtures"
+    },
+    {
+      "old_surface": "FileAlignerBase",
+      "reason": "alignment behavior is portable but entry payloads and refinement hooks vary by family",
+      "replacement": "alignment report fixtures and optional private helpers"
+    }
+  ],
+  "helper_api_policy": {
+    "exposed_now": false,
+    "default_shape": "private family/provider helper",
+    "promotion_condition": "make shared only after at least two active families need the same entry shape and fixtures cover prefix, interior, tail, reordered destination, and missing-target cases",
+    "required_reporting": [
+      "matched_anchor_ids",
+      "template_only_group_anchor",
+      "insertion_basis",
+      "fallback_policy",
+      "target_found"
+    ]
+  },
+  "current_fixture_evidence": [
+    "slice-941-ruby-template-only-class-method-merge",
+    "slice-942-ruby-template-only-method-visibility-ordering",
+    "slice-944-ruby-template-only-nested-declaration-merge",
+    "slice-951-ruby-template-only-class-constant-merge",
+    "slice-678-structured-edit-crispr-append-fallback-insert",
+    "slice-920-ast-crispr-destination-profile-helpers"
+  ],
+  "decision": "Keep the old trailing-group ordering algorithm as vocabulary and fixture intent, but do not expose or copy the old helper classes as shared API in this pass.",
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb",
+    "result": "420 examples, 0 failures"
+  }
+}

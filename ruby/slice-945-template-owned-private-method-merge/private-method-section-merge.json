@@ -1,0 +1,9 @@
+{
+  "name": "private_method_section_merge",
+  "template": "class Greeter\n  private\n\n  def normalize(name)\n    name.to_s.strip\n  end\nend\n",
+  "destination": "class Greeter\n  def greet(name)\n    name.upcase\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  def greet(name)\n    name.upcase\n  end\n\n  private\n\n  def normalize(name)\n    name.to_s.strip\n  end\nend\n"
+  }
+}

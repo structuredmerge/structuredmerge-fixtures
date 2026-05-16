@@ -1,0 +1,9 @@
+{
+  "name": "percent_array_custom_delimiter_merge",
+  "template": "class Greeter\n  FLAGS = %i[active pending archived]\n  TOKENS = %W~hello #{name} goodbye~\nend\n",
+  "destination": "class Greeter\n  FLAGS = %i|active enabled|\n  TOKENS = %W/hello welcome/\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  FLAGS = %i|active enabled pending archived|\n  TOKENS = %W/hello welcome #{name} goodbye/\nend\n"
+  }
+}

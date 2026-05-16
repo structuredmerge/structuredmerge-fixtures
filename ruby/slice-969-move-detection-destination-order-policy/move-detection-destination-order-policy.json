@@ -1,0 +1,13 @@
+{
+  "name": "move_detection_destination_order_policy",
+  "template": "class Greeter\n  def alpha\n    :alpha\n  end\n\n  def beta\n    :beta\n  end\n\n  def gamma\n    :gamma\n  end\nend\n",
+  "destination": "class Greeter\n  def beta\n    :beta\n  end\n\n  def alpha\n    :alpha\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  def beta\n    :beta\n  end\n\n  def alpha\n    :alpha\n  end\n\n  def gamma\n    :gamma\n  end\nend\n",
+    "method_move_policy": "destination_order",
+    "preserves_destination_order": true,
+    "suppresses_duplicate_moved_methods": true,
+    "move_count": 2
+  }
+}

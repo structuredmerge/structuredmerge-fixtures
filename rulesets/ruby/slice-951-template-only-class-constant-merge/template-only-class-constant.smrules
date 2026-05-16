@@ -1,0 +1,12 @@
+# fixture ruby/slice-951-template-only-class-constant-merge/template-only-class-constant.json
+format ruby
+owners class_body_constants
+match constant_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+surface constant_assignment stable_signature
+capability recursive_declaration_merge true
+capability destination_constant_wins true
+capability template_missing_constant_adds true

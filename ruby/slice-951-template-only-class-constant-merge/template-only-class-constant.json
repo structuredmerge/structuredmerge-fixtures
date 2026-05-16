@@ -1,0 +1,9 @@
+{
+  "name": "template_only_class_constant",
+  "template": "class Greeter\n  DEFAULT_GREETING = \"Hello\"\n\n  def greet(name)\n    \"#{DEFAULT_GREETING} #{name}\"\n  end\nend\n",
+  "destination": "class Greeter\n  def greet(name)\n    name.upcase\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  DEFAULT_GREETING = \"Hello\"\n\n  def greet(name)\n    name.upcase\n  end\nend\n"
+  }
+}

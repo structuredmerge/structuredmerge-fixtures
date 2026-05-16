@@ -1,0 +1,13 @@
+# fixture ruby/slice-953-multiline-array-constant-merge/multiline-array-constant-merge.json
+format ruby
+owners class_body_constants
+match constant_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+surface array_element stable_value
+capability recursive_declaration_merge true
+capability destination_array_elements_preserve_order true
+capability template_missing_array_elements_append true
+capability multiline_array_layout_preservation true

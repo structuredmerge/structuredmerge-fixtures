@@ -1,0 +1,147 @@
+{
+  "source": {
+    "old_package": "reference/ast-merge",
+    "old_surfaces": [
+      "Comment::Line",
+      "Comment::Block",
+      "Comment::Empty",
+      "Comment::Attachment",
+      "Comment::Region",
+      "Comment::RegionMergePolicy",
+      "Comment::*Tracker*",
+      "Layout::Gap",
+      "Layout::Attachment",
+      "Layout::Augmenter",
+      "StructuralEdit::Boundary",
+      "StructuralEdit::SplicePlan",
+      "StructuralEdit::RemovePlan",
+      "StructuralEdit::RehomePlan",
+      "StructuralEdit::PlanSet",
+      "Navigable::InjectionPointFinder",
+      "Text::SmartMerger",
+      "Text::ConflictResolver",
+      "Text::SectionSplitter"
+    ],
+    "active_destination": "normalized node metadata, semantic sidecars, structured edit profiles, render/reparse fixtures, and family/provider-local helpers"
+  },
+  "portable_comment_contracts": [
+    {
+      "id": "comment-region-kinds",
+      "contract": "Providers may project leading, inline, trailing, orphan, preamble, and postlude comment regions into normalized metadata or semantic sidecars."
+    },
+    {
+      "id": "comment-style-identifiers",
+      "contract": "Comment styles use normalized identifiers for hash, HTML, C-style line, C-style block, semicolon, and double-dash comments when the provider exposes them."
+    },
+    {
+      "id": "freeze-directive-integration",
+      "contract": "Freeze marker detection uses the shared slice-843 directive vocabulary rather than format-specific marker classes."
+    },
+    {
+      "id": "region-text-submerge-gate",
+      "contract": "Multi-line comment regions may text-submerge only behind profile and family fixture evidence; inline comments preserve the preferred side by default."
+    }
+  ],
+  "portable_layout_contracts": [
+    {
+      "id": "gap-kinds",
+      "contract": "Blank-line gaps are classified as preamble, interstitial, or postlude."
+    },
+    {
+      "id": "single-output-controller",
+      "contract": "Adjacent owners may both reference one gap, but only one owner controls output."
+    },
+    {
+      "id": "controller-fallback",
+      "contract": "When a controlling owner is removed, eligible interstitial and boundary gaps may fall back to the surviving adjacent owner."
+    },
+    {
+      "id": "layout-render-reporting",
+      "contract": "Layout-sensitive edits report controller side, fallback side, retained owners, removed owners, and render/reparse outcome."
+    }
+  ],
+  "portable_structural_edit_contracts": [
+    {
+      "id": "exact-splice",
+      "contract": "Line-range replacement preserves source before and after the edited range exactly."
+    },
+    {
+      "id": "remove-with-rehome-report",
+      "contract": "Removal reports removed owners, retained boundaries, promoted comment regions, and promoted layout gaps."
+    },
+    {
+      "id": "passive-rehome-plan",
+      "contract": "Rehome plans record transfer intent from removed owners to surviving boundaries without mutating provider-native trees directly."
+    },
+    {
+      "id": "non-overlapping-plan-set",
+      "contract": "Batched line-range edits must be non-overlapping and applied against one source version."
+    },
+    {
+      "id": "selector-to-destination-profile",
+      "contract": "Injection point and section selectors become structured edit destination profiles, not a separate public navigable API."
+    }
+  ],
+  "retired_public_surfaces": [
+    {
+      "old_surface": "Comment::* public classes",
+      "reason": "portable behavior is metadata shape and preservation policy; concrete parser style handling remains provider-owned",
+      "replacement": "comment metadata/sidecar fixtures and family render tests"
+    },
+    {
+      "old_surface": "Layout::* public classes",
+      "reason": "gap ownership is portable, but exact whitespace rendering is provider-owned",
+      "replacement": "layout gap report fixtures and provider render/reparse tests"
+    },
+    {
+      "old_surface": "StructuralEdit::* public classes",
+      "reason": "passive plan shapes are useful, but active edit execution now flows through structured edit requests and reports",
+      "replacement": "structured edit operation/profile/report fixtures"
+    },
+    {
+      "old_surface": "Navigable::* public classes",
+      "reason": "injection-point matching is superseded by structured edit selectors and destination profiles",
+      "replacement": "selection and destination profile helpers"
+    },
+    {
+      "old_surface": "Text::* SmartMerger stack",
+      "reason": "old SmartMerger inheritance is retired; line/text fallback must be profile-gated and reportable",
+      "replacement": "text family fixtures and local line-based fallback fixtures"
+    }
+  ],
+  "renderer_ownership": {
+    "shared_contract_owns": [
+      "comment attachment shapes",
+      "layout gap ownership reports",
+      "remove/rehome transfer records",
+      "structured edit diagnostics",
+      "fallback policy identifiers"
+    ],
+    "provider_renderer_owns": [
+      "indentation",
+      "separator tokens",
+      "comment prefixes",
+      "blank-line emission",
+      "native tree mutation",
+      "render and reparse verification"
+    ],
+    "claim_requirement": "A provider must not claim layout-sensitive preservation until family fixtures verify render and reparse behavior."
+  },
+  "current_fixture_evidence": [
+    "slice-431-markdown-structured-edit-result-projection",
+    "slice-678-structured-edit-crispr-append-fallback-insert",
+    "slice-679-ruby-comment-owned-rewrite-and-delete-parity",
+    "slice-680-ruby-callable-destination-move-parity",
+    "slice-764-prism-ruby-fixture-coverage-verification",
+    "slice-749-jsonc-fixture-coverage-verification",
+    "slice-754-toml-fixture-coverage-verification",
+    "slice-757-markdown-fixture-coverage-verification",
+    "slice-807-local-line-based-fallback",
+    "slice-843-freeze-block-directive-vocabulary"
+  ],
+  "decision": "Keep comment, layout, structural edit, navigable, and text fallback behavior as fixture-backed contracts. Do not copy the old public helper class hierarchy in this pass; reintroduce passive records only as local conveniences when active providers need them.",
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb",
+    "result": "421 examples, 0 failures"
+  }
+}

@@ -1,0 +1,11 @@
+# fixture ruby/slice-958-declaration-kind-aware-matching/declaration-kind-aware-matching.json
+format ruby
+owners declarations
+match declaration_kind_and_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+capability declaration_kind_aware_matching true
+capability destination_declaration_text_preserve true
+capability unmatched_template_declarations_append true

@@ -1,0 +1,9 @@
+{
+  "name": "declaration_kind_aware_matching",
+  "template": "module Config\n  def template_value\n    :template\n  end\nend\n",
+  "destination": "class Config\n  def destination_value\n    :destination\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Config\n  def destination_value\n    :destination\n  end\nend\n\nmodule Config\n  def template_value\n    :template\n  end\nend\n"
+  }
+}

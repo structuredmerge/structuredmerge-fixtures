@@ -1,0 +1,111 @@
+{
+  "source": {
+    "old_surfaces": [
+      "reference/ast-merge/lib/ast/merge/freeze_node_base.rb",
+      "reference/ast-merge/lib/ast/merge/freezable.rb",
+      "reference/ast-merge/lib/ast/merge/block_directive.rb",
+      "reference/prism-merge freeze/nocov directive handling",
+      "reference/jsonc-merge freeze node handling",
+      "reference/psych-merge freeze node handling",
+      "reference/toml-merge freeze notes",
+      "reference/bash-merge and reference/dotenv-merge freeze tests"
+    ],
+    "active_destination": "shared directive vocabulary plus family/provider fixtures"
+  },
+  "directive_kinds": [
+    {
+      "kind": "freeze",
+      "open": "freeze",
+      "close": "unfreeze",
+      "merge_policy": "destination",
+      "matching": "block_content_identity_or_provider_reported_owner",
+      "notes": "Balanced freeze blocks preserve destination content by default."
+    },
+    {
+      "kind": "nocov",
+      "open": "nocov",
+      "close": "nocov",
+      "merge_policy": "annotation_policy",
+      "matching": "provider_defined",
+      "notes": "Nocov preserves coverage annotation ownership but is not equivalent to destination-winning freeze."
+    },
+    {
+      "kind": "node_freeze",
+      "open": "freeze",
+      "close": null,
+      "merge_policy": "destination_for_attached_node",
+      "matching": "underlying_node_structural_identity",
+      "notes": "A standalone leading freeze directive may attach to the following node when provider ownership is unambiguous."
+    }
+  ],
+  "marker_styles": [
+    {
+      "style": "hash_comment",
+      "open_example": "# smorg:freeze custom settings",
+      "close_example": "# smorg:unfreeze",
+      "families": ["ruby", "yaml", "toml", "bash", "dotenv"]
+    },
+    {
+      "style": "html_comment",
+      "open_example": "<!-- smorg:freeze custom section -->",
+      "close_example": "<!-- smorg:unfreeze -->",
+      "families": ["markdown", "html_like"]
+    },
+    {
+      "style": "c_style_line",
+      "open_example": "// smorg:freeze custom settings",
+      "close_example": "// smorg:unfreeze",
+      "families": ["jsonc", "javascript", "typescript", "go", "rust", "c_like"]
+    },
+    {
+      "style": "c_style_block",
+      "open_example": "/* smorg:freeze custom settings */",
+      "close_example": "/* smorg:unfreeze */",
+      "families": ["jsonc", "javascript", "typescript", "go", "rust", "c_like"]
+    }
+  ],
+  "validity_rules": [
+    "balanced_open_close_pairs_form_directive_blocks",
+    "nested_blocks_are_allowed_when_they_form_a_clean_tree",
+    "crossing_or_offset_overlapping_spans_are_invalid",
+    "unmatched_close_marker_reports_diagnostic",
+    "unclosed_open_marker_reports_diagnostic",
+    "custom_or_legacy_tokens_are_configuration_input_not_new_namespace_defaults"
+  ],
+  "current_coverage": [
+    {
+      "fixture": "slice-936-ruby-prism-comment-directive-metadata",
+      "coverage": "projects smorg:freeze and :nocov: comments into normalized Prism metadata"
+    },
+    {
+      "fixture": "slice-743-reusable-readme-configuration-examples",
+      "coverage": "records user-facing hash and HTML freeze-token examples"
+    },
+    {
+      "fixture": "slice-749-jsonc-fixture-coverage-verification",
+      "coverage": "records JSONC freeze blocks as future package work"
+    },
+    {
+      "fixture": "slice-751-yaml-psych-fixture-coverage-verification",
+      "coverage": "records YAML/Psych freeze blocks as future package work"
+    },
+    {
+      "fixture": "slice-754-toml-fixture-coverage-verification",
+      "coverage": "records TOML freeze blocks as future package work"
+    }
+  ],
+  "future_family_fixture_requirements": [
+    "comment syntax marker parsing",
+    "custom token and legacy token handling",
+    "balanced block preservation",
+    "node-level directive attachment",
+    "nested directive tree validation",
+    "unmatched and unclosed marker diagnostics",
+    "render and reparse verification"
+  ],
+  "decision": "Do not port old FreezeNodeBase or format-specific FreezeNode classes directly. Add family/provider adapters only after this shared vocabulary is represented by concrete fixtures for that family.",
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb",
+    "result": "419 examples, 0 failures"
+  }
+}

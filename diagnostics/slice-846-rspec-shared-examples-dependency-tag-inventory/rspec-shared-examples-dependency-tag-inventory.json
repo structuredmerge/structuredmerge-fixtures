@@ -1,0 +1,97 @@
+{
+  "source": {
+    "old_packages": [
+      "reference/ast-merge",
+      "reference/tree_haver"
+    ],
+    "old_surfaces": [
+      "Ast::Merge::RSpec dependency tags",
+      "Ast::Merge::RSpec::MergeGemRegistry",
+      "TreeHaver::RSpec::DependencyTags",
+      "TreeHaver::RSpec::TestableNode",
+      "a reproducible merge",
+      "a reproducible partial merge",
+      "feature profile shared examples",
+      "unresolved runtime/review shared examples",
+      "comment/layout/removal shared examples",
+      "retired base-class shared examples"
+    ],
+    "active_destination": "conformance fixtures, manifest suite planning, skipped-result reports, review/replay fixtures, and Ruby-local spec helpers"
+  },
+  "portable_replacements": [
+    {
+      "id": "reproducible-merge-fixtures",
+      "old_surface": "a reproducible merge",
+      "replacement": "manifest-addressable conformance cases with template, destination, expected output, idempotency, backend, and profile metadata"
+    },
+    {
+      "id": "partial-merge-fixtures",
+      "old_surface": "a reproducible partial merge",
+      "replacement": "structured edit and template-directory fixtures with explicit target, fallback, and result reports"
+    },
+    {
+      "id": "dependency-tags-to-requirements",
+      "old_surface": "Ast::Merge and TreeHaver RSpec dependency tags",
+      "replacement": "family/backend/provider feature-profile requirements in suite planning"
+    },
+    {
+      "id": "skipped-results",
+      "old_surface": "RSpec filter_run_excluding",
+      "replacement": "explicit skipped conformance results with reason, requirement, active profile/backend, and summary counts"
+    },
+    {
+      "id": "unresolved-contract-fixtures",
+      "old_surface": "unresolved runtime and review-state shared examples",
+      "replacement": "review-state, replay, execution, and transport envelope fixtures"
+    },
+    {
+      "id": "comment-layout-fixtures",
+      "old_surface": "comment behavior matrix and layout/removal shared examples",
+      "replacement": "comment/layout/render/reparse fixtures plus slice-845 helper inventory"
+    }
+  ],
+  "ruby_local_helpers": [
+    {
+      "id": "testable-node-builder",
+      "old_surface": "TreeHaver::RSpec::TestableNode",
+      "allowed": true,
+      "constraint": "Ruby-local helper only; must not replace normalized tree fixture assertions."
+    },
+    {
+      "id": "fixture-assertion-wrappers",
+      "old_surface": "RSpec shared examples wrapping fixture checks",
+      "allowed": true,
+      "constraint": "May reduce Ruby spec boilerplate, but portable behavior must remain in shared fixtures."
+    }
+  ],
+  "retired_public_surfaces": [
+    {
+      "old_surface": "MergeGemRegistry",
+      "reason": "active implementations use manifest/provider registration and feature profiles instead of Ruby require-probing as portable behavior"
+    },
+    {
+      "old_surface": "positive/negative dependency tags",
+      "reason": "skips must be observable in conformance planning and reports, not hidden by RSpec filtering"
+    },
+    {
+      "old_surface": "base-class shared examples",
+      "reason": "the old base classes are retired or Ruby adapter conveniences only"
+    }
+  ],
+  "current_fixture_evidence": [
+    "slice-33-capability-aware-conformance-selection",
+    "slice-34-conformance-case-runner",
+    "slice-35-conformance-suite-runner",
+    "slice-119-conformance-backend-requirements",
+    "slice-121-manifest-backend-report",
+    "slice-790-generic-merge-ir",
+    "slice-839-merge-gem-authoring-guide-contract",
+    "slice-845-comment-layout-structural-edit-helper-inventory",
+    "slice-914-profile-selection-enforcement"
+  ],
+  "decision": "Do not port old RSpec shared examples or dependency tags as portable API. Convert reproducible behavior and capability gates to fixtures and conformance reports; keep only Ruby-local helper wrappers when they improve local spec ergonomics.",
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb",
+    "result": "422 examples, 0 failures"
+  }
+}

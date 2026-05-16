@@ -1,0 +1,9 @@
+{
+  "name": "uppercase_percent_array_constant_merge",
+  "template": "class Greeter\n  TOKENS = %W[hello #{name} goodbye]\nend\n",
+  "destination": "class Greeter\n  TOKENS = %W[hello welcome]\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  TOKENS = %W[hello welcome #{name} goodbye]\nend\n"
+  }
+}

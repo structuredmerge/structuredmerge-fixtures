@@ -1,0 +1,12 @@
+# fixture ruby/slice-963-percent-word-array-constant-merge/percent-word-array-constant-merge.json
+format ruby
+owners class_body_constants
+match constant_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+surface array_element stable_value
+capability percent_word_array_merge true
+capability destination_array_literal_form_preserve true
+capability template_missing_array_elements_append true

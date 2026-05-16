@@ -1,0 +1,9 @@
+{
+  "name": "percent_word_array_constant_merge",
+  "template": "class Greeter\n  LANGUAGES = %w[en es fr]\nend\n",
+  "destination": "class Greeter\n  LANGUAGES = %w[en de]\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  LANGUAGES = %w[en de es fr]\nend\n"
+  }
+}

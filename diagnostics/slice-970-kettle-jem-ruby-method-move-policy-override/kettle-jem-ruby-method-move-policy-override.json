@@ -1,0 +1,14 @@
+{
+  "name": "kettle_jem_ruby_method_move_policy_override",
+  "config_surface": "templates.files.<path>.method_move_policy",
+  "initial_supported_policies": ["destination_order"],
+  "default_policy": "destination_order",
+  "expected_report_fields": {
+    "metadata.template_source_preference.method_move_policy": "destination_order"
+  },
+  "behavior": {
+    "preserves_destination_order": true,
+    "suppresses_duplicate_moved_methods": true,
+    "non_interactive": true
+  }
+}

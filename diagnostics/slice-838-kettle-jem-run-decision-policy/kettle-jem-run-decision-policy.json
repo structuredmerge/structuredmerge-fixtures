@@ -1,0 +1,42 @@
+{
+  "source": {
+    "old_package": "reference/kettle-jem",
+    "old_behavior": "default non-interactive force mode with optional --interactive prompts",
+    "active_destination": "ruby/gems/kettle-jem/lib/kettle/jem.rb"
+  },
+  "input": {
+    "env": {
+      "force": "true"
+    },
+    "project_files": {
+      "example.gemspec": "Gem::Specification.new do |spec|\\n  spec.name = \"example\"\\n  spec.summary = \"Example gem\"\\n  spec.required_ruby_version = \">= 3.2\"\\nend\\n",
+      ".kettle-jem.yml": "templates:\\n  root: templates\\n  apply: true\\n  entries:\\n    - README.md\\n",
+      "templates/README.md.example": "# Example\\n\\nTemplate README.\\n",
+      "README.md": "# Example\\n\\nDestination README.\\n"
+    }
+  },
+  "expected": {
+    "decision_policy": {
+      "mode": "accept",
+      "non_interactive": true,
+      "accept": true,
+      "interactive": false,
+      "failure_mode": "error"
+    },
+    "readme_template_decision": {
+      "id": "recipe:template_source_application_README_md",
+      "category": "apply_template_source",
+      "file": "README.md",
+      "default_action": "replace",
+      "selected_action": "replace",
+      "source": "default",
+      "severity": "advisory",
+      "blocking": false
+    },
+    "fatal_without_default": "raises Kettle::Jem::Error"
+  },
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/kettle-jem/spec/thin_slice_spec.rb",
+    "result": "414 examples, 0 failures"
+  }
+}

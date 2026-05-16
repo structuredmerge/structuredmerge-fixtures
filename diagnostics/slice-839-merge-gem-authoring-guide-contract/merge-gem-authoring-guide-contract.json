@@ -1,0 +1,94 @@
+{
+  "source": {
+    "old_document": "reference/ast-merge/BUILD_A_MERGE_GEM.md",
+    "active_destination": "spec/slices/slice-839-merge-gem-authoring-guide-contract.md",
+    "classification": "contract_inventory"
+  },
+  "portable_contracts": [
+    {
+      "id": "normalized-node-tree",
+      "old_guidance": "Nodes should expose text, type, source_position, and children before reaching merge orchestration.",
+      "current_contract": "Parser/provider output is projected into the normalized tree_haver node tree with progressive metadata and capabilities.",
+      "status": "keep"
+    },
+    {
+      "id": "cursor-duplicate-matching",
+      "old_guidance": "Signature maps must preserve duplicate signatures and consume matches with a per-signature cursor.",
+      "current_contract": "Duplicate signatures are matched 1:1 in order unless a fixture-backed refiner or profile changes the match.",
+      "status": "keep"
+    },
+    {
+      "id": "recursive-scope",
+      "old_guidance": "Nested container merges recurse inside the matched container instead of flattening the whole file.",
+      "current_contract": "Recursive merge behavior is scoped by matched parent/container identity.",
+      "status": "keep"
+    },
+    {
+      "id": "position-aware-template-only",
+      "old_guidance": "Template-only nodes are inserted relative to surrounding matched nodes, not blindly prepended or appended.",
+      "current_contract": "Template-only insertion must be anchor-aware and fixture-backed for each family that claims it.",
+      "status": "keep"
+    },
+    {
+      "id": "shared-before-bespoke",
+      "old_guidance": "Use shared comment, layout, trailing-group, partial-template, detector, and text fallback helpers before writing one-off code.",
+      "current_contract": "Reusable behavior belongs in tree_haver, ast-merge, ast-crispr, ast-template, or a family layer before a leaf provider grows private helpers.",
+      "status": "keep"
+    }
+  ],
+  "ruby_only_or_adapter_conveniences": [
+    {
+      "id": "constructor-options",
+      "old_guidance": "Public Ruby constructors should accept **options.",
+      "current_contract": "Ruby adapters should preserve this where useful, but cross-language providers expose explicit structured request/profile fields.",
+      "status": "ruby_adapter_convenience"
+    },
+    {
+      "id": "smart-merger-shapes",
+      "old_guidance": "Choose inline SmartMerger or SmartMerger plus ConflictResolver.",
+      "current_contract": "This remains useful Ruby implementation advice but is not the portable implementation shape.",
+      "status": "ruby_adapter_convenience"
+    }
+  ],
+  "retired_requirements": [
+    {
+      "id": "mandatory-old-base-classes",
+      "old_guidance": "A new gem implements SmartMerger, FileAnalysis, MergeResult, and often ConflictResolver/Emitter classes.",
+      "current_contract": "Portable conformance is expressed through fixtures, provider profiles, normalized trees, edit requests, and execution reports.",
+      "decision": "retire_as_requirement"
+    },
+    {
+      "id": "merge-gem-registry",
+      "old_guidance": "Register each gem with Ast::Merge::RSpec::MergeGemRegistry for dependency tags.",
+      "current_contract": "Family/provider manifests and named-suite reports are the portable registry and conformance mechanism.",
+      "decision": "retire_as_requirement"
+    },
+    {
+      "id": "rspec-shared-examples-as-portable-conformance",
+      "old_guidance": "Use old ast-merge RSpec shared examples as the primary new-gem test contract.",
+      "current_contract": "Fixture suites are the portable contract; Ruby-specific shared examples may still exist as local test helpers.",
+      "decision": "retire_as_cross_language_requirement"
+    }
+  ],
+  "contributor_guidance": {
+    "recommended_order": [
+      "add or extend conformance fixtures",
+      "project parser output into the normalized tree",
+      "declare provider capabilities and gaps",
+      "implement exact matching with duplicate cursor semantics",
+      "add recursive/container behavior when the format needs it",
+      "add template-only insertion and deletion policies",
+      "add comments, freeze directives, refiners, and partial-template behavior only after the basic contract is proven"
+    ],
+    "ownership_routing": {
+      "multiple_unrelated_formats": "ast-merge or tree_haver",
+      "multiple_providers_same_family": "family package",
+      "backend_defaults": "provider wrapper",
+      "one_parser_or_leaf_format": "leaf provider"
+    }
+  },
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb",
+    "result": "415 examples, 0 failures"
+  }
+}

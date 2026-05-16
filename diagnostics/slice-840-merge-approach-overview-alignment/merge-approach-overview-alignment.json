@@ -1,0 +1,65 @@
+{
+  "source": {
+    "old_document": "reference/ast-merge/MERGE_APPROACH.md",
+    "active_destination": "spec/slices/slice-840-merge-approach-overview-alignment.md",
+    "classification": "approach_alignment"
+  },
+  "kept_principles": [
+    {
+      "id": "signature-not-cardinality",
+      "contract": "Signatures identify candidate matches; they do not collapse duplicate nodes or determine output cardinality.",
+      "current_evidence": [
+        "slice-803-duplicate-signature-tie-break",
+        "slice-960-duplicate-method-shadowing-projection"
+      ]
+    },
+    {
+      "id": "cursor-duplicate-consumption",
+      "contract": "Duplicate candidate signatures are matched one at a time in order or through an equivalent 1:1 matching model.",
+      "current_evidence": [
+        "slice-791-pairwise-matchings",
+        "slice-797-structural-matching-baseline"
+      ]
+    },
+    {
+      "id": "recursive-body-scope",
+      "contract": "Children are recursively merged only inside a matched parent/container scope.",
+      "current_evidence": [
+        "slice-943-template-method-in-nested-declaration",
+        "slice-954-recursive-nested-class-constants"
+      ]
+    },
+    {
+      "id": "anchor-aware-template-only",
+      "contract": "Template-only nodes are inserted relative to matched anchors and language ordering policy.",
+      "current_evidence": [
+        "slice-941-template-only-direct-method",
+        "slice-942-template-method-before-private",
+        "slice-944-template-only-nested-declaration"
+      ]
+    }
+  ],
+  "replaced_notes": [
+    {
+      "old_scope": "prism-merge, bash-merge, psych-merge, json-merge, toml-merge, dotenv-merge implementation notes",
+      "replacement": "family/provider fixtures plus implementation-local package choices",
+      "decision": "discard_as_portable_architecture"
+    },
+    {
+      "old_scope": "ConflictResolver versus inline SmartMerger strategy notes",
+      "replacement": "implementation detail; portable contract is normalized trees, matching reports, merge reports, and provider capabilities",
+      "decision": "discard_as_portable_architecture"
+    }
+  ],
+  "portable_language": {
+    "matching_scope": "parent/container context",
+    "duplicate_cardinality": "1:1 candidate consumption",
+    "recursive_merge": "matched parent children only",
+    "destination_only_policy": "preserve unless explicit removal policy applies",
+    "template_only_policy": "anchor-aware insertion"
+  },
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb",
+    "result": "416 examples, 0 failures"
+  }
+}

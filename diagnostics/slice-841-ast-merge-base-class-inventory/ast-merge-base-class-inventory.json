@@ -1,0 +1,100 @@
+{
+  "source": {
+    "old_package": "reference/ast-merge",
+    "old_paths": [
+      "lib/ast/merge/smart_merger_base.rb",
+      "lib/ast/merge/merge_result_base.rb",
+      "lib/ast/merge/file_analyzable.rb",
+      "lib/ast/merge/freeze_node_base.rb",
+      "lib/ast/merge/conflict_resolver_base.rb",
+      "lib/ast/merge/emitter_base.rb",
+      "lib/ast/merge/node_wrapper_base.rb",
+      "lib/ast/merge/merger_config.rb",
+      "lib/ast/merge/debug_logger.rb",
+      "lib/ast/merge/runtime/",
+      "lib/ast/merge/ruleset/",
+      "lib/ast/merge/unresolved_*.rb"
+    ],
+    "active_destination": "ruby/gems/ast-merge plus shared specs and fixtures"
+  },
+  "classifications": [
+    {
+      "old_surface": "SmartMergerBase",
+      "classification": "ruby_adapter_convenience_only",
+      "current_replacement": "family/provider entrypoints over fixture-backed plan/apply/report APIs",
+      "action": "do_not_port_as_required_base_class"
+    },
+    {
+      "old_surface": "ConflictResolverBase",
+      "classification": "ruby_adapter_convenience_only",
+      "current_replacement": "generic conflict category, handler, fallback, and structured merge fixtures",
+      "action": "do_not_port_as_required_base_class"
+    },
+    {
+      "old_surface": "FileAnalyzable",
+      "classification": "replaced_by_normalized_tree_contract",
+      "current_replacement": "tree_haver normalized parse nodes, provider diagnostics, capabilities, and source fragments",
+      "action": "do_not_port_as_mixin"
+    },
+    {
+      "old_surface": "MergeResultBase",
+      "classification": "replaced_by_execution_reports",
+      "current_replacement": "structured edit execution reports, merge reports, review-state/replay envelopes, and decision reports",
+      "action": "do_not_port_as_result_base"
+    },
+    {
+      "old_surface": "EmitterBase",
+      "classification": "future_family_adapter_helper",
+      "current_replacement": "family render strategies plus formatting preservation and reparse verification fixtures",
+      "action": "port_only_if_a_family_needs_ruby_local_helper"
+    },
+    {
+      "old_surface": "NodeWrapperBase",
+      "classification": "replaced_by_normalized_tree_contract",
+      "current_replacement": "normalized tree nodes with metadata, capabilities, semantic sidecars, and source fragments",
+      "action": "do_not_port_as_wrapper_base"
+    },
+    {
+      "old_surface": "FreezeNodeBase Freezable BlockDirective",
+      "classification": "future_fixture_family",
+      "current_replacement": "freeze/comment directive fixtures and family adapters",
+      "action": "fixture_before_port"
+    },
+    {
+      "old_surface": "MergerConfig",
+      "classification": "replaced_by_request_profile_policy_fields",
+      "current_replacement": "explicit conformance request, profile, promotion, fallback, and decision-policy fields",
+      "action": "do_not_port_as_config_object"
+    },
+    {
+      "old_surface": "DebugLogger",
+      "classification": "replaced_by_structured_diagnostics",
+      "current_replacement": "machine-readable diagnostics, debug artifacts, reports, and profile evaluations",
+      "action": "do_not_port_as_logger_api"
+    },
+    {
+      "old_surface": "Runtime Ruleset unresolved review-state support",
+      "classification": "already_replaced_by_active_contracts",
+      "current_replacement": "compact ruleset, runtime/review/replay fixtures, delegated child operations, and promotion/profile fixtures",
+      "action": "keep_active_contracts"
+    },
+    {
+      "old_surface": "RSpec shared examples and dependency tags",
+      "classification": "ruby_test_helper_only",
+      "current_replacement": "portable fixture conformance suites",
+      "action": "do_not_port_as_cross_language_conformance"
+    }
+  ],
+  "surviving_ruby_adapter_conveniences": [],
+  "future_fixture_work": [
+    "freeze block and directive vocabulary",
+    "comment attachment and region merge policy",
+    "layout gap ownership",
+    "format-local render helper ergonomics"
+  ],
+  "decision": "No old ast-merge base class should be copied into active ast-merge during this pass. Port behavior through fixtures first, and add Ruby helper APIs only when active Ruby packages demonstrate a concrete need.",
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb",
+    "result": "417 examples, 0 failures"
+  }
+}

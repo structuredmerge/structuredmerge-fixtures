@@ -1,0 +1,86 @@
+{
+  "source": {
+    "old_package": "reference/ast-merge",
+    "old_surfaces": [
+      "MatchRefinerBase",
+      "ContentMatchRefiner",
+      "TokenMatchRefiner",
+      "CompositeMatchRefiner",
+      "JaccardSimilarity",
+      "Psych::Merge::MappingMatchRefiner",
+      "Prism::Merge::MethodMatchRefiner",
+      "Json::Merge::ObjectMatchRefiner",
+      "Prism::Merge::TopLevelMergeRunner body-text Jaccard phase"
+    ],
+    "active_destination": "future ast-merge matching utilities plus family/provider fixtures"
+  },
+  "generic_patterns": [
+    {
+      "id": "greedy-one-to-one",
+      "old_behavior": "Score unmatched template/destination candidates and consume accepted destination candidates once.",
+      "classification": "future_shared_utility",
+      "required_fixture_before_port": "candidate list, selected matches, rejected candidates, threshold diagnostics"
+    },
+    {
+      "id": "scored-match-result",
+      "old_behavior": "Return match records with template node, destination node, score, and metadata.",
+      "classification": "future_shared_report_shape",
+      "required_fixture_before_port": "machine-readable match report shape"
+    },
+    {
+      "id": "content-weighted-score",
+      "old_behavior": "Combine content, length, and relative position scores.",
+      "classification": "future_text_markdown_utility",
+      "required_fixture_before_port": "text/markdown ambiguous paragraph or heading case"
+    },
+    {
+      "id": "token-jaccard-score",
+      "old_behavior": "Extract significant tokens and compute Jaccard similarity.",
+      "classification": "future_shared_utility",
+      "required_fixture_before_port": "token extraction, stopwords, min token count, score threshold"
+    },
+    {
+      "id": "composite-refiner-pipeline",
+      "old_behavior": "Run refiners in order and remove already matched candidates before the next refiner.",
+      "classification": "future_shared_utility",
+      "required_fixture_before_port": "multi-refiner case proving deterministic order and consumption"
+    }
+  ],
+  "format_specific_patterns": [
+    {
+      "id": "yaml-mapping-key-value-refiner",
+      "old_behavior": "Weighted key similarity plus value type/content similarity.",
+      "classification": "future_yaml_family_fixture",
+      "decision": "do_not_port_until_yaml_fixture_exists"
+    },
+    {
+      "id": "json-object-refiner",
+      "old_behavior": "Fuzzy object matching for arrays of objects.",
+      "classification": "future_json_family_fixture",
+      "decision": "preserved_by_slice_745_as_future_fuzzy_owner_matching"
+    },
+    {
+      "id": "ruby-method-refiner",
+      "old_behavior": "Method name and parameter similarity.",
+      "classification": "defer",
+      "decision": "do_not_enable_by_default; Ruby exact signature, receiver/kind awareness, shadowing diagnostics, and move reports are the current safer path"
+    },
+    {
+      "id": "ruby-body-jaccard-phase",
+      "old_behavior": "Pair unmatched top-level Ruby declarations by body token similarity.",
+      "classification": "future_move_detection_input",
+      "decision": "do_not_apply silently; compare through generic move-detection reports first"
+    }
+  ],
+  "default_policy": {
+    "fuzzy_matching_default": "disabled",
+    "enablement": "profile_or_family_fixture",
+    "reporting": "required",
+    "unsafe_outcome": "diagnostic_or_review_required_not_silent_match"
+  },
+  "decision": "Keep the shapes and scoring vocabulary, but do not port old fuzzy refiners into active merge behavior until fixtures define the family-specific acceptance and diagnostics.",
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb",
+    "result": "418 examples, 0 failures"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "merge_move_detection_report",
+  "template": "class Greeter\n  def alpha\n    :alpha\n  end\n\n  def beta\n    :beta\n  end\nend\n",
+  "destination": "class Greeter\n  def beta\n    :beta\n  end\n\n  def alpha\n    :alpha\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  def beta\n    :beta\n  end\n\n  def alpha\n    :alpha\n  end\nend\n",
+    "matching_report_count": 1,
+    "matching_id": "ruby-method-move-detection",
+    "strategy": "move_detection",
+    "move_count": 2,
+    "advisory": true
+  }
+}

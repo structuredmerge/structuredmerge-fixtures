@@ -1,0 +1,9 @@
+{
+  "name": "template_only_nested_class_merge",
+  "template": "class Namespace\n  class Formatter\n    def call(value)\n      value.to_s\n    end\n  end\nend\n",
+  "destination": "class Namespace\n  class Greeter\n    def call(name)\n      name.upcase\n    end\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Namespace\n  class Greeter\n    def call(name)\n      name.upcase\n    end\n  end\n\n  class Formatter\n    def call(value)\n      value.to_s\n    end\n  end\nend\n"
+  }
+}

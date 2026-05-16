@@ -1,0 +1,13 @@
+# fixture ruby/slice-944-template-only-nested-declaration-merge/template-only-nested-class-merge.json
+format ruby
+owners nested_declarations
+match declaration_path
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+surface nested_declaration stable_signature
+capability recursive_declaration_merge true
+capability nested_declaration_merge true
+capability destination_declaration_body_wins true
+capability template_missing_nested_declaration_adds true

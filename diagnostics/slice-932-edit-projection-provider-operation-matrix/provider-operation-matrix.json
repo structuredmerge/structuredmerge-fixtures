@@ -61,12 +61,12 @@
         },
         {
           "operation": "insert_child",
-          "status": "planned",
+          "status": "implemented",
           "node_scope": "top_level_declaration",
           "correlation_keys": ["metadata.go_parser.node_path"],
-          "fixture_slices": [],
+          "fixture_slices": ["slice-933"],
           "formatting_preservation": "standard_formatter",
-          "diagnostics": ["planned after provider matrix checkpoint"]
+          "diagnostics": []
         },
         {
           "operation": "delete_node",
@@ -143,12 +143,12 @@
           },
           {
             "operation": "insert_child",
-            "status": "planned",
+            "status": "implemented",
             "node_scope": "top_level_declaration",
             "correlation_keys": ["metadata.go_parser.node_path"],
-            "fixture_slices": [],
+            "fixture_slices": ["slice-933"],
             "formatting_preservation": "standard_formatter",
-            "diagnostics": ["planned after provider matrix checkpoint"]
+            "diagnostics": []
           },
           {
             "operation": "delete_node",

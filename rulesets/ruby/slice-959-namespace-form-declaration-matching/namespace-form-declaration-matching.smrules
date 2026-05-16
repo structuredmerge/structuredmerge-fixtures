@@ -1,0 +1,11 @@
+# fixture ruby/slice-959-namespace-form-declaration-matching/namespace-form-declaration-matching.json
+format ruby
+owners declarations
+match qualified_declaration_kind_and_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+capability namespace_form_declaration_matching true
+capability destination_declaration_form_preserve true
+capability matched_namespace_wrapper_elision true

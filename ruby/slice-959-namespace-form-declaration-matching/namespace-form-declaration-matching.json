@@ -1,0 +1,9 @@
+{
+  "name": "namespace_form_declaration_matching",
+  "template": "module Admin\n  class User\n    def template_name\n      \"template\"\n    end\n  end\nend\n",
+  "destination": "class Admin::User\n  def destination_name\n    \"destination\"\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Admin::User\n  def destination_name\n    \"destination\"\n  end\n\n  def template_name\n    \"template\"\n  end\nend\n"
+  }
+}

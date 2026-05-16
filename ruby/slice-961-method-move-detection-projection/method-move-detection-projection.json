@@ -1,0 +1,18 @@
+{
+  "name": "method_move_detection_projection",
+  "template": "class Greeter\n  def alpha\n    :alpha\n  end\n\n  def beta\n    :beta\n  end\nend\n",
+  "destination": "class Greeter\n  def beta\n    :beta\n  end\n\n  def alpha\n    :alpha\n  end\nend\n",
+  "dialect": "ruby",
+  "expected": {
+    "strategy": "move_detection",
+    "capability": "move_detection",
+    "enabled": true,
+    "default_enabled": false,
+    "requires_stable_node_identity": true,
+    "match_count": 2,
+    "move_count": 2,
+    "first_moved_signature": "method:/declarations/Greeter:alpha",
+    "first_moved_from_index": 0,
+    "first_moved_to_index": 1
+  }
+}

@@ -1,0 +1,11 @@
+# fixture ruby/slice-961-method-move-detection-projection/method-move-detection-projection.json
+format ruby
+owners class_body_methods
+match method_signature
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+capability move_detection true
+capability ruby_method_move_projection true
+capability owner_path_fallback true

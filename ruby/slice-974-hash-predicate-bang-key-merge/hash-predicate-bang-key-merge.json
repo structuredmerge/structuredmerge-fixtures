@@ -1,0 +1,9 @@
+{
+  "name": "hash_predicate_bang_key_merge",
+  "template": "class Settings\n  OPTIONS = {\n    enabled?: true,\n    sync!: false,\n    :retry? => true,\n    :clear! => false,\n  }\nend\n",
+  "destination": "class Settings\n  OPTIONS = {\n    enabled?: false,\n    :retry? => false,\n  }\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Settings\n  OPTIONS = {\n    enabled?: false,\n    sync!: false,\n    :retry? => false,\n    :clear! => false,\n  }\nend\n"
+  }
+}

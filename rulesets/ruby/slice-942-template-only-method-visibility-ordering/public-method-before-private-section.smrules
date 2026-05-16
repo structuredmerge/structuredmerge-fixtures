@@ -1,0 +1,13 @@
+# fixture ruby/slice-942-template-only-method-visibility-ordering/public-method-before-private-section.json
+format ruby
+owners class_body_methods
+match method_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+surface method stable_signature
+capability recursive_declaration_merge true
+capability method_visibility_ordering true
+capability destination_method_body_wins true
+capability template_missing_method_adds true

@@ -1,0 +1,9 @@
+{
+  "name": "public_method_before_private_section",
+  "template": "class Greeter\n  def greet(name)\n    \"Hello #{name}\"\n  end\nend\n",
+  "destination": "class Greeter\n  private\n\n  def secret\n    :secret\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  def greet(name)\n    \"Hello #{name}\"\n  end\n\n  private\n\n  def secret\n    :secret\n  end\nend\n"
+  }
+}

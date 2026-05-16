@@ -1,0 +1,9 @@
+{
+  "name": "operator_method_signature_merge",
+  "template": "class Registry\n  def [](key)\n    fetch(key)\n  end\nend\n",
+  "destination": "class Registry\n  def fetch(key)\n    entries.fetch(key)\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Registry\n  def fetch(key)\n    entries.fetch(key)\n  end\n\n  def [](key)\n    fetch(key)\n  end\nend\n"
+  }
+}

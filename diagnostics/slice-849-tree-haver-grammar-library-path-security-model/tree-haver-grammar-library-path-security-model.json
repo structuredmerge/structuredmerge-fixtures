@@ -1,0 +1,95 @@
+{
+  "source": {
+    "old_package": "reference/tree_haver",
+    "old_surfaces": [
+      "PathValidator",
+      "GrammarFinder",
+      "CitrusGrammarFinder",
+      "ParsletGrammarFinder",
+      "TREE_SITTER_<LANG>_PATH",
+      "TREE_HAVER_TRUSTED_DIRS",
+      "trusted directory mutation",
+      "find_library_path_safe"
+    ],
+    "active_destination": "slice-925 path validation plus backend/provider diagnostics"
+  },
+  "active_security_checks": [
+    {
+      "id": "library-path-shape",
+      "contract": "Reject empty paths, excessive length, null bytes, relative paths, traversal segments, unsupported extensions, and unsafe filenames."
+    },
+    {
+      "id": "versioned-shared-object",
+      "contract": "Accept versioned .so.N shared-object paths."
+    },
+    {
+      "id": "name-validation",
+      "contract": "Validate language names, symbol names, and backend names before use."
+    },
+    {
+      "id": "registry-backed-backend-names",
+      "contract": "Backend names are valid only when auto or present in the active backend registry."
+    },
+    {
+      "id": "stable-error-list",
+      "contract": "Validators return every independently detectable error in stable order."
+    }
+  ],
+  "retired_or_inactive_old_behavior": [
+    {
+      "id": "manual-tree-sitter-env-paths",
+      "old_behavior": "TREE_SITTER_<LANG>_PATH points directly to a grammar shared library.",
+      "status": "inactive",
+      "replacement": "tree-sitter-language-pack for generic tree-sitter discovery"
+    },
+    {
+      "id": "trusted-directory-allowlist",
+      "old_behavior": "TREE_HAVER_TRUSTED_DIRS and mutable custom trusted directories gate safe library lookup.",
+      "status": "inactive",
+      "replacement": "no generic manual library loading path currently exists"
+    },
+    {
+      "id": "safe-library-search-order",
+      "old_behavior": "Search environment override, registration, extra paths, then language-pack cache.",
+      "status": "inactive",
+      "replacement": "package-mediated language-pack initialization and explicit backend registry"
+    },
+    {
+      "id": "string-rejection-message-only",
+      "old_behavior": "GrammarFinder produced ad hoc rejection strings for invalid explicit paths.",
+      "status": "replaced",
+      "replacement": "stable validation error arrays and provider diagnostics"
+    }
+  ],
+  "current_environment_vocabulary": [
+    {
+      "name": "TREE_HAVER_BACKEND",
+      "purpose": "scoped backend context selection in Ruby tests and local execution",
+      "loads_native_code": false
+    },
+    {
+      "name": "KETTLE_DEV_DEBUG",
+      "purpose": "workspace/tooling diagnostic verbosity",
+      "loads_native_code": false
+    }
+  ],
+  "future_manual_path_requirements": [
+    "trusted_directory_fixture",
+    "explicit_disablement_fixture",
+    "invalid_explicit_path_fixture",
+    "package_managed_discovery_precedence_fixture",
+    "provider_diagnostic_fixture",
+    "no_silent_fallback_after_invalid_explicit_path"
+  ],
+  "current_fixture_evidence": [
+    "slice-925-tree-haver-path-validation",
+    "slice-926-tree_haver-backend-availability",
+    "slice-927-tree_haver-provider-diagnostics",
+    "slice-848-tree-haver-old-backend-implementation-inventory"
+  ],
+  "decision": "Keep active path/name/backend validators and stable diagnostics. Do not reintroduce manual grammar shared-library search, trusted-directory mutation, or generic grammar ENV overrides without new fixtures.",
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/tree_haver/spec/fixtures_integration_spec.rb",
+    "result": "425 examples, 0 failures"
+  }
+}

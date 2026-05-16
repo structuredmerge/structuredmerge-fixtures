@@ -1,0 +1,9 @@
+{
+  "name": "hash_rocket_constant_merge",
+  "template": "class Router\n  ROUTES = {:index => \"/template\", :show => \"/users/:id\"}\nend\n",
+  "destination": "class Router\n  ROUTES = {\n    :index => \"/home\"\n  }\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Router\n  ROUTES = {\n    :index => \"/home\",\n    :show => \"/users/:id\"\n  }\nend\n"
+  }
+}

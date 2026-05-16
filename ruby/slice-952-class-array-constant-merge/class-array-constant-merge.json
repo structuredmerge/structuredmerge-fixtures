@@ -1,0 +1,9 @@
+{
+  "name": "class_array_constant_merge",
+  "template": "class Greeter\n  LANGUAGES = [\"en\", \"es\", \"fr\"]\nend\n",
+  "destination": "class Greeter\n  LANGUAGES = [\"en\", \"de\"]\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  LANGUAGES = [\"en\", \"de\", \"es\", \"fr\"]\nend\n"
+  }
+}

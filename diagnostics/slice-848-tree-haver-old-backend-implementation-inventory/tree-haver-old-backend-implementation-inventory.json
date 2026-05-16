@@ -1,0 +1,136 @@
+{
+  "source": {
+    "old_package": "reference/tree_haver",
+    "old_surfaces": [
+      "Backends::MRI",
+      "Backends::Rust",
+      "Backends::FFI",
+      "Backends::Java",
+      "Backends::Prism",
+      "Backends::Psych",
+      "Backends::Citrus",
+      "Backends::Parslet",
+      "GrammarFinder",
+      "CitrusGrammarFinder",
+      "ParsletGrammarFinder",
+      "PathValidator",
+      "LanguageRegistry",
+      "TreeSitter compatibility aliases",
+      "Base::Parser/Tree/Node wrappers"
+    ],
+    "active_destination": "tree_sitter_language_pack integration, PEG backend primitives, Kaitai substrate, native provider capability reports, and future security slice"
+  },
+  "classifications": [
+    {
+      "old_surface": "Backends::MRI",
+      "classification": "retired_shared_backend",
+      "replacement": "tree-sitter-language-pack or provider-local native parser",
+      "reason": "requires Ruby C extension and conflicts with the active backend-neutral capability model"
+    },
+    {
+      "old_surface": "Backends::Rust",
+      "classification": "retired_shared_backend",
+      "replacement": "tree-sitter-language-pack or language implementation native parser",
+      "reason": "old Ruby Rust-extension adapter is not an active portable substrate"
+    },
+    {
+      "old_surface": "Backends::FFI",
+      "classification": "retired_shared_backend",
+      "replacement": "tree-sitter-language-pack",
+      "reason": "runtime library loading and ABI conflict handling belongs outside the active generic contract"
+    },
+    {
+      "old_surface": "Backends::Java",
+      "classification": "retired_shared_backend",
+      "replacement": "implementation/provider-specific JVM parser if needed later",
+      "reason": "JRuby/jtreesitter wiring is not part of the active substrate"
+    },
+    {
+      "old_surface": "Backends::Prism",
+      "classification": "provider_local",
+      "replacement": "Prism::Merge provider projection and Ruby family backend fixtures",
+      "reason": "Ruby-native parsing belongs in the Ruby provider, projected through normalized tree and capability reports"
+    },
+    {
+      "old_surface": "Backends::Psych",
+      "classification": "provider_local",
+      "replacement": "Psych::Merge provider projection and YAML family backend fixtures",
+      "reason": "YAML-native parsing belongs in the YAML provider"
+    },
+    {
+      "old_surface": "Backends::Citrus",
+      "classification": "survives_as_peg_primitive",
+      "replacement": "TreeHaver::CITRUS_BACKEND and parse_with_citrus",
+      "reason": "active Ruby substrate already exposes explicit PEG primitives"
+    },
+    {
+      "old_surface": "Backends::Parslet",
+      "classification": "survives_as_peg_primitive",
+      "replacement": "TreeHaver::PARSLET_BACKEND and parse_with_parslet",
+      "reason": "active Ruby substrate already exposes explicit PEG primitives"
+    },
+    {
+      "old_surface": "GrammarFinder and language registry",
+      "classification": "mostly_replaced",
+      "replacement": "tree-sitter-language-pack initialization plus backend registry",
+      "reason": "active generic tree-sitter path is package-mediated rather than manual shared-library discovery"
+    },
+    {
+      "old_surface": "PathValidator",
+      "classification": "defer_to_security_slice",
+      "replacement": "grammar/library path security model",
+      "reason": "trusted path and environment-variable rules are evaluated in the next task"
+    },
+    {
+      "old_surface": "TreeSitter compatibility aliases",
+      "classification": "retired",
+      "replacement": "none",
+      "reason": "compatibility shims for unreleased active code are not useful portable API"
+    },
+    {
+      "old_surface": "Base::Parser/Tree/Node wrappers",
+      "classification": "replaced_by_contracts",
+      "replacement": "normalized tree node, backend capability, source fragment, edit projection, and provider diagnostics fixtures",
+      "reason": "wrapping details are implementation-owned"
+    }
+  ],
+  "active_backend_requirements": [
+    "backend_reference",
+    "capability_or_feature_profile_fixture",
+    "provider_diagnostics",
+    "normalized_tree_projection",
+    "conformance_path_using_backend"
+  ],
+  "current_active_backends": [
+    {
+      "backend": "kreuzberg-language-pack",
+      "family": "tree-sitter",
+      "status": "active_generic_tree_sitter"
+    },
+    {
+      "backend": "citrus",
+      "family": "peg",
+      "status": "active_peg_primitive"
+    },
+    {
+      "backend": "parslet",
+      "family": "peg",
+      "status": "active_peg_primitive"
+    },
+    {
+      "backend": "kaitai-struct",
+      "family": "binary_schema",
+      "status": "active_binary_schema_substrate"
+    },
+    {
+      "backend": "provider-local-native",
+      "family": "native",
+      "status": "active_when_backed_by_provider_capability_fixtures"
+    }
+  ],
+  "decision": "Do not copy the old Ruby tree_haver backend implementation stack. Keep active backend behavior through tree-sitter-language-pack, PEG primitives, Kaitai, and provider-local native parser projections with capability fixtures.",
+  "verification": {
+    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/tree_haver/spec/fixtures_integration_spec.rb",
+    "result": "424 examples, 0 failures"
+  }
+}

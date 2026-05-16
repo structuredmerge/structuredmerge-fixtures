@@ -1,0 +1,24 @@
+{
+  "name": "duplicate_method_shadowing",
+  "source": "class Greeter\n  def call(name)\n    \"first #{name}\"\n  end\n\n  def call(name)\n    \"second #{name}\"\n  end\nend\n",
+  "dialect": "ruby",
+  "expected": {
+    "method_shadowing": [
+      {
+        "owner_path": "/declarations/Greeter",
+        "method_signature": "call",
+        "effective_index": 1,
+        "shadowed_indices": [0],
+        "shadowed_count": 1
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "ruby_method_shadowing",
+        "path": "/declarations/Greeter/methods/call",
+        "message": "Ruby method call is defined 2 times in /declarations/Greeter; the last definition shadows earlier definitions."
+      }
+    ]
+  }
+}

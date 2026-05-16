@@ -1,0 +1,11 @@
+# fixture ruby/slice-960-duplicate-method-shadowing-projection/duplicate-method-shadowing.json
+format ruby
+owners class_body_methods
+match method_signature
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+capability ruby_method_shadowing_projection true
+capability duplicate_method_names_are_not_overloads true
+capability shadowed_methods_diagnostic true

@@ -1,0 +1,9 @@
+{
+  "name": "hash_constant_destination_style_merge",
+  "template": "class Greeter\n  SETTINGS = {locale: \"en\", formats: {short: \"%m/%d\", long: \"%B %d\"}}\nend\n",
+  "destination": "class Greeter\n  SETTINGS = {\n    locale: \"de\",\n    formats: {\n      short: \"%d.%m\"\n    }\n  }\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  SETTINGS = {\n    locale: \"de\",\n    formats: {\n      short: \"%d.%m\",\n      long: \"%B %d\"\n    }\n  }\nend\n"
+  }
+}

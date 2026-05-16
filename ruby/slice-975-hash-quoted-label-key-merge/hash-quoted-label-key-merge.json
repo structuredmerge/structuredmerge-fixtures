@@ -1,0 +1,9 @@
+{
+  "name": "hash_quoted_label_key_merge",
+  "template": "class Settings\n  OPTIONS = {\n    \"timeout-ms\": 30,\n    'retry-mode': \"linear\",\n    enabled: true,\n  }\nend\n",
+  "destination": "class Settings\n  OPTIONS = {\n    \"timeout-ms\": 10,\n    enabled: false,\n  }\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Settings\n  OPTIONS = {\n    \"timeout-ms\": 10,\n    'retry-mode': \"linear\",\n    enabled: false,\n  }\nend\n"
+  }
+}

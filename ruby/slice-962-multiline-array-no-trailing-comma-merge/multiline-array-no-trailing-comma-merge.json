@@ -1,0 +1,9 @@
+{
+  "name": "multiline_array_no_trailing_comma_merge",
+  "template": "class Greeter\n  LANGUAGES = [\n    \"en\",\n    \"es\",\n    \"fr\"\n  ]\nend\n",
+  "destination": "class Greeter\n  LANGUAGES = [\n    \"en\",\n    \"de\"\n  ]\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  LANGUAGES = [\n    \"en\",\n    \"de\",\n    \"es\",\n    \"fr\"\n  ]\nend\n"
+  }
+}

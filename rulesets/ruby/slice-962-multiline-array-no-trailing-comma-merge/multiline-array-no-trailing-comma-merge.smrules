@@ -1,0 +1,12 @@
+# fixture ruby/slice-962-multiline-array-no-trailing-comma-merge/multiline-array-no-trailing-comma-merge.json
+format ruby
+owners class_body_constants
+match constant_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+surface array_element stable_value
+capability multiline_array_layout_preservation true
+capability destination_trailing_comma_style_preserve true
+capability template_missing_array_elements_append true

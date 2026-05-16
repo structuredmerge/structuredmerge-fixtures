@@ -1,0 +1,33 @@
+{
+  "request": {
+    "provider_id": "prism",
+    "backend_ref": {
+      "id": "prism",
+      "family": "native"
+    },
+    "language": "ruby",
+    "source": "class Demo\nend\n",
+    "operations": [
+      {
+        "operation": "insert_child",
+        "target_node_id": "prism:class:0",
+        "target_node_path": "statements.body[0]",
+        "replacement_source": "  def added\n    :ok\n  end"
+      }
+    ]
+  },
+  "expected_result": {
+    "ok": true,
+    "status": "applied",
+    "source": "class Demo\n  def added\n    :ok\n  end\nend\n",
+    "applied_operations": [
+      {
+        "operation": "insert_child",
+        "target_node_id": "prism:class:0",
+        "correlation_key": "metadata.prism.node_path",
+        "correlation_value": "statements.body[0]"
+      }
+    ],
+    "diagnostics": []
+  }
+}

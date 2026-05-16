@@ -1,0 +1,9 @@
+{
+  "name": "visibility_moved_method_detection",
+  "template": "class Greeter\n  def token\n    \"template\"\n  end\nend\n",
+  "destination": "class Greeter\n  private\n\n  def token\n    \"destination\"\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  private\n\n  def token\n    \"destination\"\n  end\nend\n"
+  }
+}

@@ -1,0 +1,11 @@
+# fixture ruby/slice-957-visibility-moved-method-detection/visibility-moved-method-detection.json
+format ruby
+owners class_body_methods
+match method_signature
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+capability moved_method_exact_signature_detection true
+capability destination_visibility_preserve true
+capability destination_method_text_preserve true

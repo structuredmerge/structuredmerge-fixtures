@@ -1,0 +1,33 @@
+{
+  "request": {
+    "provider_id": "prism",
+    "backend_ref": {
+      "id": "prism",
+      "family": "native"
+    },
+    "language": "ruby",
+    "source": "class Demo\n  def call\n    :old\n  end\nend\n",
+    "operations": [
+      {
+        "operation": "delete_node",
+        "target_node_id": "prism:def:0",
+        "target_node_path": "statements.body[0].body.body[0]",
+        "replacement_source": ""
+      }
+    ]
+  },
+  "expected_result": {
+    "ok": true,
+    "status": "applied",
+    "source": "class Demo\nend\n",
+    "applied_operations": [
+      {
+        "operation": "delete_node",
+        "target_node_id": "prism:def:0",
+        "correlation_key": "metadata.prism.node_path",
+        "correlation_value": "statements.body[0].body.body[0]"
+      }
+    ],
+    "diagnostics": []
+  }
+}

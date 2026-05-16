@@ -1,0 +1,167 @@
+{
+  "operations": ["replace_node", "insert_child", "delete_node"],
+  "providers": [
+    {
+      "provider_id": "go-dst",
+      "backend_ref": {
+        "id": "go-dst",
+        "family": "native"
+      },
+      "language": "go",
+      "formatting_preservation": "decorated_native_render",
+      "preserves_source_fragments": true,
+      "operations": [
+        {
+          "operation": "replace_node",
+          "status": "implemented",
+          "node_scope": "top_level_declaration",
+          "correlation_keys": ["metadata.go_dst.node_path"],
+          "fixture_slices": ["slice-928"],
+          "formatting_preservation": "decorated_native_render",
+          "diagnostics": []
+        },
+        {
+          "operation": "insert_child",
+          "status": "implemented",
+          "node_scope": "top_level_declaration",
+          "correlation_keys": ["metadata.go_dst.node_path"],
+          "fixture_slices": ["slice-929"],
+          "formatting_preservation": "decorated_native_render",
+          "diagnostics": []
+        },
+        {
+          "operation": "delete_node",
+          "status": "implemented",
+          "node_scope": "top_level_declaration",
+          "correlation_keys": ["metadata.go_dst.node_path"],
+          "fixture_slices": ["slice-930"],
+          "formatting_preservation": "decorated_native_render",
+          "diagnostics": []
+        }
+      ]
+    },
+    {
+      "provider_id": "go-parser",
+      "backend_ref": {
+        "id": "go-parser",
+        "family": "native"
+      },
+      "language": "go",
+      "formatting_preservation": "standard_formatter",
+      "preserves_source_fragments": false,
+      "operations": [
+        {
+          "operation": "replace_node",
+          "status": "implemented",
+          "node_scope": "top_level_declaration",
+          "correlation_keys": ["metadata.go_parser.node_path"],
+          "fixture_slices": ["slice-931"],
+          "formatting_preservation": "standard_formatter",
+          "diagnostics": []
+        },
+        {
+          "operation": "insert_child",
+          "status": "planned",
+          "node_scope": "top_level_declaration",
+          "correlation_keys": ["metadata.go_parser.node_path"],
+          "fixture_slices": [],
+          "formatting_preservation": "standard_formatter",
+          "diagnostics": ["planned after provider matrix checkpoint"]
+        },
+        {
+          "operation": "delete_node",
+          "status": "planned",
+          "node_scope": "top_level_declaration",
+          "correlation_keys": ["metadata.go_parser.node_path"],
+          "fixture_slices": [],
+          "formatting_preservation": "standard_formatter",
+          "diagnostics": ["planned after provider matrix checkpoint"]
+        }
+      ]
+    }
+  ],
+  "expected_matrix": {
+    "operations": ["replace_node", "insert_child", "delete_node"],
+    "providers": [
+      {
+        "provider_id": "go-dst",
+        "backend_ref": {
+          "id": "go-dst",
+          "family": "native"
+        },
+        "language": "go",
+        "formatting_preservation": "decorated_native_render",
+        "preserves_source_fragments": true,
+        "operations": [
+          {
+            "operation": "replace_node",
+            "status": "implemented",
+            "node_scope": "top_level_declaration",
+            "correlation_keys": ["metadata.go_dst.node_path"],
+            "fixture_slices": ["slice-928"],
+            "formatting_preservation": "decorated_native_render",
+            "diagnostics": []
+          },
+          {
+            "operation": "insert_child",
+            "status": "implemented",
+            "node_scope": "top_level_declaration",
+            "correlation_keys": ["metadata.go_dst.node_path"],
+            "fixture_slices": ["slice-929"],
+            "formatting_preservation": "decorated_native_render",
+            "diagnostics": []
+          },
+          {
+            "operation": "delete_node",
+            "status": "implemented",
+            "node_scope": "top_level_declaration",
+            "correlation_keys": ["metadata.go_dst.node_path"],
+            "fixture_slices": ["slice-930"],
+            "formatting_preservation": "decorated_native_render",
+            "diagnostics": []
+          }
+        ]
+      },
+      {
+        "provider_id": "go-parser",
+        "backend_ref": {
+          "id": "go-parser",
+          "family": "native"
+        },
+        "language": "go",
+        "formatting_preservation": "standard_formatter",
+        "preserves_source_fragments": false,
+        "operations": [
+          {
+            "operation": "replace_node",
+            "status": "implemented",
+            "node_scope": "top_level_declaration",
+            "correlation_keys": ["metadata.go_parser.node_path"],
+            "fixture_slices": ["slice-931"],
+            "formatting_preservation": "standard_formatter",
+            "diagnostics": []
+          },
+          {
+            "operation": "insert_child",
+            "status": "planned",
+            "node_scope": "top_level_declaration",
+            "correlation_keys": ["metadata.go_parser.node_path"],
+            "fixture_slices": [],
+            "formatting_preservation": "standard_formatter",
+            "diagnostics": ["planned after provider matrix checkpoint"]
+          },
+          {
+            "operation": "delete_node",
+            "status": "planned",
+            "node_scope": "top_level_declaration",
+            "correlation_keys": ["metadata.go_parser.node_path"],
+            "fixture_slices": [],
+            "formatting_preservation": "standard_formatter",
+            "diagnostics": ["planned after provider matrix checkpoint"]
+          }
+        ]
+      }
+    ],
+    "diagnostics": []
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "class_instance_method_signature_merge",
+  "template": "class Greeter\n  def self.call(name)\n    new.call(name)\n  end\nend\n",
+  "destination": "class Greeter\n  def call(name)\n    name.upcase\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  def call(name)\n    name.upcase\n  end\n\n  def self.call(name)\n    new.call(name)\n  end\nend\n"
+  }
+}

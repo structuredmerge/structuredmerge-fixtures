@@ -1,0 +1,14 @@
+# fixture ruby/slice-948-existing-protected-section-method-merge/protected-method-into-existing-section.json
+format ruby
+owners class_body_methods
+match method_name
+read native_read_portable_write
+attach normalize_tracked_layout_merge
+comment_style hash_comment
+render ruby_declarations
+surface visibility_section stable_kind
+surface method stable_signature
+capability recursive_declaration_merge true
+capability existing_visibility_section_merge true
+capability destination_method_body_wins true
+capability template_missing_method_adds true

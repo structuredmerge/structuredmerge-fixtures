@@ -1,0 +1,9 @@
+{
+  "name": "protected_method_into_existing_section",
+  "template": "class Greeter\n  protected\n\n  def normalize(name)\n    name.to_s.strip\n  end\nend\n",
+  "destination": "class Greeter\n  protected\n\n  def secret\n    :secret\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  protected\n\n  def secret\n    :secret\n  end\n\n  def normalize(name)\n    name.to_s.strip\n  end\nend\n"
+  }
+}

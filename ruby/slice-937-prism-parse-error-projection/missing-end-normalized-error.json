@@ -1,0 +1,59 @@
+{
+  "source": "class Demo\n  def call\n",
+  "dialect": "ruby",
+  "expected": {
+    "ok": false,
+    "backend_capability": {
+      "backend_ref": {
+        "id": "prism",
+        "family": "native"
+      },
+      "language": "ruby",
+      "parser_identity": {
+        "name": "prism",
+        "version": "1.9.0",
+        "implementation": "ruby"
+      },
+      "language_version": {
+        "version": "ruby",
+        "dialect": "ruby"
+      },
+      "parse_error_behavior": "diagnostic_without_tree",
+      "source_span_support": "byte_range_and_points",
+      "source_fragment_support": "source_slice",
+      "render_strategies": ["source_fragment_reuse", "full_file_fallback"],
+      "semantic_role_support": "backend_specific_with_portable_mapping",
+      "normalized_tree_support": true,
+      "native_node_access": true,
+      "known_node_kinds": [],
+      "known_fields": [],
+      "grammar_inventory": null,
+      "diagnostics": []
+    },
+    "root_id": null,
+    "nodes": [],
+    "parse_error_tolerance": {
+      "backend_ref": {
+        "id": "prism",
+        "family": "native"
+      },
+      "language": "ruby",
+      "behavior": "diagnostic_without_tree",
+      "tolerates_errors": false,
+      "error_nodes": [],
+      "diagnostics": []
+    },
+    "source_fragments_available": false,
+    "diagnostics": [
+      "unexpected end-of-input, assuming it is closing the parent top level context",
+      "expected an `end` to close the `def` statement",
+      "expected an `end` to close the `class` statement"
+    ],
+    "metadata": {
+      "prism": {
+        "native_tree_retained": "true",
+        "native_tree_visibility": "provider_internal"
+      }
+    }
+  }
+}

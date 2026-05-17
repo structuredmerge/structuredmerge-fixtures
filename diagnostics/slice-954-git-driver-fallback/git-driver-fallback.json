@@ -1,0 +1,41 @@
+{
+  "contract": {
+    "package": "smorg-cli",
+    "operation": "git_driver_fallback",
+    "description": "Fallback scenarios for git merge-driver behavior when structured merge cannot produce resolved output or structured conflict output."
+  },
+  "cases": [
+    {
+      "case_id": "json-parse-error-default-full-file-fallback",
+      "path_name": "package.json",
+      "base_source": "{\"name\":\"structuredmerge\"}",
+      "ours_source": "{\"name\":",
+      "theirs_source": "{\"other\":true}",
+      "options": {
+        "strict": false,
+        "fallback": "full-file"
+      },
+      "expected": {
+        "exit_code": 1,
+        "source_contains": ["<<<<<<< ours", "||||||| base", "=======", ">>>>>>> theirs"],
+        "stderr_contains": ["parse", "ours parse error"]
+      }
+    },
+    {
+      "case_id": "json-parse-error-strict-leaves-current",
+      "path_name": "package.json",
+      "base_source": "{\"name\":\"structuredmerge\"}",
+      "ours_source": "{\"name\":",
+      "theirs_source": "{\"other\":true}",
+      "options": {
+        "strict": true,
+        "fallback": "full-file"
+      },
+      "expected": {
+        "exit_code": 1,
+        "merged_source": "{\"name\":",
+        "stderr_contains": ["parse", "ours parse error"]
+      }
+    }
+  ]
+}

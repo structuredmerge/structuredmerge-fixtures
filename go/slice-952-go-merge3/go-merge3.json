@@ -1,0 +1,88 @@
+{
+  "contract": {
+    "family": "go",
+    "operation": "merge3",
+    "description": "Initial Go source-language git merge3 scenarios."
+  },
+  "cases": [
+    {
+      "case_id": "independent-import-additions",
+      "path_name": "main.go",
+      "base_source": "package main\n\nimport \"fmt\"\n\nfunc main() {\n\tfmt.Println(\"demo\")\n}\n",
+      "ours_source": "package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tfmt.Println(\"demo\")\n\t_, _ = os.Stdout.Write([]byte(\"ours\"))\n}\n",
+      "theirs_source": "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n)\n\nfunc main() {\n\tfmt.Println(strings.TrimSpace(\" demo \"))\n}\n",
+      "expected": {
+        "ok": true,
+        "must_contain": [
+          "\"fmt\"",
+          "\"os\"",
+          "\"strings\"",
+          "os.Stdout.Write",
+          "strings.TrimSpace"
+        ],
+        "conflict_count": 0,
+        "reparse_after_render": true
+      }
+    },
+    {
+      "case_id": "independent-function-additions",
+      "path_name": "main.go",
+      "base_source": "package main\n\nfunc main() {}\n",
+      "ours_source": "package main\n\nfunc main() {}\n\nfunc ours() string {\n\treturn \"ours\"\n}\n",
+      "theirs_source": "package main\n\nfunc main() {}\n\nfunc theirs() string {\n\treturn \"theirs\"\n}\n",
+      "expected": {
+        "ok": true,
+        "must_contain": [
+          "func ours() string",
+          "func theirs() string"
+        ],
+        "conflict_count": 0,
+        "reparse_after_render": true
+      }
+    },
+    {
+      "case_id": "same-function-edit-conflict",
+      "path_name": "main.go",
+      "base_source": "package main\n\nfunc value() string {\n\treturn \"base\"\n}\n",
+      "ours_source": "package main\n\nfunc value() string {\n\treturn \"ours\"\n}\n",
+      "theirs_source": "package main\n\nfunc value() string {\n\treturn \"theirs\"\n}\n",
+      "expected": {
+        "ok": false,
+        "conflict_count": 1,
+        "conflict_categories": ["edit_edit"],
+        "conflict_paths": ["/decls/value"],
+        "reparse_after_render": null
+      }
+    },
+    {
+      "case_id": "function-delete-edit-conflict",
+      "path_name": "main.go",
+      "base_source": "package main\n\nfunc value() string {\n\treturn \"base\"\n}\n",
+      "ours_source": "package main\n",
+      "theirs_source": "package main\n\nfunc value() string {\n\treturn \"theirs\"\n}\n",
+      "expected": {
+        "ok": false,
+        "conflict_count": 1,
+        "conflict_categories": ["delete_edit"],
+        "conflict_paths": ["/decls/value"],
+        "reparse_after_render": null
+      }
+    },
+    {
+      "case_id": "unilateral-comment-addition",
+      "path_name": "main.go",
+      "base_source": "package main\n\nfunc value() string {\n\treturn \"base\"\n}\n",
+      "ours_source": "package main\n\n// value returns the configured value.\nfunc value() string {\n\treturn \"base\"\n}\n",
+      "theirs_source": "package main\n\nfunc value() string {\n\treturn \"theirs\"\n}\n",
+      "expected": {
+        "ok": true,
+        "must_contain": [
+          "// value returns the configured value.",
+          "return \"theirs\""
+        ],
+        "conflict_count": 0,
+        "reparse_after_render": true
+      }
+    }
+  ]
+}

@@ -18,6 +18,7 @@
           "\"os\"",
           "\"strings\""
         ],
+        "expected_source": "package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\t\"strings\"\n)\n\nfunc main() {\n\tfmt.Println(\"demo\")\n}\n",
         "conflict_count": 0,
         "reparse_after_render": true
       }
@@ -34,6 +35,7 @@
           "func ours() string",
           "func theirs() string"
         ],
+        "expected_source": "package main\n\nfunc main() {}\n\nfunc ours() string {\n\treturn \"ours\"\n}\n\nfunc theirs() string {\n\treturn \"theirs\"\n}\n",
         "conflict_count": 0,
         "reparse_after_render": true
       }
@@ -78,6 +80,7 @@
           "// value returns the configured value.",
           "return \"theirs\""
         ],
+        "expected_source": "package main\n\n// value returns the configured value.\nfunc value() string {\n\treturn \"theirs\"\n}\n",
         "conflict_count": 0,
         "reparse_after_render": true
       }

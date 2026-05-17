@@ -1,0 +1,91 @@
+{
+  "slice": "slice-950-git-merge3-contract",
+  "contract": {
+    "package": "ast-merge-git",
+    "operation": "merge3",
+    "roles": ["base", "ours", "theirs"],
+    "request_fields": [
+      "base_source",
+      "ours_source",
+      "theirs_source",
+      "path_name",
+      "language",
+      "dialect",
+      "profile_id",
+      "fallback_policy",
+      "conflict_marker_size",
+      "render_policy"
+    ],
+    "response_fields": [
+      "ok",
+      "merged_source",
+      "conflicts",
+      "diagnostics",
+      "fallbacks",
+      "profile",
+      "render_report",
+      "formatting_preservation",
+      "reparse_after_render"
+    ],
+    "exit_codes": {
+      "success": 0,
+      "unresolved_conflict": 1,
+      "user_error": 2,
+      "internal_error": 3
+    }
+  },
+  "cases": [
+    {
+      "case_id": "json-unilateral-additions",
+      "family": "json",
+      "request": {
+        "base_source": "{\"name\":\"demo\"}",
+        "ours_source": "{\"name\":\"demo\",\"ours\":true}",
+        "theirs_source": "{\"name\":\"demo\",\"theirs\":true}",
+        "path_name": "package.json",
+        "language": "json",
+        "dialect": "json",
+        "profile_id": "json.keyed-object",
+        "fallback_policy": "none",
+        "conflict_marker_size": 7,
+        "render_policy": "canonical"
+      },
+      "expected": {
+        "ok": true,
+        "merged_json": {
+          "name": "demo",
+          "ours": true,
+          "theirs": true
+        },
+        "conflict_count": 0,
+        "diagnostic_categories": [],
+        "reparse_after_render": true
+      }
+    },
+    {
+      "case_id": "json-same-key-edit-conflict",
+      "family": "json",
+      "request": {
+        "base_source": "{\"name\":\"demo\",\"enabled\":true}",
+        "ours_source": "{\"name\":\"demo\",\"enabled\":false}",
+        "theirs_source": "{\"name\":\"demo\",\"enabled\":\"yes\"}",
+        "path_name": "package.json",
+        "language": "json",
+        "dialect": "json",
+        "profile_id": "json.keyed-object",
+        "fallback_policy": "none",
+        "conflict_marker_size": 7,
+        "render_policy": "canonical"
+      },
+      "expected": {
+        "ok": false,
+        "merged_json": null,
+        "conflict_count": 1,
+        "conflict_categories": ["edit_edit"],
+        "conflict_paths": ["/enabled"],
+        "diagnostic_categories": ["merge_conflict"],
+        "reparse_after_render": null
+      }
+    }
+  ]
+}

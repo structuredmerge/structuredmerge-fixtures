@@ -1,0 +1,57 @@
+{
+  "contract": {
+    "package": "smorg-cli",
+    "operation": "git_merge_driver_json_integration",
+    "description": "JSON merge-driver scenarios that must be exercised through a real git repository harness."
+  },
+  "cases": [
+    {
+      "case_id": "independent-additions",
+      "path_name": "package.json",
+      "base_source": "{\"name\":\"demo\"}",
+      "ours_source": "{\"name\":\"demo\",\"ours\":true}",
+      "theirs_source": "{\"name\":\"demo\",\"theirs\":true}",
+      "expected": {
+        "exit_code": 0,
+        "merged_json": {"name":"demo","ours":true,"theirs":true},
+        "stderr_contains": []
+      }
+    },
+    {
+      "case_id": "same-key-edit-conflict",
+      "path_name": "package.json",
+      "base_source": "{\"name\":\"demo\",\"enabled\":true}",
+      "ours_source": "{\"name\":\"demo\",\"enabled\":false}",
+      "theirs_source": "{\"name\":\"demo\",\"enabled\":\"yes\"}",
+      "expected": {
+        "exit_code": 1,
+        "merged_json": {"name":"demo","enabled":false},
+        "stderr_contains": ["merge_conflict"]
+      }
+    },
+    {
+      "case_id": "delete-edit-conflict",
+      "path_name": "package.json",
+      "base_source": "{\"name\":\"demo\",\"enabled\":true}",
+      "ours_source": "{\"name\":\"demo\"}",
+      "theirs_source": "{\"name\":\"demo\",\"enabled\":false}",
+      "expected": {
+        "exit_code": 1,
+        "merged_json": {"name":"demo"},
+        "stderr_contains": ["merge_conflict"]
+      }
+    },
+    {
+      "case_id": "ours-parse-error",
+      "path_name": "package.json",
+      "base_source": "{\"name\":\"demo\"}",
+      "ours_source": "{\"name\":",
+      "theirs_source": "{\"name\":\"demo\",\"theirs\":true}",
+      "expected": {
+        "exit_code": 1,
+        "merged_source": "{\"name\":",
+        "stderr_contains": ["parse", "ours parse error"]
+      }
+    }
+  ]
+}

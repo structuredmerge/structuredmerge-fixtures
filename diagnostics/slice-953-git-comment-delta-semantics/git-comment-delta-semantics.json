@@ -1,0 +1,116 @@
+{
+  "contract": {
+    "package": "ast-merge-git",
+    "operation": "comment_delta_semantics",
+    "description": "Default git-mode behavior for comments attached to semantic owners."
+  },
+  "owner": {
+    "path": "/decls/value",
+    "base_body": "return base",
+    "ours_body": "return base",
+    "theirs_body": "return base"
+  },
+  "cases": [
+    {
+      "case_id": "only-ours-adds-comment",
+      "base_comment": null,
+      "ours_comment": "ours docs",
+      "theirs_comment": null,
+      "expected": {
+        "ok": true,
+        "merged_comment": "ours docs",
+        "conflict_count": 0
+      }
+    },
+    {
+      "case_id": "only-theirs-adds-comment",
+      "base_comment": null,
+      "ours_comment": null,
+      "theirs_comment": "theirs docs",
+      "expected": {
+        "ok": true,
+        "merged_comment": "theirs docs",
+        "conflict_count": 0
+      }
+    },
+    {
+      "case_id": "only-ours-deletes-comment",
+      "base_comment": "base docs",
+      "ours_comment": null,
+      "theirs_comment": "base docs",
+      "expected": {
+        "ok": true,
+        "merged_comment": null,
+        "conflict_count": 0
+      }
+    },
+    {
+      "case_id": "only-theirs-deletes-comment",
+      "base_comment": "base docs",
+      "ours_comment": "base docs",
+      "theirs_comment": null,
+      "expected": {
+        "ok": true,
+        "merged_comment": null,
+        "conflict_count": 0
+      }
+    },
+    {
+      "case_id": "both-delete-same-comment",
+      "base_comment": "base docs",
+      "ours_comment": null,
+      "theirs_comment": null,
+      "expected": {
+        "ok": true,
+        "merged_comment": null,
+        "conflict_count": 0
+      }
+    },
+    {
+      "case_id": "one-edits-while-other-deletes",
+      "base_comment": "base docs",
+      "ours_comment": null,
+      "theirs_comment": "theirs docs",
+      "expected": {
+        "ok": false,
+        "conflict_count": 1,
+        "conflict_categories": ["delete_edit"]
+      }
+    },
+    {
+      "case_id": "both-edit-differently",
+      "base_comment": "base docs",
+      "ours_comment": "ours docs",
+      "theirs_comment": "theirs docs",
+      "expected": {
+        "ok": false,
+        "conflict_count": 1,
+        "conflict_categories": ["edit_edit"]
+      }
+    },
+    {
+      "case_id": "both-edit-identically",
+      "base_comment": "base docs",
+      "ours_comment": "shared docs",
+      "theirs_comment": "shared docs",
+      "expected": {
+        "ok": true,
+        "merged_comment": "shared docs",
+        "conflict_count": 0
+      }
+    },
+    {
+      "case_id": "comments-move-with-owner",
+      "base_comment": "base docs",
+      "ours_comment": "base docs",
+      "theirs_comment": "base docs",
+      "owner_moved": true,
+      "expected": {
+        "ok": true,
+        "merged_comment": "base docs",
+        "comment_owner_path": "/decls/value",
+        "conflict_count": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "name": "merge_result_decision_contract",
+  "purpose": "pin the portable base-layer vocabulary for merge-result decision records and summaries",
+  "source": "shared fixture derived from imported Ruby ast-merge MergeResultBase behavior",
+  "decision_vocabulary": [
+    {
+      "decision": "kept_template",
+      "source": "template",
+      "meaning": "template content was emitted unchanged"
+    },
+    {
+      "decision": "kept_destination",
+      "source": "destination",
+      "meaning": "destination content was emitted unchanged"
+    },
+    {
+      "decision": "merged",
+      "source": "merged",
+      "meaning": "template and destination content were combined"
+    },
+    {
+      "decision": "added",
+      "source": "template",
+      "meaning": "template-only content was added to the result"
+    },
+    {
+      "decision": "freeze_block",
+      "source": "destination",
+      "meaning": "destination content was preserved because a freeze directive owns the region"
+    },
+    {
+      "decision": "replaced",
+      "source": "template",
+      "meaning": "matching destination content was replaced by selected template content"
+    },
+    {
+      "decision": "appended",
+      "source": "destination",
+      "meaning": "destination-only content was appended to the result"
+    },
+    {
+      "decision": "unresolved",
+      "source": "destination",
+      "meaning": "a provisional output was emitted while review remains required"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision:001",
+      "decision": "kept_template",
+      "source": "template",
+      "line": 1,
+      "owner_id": "decl:alpha",
+      "reason": "unchanged_template"
+    },
+    {
+      "id": "decision:002",
+      "decision": "kept_template",
+      "source": "template",
+      "line": 2,
+      "owner_id": "decl:alpha",
+      "reason": "template_preferred"
+    },
+    {
+      "id": "decision:003",
+      "decision": "kept_destination",
+      "source": "destination",
+      "line": 3,
+      "owner_id": "decl:beta",
+      "reason": "destination_preferred"
+    },
+    {
+      "id": "decision:004",
+      "decision": "merged",
+      "source": "merged",
+      "line": 4,
+      "owner_id": "decl:gamma",
+      "reason": "structural_children_merged"
+    },
+    {
+      "id": "decision:005",
+      "decision": "added",
+      "source": "template",
+      "line": 5,
+      "owner_id": "decl:delta",
+      "reason": "template_only"
+    },
+    {
+      "id": "decision:006",
+      "decision": "freeze_block",
+      "source": "destination",
+      "line": 6,
+      "owner_id": "decl:epsilon",
+      "reason": "freeze_directive"
+    },
+    {
+      "id": "decision:007",
+      "decision": "replaced",
+      "source": "template",
+      "line": 7,
+      "owner_id": "decl:zeta",
+      "reason": "signature_match_template_selected"
+    },
+    {
+      "id": "decision:008",
+      "decision": "appended",
+      "source": "destination",
+      "line": 8,
+      "owner_id": "decl:eta",
+      "reason": "destination_only"
+    },
+    {
+      "id": "decision:009",
+      "decision": "unresolved",
+      "source": "destination",
+      "line": 9,
+      "owner_id": "decl:theta",
+      "reason": "review_required",
+      "metadata": {
+        "case_id": "case:theta",
+        "provisional_winner": "destination"
+      }
+    }
+  ],
+  "contract_rules": [
+    "decision names are portable string identifiers even when a language implementation exposes symbols or enums internally",
+    "decision summaries count records by decision name only and do not infer merge success",
+    "source summaries count the selected emitted source and may include the synthetic merged source",
+    "unresolved decisions require separate review-state data before they can be considered resolved",
+    "metadata may carry provider or review details but must not be required to compute the portable decision summary"
+  ],
+  "expected": {
+    "decision_count": 9,
+    "ordered_decision_ids": [
+      "decision:001",
+      "decision:002",
+      "decision:003",
+      "decision:004",
+      "decision:005",
+      "decision:006",
+      "decision:007",
+      "decision:008",
+      "decision:009"
+    ],
+    "decision_summary": {
+      "kept_template": 2,
+      "kept_destination": 1,
+      "merged": 1,
+      "added": 1,
+      "freeze_block": 1,
+      "replaced": 1,
+      "appended": 1,
+      "unresolved": 1
+    },
+    "source_summary": {
+      "template": 4,
+      "destination": 4,
+      "merged": 1
+    },
+    "unresolved_count": 1,
+    "review_required": true,
+    "line_count": 9
+  }
+}

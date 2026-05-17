@@ -20,45 +20,45 @@
   "classifications": [
     {
       "old_surface": "SmartMergerBase",
-      "classification": "ruby_adapter_convenience_only",
-      "current_replacement": "family/provider entrypoints over fixture-backed plan/apply/report APIs",
-      "action": "do_not_port_as_required_base_class"
+      "classification": "active_ruby_provider_substrate",
+      "current_replacement": "shared Ruby orchestration helper for provider gems over fixture-backed family entrypoints",
+      "action": "port_format_neutral_substrate"
     },
     {
       "old_surface": "ConflictResolverBase",
-      "classification": "ruby_adapter_convenience_only",
-      "current_replacement": "generic conflict category, handler, fallback, and structured merge fixtures",
-      "action": "do_not_port_as_required_base_class"
+      "classification": "active_ruby_provider_substrate",
+      "current_replacement": "shared Ruby conflict resolution helper backed by generic conflict categories and structured merge fixtures",
+      "action": "port_format_neutral_substrate"
     },
     {
       "old_surface": "FileAnalyzable",
-      "classification": "replaced_by_normalized_tree_contract",
-      "current_replacement": "tree_haver normalized parse nodes, provider diagnostics, capabilities, and source fragments",
-      "action": "do_not_port_as_mixin"
+      "classification": "active_ruby_provider_substrate",
+      "current_replacement": "shared Ruby file analysis helper feeding normalized tree nodes, provider diagnostics, capabilities, and source fragments",
+      "action": "port_format_neutral_substrate"
     },
     {
       "old_surface": "MergeResultBase",
-      "classification": "replaced_by_execution_reports",
-      "current_replacement": "structured edit execution reports, merge reports, review-state/replay envelopes, and decision reports",
-      "action": "do_not_port_as_result_base"
+      "classification": "active_ruby_provider_substrate",
+      "current_replacement": "shared Ruby result helper projecting decisions into structured edit execution reports and provider diagnostics",
+      "action": "port_format_neutral_substrate"
     },
     {
       "old_surface": "EmitterBase",
-      "classification": "future_family_adapter_helper",
+      "classification": "active_ruby_provider_substrate",
       "current_replacement": "family render strategies plus formatting preservation and reparse verification fixtures",
-      "action": "port_only_if_a_family_needs_ruby_local_helper"
+      "action": "port_format_neutral_substrate"
     },
     {
       "old_surface": "NodeWrapperBase",
-      "classification": "replaced_by_normalized_tree_contract",
-      "current_replacement": "normalized tree nodes with metadata, capabilities, semantic sidecars, and source fragments",
-      "action": "do_not_port_as_wrapper_base"
+      "classification": "active_ruby_provider_substrate",
+      "current_replacement": "shared Ruby wrapper helper that projects parser-specific data into normalized tree nodes, metadata, capabilities, semantic sidecars, and source fragments",
+      "action": "port_format_neutral_substrate"
     },
     {
       "old_surface": "FreezeNodeBase Freezable BlockDirective",
-      "classification": "future_fixture_family",
-      "current_replacement": "freeze/comment directive fixtures and family adapters",
-      "action": "fixture_before_port"
+      "classification": "active_ruby_provider_substrate",
+      "current_replacement": "freeze/comment directive fixtures plus shared Ruby helpers used by provider adapters",
+      "action": "port_behind_freeze_comment_contracts"
     },
     {
       "old_surface": "MergerConfig",
@@ -68,9 +68,9 @@
     },
     {
       "old_surface": "DebugLogger",
-      "classification": "replaced_by_structured_diagnostics",
-      "current_replacement": "machine-readable diagnostics, debug artifacts, reports, and profile evaluations",
-      "action": "do_not_port_as_logger_api"
+      "classification": "active_ruby_provider_substrate",
+      "current_replacement": "shared Ruby debug provenance helper that feeds machine-readable diagnostics, debug artifacts, reports, and profile evaluations",
+      "action": "port_format_neutral_substrate"
     },
     {
       "old_surface": "Runtime Ruleset unresolved review-state support",
@@ -81,20 +81,37 @@
     {
       "old_surface": "RSpec shared examples and dependency tags",
       "classification": "ruby_test_helper_only",
-      "current_replacement": "portable fixture conformance suites",
-      "action": "do_not_port_as_cross_language_conformance"
+      "current_replacement": "portable fixture conformance suites plus Ruby-local helper examples where useful",
+      "action": "port_only_as_ruby_test_helpers"
     }
   ],
-  "surviving_ruby_adapter_conveniences": [],
+  "surviving_ruby_adapter_conveniences": [
+    "SmartMergerBase",
+    "ConflictResolverBase",
+    "FileAnalyzable",
+    "MergeResultBase",
+    "EmitterBase",
+    "NodeWrapperBase",
+    "FreezeNodeBase",
+    "Freezable",
+    "BlockDirective",
+    "DebugLogger",
+    "PartialTemplateMergerBase",
+    "KeyPathPartialTemplateMergerBase",
+    "MatchRefinerBase",
+    "MatchScoreBase"
+  ],
   "future_fixture_work": [
+    "provider-facing shared substrate load contracts",
     "freeze block and directive vocabulary",
     "comment attachment and region merge policy",
     "layout gap ownership",
-    "format-local render helper ergonomics"
+    "format-local render helper ergonomics",
+    "debug provenance and result-decision shape"
   ],
-  "decision": "No old ast-merge base class should be copied into active ast-merge during this pass. Port behavior through fixtures first, and add Ruby helper APIs only when active Ruby packages demonstrate a concrete need.",
+  "decision": "Do not expose old ast-merge base classes as portable cross-language API, but do port format-neutral Ruby substrate into active ast-merge so provider gems do not duplicate merge orchestration, result tracking, comment/layout handling, freeze directives, emitters, node wrappers, partial-template behavior, or debug provenance.",
   "verification": {
-    "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb",
-    "result": "417 examples, 0 failures"
+    "command": "bundle exec rspec gems/ast-merge/spec/fixtures_integration_spec.rb gems/psych-merge/spec/fixtures_integration_spec.rb gems/toml-merge/spec/fixtures_integration_spec.rb gems/citrus-toml-merge/spec/fixtures_integration_spec.rb gems/parslet-toml-merge/spec/fixtures_integration_spec.rb",
+    "result": "focused provider suites pass"
   }
 }

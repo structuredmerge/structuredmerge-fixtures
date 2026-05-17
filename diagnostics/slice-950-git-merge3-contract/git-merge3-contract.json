@@ -19,6 +19,7 @@
     "response_fields": [
       "ok",
       "merged_source",
+      "conflicted_source",
       "conflicts",
       "diagnostics",
       "fallbacks",
@@ -83,6 +84,12 @@
         "conflict_count": 1,
         "conflict_categories": ["edit_edit"],
         "conflict_paths": ["/enabled"],
+        "conflicted_source_contains": [
+          "<<<<<<< ours",
+          "||||||| base",
+          "=======",
+          ">>>>>>> theirs"
+        ],
         "diagnostic_categories": ["merge_conflict"],
         "reparse_after_render": null
       }

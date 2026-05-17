@@ -25,7 +25,7 @@
       "theirs_source": "{\"name\":\"demo\",\"enabled\":\"yes\"}",
       "expected": {
         "exit_code": 1,
-        "merged_json": {"name":"demo","enabled":false},
+        "conflicted_source_contains": ["<<<<<<< ours", "\"enabled\":false", "||||||| base", "\"enabled\":true", "=======", "\"enabled\":\"yes\"", ">>>>>>> theirs"],
         "stderr_contains": ["merge_conflict"]
       }
     },
@@ -37,7 +37,7 @@
       "theirs_source": "{\"name\":\"demo\",\"enabled\":false}",
       "expected": {
         "exit_code": 1,
-        "merged_json": {"name":"demo"},
+        "conflicted_source_contains": ["<<<<<<< ours", "{\"name\":\"demo\"}", "||||||| base", "\"enabled\":true", "=======", "\"enabled\":false", ">>>>>>> theirs"],
         "stderr_contains": ["merge_conflict"]
       }
     },

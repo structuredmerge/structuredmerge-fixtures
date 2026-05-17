@@ -1,0 +1,208 @@
+{
+  "name": "comment_trivia_attachment_contract",
+  "purpose": "pin the portable base-layer shape for comments, trivia, and layout gaps attached to normalized structural owners",
+  "source": "first shared fixture derived from imported Ruby ast-merge Comment and Layout substrate",
+  "owner_nodes": [
+    {
+      "id": "decl:alpha",
+      "kind": "function_declaration",
+      "semantic_roles": ["declaration", "function"],
+      "line_range": {
+        "start_line": 4,
+        "end_line": 6
+      }
+    },
+    {
+      "id": "decl:beta",
+      "kind": "function_declaration",
+      "semantic_roles": ["declaration", "function"],
+      "line_range": {
+        "start_line": 9,
+        "end_line": 11
+      }
+    }
+  ],
+  "comment_styles": [
+    {
+      "style": "hash_comment",
+      "line_prefix": "#",
+      "block_prefix": null,
+      "block_suffix": null
+    },
+    {
+      "style": "c_style_line",
+      "line_prefix": "//",
+      "block_prefix": null,
+      "block_suffix": null
+    },
+    {
+      "style": "html_comment",
+      "line_prefix": null,
+      "block_prefix": "<!--",
+      "block_suffix": "-->"
+    }
+  ],
+  "comment_regions": [
+    {
+      "id": "comment:alpha:leading",
+      "kind": "leading",
+      "style": "hash_comment",
+      "owner_id": "decl:alpha",
+      "floating": true,
+      "nodes": [
+        {
+          "text": "# Alpha documentation",
+          "line_number": 2,
+          "normalized_content": "Alpha documentation"
+        }
+      ],
+      "expected": {
+        "start_line": 2,
+        "end_line": 2,
+        "text": "# Alpha documentation",
+        "normalized_content": "Alpha documentation",
+        "signature": ["comment_region", "leading", "Alpha documentation"],
+        "freeze_actions": []
+      }
+    },
+    {
+      "id": "comment:alpha:inline",
+      "kind": "inline",
+      "style": "hash_comment",
+      "owner_id": "decl:alpha",
+      "floating": false,
+      "nodes": [
+        {
+          "text": "# inline note",
+          "line_number": 4,
+          "normalized_content": "inline note"
+        }
+      ],
+      "expected": {
+        "start_line": 4,
+        "end_line": 4,
+        "text": "# inline note",
+        "normalized_content": "inline note",
+        "signature": ["comment_region", "inline", "inline note"],
+        "freeze_actions": []
+      }
+    },
+    {
+      "id": "comment:beta:leading-freeze",
+      "kind": "leading",
+      "style": "hash_comment",
+      "owner_id": "decl:beta",
+      "floating": false,
+      "nodes": [
+        {
+          "text": "# smorg:freeze keep beta local",
+          "line_number": 8,
+          "normalized_content": "smorg:freeze keep beta local"
+        }
+      ],
+      "expected": {
+        "start_line": 8,
+        "end_line": 8,
+        "text": "# smorg:freeze keep beta local",
+        "normalized_content": "smorg:freeze keep beta local",
+        "signature": ["comment_region", "leading", "smorg:freeze keep beta local"],
+        "freeze_actions": ["freeze"]
+      }
+    }
+  ],
+  "layout_gaps": [
+    {
+      "id": "gap:preamble:alpha",
+      "kind": "preamble",
+      "start_line": 3,
+      "end_line": 3,
+      "lines": [""],
+      "before_owner_id": null,
+      "after_owner_id": "decl:alpha",
+      "controller_side": "after",
+      "expected": {
+        "line_count": 1,
+        "blank_line_count": 1,
+        "controller_owner_id": "decl:alpha",
+        "fallback_owner_id": null
+      }
+    },
+    {
+      "id": "gap:between:alpha-beta",
+      "kind": "interstitial",
+      "start_line": 7,
+      "end_line": 7,
+      "lines": [""],
+      "before_owner_id": "decl:alpha",
+      "after_owner_id": "decl:beta",
+      "controller_side": "after",
+      "expected": {
+        "line_count": 1,
+        "blank_line_count": 1,
+        "controller_owner_id": "decl:beta",
+        "fallback_owner_id": "decl:alpha",
+        "effective_controller_with_after_removed": "decl:alpha"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "owner_id": "decl:alpha",
+      "leading_region_id": "comment:alpha:leading",
+      "inline_region_id": "comment:alpha:inline",
+      "trailing_region_id": null,
+      "orphan_region_ids": [],
+      "leading_gap_id": "gap:preamble:alpha",
+      "trailing_gap_id": "gap:between:alpha-beta",
+      "metadata": {
+        "provider": "portable-fixture",
+        "source": "source_augmented"
+      },
+      "expected": {
+        "region_count": 2,
+        "layout_gap_count": 2,
+        "empty": false,
+        "leading_region_layout_owned": true,
+        "trailing_region_layout_owned": false,
+        "freeze_marker": false
+      }
+    },
+    {
+      "owner_id": "decl:beta",
+      "leading_region_id": "comment:beta:leading-freeze",
+      "inline_region_id": null,
+      "trailing_region_id": null,
+      "orphan_region_ids": [],
+      "leading_gap_id": "gap:between:alpha-beta",
+      "trailing_gap_id": null,
+      "metadata": {
+        "provider": "portable-fixture",
+        "source": "parser_native"
+      },
+      "expected": {
+        "region_count": 1,
+        "layout_gap_count": 1,
+        "empty": false,
+        "leading_region_layout_owned": false,
+        "trailing_region_layout_owned": false,
+        "freeze_marker": true
+      }
+    }
+  ],
+  "contract_rules": [
+    "comment regions are passive data and do not decide git or template merge outcomes",
+    "layout gaps may be shared between adjacent owners but only one side controls output",
+    "floating comments are positional and require layout ownership before a provider may emit them through a structural owner",
+    "freeze markers are detected through the shared directive vocabulary but remain attached comment metadata until a merge policy consumes them",
+    "provider-specific parser details belong in metadata and must not be required for generic merge behavior"
+  ],
+  "next_porting_targets": ["go", "rust", "typescript"],
+  "expected": {
+    "owner_count": 2,
+    "comment_region_count": 3,
+    "layout_gap_count": 2,
+    "attachment_count": 2,
+    "portable_comment_region_kinds": ["leading", "inline", "trailing", "orphan", "preamble", "postlude"],
+    "portable_layout_gap_kinds": ["preamble", "interstitial", "postlude"]
+  }
+}

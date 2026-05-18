@@ -31,7 +31,14 @@
               "applied": true
             }
           ],
-          "diagnostics_contain": ["parse_error", "ours parse error"]
+          "diagnostics_contain": ["parse_error", "ours parse error"],
+          "required_fields": [
+            "render_report",
+            "profile",
+            "formatting_preservation",
+            "secondary_formatting_metrics",
+            "default_driver_evaluation"
+          ]
         }
       }
     },
@@ -54,7 +61,14 @@
           "ok": false,
           "exit_code": 1,
           "fallbacks": [],
-          "diagnostics_contain": ["parse_error", "ours parse error"]
+          "diagnostics_contain": ["parse_error", "ours parse error"],
+          "required_fields": [
+            "render_report",
+            "profile",
+            "formatting_preservation",
+            "secondary_formatting_metrics",
+            "default_driver_evaluation"
+          ]
         }
       }
     }

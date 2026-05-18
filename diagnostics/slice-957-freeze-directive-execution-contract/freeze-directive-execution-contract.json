@@ -1,0 +1,153 @@
+{
+  "name": "freeze_directive_execution_contract",
+  "purpose": "pin portable freeze directive execution for balanced blocks, preserved destination ownership, and marker diagnostics",
+  "source": "shared fixture derived from imported Ruby ast-merge FreezeNodeBase and FileAnalyzable behavior",
+  "cases": [
+    {
+      "id": "balanced_hash_block",
+      "style": "hash_comment",
+      "token": "smorg",
+      "lines": [
+        "alpha",
+        "# smorg:freeze keep local",
+        "local-only",
+        "# smorg:unfreeze",
+        "omega"
+      ],
+      "expected": {
+        "valid": true,
+        "block_count": 1,
+        "diagnostic_count": 0,
+        "blocks": [
+          {
+            "id": "freeze:balanced_hash_block:2-4",
+            "style": "hash_comment",
+            "token": "smorg",
+            "start_line": 2,
+            "end_line": 4,
+            "reason": "keep local",
+            "content_lines": [
+              "# smorg:freeze keep local",
+              "local-only",
+              "# smorg:unfreeze"
+            ],
+            "merge_policy": "destination",
+            "decision": "freeze_block",
+            "signature": ["freeze_block", "2", "4"]
+          }
+        ],
+        "line_queries": [
+          {"line": 1, "in_freeze": false, "block_id": null},
+          {"line": 3, "in_freeze": true, "block_id": "freeze:balanced_hash_block:2-4"},
+          {"line": 5, "in_freeze": false, "block_id": null}
+        ]
+      }
+    },
+    {
+      "id": "balanced_html_block",
+      "style": "html_comment",
+      "token": "smorg",
+      "lines": [
+        "intro",
+        "<!-- smorg:freeze hand edited -->",
+        "manual markdown",
+        "<!-- smorg:unfreeze -->",
+        "outro"
+      ],
+      "expected": {
+        "valid": true,
+        "block_count": 1,
+        "diagnostic_count": 0,
+        "blocks": [
+          {
+            "id": "freeze:balanced_html_block:2-4",
+            "style": "html_comment",
+            "token": "smorg",
+            "start_line": 2,
+            "end_line": 4,
+            "reason": "hand edited",
+            "content_lines": [
+              "<!-- smorg:freeze hand edited -->",
+              "manual markdown",
+              "<!-- smorg:unfreeze -->"
+            ],
+            "merge_policy": "destination",
+            "decision": "freeze_block",
+            "signature": ["freeze_block", "2", "4"]
+          }
+        ],
+        "line_queries": [
+          {"line": 2, "in_freeze": true, "block_id": "freeze:balanced_html_block:2-4"},
+          {"line": 4, "in_freeze": true, "block_id": "freeze:balanced_html_block:2-4"},
+          {"line": 5, "in_freeze": false, "block_id": null}
+        ]
+      }
+    },
+    {
+      "id": "unmatched_close",
+      "style": "hash_comment",
+      "token": "smorg",
+      "lines": [
+        "alpha",
+        "# smorg:unfreeze",
+        "omega"
+      ],
+      "expected": {
+        "valid": false,
+        "block_count": 0,
+        "diagnostic_count": 1,
+        "diagnostics": [
+          {
+            "category": "unmatched_freeze_close",
+            "severity": "error",
+            "line": 2
+          }
+        ],
+        "blocks": [],
+        "line_queries": [
+          {"line": 2, "in_freeze": false, "block_id": null}
+        ]
+      }
+    },
+    {
+      "id": "unclosed_open",
+      "style": "c_style_line",
+      "token": "smorg",
+      "lines": [
+        "alpha",
+        "// smorg:freeze generated local",
+        "local-only"
+      ],
+      "expected": {
+        "valid": false,
+        "block_count": 0,
+        "diagnostic_count": 1,
+        "diagnostics": [
+          {
+            "category": "unclosed_freeze_open",
+            "severity": "error",
+            "line": 2
+          }
+        ],
+        "blocks": [],
+        "line_queries": [
+          {"line": 3, "in_freeze": false, "block_id": null}
+        ]
+      }
+    }
+  ],
+  "contract_rules": [
+    "balanced freeze blocks preserve destination-owned content and emit freeze_block decisions",
+    "line queries are inclusive of both opening and closing markers",
+    "unmatched close markers are diagnostics and do not synthesize a block",
+    "unclosed open markers are diagnostics and do not synthesize a partial block",
+    "freeze directive execution is policy data consumed by git and template merge flows, not a parser-specific AST shape"
+  ],
+  "expected": {
+    "case_count": 4,
+    "valid_case_count": 2,
+    "invalid_case_count": 2,
+    "decision": "freeze_block",
+    "merge_policy": "destination"
+  }
+}

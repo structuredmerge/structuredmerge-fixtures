@@ -27,6 +27,7 @@
       "render_report",
       "formatting_preservation",
       "secondary_formatting_metrics",
+      "default_driver_evaluation",
       "reparse_after_render"
     ],
     "exit_codes": {
@@ -73,6 +74,32 @@
           "weighted": false,
           "diagnostics": [
             "canonical JSON has no trivia-preserving source fragments yet"
+          ]
+        },
+        "default_driver_evaluation": {
+          "status": "recommended",
+          "formatting_threshold": 0.95,
+          "formatting_score": 1.0,
+          "hard_gates": [
+            {
+              "name": "reparse_after_render",
+              "passed": true,
+              "weighted": false
+            },
+            {
+              "name": "no_full_file_rewrite",
+              "passed": true,
+              "weighted": false
+            },
+            {
+              "name": "coherent_conflict_marker_placement",
+              "passed": true,
+              "weighted": false
+            }
+          ],
+          "blocking_reasons": [],
+          "diagnostics": [
+            "default-driver evaluation is advisory unless explicitly required"
           ]
         },
         "render_report": {
@@ -122,6 +149,37 @@
           "weighted": false,
           "diagnostics": [
             "unresolved conflict did not produce a merged source-fragment retention measurement"
+          ]
+        },
+        "default_driver_evaluation": {
+          "status": "not_recommended",
+          "formatting_threshold": 0.95,
+          "formatting_score": 0.0,
+          "hard_gates": [
+            {
+              "name": "reparse_after_render",
+              "passed": false,
+              "weighted": false
+            },
+            {
+              "name": "no_full_file_rewrite",
+              "passed": false,
+              "weighted": false
+            },
+            {
+              "name": "coherent_conflict_marker_placement",
+              "passed": false,
+              "weighted": false
+            }
+          ],
+          "blocking_reasons": [
+            "rendered output did not reparse",
+            "formatting score is below threshold",
+            "full-file rewrite or conflict markers were used",
+            "conflict marker placement is not syntactically coherent"
+          ],
+          "diagnostics": [
+            "default-driver evaluation is advisory unless explicitly required"
           ]
         },
         "render_report": {

@@ -26,6 +26,7 @@
       "profile",
       "render_report",
       "formatting_preservation",
+      "secondary_formatting_metrics",
       "reparse_after_render"
     ],
     "exit_codes": {
@@ -64,6 +65,15 @@
         "formatting_preservation": {
           "line_diff_score": 1.0,
           "character_diff_score": 1.0
+        },
+        "secondary_formatting_metrics": {
+          "unchanged_line_churn": 0,
+          "output_diff_size": 0,
+          "source_fragment_retention": 1.0,
+          "weighted": false,
+          "diagnostics": [
+            "canonical JSON has no trivia-preserving source fragments yet"
+          ]
         },
         "render_report": {
           "strategy": "canonical",
@@ -104,6 +114,15 @@
         "formatting_preservation": {
           "line_diff_score": 0.0,
           "character_diff_score": 0.0
+        },
+        "secondary_formatting_metrics": {
+          "unchanged_line_churn": 0,
+          "output_diff_size": 0,
+          "source_fragment_retention": 0.0,
+          "weighted": false,
+          "diagnostics": [
+            "unresolved conflict did not produce a merged source-fragment retention measurement"
+          ]
         },
         "render_report": {
           "strategy": "full_file_conflict_markers",

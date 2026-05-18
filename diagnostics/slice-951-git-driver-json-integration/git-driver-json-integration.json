@@ -18,6 +18,25 @@
       }
     },
     {
+      "case_id": "commutative-dependency-additions",
+      "path_name": "package.json",
+      "base_source": "{\"dependencies\":{\"alpha\":\"1.0.0\"},\"name\":\"demo\"}",
+      "ours_source": "{\"dependencies\":{\"alpha\":\"1.0.0\",\"bravo\":\"2.0.0\"},\"name\":\"demo\"}",
+      "theirs_source": "{\"dependencies\":{\"alpha\":\"1.0.0\",\"charlie\":\"3.0.0\"},\"name\":\"demo\"}",
+      "expected": {
+        "exit_code": 0,
+        "merged_json": {
+          "dependencies": {
+            "alpha": "1.0.0",
+            "bravo": "2.0.0",
+            "charlie": "3.0.0"
+          },
+          "name": "demo"
+        },
+        "stderr_contains": []
+      }
+    },
+    {
       "case_id": "same-key-edit-conflict",
       "path_name": "package.json",
       "base_source": "{\"name\":\"demo\",\"enabled\":true}",

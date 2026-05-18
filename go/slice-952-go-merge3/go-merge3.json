@@ -20,6 +20,10 @@
         ],
         "expected_source": "package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\t\"strings\"\n)\n\nfunc main() {\n\tfmt.Println(\"demo\")\n}\n",
         "conflict_count": 0,
+        "change_classifications": [
+          {"path": "/imports/os", "ours": "added", "theirs": "unchanged"},
+          {"path": "/imports/strings", "ours": "unchanged", "theirs": "added"}
+        ],
         "reparse_after_render": true,
         "render_report": {"strategy": "canonical"},
         "formatting_preservation": {"line_diff_score": 1.0, "character_diff_score": 1.0},
@@ -41,6 +45,10 @@
         ],
         "expected_source": "package main\n\nfunc main() {}\n\nfunc ours() string {\n\treturn \"ours\"\n}\n\nfunc theirs() string {\n\treturn \"theirs\"\n}\n",
         "conflict_count": 0,
+        "change_classifications": [
+          {"path": "/decls/ours", "ours": "added", "theirs": "unchanged"},
+          {"path": "/decls/theirs", "ours": "unchanged", "theirs": "added"}
+        ],
         "reparse_after_render": true,
         "render_report": {"strategy": "canonical"},
         "formatting_preservation": {"line_diff_score": 1.0, "character_diff_score": 1.0},
@@ -59,6 +67,9 @@
         "conflict_count": 1,
         "conflict_categories": ["edit_edit"],
         "conflict_paths": ["/decls/value"],
+        "change_classifications": [
+          {"path": "/decls/value", "ours": "edited", "theirs": "edited"}
+        ],
         "reparse_after_render": null,
         "render_report": {"strategy": "owned_region_conflict_markers"},
         "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}
@@ -75,6 +86,9 @@
         "conflict_count": 1,
         "conflict_categories": ["delete_edit"],
         "conflict_paths": ["/decls/value"],
+        "change_classifications": [
+          {"path": "/decls/value", "ours": "deleted", "theirs": "edited"}
+        ],
         "reparse_after_render": null,
         "render_report": {"strategy": "full_file_conflict_markers"},
         "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}

@@ -61,6 +61,10 @@
         "conflict_count": 0,
         "diagnostic_categories": [],
         "reparse_after_render": true,
+        "formatting_preservation": {
+          "line_diff_score": 1.0,
+          "character_diff_score": 1.0
+        },
         "render_report": {
           "strategy": "canonical",
           "backend_id": "native-json",
@@ -97,6 +101,10 @@
         ],
         "diagnostic_categories": ["merge_conflict"],
         "reparse_after_render": null,
+        "formatting_preservation": {
+          "line_diff_score": 0.0,
+          "character_diff_score": 0.0
+        },
         "render_report": {
           "strategy": "full_file_conflict_markers",
           "backend_id": "native-json",

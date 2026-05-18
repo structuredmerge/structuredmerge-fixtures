@@ -143,6 +143,36 @@
       }
     },
     {
+      "case_id": "go-function-nonoverlap-local-fallback",
+      "language": "go",
+      "path_name": "main.go",
+      "fallback_policy": "local",
+      "base_source": "package main\n\nfunc value() string {\n\tleft := \"base\"\n\tright := \"base\"\n\treturn left + right\n}\n\nfunc stable() {}\n",
+      "ours_source": "package main\n\nfunc value() string {\n\tleft := \"ours\"\n\tright := \"base\"\n\treturn left + right\n}\n\nfunc stable() {}\n",
+      "theirs_source": "package main\n\nfunc value() string {\n\tleft := \"base\"\n\tright := \"theirs\"\n\treturn left + right\n}\n\nfunc stable() {}\n",
+      "expected": {
+        "ok": true,
+        "fallbacks": ["local"],
+        "owned_regions": [
+          {
+            "owner_path": "/decls/value",
+            "region_kind": "subtree",
+            "line_range": [3, 7],
+            "attached_spans": [],
+            "can_replace": true,
+            "can_line_merge": true,
+            "requires_reparse": true
+          }
+        ],
+        "merged_source_contains": ["left := \"ours\"", "right := \"theirs\"", "func stable() {}"],
+        "merged_source_not_contains": ["<<<<<<< ours", "||||||| base", "=======", ">>>>>>> theirs"],
+        "render_report": {
+          "strategy": "local_fallback",
+          "fallback_used": true
+        }
+      }
+    },
+    {
       "case_id": "json-same-key-owned-region",
       "language": "json",
       "path_name": "package.json",

@@ -206,6 +206,90 @@
           }
         ]
       }
+    },
+    {
+      "case_id": "json-delete-edit-conflict",
+      "family": "json",
+      "request": {
+        "base_source": "{\"name\":\"demo\",\"enabled\":true}",
+        "ours_source": "{\"name\":\"demo\"}",
+        "theirs_source": "{\"name\":\"demo\",\"enabled\":false}",
+        "path_name": "package.json",
+        "language": "json",
+        "dialect": "json",
+        "profile_id": "json.keyed-object",
+        "fallback_policy": "none",
+        "conflict_marker_size": 7,
+        "render_policy": "canonical"
+      },
+      "expected": {
+        "ok": false,
+        "merged_json": null,
+        "conflict_count": 1,
+        "conflict_categories": ["delete_edit"],
+        "conflict_paths": ["/enabled"],
+        "conflicted_source_contains": [
+          "<<<<<<< ours",
+          "{\"name\":\"demo\"}",
+          "||||||| base",
+          "\"enabled\":true",
+          "=======",
+          "\"enabled\":false",
+          ">>>>>>> theirs"
+        ],
+        "diagnostic_categories": ["merge_conflict"],
+        "reparse_after_render": null,
+        "formatting_preservation": {
+          "line_diff_score": 0.0,
+          "character_diff_score": 0.0
+        },
+        "secondary_formatting_metrics": {
+          "unchanged_line_churn": 0,
+          "output_diff_size": 0,
+          "source_fragment_retention": 0.0,
+          "weighted": false,
+          "diagnostics": [
+            "unresolved conflict did not produce a merged source-fragment retention measurement"
+          ]
+        },
+        "default_driver_evaluation": {
+          "status": "not_recommended",
+          "formatting_threshold": 0.95,
+          "formatting_score": 0.0,
+          "hard_gates": [
+            {
+              "name": "reparse_after_render",
+              "passed": false,
+              "weighted": false
+            },
+            {
+              "name": "no_full_file_rewrite",
+              "passed": false,
+              "weighted": false
+            },
+            {
+              "name": "coherent_conflict_marker_placement",
+              "passed": false,
+              "weighted": false
+            }
+          ],
+          "blocking_reasons": [
+            "rendered output did not reparse",
+            "formatting score is below threshold",
+            "full-file rewrite or conflict markers were used",
+            "conflict marker placement is not syntactically coherent"
+          ],
+          "diagnostics": [
+            "default-driver evaluation is advisory unless explicitly required"
+          ]
+        },
+        "render_report": {
+          "strategy": "full_file_conflict_markers",
+          "backend_id": "native-json",
+          "parser_identity": "standard-json"
+        },
+        "owned_regions": []
+      }
     }
   ]
 }

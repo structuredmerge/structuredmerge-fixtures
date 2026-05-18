@@ -18,7 +18,20 @@
       "expected": {
         "exit_code": 1,
         "source_contains": ["<<<<<<< ours", "||||||| base", "=======", ">>>>>>> theirs"],
-        "stderr_contains": ["parse", "ours parse error"]
+        "stderr_contains": ["parse", "ours parse error"],
+        "machine_report": {
+          "ok": false,
+          "exit_code": 1,
+          "fallbacks": [
+            {
+              "mode": "full_file",
+              "requested_mode": "full-file",
+              "reason": "parse_error",
+              "applied": true
+            }
+          ],
+          "diagnostics_contain": ["parse_error", "ours parse error"]
+        }
       }
     },
     {
@@ -34,7 +47,13 @@
       "expected": {
         "exit_code": 1,
         "merged_source": "{\"name\":",
-        "stderr_contains": ["parse", "ours parse error"]
+        "stderr_contains": ["parse", "ours parse error"],
+        "machine_report": {
+          "ok": false,
+          "exit_code": 1,
+          "fallbacks": [],
+          "diagnostics_contain": ["parse_error", "ours parse error"]
+        }
       }
     }
   ]

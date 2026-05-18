@@ -184,7 +184,21 @@
           "strategy": "owned_region_conflict_markers",
           "backend_id": "native-json",
           "parser_identity": "standard-json"
-        }
+        },
+        "owned_regions": [
+          {
+            "owner_path": "/enabled",
+            "node_id": "json:key:enabled",
+            "region_kind": "node",
+            "line_range": {"start": 1, "end": 1},
+            "attached_spans": [],
+            "backend_id": "native-json",
+            "parser_identity": "standard-json",
+            "can_replace": true,
+            "can_line_merge": false,
+            "requires_reparse": true
+          }
+        ]
       }
     }
   ]

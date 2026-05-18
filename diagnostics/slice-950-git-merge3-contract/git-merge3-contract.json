@@ -21,6 +21,7 @@
       "merged_source",
       "conflicted_source",
       "conflicts",
+      "change_classifications",
       "diagnostics",
       "fallbacks",
       "profile",
@@ -61,6 +62,10 @@
           "theirs": true
         },
         "conflict_count": 0,
+        "change_classifications": [
+          {"path": "/ours", "ours": "added", "theirs": "unchanged"},
+          {"path": "/theirs", "ours": "unchanged", "theirs": "added"}
+        ],
         "diagnostic_categories": [],
         "reparse_after_render": true,
         "formatting_preservation": {
@@ -130,6 +135,9 @@
         "conflict_count": 1,
         "conflict_categories": ["edit_edit"],
         "conflict_paths": ["/enabled"],
+        "change_classifications": [
+          {"path": "/enabled", "ours": "edited", "theirs": "edited"}
+        ],
         "conflicted_source_contains": [
           "<<<<<<< ours",
           "\"enabled\":false",
@@ -228,6 +236,9 @@
         "conflict_count": 1,
         "conflict_categories": ["delete_edit"],
         "conflict_paths": ["/enabled"],
+        "change_classifications": [
+          {"path": "/enabled", "ours": "deleted", "theirs": "edited"}
+        ],
         "conflicted_source_contains": [
           "<<<<<<< ours",
           "{\"name\":\"demo\"}",

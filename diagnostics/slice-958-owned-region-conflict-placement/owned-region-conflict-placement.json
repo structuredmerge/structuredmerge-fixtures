@@ -1,0 +1,130 @@
+{
+  "contract": {
+    "package": "ast-merge-git",
+    "operation": "owned_region_conflict_placement",
+    "description": "Owned-region reporting and coherent conflict placement prerequisites for source/config git merge drivers."
+  },
+  "required_region_fields": [
+    "owner_path",
+    "node_id",
+    "region_kind",
+    "byte_range",
+    "line_range",
+    "attached_spans",
+    "backend_id",
+    "parser_identity",
+    "can_replace",
+    "can_line_merge",
+    "requires_reparse"
+  ],
+  "cases": [
+    {
+      "case_id": "go-function-edit-edit-owned-region",
+      "language": "go",
+      "path_name": "main.go",
+      "base_source": "package main\n\nfunc value() string {\n\treturn \"base\"\n}\n\nfunc stable() {}\n",
+      "ours_source": "package main\n\nfunc value() string {\n\treturn \"ours\"\n}\n\nfunc stable() {}\n",
+      "theirs_source": "package main\n\nfunc value() string {\n\treturn \"theirs\"\n}\n\nfunc stable() {}\n",
+      "expected": {
+        "ok": false,
+        "conflict_paths": ["/decls/value"],
+        "owned_regions": [
+          {
+            "owner_path": "/decls/value",
+            "region_kind": "subtree",
+            "line_range": [3, 5],
+            "attached_spans": [],
+            "can_replace": true,
+            "can_line_merge": true,
+            "requires_reparse": true
+          }
+        ],
+        "conflicted_source_contains": ["<<<<<<< ours", "return \"ours\"", "||||||| base", "return \"base\"", "=======", "return \"theirs\"", ">>>>>>> theirs", "func stable() {}"],
+        "conflicted_source_not_contains": ["<<<<<<< ours\npackage main"],
+        "render_report": {
+          "strategy": "owned_region_conflict_markers",
+          "fallback_used": false
+        }
+      }
+    },
+    {
+      "case_id": "go-doc-comment-delete-edit-owned-region",
+      "language": "go",
+      "path_name": "main.go",
+      "base_source": "package main\n\n// value returns the configured value.\nfunc value() string {\n\treturn \"base\"\n}\n\nfunc stable() {}\n",
+      "ours_source": "package main\n\nfunc value() string {\n\treturn \"base\"\n}\n\nfunc stable() {}\n",
+      "theirs_source": "package main\n\n// value returns their configured value.\nfunc value() string {\n\treturn \"base\"\n}\n\nfunc stable() {}\n",
+      "expected": {
+        "ok": false,
+        "conflict_paths": ["/decls/value/comments"],
+        "owned_regions": [
+          {
+            "owner_path": "/decls/value",
+            "region_kind": "owned_region",
+            "line_range": [3, 6],
+            "attached_spans": [
+              {
+                "kind": "leading_comment",
+                "line_range": [3, 3]
+              }
+            ],
+            "can_replace": true,
+            "can_line_merge": true,
+            "requires_reparse": true
+          }
+        ],
+        "conflicted_source_contains": ["<<<<<<< ours", "func value() string", "||||||| base", "// value returns the configured value.", "=======", "// value returns their configured value.", ">>>>>>> theirs", "func stable() {}"],
+        "conflicted_source_not_contains": ["<<<<<<< ours\npackage main"],
+        "render_report": {
+          "strategy": "owned_region_conflict_markers",
+          "fallback_used": false
+        }
+      }
+    },
+    {
+      "case_id": "json-same-key-owned-region",
+      "language": "json",
+      "path_name": "package.json",
+      "base_source": "{\"name\":\"demo\",\"enabled\":true,\"stable\":1}",
+      "ours_source": "{\"name\":\"demo\",\"enabled\":false,\"stable\":1}",
+      "theirs_source": "{\"name\":\"demo\",\"enabled\":\"yes\",\"stable\":1}",
+      "expected": {
+        "ok": false,
+        "conflict_paths": ["/enabled"],
+        "owned_regions": [
+          {
+            "owner_path": "/enabled",
+            "region_kind": "node",
+            "line_range": [1, 1],
+            "attached_spans": [],
+            "can_replace": true,
+            "can_line_merge": false,
+            "requires_reparse": true
+          }
+        ],
+        "render_report": {
+          "strategy": "owned_region_conflict_markers",
+          "fallback_used": false
+        }
+      }
+    },
+    {
+      "case_id": "go-unsafe-region-fails-closed",
+      "language": "go",
+      "path_name": "main.go",
+      "base_source": "package main\n\nfunc value() string {\n\treturn \"base\"\n}\n",
+      "ours_source": "package main\n\nfunc value() string {\n\treturn \"ours\"\n}\n",
+      "theirs_source": "package main\n\nfunc value() string {\n\treturn \"theirs\"\n}\n",
+      "force_unsafe_region": true,
+      "expected": {
+        "ok": false,
+        "owned_regions": [],
+        "render_report": {
+          "strategy": "full_file_conflict_markers",
+          "fallback_used": true
+        },
+        "diagnostics_contain": ["unsafe owned region"]
+      }
+    }
+  ]
+}

@@ -60,7 +60,7 @@
         "conflict_categories": ["edit_edit"],
         "conflict_paths": ["/decls/value"],
         "reparse_after_render": null,
-        "render_report": {"strategy": "full_file_conflict_markers"},
+        "render_report": {"strategy": "owned_region_conflict_markers"},
         "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}
       }
     },
@@ -137,7 +137,7 @@
         "conflict_categories": ["delete_edit"],
         "conflict_paths": ["/decls/value/comments"],
         "reparse_after_render": null,
-        "render_report": {"strategy": "full_file_conflict_markers"},
+        "render_report": {"strategy": "owned_region_conflict_markers"},
         "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}
       }
     },
@@ -153,7 +153,7 @@
         "conflict_categories": ["edit_edit"],
         "conflict_paths": ["/decls/value/comments"],
         "reparse_after_render": null,
-        "render_report": {"strategy": "full_file_conflict_markers"},
+        "render_report": {"strategy": "owned_region_conflict_markers"},
         "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}
       }
     }

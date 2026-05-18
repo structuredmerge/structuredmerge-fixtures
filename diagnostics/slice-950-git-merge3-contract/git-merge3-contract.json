@@ -163,27 +163,25 @@
             },
             {
               "name": "no_full_file_rewrite",
-              "passed": false,
+              "passed": true,
               "weighted": false
             },
             {
               "name": "coherent_conflict_marker_placement",
-              "passed": false,
+              "passed": true,
               "weighted": false
             }
           ],
           "blocking_reasons": [
             "rendered output did not reparse",
-            "formatting score is below threshold",
-            "full-file rewrite or conflict markers were used",
-            "conflict marker placement is not syntactically coherent"
+            "formatting score is below threshold"
           ],
           "diagnostics": [
             "default-driver evaluation is advisory unless explicitly required"
           ]
         },
         "render_report": {
-          "strategy": "full_file_conflict_markers",
+          "strategy": "owned_region_conflict_markers",
           "backend_id": "native-json",
           "parser_identity": "standard-json"
         }

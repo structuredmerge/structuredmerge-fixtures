@@ -19,6 +19,7 @@
         "exit_code": 1,
         "source_contains": ["<<<<<<< ours", "||||||| base", "=======", ">>>>>>> theirs"],
         "stderr_contains": ["parse", "ours parse error"],
+        "stderr_not_contains": ["\"diagnostics\"", "\"fallbacks\"", "Traceback", "panic"],
         "machine_report": {
           "ok": false,
           "exit_code": 1,
@@ -48,6 +49,7 @@
         "exit_code": 1,
         "merged_source": "{\"name\":",
         "stderr_contains": ["parse", "ours parse error"],
+        "stderr_not_contains": ["\"diagnostics\"", "\"fallbacks\"", "Traceback", "panic"],
         "machine_report": {
           "ok": false,
           "exit_code": 1,

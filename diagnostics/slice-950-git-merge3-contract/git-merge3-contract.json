@@ -132,9 +132,15 @@
         "conflict_paths": ["/enabled"],
         "conflicted_source_contains": [
           "<<<<<<< ours",
+          "\"enabled\":false",
           "||||||| base",
+          "\"enabled\":true",
           "=======",
+          "\"enabled\":\"yes\"",
           ">>>>>>> theirs"
+        ],
+        "conflicted_source_not_contains": [
+          "<<<<<<< ours\n{\"name\":\"demo\""
         ],
         "diagnostic_categories": ["merge_conflict"],
         "reparse_after_render": null,

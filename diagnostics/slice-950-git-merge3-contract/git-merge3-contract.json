@@ -60,7 +60,12 @@
         },
         "conflict_count": 0,
         "diagnostic_categories": [],
-        "reparse_after_render": true
+        "reparse_after_render": true,
+        "render_report": {
+          "strategy": "canonical",
+          "backend_id": "native-json",
+          "parser_identity": "standard-json"
+        }
       }
     },
     {
@@ -91,7 +96,12 @@
           ">>>>>>> theirs"
         ],
         "diagnostic_categories": ["merge_conflict"],
-        "reparse_after_render": null
+        "reparse_after_render": null,
+        "render_report": {
+          "strategy": "full_file_conflict_markers",
+          "backend_id": "native-json",
+          "parser_identity": "standard-json"
+        }
       }
     }
   ]

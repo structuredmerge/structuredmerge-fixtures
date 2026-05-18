@@ -33,6 +33,7 @@
           ],
           "diagnostics_contain": ["parse_error", "ours parse error"],
           "required_fields": [
+            "change_classifications",
             "render_report",
             "profile",
             "formatting_preservation",
@@ -63,6 +64,7 @@
           "fallbacks": [],
           "diagnostics_contain": ["parse_error", "ours parse error"],
           "required_fields": [
+            "change_classifications",
             "render_report",
             "profile",
             "formatting_preservation",

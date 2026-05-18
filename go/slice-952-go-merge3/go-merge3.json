@@ -20,7 +20,11 @@
         ],
         "expected_source": "package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\t\"strings\"\n)\n\nfunc main() {\n\tfmt.Println(\"demo\")\n}\n",
         "conflict_count": 0,
-        "reparse_after_render": true
+        "reparse_after_render": true,
+        "render_report": {"strategy": "canonical"},
+        "formatting_preservation": {"line_diff_score": 0.95, "character_diff_score": 0.95},
+        "secondary_formatting_metrics": {"source_fragment_retention": 1.0},
+        "default_driver_evaluation": {"status": "recommended", "formatting_threshold": 0.95}
       }
     },
     {
@@ -37,7 +41,11 @@
         ],
         "expected_source": "package main\n\nfunc main() {}\n\nfunc ours() string {\n\treturn \"ours\"\n}\n\nfunc theirs() string {\n\treturn \"theirs\"\n}\n",
         "conflict_count": 0,
-        "reparse_after_render": true
+        "reparse_after_render": true,
+        "render_report": {"strategy": "canonical"},
+        "formatting_preservation": {"line_diff_score": 0.95, "character_diff_score": 0.95},
+        "secondary_formatting_metrics": {"source_fragment_retention": 1.0},
+        "default_driver_evaluation": {"status": "recommended", "formatting_threshold": 0.95}
       }
     },
     {
@@ -51,7 +59,9 @@
         "conflict_count": 1,
         "conflict_categories": ["edit_edit"],
         "conflict_paths": ["/decls/value"],
-        "reparse_after_render": null
+        "reparse_after_render": null,
+        "render_report": {"strategy": "full_file_conflict_markers"},
+        "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}
       }
     },
     {
@@ -65,7 +75,9 @@
         "conflict_count": 1,
         "conflict_categories": ["delete_edit"],
         "conflict_paths": ["/decls/value"],
-        "reparse_after_render": null
+        "reparse_after_render": null,
+        "render_report": {"strategy": "full_file_conflict_markers"},
+        "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}
       }
     },
     {
@@ -82,7 +94,11 @@
         ],
         "expected_source": "package main\n\n// value returns the configured value.\nfunc value() string {\n\treturn \"theirs\"\n}\n",
         "conflict_count": 0,
-        "reparse_after_render": true
+        "reparse_after_render": true,
+        "render_report": {"strategy": "canonical"},
+        "formatting_preservation": {"line_diff_score": 0.95, "character_diff_score": 0.95},
+        "secondary_formatting_metrics": {"source_fragment_retention": 1.0},
+        "default_driver_evaluation": {"status": "recommended", "formatting_threshold": 0.95}
       }
     },
     {
@@ -102,7 +118,11 @@
         ],
         "expected_source": "package main\n\nfunc value() string {\n\treturn \"base\"\n}\n",
         "conflict_count": 0,
-        "reparse_after_render": true
+        "reparse_after_render": true,
+        "render_report": {"strategy": "canonical"},
+        "formatting_preservation": {"line_diff_score": 0.95, "character_diff_score": 0.95},
+        "secondary_formatting_metrics": {"source_fragment_retention": 1.0},
+        "default_driver_evaluation": {"status": "recommended", "formatting_threshold": 0.95}
       }
     },
     {
@@ -116,7 +136,9 @@
         "conflict_count": 1,
         "conflict_categories": ["delete_edit"],
         "conflict_paths": ["/decls/value/comments"],
-        "reparse_after_render": null
+        "reparse_after_render": null,
+        "render_report": {"strategy": "full_file_conflict_markers"},
+        "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}
       }
     },
     {
@@ -130,7 +152,9 @@
         "conflict_count": 1,
         "conflict_categories": ["edit_edit"],
         "conflict_paths": ["/decls/value/comments"],
-        "reparse_after_render": null
+        "reparse_after_render": null,
+        "render_report": {"strategy": "full_file_conflict_markers"},
+        "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}
       }
     }
   ]

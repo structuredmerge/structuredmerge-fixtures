@@ -112,6 +112,37 @@
       }
     },
     {
+      "case_id": "go-function-overlap-line-fallback-fails-closed",
+      "language": "go",
+      "path_name": "main.go",
+      "fallback_policy": "line",
+      "base_source": "package main\n\nfunc value() string {\n\treturn \"base\"\n}\n\nfunc stable() {}\n",
+      "ours_source": "package main\n\nfunc value() string {\n\treturn \"ours\"\n}\n\nfunc stable() {}\n",
+      "theirs_source": "package main\n\nfunc value() string {\n\treturn \"theirs\"\n}\n\nfunc stable() {}\n",
+      "expected": {
+        "ok": false,
+        "fallbacks": [],
+        "conflict_paths": ["/decls/value"],
+        "owned_regions": [
+          {
+            "owner_path": "/decls/value",
+            "region_kind": "subtree",
+            "line_range": [3, 5],
+            "attached_spans": [],
+            "can_replace": true,
+            "can_line_merge": true,
+            "requires_reparse": true
+          }
+        ],
+        "conflicted_source_contains": ["<<<<<<< ours", "return \"ours\"", "||||||| base", "return \"base\"", "=======", "return \"theirs\"", ">>>>>>> theirs", "func stable() {}"],
+        "conflicted_source_not_contains": ["<<<<<<< ours\npackage main"],
+        "render_report": {
+          "strategy": "owned_region_conflict_markers",
+          "fallback_used": false
+        }
+      }
+    },
+    {
       "case_id": "json-same-key-owned-region",
       "language": "json",
       "path_name": "package.json",

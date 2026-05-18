@@ -108,6 +108,10 @@
         ],
         "expected_source": "package main\n\n// value returns the configured value.\nfunc value() string {\n\treturn \"theirs\"\n}\n",
         "conflict_count": 0,
+        "change_classifications": [
+          {"path": "/decls/value", "ours": "unchanged", "theirs": "edited"},
+          {"path": "/decls/value/comments", "ours": "added", "theirs": "unchanged"}
+        ],
         "reparse_after_render": true,
         "render_report": {"strategy": "canonical"},
         "formatting_preservation": {"line_diff_score": 1.0, "character_diff_score": 1.0},
@@ -132,6 +136,9 @@
         ],
         "expected_source": "package main\n\nfunc value() string {\n\treturn \"base\"\n}\n",
         "conflict_count": 0,
+        "change_classifications": [
+          {"path": "/decls/value/comments", "ours": "deleted", "theirs": "deleted"}
+        ],
         "reparse_after_render": true,
         "render_report": {"strategy": "canonical"},
         "formatting_preservation": {"line_diff_score": 1.0, "character_diff_score": 1.0},
@@ -150,6 +157,9 @@
         "conflict_count": 1,
         "conflict_categories": ["delete_edit"],
         "conflict_paths": ["/decls/value/comments"],
+        "change_classifications": [
+          {"path": "/decls/value/comments", "ours": "deleted", "theirs": "edited"}
+        ],
         "reparse_after_render": null,
         "render_report": {"strategy": "owned_region_conflict_markers"},
         "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}
@@ -166,6 +176,9 @@
         "conflict_count": 1,
         "conflict_categories": ["edit_edit"],
         "conflict_paths": ["/decls/value/comments"],
+        "change_classifications": [
+          {"path": "/decls/value/comments", "ours": "edited", "theirs": "edited"}
+        ],
         "reparse_after_render": null,
         "render_report": {"strategy": "owned_region_conflict_markers"},
         "default_driver_evaluation": {"status": "not_recommended", "formatting_threshold": 0.95}

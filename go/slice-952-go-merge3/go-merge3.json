@@ -22,7 +22,7 @@
         "conflict_count": 0,
         "reparse_after_render": true,
         "render_report": {"strategy": "canonical"},
-        "formatting_preservation": {"line_diff_score": 0.95, "character_diff_score": 0.95},
+        "formatting_preservation": {"line_diff_score": 1.0, "character_diff_score": 1.0},
         "secondary_formatting_metrics": {"source_fragment_retention": 1.0},
         "default_driver_evaluation": {"status": "recommended", "formatting_threshold": 0.95}
       }
@@ -43,7 +43,7 @@
         "conflict_count": 0,
         "reparse_after_render": true,
         "render_report": {"strategy": "canonical"},
-        "formatting_preservation": {"line_diff_score": 0.95, "character_diff_score": 0.95},
+        "formatting_preservation": {"line_diff_score": 1.0, "character_diff_score": 1.0},
         "secondary_formatting_metrics": {"source_fragment_retention": 1.0},
         "default_driver_evaluation": {"status": "recommended", "formatting_threshold": 0.95}
       }
@@ -96,7 +96,7 @@
         "conflict_count": 0,
         "reparse_after_render": true,
         "render_report": {"strategy": "canonical"},
-        "formatting_preservation": {"line_diff_score": 0.95, "character_diff_score": 0.95},
+        "formatting_preservation": {"line_diff_score": 1.0, "character_diff_score": 1.0},
         "secondary_formatting_metrics": {"source_fragment_retention": 1.0},
         "default_driver_evaluation": {"status": "recommended", "formatting_threshold": 0.95}
       }
@@ -120,7 +120,7 @@
         "conflict_count": 0,
         "reparse_after_render": true,
         "render_report": {"strategy": "canonical"},
-        "formatting_preservation": {"line_diff_score": 0.95, "character_diff_score": 0.95},
+        "formatting_preservation": {"line_diff_score": 1.0, "character_diff_score": 1.0},
         "secondary_formatting_metrics": {"source_fragment_retention": 1.0},
         "default_driver_evaluation": {"status": "recommended", "formatting_threshold": 0.95}
       }

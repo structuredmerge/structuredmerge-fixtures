@@ -1,0 +1,28 @@
+{
+  "name": "visibility_duplicate_method_identity",
+  "dialect": "ruby",
+  "role": "source_ambiguous_identity_report",
+  "source": "class Runner\n  def call\n    :public_call\n  end\n\n  private\n\n  def call\n    :private_call\n  end\nend\n",
+  "expected": {
+    "ambiguities": [
+      {
+        "structural_identity": "/declarations/Runner:method:call",
+        "occurrence_count": 2,
+        "addresses": [
+          "/declarations/Runner/methods/call",
+          "/declarations/Runner/methods/call[1]"
+        ],
+        "ambiguity_kind": "duplicate_structural_identity",
+        "resolution_model": "ordered_cursor",
+        "confidence": "structural_ordered"
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "ambiguous_source_owner_identity",
+        "message": "Repeated Ruby source-owner identities require ordered cursor matching."
+      }
+    ]
+  }
+}

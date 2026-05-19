@@ -1,0 +1,87 @@
+{
+  "name": "ruby_shared_conformance_contract",
+  "role": "ruby_shared_conformance_contract",
+  "expected": {
+    "report_id": "ruby-shared-conformance-contract",
+    "reference_runtime": "ruby",
+    "shared_examples": [
+      "Ast::Merge::Ruleset::FeatureProfile",
+      "Ast::Merge::FileAnalyzable",
+      "Ast::Merge::Layout::Attachment",
+      "Ast::Merge::Layout::Augmenter",
+      "Ast::Merge::RemovalModeCompliance"
+    ],
+    "conformance_fixture_axes": [
+      "owner_selection",
+      "match_keys",
+      "attachment_strategies",
+      "logical_owner_behavior",
+      "layout_aware_behavior",
+      "comment_free_formats"
+    ],
+    "downstream_proof_points": [
+      {
+        "gem": "bash-merge",
+        "features": [
+          "attachment_strategies",
+          "layout_aware_behavior",
+          "comment_behavior_matrix"
+        ]
+      },
+      {
+        "gem": "dotenv-merge",
+        "features": [
+          "attachment_strategies",
+          "layout_aware_behavior",
+          "comment_behavior_matrix"
+        ]
+      },
+      {
+        "gem": "rbs-merge",
+        "features": [
+          "attachment_strategies",
+          "layout_aware_behavior",
+          "comment_behavior_matrix"
+        ]
+      },
+      {
+        "gem": "markdown-merge",
+        "features": [
+          "logical_owner_behavior",
+          "source_region_surface",
+          "render_family"
+        ]
+      },
+      {
+        "gem": "plain-merge",
+        "features": [
+          "comment_free_formats",
+          "layout_aware_behavior"
+        ]
+      },
+      {
+        "gem": "go-merge",
+        "features": [
+          "owner_selection",
+          "match_keys"
+        ]
+      }
+    ],
+    "terminology_migration": {
+      "old_synthetic_terms": "rejected",
+      "compatibility_aliases": false,
+      "proving_specs": [
+        "Ruleset::Parser rejects old read strategies",
+        "FileAnalyzable rejects old support-style names",
+        "Comment::SupportStyle rejects old style names"
+      ]
+    },
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "ruby_shared_conformance_contract",
+        "message": "Ruby shared examples, fixtures, and migration tests cover the named release surfaces."
+      }
+    ]
+  }
+}

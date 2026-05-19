@@ -5,6 +5,30 @@
   "template": "class Runner\n  def call\n    :template_first\n  end\n\n  def call\n    :template_second\n  end\nend\n",
   "destination": "class Runner\n  def call\n    :destination_first\n  end\n\n  def call\n    :destination_second\n  end\nend\n",
   "expected": {
+    "confidence_profile": {
+      "levels": [
+        {
+          "name": "exact",
+          "meaning": "same structural identity, occurrence index, and content identity"
+        },
+        {
+          "name": "structural_ordered",
+          "meaning": "same structural identity and occurrence index"
+        },
+        {
+          "name": "content_hash",
+          "meaning": "same content-derived identity when structural identity is ambiguous"
+        },
+        {
+          "name": "token_similar",
+          "meaning": "similar token content below exact content identity"
+        },
+        {
+          "name": "unresolved",
+          "meaning": "identity is ambiguous and must not be auto-matched"
+        }
+      ]
+    },
     "matches": [
       {
         "template_address": "/declarations/Runner",
@@ -29,6 +53,13 @@
       }
     ],
     "unmatched_template": [],
-    "unmatched_destination": []
+    "unmatched_destination": [],
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "source_owner_identity_matching",
+        "message": "Ruby source-owner matching reports confidence per match and uses ordered structural pairing for duplicate identities."
+      }
+    ]
   }
 }

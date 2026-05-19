@@ -62,6 +62,7 @@
           "source_child_group_merge",
           "source_top_level_owner_merge",
           "source_intra_owner_merge",
+          "source_owner_identity_profile",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -215,6 +216,14 @@
             "ruby",
             "slice-980-same-owner-intra-owner-merge",
             "method-body-destination-wins.json"
+          ]
+        },
+        {
+          "role": "source_owner_identity_profile",
+          "path": [
+            "ruby",
+            "slice-981-source-owner-identity-profile",
+            "class-method-identity-profile.json"
           ]
         },
         {

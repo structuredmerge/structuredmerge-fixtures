@@ -1,0 +1,66 @@
+{
+  "name": "class_method_identity_profile",
+  "dialect": "ruby",
+  "role": "source_owner_identity_profile",
+  "source": "class Greeter\n  def greet(name)\n    \"Hello #{name}\"\n  end\nend\n\nclass Admin::Greeter\n  def greet(name)\n    name.upcase\n  end\nend\n",
+  "expected": {
+    "identities": [
+      {
+        "owner_kind": "class",
+        "owner_name": "Greeter",
+        "parent_scope": "/",
+        "address": "/declarations/Greeter",
+        "structural_identity": "/:class:Greeter",
+        "content_identity": "sha256:1b072f679b80f7b9f46cd01226b5b943b2137edf2b473f7b063cfcf40d38da38",
+        "identity_components": [
+          "owner_kind",
+          "owner_name",
+          "parent_scope",
+          "content_identity"
+        ]
+      },
+      {
+        "owner_kind": "method",
+        "owner_name": "greet",
+        "parent_scope": "/declarations/Greeter",
+        "address": "/declarations/Greeter/methods/greet",
+        "structural_identity": "/declarations/Greeter:method:greet",
+        "content_identity": "sha256:050e2102b08072f2be7808522448b500ab749fc848abd76c3bc8c697cebeae96",
+        "identity_components": [
+          "owner_kind",
+          "owner_name",
+          "parent_scope",
+          "content_identity"
+        ]
+      },
+      {
+        "owner_kind": "class",
+        "owner_name": "Admin::Greeter",
+        "parent_scope": "/",
+        "address": "/declarations/Admin::Greeter",
+        "structural_identity": "/:class:Admin::Greeter",
+        "content_identity": "sha256:f50d6a9b276328b4310624df5d11922e07a4a47d323c042cbd65f03aaa64638c",
+        "identity_components": [
+          "owner_kind",
+          "owner_name",
+          "parent_scope",
+          "content_identity"
+        ]
+      },
+      {
+        "owner_kind": "method",
+        "owner_name": "greet",
+        "parent_scope": "/declarations/Admin::Greeter",
+        "address": "/declarations/Admin::Greeter/methods/greet",
+        "structural_identity": "/declarations/Admin::Greeter:method:greet",
+        "content_identity": "sha256:722131dff2b95357042b9a888802d95ccedbba13ccee108defe83ce27a34578c",
+        "identity_components": [
+          "owner_kind",
+          "owner_name",
+          "parent_scope",
+          "content_identity"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "attachment_strategy_substrate",
+  "role": "attachment_strategy_substrate",
+  "expected": {
+    "report_id": "attachment-strategy-substrate",
+    "reference_runtime": "ruby",
+    "shared_surface": "Ast::Merge::FileAnalyzable#shared_comment_attachment_for",
+    "strategies": [
+      {
+        "strategy": "layout_only",
+        "shared_method": "merge_comment_attachment_with_layout",
+        "downstream_adopters": [
+          "default",
+          "ast-merge"
+        ]
+      },
+      {
+        "strategy": "tracker_layout_merge",
+        "shared_method": "merge_comment_attachment_with_layout",
+        "downstream_adopters": [
+          "dotenv-merge",
+          "psych-merge"
+        ]
+      },
+      {
+        "strategy": "augmenter_preferred_tracker_layout",
+        "shared_method": "merge_augmented_comment_attachment_with_layout",
+        "downstream_adopters": [
+          "bash-merge",
+          "json-merge"
+        ]
+      },
+      {
+        "strategy": "normalize_tracked_layout_merge",
+        "shared_method": "normalize_tracked_comment_attachment_with_layout",
+        "downstream_adopters": [
+          "markdown-merge",
+          "rbs-merge",
+          "toml-merge"
+        ]
+      }
+    ],
+    "selection_contract": {
+      "selected_by": [
+        "ruleset attach directive",
+        "FileAnalyzable#comment_attachment_strategy",
+        "Ruleset::FeatureProfile#attachment_strategy"
+      ],
+      "unknown_strategy": "ArgumentError",
+      "vocabulary": "Ast::Merge::Ruleset::ProfileVocabulary"
+    },
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "attachment_strategy_substrate",
+        "message": "Recurring attachment strategy orchestration is shared and selected by named behavior."
+      }
+    ]
+  }
+}

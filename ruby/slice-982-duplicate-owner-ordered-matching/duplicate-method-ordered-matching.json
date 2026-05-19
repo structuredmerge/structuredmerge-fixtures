@@ -1,0 +1,34 @@
+{
+  "name": "duplicate_method_ordered_identity_matching",
+  "dialect": "ruby",
+  "role": "source_owner_identity_matching",
+  "template": "class Runner\n  def call\n    :template_first\n  end\n\n  def call\n    :template_second\n  end\nend\n",
+  "destination": "class Runner\n  def call\n    :destination_first\n  end\n\n  def call\n    :destination_second\n  end\nend\n",
+  "expected": {
+    "matches": [
+      {
+        "template_address": "/declarations/Runner",
+        "destination_address": "/declarations/Runner",
+        "structural_identity": "/:class:Runner",
+        "occurrence_index": 0,
+        "confidence": "structural_ordered"
+      },
+      {
+        "template_address": "/declarations/Runner/methods/call",
+        "destination_address": "/declarations/Runner/methods/call",
+        "structural_identity": "/declarations/Runner:method:call",
+        "occurrence_index": 0,
+        "confidence": "structural_ordered"
+      },
+      {
+        "template_address": "/declarations/Runner/methods/call[1]",
+        "destination_address": "/declarations/Runner/methods/call[1]",
+        "structural_identity": "/declarations/Runner:method:call",
+        "occurrence_index": 1,
+        "confidence": "structural_ordered"
+      }
+    ],
+    "unmatched_template": [],
+    "unmatched_destination": []
+  }
+}

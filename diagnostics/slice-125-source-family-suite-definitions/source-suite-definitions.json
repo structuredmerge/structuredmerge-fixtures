@@ -63,6 +63,7 @@
           "source_top_level_owner_merge",
           "source_intra_owner_merge",
           "source_owner_identity_profile",
+          "source_owner_identity_matching",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -224,6 +225,14 @@
             "ruby",
             "slice-981-source-owner-identity-profile",
             "class-method-identity-profile.json"
+          ]
+        },
+        {
+          "role": "source_owner_identity_matching",
+          "path": [
+            "ruby",
+            "slice-982-duplicate-owner-ordered-matching",
+            "duplicate-method-ordered-matching.json"
           ]
         },
         {

@@ -17,7 +17,8 @@
           "owner_name",
           "parent_scope",
           "content_identity"
-        ]
+        ],
+        "occurrence_index": 0
       },
       {
         "owner_kind": "method",
@@ -31,7 +32,8 @@
           "owner_name",
           "parent_scope",
           "content_identity"
-        ]
+        ],
+        "occurrence_index": 0
       },
       {
         "owner_kind": "class",
@@ -45,7 +47,8 @@
           "owner_name",
           "parent_scope",
           "content_identity"
-        ]
+        ],
+        "occurrence_index": 0
       },
       {
         "owner_kind": "method",
@@ -59,7 +62,8 @@
           "owner_name",
           "parent_scope",
           "content_identity"
-        ]
+        ],
+        "occurrence_index": 0
       }
     ]
   }

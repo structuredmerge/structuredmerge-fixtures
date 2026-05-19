@@ -71,6 +71,7 @@
           "source_interstitial_require_merge",
           "source_interstitial_comment_attachment",
           "source_blank_line_ownership",
+          "source_file_edge_merge",
           "source_fallback_policy_profile",
           "discovered_surfaces",
           "delegated_child_operations"
@@ -297,6 +298,14 @@
             "ruby",
             "slice-990-blank-line-ownership",
             "blank-line-ownership.json"
+          ]
+        },
+        {
+          "role": "source_file_edge_merge",
+          "path": [
+            "ruby",
+            "slice-991-file-edge-merge",
+            "file-edge-merge.json"
           ]
         },
         {

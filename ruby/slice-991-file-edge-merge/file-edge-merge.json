@@ -1,0 +1,11 @@
+{
+  "name": "file_edge_merge",
+  "dialect": "ruby",
+  "role": "source_file_edge_merge",
+  "template": "# Template header\n\nclass Greeter\nend\n\n# Template footer\n",
+  "destination": "# Destination header\n\nclass Greeter\nend\n\n# Destination footer\n",
+  "expected": {
+    "ok": true,
+    "output": "# Destination header\n\nclass Greeter\nend\n\n# Destination footer\n"
+  }
+}

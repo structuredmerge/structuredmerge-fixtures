@@ -75,6 +75,7 @@
           "source_file_edge_merge",
           "source_fallback_policy_profile",
           "source_fallback_activation_report",
+          "source_never_worse_fallback_mode",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -332,6 +333,14 @@
             "ruby",
             "slice-993-fallback-activation-report",
             "ruby-fallback-activation-report.json"
+          ]
+        },
+        {
+          "role": "source_never_worse_fallback_mode",
+          "path": [
+            "ruby",
+            "slice-994-never-worse-fallback-mode",
+            "ruby-never-worse-fallback-mode.json"
           ]
         },
         {

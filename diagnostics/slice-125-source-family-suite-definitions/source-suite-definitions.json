@@ -58,6 +58,7 @@
         "roles": [
           "analysis",
           "matching",
+          "source_region_analysis",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -179,6 +180,14 @@
             "ruby",
             "slice-219-matching",
             "path-equality.json"
+          ]
+        },
+        {
+          "role": "source_region_analysis",
+          "path": [
+            "ruby",
+            "slice-977-source-region-analysis",
+            "class-method-source-regions.json"
           ]
         },
         {

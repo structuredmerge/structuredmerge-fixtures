@@ -1,0 +1,129 @@
+{
+  "name": "class_method_source_regions",
+  "dialect": "ruby",
+  "role": "source_region_analysis",
+  "source": "require \"json\"\n\n# Greets the caller.\nclass Greeter\n  def greet(name)\n    \"Hello #{name}\"\n  end\n\n  # Says goodbye.\n  def farewell(name)\n    \"Goodbye #{name}\"\n  end\nend\n",
+  "expected": {
+    "regions": [
+      {
+        "region_id": "require:json",
+        "region_kind": "owner",
+        "owner_kind": "require",
+        "address": "/requires/json",
+        "match_key": "json",
+        "span": {
+          "start_line": 1,
+          "end_line": 1
+        },
+        "content": "require \"json\"\n"
+      },
+      {
+        "region_id": "between:require:json:declaration:Greeter",
+        "region_kind": "interstitial",
+        "position": "between",
+        "previous_owner": "/requires/json",
+        "next_owner": "/declarations/Greeter",
+        "span": {
+          "start_line": 2,
+          "end_line": 2
+        },
+        "content": "\n"
+      },
+      {
+        "region_id": "declaration:Greeter",
+        "region_kind": "owner",
+        "owner_kind": "class",
+        "address": "/declarations/Greeter",
+        "match_key": "Greeter",
+        "span": {
+          "start_line": 3,
+          "end_line": 13
+        },
+        "declaration_span": {
+          "start_line": 4,
+          "end_line": 13
+        },
+        "attached_comments": [
+          {
+            "attachment": "leading",
+            "start_line": 3,
+            "end_line": 3,
+            "content": "# Greets the caller.\n"
+          }
+        ],
+        "content": "# Greets the caller.\nclass Greeter\n  def greet(name)\n    \"Hello #{name}\"\n  end\n\n  # Says goodbye.\n  def farewell(name)\n    \"Goodbye #{name}\"\n  end\nend\n",
+        "child_regions": [
+          {
+            "region_id": "class_header:Greeter",
+            "region_kind": "interstitial",
+            "position": "container_header",
+            "span": {
+              "start_line": 4,
+              "end_line": 4
+            },
+            "content": "class Greeter\n"
+          },
+          {
+            "region_id": "method:Greeter#greet",
+            "region_kind": "owner",
+            "owner_kind": "method",
+            "address": "/declarations/Greeter/methods/greet",
+            "match_key": "greet",
+            "span": {
+              "start_line": 5,
+              "end_line": 7
+            },
+            "content": "  def greet(name)\n    \"Hello #{name}\"\n  end\n"
+          },
+          {
+            "region_id": "between:method:Greeter#greet:method:Greeter#farewell",
+            "region_kind": "interstitial",
+            "position": "between",
+            "previous_owner": "/declarations/Greeter/methods/greet",
+            "next_owner": "/declarations/Greeter/methods/farewell",
+            "span": {
+              "start_line": 8,
+              "end_line": 8
+            },
+            "content": "\n"
+          },
+          {
+            "region_id": "method:Greeter#farewell",
+            "region_kind": "owner",
+            "owner_kind": "method",
+            "address": "/declarations/Greeter/methods/farewell",
+            "match_key": "farewell",
+            "span": {
+              "start_line": 9,
+              "end_line": 12
+            },
+            "declaration_span": {
+              "start_line": 10,
+              "end_line": 12
+            },
+            "attached_comments": [
+              {
+                "attachment": "leading",
+                "start_line": 9,
+                "end_line": 9,
+                "content": "  # Says goodbye.\n"
+              }
+            ],
+            "content": "  # Says goodbye.\n  def farewell(name)\n    \"Goodbye #{name}\"\n  end\n"
+          },
+          {
+            "region_id": "class_footer:Greeter",
+            "region_kind": "interstitial",
+            "position": "container_footer",
+            "span": {
+              "start_line": 13,
+              "end_line": 13
+            },
+            "content": "end\n"
+          }
+        ]
+      }
+    ],
+    "trailing_newline": true
+  }
+}

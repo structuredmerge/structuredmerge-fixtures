@@ -1,0 +1,36 @@
+{
+  "name": "cross_container_method_move",
+  "dialect": "ruby",
+  "role": "source_cross_container_move_detection",
+  "template": "class Source\n  def move_me\n    :same_body\n  end\nend\n\nclass Target\nend\n",
+  "destination": "class Source\nend\n\nclass Target\n  def move_me\n    :same_body\n  end\nend\n",
+  "expected": {
+    "capability": {
+      "name": "move_detection",
+      "enabled": true,
+      "default_enabled": false,
+      "requires_stable_node_identity": true
+    },
+    "moves": [
+      {
+        "from_address": "/declarations/Source/methods/move_me",
+        "to_address": "/declarations/Target/methods/move_me",
+        "from_parent_scope": "/declarations/Source",
+        "to_parent_scope": "/declarations/Target",
+        "signature": "move_me",
+        "moved": true,
+        "move_kind": "cross_container",
+        "ordering_policy": "destination_order",
+        "preserves_destination_order": true,
+        "confidence": "content_hash"
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "ruby_cross_container_method_move",
+        "message": "Ruby detected same-signature method movement across containers while preserving destination order."
+      }
+    ]
+  }
+}

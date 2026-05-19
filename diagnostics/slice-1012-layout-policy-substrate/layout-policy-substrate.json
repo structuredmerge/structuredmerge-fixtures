@@ -1,0 +1,38 @@
+{
+  "name": "layout_policy_substrate",
+  "role": "layout_policy_substrate",
+  "expected": {
+    "report_id": "layout-policy-substrate",
+    "reference_runtime": "ruby",
+    "shared_surface": "Ast::Merge::Layout",
+    "components": [
+      "Ast::Merge::Layout::Augmenter",
+      "Ast::Merge::Layout::Attachment",
+      "Ast::Merge::Layout::Gap",
+      "Ast::Merge::Layout::Policy"
+    ],
+    "gap_kinds": [
+      "preamble",
+      "interstitial",
+      "postlude"
+    ],
+    "policy_modes": [
+      "preserve_exact",
+      "blank_line_equivalent"
+    ],
+    "default_policy": "preserve_exact",
+    "comment_free_layout_aware": true,
+    "whitespace_equivalence": {
+      "implicit_cleanup": false,
+      "exact_preservation_default": true,
+      "named_equivalence_policy": "blank_line_equivalent"
+    },
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "layout_policy_substrate",
+        "message": "Layout-aware behavior is shared, exact by default, and supports comment-free formats."
+      }
+    ]
+  }
+}

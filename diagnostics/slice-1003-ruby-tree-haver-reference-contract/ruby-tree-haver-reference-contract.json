@@ -1,0 +1,73 @@
+{
+  "name": "ruby_tree_haver_reference_contract",
+  "role": "ruby_tree_haver_reference_contract",
+  "expected": {
+    "report_id": "ruby-tree-haver-parser-backend-contract",
+    "reference_runtime": "ruby",
+    "contract_layer": "tree_haver",
+    "proves": [
+      {
+        "capability": "stable_node_spans",
+        "fixture_roles": [
+          "portable_byte_location_contract",
+          "node_span_source_fragment"
+        ],
+        "ruby_surface": "TreeHaver::ByteRange and TreeHaver::SourceSpan",
+        "portability": "portable_contract"
+      },
+      {
+        "capability": "source_fragments",
+        "fixture_roles": [
+          "source_fragment_extraction",
+          "node_span_source_fragment"
+        ],
+        "ruby_surface": "TreeHaver.extract_source_fragment",
+        "portability": "portable_contract"
+      },
+      {
+        "capability": "comments_when_backend_supports_them",
+        "fixture_roles": [
+          "comment_capability"
+        ],
+        "ruby_surface": "TreeHaver::Base::Comment",
+        "portability": "backend_restricted_contract"
+      },
+      {
+        "capability": "parser_diagnostics",
+        "fixture_roles": [
+          "parse_error_tolerance",
+          "parser_diagnostics"
+        ],
+        "ruby_surface": "TreeHaver::ParseErrorTolerance and TreeHaver::ParserDiagnostics",
+        "portability": "portable_contract"
+      },
+      {
+        "capability": "backend_capability_reports",
+        "fixture_roles": [
+          "backend_capability_report",
+          "backend_availability",
+          "provider_diagnostics"
+        ],
+        "ruby_surface": "TreeHaver::BackendCapability",
+        "portability": "portable_contract"
+      },
+      {
+        "capability": "backend_selection_context",
+        "fixture_roles": [
+          "backend_selection_context",
+          "backend_registry"
+        ],
+        "ruby_surface": "TreeHaver.with_backend and TreeHaver.current_backend_id",
+        "portability": "portable_contract_runtime_local_mechanism"
+      }
+    ],
+    "release_status": "ruby_reference_ready",
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "ruby_reference_contract",
+        "message": "Ruby tree_haver proves the parser/backend substrate needed by source-region extraction."
+      }
+    ]
+  }
+}

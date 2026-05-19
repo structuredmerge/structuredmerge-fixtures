@@ -1,0 +1,39 @@
+{
+  "name": "ruby_conflict_diagnostics_profile",
+  "dialect": "ruby",
+  "role": "source_conflict_diagnostics_profile",
+  "expected": {
+    "profile_id": "ruby-source-conflict-diagnostics",
+    "conflict_kinds": [
+      "both_modified",
+      "both_added",
+      "modify_delete",
+      "rename_rename",
+      "rename_modify",
+      "order_sensitive_sibling_additions",
+      "interstitial_conflict",
+      "validation_failure"
+    ],
+    "risk_levels": [
+      "text_only",
+      "syntax_level",
+      "semantic_risk",
+      "unknown"
+    ],
+    "marker_compatibility": {
+      "standard_markers": true,
+      "enhanced_metadata": "sidecar_or_review_state"
+    },
+    "audit_fields": [
+      "owner_identity",
+      "owner_kind",
+      "strategy_chosen",
+      "match_confidence",
+      "fallback_reason",
+      "validation_warnings",
+      "conflict_kind",
+      "conflict_scope"
+    ],
+    "stable_for_review_replay": true
+  }
+}

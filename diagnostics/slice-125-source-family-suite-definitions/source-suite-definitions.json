@@ -74,6 +74,7 @@
           "source_blank_line_ownership",
           "source_file_edge_merge",
           "source_fallback_policy_profile",
+          "source_fallback_activation_report",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -323,6 +324,14 @@
             "ruby",
             "slice-983-fallback-policy-profile",
             "ruby-fallback-policy-profile.json"
+          ]
+        },
+        {
+          "role": "source_fallback_activation_report",
+          "path": [
+            "ruby",
+            "slice-993-fallback-activation-report",
+            "ruby-fallback-activation-report.json"
           ]
         },
         {

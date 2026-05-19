@@ -1,0 +1,20 @@
+{
+  "name": "ruby_fallback_activation_report",
+  "dialect": "ruby",
+  "role": "source_fallback_activation_report",
+  "expected": {
+    "activated": true,
+    "reason": "backend_diagnostic_threshold",
+    "scope": "owned_region",
+    "selected_baseline": "host_baseline_merge",
+    "structured_result_discarded": true,
+    "policy_id": "ruby-source-fallback-policy",
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "fallback_applied",
+        "message": "Ruby source fallback activated for backend_diagnostic_threshold at owned_region scope."
+      }
+    ]
+  }
+}

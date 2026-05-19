@@ -80,6 +80,7 @@
           "source_post_merge_validation_profile",
           "source_silent_data_loss_validation",
           "source_conflict_diagnostics_profile",
+          "source_formatter_adapter_policy",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -377,6 +378,14 @@
             "ruby",
             "slice-998-conflict-diagnostics-profile",
             "ruby-conflict-diagnostics-profile.json"
+          ]
+        },
+        {
+          "role": "source_formatter_adapter_policy",
+          "path": [
+            "ruby",
+            "slice-999-formatter-adapter-policy",
+            "ruby-formatter-adapter-policy.json"
           ]
         },
         {

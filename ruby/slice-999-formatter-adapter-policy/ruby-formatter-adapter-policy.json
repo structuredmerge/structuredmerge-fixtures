@@ -1,0 +1,64 @@
+{
+  "name": "ruby_formatter_adapter_policy",
+  "dialect": "ruby",
+  "role": "source_formatter_adapter_policy",
+  "pre_format_output": "class Widget\n  def call\n    value= 1\n    value\n  end\nend\n",
+  "formatted_output": "class Widget\n  def call\n    value = 1\n    value\n  end\nend\n",
+  "expected": {
+    "policy": {
+      "profile_id": "ruby-source-formatter-policy",
+      "adapter_phase": "optional_post_merge_adapter",
+      "semantic_validation": "not_proven_by_formatter",
+      "policies": [
+        "no_formatter",
+        "validate_only",
+        "format_after_clean_merge",
+        "format_after_fallback",
+        "formatter_failure_is_warning",
+        "formatter_failure_is_hard_error"
+      ],
+      "portable_fixture_default": "no_formatter",
+      "formatter_execution_in_portable_expectations": "only_when_fixture_opts_in",
+      "invariants": [
+        "owner_identity",
+        "conflict_scope",
+        "validation_semantics"
+      ]
+    },
+    "adapter_report": {
+      "policy": "format_after_clean_merge",
+      "formatter_profile": "ruby-source-formatter-policy",
+      "adapter_phase": "optional_post_merge_adapter",
+      "semantic_validation": "not_proven_by_formatter",
+      "whitespace_repaired": true,
+      "owners_preserved": true,
+      "conflict_scope_preserved": true,
+      "validation_semantics_preserved": true,
+      "conflict_scope": "none",
+      "portable_expectation": "formatter_not_executed_unless_fixture_opts_in",
+      "owner_signatures": [
+        {
+          "owner_kind": "class",
+          "owner_name": "Widget",
+          "parent_scope": "/",
+          "structural_identity": "/:class:Widget",
+          "occurrence_index": 0
+        },
+        {
+          "owner_kind": "method",
+          "owner_name": "call",
+          "parent_scope": "/declarations/Widget",
+          "structural_identity": "/declarations/Widget:method:call",
+          "occurrence_index": 0
+        }
+      ],
+      "diagnostics": [
+        {
+          "severity": "info",
+          "category": "formatter_adapter_accepted",
+          "message": "Ruby formatter adapter preserved owner identity, conflict scope, and validation semantics."
+        }
+      ]
+    }
+  }
+}

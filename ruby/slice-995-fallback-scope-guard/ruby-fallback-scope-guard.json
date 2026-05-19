@@ -1,0 +1,18 @@
+{
+  "name": "ruby_fallback_scope_guard",
+  "dialect": "ruby",
+  "role": "source_fallback_scope_guard",
+  "expected": {
+    "requested_scope": "whole_file",
+    "declared_scope": "owned_region",
+    "widened": true,
+    "activated": false,
+    "diagnostics": [
+      {
+        "severity": "error",
+        "category": "fallback_scope_widening_rejected",
+        "message": "Ruby fallback cannot widen from owned_region to whole_file without an explicit policy."
+      }
+    ]
+  }
+}

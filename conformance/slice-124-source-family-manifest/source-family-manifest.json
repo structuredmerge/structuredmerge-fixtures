@@ -42,6 +42,7 @@
       { "role": "source_fallback_policy_profile", "path": ["ruby", "slice-983-fallback-policy-profile", "ruby-fallback-policy-profile.json"] },
       { "role": "source_fallback_activation_report", "path": ["ruby", "slice-993-fallback-activation-report", "ruby-fallback-activation-report.json"] },
       { "role": "source_never_worse_fallback_mode", "path": ["ruby", "slice-994-never-worse-fallback-mode", "ruby-never-worse-fallback-mode.json"] },
+      { "role": "source_fallback_scope_guard", "path": ["ruby", "slice-995-fallback-scope-guard", "ruby-fallback-scope-guard.json"] },
       { "role": "discovered_surfaces", "path": ["ruby", "slice-220-discovered-surfaces", "doc-comment-surfaces.json"] },
       { "role": "delegated_child_operations", "path": ["ruby", "slice-221-delegated-child-operations", "yard-example-child-operations.json"] }
     ]

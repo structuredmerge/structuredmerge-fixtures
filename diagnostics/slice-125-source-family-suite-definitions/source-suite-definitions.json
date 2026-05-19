@@ -76,6 +76,7 @@
           "source_fallback_policy_profile",
           "source_fallback_activation_report",
           "source_never_worse_fallback_mode",
+          "source_fallback_scope_guard",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -341,6 +342,14 @@
             "ruby",
             "slice-994-never-worse-fallback-mode",
             "ruby-never-worse-fallback-mode.json"
+          ]
+        },
+        {
+          "role": "source_fallback_scope_guard",
+          "path": [
+            "ruby",
+            "slice-995-fallback-scope-guard",
+            "ruby-fallback-scope-guard.json"
           ]
         },
         {

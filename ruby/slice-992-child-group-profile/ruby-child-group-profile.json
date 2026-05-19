@@ -1,0 +1,41 @@
+{
+  "name": "ruby_child_group_profile",
+  "dialect": "ruby",
+  "role": "source_child_group_profile",
+  "expected": {
+    "profile_id": "ruby-source-child-groups",
+    "groups": [
+      {
+        "owner_kind": "class",
+        "child_group": "methods",
+        "ordering": "policy_ordered",
+        "ordering_policy": "destination_order",
+        "commutative": false,
+        "visibility_sections": [
+          "public",
+          "protected",
+          "private"
+        ]
+      },
+      {
+        "owner_kind": "class",
+        "child_group": "constants",
+        "ordering": "destination_order_then_template_additions",
+        "commutative": false
+      },
+      {
+        "owner_kind": "module",
+        "child_group": "declarations",
+        "ordering": "destination_order_then_template_additions",
+        "commutative": false
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "ruby_child_group_profile",
+        "message": "Ruby child groups preserve destination order unless an explicit policy says otherwise."
+      }
+    ]
+  }
+}

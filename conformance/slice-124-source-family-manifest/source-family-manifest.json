@@ -26,6 +26,7 @@
       { "role": "matching", "path": ["ruby", "slice-219-matching", "path-equality.json"] },
       { "role": "source_region_analysis", "path": ["ruby", "slice-977-source-region-analysis", "class-method-source-regions.json"] },
       { "role": "source_child_group_merge", "path": ["ruby", "slice-978-independent-method-child-group-merge", "independent-method-additions.json"] },
+      { "role": "source_child_group_profile", "path": ["ruby", "slice-992-child-group-profile", "ruby-child-group-profile.json"] },
       { "role": "source_top_level_owner_merge", "path": ["ruby", "slice-979-independent-function-owner-merge", "independent-function-additions.json"] },
       { "role": "source_intra_owner_merge", "path": ["ruby", "slice-980-same-owner-intra-owner-merge", "method-body-destination-wins.json"] },
       { "role": "source_owner_identity_profile", "path": ["ruby", "slice-981-source-owner-identity-profile", "class-method-identity-profile.json"] },

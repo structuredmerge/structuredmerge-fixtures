@@ -60,6 +60,7 @@
           "matching",
           "source_region_analysis",
           "source_child_group_merge",
+          "source_child_group_profile",
           "source_top_level_owner_merge",
           "source_intra_owner_merge",
           "source_owner_identity_profile",
@@ -210,6 +211,14 @@
             "ruby",
             "slice-978-independent-method-child-group-merge",
             "independent-method-additions.json"
+          ]
+        },
+        {
+          "role": "source_child_group_profile",
+          "path": [
+            "ruby",
+            "slice-992-child-group-profile",
+            "ruby-child-group-profile.json"
           ]
         },
         {

@@ -1,0 +1,50 @@
+{
+  "name": "clean_method_rename",
+  "dialect": "ruby",
+  "role": "source_rename_detection",
+  "template": "class Greeter\n  def greet\n    :ok\n  end\nend\n",
+  "destination": "class Greeter\n  def salute\n    :ok\n  end\nend\n",
+  "expected": {
+    "policy": {
+      "policy_id": "ruby-source-rename-detection",
+      "capability": {
+        "name": "rename_detection",
+        "enabled": true,
+        "default_enabled": false,
+        "explicit": true
+      },
+      "signals": [
+        "body_hash_with_owner_name_normalization",
+        "structural_hash",
+        "token_similarity",
+        "parent_scope_similarity",
+        "backend_native_move_metadata"
+      ],
+      "clean_rename_confidence": "content_hash",
+      "conflict_policy": "report_rename_plus_edit"
+    },
+    "renames": [
+      {
+        "from_address": "/declarations/Greeter/methods/greet",
+        "to_address": "/declarations/Greeter/methods/salute",
+        "from_name": "greet",
+        "to_name": "salute",
+        "parent_scope": "/declarations/Greeter",
+        "confidence": "content_hash",
+        "signals": [
+          "body_hash_with_owner_name_normalization",
+          "parent_scope_similarity"
+        ],
+        "clean_rename": true
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "ruby_rename_detection",
+        "message": "Ruby rename detection is explicit and reports clean same-parent method renames by normalized body hash."
+      }
+    ],
+    "unmatched_destination": []
+  }
+}

@@ -65,6 +65,7 @@
           "source_owner_identity_profile",
           "source_owner_identity_matching",
           "source_ambiguous_identity_report",
+          "source_rename_detection",
           "source_fallback_policy_profile",
           "discovered_surfaces",
           "delegated_child_operations"
@@ -243,6 +244,14 @@
             "ruby",
             "slice-984-ambiguous-visibility-owner-identity",
             "visibility-duplicate-method-identity.json"
+          ]
+        },
+        {
+          "role": "source_rename_detection",
+          "path": [
+            "ruby",
+            "slice-985-clean-rename-detection",
+            "clean-method-rename.json"
           ]
         },
         {

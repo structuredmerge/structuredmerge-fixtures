@@ -81,6 +81,7 @@
           "source_silent_data_loss_validation",
           "source_conflict_diagnostics_profile",
           "source_formatter_adapter_policy",
+          "source_ast_node_merge_strategy",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -386,6 +387,14 @@
             "ruby",
             "slice-999-formatter-adapter-policy",
             "ruby-formatter-adapter-policy.json"
+          ]
+        },
+        {
+          "role": "source_ast_node_merge_strategy",
+          "path": [
+            "ruby",
+            "slice-1000-ast-node-merge-strategy",
+            "ruby-ast-node-merge-strategy.json"
           ]
         },
         {

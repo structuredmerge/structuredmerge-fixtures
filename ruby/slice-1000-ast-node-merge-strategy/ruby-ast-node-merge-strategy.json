@@ -1,0 +1,113 @@
+{
+  "name": "ruby_ast_node_merge_strategy",
+  "dialect": "ruby",
+  "role": "source_ast_node_merge_strategy",
+  "expression_level_candidate": {
+    "surface": "argument_list",
+    "base": "configure(retry: 1)\n",
+    "template": "configure(retry: 1, timeout: 5)\n",
+    "destination": "configure(retry: 1, logger: logger)\n"
+  },
+  "risky_reconstruction_candidate": {
+    "surface": "expression",
+    "base": "result = call(a) # keep marker-adjacent note\n",
+    "template": "result = call(a, b) # keep marker-adjacent note\n",
+    "destination": "result = call(\n  a\n) # keep marker-adjacent note\n"
+  },
+  "expected": {
+    "profile": {
+      "profile_id": "ruby-optional-ast-node-merge",
+      "merge_surfaces": [
+        "owner",
+        "ast_node",
+        "line",
+        "hybrid"
+      ],
+      "optional_fine_grained_profiles": [
+        "expression",
+        "argument_list",
+        "hash_literal_pair"
+      ],
+      "child_ordering_strategies": [
+        "destination_order",
+        "successor_constraints",
+        "pcs_like_triples"
+      ],
+      "public_contract_level": "ruleset_and_fixture",
+      "default_surface": "owner",
+      "backend_strategy_choices": [
+        "entity_level",
+        "ast_level",
+        "line_level",
+        "hybrid"
+      ],
+      "reconstruction_policy": {
+        "preserve_original_text_unless_backend_declares_renderer": true,
+        "conflict_marker_placement_requires_text_boundary": true,
+        "risky_reconstruction_outcome": "fallback_or_scoped_conflict"
+      }
+    },
+    "expression_level_report": {
+      "surface": "argument_list",
+      "strategy_profile": "ruby-optional-ast-node-merge",
+      "candidate_strategy": "hybrid_ast_node_merge",
+      "owner_level_fallback_too_blunt": true,
+      "successor_ordering_available": true,
+      "pcs_like_strategy_available": true,
+      "public_contract_level": "ruleset_and_fixture",
+      "backend_strategy_choices": [
+        "entity_level",
+        "ast_level",
+        "line_level",
+        "hybrid"
+      ],
+      "inputs": {
+        "base": "configure(retry: 1)\n",
+        "template": "configure(retry: 1, timeout: 5)\n",
+        "destination": "configure(retry: 1, logger: logger)\n"
+      },
+      "reconstruction": {
+        "risky": false,
+        "outcome": "preserve_original_text_boundaries"
+      },
+      "diagnostics": [
+        {
+          "severity": "info",
+          "category": "ast_node_merge_candidate",
+          "message": "Ruby AST-node merge candidate can be considered when owner-level fallback would be too blunt."
+        }
+      ]
+    },
+    "risky_reconstruction_report": {
+      "surface": "expression",
+      "strategy_profile": "ruby-optional-ast-node-merge",
+      "candidate_strategy": "fallback_or_scoped_conflict",
+      "owner_level_fallback_too_blunt": false,
+      "successor_ordering_available": true,
+      "pcs_like_strategy_available": true,
+      "public_contract_level": "ruleset_and_fixture",
+      "backend_strategy_choices": [
+        "entity_level",
+        "ast_level",
+        "line_level",
+        "hybrid"
+      ],
+      "inputs": {
+        "base": "result = call(a) # keep marker-adjacent note\n",
+        "template": "result = call(a, b) # keep marker-adjacent note\n",
+        "destination": "result = call(\n  a\n) # keep marker-adjacent note\n"
+      },
+      "reconstruction": {
+        "risky": true,
+        "outcome": "fallback_or_scoped_conflict"
+      },
+      "diagnostics": [
+        {
+          "severity": "warning",
+          "category": "ast_node_reconstruction_risk",
+          "message": "Ruby AST-node merge candidate has ambiguous whitespace, comment, or marker reconstruction boundaries."
+        }
+      ]
+    }
+  }
+}

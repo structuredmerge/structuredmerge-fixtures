@@ -1,0 +1,103 @@
+{
+  "name": "ruby_vcs_tool_integration",
+  "dialect": "ruby",
+  "role": "source_vcs_tool_integration",
+  "sample_invocation": {
+    "host": "git_merge_driver",
+    "event": "fallback_activated",
+    "path": "lib/widget.rb",
+    "timeout_ms": 5000
+  },
+  "expected": {
+    "profile": {
+      "profile_id": "ruby-vcs-tool-integration",
+      "hosts": {
+        "git_merge_driver": {
+          "contract": "git_merge_driver",
+          "placeholders": [
+            "%O",
+            "%A",
+            "%B",
+            "%P"
+          ],
+          "output_target": "%A",
+          "standard_marker_modes": [
+            "diff3",
+            "zdiff3",
+            "merge"
+          ],
+          "marker_size": "host_provided"
+        },
+        "jujutsu_merge_tool": {
+          "contract": "jj_merge_tool",
+          "roles": [
+            "base",
+            "left",
+            "right",
+            "output",
+            "path"
+          ],
+          "output_target": "output",
+          "standard_marker_modes": [
+            "diff3",
+            "merge"
+          ],
+          "marker_size": "host_provided"
+        }
+      },
+      "enhanced_markers": {
+        "optional": true,
+        "requires_host_tolerance": true,
+        "default": "standard_markers"
+      },
+      "audit_artifact": {
+        "enabled": true,
+        "formats": [
+          "json"
+        ],
+        "fields": [
+          "host",
+          "operation",
+          "path",
+          "fallback_reason",
+          "validation_warnings",
+          "conflict_kind",
+          "timeout_ms"
+        ]
+      },
+      "resource_budget": {
+        "timeout_ms": 5000,
+        "timeout_outcome": "fallback_or_driver_error",
+        "cannot_hang_vcs_operation": true
+      },
+      "diagnostics": [
+        "structured_merge_skipped",
+        "fallback_activated",
+        "driver_invocation_error",
+        "tool_invocation_error",
+        "timeout_or_resource_budget"
+      ]
+    },
+    "invocation_report": {
+      "host": "git_merge_driver",
+      "event": "fallback_activated",
+      "path": "lib/widget.rb",
+      "integration_profile": "ruby-vcs-tool-integration",
+      "marker_mode": "standard_markers",
+      "marker_size": "host_provided",
+      "audit_artifact": {
+        "format": "json",
+        "required": true
+      },
+      "timeout_ms": 5000,
+      "resource_budget_enforced": true,
+      "diagnostics": [
+        {
+          "severity": "warning",
+          "category": "fallback_activated",
+          "message": "Ruby git_merge_driver integration reported fallback_activated for lib/widget.rb."
+        }
+      ]
+    }
+  }
+}

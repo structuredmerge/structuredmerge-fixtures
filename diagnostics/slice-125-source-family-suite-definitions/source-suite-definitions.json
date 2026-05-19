@@ -82,6 +82,7 @@
           "source_conflict_diagnostics_profile",
           "source_formatter_adapter_policy",
           "source_ast_node_merge_strategy",
+          "source_vcs_tool_integration",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -395,6 +396,14 @@
             "ruby",
             "slice-1000-ast-node-merge-strategy",
             "ruby-ast-node-merge-strategy.json"
+          ]
+        },
+        {
+          "role": "source_vcs_tool_integration",
+          "path": [
+            "ruby",
+            "slice-1001-vcs-tool-integration",
+            "ruby-vcs-tool-integration.json"
           ]
         },
         {

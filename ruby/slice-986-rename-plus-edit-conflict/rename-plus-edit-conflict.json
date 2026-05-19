@@ -1,0 +1,50 @@
+{
+  "name": "rename_plus_edit_conflict",
+  "dialect": "ruby",
+  "role": "source_rename_plus_edit_conflict",
+  "base": "class Greeter\n  def greet\n    :base\n  end\nend\n",
+  "template": "class Greeter\n  def salute\n    :template\n  end\nend\n",
+  "destination": "class Greeter\n  def welcome\n    :destination\n  end\nend\n",
+  "expected": {
+    "policy": {
+      "policy_id": "ruby-source-rename-detection",
+      "capability": {
+        "name": "rename_detection",
+        "enabled": true,
+        "default_enabled": false,
+        "explicit": true
+      },
+      "signals": [
+        "body_hash_with_owner_name_normalization",
+        "structural_hash",
+        "token_similarity",
+        "parent_scope_similarity",
+        "backend_native_move_metadata"
+      ],
+      "clean_rename_confidence": "content_hash",
+      "conflict_policy": "report_rename_plus_edit"
+    },
+    "conflicts": [
+      {
+        "base_address": "/declarations/Greeter/methods/greet",
+        "template_address": "/declarations/Greeter/methods/salute",
+        "destination_address": "/declarations/Greeter/methods/welcome",
+        "parent_scope": "/declarations/Greeter",
+        "conflict_kind": "rename_plus_edit",
+        "fallback_scope": "owned_region",
+        "confidence": "unresolved",
+        "diagnostics": [
+          "both branches renamed the same Ruby owner differently",
+          "method body identity changed on at least one side"
+        ]
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "warning",
+        "category": "ruby_rename_plus_edit_conflict",
+        "message": "Ruby rename detection found incompatible rename-plus-edit changes."
+      }
+    ]
+  }
+}

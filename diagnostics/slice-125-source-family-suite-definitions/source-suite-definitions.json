@@ -66,6 +66,7 @@
           "source_owner_identity_matching",
           "source_ambiguous_identity_report",
           "source_rename_detection",
+          "source_rename_plus_edit_conflict",
           "source_fallback_policy_profile",
           "discovered_surfaces",
           "delegated_child_operations"
@@ -252,6 +253,14 @@
             "ruby",
             "slice-985-clean-rename-detection",
             "clean-method-rename.json"
+          ]
+        },
+        {
+          "role": "source_rename_plus_edit_conflict",
+          "path": [
+            "ruby",
+            "slice-986-rename-plus-edit-conflict",
+            "rename-plus-edit-conflict.json"
           ]
         },
         {

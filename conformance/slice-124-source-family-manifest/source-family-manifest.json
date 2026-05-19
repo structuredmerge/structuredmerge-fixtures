@@ -34,6 +34,7 @@
       { "role": "source_rename_detection", "path": ["ruby", "slice-985-clean-rename-detection", "clean-method-rename.json"] },
       { "role": "source_rename_plus_edit_conflict", "path": ["ruby", "slice-986-rename-plus-edit-conflict", "rename-plus-edit-conflict.json"] },
       { "role": "source_cross_container_move_detection", "path": ["ruby", "slice-987-cross-container-method-move", "cross-container-method-move.json"] },
+      { "role": "source_interstitial_require_merge", "path": ["ruby", "slice-988-interstitial-require-merge", "require-ordering-interstitial-merge.json"] },
       { "role": "source_fallback_policy_profile", "path": ["ruby", "slice-983-fallback-policy-profile", "ruby-fallback-policy-profile.json"] },
       { "role": "discovered_surfaces", "path": ["ruby", "slice-220-discovered-surfaces", "doc-comment-surfaces.json"] },
       { "role": "delegated_child_operations", "path": ["ruby", "slice-221-delegated-child-operations", "yard-example-child-operations.json"] }

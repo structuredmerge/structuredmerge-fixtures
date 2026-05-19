@@ -1,0 +1,43 @@
+{
+  "name": "require_ordering_interstitial_merge",
+  "dialect": "ruby",
+  "role": "source_interstitial_require_merge",
+  "template": "require \"json\"\nrequire \"set\"\n\nclass Greeter\nend\n",
+  "destination": "require \"pathname\"\nrequire \"json\"\n\nclass Greeter\nend\n",
+  "expected": {
+    "policy": {
+      "policy_id": "ruby-source-interstitial-merge",
+      "separates_owner_merge": true,
+      "region_kinds": [
+        "file_header",
+        "file_footer",
+        "container_header",
+        "container_footer",
+        "between"
+      ],
+      "owner_adjacency_fields": [
+        "previous_owner",
+        "next_owner"
+      ],
+      "rules": [
+        {
+          "region_kind": "require",
+          "ordering": "destination_order_then_template_additions",
+          "duplicate_key": "require_path"
+        },
+        {
+          "region_kind": "blank_line",
+          "ownership": "preserve_declared_region_owner"
+        },
+        {
+          "region_kind": "comment",
+          "attachment": "nearest_declared_owner_or_standalone"
+        }
+      ]
+    },
+    "merge": {
+      "ok": true,
+      "output": "require \"pathname\"\nrequire \"json\"\nrequire \"set\"\n\nclass Greeter\nend\n"
+    }
+  }
+}

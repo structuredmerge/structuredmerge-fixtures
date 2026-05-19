@@ -68,6 +68,7 @@
           "source_rename_detection",
           "source_rename_plus_edit_conflict",
           "source_cross_container_move_detection",
+          "source_interstitial_require_merge",
           "source_fallback_policy_profile",
           "discovered_surfaces",
           "delegated_child_operations"
@@ -270,6 +271,14 @@
             "ruby",
             "slice-987-cross-container-method-move",
             "cross-container-method-move.json"
+          ]
+        },
+        {
+          "role": "source_interstitial_require_merge",
+          "path": [
+            "ruby",
+            "slice-988-interstitial-require-merge",
+            "require-ordering-interstitial-merge.json"
           ]
         },
         {

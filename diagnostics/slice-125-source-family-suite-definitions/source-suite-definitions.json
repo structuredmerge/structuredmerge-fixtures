@@ -77,6 +77,7 @@
           "source_fallback_activation_report",
           "source_never_worse_fallback_mode",
           "source_fallback_scope_guard",
+          "source_post_merge_validation_profile",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -350,6 +351,14 @@
             "ruby",
             "slice-995-fallback-scope-guard",
             "ruby-fallback-scope-guard.json"
+          ]
+        },
+        {
+          "role": "source_post_merge_validation_profile",
+          "path": [
+            "ruby",
+            "slice-996-post-merge-validation-profile",
+            "ruby-post-merge-validation-profile.json"
           ]
         },
         {

@@ -1,0 +1,55 @@
+{
+  "name": "ruby_fallback_policy_profile",
+  "dialect": "ruby",
+  "role": "source_fallback_policy_profile",
+  "expected": {
+    "policy_id": "ruby-source-fallback-policy",
+    "baseline_provider": {
+      "provider_id": "host_baseline_merge",
+      "integration_point": true
+    },
+    "scopes": [
+      "node",
+      "subtree",
+      "owned_region",
+      "whole_file"
+    ],
+    "triggers": [
+      {
+        "reason": "binary_input",
+        "scope": "whole_file"
+      },
+      {
+        "reason": "unsupported_parser_or_backend",
+        "scope": "whole_file"
+      },
+      {
+        "reason": "no_structural_owners",
+        "scope": "whole_file"
+      },
+      {
+        "reason": "both_branches_create_file",
+        "scope": "whole_file"
+      },
+      {
+        "reason": "excessive_duplicate_identities",
+        "scope": "owned_region"
+      },
+      {
+        "reason": "timeout_or_resource_budget",
+        "scope": "whole_file"
+      },
+      {
+        "reason": "backend_diagnostic_threshold",
+        "scope": "owned_region"
+      }
+    ],
+    "reporting_fields": [
+      "activated",
+      "reason",
+      "scope",
+      "selected_baseline",
+      "structured_result_discarded"
+    ]
+  }
+}

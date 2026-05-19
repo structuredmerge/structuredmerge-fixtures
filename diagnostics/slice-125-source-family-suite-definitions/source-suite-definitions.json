@@ -64,6 +64,7 @@
           "source_intra_owner_merge",
           "source_owner_identity_profile",
           "source_owner_identity_matching",
+          "source_fallback_policy_profile",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -233,6 +234,14 @@
             "ruby",
             "slice-982-duplicate-owner-ordered-matching",
             "duplicate-method-ordered-matching.json"
+          ]
+        },
+        {
+          "role": "source_fallback_policy_profile",
+          "path": [
+            "ruby",
+            "slice-983-fallback-policy-profile",
+            "ruby-fallback-policy-profile.json"
           ]
         },
         {

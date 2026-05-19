@@ -30,6 +30,7 @@
       { "role": "source_intra_owner_merge", "path": ["ruby", "slice-980-same-owner-intra-owner-merge", "method-body-destination-wins.json"] },
       { "role": "source_owner_identity_profile", "path": ["ruby", "slice-981-source-owner-identity-profile", "class-method-identity-profile.json"] },
       { "role": "source_owner_identity_matching", "path": ["ruby", "slice-982-duplicate-owner-ordered-matching", "duplicate-method-ordered-matching.json"] },
+      { "role": "source_fallback_policy_profile", "path": ["ruby", "slice-983-fallback-policy-profile", "ruby-fallback-policy-profile.json"] },
       { "role": "discovered_surfaces", "path": ["ruby", "slice-220-discovered-surfaces", "doc-comment-surfaces.json"] },
       { "role": "delegated_child_operations", "path": ["ruby", "slice-221-delegated-child-operations", "yard-example-child-operations.json"] }
     ]

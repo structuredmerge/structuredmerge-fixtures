@@ -69,6 +69,7 @@
           "source_rename_plus_edit_conflict",
           "source_cross_container_move_detection",
           "source_interstitial_require_merge",
+          "source_interstitial_comment_attachment",
           "source_fallback_policy_profile",
           "discovered_surfaces",
           "delegated_child_operations"
@@ -279,6 +280,14 @@
             "ruby",
             "slice-988-interstitial-require-merge",
             "require-ordering-interstitial-merge.json"
+          ]
+        },
+        {
+          "role": "source_interstitial_comment_attachment",
+          "path": [
+            "ruby",
+            "slice-989-interstitial-comment-attachment",
+            "interstitial-comment-attachment.json"
           ]
         },
         {

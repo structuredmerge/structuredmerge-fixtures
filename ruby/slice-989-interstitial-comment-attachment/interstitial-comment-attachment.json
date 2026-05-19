@@ -1,0 +1,39 @@
+{
+  "name": "interstitial_comment_attachment",
+  "dialect": "ruby",
+  "role": "source_interstitial_comment_attachment",
+  "source": "# Standalone file note.\n\ndef alpha\n  :alpha\nend\n\n# Documents beta.\ndef beta\n  :beta\nend\n# Explains beta result.\n\ndef gamma\n  :gamma\nend\n",
+  "expected": {
+    "comments": [
+      {
+        "attachment": "standalone",
+        "next_owner": "/methods/alpha",
+        "span": {
+          "start_line": 1,
+          "end_line": 1
+        },
+        "content": "# Standalone file note.\n"
+      },
+      {
+        "attachment": "following_owner",
+        "previous_owner": "/methods/alpha",
+        "next_owner": "/methods/beta",
+        "span": {
+          "start_line": 7,
+          "end_line": 7
+        },
+        "content": "# Documents beta.\n"
+      },
+      {
+        "attachment": "preceding_owner",
+        "previous_owner": "/methods/beta",
+        "next_owner": "/methods/gamma",
+        "span": {
+          "start_line": 11,
+          "end_line": 11
+        },
+        "content": "# Explains beta result.\n"
+      }
+    ]
+  }
+}

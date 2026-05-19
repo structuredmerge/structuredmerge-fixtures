@@ -78,6 +78,7 @@
           "source_never_worse_fallback_mode",
           "source_fallback_scope_guard",
           "source_post_merge_validation_profile",
+          "source_silent_data_loss_validation",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -359,6 +360,14 @@
             "ruby",
             "slice-996-post-merge-validation-profile",
             "ruby-post-merge-validation-profile.json"
+          ]
+        },
+        {
+          "role": "source_silent_data_loss_validation",
+          "path": [
+            "ruby",
+            "slice-997-silent-data-loss-validation",
+            "silent-data-loss-validation.json"
           ]
         },
         {

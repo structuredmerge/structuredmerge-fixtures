@@ -1,0 +1,11 @@
+{
+  "name": "independent_function_additions",
+  "dialect": "ruby",
+  "role": "source_top_level_owner_merge",
+  "template": "def greet\n  :greet\nend\n\ndef wave\n  :wave\nend\n",
+  "destination": "def greet\n  :greet\nend\n\ndef bow\n  :bow\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "def greet\n  :greet\nend\n\ndef bow\n  :bow\nend\n\ndef wave\n  :wave\nend\n"
+  }
+}

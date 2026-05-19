@@ -60,6 +60,7 @@
           "matching",
           "source_region_analysis",
           "source_child_group_merge",
+          "source_top_level_owner_merge",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -197,6 +198,14 @@
             "ruby",
             "slice-978-independent-method-child-group-merge",
             "independent-method-additions.json"
+          ]
+        },
+        {
+          "role": "source_top_level_owner_merge",
+          "path": [
+            "ruby",
+            "slice-979-independent-function-owner-merge",
+            "independent-function-additions.json"
           ]
         },
         {

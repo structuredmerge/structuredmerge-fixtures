@@ -1,0 +1,38 @@
+{
+  "name": "logical_owner_substrate",
+  "role": "logical_owner_substrate",
+  "expected": {
+    "report_id": "logical-owner-substrate",
+    "reference_runtime": "ruby",
+    "shared_surface": "Ast::Merge::Ruleset::LogicalOwnerPolicy",
+    "policy_actions": [
+      "preserve_always",
+      "preserve_if_referenced",
+      "remove_unreferenced"
+    ],
+    "runtime_paths": [
+      "Ruleset::RuntimeDeclaration#logical_owner_policies",
+      "Ruleset::FeatureProfile#logical_owner_policies",
+      "FileAnalyzable#ruleset_logical_owners"
+    ],
+    "downstream_like_cases": [
+      {
+        "format": "markdown",
+        "owner_kind": "link_definition",
+        "action": "preserve_if_referenced"
+      },
+      {
+        "format": "yaml",
+        "owner_kind": "anchor",
+        "action": "preserve_if_referenced"
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "info",
+        "category": "logical_owner_substrate",
+        "message": "Logical-owner declarations now materialize as shared runtime policy objects."
+      }
+    ]
+  }
+}

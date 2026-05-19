@@ -1,0 +1,21 @@
+{
+  "name": "blank_line_ownership",
+  "dialect": "ruby",
+  "role": "source_blank_line_ownership",
+  "source": "class Greeter\n  def alpha\n    :alpha\n  end\n\n  def beta\n    :beta\n  end\nend\n",
+  "expected": {
+    "blank_line_regions": [
+      {
+        "region_id": "between:method:Greeter#alpha:method:Greeter#beta",
+        "position": "between",
+        "previous_owner": "/declarations/Greeter/methods/alpha",
+        "next_owner": "/declarations/Greeter/methods/beta",
+        "span": {
+          "start_line": 5,
+          "end_line": 5
+        },
+        "ownership": "declared_interstitial_region"
+      }
+    ]
+  }
+}

@@ -70,6 +70,7 @@
           "source_cross_container_move_detection",
           "source_interstitial_require_merge",
           "source_interstitial_comment_attachment",
+          "source_blank_line_ownership",
           "source_fallback_policy_profile",
           "discovered_surfaces",
           "delegated_child_operations"
@@ -288,6 +289,14 @@
             "ruby",
             "slice-989-interstitial-comment-attachment",
             "interstitial-comment-attachment.json"
+          ]
+        },
+        {
+          "role": "source_blank_line_ownership",
+          "path": [
+            "ruby",
+            "slice-990-blank-line-ownership",
+            "blank-line-ownership.json"
           ]
         },
         {

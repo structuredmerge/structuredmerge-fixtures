@@ -1,0 +1,29 @@
+{
+  "name": "method_body_destination_wins",
+  "dialect": "ruby",
+  "role": "source_intra_owner_merge",
+  "template": "class Greeter\n  def greet(name)\n    name.downcase\n  end\nend\n",
+  "destination": "class Greeter\n  def greet(name)\n    name.upcase\n  end\nend\n",
+  "expected": {
+    "ok": true,
+    "output": "class Greeter\n  def greet(name)\n    name.upcase\n  end\nend\n",
+    "merge_planning": {
+      "intra_owner_merges": {
+        "strategy": "destination_wins_scoped_owner_body",
+        "merge_count": 1,
+        "merges": [
+          {
+            "owner_path": "/declarations/Greeter",
+            "owner_kind": "class",
+            "owner_name": "Greeter",
+            "child_group": "methods",
+            "child_signature": "greet",
+            "child_path": "/declarations/Greeter/methods/greet",
+            "decision": "destination_wins",
+            "scope": "owner_body"
+          }
+        ]
+      }
+    }
+  }
+}

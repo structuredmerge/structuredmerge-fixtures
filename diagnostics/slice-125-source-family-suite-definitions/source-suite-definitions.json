@@ -61,6 +61,7 @@
           "source_region_analysis",
           "source_child_group_merge",
           "source_top_level_owner_merge",
+          "source_intra_owner_merge",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -206,6 +207,14 @@
             "ruby",
             "slice-979-independent-function-owner-merge",
             "independent-function-additions.json"
+          ]
+        },
+        {
+          "role": "source_intra_owner_merge",
+          "path": [
+            "ruby",
+            "slice-980-same-owner-intra-owner-merge",
+            "method-body-destination-wins.json"
           ]
         },
         {

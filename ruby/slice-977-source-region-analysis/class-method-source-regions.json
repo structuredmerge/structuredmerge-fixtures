@@ -57,6 +57,7 @@
             "region_id": "class_header:Greeter",
             "region_kind": "interstitial",
             "position": "container_header",
+            "next_owner": "/declarations/Greeter/methods/greet",
             "span": {
               "start_line": 4,
               "end_line": 4
@@ -115,6 +116,7 @@
             "region_id": "class_footer:Greeter",
             "region_kind": "interstitial",
             "position": "container_footer",
+            "previous_owner": "/declarations/Greeter/methods/farewell",
             "span": {
               "start_line": 13,
               "end_line": 13

@@ -25,6 +25,7 @@
       { "role": "analysis", "path": ["ruby", "slice-218-analysis", "module-owners.json"] },
       { "role": "matching", "path": ["ruby", "slice-219-matching", "path-equality.json"] },
       { "role": "source_region_analysis", "path": ["ruby", "slice-977-source-region-analysis", "class-method-source-regions.json"] },
+      { "role": "source_child_group_merge", "path": ["ruby", "slice-978-independent-method-child-group-merge", "independent-method-additions.json"] },
       { "role": "discovered_surfaces", "path": ["ruby", "slice-220-discovered-surfaces", "doc-comment-surfaces.json"] },
       { "role": "delegated_child_operations", "path": ["ruby", "slice-221-delegated-child-operations", "yard-example-child-operations.json"] }
     ]

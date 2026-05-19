@@ -59,6 +59,7 @@
           "analysis",
           "matching",
           "source_region_analysis",
+          "source_child_group_merge",
           "discovered_surfaces",
           "delegated_child_operations"
         ]
@@ -188,6 +189,14 @@
             "ruby",
             "slice-977-source-region-analysis",
             "class-method-source-regions.json"
+          ]
+        },
+        {
+          "role": "source_child_group_merge",
+          "path": [
+            "ruby",
+            "slice-978-independent-method-child-group-merge",
+            "independent-method-additions.json"
           ]
         },
         {

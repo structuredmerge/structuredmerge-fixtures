@@ -1,0 +1,109 @@
+{
+  "name": "file_header_footer_regions",
+  "dialect": "ruby",
+  "role": "source_region_analysis",
+  "source": "# typed: strict\n# frozen_string_literal: true\n\nrequire \"json\"\n\nclass Greeter\n  def greet\n    \"hi\"\n  end\nend\n\n# End note.\n",
+  "expected": {
+    "regions": [
+      {
+        "region_id": "file_header",
+        "region_kind": "interstitial",
+        "position": "file_header",
+        "next_owner": "/requires/json",
+        "span": {
+          "start_line": 1,
+          "end_line": 3
+        },
+        "content": "# typed: strict\n# frozen_string_literal: true\n\n"
+      },
+      {
+        "region_id": "require:json",
+        "region_kind": "owner",
+        "owner_kind": "require",
+        "address": "/requires/json",
+        "match_key": "json",
+        "span": {
+          "start_line": 4,
+          "end_line": 4
+        },
+        "content": "require \"json\"\n"
+      },
+      {
+        "region_id": "between:require:json:declaration:Greeter",
+        "region_kind": "interstitial",
+        "position": "between",
+        "previous_owner": "/requires/json",
+        "next_owner": "/declarations/Greeter",
+        "span": {
+          "start_line": 5,
+          "end_line": 5
+        },
+        "content": "\n"
+      },
+      {
+        "region_id": "declaration:Greeter",
+        "region_kind": "owner",
+        "owner_kind": "class",
+        "address": "/declarations/Greeter",
+        "match_key": "Greeter",
+        "span": {
+          "start_line": 6,
+          "end_line": 10
+        },
+        "declaration_span": {
+          "start_line": 6,
+          "end_line": 10
+        },
+        "content": "class Greeter\n  def greet\n    \"hi\"\n  end\nend\n",
+        "child_regions": [
+          {
+            "region_id": "class_header:Greeter",
+            "region_kind": "interstitial",
+            "position": "container_header",
+            "next_owner": "/declarations/Greeter/methods/greet",
+            "span": {
+              "start_line": 6,
+              "end_line": 6
+            },
+            "content": "class Greeter\n"
+          },
+          {
+            "region_id": "method:Greeter#greet",
+            "region_kind": "owner",
+            "owner_kind": "method",
+            "address": "/declarations/Greeter/methods/greet",
+            "match_key": "greet",
+            "span": {
+              "start_line": 7,
+              "end_line": 9
+            },
+            "content": "  def greet\n    \"hi\"\n  end\n"
+          },
+          {
+            "region_id": "class_footer:Greeter",
+            "region_kind": "interstitial",
+            "position": "container_footer",
+            "previous_owner": "/declarations/Greeter/methods/greet",
+            "span": {
+              "start_line": 10,
+              "end_line": 10
+            },
+            "content": "end\n"
+          }
+        ]
+      },
+      {
+        "region_id": "file_footer",
+        "region_kind": "interstitial",
+        "position": "file_footer",
+        "previous_owner": "/declarations/Greeter",
+        "span": {
+          "start_line": 11,
+          "end_line": 12
+        },
+        "content": "\n# End note.\n"
+      }
+    ],
+    "trailing_newline": true
+  }
+}

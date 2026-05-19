@@ -1,0 +1,208 @@
+{
+  "slice": 976,
+  "catalog": "ruby_prior_art_fixture_roles",
+  "contract_layers": {
+    "tree_haver": [
+      {
+        "role": "backend_reference",
+        "description": "Stable backend identity and backend family reporting.",
+        "ruby_prior_art": ["TreeHaver::BackendRegistry", "TreeHaver::BackendReference"],
+        "portability": "portable_contract",
+        "convergence_lane": "parser_backend_substrate"
+      },
+      {
+        "role": "backend_selection_context",
+        "description": "Temporary backend selection without making the storage mechanism portable.",
+        "ruby_prior_art": ["TreeHaver.with_backend", "TreeHaver.current_backend_id"],
+        "portability": "portable_contract_runtime_local_mechanism",
+        "convergence_lane": "parser_backend_substrate"
+      },
+      {
+        "role": "node_span_source_fragment",
+        "description": "Node byte spans, point spans, line spans, and source fragment extraction.",
+        "ruby_prior_art": ["TreeHaver::Base::Node", "TreeHaver::Base::Tree", "TreeHaver::NormalizedNode"],
+        "portability": "portable_contract",
+        "convergence_lane": "parser_backend_substrate"
+      },
+      {
+        "role": "comment_capability",
+        "description": "Backend-reported comment availability and comment shape when the parser exposes comments.",
+        "ruby_prior_art": ["TreeHaver::Base::Comment", "TreeHaver::Base::Tree#comments"],
+        "portability": "backend_restricted_contract",
+        "convergence_lane": "parser_backend_substrate"
+      },
+      {
+        "role": "parser_diagnostics",
+        "description": "Parser errors, warnings, and parse-error tolerance surfaced as diagnostics.",
+        "ruby_prior_art": ["TreeHaver::Base::Tree#errors", "TreeHaver::ParseErrorTolerance"],
+        "portability": "portable_contract",
+        "convergence_lane": "parser_backend_substrate"
+      },
+      {
+        "role": "backend_capability_report",
+        "description": "Backend capability, availability, provider diagnostics, and edit-projection support.",
+        "ruby_prior_art": [
+          "TreeHaver::BackendCapability",
+          "TreeHaver::BackendAvailabilityReport",
+          "TreeHaver::ProviderDiagnosticsReport",
+          "TreeHaver::EditProjectionSupport"
+        ],
+        "portability": "portable_contract",
+        "convergence_lane": "parser_backend_substrate"
+      }
+    ],
+    "ast_merge": [
+      {
+        "role": "merge_session",
+        "description": "Portable merge orchestration state: parse, analyze, match, resolve, render, validate.",
+        "ruby_prior_art": ["Ast::Merge::SmartMergerBase", "Ast::Merge::Runtime::Session"],
+        "portability": "portable_contract_ruby_reference_helper",
+        "convergence_lane": "core_merge_contract"
+      },
+      {
+        "role": "merge_result",
+        "description": "Merged output, diagnostics, conflicts, decisions, stats, and unresolved cases.",
+        "ruby_prior_art": ["Ast::Merge::MergeResultBase"],
+        "portability": "portable_contract",
+        "convergence_lane": "core_merge_contract"
+      },
+      {
+        "role": "decision_record",
+        "description": "Decision provenance for kept, added, replaced, frozen, unresolved, and fallback content.",
+        "ruby_prior_art": ["Ast::Merge::MergeResultBase#decisions", "Ast::Merge::EmitterLineMetadataSupport"],
+        "portability": "portable_contract",
+        "convergence_lane": "core_merge_contract"
+      },
+      {
+        "role": "diagnostic_record",
+        "description": "Structured diagnostics for parse, ambiguity, fallback, validation, and replay errors.",
+        "ruby_prior_art": ["Ast::Merge::Runtime::Diagnostic"],
+        "portability": "portable_contract",
+        "convergence_lane": "core_merge_contract"
+      },
+      {
+        "role": "unresolved_case",
+        "description": "Reviewable unresolved case with stable case id, candidates, provisional winner, and surface path.",
+        "ruby_prior_art": ["Ast::Merge::Runtime::ResolutionCase", "Ast::Merge::UnresolvedReviewState"],
+        "portability": "portable_contract",
+        "convergence_lane": "advanced_orchestration"
+      },
+      {
+        "role": "replay_bundle",
+        "description": "Replayable review decisions and accepted unresolved-case resolutions.",
+        "ruby_prior_art": ["Ast::Merge::UnresolvedReviewState", "Ast::Merge::StructuredReviewApplySupport"],
+        "portability": "portable_contract",
+        "convergence_lane": "advanced_orchestration"
+      },
+      {
+        "role": "delegated_child_operation",
+        "description": "Nested child merge request, projection, review, and apply operation metadata.",
+        "ruby_prior_art": ["Ast::Merge::Runtime::Delegate", "Ast::Merge::Runtime::ChildResult"],
+        "portability": "portable_contract",
+        "convergence_lane": "advanced_orchestration"
+      },
+      {
+        "role": "fallback_activation",
+        "description": "Observable fallback reason, scope, baseline provider, and discarded structured result metadata.",
+        "ruby_prior_art": ["Ast::Merge::Text", "Ast::Merge::Healer", "Ast::Merge::Ruleset::RepairPolicy"],
+        "portability": "portable_contract",
+        "convergence_lane": "conflict_fallback_validation"
+      },
+      {
+        "role": "validation_failure",
+        "description": "Post-merge validation failures that choose fallback, scoped conflict, or hard failure.",
+        "ruby_prior_art": ["Ast::Merge::Runtime::Diagnostic", "Ast::Merge::StructuredEmitterProvenanceSupport"],
+        "portability": "portable_contract",
+        "convergence_lane": "conflict_fallback_validation"
+      },
+      {
+        "role": "structured_edit_operation",
+        "description": "Insert, remove, replace, rehome, and splice operation plans with replayable boundaries.",
+        "ruby_prior_art": ["Ast::Merge::StructuralEdit"],
+        "portability": "portable_contract",
+        "convergence_lane": "advanced_orchestration"
+      }
+    ],
+    "source_family": [
+      {
+        "role": "source_region_analysis",
+        "description": "Alternating owner and interstitial regions with stable addresses and source spans.",
+        "ruby_prior_art": ["Ast::Merge::Layout", "Ast::Merge::Comment", "TreeHaver::Base::Node"],
+        "portability": "portable_contract",
+        "convergence_lane": "owner_region_analysis"
+      },
+      {
+        "role": "source_owner_matching",
+        "description": "Scoped owner matching with duplicate cursors, match confidence, and ambiguity reporting.",
+        "ruby_prior_art": ["Ast::Merge::MatchRefinerBase", "Ast::Merge::FileAlignerBase"],
+        "portability": "portable_contract",
+        "convergence_lane": "matching_ordering"
+      },
+      {
+        "role": "source_interstitial_merge",
+        "description": "Merge rules for imports, comments, blank-line gaps, file headers, and file footers.",
+        "ruby_prior_art": ["Ast::Merge::Layout::Gap", "Ast::Merge::Comment::Region"],
+        "portability": "portable_contract",
+        "convergence_lane": "owner_region_analysis"
+      },
+      {
+        "role": "source_child_group_merge",
+        "description": "Container/member merge for methods, impl items, visibility sections, and ordered/unordered groups.",
+        "ruby_prior_art": ["Ast::Merge::ConflictResolverBase", "Ast::Merge::Runtime::Surface"],
+        "portability": "portable_contract",
+        "convergence_lane": "matching_ordering"
+      },
+      {
+        "role": "source_conflict_report",
+        "description": "Conflict kind, owner scope, marker compatibility, and optional enhanced metadata.",
+        "ruby_prior_art": ["Ast::Merge::MergeResultBase#conflicts", "Ast::Merge::Runtime::Diagnostic"],
+        "portability": "portable_contract",
+        "convergence_lane": "conflict_fallback_validation"
+      },
+      {
+        "role": "source_fallback_floor",
+        "description": "Source-family fallback rules and never-worse-than-baseline behavior.",
+        "ruby_prior_art": ["Ast::Merge::Text", "Ast::Merge::Ruleset::RepairPolicy"],
+        "portability": "portable_contract",
+        "convergence_lane": "conflict_fallback_validation"
+      },
+      {
+        "role": "source_post_merge_validation",
+        "description": "Reparse, owner coverage, unchanged-line preservation, marker compatibility, and length sanity checks.",
+        "ruby_prior_art": ["Ast::Merge::StructuredEmitterProvenanceSupport", "TreeHaver::NormalizedParseResult"],
+        "portability": "portable_contract",
+        "convergence_lane": "conflict_fallback_validation"
+      },
+      {
+        "role": "source_merge_driver_report",
+        "description": "VCS/tool invocation report including baseline merge provider, marker mode, timeout, and audit output.",
+        "ruby_prior_art": ["ast-merge-git", "Ast::Merge::Runtime::Diagnostic"],
+        "portability": "portable_contract_runtime_integration",
+        "convergence_lane": "advanced_orchestration"
+      }
+    ],
+    "runtime_catchup": [
+      {
+        "role": "ruby_reference",
+        "description": "Ruby proves the fixture-backed behavior first when it has the deepest substrate.",
+        "ruby_prior_art": ["structuredmerge/ruby/gems/ast-merge", "structuredmerge/ruby/gems/tree_haver"],
+        "portability": "reference_implementation",
+        "convergence_lane": "all"
+      },
+      {
+        "role": "non_ruby_contract_port",
+        "description": "Go, Rust, and TypeScript implement fixture-backed behavior without mirroring Ruby class names.",
+        "ruby_prior_art": ["RUBY_PRIOR_ART_CONVERGENCE.md"],
+        "portability": "portable_contract",
+        "convergence_lane": "all"
+      },
+      {
+        "role": "capability_matrix",
+        "description": "Cross-runtime report showing which runtime satisfies each portable fixture role.",
+        "ruby_prior_art": ["Ast::Merge::Ruleset::FeatureProfile", "TreeHaver::FeatureProfile"],
+        "portability": "portable_contract",
+        "convergence_lane": "all"
+      }
+    ]
+  }
+}

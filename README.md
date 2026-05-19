@@ -10,7 +10,7 @@ Project links:
 - Fixture model: <https://structuredmerge.org/fixtures.html>
 - Conformance model: <https://structuredmerge.org/conformance.html>
 - Specification: <https://github.com/structuredmerge/structuredmerge-spec>
-- Launch implementations: [Go](https://github.com/structuredmerge/structuredmerge-go), [TypeScript](https://github.com/structuredmerge/structuredmerge-typescript), [Rust](https://github.com/structuredmerge/structuredmerge-rust), [Ruby](https://github.com/structuredmerge/structuredmerge-ruby)
+- Peer implementations: [Go](https://github.com/structuredmerge/structuredmerge-go), [TypeScript](https://github.com/structuredmerge/structuredmerge-typescript), [Rust](https://github.com/structuredmerge/structuredmerge-rust), [Ruby](https://github.com/structuredmerge/structuredmerge-ruby)
 
 ## Fixture families
 

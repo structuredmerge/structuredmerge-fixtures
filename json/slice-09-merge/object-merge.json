@@ -3,6 +3,6 @@
   "template": "{\n  \"name\": \"structuredmerge\",\n  \"meta\": {\"enabled\": false, \"mode\": \"template\"},\n  \"tags\": [\"template\"],\n  \"template_only\": 1\n}\n",
   "destination": "{\n  \"meta\": {\"enabled\": true},\n  \"tags\": [\"destination\"],\n  \"destination_only\": 2\n}\n",
   "expected": {
-    "output": "{\"name\":\"structuredmerge\",\"meta\":{\"enabled\":true,\"mode\":\"template\"},\"tags\":[\"destination\"],\"template_only\":1,\"destination_only\":2}"
+    "output": "{\n  \"name\": \"structuredmerge\",\n  \"meta\": {\n    \"enabled\": true,\n    \"mode\": \"template\"\n  },\n  \"tags\": [\n    \"destination\"\n  ],\n  \"template_only\": 1,\n  \"destination_only\": 2\n}\n"
   }
 }

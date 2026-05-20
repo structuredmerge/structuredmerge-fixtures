@@ -18,32 +18,32 @@
       "TreeSitter compatibility aliases",
       "Base::Parser/Tree/Node wrappers"
     ],
-    "active_destination": "tree_sitter_language_pack integration, PEG backend primitives, Kaitai substrate, native provider capability reports, and future security slice"
+    "active_destination": "tree_sitter_language_pack integration, restored Ruby native tree-sitter backends, PEG backend primitives, Kaitai substrate, native provider capability reports, and grammar library security"
   },
   "classifications": [
     {
       "old_surface": "Backends::MRI",
-      "classification": "retired_shared_backend",
-      "replacement": "tree-sitter-language-pack or provider-local native parser",
-      "reason": "requires Ruby C extension and conflicts with the active backend-neutral capability model"
+      "classification": "restored_native_backend",
+      "replacement": "TreeHaver::Backends::MRI",
+      "reason": "preserves the reference ruby_tree_sitter backend as an explicit parser-capable native backend"
     },
     {
       "old_surface": "Backends::Rust",
-      "classification": "retired_shared_backend",
-      "replacement": "tree-sitter-language-pack or language implementation native parser",
-      "reason": "old Ruby Rust-extension adapter is not an active portable substrate"
+      "classification": "restored_native_backend",
+      "replacement": "TreeHaver::Backends::Rust",
+      "reason": "preserves the reference tree_stump backend for Ruby installations that opt into it"
     },
     {
       "old_surface": "Backends::FFI",
-      "classification": "retired_shared_backend",
-      "replacement": "tree-sitter-language-pack",
-      "reason": "runtime library loading and ABI conflict handling belongs outside the active generic contract"
+      "classification": "restored_native_backend",
+      "replacement": "TreeHaver::Backends::FFI",
+      "reason": "preserves the reference libtree-sitter FFI backend while retaining conflict checks"
     },
     {
       "old_surface": "Backends::Java",
-      "classification": "retired_shared_backend",
-      "replacement": "implementation/provider-specific JVM parser if needed later",
-      "reason": "JRuby/jtreesitter wiring is not part of the active substrate"
+      "classification": "restored_native_backend",
+      "replacement": "TreeHaver::Backends::Java",
+      "reason": "preserves the JRuby jtreesitter backend as an explicit JVM parser-capable backend"
     },
     {
       "old_surface": "Backends::Prism",
@@ -71,15 +71,15 @@
     },
     {
       "old_surface": "GrammarFinder and language registry",
-      "classification": "mostly_replaced",
-      "replacement": "tree-sitter-language-pack initialization plus backend registry",
-      "reason": "active generic tree-sitter path is package-mediated rather than manual shared-library discovery"
+      "classification": "restored",
+      "replacement": "GrammarFinder, LanguageRegistry, and TSLP backend registration",
+      "reason": "grammar discovery remains useful for native backend examples and backend-focused spec runs"
     },
     {
       "old_surface": "PathValidator",
-      "classification": "defer_to_security_slice",
+      "classification": "restored_security_primitive",
       "replacement": "grammar/library path security model",
-      "reason": "trusted path and environment-variable rules are evaluated in the next task"
+      "reason": "native backend restoration requires guarded shared-library path handling"
     },
     {
       "old_surface": "TreeSitter compatibility aliases",
@@ -89,9 +89,9 @@
     },
     {
       "old_surface": "Base::Parser/Tree/Node wrappers",
-      "classification": "replaced_by_contracts",
-      "replacement": "normalized tree node, backend capability, source fragment, edit projection, and provider diagnostics fixtures",
-      "reason": "wrapping details are implementation-owned"
+      "classification": "restored_facade",
+      "replacement": "TreeHaver::Parser, TreeHaver::Language, TreeHaver::Tree, TreeHaver::Node, and Base wrappers",
+      "reason": "native parser backends need the shared wrapper facade to expose normalized trees"
     }
   ],
   "active_backend_requirements": [
@@ -103,9 +103,34 @@
   ],
   "current_active_backends": [
     {
+      "backend": "tslp",
+      "family": "tree-sitter",
+      "status": "default_generic_tree_sitter_language_pack"
+    },
+    {
       "backend": "kreuzberg-language-pack",
       "family": "tree-sitter",
-      "status": "active_generic_tree_sitter"
+      "status": "compatibility_alias_for_tslp"
+    },
+    {
+      "backend": "mri",
+      "family": "tree-sitter",
+      "status": "restored_native_parser_backend"
+    },
+    {
+      "backend": "rust",
+      "family": "tree-sitter",
+      "status": "restored_native_parser_backend"
+    },
+    {
+      "backend": "ffi",
+      "family": "tree-sitter",
+      "status": "restored_native_parser_backend"
+    },
+    {
+      "backend": "java",
+      "family": "tree-sitter",
+      "status": "restored_native_parser_backend"
     },
     {
       "backend": "citrus",
@@ -128,7 +153,7 @@
       "status": "active_when_backed_by_provider_capability_fixtures"
     }
   ],
-  "decision": "Do not copy the old Ruby tree_haver backend implementation stack. Keep active backend behavior through tree-sitter-language-pack, PEG primitives, Kaitai, and provider-local native parser projections with capability fixtures.",
+  "decision": "Restore the Ruby tree_haver backend implementation stack where it still has user value. Keep tree-sitter-language-pack as the default generic backend surface, and keep MRI, Rust, FFI, and Java as explicit parser-capable native backends with availability checks.",
   "verification": {
     "command": "mise exec -C structuredmerge/ruby -- bundle exec rspec gems/tree_haver/spec/fixtures_integration_spec.rb",
     "result": "424 examples, 0 failures"

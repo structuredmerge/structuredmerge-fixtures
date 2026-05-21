@@ -1,0 +1,53 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1010",
+  "name": "native-parser-defaults",
+  "description": "Implementation roots declare preferred native parser providers separately from their generic TreeHaver / TSLP substrate fallbacks.",
+  "native_parser_defaults": {
+    "contract_id": "native-parser-defaults",
+    "version": "1",
+    "defaults": [
+      {
+        "implementation": "ruby",
+        "family": "ruby",
+        "default_provider_id": "ruby-prism",
+        "default_backend": "prism",
+        "default_parser": "Prism",
+        "generic_substrate_provider_id": "ruby-tslp",
+        "generic_substrate_backend": "tree-sitter-language-pack",
+        "fallback_behavior": "fallback_to_generic_when_native_unavailable_fail_closed_when_generic_lacks_required_records",
+        "scope": [
+          "template_directory_sessions",
+          "ruby_family_merge_provider"
+        ]
+      },
+      {
+        "implementation": "ruby",
+        "family": "markdown",
+        "default_provider_id": "ruby-markly",
+        "default_backend": "markly",
+        "default_parser": "Markly",
+        "generic_substrate_provider_id": "markdown-tslp",
+        "generic_substrate_backend": "tree-sitter-language-pack",
+        "fallback_behavior": "fallback_to_generic_when_native_unavailable_fail_closed_when_generic_lacks_required_records",
+        "scope": [
+          "template_directory_sessions",
+          "markdown_family_merge_provider"
+        ]
+      }
+    ],
+    "diagnostics": [
+      "native defaults are implementation-level choices; generic merge gems remain the TreeHaver / TSLP substrate boundary"
+    ]
+  },
+  "expected": {
+    "contract_id": "native-parser-defaults",
+    "default_count": 2,
+    "ruby_defaults": [
+      "ruby-prism",
+      "ruby-markly"
+    ],
+    "markdown_default_backend": "markly",
+    "fallback_backend": "tree-sitter-language-pack"
+  }
+}

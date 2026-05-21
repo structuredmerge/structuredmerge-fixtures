@@ -36,6 +36,12 @@
         "host_language": "ruby",
         "target_language": "rbs",
         "parser_name": "rbs"
+      },
+      {
+        "provider_id": "ruby-markly",
+        "host_language": "ruby",
+        "target_language": "markdown",
+        "parser_name": "markly"
       }
     ],
     "diagnostics": [
@@ -43,15 +49,16 @@
     ]
   },
   "expected": {
-    "provider_count": 5,
+    "provider_count": 6,
     "provider_ids": [
       "go-parser",
       "typescript-compiler-api",
       "rust-syn",
       "ruby-prism",
-      "ruby-rbs"
+      "ruby-rbs",
+      "ruby-markly"
     ],
-    "ruby_provider_count": 2,
+    "ruby_provider_count": 3,
     "first_provider_parser": "go/parser"
   }
 }

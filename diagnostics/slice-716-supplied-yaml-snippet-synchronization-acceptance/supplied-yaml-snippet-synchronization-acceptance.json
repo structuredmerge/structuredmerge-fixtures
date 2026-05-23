@@ -11,7 +11,7 @@
           "relative_path": ".github/workflows/ci.yml",
           "provider_family": "yaml",
           "provider_backend": "generic_yaml_snippets",
-          "template_content": "concurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\nsteps:\n  - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd\n  - uses: ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92\n",
+          "template_content": "concurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\nsteps:\n  - uses: actions/checkout@1111111111111111111111111111111111111111\n  - uses: ruby/setup-ruby@2222222222222222222222222222222222222222\n",
           "destination_content": "name: CI\non:\n  push:\n    branches: [main]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@v3\n      - uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
           "steps": [
             {
@@ -75,7 +75,7 @@
                 "selector_family": "yaml_scalar_match",
                 "key": "uses",
                 "match_prefix": "actions/checkout@",
-                "value": "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+                "value": "actions/checkout@1111111111111111111111111111111111111111",
                 "reason": "wrapper_selected_checkout_pin"
               },
               {
@@ -83,7 +83,7 @@
                 "selector_family": "yaml_scalar_match",
                 "key": "uses",
                 "match_prefix": "ruby/setup-ruby@",
-                "value": "ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92",
+                "value": "ruby/setup-ruby@2222222222222222222222222222222222222222",
                 "reason": "wrapper_selected_setup_ruby_pin"
               }
             ]
@@ -104,7 +104,7 @@
             "relative_path": ".github/workflows/ci.yml",
             "provider_family": "yaml",
             "provider_backend": "generic_yaml_snippets",
-            "template_content": "concurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\nsteps:\n  - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd\n  - uses: ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92\n",
+            "template_content": "concurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\nsteps:\n  - uses: actions/checkout@1111111111111111111111111111111111111111\n  - uses: ruby/setup-ruby@2222222222222222222222222222222222222222\n",
             "destination_content": "name: CI\non:\n  push:\n    branches: [main]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@v3\n      - uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
             "steps": [
               {
@@ -168,7 +168,7 @@
                   "selector_family": "yaml_scalar_match",
                   "key": "uses",
                   "match_prefix": "actions/checkout@",
-                  "value": "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+                  "value": "actions/checkout@1111111111111111111111111111111111111111",
                   "reason": "wrapper_selected_checkout_pin"
                 },
                 {
@@ -176,7 +176,7 @@
                   "selector_family": "yaml_scalar_match",
                   "key": "uses",
                   "match_prefix": "ruby/setup-ruby@",
-                  "value": "ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92",
+                  "value": "ruby/setup-ruby@2222222222222222222222222222222222222222",
                   "reason": "wrapper_selected_setup_ruby_pin"
                 }
               ]
@@ -186,7 +186,7 @@
               "reference_project": "reference/kettle-jem"
             }
           },
-          "final_content": "name: CI\non:\n  push:\n    branches: [main]\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd\n      - uses: ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
+          "final_content": "name: CI\non:\n  push:\n    branches: [main]\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@1111111111111111111111111111111111111111\n      - uses: ruby/setup-ruby@2222222222222222222222222222222222222222\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
           "changed": true,
           "step_reports": [
             {
@@ -215,7 +215,7 @@
               "status": "applied",
               "changed": true,
               "input_content": "name: CI\non:\n  push:\n    branches: [main]\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@v3\n      - uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
-              "output_content": "name: CI\non:\n  push:\n    branches: [main]\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd\n      - uses: ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
+              "output_content": "name: CI\non:\n  push:\n    branches: [main]\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\npermissions:\n  contents: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        ruby: [\"3.2\", \"3.3\"]\n        gemfile: [\"Gemfile\", \"gemfiles/current.gemfile\"]\n    steps:\n      - uses: actions/checkout@1111111111111111111111111111111111111111\n      - uses: ruby/setup-ruby@2222222222222222222222222222222222222222\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - run: bundle exec rake\n",
               "diagnostics": [],
               "metadata": {
                 "policy_kind": "apply_supplied_yaml_scalars",

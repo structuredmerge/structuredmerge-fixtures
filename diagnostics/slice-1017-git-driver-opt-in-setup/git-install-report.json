@@ -1,0 +1,26 @@
+{
+  "report": {
+    "report_version": 1,
+    "ok": true,
+    "profile": "semantic-diff",
+    "scope": "local",
+    "step": {
+      "name": "git_drivers",
+      "status": "succeeded"
+    },
+    "diagnostic_keys": [
+      "forge_ignores_external_diff_drivers"
+    ]
+  },
+  "implementations": {
+    "ruby": {
+      "attribute_contains": "*.rb diff=smorg-ruby"
+    },
+    "typescript": {
+      "attribute_contains": "*.json merge=smorg-ts diff=smorg-ts smorg.language=json"
+    },
+    "rust": {
+      "attribute_contains": "*.json merge=smorg-rs diff=smorg-rs smorg.language=json"
+    }
+  }
+}

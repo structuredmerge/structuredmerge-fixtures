@@ -86,30 +86,20 @@
     ],
     "apply_result": {
       "result_files": {
-        "config/app.toml": "title = \"Structured Merge\"\n\n[package]\nname = \"structuredmerge\"\ntags = [\"destination\"]\nversion = \"0.2.0\"\n\n[package.meta]\nauthors = [\"pb\"]\nenabled = false\nrelease = true\n"
+        "README.md": "# Title\n\n## Details\n\nDestination details.\n\n```ruby\nputs 'template'\n```\n",
+        "config/app.toml": "title = \"Structured Merge\"\n\n[package]\nname = \"structuredmerge\"\ntags = [\"destination\"]\nversion = \"0.2.0\"\n\n[package.meta]\nauthors = [\"pb\"]\nenabled = false\nrelease = true\n",
+        "lib/greeter.rb": "require \"set\"\n\n# Greets callers from the destination.\nclass Greeter\n  def call(name)\n    name.upcase\n  end\nend\n\ndef helper(name)\nend\n\ndef greet(name)\nend\n"
       },
       "created_paths": [],
       "updated_paths": [
-        "config/app.toml"
-      ],
-      "kept_paths": [],
-      "blocked_paths": [
         "README.md",
+        "config/app.toml",
         "lib/greeter.rb"
       ],
+      "kept_paths": [],
+      "blocked_paths": [],
       "omitted_paths": [],
-      "diagnostics": [
-        {
-          "severity": "error",
-          "category": "unsupported_feature",
-          "message": "tree-sitter-language-pack did not provide readable diagnostics for markdown. Please report this to tree-sitter-language-pack with this detail: Ruby binding could not expose a structured process result from TreeSitterLanguagePack::ProcessResult"
-        },
-        {
-          "severity": "error",
-          "category": "unsupported_feature",
-          "message": "tree-sitter-language-pack did not provide readable diagnostics for ruby. Please report this to tree-sitter-language-pack with this detail: Ruby binding could not expose a structured process result from TreeSitterLanguagePack::ProcessResult"
-        }
-      ]
+      "diagnostics": []
     }
   }
 }

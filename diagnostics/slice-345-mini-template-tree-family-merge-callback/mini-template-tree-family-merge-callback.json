@@ -33,21 +33,17 @@
       }
     ],
     "apply_result": {
-      "result_files": {},
+      "result_files": {
+        "README.md": "# demo\n\n## Usage\nRun it\n"
+      },
       "created_paths": [],
-      "updated_paths": [],
-      "kept_paths": [],
-      "blocked_paths": [
+      "updated_paths": [
         "README.md"
       ],
+      "kept_paths": [],
+      "blocked_paths": [],
       "omitted_paths": [],
-      "diagnostics": [
-        {
-          "severity": "error",
-          "category": "unsupported_feature",
-          "message": "tree-sitter-language-pack did not provide readable diagnostics for markdown. Please report this to tree-sitter-language-pack with this detail: Ruby binding could not expose a structured process result from TreeSitterLanguagePack::ProcessResult"
-        }
-      ]
+      "diagnostics": []
     }
   }
 }

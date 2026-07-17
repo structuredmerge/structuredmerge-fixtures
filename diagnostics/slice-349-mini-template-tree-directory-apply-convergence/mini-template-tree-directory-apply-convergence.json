@@ -4,9 +4,9 @@
   "overrides": [],
   "replacements": {},
   "expected_destination_files": {
-    "README.md": "# Title\n\n## Details\n\nDestination details.\n",
+    "README.md": "# Title\n\n## Details\n\nDestination details.\n\n```ruby\nputs 'template'\n```\n",
     "config/app.toml": "title = \"Structured Merge\"\n\n[package]\nname = \"structuredmerge\"\ntags = [\"destination\"]\nversion = \"0.2.0\"\n\n[package.meta]\nauthors = [\"pb\"]\nenabled = false\nrelease = true\n",
-    "lib/greeter.rb": "require \"set\"\n\n# Greets callers from the destination.\nclass Greeter\n  def call(name)\n    name.upcase\n  end\nend\n\ndef helper(name)\nend\n"
+    "lib/greeter.rb": "require \"set\"\n\n# Greets callers from the destination.\nclass Greeter\n  def call(name)\n    name.upcase\n  end\nend\n\ndef helper(name)\nend\n\ndef greet(name)\nend\n"
   },
   "expected_first_report": {
     "entries": [
@@ -15,7 +15,7 @@
         "logical_destination_path": "README.md",
         "destination_path": "README.md",
         "execution_action": "merge_prepared_content",
-        "status": "blocked"
+        "status": "updated"
       },
       {
         "template_source_path": "config/app.toml.example",
@@ -29,14 +29,14 @@
         "logical_destination_path": "lib/greeter.rb",
         "destination_path": "lib/greeter.rb",
         "execution_action": "merge_prepared_content",
-        "status": "blocked"
+        "status": "updated"
       }
     ],
     "summary": {
       "created": 0,
-      "updated": 1,
+      "updated": 3,
       "kept": 0,
-      "blocked": 2,
+      "blocked": 0,
       "omitted": 0
     }
   },
@@ -47,7 +47,7 @@
         "logical_destination_path": "README.md",
         "destination_path": "README.md",
         "execution_action": "merge_prepared_content",
-        "status": "blocked"
+        "status": "kept"
       },
       {
         "template_source_path": "config/app.toml.example",
@@ -61,14 +61,14 @@
         "logical_destination_path": "lib/greeter.rb",
         "destination_path": "lib/greeter.rb",
         "execution_action": "merge_prepared_content",
-        "status": "blocked"
+        "status": "kept"
       }
     ],
     "summary": {
       "created": 0,
       "updated": 0,
-      "kept": 1,
-      "blocked": 2,
+      "kept": 3,
+      "blocked": 0,
       "omitted": 0
     }
   }

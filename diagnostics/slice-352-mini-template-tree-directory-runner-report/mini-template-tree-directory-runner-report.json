@@ -175,7 +175,7 @@
             "logical_destination_path": "README.md",
             "destination_path": "README.md",
             "execution_action": "merge_prepared_content",
-            "status": "blocked"
+            "status": "updated"
           },
           {
             "template_source_path": "config/app.toml.example",
@@ -189,14 +189,14 @@
             "logical_destination_path": "lib/greeter.rb",
             "destination_path": "lib/greeter.rb",
             "execution_action": "merge_prepared_content",
-            "status": "blocked"
+            "status": "updated"
           }
         ],
         "summary": {
           "created": 0,
-          "updated": 1,
+          "updated": 3,
           "kept": 0,
-          "blocked": 2,
+          "blocked": 0,
           "omitted": 0
         }
       },
@@ -207,8 +207,8 @@
             "logical_destination_path": "README.md",
             "destination_path": "README.md",
             "execution_action": "merge_prepared_content",
-            "status": "blocked",
-            "written": false
+            "status": "updated",
+            "written": true
           },
           {
             "template_source_path": "config/app.toml.example",
@@ -223,17 +223,17 @@
             "logical_destination_path": "lib/greeter.rb",
             "destination_path": "lib/greeter.rb",
             "execution_action": "merge_prepared_content",
-            "status": "blocked",
-            "written": false
+            "status": "updated",
+            "written": true
           }
         ],
         "summary": {
           "created": 0,
-          "updated": 1,
+          "updated": 3,
           "kept": 0,
-          "blocked": 2,
+          "blocked": 0,
           "omitted": 0,
-          "written": 1
+          "written": 3
         }
       }
     }

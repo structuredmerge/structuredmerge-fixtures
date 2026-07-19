@@ -1,0 +1,17 @@
+{
+  "name": "comments_anchors_documents_sequences",
+  "description": "Merges YAML while preserving destination comments, blank lines, anchors, aliases, document separators, sequences, mappings, scalars, and template-only keys.",
+  "dialect": "yaml",
+  "implementation_support": {
+    "ruby_tslp": {
+      "status": "unsupported",
+      "reason": "Ruby TSLP YAML substrate currently drops comments, anchor sigils, and document separators for this fixture."
+    }
+  },
+  "template": "---\n# project configuration\nroot: &defaults\n  enabled: true\n  retries: 3\nservices:\n  api:\n    <<: *defaults\n    ports: [3000, 3001]\n    labels:\n      - template\n      - api\n---\nnotes:\n  - template\n",
+  "destination": "---\n# project configuration\nroot: &defaults\n  enabled: false\n\n# local operator notes\nlocal: true\nservices:\n  api:\n    <<: *defaults\n    ports: [8080]\n---\nnotes:\n  - destination\n",
+  "expected": {
+    "ok": true,
+    "output": "---\n# project configuration\nroot: &defaults\n  enabled: false\n  retries: 3\n\n# local operator notes\nlocal: true\nservices:\n  api:\n    <<: *defaults\n    ports: [8080]\n    labels:\n      - template\n      - api\n---\nnotes:\n  - destination\n"
+  }
+}

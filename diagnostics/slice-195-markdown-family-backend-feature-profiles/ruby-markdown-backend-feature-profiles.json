@@ -11,10 +11,6 @@
     {
       "id": "markly",
       "family": "native"
-    },
-    {
-      "id": "kramdown",
-      "family": "native"
     }
   ],
   "tree_sitter": {

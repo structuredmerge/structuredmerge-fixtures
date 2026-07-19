@@ -4,6 +4,6 @@
   "destination": "package:\n  tags:\n    - destination\n  version: 0.2.0\n  meta:\n    authors:\n      - pb\n    release: true\n",
   "expected": {
     "ok": true,
-    "output": "title: \"Structured Merge\"\npackage:\n  name: structuredmerge\n  tags:\n    - destination\n  version: 0.2.0\n  meta:\n    enabled: false\n    authors:\n      - pb\n    release: true\n"
+    "output": "title: Structured Merge\npackage:\n  name: structuredmerge\n  tags:\n    - destination\n  version: 0.2.0\n  meta:\n    enabled: false\n    authors:\n      - pb\n    release: true\n"
   }
 }

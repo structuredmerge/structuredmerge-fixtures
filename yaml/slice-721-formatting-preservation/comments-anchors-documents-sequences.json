@@ -4,8 +4,7 @@
   "dialect": "yaml",
   "implementation_support": {
     "ruby_tslp": {
-      "status": "unsupported",
-      "reason": "Ruby TSLP YAML substrate currently drops comments, anchor sigils, and document separators for this fixture."
+      "status": "supported"
     }
   },
   "template": "---\n# project configuration\nroot: &defaults\n  enabled: true\n  retries: 3\nservices:\n  api:\n    <<: *defaults\n    ports: [3000, 3001]\n    labels:\n      - template\n      - api\n---\nnotes:\n  - template\n",

@@ -1,0 +1,11 @@
+{
+  "name": "dotted_inline_comments_arrays",
+  "description": "Merges TOML while preserving destination comments, blank lines, dotted keys, inline tables, arrays, and arrays of tables.",
+  "dialect": "toml",
+  "template": "# project configuration\ntitle = \"Structured Merge\"\ntags = [\"template\"]\n\n[env]\n_.file = { path = \".env.template\", redact = true }\n_.path = [\"exe\", \"bin\"]\n\n[[profiles.semantic-diff.attributes]]\npattern = \"*.rb\"\ndiff = \"smorg-ruby\"\n",
+  "destination": "# project configuration\ntitle = \"Structured Merge\"\ntags = [\"destination\"]\n\n# local operator notes\nlocal = true\n\n[env]\n_.file = { path = \".env.local\", redact = true }\n\n[[profiles.semantic-diff.attributes]]\npattern = \"*.rb\"\ndiff = \"smorg-rb\"\n",
+  "expected": {
+    "ok": true,
+    "output": "# project configuration\ntitle = \"Structured Merge\"\ntags = [\"destination\"]\n\n# local operator notes\nlocal = true\n\n[env]\n_.file = { path = \".env.local\", redact = true }\n_.path = [\"exe\", \"bin\"]\n\n[[profiles.semantic-diff.attributes]]\npattern = \"*.rb\"\ndiff = \"smorg-rb\"\n"
+  }
+}

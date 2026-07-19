@@ -1,0 +1,16 @@
+{
+  "name": "headings_lists_tables_fences_links_frontmatter_comments",
+  "description": "Exercises provider parity for Markdown headings, lists, tables, fenced code, links, front matter, and HTML comments.",
+  "dialect": "markdown",
+  "source": "---\ntitle: Guide\n---\n# Guide\n\n[docs]: README.md\n\n<!-- KJ:START -->\n[Docs][docs] ![Build][build]\n\n## Install\n\n- bundle install\n- rake test\n\n| Feature | Badge |\n| --- | --- |\n| Works | [Docs][docs] |\n\n```ruby\nputs :template\n```\n",
+  "expected": {
+    "parse_owner_kinds": ["heading", "heading", "code_fence"],
+    "parse_owner_match_keys": ["h1:guide", "h2:install", "fence:ruby"],
+    "structured_owner_common": {
+      "link_definitions": ["docs"],
+      "html_comments": ["KJ:START"],
+      "inline_references": ["docs", "build", "docs"],
+      "table_rows_include": ["| Works | [Docs][docs] |\n"]
+    }
+  }
+}

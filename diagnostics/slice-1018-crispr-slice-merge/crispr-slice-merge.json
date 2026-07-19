@@ -1,0 +1,31 @@
+{
+  "schema": "https://structuredmerge.org/schemas/structured-edit-slice-merge-fixture/v1.json",
+  "slice": "1018",
+  "name": "crispr-slice-merge",
+  "description": "A structured edit replacement may treat replacement text as template content, merge it with the selected destination slice through a merge gem, and splice only the merged slice back into the larger source.",
+  "operation": {
+    "kind": "merge_replace",
+    "selector": {
+      "kind": "line_block",
+      "start_line_text": "# <<generated>>",
+      "end_line_text": "# <</generated>>",
+      "limit": {
+        "exactly": 1
+      }
+    },
+    "merge": {
+      "family": "text",
+      "preference": "destination",
+      "add_template_only_nodes": true
+    },
+    "content": "# before\n# <<generated>>\nkeep\ndestination only\n# <</generated>>\n\n# after\n",
+    "replacement": "# <<generated>>\nkeep\ntemplate only\n# <</generated>>\n"
+  },
+  "expected": {
+    "ok": true,
+    "changed": true,
+    "match_count": 1,
+    "captured_text_contains": "destination only",
+    "output": "# before\n# <<generated>>\nkeep\ntemplate only\ndestination only\n# <</generated>>\n\n# after\n"
+  }
+}

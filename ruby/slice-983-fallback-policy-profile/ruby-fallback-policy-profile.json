@@ -20,7 +20,7 @@
         "scope": "whole_file"
       },
       {
-        "reason": "unsupported_parser_or_backend",
+        "reason": "unsupported_structural_merge_capability",
         "scope": "whole_file"
       },
       {

@@ -14,7 +14,7 @@
   },
   "implementations": {
     "ruby": {
-      "attribute_contains": "*.rb diff=smorg-ruby"
+      "attribute_contains": "*.rb diff=smorg-rb"
     },
     "typescript": {
       "attribute_contains": "*.json merge=smorg-ts diff=smorg-ts smorg.language=json"

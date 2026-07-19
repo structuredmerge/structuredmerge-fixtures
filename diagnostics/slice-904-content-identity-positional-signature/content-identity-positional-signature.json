@@ -1,0 +1,33 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "904",
+  "name": "content-identity-positional-signature",
+  "description": "Identical generated blocks must match by content identity when their primary signatures differ only by source position.",
+  "matching": {
+    "matching_id": "content-identity-positional-signature",
+    "strategy": "signature",
+    "scope_path": "/generated-blocks",
+    "template_nodes": [
+      {
+        "node_id": "template-generated-block",
+        "primary_signature": ["opaque_block", "generated", 12],
+        "normalized_content": "if generated_items.any?\\n  emit generated_items\\nend"
+      }
+    ],
+    "destination_nodes": [
+      {
+        "node_id": "destination-generated-block",
+        "primary_signature": ["opaque_block", "generated", 48],
+        "normalized_content": "if generated_items.any?\\n  emit generated_items\\nend"
+      }
+    ]
+  },
+  "expected": {
+    "match_count": 1,
+    "template_only_count": 0,
+    "dest_only_count": 0,
+    "first_match_signature": ["content_identity", "if generated_items.any?\\n  emit generated_items\\nend"],
+    "first_template_index": 0,
+    "first_dest_index": 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "https://structuredmerge.org/schemas/ruby-merge-fixture/v1.json",
+  "slice": "1002",
+  "name": "duplicate-top-level-dsl-block",
+  "description": "A repeated destination top-level Ruby DSL block with identical content must be recognized as already represented by the template match.",
+  "merge": {
+    "dialect": "ruby",
+    "backend": "prism",
+    "preference": "destination",
+    "add_template_only_nodes": true,
+    "template": "source \"https://gem.coop\"\n\ndirect_sibling_gems = %w[\n  ast-merge\n  json-merge\n]\n\nif direct_sibling_gems.any?\n  eval_nomono_gems(gems: direct_sibling_gems)\nend\n\neval_gemfile \"gemfiles/modular/debug.gemfile\"\n",
+    "destination": "source \"https://gem.coop\"\n\ndirect_sibling_gems = %w[\n  ast-merge\n  json-merge\n]\n\nif direct_sibling_gems.any?\n  eval_nomono_gems(gems: direct_sibling_gems)\nend\n\nif direct_sibling_gems.any?\n  eval_nomono_gems(gems: direct_sibling_gems)\nend\n\neval_gemfile \"gemfiles/modular/debug.gemfile\"\n",
+    "expected": "source \"https://gem.coop\"\n\ndirect_sibling_gems = %w[\n  ast-merge\n  json-merge\n]\n\nif direct_sibling_gems.any?\n  eval_nomono_gems(gems: direct_sibling_gems)\nend\n\neval_gemfile \"gemfiles/modular/debug.gemfile\"\n"
+  },
+  "expected": {
+    "ok": true,
+    "block_occurrences": 1
+  }
+}

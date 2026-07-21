@@ -16,7 +16,12 @@
           "new_path"
         ],
         "expected_exit_code": 0,
-        "expected_output_kind": "structured_diff"
+        "expected_output_kind": "structured_diff",
+        "expected_output_fragments": [
+          "review-diff unified",
+          "@@ -",
+          "-"
+        ]
       },
       {
         "case_id": "seven-argument-external-diff",
@@ -31,7 +36,12 @@
           "new_mode"
         ],
         "expected_exit_code": 0,
-        "expected_output_kind": "structured_diff"
+        "expected_output_kind": "structured_diff",
+        "expected_output_fragments": [
+          "review-diff unified",
+          "@@ -",
+          "-"
+        ]
       },
       {
         "case_id": "nine-argument-external-diff-with-prefixes",
@@ -48,7 +58,31 @@
           "new_prefix"
         ],
         "expected_exit_code": 0,
-        "expected_output_kind": "structured_diff"
+        "expected_output_kind": "structured_diff",
+        "expected_output_fragments": [
+          "review-diff unified",
+          "@@ -",
+          "-"
+        ]
+      }
+    ],
+    "real_source_pairs": [
+      {
+        "case_id": "kettle-jem-template-task-method-change",
+        "path": "lib/kettle/jem/tasks/template_task.rb",
+        "language": "ruby",
+        "old_source": "module Kettle\n  module Jem\n    module Tasks\n      class TemplateTask\n        def self.default_worker_count\n          0\n        end\n      end\n    end\n  end\nend\n",
+        "new_source": "module Kettle\n  module Jem\n    module Tasks\n      class TemplateTask\n        def self.default_worker_count\n          [Etc.nprocessors / 2, 1].max\n        end\n      end\n    end\n  end\nend\n",
+        "expected_plain_diff_fragments": [
+          "-          0",
+          "+          [Etc.nprocessors / 2, 1].max"
+        ],
+        "expected_structured_diff_fragments": [
+          "review-diff unified",
+          "@@ -1,11 +1,11 @@",
+          "-          0",
+          "+          [Etc.nprocessors / 2, 1].max"
+        ]
       }
     ],
     "diagnostics": [
@@ -63,6 +97,8 @@
       7,
       9
     ],
-    "structured_diff_count": 3
+    "structured_diff_count": 3,
+    "reviewable_output_case_count": 3,
+    "real_source_pair_count": 1
   }
 }

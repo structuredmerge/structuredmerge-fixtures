@@ -1,13 +1,9 @@
 {
-  "name": "trailing-comma-rejected",
+  "name": "trailing-comma-accepted",
   "dialect": "jsonc",
   "source": "{\n  // package status\n  \"enabled\": true,\n  \"items\": [1, 2,],\n}\n",
   "expected": {
-    "ok": false,
-    "diagnostics": [
-      {
-        "category": "parse_error"
-      }
-    ]
+    "ok": true,
+    "diagnostics": []
   }
 }

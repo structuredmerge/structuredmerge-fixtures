@@ -1,7 +1,7 @@
 {
   "feature_profile": {
     "family": "json",
-    "supported_dialects": ["json", "jsonc"],
+    "supported_dialects": ["json", "jsonc", "json5"],
     "supported_policies": [
       {
         "surface": "array",

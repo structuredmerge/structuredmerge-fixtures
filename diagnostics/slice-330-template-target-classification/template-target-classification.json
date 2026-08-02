@@ -118,6 +118,15 @@
       }
     },
     {
+      "destination_path": "biome.json5",
+      "expected": {
+        "destination_path": "biome.json5",
+        "file_type": "json",
+        "family": "json",
+        "dialect": "json5"
+      }
+    },
+    {
       "destination_path": "mise.toml",
       "expected": {
         "destination_path": "mise.toml",

@@ -79,7 +79,7 @@
         ],
         "expected_structured_diff_fragments": [
           "review-diff unified",
-          "@@ -1,11 +1,11 @@",
+          "@@ -3,7 +3,7 @@",
           "-          0",
           "+          [Etc.nprocessors / 2, 1].max"
         ]

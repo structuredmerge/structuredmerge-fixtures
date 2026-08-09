@@ -252,6 +252,13 @@
         "backend": "kreuzberg-language-pack",
         "profile_id": "source_preserving",
         "status": "tested"
+      },
+      {
+        "provider_id": "ruby.text",
+        "dialect": "text",
+        "backend": "plain-line",
+        "profile_id": "coarse_document",
+        "status": "tested"
       }
     ],
     "blocked_provider_ids": [
@@ -266,7 +273,6 @@
       "ruby.markdown",
       "ruby.markdown.markly",
       "ruby.toml.parslet",
-      "ruby.text",
       "ruby.ruby.prism",
       "ruby.yaml.psych",
       "ruby.rbs",
@@ -286,10 +292,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 1,
-      "tested_dialect_backend_rows": 3,
-      "blocked_provider_rows": 21,
-      "advertised_provider_ids": ["ruby.json"]
+      "tested_provider_rows": 2,
+      "tested_dialect_backend_rows": 4,
+      "blocked_provider_rows": 20,
+      "advertised_provider_ids": ["ruby.json", "ruby.text"]
     }
   },
   "expected": {

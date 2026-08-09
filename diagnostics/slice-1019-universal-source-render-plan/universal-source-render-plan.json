@@ -1,0 +1,159 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1019",
+  "name": "universal-source-render-plan",
+  "description": "Language-neutral source rendering preserves exact revision lines and reports all synthesis and conflicts.",
+  "contract": {
+    "fragment_kinds": [
+      "source",
+      "synthesized",
+      "conflict"
+    ],
+    "source_revisions": [
+      "base",
+      "ours",
+      "theirs"
+    ],
+    "renderer_must_not": [
+      "parse",
+      "match_owners",
+      "infer_separators",
+      "infer_indentation",
+      "pretty_print_semantic_values"
+    ],
+    "required_outputs": [
+      "content",
+      "line_records",
+      "synthesized_fragments",
+      "conflicts",
+      "verification_input"
+    ]
+  },
+  "sources": {
+    "base": "alpha\nshared\nomega\n",
+    "ours": "alpha ours\nshared\nomega\n",
+    "theirs": "alpha\nshared\nomega theirs\n"
+  },
+  "cases": [
+    {
+      "case_id": "compose-exact-revision-lines",
+      "fragments": [
+        {
+          "kind": "source",
+          "revision": "ours",
+          "start_line": 1,
+          "end_line": 2,
+          "metadata": {
+            "owner_id": "document.head"
+          }
+        },
+        {
+          "kind": "source",
+          "revision": "theirs",
+          "start_line": 3,
+          "end_line": 3,
+          "metadata": {
+            "owner_id": "document.tail"
+          }
+        }
+      ],
+      "expected": {
+        "content": "alpha ours\nshared\nomega theirs\n",
+        "source_line_count": 3,
+        "synthesized_fragment_count": 0,
+        "conflict_count": 0
+      }
+    },
+    {
+      "case_id": "report-synthesized-separator",
+      "fragments": [
+        {
+          "kind": "source",
+          "revision": "ours",
+          "start_line": 1,
+          "end_line": 1
+        },
+        {
+          "kind": "synthesized",
+          "content": "\n",
+          "reason": "separator",
+          "producer": "family-profile"
+        },
+        {
+          "kind": "source",
+          "revision": "theirs",
+          "start_line": 3,
+          "end_line": 3
+        }
+      ],
+      "expected": {
+        "content": "alpha ours\n\nomega theirs\n",
+        "source_line_count": 2,
+        "synthesized_fragment_count": 1,
+        "conflict_count": 0
+      }
+    },
+    {
+      "case_id": "localize-three-way-conflict",
+      "fragments": [
+        {
+          "kind": "source",
+          "revision": "ours",
+          "start_line": 1,
+          "end_line": 1
+        },
+        {
+          "kind": "conflict",
+          "conflict_id": "owner-shared",
+          "marker_size": 7,
+          "base": [
+            {
+              "kind": "source",
+              "revision": "base",
+              "start_line": 2,
+              "end_line": 2
+            }
+          ],
+          "ours": [
+            {
+              "kind": "synthesized",
+              "content": "shared ours\n",
+              "reason": "family_emission",
+              "producer": "example-provider"
+            }
+          ],
+          "theirs": [
+            {
+              "kind": "synthesized",
+              "content": "shared theirs\n",
+              "reason": "family_emission",
+              "producer": "example-provider"
+            }
+          ]
+        },
+        {
+          "kind": "source",
+          "revision": "theirs",
+          "start_line": 3,
+          "end_line": 3
+        }
+      ],
+      "expected": {
+        "conflict_count": 1,
+        "conflict_id": "owner-shared",
+        "contains_markers": [
+          "<<<<<<< ours",
+          "||||||| base",
+          "=======",
+          ">>>>>>> theirs"
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "case_count": 3,
+    "source_preservation": "byte_exact",
+    "family_independent_renderer": true,
+    "post_render_verification_required": true
+  }
+}

@@ -228,6 +228,70 @@
       "preserve": ["comments", "trailing_commas", "key_style", "quote_style", "ordering", "supported_formatting"]
     }
   ],
+  "executable_conformance": {
+    "statuses": ["tested", "unsupported", "blocked"],
+    "advertising_rule": "Only tested dialect/backend/profile rows may be advertised to Git or smorg-rb.",
+    "tested_rows": [
+      {
+        "provider_id": "ruby.json",
+        "dialect": "json",
+        "backend": "kreuzberg-language-pack",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
+        "provider_id": "ruby.json",
+        "dialect": "jsonc",
+        "backend": "kreuzberg-language-pack",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
+        "provider_id": "ruby.json",
+        "dialect": "json5",
+        "backend": "kreuzberg-language-pack",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      }
+    ],
+    "blocked_provider_ids": [
+      "ruby.bash",
+      "ruby.binary",
+      "ruby.toml.citrus",
+      "ruby.markdown.commonmarker",
+      "ruby.dotenv",
+      "ruby.go",
+      "ruby.html",
+      "ruby.markdown.kramdown",
+      "ruby.markdown",
+      "ruby.markdown.markly",
+      "ruby.toml.parslet",
+      "ruby.text",
+      "ruby.ruby.prism",
+      "ruby.yaml.psych",
+      "ruby.rbs",
+      "ruby.ruby",
+      "ruby.rust",
+      "ruby.toml",
+      "ruby.typescript",
+      "ruby.yaml",
+      "ruby.zip"
+    ],
+    "blocked_status": {
+      "status": "blocked",
+      "reason": "provider_not_implemented",
+      "issue": 25,
+      "dialect_status": "blocked",
+      "backend_status": "blocked"
+    },
+    "expected": {
+      "provider_rows": 22,
+      "tested_provider_rows": 1,
+      "tested_dialect_backend_rows": 3,
+      "blocked_provider_rows": 21,
+      "advertised_provider_ids": ["ruby.json"]
+    }
+  },
   "expected": {
     "provider_count": 22,
     "workflow_provider_count": 15,

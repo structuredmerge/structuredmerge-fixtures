@@ -1,5 +1,8 @@
 {
   "slice": "slice-950-git-merge3-contract",
+  "status": "superseded",
+  "superseded_by": "slice-1020-format-neutral-git-adapter",
+  "historical_note": "This fixture records the removed JSON-specific adapter contract.",
   "contract": {
     "package": "ast-merge-git",
     "operation": "merge3",

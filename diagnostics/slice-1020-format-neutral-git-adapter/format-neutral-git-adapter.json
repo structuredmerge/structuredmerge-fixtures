@@ -1,0 +1,73 @@
+{
+  "slice": "slice-1020-format-neutral-git-adapter",
+  "contract": {
+    "package": "ast-merge-git",
+    "operation": "merge3",
+    "family_neutral": true,
+    "two_way_fallback": false,
+    "exit_codes": {
+      "success": 0,
+      "unresolved_conflict": 1,
+      "error": 2
+    },
+    "compatibility_aliases": {
+      "output": "merged_source",
+      "conflicted_output": "conflicted_source",
+      "changes": "change_classifications"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "clean-provider-output",
+      "provider_outcome": {
+        "ok": true,
+        "output": "merged\n",
+        "conflicted_output": null,
+        "conflicts": []
+      },
+      "expected": {
+        "ok": true,
+        "merged_source": "merged\n",
+        "conflicted_source": null,
+        "exit_code": 0
+      }
+    },
+    {
+      "case_id": "provider-conflict-output",
+      "provider_outcome": {
+        "ok": false,
+        "output": null,
+        "conflicted_output": "<<<<<<< ours\nours\n=======\ntheirs\n>>>>>>> theirs\n",
+        "conflicts": [
+          {
+            "conflict_id": "neutral-owner",
+            "category": "edit_edit",
+            "path": "/owner"
+          }
+        ]
+      },
+      "expected": {
+        "ok": false,
+        "merged_source": null,
+        "conflicted_source": "<<<<<<< ours\nours\n=======\ntheirs\n>>>>>>> theirs\n",
+        "exit_code": 1
+      }
+    },
+    {
+      "case_id": "invalid-clean-output",
+      "provider_outcome": {
+        "ok": true,
+        "output": null,
+        "conflicted_output": null,
+        "conflicts": []
+      },
+      "expected": {
+        "ok": false,
+        "merged_source": null,
+        "conflicted_source": null,
+        "diagnostic_category": "invalid_provider_output",
+        "exit_code": 2
+      }
+    }
+  ]
+}

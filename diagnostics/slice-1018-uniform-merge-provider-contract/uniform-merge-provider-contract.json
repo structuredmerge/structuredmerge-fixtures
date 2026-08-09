@@ -282,6 +282,13 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.yaml.psych",
+        "dialect": "yaml",
+        "backend": "psych",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.zip",
         "dialect": "zip",
         "backend": "kaitai-struct",
@@ -299,7 +306,6 @@
       "ruby.markdown",
       "ruby.markdown.markly",
       "ruby.toml.parslet",
-      "ruby.yaml.psych",
       "ruby.rbs",
       "ruby.ruby",
       "ruby.rust",
@@ -316,10 +322,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 6,
-      "tested_dialect_backend_rows": 8,
-      "blocked_provider_rows": 16,
-      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.ruby.prism", "ruby.text", "ruby.zip"]
+      "tested_provider_rows": 7,
+      "tested_dialect_backend_rows": 9,
+      "blocked_provider_rows": 15,
+      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.ruby.prism", "ruby.text", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

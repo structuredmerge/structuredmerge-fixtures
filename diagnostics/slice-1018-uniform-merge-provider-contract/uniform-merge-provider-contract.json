@@ -268,6 +268,13 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.ruby.prism",
+        "dialect": "ruby",
+        "backend": "prism",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.zip",
         "dialect": "zip",
         "backend": "kaitai-struct",
@@ -286,7 +293,6 @@
       "ruby.markdown",
       "ruby.markdown.markly",
       "ruby.toml.parslet",
-      "ruby.ruby.prism",
       "ruby.yaml.psych",
       "ruby.rbs",
       "ruby.ruby",
@@ -304,10 +310,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 4,
-      "tested_dialect_backend_rows": 6,
-      "blocked_provider_rows": 18,
-      "advertised_provider_ids": ["ruby.binary", "ruby.json", "ruby.text", "ruby.zip"]
+      "tested_provider_rows": 5,
+      "tested_dialect_backend_rows": 7,
+      "blocked_provider_rows": 17,
+      "advertised_provider_ids": ["ruby.binary", "ruby.json", "ruby.ruby.prism", "ruby.text", "ruby.zip"]
     }
   },
   "expected": {

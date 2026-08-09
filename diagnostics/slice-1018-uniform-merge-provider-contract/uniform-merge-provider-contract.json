@@ -289,6 +289,13 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.yaml",
+        "dialect": "yaml",
+        "backend": "kreuzberg-language-pack",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.zip",
         "dialect": "zip",
         "backend": "kaitai-struct",
@@ -310,8 +317,7 @@
       "ruby.ruby",
       "ruby.rust",
       "ruby.toml",
-      "ruby.typescript",
-      "ruby.yaml"
+      "ruby.typescript"
     ],
     "blocked_status": {
       "status": "blocked",
@@ -322,10 +328,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 7,
-      "tested_dialect_backend_rows": 9,
-      "blocked_provider_rows": 15,
-      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.ruby.prism", "ruby.text", "ruby.yaml.psych", "ruby.zip"]
+      "tested_provider_rows": 8,
+      "tested_dialect_backend_rows": 10,
+      "blocked_provider_rows": 14,
+      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.ruby.prism", "ruby.text", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

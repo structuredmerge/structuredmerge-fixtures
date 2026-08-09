@@ -240,6 +240,13 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.dotenv",
+        "dialect": "dotenv",
+        "backend": "dotenv-line",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.json",
         "dialect": "json",
         "backend": "kreuzberg-language-pack",
@@ -286,7 +293,6 @@
       "ruby.bash",
       "ruby.toml.citrus",
       "ruby.markdown.commonmarker",
-      "ruby.dotenv",
       "ruby.go",
       "ruby.html",
       "ruby.markdown.kramdown",
@@ -310,10 +316,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 5,
-      "tested_dialect_backend_rows": 7,
-      "blocked_provider_rows": 17,
-      "advertised_provider_ids": ["ruby.binary", "ruby.json", "ruby.ruby.prism", "ruby.text", "ruby.zip"]
+      "tested_provider_rows": 6,
+      "tested_dialect_backend_rows": 8,
+      "blocked_provider_rows": 16,
+      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.ruby.prism", "ruby.text", "ruby.zip"]
     }
   },
   "expected": {

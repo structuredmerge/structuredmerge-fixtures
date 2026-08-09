@@ -303,6 +303,13 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.toml.citrus",
+        "dialect": "toml",
+        "backend": "citrus",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.zip",
         "dialect": "zip",
         "backend": "kaitai-struct",
@@ -312,7 +319,6 @@
     ],
     "blocked_provider_ids": [
       "ruby.bash",
-      "ruby.toml.citrus",
       "ruby.markdown.commonmarker",
       "ruby.go",
       "ruby.html",
@@ -334,10 +340,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 9,
-      "tested_dialect_backend_rows": 11,
-      "blocked_provider_rows": 13,
-      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.ruby", "ruby.ruby.prism", "ruby.text", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
+      "tested_provider_rows": 10,
+      "tested_dialect_backend_rows": 12,
+      "blocked_provider_rows": 12,
+      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.ruby", "ruby.ruby.prism", "ruby.text", "ruby.toml.citrus", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

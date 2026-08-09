@@ -2,7 +2,8 @@
   "feature_profile": {
     "family": "typescript",
     "supported_dialects": [
-      "typescript"
+      "typescript",
+      "tsx"
     ],
     "supported_policies": [
       {

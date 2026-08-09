@@ -2,7 +2,7 @@
   "tree_sitter": {
     "family_profile": {
       "family": "typescript",
-      "supported_dialects": ["typescript"],
+      "supported_dialects": ["typescript", "tsx"],
       "supported_policies": [
         {
           "surface": "array",

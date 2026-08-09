@@ -303,6 +303,20 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.typescript",
+        "dialect": "typescript",
+        "backend": "kreuzberg-language-pack",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
+        "provider_id": "ruby.typescript",
+        "dialect": "tsx",
+        "backend": "kreuzberg-language-pack",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.yaml.psych",
         "dialect": "yaml",
         "backend": "psych",
@@ -352,8 +366,7 @@
       "ruby.markdown.kramdown",
       "ruby.markdown",
       "ruby.markdown.markly",
-      "ruby.rust",
-      "ruby.typescript"
+      "ruby.rust"
     ],
     "blocked_status": {
       "status": "blocked",
@@ -364,10 +377,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 14,
-      "tested_dialect_backend_rows": 16,
-      "blocked_provider_rows": 8,
-      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.go", "ruby.json", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
+      "tested_provider_rows": 15,
+      "tested_dialect_backend_rows": 18,
+      "blocked_provider_rows": 7,
+      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.go", "ruby.json", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.typescript", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

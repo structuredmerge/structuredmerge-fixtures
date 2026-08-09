@@ -296,6 +296,13 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.go",
+        "dialect": "go",
+        "backend": "kreuzberg-language-pack",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.yaml.psych",
         "dialect": "yaml",
         "backend": "psych",
@@ -341,7 +348,6 @@
     "blocked_provider_ids": [
       "ruby.bash",
       "ruby.markdown.commonmarker",
-      "ruby.go",
       "ruby.html",
       "ruby.markdown.kramdown",
       "ruby.markdown",
@@ -358,10 +364,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 13,
-      "tested_dialect_backend_rows": 15,
-      "blocked_provider_rows": 9,
-      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
+      "tested_provider_rows": 14,
+      "tested_dialect_backend_rows": 16,
+      "blocked_provider_rows": 8,
+      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.go", "ruby.json", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

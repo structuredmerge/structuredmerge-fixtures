@@ -1,0 +1,239 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1018",
+  "name": "uniform-merge-provider-contract",
+  "description": "Every active Ruby merge gem exposes one provider API for analysis, two-way diff and merge, and base-aware three-way merge.",
+  "contract": {
+    "substrate_package": "ast-merge",
+    "git_adapter_package": "ast-merge-git",
+    "provider_entrypoint": "merge_provider",
+    "required_operations": [
+      "analyze",
+      "diff2",
+      "merge2",
+      "merge3"
+    ],
+    "required_provider_methods": [
+      "provider_id",
+      "family",
+      "capabilities",
+      "analyze",
+      "diff2",
+      "merge2",
+      "merge3"
+    ],
+    "merge3_roles": [
+      "base_source",
+      "ours_source",
+      "theirs_source"
+    ],
+    "required_result_fields": [
+      "schema",
+      "operation",
+      "ok",
+      "provider",
+      "profile",
+      "diagnostics",
+      "changes",
+      "conflicts",
+      "fallbacks",
+      "render_report",
+      "verification"
+    ],
+    "forbidden_merge3_substitutions": [
+      "merge2",
+      "template_destination_merge",
+      "ignore_base"
+    ]
+  },
+  "providers": [
+    {
+      "package": "bash-merge",
+      "provider_id": "ruby.bash",
+      "family": "bash",
+      "dialects": ["bash"],
+      "role": "workflow"
+    },
+    {
+      "package": "binary-merge",
+      "provider_id": "ruby.binary",
+      "family": "binary",
+      "dialects": ["binary"],
+      "role": "workflow",
+      "coarse_grained": true
+    },
+    {
+      "package": "citrus-toml-merge",
+      "provider_id": "ruby.toml.citrus",
+      "family": "toml",
+      "dialects": ["toml"],
+      "role": "backend"
+    },
+    {
+      "package": "commonmarker-merge",
+      "provider_id": "ruby.markdown.commonmarker",
+      "family": "markdown",
+      "dialects": ["markdown", "commonmark"],
+      "role": "backend"
+    },
+    {
+      "package": "dotenv-merge",
+      "provider_id": "ruby.dotenv",
+      "family": "dotenv",
+      "dialects": ["dotenv"],
+      "role": "workflow"
+    },
+    {
+      "package": "go-merge",
+      "provider_id": "ruby.go",
+      "family": "go",
+      "dialects": ["go"],
+      "role": "workflow"
+    },
+    {
+      "package": "html-merge",
+      "provider_id": "ruby.html",
+      "family": "html",
+      "dialects": ["html"],
+      "role": "workflow"
+    },
+    {
+      "package": "json-merge",
+      "provider_id": "ruby.json",
+      "family": "json",
+      "dialects": ["json", "jsonc", "json5"],
+      "role": "workflow",
+      "source_aware_render_required": true
+    },
+    {
+      "package": "kramdown-merge",
+      "provider_id": "ruby.markdown.kramdown",
+      "family": "markdown",
+      "dialects": ["markdown", "kramdown"],
+      "role": "backend"
+    },
+    {
+      "package": "markdown-merge",
+      "provider_id": "ruby.markdown",
+      "family": "markdown",
+      "dialects": ["markdown"],
+      "role": "workflow"
+    },
+    {
+      "package": "markly-merge",
+      "provider_id": "ruby.markdown.markly",
+      "family": "markdown",
+      "dialects": ["markdown", "commonmark"],
+      "role": "backend"
+    },
+    {
+      "package": "parslet-toml-merge",
+      "provider_id": "ruby.toml.parslet",
+      "family": "toml",
+      "dialects": ["toml"],
+      "role": "backend"
+    },
+    {
+      "package": "plain-merge",
+      "provider_id": "ruby.text",
+      "family": "text",
+      "dialects": ["text"],
+      "role": "workflow",
+      "coarse_grained": true
+    },
+    {
+      "package": "prism-merge",
+      "provider_id": "ruby.ruby.prism",
+      "family": "ruby",
+      "dialects": ["ruby"],
+      "role": "backend"
+    },
+    {
+      "package": "psych-merge",
+      "provider_id": "ruby.yaml.psych",
+      "family": "yaml",
+      "dialects": ["yaml"],
+      "role": "backend"
+    },
+    {
+      "package": "rbs-merge",
+      "provider_id": "ruby.rbs",
+      "family": "rbs",
+      "dialects": ["rbs"],
+      "role": "workflow"
+    },
+    {
+      "package": "ruby-merge",
+      "provider_id": "ruby.ruby",
+      "family": "ruby",
+      "dialects": ["ruby"],
+      "role": "workflow"
+    },
+    {
+      "package": "rust-merge",
+      "provider_id": "ruby.rust",
+      "family": "rust",
+      "dialects": ["rust"],
+      "role": "workflow"
+    },
+    {
+      "package": "toml-merge",
+      "provider_id": "ruby.toml",
+      "family": "toml",
+      "dialects": ["toml"],
+      "role": "workflow"
+    },
+    {
+      "package": "typescript-merge",
+      "provider_id": "ruby.typescript",
+      "family": "typescript",
+      "dialects": ["typescript", "tsx"],
+      "role": "workflow"
+    },
+    {
+      "package": "yaml-merge",
+      "provider_id": "ruby.yaml",
+      "family": "yaml",
+      "dialects": ["yaml"],
+      "role": "workflow"
+    },
+    {
+      "package": "zip-merge",
+      "provider_id": "ruby.zip",
+      "family": "zip",
+      "dialects": ["zip"],
+      "role": "workflow",
+      "coarse_grained": true
+    }
+  ],
+  "dialect_requirements": [
+    {
+      "family": "json",
+      "dialect": "json",
+      "source_aware_render": true,
+      "generic_serializer_allowed": "explicit_canonical_fallback_only"
+    },
+    {
+      "family": "json",
+      "dialect": "jsonc",
+      "source_aware_render": true,
+      "generic_serializer_allowed": false,
+      "preserve": ["comments", "trailing_commas", "ordering", "supported_formatting"]
+    },
+    {
+      "family": "json",
+      "dialect": "json5",
+      "source_aware_render": true,
+      "generic_serializer_allowed": false,
+      "preserve": ["comments", "trailing_commas", "key_style", "quote_style", "ordering", "supported_formatting"]
+    }
+  ],
+  "expected": {
+    "provider_count": 22,
+    "workflow_provider_count": 15,
+    "backend_provider_count": 7,
+    "all_providers_implement_required_operations": true,
+    "git_adapter_owns_family_rendering": false,
+    "merge3_requires_base_participation": true
+  }
+}

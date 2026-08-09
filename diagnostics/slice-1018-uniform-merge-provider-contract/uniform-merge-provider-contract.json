@@ -233,6 +233,13 @@
     "advertising_rule": "Only tested dialect/backend/profile rows may be advertised to Git or smorg-rb.",
     "tested_rows": [
       {
+        "provider_id": "ruby.binary",
+        "dialect": "binary",
+        "backend": "raw_bytes",
+        "profile_id": "opaque_document",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.json",
         "dialect": "json",
         "backend": "kreuzberg-language-pack",
@@ -259,11 +266,17 @@
         "backend": "plain-line",
         "profile_id": "coarse_document",
         "status": "tested"
+      },
+      {
+        "provider_id": "ruby.zip",
+        "dialect": "zip",
+        "backend": "kaitai-struct",
+        "profile_id": "opaque_archive",
+        "status": "tested"
       }
     ],
     "blocked_provider_ids": [
       "ruby.bash",
-      "ruby.binary",
       "ruby.toml.citrus",
       "ruby.markdown.commonmarker",
       "ruby.dotenv",
@@ -280,8 +293,7 @@
       "ruby.rust",
       "ruby.toml",
       "ruby.typescript",
-      "ruby.yaml",
-      "ruby.zip"
+      "ruby.yaml"
     ],
     "blocked_status": {
       "status": "blocked",
@@ -292,10 +304,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 2,
-      "tested_dialect_backend_rows": 4,
-      "blocked_provider_rows": 20,
-      "advertised_provider_ids": ["ruby.json", "ruby.text"]
+      "tested_provider_rows": 4,
+      "tested_dialect_backend_rows": 6,
+      "blocked_provider_rows": 18,
+      "advertised_provider_ids": ["ruby.binary", "ruby.json", "ruby.text", "ruby.zip"]
     }
   },
   "expected": {

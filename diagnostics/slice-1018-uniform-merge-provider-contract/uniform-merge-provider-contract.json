@@ -303,6 +303,13 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.rust",
+        "dialect": "rust",
+        "backend": "kreuzberg-language-pack",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.typescript",
         "dialect": "typescript",
         "backend": "kreuzberg-language-pack",
@@ -365,8 +372,7 @@
       "ruby.html",
       "ruby.markdown.kramdown",
       "ruby.markdown",
-      "ruby.markdown.markly",
-      "ruby.rust"
+      "ruby.markdown.markly"
     ],
     "blocked_status": {
       "status": "blocked",
@@ -377,10 +383,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 15,
-      "tested_dialect_backend_rows": 18,
-      "blocked_provider_rows": 7,
-      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.go", "ruby.json", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.typescript", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
+      "tested_provider_rows": 16,
+      "tested_dialect_backend_rows": 19,
+      "blocked_provider_rows": 6,
+      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.go", "ruby.json", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.rust", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.typescript", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

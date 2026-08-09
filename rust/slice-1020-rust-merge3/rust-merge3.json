@@ -1,0 +1,47 @@
+{
+  "contract": {
+    "provider_id": "ruby.rust",
+    "family": "rust",
+    "dialect": "rust",
+    "backend": "kreuzberg-language-pack",
+    "profile_id": "source_preserving",
+    "operation": "merge3"
+  },
+  "cases": [
+    {
+      "case_id": "independent-top-level-items",
+      "base_source": "use crate::shared;\n\nfn shared() {}\n",
+      "ours_source": "use crate::shared;\n\nfn shared() {}\nfn ours() {}\n",
+      "theirs_source": "use crate::shared;\n\nfn shared() {}\ntrait Theirs {}\n",
+      "expected": {
+        "ok": true,
+        "output": "use crate::shared;\n\nfn shared() {}\nfn ours() {}\ntrait Theirs {}\n",
+        "strategy": "exact_declaration_composite",
+        "base_participated": true
+      }
+    },
+    {
+      "case_id": "localized-function-conflict",
+      "base_source": "fn value() -> i32 { 0 }\n\nfn stable() {}\n",
+      "ours_source": "fn value() -> i32 { 1 }\n\nfn stable() {}\n",
+      "theirs_source": "fn value() -> i32 { 2 }\n\nfn stable() {}\n",
+      "expected": {
+        "ok": false,
+        "conflict_category": "edit_edit",
+        "strategy": "declaration_localized_conflict",
+        "stable_suffix": "fn stable() {}\n"
+      }
+    },
+    {
+      "case_id": "compound-use-membership-fails-closed",
+      "base_source": "use crate::{alpha, beta};\nfn stable() {}\n",
+      "ours_source": "use crate::{alpha, ours};\nfn stable() {}\n",
+      "theirs_source": "use crate::{alpha, theirs};\nfn stable() {}\n",
+      "expected": {
+        "ok": false,
+        "conflict_category": "unproven_compound_ownership",
+        "strategy": "full_file_conflict"
+      }
+    }
+  ]
+}

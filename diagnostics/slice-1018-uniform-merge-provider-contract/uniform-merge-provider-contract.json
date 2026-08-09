@@ -289,6 +289,13 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.rbs",
+        "dialect": "rbs",
+        "backend": "rbs",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.yaml.psych",
         "dialect": "yaml",
         "backend": "psych",
@@ -339,7 +346,6 @@
       "ruby.markdown.kramdown",
       "ruby.markdown",
       "ruby.markdown.markly",
-      "ruby.rbs",
       "ruby.rust",
       "ruby.typescript"
     ],
@@ -352,10 +358,10 @@
     },
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 12,
-      "tested_dialect_backend_rows": 14,
-      "blocked_provider_rows": 10,
-      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.ruby", "ruby.ruby.prism", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
+      "tested_provider_rows": 13,
+      "tested_dialect_backend_rows": 15,
+      "blocked_provider_rows": 9,
+      "advertised_provider_ids": ["ruby.binary", "ruby.dotenv", "ruby.json", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

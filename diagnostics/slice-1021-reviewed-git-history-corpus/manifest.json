@@ -4,25 +4,45 @@
   "source": {
     "repository": "structuredmerge/structuredmerge-ruby",
     "remote_url": "https://github.com/structuredmerge/structuredmerge-ruby.git",
-    "revision": "c8a0208f61d8132a2cef2ff083e43f3e03ab7560",
+    "revision": "9eb0cf91f30884f74a62d089e1686b9216d06ff8",
     "spdx_license": "AGPL-3.0-only OR LicenseRef-PolyForm-Small-Business-1.0.0",
-    "license_evidence_url": "https://github.com/structuredmerge/structuredmerge-ruby/blob/c8a0208f61d8132a2cef2ff083e43f3e03ab7560/LICENSE.md",
-    "oracle_rationale": "A merge-result blob is human-history evidence only after admission review; these seeds preserve clean branch history and are not conflict-quality evidence."
+    "license_evidence_url": "https://github.com/structuredmerge/structuredmerge-ruby/blob/9eb0cf91f30884f74a62d089e1686b9216d06ff8/LICENSE.md",
+    "oracle_rationale": "A merge-result blob is human-history evidence only after conflict proof and manual false-auto-merge review; one reviewed conflict resolution is admitted alongside the original clean-history seeds."
   },
   "claim_policy": {
     "quality_claims_allowed": false,
-    "reason": "False-auto-merge review is incomplete.",
+    "reason": "Slice 1021 records evidence and eligibility but makes no aggregate quality claim.",
     "runtime_comparable": false
   },
   "admission_backlog": [
     {
       "candidate_id": "structuredmerge-ruby-conflict-oracle",
-      "status": "blocked",
-      "reason": "No reviewed merge with path-level conflict evidence and a safely attributable human resolution has been admitted yet.",
-      "score_eligible": false
+      "status": "admitted",
+      "case_id": "fixtures-integration-preserved-suites",
+      "reason": "Content conflict and the human union resolution were reviewed; the selected Ruby provider can evaluate structural equivalence.",
+      "score_eligible": true
     }
   ],
   "cases": [
+    {
+      "case_id": "fixtures-integration-preserved-suites",
+      "merge_commit": "37e444143b1d9b012af1987031a817948e3669fa",
+      "base_commit": "86b5578633a25597ec7d857f3c4262fe51d4afab",
+      "parent_commits": ["5fb2fc396ebd2f91dfdb73750f79c4b9fb0630ae", "7ebff9c42e03db81ba0900d54e1c09aaa5bcbd8d"],
+      "path": "gems/ast-merge/spec/fixtures_integration_spec.rb",
+      "blob_oids": {
+        "base": "0a47322be14fc29349f52c0036547f1ac8db81f8",
+        "ours": "2e2b44d79d5cabd10346d43a48fb4f9ca41079ee",
+        "theirs": "d6e82baeae836dadfe83d4651636d753094ae601",
+        "human": "0e095eb687ffaae7f0979efff9dcc426d64ef240"
+      },
+      "selector": {"provider_id": "ruby.ruby", "family": "ruby", "dialect": "ruby", "backend": "prism", "profile": "source_preserving", "require": "ruby/merge"},
+      "capability_tags": ["merge3", "ruby", "prism", "source_preserving", "content_conflict", "reviewed_human_resolution"],
+      "stratum": {"provider": "ruby.ruby", "dialect": "ruby", "conflict_type": "overlapping_suite_and_assertion_edits"},
+      "conflict_evidence": {"method": "git merge-tree --write-tree", "result": "content_conflict", "review_status": "complete"},
+      "review": {"provenance": "manual comparison of base, both parents, merge-tree conflict, and human merge blob", "status": "complete", "finding": "Human result preserves both suites and assertions, adapts incoming calls to local helpers, and combines operation/style checks with the newline check without unrelated cleanup."},
+      "oracle": {"classification": "structurally_equivalent_resolution", "human_resolution_rationale": "The human result is the reviewed semantic union of both conflicting sides and may differ only in provider-proven source representation.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "complete", "provider_coverage": {"status": "supported", "reason": "ruby.ruby diff2 can parse and compare this real Ruby file."}, "score_eligible": true}
+    },
     {
       "case_id": "release-events-dotenv-provider",
       "merge_commit": "c8a0208f61d8132a2cef2ff083e43f3e03ab7560",

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "corpus_id": "git-bash-reviewed-history-v1",
+  "source": {
+    "repository": "git/git",
+    "remote_url": "https://github.com/git/git.git",
+    "revision": "f15d6f120ec7eb50b46117e1a21c2445d483bed5",
+    "spdx_license": "GPL-2.0-only",
+    "license_evidence_url": "https://github.com/git/git/blob/f15d6f120ec7eb50b46117e1a21c2445d483bed5/COPYING",
+    "oracle_rationale": "The reviewed human merge is a structural union, admitted without quality weight until the selected Bash provider can prove AST ownership."
+  },
+  "claim_policy": {"quality_claims_allowed": false, "reason": "Provider ownership coverage is explicitly unsupported.", "runtime_comparable": false},
+  "admission_backlog": [
+    {"candidate_id": "git-line-log-conflict", "status": "admitted", "case_id": "git-line-log-preserved-suites", "reason": "Conflict and human resolution are reviewed; AST ownership remains unsupported.", "score_eligible": false}
+  ],
+  "cases": [
+    {
+      "case_id": "git-line-log-preserved-suites",
+      "merge_commit": "f15d6f120ec7eb50b46117e1a21c2445d483bed5",
+      "base_commit": "53ff39320449d993443904c823b129d47c16d0a7",
+      "parent_commits": ["5072adb2ca436cc685e48319cee2983330e7927d", "f67c51df064d2b64b257bd8c17d757cc0ce1b7fc"],
+      "path": "t/t4211-line-log.sh",
+      "blob_oids": {"base": "ca4eb7bbc713ef6afe5bb579bb62f63287990698", "ours": "d0a834ed8f5bbac60ce4b245be215dadf10bb321", "theirs": "bac74d44794778e1d31fb904f8027ae7fe722921", "human": "429ecd3a51c19b8efd22d53896858e0cc24ab986"},
+      "selector": {"provider_id": "ruby.bash", "family": "bash", "dialect": "bash", "backend": "kreuzberg-language-pack", "profile": "source_preserving", "require": "bash/merge"},
+      "capability_tags": ["merge3", "bash", "source_preserving", "content_conflict", "reviewed_human_resolution"],
+      "stratum": {"provider": "ruby.bash", "dialect": "bash", "conflict_type": "overlapping_shell_test_suite_edits"},
+      "conflict_evidence": {"method": "git merge-tree --write-tree", "result": "content_conflict", "review_status": "complete"},
+      "review": {"provenance": "manual comparison of base, both parents, merge-tree conflict, and human merge blob", "status": "complete", "finding": "Human preserves the incoming --check/-G suite followed by ours get_commit_action test and combines the corrected explanation with test_grep."},
+      "oracle": {"classification": "structurally_equivalent_resolution", "human_resolution_rationale": "The human result is the reviewed ordered union of both test additions.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "complete", "provider_coverage": {"status": "unsupported", "reason": "The current selected provider returns unproven_ast_ownership for this real shell file."}, "score_eligible": false}
+    }
+  ]
+}

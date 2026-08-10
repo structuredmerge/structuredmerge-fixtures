@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "corpus_id": "structuredmerge-typescript-reviewed-history-v1",
+  "source": {
+    "repository": "structuredmerge/structuredmerge-typescript",
+    "remote_url": "https://github.com/structuredmerge/structuredmerge-typescript.git",
+    "revision": "c35d75cbfd127b6972fd36b83e5dae27c887c4fa",
+    "spdx_license": "AGPL-3.0-only OR LicenseRef-PolyForm-Small-Business-1.0.0",
+    "license_evidence_url": "https://github.com/structuredmerge/structuredmerge-typescript/blob/c35d75cbfd127b6972fd36b83e5dae27c887c4fa/LICENSE.md",
+    "oracle_rationale": "The reviewed human merge is a structural union, admitted without quality weight until the selected TypeScript provider parses this real file."
+  },
+  "claim_policy": {"quality_claims_allowed": false, "reason": "Provider coverage is explicitly unsupported.", "runtime_comparable": false},
+  "admission_backlog": [
+    {"candidate_id": "typescript-fixtures-integration-conflict", "status": "admitted", "case_id": "typescript-fixtures-integration-union", "reason": "Conflict and human resolution are reviewed; provider parsing remains unsupported.", "score_eligible": false}
+  ],
+  "cases": [
+    {
+      "case_id": "typescript-fixtures-integration-union",
+      "merge_commit": "c35d75cbfd127b6972fd36b83e5dae27c887c4fa",
+      "base_commit": "875bd38fdfd87229a11dd97e35d8ccaf1146557f",
+      "parent_commits": ["c0be7be0313fd24bac0277d3c2a4d3d9c4f6ae60", "ed8421fcf750000a060a52cc194b861ceb3417f2"],
+      "path": "packages/ast-merge/test/fixtures.integration.test.ts",
+      "blob_oids": {"base": "dfb51d2356a999bd0c62c2cc8ba83ae22076f3eb", "ours": "3b1960a700965d93177ddf80b62c1d486307e57b", "theirs": "86d90d8f0b727c7b2725ed9b15d70c153254ba8f", "human": "5fc1966729f2746481b6a1e08384d03b50cf7127"},
+      "selector": {"provider_id": "ruby.typescript", "family": "typescript", "dialect": "typescript", "backend": "kreuzberg-language-pack", "profile": "source_preserving", "require": "typescript/merge"},
+      "capability_tags": ["merge3", "typescript", "source_preserving", "content_conflict", "reviewed_human_resolution"],
+      "stratum": {"provider": "ruby.typescript", "dialect": "typescript", "conflict_type": "overlapping_test_suite_edits"},
+      "conflict_evidence": {"method": "git merge-tree --write-tree", "result": "content_conflict", "review_status": "complete"},
+      "review": {"provenance": "manual comparison of base, both parents, merge-tree conflict, and human merge blob", "status": "complete", "finding": "Human selects the incoming title spelling and ours permissive typing, then unions both assertion sets without novel semantic lines."},
+      "oracle": {"classification": "structurally_equivalent_resolution", "human_resolution_rationale": "The human result is the reviewed union of both assertion sets.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "complete", "provider_coverage": {"status": "unsupported", "reason": "The current selected provider reports a parse error for an unsupported expression statement in this real file."}, "score_eligible": false}
+    }
+  ]
+}

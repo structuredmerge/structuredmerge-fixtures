@@ -7,11 +7,11 @@
     "revision": "c35d75cbfd127b6972fd36b83e5dae27c887c4fa",
     "spdx_license": "AGPL-3.0-only OR LicenseRef-PolyForm-Small-Business-1.0.0",
     "license_evidence_url": "https://github.com/structuredmerge/structuredmerge-typescript/blob/c35d75cbfd127b6972fd36b83e5dae27c887c4fa/LICENSE.md",
-    "oracle_rationale": "The reviewed human merge is a structural union, admitted without quality weight until the selected TypeScript provider parses this real file."
+    "oracle_rationale": "The reviewed human merge is a structural union and the selected TypeScript provider safely owns its top-level named test-suite call by literal string identity."
   },
-  "claim_policy": {"quality_claims_allowed": false, "reason": "Provider coverage is explicitly unsupported.", "runtime_comparable": false},
+  "claim_policy": {"quality_claims_allowed": false, "reason": "One reviewed history is not sufficient for an aggregate quality claim.", "runtime_comparable": false},
   "admission_backlog": [
-    {"candidate_id": "typescript-fixtures-integration-conflict", "status": "admitted", "case_id": "typescript-fixtures-integration-union", "reason": "Conflict and human resolution are reviewed; provider parsing remains unsupported.", "score_eligible": false}
+    {"candidate_id": "typescript-fixtures-integration-conflict", "status": "admitted", "case_id": "typescript-fixtures-integration-union", "reason": "Conflict and human resolution are reviewed; selected-provider ownership and equivalence are supported.", "score_eligible": true}
   ],
   "cases": [
     {
@@ -26,7 +26,7 @@
       "stratum": {"provider": "ruby.typescript", "dialect": "typescript", "conflict_type": "overlapping_test_suite_edits"},
       "conflict_evidence": {"method": "git merge-tree --write-tree", "result": "content_conflict", "review_status": "complete"},
       "review": {"provenance": "manual comparison of base, both parents, merge-tree conflict, and human merge blob", "status": "complete", "finding": "Human selects the incoming title spelling and ours permissive typing, then unions both assertion sets without novel semantic lines."},
-      "oracle": {"classification": "structurally_equivalent_resolution", "human_resolution_rationale": "The human result is the reviewed union of both assertion sets.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "complete", "provider_coverage": {"status": "unsupported", "reason": "The current selected provider reports a parse error for an unsupported expression statement in this real file."}, "score_eligible": false}
+      "oracle": {"classification": "structurally_equivalent_resolution", "human_resolution_rationale": "The human result is the reviewed union of both assertion sets.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "complete", "provider_coverage": {"status": "supported", "reason": "The selected provider owns the top-level named test-suite call by its literal string identity and can compare the human resolution."}, "score_eligible": true}
     }
   ]
 }

@@ -1,0 +1,842 @@
+{
+  "schema_version": "structuredmerge.benchmark/v1",
+  "fixture_kind": "portable_benchmark_contract",
+  "contract": {
+    "kinds": [
+      "benchmark_case",
+      "run_manifest",
+      "case_result",
+      "aggregate_report"
+    ],
+    "operations": ["diff", "merge3", "history_replay", "metamorphic"],
+    "partitions": ["sentinel", "gold", "metamorphic", "history", "holdout"],
+    "profiles": ["micro", "dev", "pr", "nightly", "release", "competitive"],
+    "outcomes": [
+      "correct_clean",
+      "false_conflict",
+      "true_conflict",
+      "false_auto_merge",
+      "error",
+      "unsupported",
+      "excluded_ambiguous"
+    ],
+    "oracle_classes": [
+      "exact",
+      "structural_ast",
+      "invariant",
+      "parser",
+      "downstream_test",
+      "human",
+      "llm"
+    ],
+    "equivalence_classes": [
+      "exact_bytes",
+      "normalized_text",
+      "structural_ast",
+      "declared_invariants",
+      "parser_acceptance",
+      "downstream_tests"
+    ],
+    "transformations": [
+      "rename",
+      "move",
+      "reorder",
+      "formatting",
+      "comment",
+      "independent_edit",
+      "delete_modify",
+      "duplicate_key_identity",
+      "schema_aware_mutation"
+    ],
+    "false_auto_merge_severities": ["none", "low", "high", "critical"],
+    "preservation_requirements": [
+      "required",
+      "allowed_to_change",
+      "not_applicable"
+    ],
+    "unsupported_policies": ["coverage_only", "required_capability_failure"],
+    "budget_exceed_actions": ["promote_profile", "reduce_profile"],
+    "llm_hard_gate_forbidden_profiles": ["micro", "dev"],
+    "quality_dimensions": [
+      "effectiveness",
+      "safety",
+      "preservation",
+      "performance_resources"
+    ],
+    "scalar_score_allowed": false,
+    "false_auto_merge_compensable": false
+  },
+  "case_schema": {
+    "required": [
+      "schema_version",
+      "kind",
+      "id",
+      "operation",
+      "family",
+      "provider",
+      "dialect",
+      "capabilities",
+      "partition",
+      "provenance",
+      "oracle",
+      "acceptable_equivalence",
+      "preservation_policy",
+      "false_auto_merge_severity"
+    ],
+    "input_policy": {
+      "digest_algorithm": "sha256",
+      "inline_max_bytes": 4096,
+      "inline_requires_digest": true,
+      "reference_required_for": ["history", "holdout", "external", "over_4096_bytes"],
+      "network_fetch_implied": false
+    },
+    "operation_required_fields": {
+      "diff": ["inputs.before", "inputs.after", "expected_edit_units"],
+      "merge3": [
+        "inputs.base",
+        "inputs.ours",
+        "inputs.theirs",
+        "expected_conflicts",
+        "expected_conflict_regions",
+        "independent_edits"
+      ],
+      "history_replay": ["history_reference"],
+      "metamorphic": [
+        "generator",
+        "parent_case_id",
+        "transformations",
+        "expected_invariants"
+      ]
+    }
+  },
+  "run_manifest_schema": {
+    "required": [
+      "schema_version",
+      "kind",
+      "id",
+      "profile",
+      "candidate_adapter",
+      "base_adapter",
+      "corpus",
+      "selection",
+      "environment",
+      "seed",
+      "repetitions",
+      "budgets",
+      "cache_policy",
+      "temperature",
+      "network",
+      "services",
+      "capability_selection",
+      "unsupported_policy",
+      "provenance"
+    ],
+    "adapter_identity_required": [
+      "source_sha",
+      "artifact_sha256",
+      "version",
+      "configuration_sha256"
+    ],
+    "fast_selection_required": [
+      "changed_paths",
+      "inferred_capabilities",
+      "direct_cases",
+      "sentinels",
+      "neighbor_samples",
+      "budget_exceed"
+    ],
+    "silent_budget_extension_allowed": false
+  },
+  "case_result_schema": {
+    "required": [
+      "id",
+      "run_id",
+      "case_id",
+      "adapter_id",
+      "outcome",
+      "score_eligible",
+      "raw",
+      "diagnostics",
+      "conflict_regions",
+      "provenance",
+      "dimensions"
+    ],
+    "diff_measurement_required": [
+      "unit_matching_rule",
+      "true_positive_ids",
+      "false_positive_ids",
+      "false_negative_ids",
+      "precision",
+      "recall"
+    ],
+    "conflict_measurement_required": [
+      "expected_regions",
+      "observed_regions",
+      "matched_region_ids",
+      "false_positive_region_ids",
+      "missed_region_ids",
+      "region_precision",
+      "region_recall",
+      "localization_error_bytes"
+    ],
+    "performance_scope": {
+      "repetitions_apply_only_here": true,
+      "environment_apply_only_here": true,
+      "may_change_outcome": false
+    }
+  },
+  "aggregate_report_schema": {
+    "required_strata": [
+      "operation",
+      "partition",
+      "family",
+      "provider",
+      "dialect",
+      "capability",
+      "oracle",
+      "false_auto_merge_severity"
+    ],
+    "separate_dimensions_required": true,
+    "paired_delta_required": true,
+    "scalar_score_allowed": false,
+    "excluded_ambiguous_scoreable": false,
+    "unsupported_default_quality_failure": false,
+    "false_auto_merge_gate": "non_compensable"
+  },
+  "cases": [
+    {
+      "schema_version": "structuredmerge.benchmark.case/v1",
+      "kind": "benchmark_case",
+      "id": "case.diff.json.object-update.v1",
+      "operation": "diff",
+      "family": "data",
+      "provider": "portable.json",
+      "dialect": "json",
+      "capabilities": ["diff", "structural_paths"],
+      "partition": "sentinel",
+      "provenance": {
+        "origin_uri": "fixture://slice-1022/case.diff.json.object-update.v1",
+        "revision": "v1",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authoring": "synthetic",
+        "review_status": "reviewed",
+        "derivation": "Minimal authored JSON object update."
+      },
+      "inputs": {
+        "before": {
+          "mode": "inline",
+          "encoding": "utf-8",
+          "bytes": "{\"a\":1,\"b\":2}\n",
+          "sha256": "e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d"
+        },
+        "after": {
+          "mode": "inline",
+          "encoding": "utf-8",
+          "bytes": "{\"a\":1,\"b\":3,\"c\":4}\n",
+          "sha256": "b9b3f2ce47030ab5ab1d142a2b581dde2bc91a1e61285a10dd3ff5661fd4acac"
+        }
+      },
+      "oracle": {
+        "class": "structural_ast",
+        "artifact_sha256": "b9b3f2ce47030ab5ab1d142a2b581dde2bc91a1e61285a10dd3ff5661fd4acac",
+        "admission": "reviewed",
+        "score_eligible": true
+      },
+      "expected_edit_units": [
+        {"id": "edit.b.replace", "operation": "replace", "path": "/b"},
+        {"id": "edit.c.add", "operation": "add", "path": "/c"}
+      ],
+      "acceptable_equivalence": [
+        {"class": "structural_ast", "parser": "RFC8259", "version": "2017"}
+      ],
+      "preservation_policy": {
+        "comments": "not_applicable",
+        "formatting": "allowed_to_change",
+        "order": "allowed_to_change",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "not_applicable"
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": ["edit.b.replace", "edit.c.add"],
+      "false_auto_merge_severity": "none"
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.case/v1",
+      "kind": "benchmark_case",
+      "id": "case.merge3.json.independent-fields.v1",
+      "operation": "merge3",
+      "family": "data",
+      "provider": "portable.json",
+      "dialect": "json",
+      "capabilities": ["merge3", "source_preserving", "structural_paths"],
+      "partition": "gold",
+      "provenance": {
+        "origin_uri": "fixture://slice-1022/case.merge3.json.independent-fields.v1",
+        "revision": "v1",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authoring": "synthetic",
+        "review_status": "reviewed",
+        "derivation": "Independent scalar replacement and key addition."
+      },
+      "inputs": {
+        "base": {"mode": "inline", "encoding": "utf-8", "bytes": "{\"name\":\"demo\",\"timeout\":30}\n", "sha256": "267dece735fd9a8f57ecebf929ace001c518e08f3df629a6eee089c9622825a5"},
+        "ours": {"mode": "inline", "encoding": "utf-8", "bytes": "{\"name\":\"demo\",\"timeout\":45}\n", "sha256": "76605cff317c536be4090e0ca9eeda84acd4e5af9749d386b25d14e806a6a484"},
+        "theirs": {"mode": "inline", "encoding": "utf-8", "bytes": "{\"name\":\"demo\",\"timeout\":30,\"retries\":3}\n", "sha256": "85fe1746982aac572ef965003ce68517159484c164d4414217665df3cad3feea"}
+      },
+      "oracle": {
+        "class": "structural_ast",
+        "artifact_sha256": "49a8fd7443c3e972a8c78aefacd90bd4dab431d92090c531e5e2ed8765242559",
+        "admission": "reviewed",
+        "score_eligible": true
+      },
+      "expected": {
+        "mode": "inline",
+        "encoding": "utf-8",
+        "bytes": "{\"name\":\"demo\",\"timeout\":45,\"retries\":3}\n",
+        "sha256": "49a8fd7443c3e972a8c78aefacd90bd4dab431d92090c531e5e2ed8765242559"
+      },
+      "acceptable_equivalence": [
+        {"class": "structural_ast", "parser": "RFC8259", "version": "2017"}
+      ],
+      "preservation_policy": {
+        "comments": "not_applicable",
+        "formatting": "allowed_to_change",
+        "order": "allowed_to_change",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [
+        {"id": "ours.timeout", "side": "ours", "path": "/timeout"},
+        {"id": "theirs.retries", "side": "theirs", "path": "/retries"}
+      ],
+      "false_auto_merge_severity": "none"
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.case/v1",
+      "kind": "benchmark_case",
+      "id": "case.merge3.json.region-conflict.v1",
+      "operation": "merge3",
+      "family": "data",
+      "provider": "portable.json",
+      "dialect": "json",
+      "capabilities": ["conflict_regions", "merge3", "structural_paths"],
+      "partition": "gold",
+      "provenance": {
+        "origin_uri": "fixture://slice-1022/case.merge3.json.region-conflict.v1",
+        "revision": "v1",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authoring": "synthetic",
+        "review_status": "reviewed",
+        "derivation": "Both sides replace the same deployment region incompatibly."
+      },
+      "inputs": {
+        "base": {"mode": "inline", "encoding": "utf-8", "bytes": "{\"deploy\":{\"region\":\"us-east-1\"}}\n", "sha256": "d5a8df354f9bc00f965fefe059a7ba33c0b1f9771c36b8d86a035ff56b9d6793"},
+        "ours": {"mode": "inline", "encoding": "utf-8", "bytes": "{\"deploy\":{\"region\":\"eu-west-1\"}}\n", "sha256": "bbb6655ccb5784dc769975bc596734a53c0300f14c5a4f716121991e69466961"},
+        "theirs": {"mode": "inline", "encoding": "utf-8", "bytes": "{\"deploy\":{\"region\":\"ap-southeast-2\"}}\n", "sha256": "dd4d68d64127de264a91597334a9362269cc9f7a8d919c6b35ba7f156a76b702"}
+      },
+      "oracle": {
+        "class": "invariant",
+        "artifact_sha256": "d5a8df354f9bc00f965fefe059a7ba33c0b1f9771c36b8d86a035ff56b9d6793",
+        "admission": "reviewed",
+        "score_eligible": true,
+        "invariant": "A single-valued deployment region cannot silently select or combine incompatible replacements."
+      },
+      "acceptable_equivalence": [{"class": "declared_invariants", "invariant_ids": ["one-region"]}],
+      "preservation_policy": {
+        "comments": "not_applicable",
+        "formatting": "allowed_to_change",
+        "order": "allowed_to_change",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "expected_conflicts": true,
+      "expected_conflict_regions": [
+        {
+          "id": "region.deploy.region",
+          "path": "/deploy/region",
+          "base_bytes": [20, 31],
+          "ours_bytes": [20, 31],
+          "theirs_bytes": [20, 36]
+        }
+      ],
+      "independent_edits": [],
+      "false_auto_merge_severity": "critical"
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.case/v1",
+      "kind": "benchmark_case",
+      "id": "case.metamorphic.json.reorder-format.v1",
+      "operation": "metamorphic",
+      "family": "data",
+      "provider": "portable.json",
+      "dialect": "json",
+      "capabilities": ["diff", "metamorphic", "structural_paths"],
+      "partition": "metamorphic",
+      "provenance": {
+        "origin_uri": "fixture://slice-1022/case.metamorphic.json.reorder-format.v1",
+        "revision": "v1",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authoring": "deterministically_generated",
+        "review_status": "reviewed",
+        "derivation": "Reorder and formatting transform over an authored seed."
+      },
+      "parent_case_id": "case.diff.json.object-update.v1",
+      "generator": {
+        "id": "structuredmerge.meta.json",
+        "version": "1.0.0",
+        "artifact_sha256": "426c5457f4b83a35f638993bc4f9b4efd38485766ba7f4ddbe6dbe8caebe0618",
+        "seed": 1022,
+        "ordering": "listed"
+      },
+      "inputs": {
+        "source": {"mode": "inline", "encoding": "utf-8", "bytes": "{\"service\":{\"name\":\"api\",\"port\":8080}}\n", "sha256": "426c5457f4b83a35f638993bc4f9b4efd38485766ba7f4ddbe6dbe8caebe0618"},
+        "transformed": {"mode": "inline", "encoding": "utf-8", "bytes": "{\n  \"service\": {\n    \"port\": 8080,\n    \"name\": \"api\"\n  }\n}\n", "sha256": "ae9a17ee34afbaa1a0ec1496b4af40d502bc975c01e11a9a179817d0ad0d6ecc"}
+      },
+      "transformations": [
+        {"type": "reorder", "path": "/service", "parameters": {"order": ["port", "name"]}},
+        {"type": "formatting", "path": "", "parameters": {"indent": 2, "terminal_newline": true}}
+      ],
+      "expected_invariants": [
+        {"id": "same-json-value", "subject": "semantics", "expectation": "equal"},
+        {"id": "no-semantic-edits", "subject": "diff_edit_units", "expectation": "empty"},
+        {"id": "still-clean", "subject": "conflict_behavior", "expectation": "clean"}
+      ],
+      "oracle": {
+        "class": "invariant",
+        "artifact_sha256": "ae9a17ee34afbaa1a0ec1496b4af40d502bc975c01e11a9a179817d0ad0d6ecc",
+        "admission": "reviewed",
+        "score_eligible": true
+      },
+      "acceptable_equivalence": [{"class": "declared_invariants", "invariant_ids": ["same-json-value", "no-semantic-edits", "still-clean"]}],
+      "preservation_policy": {
+        "comments": "not_applicable",
+        "formatting": "allowed_to_change",
+        "order": "allowed_to_change",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "allowed_to_change"
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [],
+      "false_auto_merge_severity": "none"
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.case/v1",
+      "kind": "benchmark_case",
+      "id": "case.history.ruby.release-events-dotenv-provider.v1",
+      "operation": "history_replay",
+      "family": "ruby",
+      "provider": "ruby.ruby",
+      "dialect": "ruby",
+      "capabilities": ["history_replay", "merge3", "prism", "source_preserving"],
+      "partition": "history",
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-ruby.git",
+        "revision": "c8a0208f61d8132a2cef2ff083e43f3e03ab7560",
+        "spdx_license": "AGPL-3.0-only OR LicenseRef-PolyForm-Small-Business-1.0.0",
+        "license_evidence_uri": "https://github.com/structuredmerge/structuredmerge-ruby/blob/c8a0208f61d8132a2cef2ff083e43f3e03ab7560/LICENSE.md",
+        "authoring": "reviewed_git_history",
+        "review_status": "false_auto_merge_review_pending",
+        "derivation": "Reference to Slice 1021; no source bytes duplicated."
+      },
+      "history_reference": {
+        "slice": 1021,
+        "corpus_id": "structuredmerge-ruby-reviewed-history-v1",
+        "manifest": "diagnostics/slice-1021-reviewed-git-history-corpus/manifest.json",
+        "case_id": "release-events-dotenv-provider",
+        "merge_commit": "c8a0208f61d8132a2cef2ff083e43f3e03ab7560"
+      },
+      "oracle": {
+        "class": "human",
+        "artifact_sha256": "56e47d19fc046884bfe15926e8c1b1e54871f699000000000000000000000000",
+        "admission": "false_auto_merge_review_pending",
+        "score_eligible": false
+      },
+      "acceptable_equivalence": [{"class": "exact_bytes"}],
+      "preservation_policy": {
+        "comments": "required",
+        "formatting": "required",
+        "order": "required",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [],
+      "false_auto_merge_severity": "none"
+    }
+  ],
+  "run_manifest": {
+    "schema_version": "structuredmerge.benchmark.run/v1",
+    "kind": "run_manifest",
+    "id": "run.pr.portable-example.2025-01-01.v1",
+    "profile": "pr",
+    "candidate_adapter": {
+      "id": "adapter.candidate",
+      "source_sha": "2222222222222222222222222222222222222222",
+      "artifact_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "version": "0.2.0",
+      "configuration_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "capabilities": ["conflict_regions", "diff", "merge3", "metamorphic", "structural_paths"]
+    },
+    "base_adapter": {
+      "id": "adapter.base",
+      "source_sha": "1111111111111111111111111111111111111111",
+      "artifact_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "version": "0.1.0",
+      "configuration_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "capabilities": ["conflict_regions", "diff", "merge3", "structural_paths"]
+    },
+    "corpus": {
+      "id": "portable-contract-example",
+      "version": "1.0.0",
+      "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "selection": {
+      "algorithm": "changed-path-capability-neighbors/v1",
+      "selected_case_ids": [
+        "case.diff.json.object-update.v1",
+        "case.merge3.json.independent-fields.v1",
+        "case.merge3.json.region-conflict.v1",
+        "case.metamorphic.json.reorder-format.v1",
+        "case.history.ruby.release-events-dotenv-provider.v1"
+      ],
+      "excluded_case_ids": [],
+      "explanation": {
+        "changed_paths": ["providers/json/merge.example"],
+        "inferred_capabilities": ["diff", "merge3", "structural_paths"],
+        "direct_cases": [
+          {"path": "providers/json/merge.example", "capability": "merge3", "case_ids": ["case.merge3.json.independent-fields.v1", "case.merge3.json.region-conflict.v1"]}
+        ],
+        "sentinels": [
+          {"case_id": "case.diff.json.object-update.v1", "reason": "Mandatory JSON diff sentinel."}
+        ],
+        "neighbor_samples": [
+          {
+            "population": ["case.history.ruby.release-events-dotenv-provider.v1", "case.metamorphic.json.reorder-format.v1"],
+            "ordering_algorithm": "sha256(case_id + ':' + seed)",
+            "seed": 1022,
+            "selected_case_ids": ["case.metamorphic.json.reorder-format.v1", "case.history.ruby.release-events-dotenv-provider.v1"]
+          }
+        ],
+        "budget_exceed": {
+          "action": "reduce_profile",
+          "target_profile": "dev",
+          "regenerate_explanation": true,
+          "silent_extension": false
+        }
+      }
+    },
+    "environment": {
+      "id": "env.example.linux-amd64.v1",
+      "runner": "canonical-example",
+      "image_digest": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "os": "linux",
+      "architecture": "amd64",
+      "cpu": "2-vcpu",
+      "memory_bytes": 4294967296,
+      "runtime": "none",
+      "toolchain": "contract-only"
+    },
+    "seed": 1022,
+    "repetitions": {"warmup": 1, "measured": 3, "applies_to": "performance_resources_only"},
+    "budgets": {
+      "wall_time_ms": 60000,
+      "cpu_time_ms": 50000,
+      "memory_bytes": 1073741824,
+      "output_bytes": 10485760,
+      "service_calls": 0
+    },
+    "cache_policy": {"mode": "isolated_per_adapter", "reuse_between_cases": false},
+    "temperature": "cold",
+    "network": {"mode": "denied"},
+    "services": [],
+    "capability_selection": {
+      "requested": ["diff", "merge3", "metamorphic", "structural_paths"],
+      "selected": ["diff", "merge3", "metamorphic", "structural_paths"]
+    },
+    "unsupported_policy": "coverage_only",
+    "provenance": {
+      "origin_uri": "fixture://slice-1022/run.pr.portable-example.2025-01-01.v1",
+      "revision": "v1",
+      "generated_by": "canonical-contract-example"
+    }
+  },
+  "case_results": [
+    {
+      "id": "result.candidate.clean.correct",
+      "run_id": "run.pr.portable-example.2025-01-01.v1",
+      "case_id": "case.merge3.json.independent-fields.v1",
+      "adapter_id": "adapter.candidate",
+      "outcome": "correct_clean",
+      "score_eligible": true,
+      "raw": {
+        "status": {"exit_code": 0, "timed_out": false},
+        "stdout": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "stderr": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "output": {"inline": "{\n  \"name\": \"demo\",\n  \"retries\": 3,\n  \"timeout\": 45\n}\n", "bytes": 54, "sha256": "a4587c4fd52ced1002f82083e8577fef8b48914b5ecaf8bed304bb4dab87a7eb"}
+      },
+      "diagnostics": [],
+      "conflict_regions": {"expected_regions": [], "observed_regions": [], "matched_region_ids": [], "false_positive_region_ids": [], "missed_region_ids": [], "region_precision": null, "region_recall": null, "localization_error_bytes": null},
+      "diff_measurement": null,
+      "independent_edit_evidence": [{"edit_id": "ours.timeout", "preserved": true}, {"edit_id": "theirs.retries", "preserved": true}],
+      "provenance": {"case_revision": "v1", "adapter_source_sha": "2222222222222222222222222222222222222222"},
+      "dimensions": {
+        "effectiveness": {"correct": true, "equivalence_used": "structural_ast", "exact_bytes_equal": false},
+        "safety": {"false_auto_merge": false},
+        "preservation": {"violations": []},
+        "performance_resources": {"environment_id": "env.example.linux-amd64.v1", "temperature": "cold", "repetitions_ns": [1200000, 1100000, 1150000], "peak_memory_bytes": [1048576, 1048576, 1048576]}
+      }
+    },
+    {
+      "id": "result.base.clean.false-conflict",
+      "run_id": "run.pr.portable-example.2025-01-01.v1",
+      "case_id": "case.merge3.json.independent-fields.v1",
+      "adapter_id": "adapter.base",
+      "outcome": "false_conflict",
+      "score_eligible": true,
+      "raw": {
+        "status": {"exit_code": 1, "timed_out": false},
+        "stdout": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "stderr": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "output": {"inline": "<<<<<<< ours\n{\"name\":\"demo\",\"timeout\":45}\n=======\n{\"name\":\"demo\",\"timeout\":30,\"retries\":3}\n>>>>>>> theirs\n", "bytes": 106, "sha256": "69c3694d9751330fff5ad92f27fae2b9e9f738584d17bb754f63e7e9349b420b"}
+      },
+      "diagnostics": [{"code": "conflict", "message": "Over-broad object conflict."}],
+      "conflict_regions": {"expected_regions": [], "observed_regions": [{"id": "observed.object", "path": "", "output_bytes": [0, 106]}], "matched_region_ids": [], "false_positive_region_ids": ["observed.object"], "missed_region_ids": [], "region_precision": 0.0, "region_recall": null, "localization_error_bytes": null},
+      "diff_measurement": null,
+      "independent_edit_evidence": [{"edit_id": "ours.timeout", "preserved": true}, {"edit_id": "theirs.retries", "preserved": true}],
+      "provenance": {"case_revision": "v1", "adapter_source_sha": "1111111111111111111111111111111111111111"},
+      "dimensions": {
+        "effectiveness": {"correct": false, "reason": "Conflict where clean merge is required."},
+        "safety": {"false_auto_merge": false},
+        "preservation": {"violations": []},
+        "performance_resources": {"environment_id": "env.example.linux-amd64.v1", "temperature": "cold", "repetitions_ns": [900000, 850000, 875000], "peak_memory_bytes": [900000, 900000, 900000]}
+      }
+    },
+    {
+      "id": "result.base.conflict.true",
+      "run_id": "run.pr.portable-example.2025-01-01.v1",
+      "case_id": "case.merge3.json.region-conflict.v1",
+      "adapter_id": "adapter.base",
+      "outcome": "true_conflict",
+      "score_eligible": true,
+      "raw": {
+        "status": {"exit_code": 1, "timed_out": false},
+        "stdout": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "stderr": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "output": {"inline": "<<<<<<< ours\n{\"deploy\":{\"region\":\"eu-west-1\"}}\n=======\n{\"deploy\":{\"region\":\"ap-southeast-2\"}}\n>>>>>>> theirs\n", "bytes": 109, "sha256": "319fb7501ec4e1a6015e3a2b42413016ac2130abe0a1a2d2f2d583fcad961d2c"}
+      },
+      "diagnostics": [{"code": "intentional_conflict", "message": "Incompatible region replacements."}],
+      "conflict_regions": {"expected_regions": [{"id": "region.deploy.region", "path": "/deploy/region"}], "observed_regions": [{"id": "observed.deploy.region", "path": "/deploy/region", "output_bytes": [0, 109]}], "matched_region_ids": ["region.deploy.region"], "false_positive_region_ids": [], "missed_region_ids": [], "region_precision": 1.0, "region_recall": 1.0, "localization_error_bytes": 0},
+      "diff_measurement": null,
+      "independent_edit_evidence": [],
+      "provenance": {"case_revision": "v1", "adapter_source_sha": "1111111111111111111111111111111111111111"},
+      "dimensions": {
+        "effectiveness": {"correct": true, "reason": "Required intentional conflict emitted."},
+        "safety": {"false_auto_merge": false},
+        "preservation": {"violations": []},
+        "performance_resources": null
+      }
+    },
+    {
+      "id": "result.candidate.conflict.false-auto-merge",
+      "run_id": "run.pr.portable-example.2025-01-01.v1",
+      "case_id": "case.merge3.json.region-conflict.v1",
+      "adapter_id": "adapter.candidate",
+      "outcome": "false_auto_merge",
+      "score_eligible": true,
+      "raw": {
+        "status": {"exit_code": 0, "timed_out": false},
+        "stdout": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "stderr": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "output": {"inline": "{\"deploy\":{\"region\":\"eu-west-1\"}}\n", "bytes": 34, "sha256": "bbb6655ccb5784dc769975bc596734a53c0300f14c5a4f716121991e69466961"}
+      },
+      "diagnostics": [],
+      "conflict_regions": {"expected_regions": [{"id": "region.deploy.region", "path": "/deploy/region"}], "observed_regions": [], "matched_region_ids": [], "false_positive_region_ids": [], "missed_region_ids": ["region.deploy.region"], "region_precision": null, "region_recall": 0.0, "localization_error_bytes": null},
+      "diff_measurement": null,
+      "independent_edit_evidence": [],
+      "provenance": {"case_revision": "v1", "adapter_source_sha": "2222222222222222222222222222222222222222"},
+      "dimensions": {
+        "effectiveness": {"correct": false, "reason": "Required conflict omitted."},
+        "safety": {"false_auto_merge": true, "severity": "critical", "compensable": false},
+        "preservation": {"violations": []},
+        "performance_resources": null
+      }
+    },
+    {
+      "id": "result.candidate.diff.error",
+      "run_id": "run.pr.portable-example.2025-01-01.v1",
+      "case_id": "case.diff.json.object-update.v1",
+      "adapter_id": "adapter.candidate",
+      "outcome": "error",
+      "score_eligible": true,
+      "raw": {
+        "status": {"exit_code": null, "timed_out": true},
+        "stdout": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "stderr": {"inline": "adapter timed out after 1000ms\n", "bytes": 31, "sha256": "61e5c12492353cb38858e607f60a1625a5d488b5f398024224d7fb90021a20a0"},
+        "output": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+      },
+      "diagnostics": [{"code": "timeout", "message": "Case budget exceeded."}],
+      "conflict_regions": {"expected_regions": [], "observed_regions": [], "matched_region_ids": [], "false_positive_region_ids": [], "missed_region_ids": [], "region_precision": null, "region_recall": null, "localization_error_bytes": null},
+      "diff_measurement": {"unit_matching_rule": "operation-and-structural-path/v1", "true_positive_ids": [], "false_positive_ids": [], "false_negative_ids": ["edit.b.replace", "edit.c.add"], "precision": null, "recall": 0.0},
+      "independent_edit_evidence": [],
+      "provenance": {"case_revision": "v1", "adapter_source_sha": "2222222222222222222222222222222222222222"},
+      "dimensions": {
+        "effectiveness": {"correct": false, "reason": "No diff produced."},
+        "safety": {"false_auto_merge": false},
+        "preservation": {"violations": []},
+        "performance_resources": {"environment_id": "env.example.linux-amd64.v1", "temperature": "cold", "repetitions_ns": [], "peak_memory_bytes": []}
+      }
+    },
+    {
+      "id": "result.candidate.metamorphic.unsupported",
+      "run_id": "run.pr.portable-example.2025-01-01.v1",
+      "case_id": "case.metamorphic.json.reorder-format.v1",
+      "adapter_id": "adapter.candidate",
+      "outcome": "unsupported",
+      "score_eligible": false,
+      "raw": {
+        "status": {"exit_code": 78, "timed_out": false},
+        "stdout": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "stderr": {"inline": "capability schema_aware_mutation is unsupported\n", "bytes": 48, "sha256": "72aec08978cb3010536a04f4a0e20ac65c1061259221f857098e569e43cc1a3c"},
+        "output": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+      },
+      "diagnostics": [{"code": "unsupported_capability", "message": "Reported as coverage only."}],
+      "conflict_regions": {"expected_regions": [], "observed_regions": [], "matched_region_ids": [], "false_positive_region_ids": [], "missed_region_ids": [], "region_precision": null, "region_recall": null, "localization_error_bytes": null},
+      "diff_measurement": null,
+      "independent_edit_evidence": [],
+      "provenance": {"case_revision": "v1", "adapter_source_sha": "2222222222222222222222222222222222222222"},
+      "dimensions": {
+        "effectiveness": {"scored": false, "reason": "Unsupported is coverage, not quality, under run policy."},
+        "safety": {"scored": false},
+        "preservation": {"scored": false},
+        "performance_resources": null
+      }
+    },
+    {
+      "id": "result.candidate.history.excluded-ambiguous",
+      "run_id": "run.pr.portable-example.2025-01-01.v1",
+      "case_id": "case.history.ruby.release-events-dotenv-provider.v1",
+      "adapter_id": "adapter.candidate",
+      "outcome": "excluded_ambiguous",
+      "score_eligible": false,
+      "raw": {
+        "status": {"exit_code": null, "timed_out": false, "executed": false},
+        "stdout": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "stderr": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+        "output": {"inline": "", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+      },
+      "diagnostics": [{"code": "oracle_admission_pending", "message": "Slice 1021 false-auto-merge review remains pending."}],
+      "conflict_regions": {"expected_regions": [], "observed_regions": [], "matched_region_ids": [], "false_positive_region_ids": [], "missed_region_ids": [], "region_precision": null, "region_recall": null, "localization_error_bytes": null},
+      "diff_measurement": null,
+      "independent_edit_evidence": [],
+      "provenance": {"case_revision": "v1", "adapter_source_sha": "2222222222222222222222222222222222222222", "history_manifest": "diagnostics/slice-1021-reviewed-git-history-corpus/manifest.json"},
+      "dimensions": {
+        "effectiveness": {"scored": false},
+        "safety": {"scored": false},
+        "preservation": {"scored": false},
+        "performance_resources": null
+      }
+    }
+  ],
+  "aggregate_report": {
+    "schema_version": "structuredmerge.benchmark.report/v1",
+    "kind": "aggregate_report",
+    "id": "report.pr.portable-example.2025-01-01.v1",
+    "run_id": "run.pr.portable-example.2025-01-01.v1",
+    "raw_result_ids": [
+      "result.candidate.clean.correct",
+      "result.base.clean.false-conflict",
+      "result.base.conflict.true",
+      "result.candidate.conflict.false-auto-merge",
+      "result.candidate.diff.error",
+      "result.candidate.metamorphic.unsupported",
+      "result.candidate.history.excluded-ambiguous"
+    ],
+    "outcome_counts": {
+      "correct_clean": 1,
+      "false_conflict": 1,
+      "true_conflict": 1,
+      "false_auto_merge": 1,
+      "error": 1,
+      "unsupported": 1,
+      "excluded_ambiguous": 1
+    },
+    "dimensions": {
+      "effectiveness": {"eligible": 5, "correct": 2, "failures": 3},
+      "safety": {"eligible": 5, "false_auto_merges": 1, "highest_severity": "critical"},
+      "preservation": {"eligible": 5, "cases_with_violations": 0},
+      "performance_resources": {"comparable_pairs": 1, "incomparable_results": 5, "candidate_median_ns": 1150000, "base_median_ns": 875000},
+      "coverage": {"selected_cases": 5, "unsupported_results": 1, "unsupported_is_quality_failure": false},
+      "reliability": {"errors": 1}
+    },
+    "stratification": {
+      "operation": {"diff": 1, "merge3": 4, "metamorphic": 1, "history_replay": 1},
+      "partition": {"sentinel": 1, "gold": 4, "metamorphic": 1, "history": 1, "holdout": 0},
+      "family": {"data": 6, "ruby": 1},
+      "provider": {"portable.json": 6, "ruby.ruby": 1},
+      "dialect": {"json": 6, "ruby": 1},
+      "capability": {"diff": 2, "merge3": 4, "metamorphic": 1, "history_replay": 1},
+      "oracle": {"structural_ast": 3, "invariant": 3, "human": 1},
+      "false_auto_merge_severity": {"none": 5, "critical": 2}
+    },
+    "paired_deltas": [
+      {
+        "case_id": "case.merge3.json.independent-fields.v1",
+        "base_result_id": "result.base.clean.false-conflict",
+        "candidate_result_id": "result.candidate.clean.correct",
+        "effectiveness_transition": "false_conflict_to_correct_clean",
+        "safety_transition": "no_failure_to_no_failure",
+        "preservation_violation_delta": 0,
+        "performance": {"comparable": true, "median_ns_delta": 275000, "environment_id": "env.example.linux-amd64.v1", "temperature": "cold", "measured_repetitions": 3}
+      },
+      {
+        "case_id": "case.merge3.json.region-conflict.v1",
+        "base_result_id": "result.base.conflict.true",
+        "candidate_result_id": "result.candidate.conflict.false-auto-merge",
+        "effectiveness_transition": "true_conflict_to_false_auto_merge",
+        "safety_transition": "safe_to_non_compensable_failure",
+        "preservation_violation_delta": 0,
+        "performance": {"comparable": false, "reason": "No performance repetitions for safety-only example."}
+      }
+    ],
+    "gates": {
+      "safety": {
+        "status": "fail",
+        "rule": "eligible_false_auto_merge_count == 0",
+        "eligible_false_auto_merge_count": 1,
+        "non_compensable": true,
+        "offsets_allowed": []
+      },
+      "llm_oracle": {
+        "status": "pass",
+        "hard_gate_profile": "pr",
+        "llm_cases": 0,
+        "forbidden_hard_gate_profiles": ["micro", "dev"]
+      }
+    },
+    "scalar_score": null,
+    "provenance": {
+      "manifest_id": "run.pr.portable-example.2025-01-01.v1",
+      "corpus_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "generated_by": "canonical-contract-example"
+    }
+  }
+}

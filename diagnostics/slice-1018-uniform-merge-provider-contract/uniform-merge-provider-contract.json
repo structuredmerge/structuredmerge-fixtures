@@ -275,6 +275,55 @@
         "status": "tested"
       },
       {
+        "provider_id": "ruby.markdown",
+        "dialect": "markdown",
+        "backend": "kreuzberg-language-pack",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
+        "provider_id": "ruby.markdown.commonmarker",
+        "dialect": "markdown",
+        "backend": "commonmarker",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
+        "provider_id": "ruby.markdown.commonmarker",
+        "dialect": "commonmark",
+        "backend": "commonmarker",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
+        "provider_id": "ruby.markdown.kramdown",
+        "dialect": "markdown",
+        "backend": "kramdown",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
+        "provider_id": "ruby.markdown.kramdown",
+        "dialect": "kramdown",
+        "backend": "kramdown",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
+        "provider_id": "ruby.markdown.markly",
+        "dialect": "markdown",
+        "backend": "markly",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
+        "provider_id": "ruby.markdown.markly",
+        "dialect": "commonmark",
+        "backend": "markly",
+        "profile_id": "source_preserving",
+        "status": "tested"
+      },
+      {
         "provider_id": "ruby.text",
         "dialect": "text",
         "backend": "plain-line",
@@ -380,25 +429,13 @@
         "status": "tested"
       }
     ],
-    "blocked_provider_ids": [
-      "ruby.markdown.commonmarker",
-      "ruby.markdown.kramdown",
-      "ruby.markdown",
-      "ruby.markdown.markly"
-    ],
-    "blocked_status": {
-      "status": "blocked",
-      "reason": "provider_not_implemented",
-      "issue": 25,
-      "dialect_status": "blocked",
-      "backend_status": "blocked"
-    },
+    "blocked_provider_ids": [],
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 18,
-      "tested_dialect_backend_rows": 21,
-      "blocked_provider_rows": 4,
-      "advertised_provider_ids": ["ruby.bash", "ruby.binary", "ruby.dotenv", "ruby.go", "ruby.html", "ruby.json", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.rust", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.typescript", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
+      "tested_provider_rows": 22,
+      "tested_dialect_backend_rows": 28,
+      "blocked_provider_rows": 0,
+      "advertised_provider_ids": ["ruby.bash", "ruby.binary", "ruby.dotenv", "ruby.go", "ruby.html", "ruby.json", "ruby.markdown", "ruby.markdown.commonmarker", "ruby.markdown.kramdown", "ruby.markdown.markly", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.rust", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.typescript", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

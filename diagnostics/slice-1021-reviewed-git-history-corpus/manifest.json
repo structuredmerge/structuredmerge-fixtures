@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "corpus_id": "structuredmerge-ruby-reviewed-history-v1",
+  "source": {
+    "repository": "structuredmerge/structuredmerge-ruby",
+    "remote_url": "https://github.com/structuredmerge/structuredmerge-ruby.git",
+    "revision": "c8a0208f61d8132a2cef2ff083e43f3e03ab7560",
+    "spdx_license": "AGPL-3.0-only OR LicenseRef-PolyForm-Small-Business-1.0.0",
+    "license_evidence_url": "https://github.com/structuredmerge/structuredmerge-ruby/blob/c8a0208f61d8132a2cef2ff083e43f3e03ab7560/LICENSE.md",
+    "oracle_rationale": "A merge-result blob is human-history evidence only after admission review; these seeds preserve clean branch history and are not conflict-quality evidence."
+  },
+  "claim_policy": {
+    "quality_claims_allowed": false,
+    "reason": "False-auto-merge review is incomplete.",
+    "runtime_comparable": false
+  },
+  "admission_backlog": [
+    {
+      "candidate_id": "structuredmerge-ruby-conflict-oracle",
+      "status": "blocked",
+      "reason": "No reviewed merge with path-level conflict evidence and a safely attributable human resolution has been admitted yet.",
+      "score_eligible": false
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "release-events-dotenv-provider",
+      "merge_commit": "c8a0208f61d8132a2cef2ff083e43f3e03ab7560",
+      "base_commit": "88fdbcb8a1f519b6e0d4a2432b1c77e59fd1fa72",
+      "parent_commits": ["88fdbcb8a1f519b6e0d4a2432b1c77e59fd1fa72", "4cc2e0d2be74e0bbc3f79d9fdf1d997e10c3c314"],
+      "path": "gems/dotenv-merge/lib/dotenv/merge.rb",
+      "blob_oids": {
+        "base": "98cc03b6340253a1b2c895f71420400bc4451723",
+        "ours": "98cc03b6340253a1b2c895f71420400bc4451723",
+        "theirs": "56e47d19fc046884bfe15926e8c1b1e54871f699",
+        "human": "56e47d19fc046884bfe15926e8c1b1e54871f699"
+      },
+      "selector": {"provider_id": "ruby.ruby", "family": "ruby", "dialect": "ruby", "backend": "prism", "profile": "source_preserving", "require": "ruby/merge"},
+      "capability_tags": ["merge3", "ruby", "prism", "source_preserving", "clean_history"],
+      "stratum": {"provider": "ruby.ruby", "dialect": "ruby", "conflict_type": "clean_history_preservation"},
+      "oracle": {"classification": "exact_automatic_resolution", "human_resolution_rationale": "First parent equals merge-base and the merge result exactly preserves the feature-parent blob.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "pending", "score_eligible": false}
+    },
+    {
+      "case_id": "ractor-emitter-base",
+      "merge_commit": "88fdbcb8a1f519b6e0d4a2432b1c77e59fd1fa72",
+      "base_commit": "2746830d946d055ed1bca92a1a7b0166ced1f33e",
+      "parent_commits": ["2746830d946d055ed1bca92a1a7b0166ced1f33e", "dbe079646bc6049aad9b54ce445061b45d5df2ed"],
+      "path": "gems/ast-merge/lib/ast/merge/emitter_base.rb",
+      "blob_oids": {"base": "4f182725cd1f4940c9d233d51ce0ac1f7e2be2bc", "ours": "4f182725cd1f4940c9d233d51ce0ac1f7e2be2bc", "theirs": "eae629d5c2903a188962d48de7836e2a913210b1", "human": "eae629d5c2903a188962d48de7836e2a913210b1"},
+      "selector": {"provider_id": "ruby.ruby", "family": "ruby", "dialect": "ruby", "backend": "prism", "profile": "source_preserving", "require": "ruby/merge"},
+      "capability_tags": ["merge3", "ruby", "prism", "source_preserving", "clean_history"],
+      "stratum": {"provider": "ruby.ruby", "dialect": "ruby", "conflict_type": "clean_history_preservation"},
+      "oracle": {"classification": "exact_automatic_resolution", "human_resolution_rationale": "First parent equals merge-base and the merge result exactly preserves the feature-parent blob.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "pending", "score_eligible": false}
+    },
+    {
+      "case_id": "tree-haver-git-adapter",
+      "merge_commit": "c05a3d14d32a34724a966f7a453b3dae977bb239",
+      "base_commit": "63cd60df5ee38c0c3366d3cbc0f191d9bcebe81d",
+      "parent_commits": ["63cd60df5ee38c0c3366d3cbc0f191d9bcebe81d", "7901b757a68c9e24d1292f0ca24ac04b8aeea9f6"],
+      "path": "gems/ast-merge-git/lib/ast/merge/git.rb",
+      "blob_oids": {"base": "f1766c98684d26cf2e12218b8569d471cfb504de", "ours": "f1766c98684d26cf2e12218b8569d471cfb504de", "theirs": "ff5e800f55728638c44be48034bc68902c6646ef", "human": "ff5e800f55728638c44be48034bc68902c6646ef"},
+      "selector": {"provider_id": "ruby.ruby", "family": "ruby", "dialect": "ruby", "backend": "prism", "profile": "source_preserving", "require": "ruby/merge"},
+      "capability_tags": ["merge3", "ruby", "prism", "source_preserving", "clean_history"],
+      "stratum": {"provider": "ruby.ruby", "dialect": "ruby", "conflict_type": "clean_history_preservation"},
+      "oracle": {"classification": "exact_automatic_resolution", "human_resolution_rationale": "First parent equals merge-base and the merge result exactly preserves the feature-parent blob.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "pending", "score_eligible": false}
+    }
+  ]
+}

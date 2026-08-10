@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "fixture_kind": "raw_result_contract",
+  "deterministic_fields": ["case_id", "source", "oracle", "baseline", "candidate", "human_result", "deterministic_rerun", "claim_eligibility"],
+  "runtime": {
+    "field": "duration_ns",
+    "deterministic": false,
+    "comparable": false,
+    "rationale": "Runtime is captured independently for diagnostics and excluded from deterministic fixture comparison."
+  },
+  "manual_reclassification": {
+    "raw_stdout_retained": true,
+    "raw_stderr_retained": true,
+    "output_sha256_retained": true,
+    "conflict_marker_byte_ranges_retained": true,
+    "oracle_not_injected_into_candidates": true
+  }
+}

@@ -1683,8 +1683,8 @@
         "class": "invariant",
         "artifact": {
           "mode": "inline",
-          "bytes": "same-jsonc-value|comment-retained",
-          "sha256": "90adb3b177d2b861029ea9a3828b16fca8f9a463bbe2c3cf36e100d26f4962c6"
+          "bytes": "same-jsonc-value|comment-retained|no-semantic-edit",
+          "sha256": "4b29df7e37436020ea8ab614c45e7b4c498626f7d86e8bf07e1ca6e358bec87e"
         },
         "admission": "reviewed",
         "score_eligible": true,
@@ -1695,7 +1695,8 @@
           "class": "declared_invariants",
           "invariant_ids": [
             "same-jsonc-value",
-            "comment-retained"
+            "comment-retained",
+            "no-semantic-edit"
           ]
         }
       ],
@@ -1754,7 +1755,8 @@
       ],
       "expected_invariants": [
         "same-jsonc-value",
-        "comment-retained"
+        "comment-retained",
+        "no-semantic-edit"
       ],
       "independent_edits": [],
       "independent_edit_ids": [],

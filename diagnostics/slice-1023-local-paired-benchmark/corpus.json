@@ -111,6 +111,31 @@
     "neighbor_order": "sha256(seed + NUL + case_id), then case_id",
     "canonical_case_order": "fixture order"
   },
+  "competitors": {
+    "mergiraf": {
+      "adapter_id": "mergiraf",
+      "source_url": "https://codeberg.org/mergiraf/mergiraf",
+      "source_revision": "13b813c02da9511c7433131aed142473ffe62d52",
+      "version": "0.18.0",
+      "spdx_license": "GPL-3.0-only",
+      "reuse_posture": "reference_only",
+      "toolchain": "rust 1.91.0",
+      "build_command": "cargo build --release",
+      "operations": [
+        "merge3"
+      ],
+      "dialects": [
+        "bash",
+        "html",
+        "json",
+        "markdown",
+        "ruby",
+        "toml",
+        "typescript",
+        "yaml"
+      ]
+    }
+  },
   "cases": [
     {
       "schema_version": "structuredmerge.benchmark/v1",

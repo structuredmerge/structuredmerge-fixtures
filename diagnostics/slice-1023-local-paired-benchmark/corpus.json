@@ -856,7 +856,7 @@
         "dialect": "yaml",
         "backend": "psych",
         "profile": "source_preserving",
-        "require": "yaml/merge"
+        "require": "psych/merge"
       },
       "inputs": {
         "base": {

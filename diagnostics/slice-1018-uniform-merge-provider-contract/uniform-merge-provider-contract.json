@@ -2,7 +2,7 @@
   "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
   "slice": "1018",
   "name": "uniform-merge-provider-contract",
-  "description": "Every active Ruby merge gem exposes one provider API for analysis, two-way diff and merge, and base-aware three-way merge.",
+  "description": "The Ruby provider matrix records one uniform API for advertised providers and preserves blocked rows for parser capabilities that are not yet implemented.",
   "contract": {
     "substrate_package": "ast-merge",
     "git_adapter_package": "ast-merge-git",
@@ -342,7 +342,7 @@
         "dialect": "ruby",
         "backend": "prism",
         "profile_id": "source_preserving",
-        "status": "tested"
+        "status": "blocked"
       },
       {
         "provider_id": "ruby.rbs",
@@ -429,13 +429,13 @@
         "status": "tested"
       }
     ],
-    "blocked_provider_ids": [],
+    "blocked_provider_ids": ["ruby.ruby"],
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 22,
-      "tested_dialect_backend_rows": 28,
-      "blocked_provider_rows": 0,
-      "advertised_provider_ids": ["ruby.bash", "ruby.binary", "ruby.dotenv", "ruby.go", "ruby.html", "ruby.json", "ruby.markdown", "ruby.markdown.commonmarker", "ruby.markdown.kramdown", "ruby.markdown.markly", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.rust", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.typescript", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
+      "tested_provider_rows": 21,
+      "tested_dialect_backend_rows": 27,
+      "blocked_provider_rows": 1,
+      "advertised_provider_ids": ["ruby.bash", "ruby.binary", "ruby.dotenv", "ruby.go", "ruby.html", "ruby.json", "ruby.markdown", "ruby.markdown.commonmarker", "ruby.markdown.kramdown", "ruby.markdown.markly", "ruby.rbs", "ruby.ruby.prism", "ruby.rust", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.typescript", "ruby.yaml", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

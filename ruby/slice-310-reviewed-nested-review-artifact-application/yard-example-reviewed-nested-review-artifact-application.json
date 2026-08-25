@@ -1,5 +1,5 @@
 {
-  "template": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Template\")\nclass Greeter\nend\n",
+  "template": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Template\")\n#   Greeter.new.wave\nclass Greeter\nend\n",
   "destination": "require \"json\"\n\n# Greets the caller.\n#\n# @example [ruby]\n#   Greeter.new.greet(\"Destination\")\nclass Greeter\nend\n",
   "replay_bundle": {
     "replay_context": {

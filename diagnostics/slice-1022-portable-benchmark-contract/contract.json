@@ -8,7 +8,7 @@
       "case_result",
       "aggregate_report"
     ],
-    "operations": ["diff", "merge3", "history_replay", "metamorphic"],
+    "operations": ["diff", "merge2", "merge3", "history_replay", "metamorphic"],
     "partitions": ["sentinel", "gold", "metamorphic", "history", "holdout"],
     "profiles": ["micro", "dev", "pr", "nightly", "release", "competitive"],
     "outcomes": [
@@ -92,6 +92,12 @@
     },
     "operation_required_fields": {
       "diff": ["inputs.before", "inputs.after", "expected_edit_units"],
+      "merge2": [
+        "inputs.incoming",
+        "inputs.current",
+        "expected",
+        "independent_edits"
+      ],
       "merge3": [
         "inputs.base",
         "inputs.ours",
@@ -262,6 +268,71 @@
       "expected_conflicts": false,
       "expected_conflict_regions": [],
       "independent_edits": ["edit.b.replace", "edit.c.add"],
+      "false_auto_merge_severity": "none"
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.case/v1",
+      "kind": "benchmark_case",
+      "id": "case.merge2.json.current-owned-fields.v1",
+      "operation": "merge2",
+      "family": "data",
+      "provider": "portable.json",
+      "dialect": "json",
+      "capabilities": ["merge2", "source_preserving", "structural_paths"],
+      "partition": "gold",
+      "provenance": {
+        "origin_uri": "fixture://slice-1022/case.merge2.json.current-owned-fields.v1",
+        "revision": "v1",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authoring": "synthetic",
+        "review_status": "reviewed",
+        "derivation": "Directional template merge retaining a current-owned value and current-only field while adding an incoming field."
+      },
+      "inputs": {
+        "incoming": {
+          "mode": "inline",
+          "encoding": "utf-8",
+          "bytes": "{\"managed\":2,\"recommended\":true}\n",
+          "sha256": "09ab90181ef79262416f1543f54844e034f5ee2beb423dae56b49d99d822507a"
+        },
+        "current": {
+          "mode": "inline",
+          "encoding": "utf-8",
+          "bytes": "{\"managed\":1,\"local\":true}\n",
+          "sha256": "9546fa58691008caf9cc646caf54c05caf7ad37bf477506baa8bd2e60ee0e7c6"
+        }
+      },
+      "oracle": {
+        "class": "structural_ast",
+        "artifact_sha256": "d54bc29f48252e90521b33c63ffa154c1fa842263b774bb791b49439e2a7c16d",
+        "admission": "reviewed",
+        "score_eligible": true
+      },
+      "expected": {
+        "mode": "inline",
+        "encoding": "utf-8",
+        "bytes": "{\"managed\":1,\"recommended\":true,\"local\":true}\n",
+        "sha256": "d54bc29f48252e90521b33c63ffa154c1fa842263b774bb791b49439e2a7c16d"
+      },
+      "acceptable_equivalence": [
+        {"class": "structural_ast", "parser": "RFC8259", "version": "2017"}
+      ],
+      "preservation_policy": {
+        "comments": "not_applicable",
+        "formatting": "allowed_to_change",
+        "order": "allowed_to_change",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [
+        {"id": "incoming.recommended", "side": "incoming", "path": "/recommended"},
+        {"id": "current.local", "side": "current", "path": "/local"}
+      ],
       "false_auto_merge_severity": "none"
     },
     {
@@ -518,7 +589,7 @@
         "case.metamorphic.json.reorder-format.v1",
         "case.history.ruby.release-events-dotenv-provider.v1"
       ],
-      "excluded_case_ids": [],
+      "excluded_case_ids": ["case.merge2.json.current-owned-fields.v1"],
       "explanation": {
         "changed_paths": ["providers/json/merge.example"],
         "inferred_capabilities": ["diff", "merge3", "structural_paths"],

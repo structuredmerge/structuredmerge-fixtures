@@ -1,0 +1,177 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1033",
+  "name": "ruby-generated-host-prototype",
+  "description": "An Alef-generated Magnus trait bridge must pass byte-preserving identity, lifecycle, thread/GVL, failure, and overhead gates before its ABI is selected.",
+  "alef_revision": "eebd7619b9c8217b16d2ee9b287738ce6c97dda9",
+  "status": "acceptance_contract_only",
+  "baseline_observations": {
+    "magnus_wrapper_storage": "opaque_ruby_value",
+    "registration_arc_dyn_trait": true,
+    "required_method_validation": true,
+    "unregister_forwarder": true,
+    "clear_forwarder": true,
+    "sync_async_paths_distinct": true,
+    "native_and_json_named_marshalling": true,
+    "tslp_ir_trait_count": 0,
+    "tslp_ir_service_count": 0,
+    "generated_gvl_comment_is_evidence": false
+  },
+  "prototype_components": [
+    "rust_host_prototype_core",
+    "alef_generated_magnus_extension",
+    "ruby_host_harness"
+  ],
+  "host_interfaces": [
+    {
+      "kind": "parser",
+      "methods": ["descriptor", "probe_batch", "parse_batch"],
+      "all_methods_fallible": true
+    },
+    {
+      "kind": "workflow",
+      "methods": ["descriptor", "execute_batch"],
+      "all_methods_fallible": true
+    }
+  ],
+  "transport_candidates": [
+    {
+      "id": "generated_typed_values",
+      "headers": "generated_dtos",
+      "source": "byte_string_with_length_and_digest",
+      "arbitrary_to_json_fallback": false
+    },
+    {
+      "id": "canonical_json_detached_bytes",
+      "headers": "canonical_json",
+      "source": "verified_byte_field_or_local_detached_blob",
+      "arbitrary_to_json_fallback": false
+    }
+  ],
+  "identity_corpus": [
+    "empty",
+    "lf",
+    "crlf",
+    "no_final_newline",
+    "invalid_utf8",
+    "embedded_nul",
+    "non_ascii_utf8",
+    "leading_interior_trailing_blank_lines",
+    "comment_only",
+    "unknown_syntax",
+    "above_inline_threshold_detached_blob",
+    "multi_item_distinct_ids"
+  ],
+  "comparison_fields": [
+    "source_hashes",
+    "segment_partitions",
+    "diagnostics",
+    "extension_preservation",
+    "serialized_envelopes"
+  ],
+  "lifecycle_failure_cases": [
+    "required_method_rejection",
+    "descriptor_contract_capability_limit_validation",
+    "registration_generation_publication",
+    "duplicate_and_atomic_replacement",
+    "sync_initialization_thread_invocation",
+    "multi_worker_runtime_affine_dispatch",
+    "async_generated_invocation",
+    "ruby_exception_and_malformed_return",
+    "cancellation_four_boundaries",
+    "unregister_in_flight_snapshot_completion",
+    "controlled_clear",
+    "runtime_affine_exactly_once_finalization",
+    "bounded_and_forced_shutdown",
+    "sidecar_process_loss_without_substitution",
+    "stale_generation_and_preflight"
+  ],
+  "thread_gvl_gate": [
+    "ruby_calls_have_supported_thread_and_gvl",
+    "opaque_value_resolved_under_valid_runtime",
+    "blocking_rust_releases_gvl_safely",
+    "callbacks_reenter_ruby_safely",
+    "no_structuredmerge_locks_held_during_callback",
+    "panic_and_exception_contained",
+    "runtime_affine_exactly_once_finalization"
+  ],
+  "measurement": {
+    "implementations": [
+      "in_process_rust_identity",
+      "generated_typed_values",
+      "canonical_json_detached_bytes"
+    ],
+    "batch_sizes": [1, 8, 32, "negotiated_maximum"],
+    "payload_classes": ["small_inline", "medium_inline", "detached_above_threshold"],
+    "minimum_measured_samples_after_warmup": 30,
+    "metrics": [
+      "wall_time_p50_p95_p99",
+      "calls_and_callbacks",
+      "bytes_copied_serialized_detached",
+      "allocations_when_measurable",
+      "peak_resident_memory",
+      "gvl_hold_and_wait_when_measurable",
+      "lifecycle_costs",
+      "digest_equality"
+    ],
+    "universal_performance_threshold_fixed": false,
+    "raw_samples_retained": true
+  },
+  "evidence_fields": [
+    "source_alef_rust_ruby_revisions_and_dirty_state",
+    "toolchain_target_cpu_os_build_profile",
+    "generated_hashes_and_command",
+    "trait_and_schema_versions",
+    "case_results",
+    "raw_measurement_paths_and_digests",
+    "callback_and_copy_counters",
+    "sanitizer_and_gc_stress_status",
+    "transport_decision",
+    "upstream_defects"
+  ],
+  "exit_gate": [
+    "clean_generation_and_extension_compile",
+    "rust_and_ruby_identity_registration",
+    "exact_byte_corpus_round_trip",
+    "lifecycle_failure_matrix",
+    "both_transport_measurements",
+    "transport_decision_or_documented_undecided"
+  ],
+  "invalid_examples": [
+    {"id": "tslp-export-assumed-inbound", "mutation": "treat TSLP's generated Ruby exports as an inbound host trait bridge", "rejected_by": "actual_trait_bridge"},
+    {"id": "generated-comment-proves-gvl", "mutation": "accept a generated safety comment as GVL evidence", "rejected_by": "runtime_thread_gate"},
+    {"id": "infallible-default-on-exception", "mutation": "return Default after Ruby exception or conversion failure", "rejected_by": "fallible_host_methods"},
+    {"id": "display-name-identity", "mutation": "use a caller display name instead of the descriptor stable ID", "rejected_by": "registration_identity"},
+    {"id": "arbitrary-to-json", "mutation": "call to_json on arbitrary Ruby return values as hidden transport fallback", "rejected_by": "transport_contract"},
+    {"id": "text-reconstructs-source", "mutation": "reconstruct invalid UTF-8 or CRLF source from normalized text", "rejected_by": "exact_source_bytes"},
+    {"id": "native-object-crosses-portable-boundary", "mutation": "serialize a Psych or Prism object into the portable envelope", "rejected_by": "host_native_extension_boundary"},
+    {"id": "one-item-callback-loop", "mutation": "call Ruby once per normalized node or source segment", "rejected_by": "coarse_batch"},
+    {"id": "unbounded-deadlock", "mutation": "run thread tests without watchdog or captured timeout evidence", "rejected_by": "bounded_harness"},
+    {"id": "ruby-value-worker-access", "mutation": "resolve Opaque<Value> on an arbitrary worker without supported Ruby runtime entry", "rejected_by": "thread_gvl_gate"},
+    {"id": "ffi-unwind", "mutation": "allow Rust panic or Ruby exception to unwind across FFI", "rejected_by": "failure_containment"},
+    {"id": "early-finalization", "mutation": "finalize a Ruby provider while old snapshots or calls retain it", "rejected_by": "lease_lifecycle"},
+    {"id": "double-finalization", "mutation": "clear and Drop both finalize the same host object", "rejected_by": "exactly_once_finalization"},
+    {"id": "sidecar-loss-fallback", "mutation": "use an in-process provider after the selected Ruby sidecar dies", "rejected_by": "provider_fidelity"},
+    {"id": "compile-only-proof", "mutation": "mark the prototype complete because generated code compiles", "rejected_by": "runtime_evidence"},
+    {"id": "benchmark-before-correctness", "mutation": "select a codec by speed before preservation and lifecycle gates pass", "rejected_by": "measurement_order"},
+    {"id": "summary-without-raw-samples", "mutation": "retain p95 values without raw measurements and environment evidence", "rejected_by": "reproducible_measurement"},
+    {"id": "dirty-source-unrecorded", "mutation": "publish evidence from a dirty checkout without a diff digest", "rejected_by": "evidence_provenance"},
+    {"id": "manual-generated-edit", "mutation": "patch generated Magnus output instead of fixing Alef", "rejected_by": "generator_ownership"},
+    {"id": "structuredmerge-only-generator", "mutation": "write a competing handwritten Magnus bridge when Alef output fails", "rejected_by": "upstream_fix_policy"}
+  ],
+  "expected": {
+    "prototype_component_count": 3,
+    "host_interface_count": 2,
+    "transport_candidate_count": 2,
+    "identity_corpus_case_count": 12,
+    "lifecycle_failure_case_count": 15,
+    "thread_gvl_gate_count": 7,
+    "measurement_implementation_count": 3,
+    "measurement_metric_count": 8,
+    "evidence_field_count": 10,
+    "exit_gate_count": 6,
+    "invalid_example_count": 20,
+    "implementation_complete": false,
+    "abi_fixed": false
+  }
+}

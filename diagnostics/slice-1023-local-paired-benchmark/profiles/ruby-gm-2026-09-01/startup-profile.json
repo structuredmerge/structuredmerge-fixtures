@@ -1,0 +1,101 @@
+{
+  "schema_version": "structuredmerge.benchmark.startup-profile/v1",
+  "kind": "ruby_golden_master_startup_profile",
+  "id": "profile.ruby-gm.startup.2026-09-01",
+  "measurement_policy": {
+    "fresh_process_samples": 7,
+    "in_process_samples": 7,
+    "repeated_iterations": 100,
+    "filesystem_state": "warm",
+    "host_activity": "idle",
+    "discarded_contended_samples": true,
+    "correctness_gate": false
+  },
+  "sources": {
+    "ruby_repository_revision": "c422b578bcdbc7ac9affb5d13786ed338c3c14f7",
+    "fixtures_repository_revision": "e8f438ddbdcf9a03bc12cff729e47f8405354ca2",
+    "tslp_repository_revision": "8f59a4bb1a372ac5f2aead6b8ff01bb63b1a2964",
+    "relevant_paths_clean": true,
+    "driver_sha256": "8e684b5e31511d6a78edd973375abd710a02190a06e37fad3d27e90a0b31259d",
+    "runner_sha256": "bea3d5355570a00c017a18e8437892e1c8f4307978c58042fc029edaba4d4dfa",
+    "json_provider_sha256": "c121d7c3dae42d2017f5d2d34052f3cfd24c7acba6f244017275412941cbcb7d",
+    "tree_haver_sha256": "3756048bc0d3b07b5ebe8c89c94ea0dcf5c0578a2e841f57e76d87f5748598e0"
+  },
+  "environment": {
+    "ruby": "ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [x86_64-linux]",
+    "kernel": "Linux 7.1.6-201.fc44.x86_64",
+    "architecture": "x86_64",
+    "cpu": "Intel(R) Core(TM) Ultra 9 185H",
+    "logical_cpus": 22,
+    "time_implementation": "GNU time 1.9"
+  },
+  "fresh_process": {
+    "fields": ["label", "sample", "elapsed_seconds", "user_seconds", "system_seconds", "maximum_resident_set_kb"],
+    "samples": [
+      ["bare", 1, 0.03, 0.02, 0.00, 15684],
+      ["bare", 2, 0.03, 0.02, 0.00, 16056],
+      ["bare", 3, 0.03, 0.02, 0.00, 16056],
+      ["bare", 4, 0.03, 0.02, 0.00, 15296],
+      ["bare", 5, 0.03, 0.03, 0.00, 15688],
+      ["bare", 6, 0.03, 0.02, 0.00, 15660],
+      ["bare", 7, 0.03, 0.03, 0.00, 15680],
+      ["load_merge_stack", 1, 0.12, 0.10, 0.02, 22588],
+      ["load_merge_stack", 2, 0.10, 0.07, 0.03, 23264],
+      ["load_merge_stack", 3, 0.10, 0.08, 0.02, 22708],
+      ["load_merge_stack", 4, 0.10, 0.08, 0.02, 22920],
+      ["load_merge_stack", 5, 0.12, 0.09, 0.02, 22576],
+      ["load_merge_stack", 6, 0.11, 0.09, 0.02, 22748],
+      ["load_merge_stack", 7, 0.10, 0.08, 0.01, 23036],
+      ["load_json_provider", 1, 0.17, 0.14, 0.03, 28216],
+      ["load_json_provider", 2, 0.18, 0.14, 0.03, 28088],
+      ["load_json_provider", 3, 0.18, 0.14, 0.03, 27720],
+      ["load_json_provider", 4, 0.16, 0.13, 0.03, 28104],
+      ["load_json_provider", 5, 0.16, 0.12, 0.03, 28180],
+      ["load_json_provider", 6, 0.17, 0.14, 0.03, 29116],
+      ["load_json_provider", 7, 0.15, 0.12, 0.03, 28032],
+      ["first_json_parse", 1, 0.17, 0.13, 0.03, 27876],
+      ["first_json_parse", 2, 0.19, 0.15, 0.03, 28216],
+      ["first_json_parse", 3, 0.16, 0.13, 0.02, 29560],
+      ["first_json_parse", 4, 0.18, 0.14, 0.03, 28732],
+      ["first_json_parse", 5, 0.17, 0.14, 0.03, 29452],
+      ["first_json_parse", 6, 0.19, 0.15, 0.03, 28080],
+      ["first_json_parse", 7, 0.18, 0.14, 0.04, 28024],
+      ["first_json_merge2", 1, 0.20, 0.16, 0.03, 30024],
+      ["first_json_merge2", 2, 0.18, 0.13, 0.04, 29836],
+      ["first_json_merge2", 3, 0.20, 0.16, 0.03, 29648],
+      ["first_json_merge2", 4, 0.18, 0.14, 0.03, 29864],
+      ["first_json_merge2", 5, 0.20, 0.16, 0.03, 29888],
+      ["first_json_merge2", 6, 0.18, 0.14, 0.03, 30296],
+      ["first_json_merge2", 7, 0.19, 0.16, 0.03, 29808]
+    ],
+    "median": {
+      "bare": {"elapsed_seconds": 0.03, "maximum_resident_set_kb": 15684},
+      "load_merge_stack": {"elapsed_seconds": 0.10, "maximum_resident_set_kb": 22748},
+      "load_json_provider": {"elapsed_seconds": 0.17, "maximum_resident_set_kb": 28104},
+      "first_json_parse": {"elapsed_seconds": 0.17, "maximum_resident_set_kb": 28216},
+      "first_json_merge2": {"elapsed_seconds": 0.19, "maximum_resident_set_kb": 29864}
+    }
+  },
+  "in_process": {
+    "samples": [
+      {"sample": 1, "load_merge_stack_ns": 65948471, "load_json_provider_ns": 54613125, "first_json_parse_ns": 8208957, "second_json_parse_ns": 192921, "first_jsonc_parse_ns": 175943, "second_jsonc_parse_ns": 137062, "first_warm_grammar_merge2_ns": 14972191, "repeated_jsonc_parse_total_ns": 17892201, "repeated_merge2_total_ns": 125820944},
+      {"sample": 2, "load_merge_stack_ns": 61967987, "load_json_provider_ns": 57016281, "first_json_parse_ns": 9020490, "second_json_parse_ns": 188966, "first_jsonc_parse_ns": 179568, "second_jsonc_parse_ns": 216255, "first_warm_grammar_merge2_ns": 16420581, "repeated_jsonc_parse_total_ns": 20017827, "repeated_merge2_total_ns": 127851255},
+      {"sample": 3, "load_merge_stack_ns": 66685267, "load_json_provider_ns": 57427238, "first_json_parse_ns": 9223939, "second_json_parse_ns": 154563, "first_jsonc_parse_ns": 152391, "second_jsonc_parse_ns": 122764, "first_warm_grammar_merge2_ns": 16027197, "repeated_jsonc_parse_total_ns": 18372233, "repeated_merge2_total_ns": 134177942},
+      {"sample": 4, "load_merge_stack_ns": 63959260, "load_json_provider_ns": 54190726, "first_json_parse_ns": 8124353, "second_json_parse_ns": 174621, "first_jsonc_parse_ns": 164078, "second_jsonc_parse_ns": 131814, "first_warm_grammar_merge2_ns": 15094044, "repeated_jsonc_parse_total_ns": 17090376, "repeated_merge2_total_ns": 117769837},
+      {"sample": 5, "load_merge_stack_ns": 60279840, "load_json_provider_ns": 52792134, "first_json_parse_ns": 8492766, "second_json_parse_ns": 172084, "first_jsonc_parse_ns": 169003, "second_jsonc_parse_ns": 142560, "first_warm_grammar_merge2_ns": 14945601, "repeated_jsonc_parse_total_ns": 15759205, "repeated_merge2_total_ns": 126561058},
+      {"sample": 6, "load_merge_stack_ns": 60593812, "load_json_provider_ns": 51606453, "first_json_parse_ns": 8209832, "second_json_parse_ns": 173173, "first_jsonc_parse_ns": 156656, "second_jsonc_parse_ns": 138550, "first_warm_grammar_merge2_ns": 14548713, "repeated_jsonc_parse_total_ns": 15817457, "repeated_merge2_total_ns": 114899482},
+      {"sample": 7, "load_merge_stack_ns": 59766707, "load_json_provider_ns": 52072349, "first_json_parse_ns": 8378445, "second_json_parse_ns": 164093, "first_jsonc_parse_ns": 167771, "second_jsonc_parse_ns": 133332, "first_warm_grammar_merge2_ns": 14466577, "repeated_jsonc_parse_total_ns": 16980808, "repeated_merge2_total_ns": 130328514}
+    ],
+    "summary": {
+      "load_merge_stack_ns": {"min": 59766707, "median": 61967987, "max": 66685267},
+      "load_json_provider_ns": {"min": 51606453, "median": 54190726, "max": 57427238},
+      "first_json_parse_ns": {"min": 8124353, "median": 8378445, "max": 9223939},
+      "second_json_parse_ns": {"min": 154563, "median": 173173, "max": 192921},
+      "first_jsonc_parse_ns": {"min": 152391, "median": 167771, "max": 179568},
+      "second_jsonc_parse_ns": {"min": 122764, "median": 137062, "max": 216255},
+      "first_warm_grammar_merge2_ns": {"min": 14466577, "median": 14972191, "max": 16420581},
+      "repeated_jsonc_parse_total_ns": {"min": 15759205, "median": 17090376, "max": 20017827, "median_per_iteration": 170904},
+      "repeated_merge2_total_ns": {"min": 114899482, "median": 126561058, "max": 134177942, "median_per_iteration": 1265611}
+    }
+  }
+}

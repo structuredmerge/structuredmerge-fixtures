@@ -1,0 +1,27 @@
+{
+  "schema_version": "structuredmerge.benchmark.provider-comparison/v1",
+  "fixture": "case.merge3.rust.independent-functions.v1",
+  "expected_sha256": "89a4feab605dd0c1752f8cd6635635002d9ae1bffb05dbf0211aa85eba476761",
+  "repositories": {
+    "ruby": "a53517c2cb3062d4ab00a0cd88406984c9d734c4",
+    "rust": "f230b4f2bd6445ec6337022dda9f321dee170b4e"
+  },
+  "providers": {
+    "ruby.rust": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "89a4feab605dd0c1752f8cd6635635002d9ae1bffb05dbf0211aa85eba476761"
+    },
+    "rust.rust": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "89a4feab605dd0c1752f8cd6635635002d9ae1bffb05dbf0211aa85eba476761"
+    }
+  },
+  "notes": [
+    "Both runtime implementations use TreeHaver's normalized TSLP parser contract for this comparison.",
+    "The native syn provider is excluded because it cannot prove source spans required for source-preserving rendering."
+  ]
+}

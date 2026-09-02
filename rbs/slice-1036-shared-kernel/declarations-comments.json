@@ -1,0 +1,15 @@
+{
+  "analysis": {
+    "source": "# Public API.\nclass Api\n  def call: () -> String\nend\n\n# Supporting API.\nclass Support\nend\n",
+    "expected": {
+      "owner_keys": ["class Api", "class Support"],
+      "comment_contents": ["Public API.", "Supporting API."],
+      "layout_gap_count": 1
+    }
+  },
+  "merge": {
+    "template": "class Api\n  def call: () -> String\nend\n\nclass Required\nend\n",
+    "destination": "class Api\n  def call: () -> bool\nend\n",
+    "expected": "class Api\n  def call: () -> bool\nend\n\nclass Required\nend\n"
+  }
+}

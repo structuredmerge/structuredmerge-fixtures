@@ -32,6 +32,7 @@
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
+        "case.merge3.bash.independent-functions.v1",
         "case.merge3.typescript.independent-functions.v1",
         "case.merge3.go.independent-functions.v1",
         "case.merge3.rust.independent-functions.v1",
@@ -40,7 +41,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 20,
-        "case_count": 15,
+        "case_count": 16,
         "output_bytes": 1048576
       }
     },
@@ -59,6 +60,7 @@
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
+        "case.merge3.bash.independent-functions.v1",
         "case.merge3.typescript.independent-functions.v1",
         "case.merge3.go.independent-functions.v1",
         "case.merge3.rust.independent-functions.v1",
@@ -86,6 +88,7 @@
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
+        "case.merge3.bash.independent-functions.v1",
         "case.merge3.typescript.independent-functions.v1",
         "case.merge3.go.independent-functions.v1",
         "case.merge3.rust.independent-functions.v1",
@@ -113,6 +116,7 @@
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
+        "case.merge3.bash.independent-functions.v1",
         "case.merge3.typescript.independent-functions.v1",
         "case.merge3.go.independent-functions.v1",
         "case.merge3.rust.independent-functions.v1",
@@ -262,6 +266,12 @@
     },
     {
       "path_prefix": "gems/bash-merge/",
+      "capabilities": [
+        "bash"
+      ]
+    },
+    {
+      "path_prefix": "crates/bash-merge/",
       "capabilities": [
         "bash"
       ]
@@ -2053,7 +2063,7 @@
         "source_preserving",
         "structural_paths"
       ],
-      "partition": "gold",
+      "partition": "sentinel",
       "provenance": {
         "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
         "revision": "slice-1023",
@@ -2808,8 +2818,8 @@
   "expected_summary": {
     "case_count": 23,
     "partition_counts": {
-      "sentinel": 15,
-      "gold": 6,
+      "sentinel": 16,
+      "gold": 5,
       "metamorphic": 2
     },
     "operation_counts": {
@@ -2842,6 +2852,7 @@
       "case.merge2.toml.nested-table-leaf.v1",
       "case.merge3.jsonc.comment-preservation.v1",
       "case.merge3.json5.order-format.v1",
+      "case.merge3.bash.independent-functions.v1",
       "case.merge3.typescript.independent-functions.v1",
       "case.merge3.go.independent-functions.v1",
       "case.merge3.rust.independent-functions.v1",

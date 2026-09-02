@@ -21,12 +21,13 @@
       "mandatory_sentinels": [
         "case.merge3.json.independent-fields.v1",
         "case.merge3.json.same-owner-conflict.v1",
-        "case.merge3.json.malformed-ours.v1"
+        "case.merge3.json.malformed-ours.v1",
+        "case.merge2.jsonc.current-layout-preservation.v1"
       ],
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 20,
-        "case_count": 3,
+        "case_count": 4,
         "output_bytes": 1048576
       }
     },
@@ -34,12 +35,13 @@
       "mandatory_sentinels": [
         "case.merge3.json.independent-fields.v1",
         "case.merge3.json.same-owner-conflict.v1",
-        "case.merge3.json.malformed-ours.v1"
+        "case.merge3.json.malformed-ours.v1",
+        "case.merge2.jsonc.current-layout-preservation.v1"
       ],
       "neighbor_count": 2,
       "budgets": {
         "wall_seconds": 120,
-        "case_count": 15,
+        "case_count": 16,
         "output_bytes": 8388608
       }
     }
@@ -467,6 +469,110 @@
       "independent_edit_ids": [
         "ours.malformed-token",
         "theirs.ok"
+      ]
+    },
+    {
+      "schema_version": "structuredmerge.benchmark/v1",
+      "kind": "benchmark_case",
+      "id": "case.merge2.jsonc.current-layout-preservation.v1",
+      "operation": "merge2",
+      "family": "json",
+      "provider": "ruby.json",
+      "dialect": "jsonc",
+      "capabilities": [
+        "comments",
+        "jsonc",
+        "merge2",
+        "source_preserving",
+        "whitespace"
+      ],
+      "partition": "sentinel",
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture reproducing unrelated blank-line churn during an idempotent directional template merge."
+      },
+      "oracle": {
+        "class": "exact",
+        "artifact": {
+          "mode": "inline",
+          "bytes": "{\n  // retained project note\n\n  \"managed\": {\n    \"version\": 1\n  },\n\n  \"local\": true\n}\n",
+          "sha256": "a8d2263f376cc784273f3dd26f37538937f4ed91701be29a68424ef35ff764d3"
+        },
+        "admission": "reviewed",
+        "score_eligible": true,
+        "procedure": "Require the current-owned document bytes to remain exact when the incoming template introduces no accepted semantic change."
+      },
+      "acceptable_equivalence": [
+        {
+          "class": "exact_bytes"
+        },
+        {
+          "class": "structural_ast",
+          "provider": "ruby.json",
+          "required": true
+        }
+      ],
+      "preservation_policy": {
+        "comments": "required",
+        "formatting": "required",
+        "order": "required",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "false_auto_merge_severity": "high",
+      "selector": {
+        "provider_id": "ruby.json",
+        "family": "json",
+        "dialect": "jsonc",
+        "backend": "kreuzberg-language-pack",
+        "profile": "source_preserving",
+        "require": "json/merge"
+      },
+      "inputs": {
+        "incoming": {
+          "mode": "inline",
+          "bytes": "{\n  \"managed\": {\n    \"version\": 2\n  }\n}\n",
+          "sha256": "ef7ab4e6d2fc30c065f0d44740c1a0d271f41322e2eb2399acaa3bb8814c1465"
+        },
+        "current": {
+          "mode": "inline",
+          "bytes": "{\n  // retained project note\n\n  \"managed\": {\n    \"version\": 1\n  },\n\n  \"local\": true\n}\n",
+          "sha256": "a8d2263f376cc784273f3dd26f37538937f4ed91701be29a68424ef35ff764d3"
+        }
+      },
+      "expected": {
+        "outcome": "clean",
+        "output": {
+          "mode": "inline",
+          "bytes": "{\n  // retained project note\n\n  \"managed\": {\n    \"version\": 1\n  },\n\n  \"local\": true\n}\n",
+          "sha256": "a8d2263f376cc784273f3dd26f37538937f4ed91701be29a68424ef35ff764d3"
+        }
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [
+        {
+          "id": "incoming.managed-version",
+          "side": "incoming",
+          "path": "/managed/version"
+        },
+        {
+          "id": "current.local",
+          "side": "current",
+          "path": "/local"
+        }
+      ],
+      "independent_edit_ids": [
+        "incoming.managed-version",
+        "current.local"
       ]
     },
     {
@@ -1789,13 +1895,14 @@
     }
   ],
   "expected_summary": {
-    "case_count": 15,
+    "case_count": 16,
     "partition_counts": {
-      "sentinel": 3,
+      "sentinel": 4,
       "gold": 10,
       "metamorphic": 2
     },
     "operation_counts": {
+      "merge2": 1,
       "merge3": 13,
       "metamorphic": 2
     },
@@ -1812,7 +1919,8 @@
     "micro_case_ids": [
       "case.merge3.json.independent-fields.v1",
       "case.merge3.json.same-owner-conflict.v1",
-      "case.merge3.json.malformed-ours.v1"
+      "case.merge3.json.malformed-ours.v1",
+      "case.merge2.jsonc.current-layout-preservation.v1"
     ]
   }
 }

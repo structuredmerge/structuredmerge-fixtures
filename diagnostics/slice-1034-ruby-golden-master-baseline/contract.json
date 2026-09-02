@@ -1,0 +1,72 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1034",
+  "name": "ruby-golden-master-baseline",
+  "description": "Pins the first post-release Ruby golden-master source and dependency state and identifies callable migration evidence.",
+  "recorded_at": "2026-09-01T23:51:25-04:00",
+  "source": {
+    "repository": "structuredmerge/structuredmerge-ruby",
+    "revision": "e3ad14c9a52bf12d24783104eddbf557db247d46",
+    "branch": "main",
+    "dirty": false,
+    "family_version": "7.1.7",
+    "revision_subject": "Checksums for v7.1.7"
+  },
+  "dependency_lock_set": {
+    "path_selector": "git ls-files | rg '(^|/)Gemfile\\.lock$' | sort",
+    "file_count": 32,
+    "member_lock_count": 31,
+    "root_lock_sha256": "dac31cddb50dad83c2fec29f52984ccd8f39a556edb2e54dc3a987b0964659c3",
+    "canonicalization": "sha256sum each sorted path, then sha256sum the resulting records",
+    "aggregate_sha256": "f0711e6205f42a4f1c6b381cb1573ad068e9374ca8652136e8367a8569efd18b"
+  },
+  "runtime_observation": {
+    "ruby": "4.0.6",
+    "ruby_revision": "03b6d3f889",
+    "bundler": "4.0.18",
+    "platform": "x86_64-linux"
+  },
+  "entry_points": {
+    "parser_registration": ["TreeHaver.register_backend", "TreeHaver.register_language"],
+    "parser_selection": "TreeHaver.parser_for",
+    "provider_registry": ["Ast::Merge.register_provider", "Ast::Merge.resolve_provider", "Ast::Merge.dispatch_provider"],
+    "portable_operations": ["analyze", "diff2", "merge2", "merge3"],
+    "two_way_projection": ["Ast::Merge::SmartMergerBase#merge_result", "Ast::Merge::SmartMergerBase#merge"],
+    "git_adapter": ["Ast::Merge::Git.merge3", "Ast::Merge::Git.merge_files", "Ast::Merge::Git.run"],
+    "installed_cli": "Smorg::RB.run",
+    "template_session": [
+      "Ast::Template.run_template_directory_session_with_options",
+      "Ast::Template.run_template_directory_session_request",
+      "Ast::Template.run_template_directory_session_runner_request",
+      "Ast::Template.run_template_directory_session_entrypoint",
+      "Ast::Template.run_template_directory_session_command"
+    ],
+    "rendering": "Ast::Merge::SourceRender",
+    "provider_result": "Ast::Merge::ProviderResult.build"
+  },
+  "known_defects": [
+    {
+      "id": "ast-template-readme-missing-session-aliases",
+      "documented_symbols": [
+        "Ast::Template.package_directory_session_request",
+        "Ast::Template.run_package_directory_session"
+      ],
+      "source_definitions_found": false,
+      "golden_master_behavior": false
+    }
+  ],
+  "authority_rules": {
+    "ruby_is_behavioral_golden_master": true,
+    "documentation_only_symbol_is_authoritative": false,
+    "known_defect_becomes_desired_behavior": false,
+    "direct_parser_bypass_is_portable": false,
+    "provider_load_order_is_selection_policy": false
+  },
+  "expected": {
+    "lock_file_count": 32,
+    "portable_operation_count": 4,
+    "known_defect_count": 1,
+    "baseline_recorded": true,
+    "api_inventory_complete": false
+  }
+}

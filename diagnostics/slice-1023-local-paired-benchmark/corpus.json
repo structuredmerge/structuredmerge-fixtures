@@ -34,12 +34,13 @@
         "case.merge3.json5.order-format.v1",
         "case.merge3.typescript.independent-functions.v1",
         "case.merge3.go.independent-functions.v1",
+        "case.merge3.rust.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 20,
-        "case_count": 14,
+        "case_count": 15,
         "output_bytes": 1048576
       }
     },
@@ -60,12 +61,13 @@
         "case.merge3.json5.order-format.v1",
         "case.merge3.typescript.independent-functions.v1",
         "case.merge3.go.independent-functions.v1",
+        "case.merge3.rust.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 2,
       "budgets": {
         "wall_seconds": 120,
-        "case_count": 22,
+        "case_count": 23,
         "output_bytes": 8388608
       }
     },
@@ -86,12 +88,13 @@
         "case.merge3.json5.order-format.v1",
         "case.merge3.typescript.independent-functions.v1",
         "case.merge3.go.independent-functions.v1",
+        "case.merge3.rust.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 600,
-        "case_count": 22,
+        "case_count": 23,
         "output_bytes": 33554432
       }
     },
@@ -112,12 +115,13 @@
         "case.merge3.json5.order-format.v1",
         "case.merge3.typescript.independent-functions.v1",
         "case.merge3.go.independent-functions.v1",
+        "case.merge3.rust.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 1200,
-        "case_count": 22,
+        "case_count": 23,
         "output_bytes": 67108864
       }
     }
@@ -151,6 +155,18 @@
       "path_prefix": "crates/go-merge/",
       "capabilities": [
         "go"
+      ]
+    },
+    {
+      "path_prefix": "gems/rust-merge/",
+      "capabilities": [
+        "rust"
+      ]
+    },
+    {
+      "path_prefix": "crates/rust-merge/",
+      "capabilities": [
+        "rust"
       ]
     },
     {
@@ -2350,6 +2366,114 @@
     {
       "schema_version": "structuredmerge.benchmark/v1",
       "kind": "benchmark_case",
+      "id": "case.merge3.rust.independent-functions.v1",
+      "operation": "merge3",
+      "family": "rust",
+      "provider": "ruby.rust",
+      "dialect": "rust",
+      "capabilities": [
+        "functions",
+        "merge3",
+        "rust",
+        "source_preserving"
+      ],
+      "partition": "sentinel",
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "oracle": {
+        "class": "exact",
+        "artifact": {
+          "mode": "inline",
+          "bytes": "fn left() -> i32 { 2 }\n\nfn right() -> i32 { 2 }\n",
+          "sha256": "89a4feab605dd0c1752f8cd6635635002d9ae1bffb05dbf0211aa85eba476761"
+        },
+        "admission": "reviewed",
+        "score_eligible": true,
+        "procedure": "Compare exact expected bytes first; structural equivalence requires provider-backed semantic equality and never mere parse validity."
+      },
+      "acceptable_equivalence": [
+        {
+          "class": "exact_bytes"
+        },
+        {
+          "class": "structural_ast",
+          "provider": "ruby.rust",
+          "required": true
+        }
+      ],
+      "preservation_policy": {
+        "comments": "required",
+        "formatting": "required",
+        "order": "required",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "false_auto_merge_severity": "none",
+      "selector": {
+        "provider_id": "ruby.rust",
+        "family": "rust",
+        "dialect": "rust",
+        "backend": "kreuzberg-language-pack",
+        "profile": "source_preserving",
+        "require": "rust/merge"
+      },
+      "inputs": {
+        "base": {
+          "mode": "inline",
+          "bytes": "fn left() -> i32 { 1 }\n\nfn right() -> i32 { 1 }\n",
+          "sha256": "df4923b82c24d4750353c8d556538d0c44191268edad105018a765bb8a5fb328"
+        },
+        "ours": {
+          "mode": "inline",
+          "bytes": "fn left() -> i32 { 2 }\n\nfn right() -> i32 { 1 }\n",
+          "sha256": "c11b9534fc7f989a31c28c89b7a041b78860fdb5ab4900434cc8d6ca06dcdab7"
+        },
+        "theirs": {
+          "mode": "inline",
+          "bytes": "fn left() -> i32 { 1 }\n\nfn right() -> i32 { 2 }\n",
+          "sha256": "d1ad2027285b441ce2833af2a688c3649244392c1b09e17f0c2f456d7d08a794"
+        }
+      },
+      "expected": {
+        "outcome": "clean",
+        "output": {
+          "mode": "inline",
+          "bytes": "fn left() -> i32 { 2 }\n\nfn right() -> i32 { 2 }\n",
+          "sha256": "89a4feab605dd0c1752f8cd6635635002d9ae1bffb05dbf0211aa85eba476761"
+        }
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [
+        {
+          "id": "ours.function-left",
+          "side": "ours",
+          "path": "/function:left"
+        },
+        {
+          "id": "theirs.function-right",
+          "side": "theirs",
+          "path": "/function:right"
+        }
+      ],
+      "independent_edit_ids": [
+        "ours.function-left",
+        "theirs.function-right"
+      ]
+    },
+    {
+      "schema_version": "structuredmerge.benchmark/v1",
+      "kind": "benchmark_case",
       "id": "case.merge3.json.duplicate-identity.v1",
       "operation": "merge3",
       "family": "json",
@@ -2682,15 +2806,15 @@
     }
   ],
   "expected_summary": {
-    "case_count": 22,
+    "case_count": 23,
     "partition_counts": {
-      "sentinel": 14,
+      "sentinel": 15,
       "gold": 6,
       "metamorphic": 2
     },
     "operation_counts": {
       "merge2": 6,
-      "merge3": 14,
+      "merge3": 15,
       "metamorphic": 2
     },
     "families": [
@@ -2701,6 +2825,7 @@
       "markdown",
       "rbs",
       "ruby",
+      "rust",
       "toml",
       "typescript",
       "yaml"
@@ -2719,6 +2844,7 @@
       "case.merge3.json5.order-format.v1",
       "case.merge3.typescript.independent-functions.v1",
       "case.merge3.go.independent-functions.v1",
+      "case.merge3.rust.independent-functions.v1",
       "case.merge3.json.duplicate-identity.v1"
     ]
   }

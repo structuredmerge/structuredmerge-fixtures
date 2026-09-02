@@ -1,0 +1,76 @@
+{
+  "schema_version": "structuredmerge.benchmark.baseline/v1",
+  "kind": "rust_yaml_vertical_slice_baseline",
+  "id": "baseline.rust-yaml.vertical-slice.2026-09-02",
+  "corpus": {
+    "id": "corpus.local-paired.authored.v1",
+    "repository_revision": "da0635d5bcc17b33763ca5cece300aeb8654bbcf",
+    "sha256": "c56a680dc7391ffed2a73c9940da209f657a78bf297ade6ecce0754cecea47d7"
+  },
+  "candidate": {
+    "adapter_id": "rust-candidate.smorg-rs",
+    "repository": "structuredmerge/structuredmerge-rust",
+    "revision": "4f8a2e7a539a6c04b2eba4025b7e41119f2c742f",
+    "package": "smorg-rs",
+    "version": "0.2.0",
+    "driver_sha256": "ef636feb594354e8dd701c4ff7595448dfb7b700a10f130c29b8cd00a938f9b2",
+    "merge_provider": "rust.yaml",
+    "merge_package": "yaml-merge",
+    "parser_boundary": "tree-haver",
+    "parser_provider": "tree-sitter-language-pack",
+    "parser_provider_version": "1.8.1"
+  },
+  "golden_master": {
+    "adapter_id": "ruby-gm.ast-merge-git",
+    "repository": "structuredmerge/structuredmerge-ruby",
+    "revision": "3b15bdbae7f593e642c5e6d568cc46a2a679d182",
+    "dirty_only_for_local_dependency_lockfiles": true,
+    "package_version": "7.1.7"
+  },
+  "environment": {
+    "rustc": "rustc 1.90.0 (1159e78c4 2025-09-14)",
+    "ruby": "ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [x86_64-linux]",
+    "kernel": "Linux 7.1.6-201.fc44.x86_64",
+    "architecture": "x86_64"
+  },
+  "commands": {
+    "micro": "ast-merge-git benchmark report --profile micro --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "dev": "ast-merge-git benchmark report --profile dev --changed-path crates/yaml-merge/src/lib.rs --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "ruby_gm": "ast-merge-git benchmark report --profile micro --workers 4"
+  },
+  "artifacts": {
+    "dev-report.json": "784d8c44d074cd3b3787d18255ef10554f5ad2161a1f7e60c994e9c14b6a564a",
+    "micro-report.json": "4913f31b46f056f7f77f451f0311d06041a2e1c1d86c4f7f02b3c45121a5e884",
+    "micro-run.json": "4f24c36af500044c385047f9ac53882751bbe7fbbfe1ea3ce8cbb69fae0517c8",
+    "ruby-gm-report.json": "e96480864fccdf8b4854192353f736dbde93e881e6248c11981f711dbb079fb9"
+  },
+  "correctness": {
+    "micro_candidate_outcomes": {
+      "correct_clean": 6,
+      "true_conflict": 2,
+      "false_auto_merge": 0,
+      "unexpected_error": 0,
+      "unsupported": 0
+    },
+    "micro_gates": {
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "dev_selected_cases": 11,
+    "dev_executed_candidate_cases": 9,
+    "dev_unsupported_case_ids": [
+      "case.merge3.yaml.delete-modify.v1",
+      "case.merge3.toml.independent-tables.v1"
+    ],
+    "dev_hard_gate_failed": false
+  },
+  "interpretation": {
+    "ruby_is_behavioral_golden_master": true,
+    "intentional_contract_changes": 0,
+    "public_ranking_authorized": false,
+    "yaml_merge3_supported": false,
+    "unsupported_syntax_remains_fail_closed": true
+  }
+}

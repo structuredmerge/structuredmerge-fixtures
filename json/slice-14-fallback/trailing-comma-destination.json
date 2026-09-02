@@ -3,13 +3,12 @@
   "template": "{\n  \"name\": \"structuredmerge\",\n  \"meta\": {\"mode\": \"template\"}\n}\n",
   "destination": "{\n  \"meta\": {\"enabled\": true,},\n  \"tags\": [\"destination\",],\n}\n",
   "expected": {
-    "ok": true,
+    "ok": false,
     "diagnostics": [
       {
-        "severity": "warning",
-        "category": "fallback_applied"
+        "severity": "error",
+        "category": "destination_parse_error"
       }
-    ],
-    "output": "{\n  \"name\": \"structuredmerge\",\n  \"meta\": {\n    \"mode\": \"template\",\n    \"enabled\": true\n  },\n  \"tags\": [\"destination\"]\n}\n"
+    ]
   }
 }

@@ -39,18 +39,20 @@
       }
     },
     {
-      "name": "unsupported_jsonc",
+      "name": "valid_jsonc",
       "dialect": "jsonc",
       "source": "{\n  // note\n  \"alpha\":1\n}",
       "expected": {
-        "ok": false,
-        "diagnostics": [
+        "ok": true,
+        "root_kind": "object",
+        "owners": [
           {
-            "severity": "error",
-            "category": "unsupported_feature",
-            "message": "tree-sitter-language-pack json parsing currently supports only the json dialect."
+            "path": "/alpha",
+            "owner_kind": "member",
+            "match_key": "alpha"
           }
-        ]
+        ],
+        "diagnostics": []
       }
     }
   ]

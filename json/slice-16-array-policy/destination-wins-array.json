@@ -4,6 +4,6 @@
   "destination": "{\n  \"items\": [9],\n  \"meta\": {\n    \"tags\": [\"destination\"]\n  }\n}\n",
   "expected": {
     "ok": true,
-    "output": "{\"items\":[9],\"meta\":{\"tags\":[\"destination\"],\"mode\":\"template\"}}"
+    "output": "{\n  \"items\": [9],\n  \"meta\": {\n    \"tags\": [\"destination\"],\n    \"mode\": \"template\"\n  }\n}\n"
   }
 }

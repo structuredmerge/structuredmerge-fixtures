@@ -1,0 +1,62 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1038",
+  "name": "rust-json-vertical-slice",
+  "description": "Classifies JSON vertical-slice divergences between the Rust candidate, shared fixtures, and the Ruby golden master.",
+  "golden_master": {
+    "repository": "structuredmerge/structuredmerge-ruby",
+    "revision": "4646f8b98d5b96dfa6102bb72522285b54a228f7",
+    "package": "json-merge"
+  },
+  "candidate": {
+    "repository": "structuredmerge/structuredmerge-rust",
+    "package": "json-merge",
+    "parser_boundary": "tree-haver",
+    "parser_provider": "tree-sitter-language-pack"
+  },
+  "divergences": [
+    {
+      "id": "json.merge2.template-owner-order",
+      "classification": "rust_defect",
+      "observation": "The first Rust renderer appended all template-only owners after destination owners.",
+      "golden_master_behavior": "Leading template-only owners are inserted before the next shared owner; trailing template-only owners follow retained destination-only owners.",
+      "resolution": "fixed_in_candidate"
+    },
+    {
+      "id": "json.merge2.array-policy-rendering",
+      "classification": "stale_fixture",
+      "observation": "The shared fixture expected canonical minified JSON.",
+      "golden_master_behavior": "The multiline destination layout is retained while the missing nested owner is synthesized.",
+      "resolution": "fixture_updated"
+    },
+    {
+      "id": "json.strict.trailing-comma-fallback",
+      "classification": "stale_fixture",
+      "observation": "The shared fixture expected a destination-only parser fallback that removed trailing commas.",
+      "golden_master_behavior": "Strict JSON fails closed with a destination parse error and no output.",
+      "resolution": "fixture_updated"
+    },
+    {
+      "id": "json.feature-profile.trailing-comma-fallback",
+      "classification": "stale_fixture",
+      "observation": "The shared feature profile advertised the removed trailing-comma fallback policy.",
+      "golden_master_behavior": "The JSON family advertises JSON, JSONC, and JSON5 plus destination-wins array behavior, with no parser fallback policy.",
+      "resolution": "fixture_updated"
+    },
+    {
+      "id": "json.jsonc.tslp-support",
+      "classification": "stale_fixture",
+      "observation": "The shared Tree-sitter adapter fixture marked JSONC unsupported.",
+      "golden_master_behavior": "JSONC parses through TreeHaver's JSON5 grammar with JSONC subset validation.",
+      "resolution": "fixture_updated"
+    }
+  ],
+  "intentional_contract_changes": [],
+  "expected": {
+    "divergence_count": 5,
+    "rust_defect_count": 1,
+    "stale_fixture_count": 4,
+    "ambiguous_oracle_count": 0,
+    "intentional_contract_change_count": 0
+  }
+}

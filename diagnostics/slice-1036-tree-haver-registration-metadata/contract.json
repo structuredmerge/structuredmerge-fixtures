@@ -1,0 +1,245 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1036",
+  "name": "tree-haver-registration-metadata",
+  "description": "Defines exact parser registration and selection metadata while retaining TreeHaver.parser_for as the only parse-selection entry point.",
+  "contract_schemas": {
+    "backend_descriptor": "structuredmerge.tree-haver-backend/v1",
+    "language_registration": "structuredmerge.tree-haver-language-registration/v1",
+    "parser_requirements": "structuredmerge.parser-requirements/v1",
+    "selection_result": "structuredmerge.parser-selection-result/v1"
+  },
+  "backend_descriptor_required": [
+    "schema",
+    "id",
+    "family",
+    "host_runtime",
+    "adapter",
+    "package",
+    "availability",
+    "contracts",
+    "capabilities",
+    "priority",
+    "metadata",
+    "extensions"
+  ],
+  "language_registration_required": [
+    "schema",
+    "registration_id",
+    "language",
+    "dialects",
+    "backend_binding",
+    "parser_identity",
+    "contracts",
+    "capabilities",
+    "loadability",
+    "priority",
+    "language_profiles",
+    "metadata",
+    "extensions"
+  ],
+  "parser_requirements_required": [
+    "schema",
+    "language",
+    "dialects",
+    "allowed_backend_ids",
+    "denied_backend_ids",
+    "allowed_backend_families",
+    "denied_backend_families",
+    "required_contracts",
+    "required_capabilities",
+    "preferred_backend_ids",
+    "language_profile",
+    "native_extensions",
+    "metadata",
+    "extensions"
+  ],
+  "capability_descriptor": {
+    "required": ["id", "level", "evidence"],
+    "levels": ["unavailable", "partial", "full"],
+    "initial_ids": [
+      "normalized-nodes",
+      "exact-byte-spans",
+      "point-spans",
+      "exact-source-fragments",
+      "comments",
+      "attachment-hints",
+      "error-nodes",
+      "partial-trees",
+      "incremental-parsing",
+      "native-extensions"
+    ]
+  },
+  "parser_for": {
+    "method": "TreeHaver.parser_for",
+    "selectors": [
+      "language",
+      "backend_id",
+      "backend_family",
+      "dialect",
+      "required_contracts",
+      "required_capabilities",
+      "preferred",
+      "language_profile"
+    ],
+    "hard_constraints": ["backend_id", "backend_family", "dialect", "required_contracts", "required_capabilities"],
+    "ranking_inputs": ["preferred", "language_profile", "registration_priority", "stable_registration_id"],
+    "compatibility_keywords": ["backend_type", "contract"],
+    "no_match": "fail_closed_with_candidate_diagnostics"
+  },
+  "examples": {
+    "backends": [
+      {
+        "schema": "structuredmerge.tree-haver-backend/v1",
+        "id": "tslp",
+        "family": "tree-sitter",
+        "host_runtime": "ruby",
+        "adapter": "TreeHaver::Backends::Tslp",
+        "package": {"name": "tree_sitter_language_pack", "version": "fixture"},
+        "availability": {"mode": "lazy-language-load", "probe_id": "tslp.runtime"},
+        "contracts": ["structuredmerge.parse-result/v1"],
+        "capabilities": [{"id": "normalized-nodes", "level": "full", "evidence": ["slice-1024"]}],
+        "priority": 20,
+        "metadata": {},
+        "extensions": []
+      },
+      {
+        "schema": "structuredmerge.tree-haver-backend/v1",
+        "id": "prism",
+        "family": "native",
+        "host_runtime": "ruby",
+        "adapter": "TreeHaver::Backends::Prism",
+        "package": {"name": "prism", "version": "fixture"},
+        "availability": {"mode": "eager", "probe_id": "prism.runtime"},
+        "contracts": ["structuredmerge.parse-result/v1"],
+        "capabilities": [{"id": "native-extensions", "level": "full", "evidence": ["ruby.prism"]}],
+        "priority": 100,
+        "metadata": {},
+        "extensions": []
+      }
+    ],
+    "language_registrations": [
+      {
+        "schema": "structuredmerge.tree-haver-language-registration/v1",
+        "registration_id": "ruby.tslp",
+        "language": "ruby",
+        "dialects": ["ruby"],
+        "backend_binding": {"ids": ["tslp"], "families": ["tree-sitter"], "adapter_key": "tslp"},
+        "parser_identity": {"name": "tree-sitter-ruby", "version": "fixture"},
+        "contracts": ["structuredmerge.parse-result/v1"],
+        "capabilities": [
+          {"id": "normalized-nodes", "level": "full", "evidence": ["slice-1024"]},
+          {"id": "exact-byte-spans", "level": "full", "evidence": ["slice-1027"]}
+        ],
+        "loadability": {"mode": "on-demand", "probe_id": "tslp.load-language"},
+        "priority": 20,
+        "language_profiles": ["ruby-tree-sitter-default"],
+        "metadata": {},
+        "extensions": []
+      },
+      {
+        "schema": "structuredmerge.tree-haver-language-registration/v1",
+        "registration_id": "ruby.prism",
+        "language": "ruby",
+        "dialects": ["ruby"],
+        "backend_binding": {"ids": ["prism"], "families": ["native"], "adapter_key": "prism"},
+        "parser_identity": {"name": "prism", "version": "fixture"},
+        "contracts": ["structuredmerge.parse-result/v1"],
+        "capabilities": [
+          {"id": "normalized-nodes", "level": "full", "evidence": ["slice-1024"]},
+          {"id": "native-extensions", "level": "full", "evidence": ["ruby.prism"]}
+        ],
+        "loadability": {"mode": "eager", "probe_id": "prism.language"},
+        "priority": 100,
+        "language_profiles": [],
+        "metadata": {},
+        "extensions": []
+      }
+    ],
+    "provider_requirements": [
+      {
+        "provider_id": "ruby.ruby",
+        "requirements": {
+          "schema": "structuredmerge.parser-requirements/v1",
+          "language": "ruby",
+          "dialects": ["ruby"],
+          "allowed_backend_ids": [],
+          "denied_backend_ids": ["prism"],
+          "allowed_backend_families": ["tree-sitter"],
+          "denied_backend_families": [],
+          "required_contracts": ["structuredmerge.parse-result/v1"],
+          "required_capabilities": [{"id": "normalized-nodes", "minimum_level": "full"}, {"id": "exact-byte-spans", "minimum_level": "full"}],
+          "preferred_backend_ids": [],
+          "language_profile": "ruby-tree-sitter-default",
+          "native_extensions": "retain_if_available",
+          "metadata": {},
+          "extensions": []
+        }
+      },
+      {
+        "provider_id": "ruby.ruby.prism",
+        "requirements": {
+          "schema": "structuredmerge.parser-requirements/v1",
+          "language": "ruby",
+          "dialects": ["ruby"],
+          "allowed_backend_ids": ["prism"],
+          "denied_backend_ids": [],
+          "allowed_backend_families": [],
+          "denied_backend_families": [],
+          "required_contracts": ["structuredmerge.parse-result/v1"],
+          "required_capabilities": [{"id": "native-extensions", "minimum_level": "full"}],
+          "preferred_backend_ids": ["prism"],
+          "language_profile": null,
+          "native_extensions": "required",
+          "metadata": {},
+          "extensions": []
+        }
+      }
+    ]
+  },
+  "selection_result_required": [
+    "schema",
+    "ok",
+    "request_id",
+    "registry_generation",
+    "registry_digest",
+    "candidates",
+    "selected_registration",
+    "selected_backend",
+    "satisfied_capabilities",
+    "unsatisfied_capabilities",
+    "diagnostics",
+    "metadata",
+    "extensions"
+  ],
+  "released_ruby_gaps": [
+    "backend_reference_only_has_id_and_family",
+    "language_registrations_are_unvalidated_config_hashes",
+    "no_registry_generation_or_snapshot_digest",
+    "parser_for_contains_hard_coded_backend_order",
+    "backend_type_and_contract_are_overloaded",
+    "no_parser_capability_filtering",
+    "provider_contract_has_flat_backends_without_parser_requirements",
+    "no_complete_candidate_trace"
+  ],
+  "invalid_examples": [
+    "merge_provider_calls_parser_outside_tree_haver",
+    "prism_registration_hijacks_generic_ruby",
+    "cold_tslp_cache_means_unavailable",
+    "registration_order_breaks_tie",
+    "preference_bypasses_required_capability",
+    "backend_type_is_used_as_portable_backend_family",
+    "package_installation_implies_capability",
+    "provider_reimplements_rbs_backend_choice"
+  ],
+  "expected": {
+    "backend_descriptor_required_count": 12,
+    "language_registration_required_count": 13,
+    "parser_requirements_required_count": 14,
+    "parser_for_selector_count": 8,
+    "released_ruby_gap_count": 8,
+    "invalid_example_count": 8,
+    "single_parse_selection_api": true,
+    "implementation_complete": false
+  }
+}

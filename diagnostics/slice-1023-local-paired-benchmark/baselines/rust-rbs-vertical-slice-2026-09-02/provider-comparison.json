@@ -1,0 +1,25 @@
+{
+  "schema_version": "structuredmerge.provider-comparison/v1",
+  "fixture": "rbs/slice-1036-shared-kernel/declarations-comments.json",
+  "expected_sha256": "cd89781501b1d8ca9b79a3420d18014ba4376626cd260ac322b4611d73e020db",
+  "providers": {
+    "ruby.rbs.native": {
+      "backend": "rbs",
+      "ok": true,
+      "exact": true,
+      "output_sha256": "cd89781501b1d8ca9b79a3420d18014ba4376626cd260ac322b4611d73e020db"
+    },
+    "ruby.rbs.tslp": {
+      "backend": "kreuzberg-language-pack",
+      "ok": true,
+      "exact": true,
+      "output_sha256": "cd89781501b1d8ca9b79a3420d18014ba4376626cd260ac322b4611d73e020db"
+    },
+    "rust.rbs.tslp": {
+      "backend": "kreuzberg-language-pack",
+      "ok": true,
+      "exact": true,
+      "output_sha256": "cd89781501b1d8ca9b79a3420d18014ba4376626cd260ac322b4611d73e020db"
+    }
+  }
+}

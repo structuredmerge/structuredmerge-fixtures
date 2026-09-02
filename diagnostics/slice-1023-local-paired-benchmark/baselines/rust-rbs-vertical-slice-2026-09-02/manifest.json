@@ -1,0 +1,40 @@
+{
+  "schema_version": "structuredmerge.benchmark.baseline-manifest/v1",
+  "baseline_id": "rust-rbs-vertical-slice-2026-09-02",
+  "fixture_revision": "63df3def423d53e7d25c179175c25fe6d0c951c0",
+  "ruby_revision": "e25017238af2c2d2d91c05c683825d188130e3d0",
+  "rust_revision": "df6959bf9604ad0389c771da876dabc1cdb7f67a",
+  "commands": {
+    "micro": "ast-merge-git benchmark report --profile micro --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "dev": "ast-merge-git benchmark report --profile dev --changed-path crates/rbs-merge/src/lib.rs --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "ruby_gm": "ast-merge-git benchmark report --profile micro --workers 4"
+  },
+  "outcomes": {
+    "rust_micro_gates": {
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass"
+    },
+    "rust_dev_unsupported_case_ids": [
+      "case.merge3.yaml.delete-modify.v1",
+      "case.merge3.toml.independent-tables.v1"
+    ],
+    "ruby_micro_gates": {
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass"
+    },
+    "provider_comparison_exact": {
+      "ruby.rbs.native": true,
+      "ruby.rbs.tslp": true,
+      "rust.rbs.tslp": true
+    }
+  },
+  "artifacts": {
+    "micro-run.json": "4604fe16c60eb34254c999d7931b33333e6fcbbdfea32eb9c9935595768bd725",
+    "micro-report.json": "3a66848ec9aa523551399766cf2979445de4425916392e1b43871ad0306028d4",
+    "dev-report.json": "1736e16f3414e9f1ab096b341756592de43e55cf282ee54ae34cfb44a0bc8679",
+    "ruby-gm-report.json": "813328e86230722ad876a40b7e358f019ae9d84a434059aca3c0ba8f1157319c",
+    "provider-comparison.json": "4a73c5cb82234d64ec547d006b8da257e90f5dce6980c858c7103f529a59b9ec"
+  }
+}

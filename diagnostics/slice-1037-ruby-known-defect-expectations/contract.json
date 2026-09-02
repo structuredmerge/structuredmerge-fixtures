@@ -1,0 +1,79 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1037",
+  "name": "ruby-known-defect-expectations",
+  "description": "Records confirmed Ruby defects as pending expected failures without promoting them into portable authority.",
+  "source": {
+    "repository": "structuredmerge/structuredmerge-ruby",
+    "revision": "e3ad14c9a52bf12d24783104eddbf557db247d46",
+    "family_version": "7.1.7"
+  },
+  "record_required": [
+    "id",
+    "status",
+    "package",
+    "surface",
+    "operation",
+    "observation",
+    "expected",
+    "golden_master_authority",
+    "accepted_resolutions",
+    "evidence",
+    "category",
+    "metadata",
+    "extensions"
+  ],
+  "defects": [
+    {
+      "id": "ruby.ast-template.readme-session-api-drift",
+      "status": "pending",
+      "package": "ast-template",
+      "surface": "README Basic Usage",
+      "operation": "directory-template-session",
+      "observation": {
+        "documented_methods": [
+          "Ast::Template.package_directory_session_request",
+          "Ast::Template.run_package_directory_session"
+        ],
+        "source_definitions_found": false
+      },
+      "expected": "Every method in the Basic Usage example exists and invokes the documented directory-session workflow.",
+      "golden_master_authority": false,
+      "accepted_resolutions": [
+        "correct_documentation_to_released_session_api",
+        "add_document_test_and_version_deliberate_aliases"
+      ],
+      "evidence": [
+        "spec/slices/slice-1034-ruby-golden-master-baseline.md",
+        "ruby/gems/ast-template/README.md",
+        "ruby/gems/ast-template/lib/ast/template.rb"
+      ],
+      "category": "documentation_api_drift",
+      "metadata": {
+        "unexpected_pass_is_failure": true,
+        "affects_quality_denominator": false,
+        "unsupported_coverage": false
+      },
+      "extensions": []
+    }
+  ],
+  "classification_rules": {
+    "confirmed_reproducible_defect": "pending",
+    "intentional_missing_capability": "unsupported",
+    "optional_dependency_unavailable": "environmental_skip_or_fail_closed_result",
+    "architecture_question": "review_required",
+    "provider_not_registered": "review_required_until_reproduced_as_contract_failure"
+  },
+  "authority_rules": {
+    "pending_defect_is_desired_behavior": false,
+    "snapshot_promotes_defect": false,
+    "resolution_automatically_becomes_portable": false,
+    "unexpected_pending_pass_requires_review": true
+  },
+  "expected": {
+    "record_required_count": 13,
+    "defect_count": 1,
+    "pending_count": 1,
+    "golden_master_authoritative_defect_count": 0
+  }
+}

@@ -1,4 +1,12 @@
 {
+  "implementation_support": {
+    "ruby_tslp": {
+      "status": "supported"
+    },
+    "rust_tslp": {
+      "status": "supported"
+    }
+  },
   "template": "patient:\n  demographics:\n    name:\n      given: Pat\n      family: Template\n    contact:\n      email: template@example.test\n      phone: 555-0100\n  care_plan:\n    status: draft\n    goals:\n      mobility: walk daily\n      nutrition: low sodium\n",
   "destination": "patient:\n  demographics:\n    name:\n      family: Destination\n    contact:\n      email: destination@example.test\n  care_plan:\n    status: active\n    goals:\n      mobility: walk with assistance\n",
   "expected": {

@@ -5,6 +5,10 @@
   "implementation_support": {
     "ruby_tslp": {
       "status": "supported"
+    },
+    "rust_tslp": {
+      "status": "unsupported",
+      "reason": "The current Rust YAML substrate supports one mapping document and fails closed before canonicalizing multi-document anchor and alias input."
     }
   },
   "template": "---\n# project configuration\nroot: &defaults\n  enabled: true\n  retries: 3\nservices:\n  api:\n    <<: *defaults\n    ports: [3000, 3001]\n    labels:\n      - template\n      - api\n---\nnotes:\n  - template\n",

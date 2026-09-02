@@ -18,6 +18,8 @@
   "services": [],
   "profiles": {
     "micro": {
+      "selection_mode": "sentinels",
+      "competitor_policy": "none",
       "mandatory_sentinels": [
         "case.merge3.json.independent-fields.v1",
         "case.merge3.json.same-owner-conflict.v1",
@@ -35,6 +37,8 @@
       }
     },
     "dev": {
+      "selection_mode": "affected",
+      "competitor_policy": "none",
       "mandatory_sentinels": [
         "case.merge3.json.independent-fields.v1",
         "case.merge3.json.same-owner-conflict.v1",
@@ -49,6 +53,44 @@
         "wall_seconds": 120,
         "case_count": 16,
         "output_bytes": 8388608
+      }
+    },
+    "nightly": {
+      "selection_mode": "all",
+      "competitor_policy": "none",
+      "mandatory_sentinels": [
+        "case.merge3.json.independent-fields.v1",
+        "case.merge3.json.same-owner-conflict.v1",
+        "case.merge3.json.malformed-ours.v1",
+        "case.merge2.jsonc.current-layout-preservation.v1",
+        "case.merge3.jsonc.comment-preservation.v1",
+        "case.merge3.json5.order-format.v1",
+        "case.merge3.json.duplicate-identity.v1"
+      ],
+      "neighbor_count": 0,
+      "budgets": {
+        "wall_seconds": 600,
+        "case_count": 16,
+        "output_bytes": 33554432
+      }
+    },
+    "competitive": {
+      "selection_mode": "all",
+      "competitor_policy": "configured",
+      "mandatory_sentinels": [
+        "case.merge3.json.independent-fields.v1",
+        "case.merge3.json.same-owner-conflict.v1",
+        "case.merge3.json.malformed-ours.v1",
+        "case.merge2.jsonc.current-layout-preservation.v1",
+        "case.merge3.jsonc.comment-preservation.v1",
+        "case.merge3.json5.order-format.v1",
+        "case.merge3.json.duplicate-identity.v1"
+      ],
+      "neighbor_count": 0,
+      "budgets": {
+        "wall_seconds": 1200,
+        "case_count": 16,
+        "output_bytes": 67108864
       }
     }
   },

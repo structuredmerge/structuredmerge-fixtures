@@ -1,0 +1,86 @@
+{
+  "schema_version": "structuredmerge.benchmark.baseline/v1",
+  "kind": "rust_ruby_vertical_slice_baseline",
+  "id": "baseline.rust-ruby.vertical-slice.2026-09-02",
+  "corpus": {
+    "id": "corpus.local-paired.authored.v1",
+    "repository_revision": "079bcd64bafccade90952ca202a620201179c35a",
+    "sha256": "2abef6bc47146fa0312d92bb616a51e12c208aba2c3e0ebf00f7e99d4bd0fa42"
+  },
+  "candidate": {
+    "adapter_id": "rust-candidate.smorg-rs",
+    "repository": "structuredmerge/structuredmerge-rust",
+    "revision": "cb822ad425f4db8413ef818ce5d605ed71ea3254",
+    "package": "smorg-rs",
+    "version": "0.2.0",
+    "driver_sha256": "d29bf3e4fd4ef975bb5780ce65b8262491521a932fe13f252a0287877f3d43fa",
+    "merge_provider": "rust.ruby",
+    "merge_package": "ruby-merge",
+    "parser_boundary": "tree-haver",
+    "parser_provider": "tree-sitter-language-pack",
+    "parser_provider_version": "1.8.1"
+  },
+  "golden_master": {
+    "adapter_id": "ruby-gm.ast-merge-git",
+    "repository": "structuredmerge/structuredmerge-ruby",
+    "revision": "4af99cddc0bd67e26c26d260a236e981ee2b5b75",
+    "dirty_only_for_local_dependency_lockfiles": true,
+    "package_version": "7.1.7",
+    "parser_provider_version": "1.16.1"
+  },
+  "environment": {
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+    "ruby": "ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [x86_64-linux]",
+    "kernel": "Linux 7.1.6-201.fc44.x86_64",
+    "architecture": "x86_64"
+  },
+  "commands": {
+    "micro": "ast-merge-git benchmark report --profile micro --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "dev": "ast-merge-git benchmark report --profile dev --changed-path crates/ruby-merge/src/lib.rs --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "ruby_gm": "ast-merge-git benchmark report --profile micro --workers 4"
+  },
+  "artifacts": {
+    "dev-report.json": "95e79d3a9ba2eff66baad5774094f1a9e433ef3d0b4afc41d1cffd1e1119d85f",
+    "micro-report.json": "ac918e86f928fd7dc5eff4b412ff97a5866911bc6d8c146ec1c77c67f594d0e0",
+    "micro-run.json": "00fccbe4b0c19cb614c9f268fe8c301aaf75056a791589e054d08e4e70e83f48",
+    "provider-comparison.json": "82d8c5f50d7a74e7c7cc76c6f106d0e205cb5e29e6d55607622b8dc2c291293b",
+    "ruby-gm-report.json": "126a30aaa30c660e3f25312871a775f57d65f5df7e4c5fb72c3566237f9ed2ae"
+  },
+  "correctness": {
+    "micro_candidate_outcomes": {
+      "correct_clean": 8,
+      "true_conflict": 2,
+      "false_auto_merge": 0,
+      "unexpected_error": 0,
+      "unsupported": 0
+    },
+    "micro_gates": {
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "dev_selected_cases": 13,
+    "dev_executed_candidate_cases": 10,
+    "dev_unsupported_case_ids": [
+      "case.merge3.ruby.prism-independent-methods.v1",
+      "case.merge3.yaml.delete-modify.v1",
+      "case.merge3.toml.independent-tables.v1"
+    ],
+    "dev_hard_gate_failed": false
+  },
+  "provider_comparison": {
+    "fixture": "ruby/slice-941-template-only-class-method-merge/class-method-merge.json",
+    "ruby.ruby": "exact",
+    "ruby.ruby.prism": "exact",
+    "rust.ruby": "exact"
+  },
+  "interpretation": {
+    "ruby_is_behavioral_golden_master": true,
+    "intentional_contract_changes": 0,
+    "public_ranking_authorized": false,
+    "ruby_merge3_supported": false,
+    "prism_remains_distinct_native_provider": true,
+    "unsupported_capabilities_remain_fail_closed": true
+  }
+}

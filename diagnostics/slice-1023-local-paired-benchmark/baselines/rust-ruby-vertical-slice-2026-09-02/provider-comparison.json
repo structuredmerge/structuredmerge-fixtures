@@ -1,0 +1,33 @@
+{
+  "schema_version": "structuredmerge.benchmark.provider-comparison/v1",
+  "fixture": "ruby/slice-941-template-only-class-method-merge/class-method-merge.json",
+  "expected_sha256": "015f9319498c67a5afd32dd77beffb5a47a4f13e7ac9eb739c2e10b1e628cd77",
+  "repositories": {
+    "ruby": "4af99cddc0bd67e26c26d260a236e981ee2b5b75",
+    "rust": "cb822ad425f4db8413ef818ce5d605ed71ea3254"
+  },
+  "providers": {
+    "ruby.ruby": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "015f9319498c67a5afd32dd77beffb5a47a4f13e7ac9eb739c2e10b1e628cd77"
+    },
+    "ruby.ruby.prism": {
+      "parser": "prism",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "015f9319498c67a5afd32dd77beffb5a47a4f13e7ac9eb739c2e10b1e628cd77"
+    },
+    "rust.ruby": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "015f9319498c67a5afd32dd77beffb5a47a4f13e7ac9eb739c2e10b1e628cd77"
+    }
+  },
+  "notes": [
+    "The comparison exposed and fixed a Prism path that skipped shared leading-gap ownership for template-only nodes without leading comments.",
+    "This comparison proves only the reviewed class/method merge2 fixture and does not equate the native Prism AST with the normalized tree-sitter projection."
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1024",
+  "name": "normalized-parse-analysis-boundary",
+  "contract_versions": [
+    "structuredmerge.parse-request/v1",
+    "structuredmerge.parse-result/v1",
+    "structuredmerge.analysis-result/v1"
+  ],
+  "parse_request": {
+    "schema": "structuredmerge.parse-request/v1",
+    "request_id": "parse:json:tslp:001",
+    "source": {
+      "source_id": "source:json:001",
+      "role": "source",
+      "content": "{\n  \"name\": \"demo\",\n\n  \"enabled\": true\n}\n",
+      "byte_length": 41,
+      "sha256": "29047f5166b63e33effb39d84bfe032aa69a4e9a31808e5d16c8e15d78d1e81e",
+      "encoding": "utf-8"
+    },
+    "language": "json",
+    "dialect": "json",
+    "selection": {
+      "backend": "tslp",
+      "preference": [],
+      "required_capabilities": [
+        "exact-source-spans",
+        "normalized-tree"
+      ]
+    },
+    "options": {
+      "comments": true,
+      "diagnostics": true,
+      "native_extensions": true,
+      "tokens": false
+    },
+    "metadata": {}
+  },
+  "parse_result": {
+    "schema": "structuredmerge.parse-result/v1",
+    "request_id": "parse:json:tslp:001",
+    "ok": true,
+    "source": {
+      "source_id": "source:json:001",
+      "role": "source",
+      "byte_length": 41,
+      "sha256": "29047f5166b63e33effb39d84bfe032aa69a4e9a31808e5d16c8e15d78d1e81e",
+      "encoding": "utf-8",
+      "bom": false,
+      "line_endings": "lf",
+      "final_newline": true
+    },
+    "selection": {
+      "mode": "explicit",
+      "requested_backend": "tslp",
+      "preference": [],
+      "required_capabilities": [
+        "exact-source-spans",
+        "normalized-tree"
+      ],
+      "candidates": [
+        {
+          "backend_id": "tslp",
+          "available": true,
+          "compatible": true,
+          "selected": true,
+          "reasons": []
+        }
+      ],
+      "selected_backend": "tslp",
+      "selection_reason": "explicit-compatible-backend",
+      "registry_digest": "fixture:tslp-json:v1"
+    },
+    "backend": {
+      "id": "tslp",
+      "family": "tree-sitter",
+      "host_runtime": "ruby",
+      "package": "tree_sitter_language_pack",
+      "package_version": "fixture",
+      "parser": {
+        "name": "tree-sitter-json",
+        "version": "fixture",
+        "grammar_symbol": "tree_sitter_json"
+      },
+      "language": "json",
+      "dialect": "json",
+      "normalized_contract": "structuredmerge.parse-result/v1",
+      "capabilities": {
+        "source_spans": "exact-bytes",
+        "point_spans": "zero-based-byte-columns",
+        "comment_support": "nodes-only",
+        "comment_attachment_hints": false,
+        "token_nodes": true,
+        "error_nodes": true,
+        "partial_trees": true,
+        "incremental_parse": true,
+        "native_extensions": true,
+        "source_fragment_extraction": "exact-bytes"
+      }
+    },
+    "root_id": "node:document",
+    "nodes": [
+      {
+        "id": "node:document",
+        "type": "document",
+        "native_type": "document",
+        "role": "structural",
+        "named": true,
+        "missing": false,
+        "has_error": false,
+        "span": {
+          "range": {"start_byte": 0, "end_byte": 41},
+          "start_point": {"row": 0, "column": 0},
+          "end_point": {"row": 5, "column": 0}
+        },
+        "parent_id": null,
+        "children": [
+          {"node_id": "node:object", "index": 0, "field_name": null}
+        ],
+        "semantic_roles": ["document"],
+        "unsupported_features": [],
+        "extensions": [],
+        "metadata": {}
+      },
+      {
+        "id": "node:object",
+        "type": "object",
+        "native_type": "object",
+        "role": "structural",
+        "named": true,
+        "missing": false,
+        "has_error": false,
+        "span": {
+          "range": {"start_byte": 0, "end_byte": 40},
+          "start_point": {"row": 0, "column": 0},
+          "end_point": {"row": 4, "column": 1}
+        },
+        "parent_id": "node:document",
+        "children": [
+          {"node_id": "node:pair:name", "index": 0, "field_name": null},
+          {"node_id": "node:pair:enabled", "index": 1, "field_name": null}
+        ],
+        "semantic_roles": ["mapping"],
+        "unsupported_features": [],
+        "extensions": [],
+        "metadata": {}
+      },
+      {
+        "id": "node:pair:name",
+        "type": "pair",
+        "native_type": "pair",
+        "role": "structural",
+        "named": true,
+        "missing": false,
+        "has_error": false,
+        "span": {
+          "range": {"start_byte": 4, "end_byte": 18},
+          "start_point": {"row": 1, "column": 2},
+          "end_point": {"row": 1, "column": 16}
+        },
+        "parent_id": "node:object",
+        "children": [
+          {"node_id": "node:key:name", "index": 0, "field_name": "key"},
+          {"node_id": "node:value:name", "index": 1, "field_name": "value"}
+        ],
+        "semantic_roles": ["mapping-entry"],
+        "unsupported_features": [],
+        "extensions": [],
+        "metadata": {}
+      },
+      {
+        "id": "node:key:name",
+        "type": "string",
+        "native_type": "string",
+        "role": "structural",
+        "named": true,
+        "missing": false,
+        "has_error": false,
+        "span": {
+          "range": {"start_byte": 4, "end_byte": 10},
+          "start_point": {"row": 1, "column": 2},
+          "end_point": {"row": 1, "column": 8}
+        },
+        "parent_id": "node:pair:name",
+        "children": [],
+        "semantic_roles": ["mapping-key"],
+        "unsupported_features": [],
+        "extensions": [],
+        "metadata": {}
+      },
+      {
+        "id": "node:value:name",
+        "type": "string",
+        "native_type": "string",
+        "role": "structural",
+        "named": true,
+        "missing": false,
+        "has_error": false,
+        "span": {
+          "range": {"start_byte": 12, "end_byte": 18},
+          "start_point": {"row": 1, "column": 10},
+          "end_point": {"row": 1, "column": 16}
+        },
+        "parent_id": "node:pair:name",
+        "children": [],
+        "semantic_roles": ["mapping-value"],
+        "unsupported_features": [],
+        "extensions": [],
+        "metadata": {}
+      },
+      {
+        "id": "node:pair:enabled",
+        "type": "pair",
+        "native_type": "pair",
+        "role": "structural",
+        "named": true,
+        "missing": false,
+        "has_error": false,
+        "span": {
+          "range": {"start_byte": 23, "end_byte": 38},
+          "start_point": {"row": 3, "column": 2},
+          "end_point": {"row": 3, "column": 17}
+        },
+        "parent_id": "node:object",
+        "children": [
+          {"node_id": "node:key:enabled", "index": 0, "field_name": "key"},
+          {"node_id": "node:value:enabled", "index": 1, "field_name": "value"}
+        ],
+        "semantic_roles": ["mapping-entry"],
+        "unsupported_features": [],
+        "extensions": [],
+        "metadata": {}
+      },
+      {
+        "id": "node:key:enabled",
+        "type": "string",
+        "native_type": "string",
+        "role": "structural",
+        "named": true,
+        "missing": false,
+        "has_error": false,
+        "span": {
+          "range": {"start_byte": 23, "end_byte": 32},
+          "start_point": {"row": 3, "column": 2},
+          "end_point": {"row": 3, "column": 11}
+        },
+        "parent_id": "node:pair:enabled",
+        "children": [],
+        "semantic_roles": ["mapping-key"],
+        "unsupported_features": [],
+        "extensions": [],
+        "metadata": {}
+      },
+      {
+        "id": "node:value:enabled",
+        "type": "true",
+        "native_type": "true",
+        "role": "structural",
+        "named": true,
+        "missing": false,
+        "has_error": false,
+        "span": {
+          "range": {"start_byte": 34, "end_byte": 38},
+          "start_point": {"row": 3, "column": 13},
+          "end_point": {"row": 3, "column": 17}
+        },
+        "parent_id": "node:pair:enabled",
+        "children": [],
+        "semantic_roles": ["mapping-value"],
+        "unsupported_features": [],
+        "extensions": [],
+        "metadata": {}
+      }
+    ],
+    "comments": [],
+    "diagnostics": [],
+    "extensions": [
+      {
+        "schema": "structuredmerge.extension/tree-sitter/v1",
+        "namespace": "tree-sitter",
+        "capabilities": ["grammar-node-types"],
+        "payload": {
+          "grammar": "json"
+        }
+      }
+    ],
+    "metadata": {}
+  },
+  "analysis_result": {
+    "schema": "structuredmerge.analysis-result/v1",
+    "request_id": "parse:json:tslp:001",
+    "ok": true,
+    "parse_result_ref": "parse:json:tslp:001",
+    "owners": [
+      {
+        "id": "owner:name",
+        "node_id": "node:pair:name",
+        "logical_identity": ["object-member", "name"],
+        "match_keys": ["name"],
+        "metadata": {}
+      },
+      {
+        "id": "owner:enabled",
+        "node_id": "node:pair:enabled",
+        "logical_identity": ["object-member", "enabled"],
+        "match_keys": ["enabled"],
+        "metadata": {}
+      }
+    ],
+    "comment_regions": [],
+    "layout_gaps": [
+      {
+        "id": "gap:name-enabled",
+        "kind": "interstitial",
+        "span": {
+          "range": {"start_byte": 20, "end_byte": 21},
+          "start_point": {"row": 2, "column": 0},
+          "end_point": {"row": 3, "column": 0}
+        },
+        "source_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "before_owner_id": "owner:name",
+        "after_owner_id": "owner:enabled",
+        "controller_side": "after",
+        "fallback_controller_side": "before",
+        "metadata": {
+          "blank_line_count": 1
+        }
+      }
+    ],
+    "attachments": [
+      {
+        "owner_id": "owner:name",
+        "leading_comment_region_ids": [],
+        "inline_comment_region_ids": [],
+        "trailing_comment_region_ids": [],
+        "orphan_comment_region_ids": [],
+        "leading_gap_id": null,
+        "trailing_gap_id": "gap:name-enabled"
+      },
+      {
+        "owner_id": "owner:enabled",
+        "leading_comment_region_ids": [],
+        "inline_comment_region_ids": [],
+        "trailing_comment_region_ids": [],
+        "orphan_comment_region_ids": [],
+        "leading_gap_id": "gap:name-enabled",
+        "trailing_gap_id": null
+      }
+    ],
+    "ownership": [
+      {
+        "subject_ref": "gap:name-enabled",
+        "selected_owner_ref": "owner:enabled",
+        "relation": "controls-output",
+        "basis": "interstitial-leading-owner-policy",
+        "confidence": "deterministic",
+        "alternatives": ["owner:name"]
+      }
+    ],
+    "diagnostics": [],
+    "extensions": [],
+    "metadata": {}
+  },
+  "invalid_cases": [
+    {
+      "id": "explicit-backend-substitution",
+      "mutation": "requested_backend is tslp but selected_backend is mri",
+      "expected_category": "backend-selection-contract-violation"
+    },
+    {
+      "id": "child-outside-parent",
+      "mutation": "node:key:name ends after node:pair:name",
+      "expected_category": "invalid-node-span"
+    },
+    {
+      "id": "unresolved-child-reference",
+      "mutation": "node:object references node:missing",
+      "expected_category": "unresolved-reference"
+    },
+    {
+      "id": "unadvertised-partial-tree",
+      "mutation": "failed parse carries root_id while partial_trees is false",
+      "expected_category": "capability-contract-violation"
+    },
+    {
+      "id": "parser-hint-promoted-to-ownership",
+      "mutation": "comment attachment is accepted without family analysis",
+      "expected_category": "ownership-contract-violation"
+    }
+  ],
+  "expected": {
+    "parse_ok": true,
+    "selected_backend": "tslp",
+    "node_count": 8,
+    "owner_count": 2,
+    "layout_gap_count": 1,
+    "shared_gap_controller": "owner:enabled",
+    "shared_gap_fallback_controller": "owner:name",
+    "invalid_case_count": 5,
+    "source_bytes_preserved": true
+  }
+}

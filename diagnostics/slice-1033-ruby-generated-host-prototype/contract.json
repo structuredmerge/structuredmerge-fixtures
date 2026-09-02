@@ -5,8 +5,8 @@
   "description": "An Alef-generated Magnus trait bridge must pass byte-preserving identity, lifecycle, thread/GVL, failure, and overhead gates before its ABI is selected.",
   "alef_baseline_revision": "eebd7619b9c8217b16d2ee9b287738ce6c97dda9",
   "alef_prototype_revision": "81b743a15e95bf43ba193a88dfbba36ca4d04aeb",
-  "rust_prototype_revision": "e27abf92078864829747d85d4061fc50b1b31613",
-  "status": "generated_host_prototype_complete",
+  "rust_prototype_revision": "f8c853a13c41ad3ee743d6a6801a3b097e22d921",
+  "status": "phase_4_exit_gate_complete",
   "identity_corpus_fixture": "identity-corpus.json",
   "baseline_observations": {
     "magnus_wrapper_storage": "opaque_ruby_value",
@@ -49,12 +49,12 @@
       "atomic_replacement_with_snapshot_retirement",
       "bounded_graceful_and_forced_shutdown",
       "sidecar_loss_without_provider_substitution",
+      "rust_tree_haver_tslp_and_ruby_host_parser_round_trip",
+      "selected_tslp_parse_failure_without_provider_substitution",
       "clean_reproducible_transport_measurements",
       "typed_inline_default_transport_decision"
     ],
-    "open": [
-      "rust_tslp_provider_round_trip"
-    ],
+    "open": [],
     "alef_upstream": {
       "binary_bytes": "https://github.com/xberg-io/alef/pull/280",
       "fallible_plugin_version": "https://github.com/xberg-io/alef/pull/282",
@@ -65,7 +65,7 @@
     },
     "verification": {
       "rust_core_tests": 9,
-      "ruby_bridge_examples": 35,
+      "ruby_bridge_examples": 36,
       "rust_workspace_check": "targeted_core_and_generated_extension_passed; full_workspace_has_pre_existing_slice_716_and_json5_failures",
       "alef_generated_binding_fresh": true,
       "alef_workspace_verify": "blocked_by_pre_existing_missing_docs_readme_and_frozen_rustfmt"
@@ -233,7 +233,7 @@
     "evidence_field_count": 10,
     "exit_gate_count": 6,
     "invalid_example_count": 20,
-    "implementation_complete": false,
+    "implementation_complete": true,
     "abi_fixed": false
   }
 }

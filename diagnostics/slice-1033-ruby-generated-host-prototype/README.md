@@ -39,3 +39,9 @@ all four dispatch boundaries, in-flight unregister and atomic replacement,
 bounded graceful/forced shutdown, and loss of a real child-process sidecar.
 Sidecar loss remains an error on the explicitly selected provider even when a
 healthy alternative is registered; there is no substitution path.
+
+The Phase 4 exit gate additionally registers the Rust TreeHaver adapter over a
+real TSLP JSON parser beside an Alef-hosted Ruby parser in the same registry.
+Both preserve a valid JSON source's exact CRLF and spacing bytes. Malformed JSON
+fails on the explicitly selected Rust TSLP provider, and the Ruby provider's
+recorded calls prove that it was not used as a fallback.

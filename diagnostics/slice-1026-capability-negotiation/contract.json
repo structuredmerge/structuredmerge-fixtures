@@ -1,0 +1,491 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1026",
+  "name": "capability-negotiation",
+  "request_schema": "structuredmerge.capability-request/v1",
+  "result_schema": "structuredmerge.capability-result/v1",
+  "registry_snapshot": {
+    "provider_generation": 12,
+    "provider_digest": "fixture:providers:g12",
+    "tree_haver_generation": 27,
+    "tree_haver_digest": "fixture:tree-haver:g27"
+  },
+  "merge_providers": [
+    {
+      "provider_id": "ruby.json",
+      "family": "json",
+      "role": "workflow",
+      "operations": ["analyze", "diff2", "merge2", "merge3"],
+      "dialects": ["json", "jsonc", "json5"],
+      "profiles": ["source-preserving"],
+      "capabilities": ["source-preservation", "structured-conflicts"],
+      "source_preservation": ["encoding", "line-endings", "order", "unknown-fields"],
+      "priority": 100,
+      "parser_requirements": {
+        "language": "json",
+        "allowed_backend_families": ["tree-sitter"],
+        "required_contracts": ["structuredmerge.parse-result/v1"],
+        "required_capabilities": ["exact-source-spans", "normalized-tree"]
+      },
+      "delegates_to": [],
+      "package": "json-merge",
+      "package_version": "fixture"
+    },
+    {
+      "provider_id": "ruby.rbs",
+      "family": "rbs",
+      "role": "workflow",
+      "operations": ["analyze", "diff2", "merge2", "merge3"],
+      "dialects": ["rbs"],
+      "profiles": ["source-preserving"],
+      "capabilities": ["comments", "source-preservation", "structured-conflicts"],
+      "source_preservation": ["comments", "encoding", "line-endings", "order"],
+      "priority": 100,
+      "parser_requirements": {
+        "language": "rbs",
+        "allowed_backend_families": ["native", "tree-sitter"],
+        "required_contracts": ["structuredmerge.parse-result/v1"],
+        "required_capabilities": ["exact-source-spans", "normalized-tree"]
+      },
+      "delegates_to": [],
+      "package": "rbs-merge",
+      "package_version": "fixture"
+    },
+    {
+      "provider_id": "ruby.ruby",
+      "family": "ruby",
+      "role": "workflow",
+      "operations": ["analyze", "diff2", "merge2", "merge3"],
+      "dialects": ["ruby"],
+      "profiles": ["source-preserving"],
+      "capabilities": ["comments", "source-preservation", "structured-conflicts"],
+      "source_preservation": ["comments", "encoding", "line-endings", "order"],
+      "priority": 100,
+      "parser_requirements": {
+        "language": "ruby",
+        "allowed_backend_families": ["tree-sitter"],
+        "required_contracts": ["structuredmerge.parse-result/v1"],
+        "required_capabilities": ["exact-source-spans", "normalized-tree"]
+      },
+      "delegates_to": [],
+      "package": "ruby-merge",
+      "package_version": "fixture"
+    },
+    {
+      "provider_id": "ruby.ruby.prism",
+      "family": "ruby",
+      "role": "backend",
+      "operations": ["analyze", "diff2", "merge2", "merge3"],
+      "dialects": ["ruby"],
+      "profiles": ["source-preserving"],
+      "capabilities": ["native-ruby-ast", "source-preservation", "structured-conflicts"],
+      "source_preservation": ["comments", "encoding", "line-endings", "order"],
+      "priority": 200,
+      "parser_requirements": {
+        "language": "ruby",
+        "allowed_backend_ids": ["prism"],
+        "required_contracts": ["structuredmerge.parse-result/v1"],
+        "required_capabilities": ["exact-source-spans", "native-extensions", "normalized-tree"]
+      },
+      "delegates_to": [],
+      "package": "prism-merge",
+      "package_version": "fixture"
+    }
+  ],
+  "tree_haver_backends": [
+    {
+      "id": "mri",
+      "family": "tree-sitter",
+      "host_runtime": "ruby",
+      "package": "ruby_tree_sitter",
+      "package_version": "fixture",
+      "languages": ["ruby"],
+      "dialects": ["ruby"],
+      "contracts": ["structuredmerge.parse-result/v1"],
+      "capabilities": ["comments", "error-nodes", "exact-source-spans", "normalized-tree"],
+      "availability_mode": "eager",
+      "availability_probe": "ruby-tree-sitter.available",
+      "priority": 30
+    },
+    {
+      "id": "prism",
+      "family": "native",
+      "host_runtime": "ruby",
+      "package": "prism",
+      "package_version": "fixture",
+      "languages": ["ruby"],
+      "dialects": ["ruby"],
+      "contracts": ["structuredmerge.parse-result/v1"],
+      "capabilities": ["comments", "exact-source-spans", "native-extensions", "normalized-tree"],
+      "availability_mode": "eager",
+      "availability_probe": "prism.available",
+      "priority": 100
+    },
+    {
+      "id": "rbs",
+      "family": "native",
+      "host_runtime": "ruby",
+      "package": "rbs",
+      "package_version": "fixture",
+      "languages": ["rbs"],
+      "dialects": ["rbs"],
+      "contracts": ["structuredmerge.parse-result/v1"],
+      "capabilities": ["comments", "exact-source-spans", "native-extensions", "normalized-tree"],
+      "availability_mode": "eager",
+      "availability_probe": "rbs.available",
+      "priority": 50
+    },
+    {
+      "id": "rust",
+      "family": "tree-sitter",
+      "host_runtime": "ruby",
+      "package": "tree_stump",
+      "package_version": "fixture",
+      "languages": ["ruby"],
+      "dialects": ["ruby"],
+      "contracts": ["structuredmerge.parse-result/v1"],
+      "capabilities": ["comments", "error-nodes", "exact-source-spans", "normalized-tree"],
+      "availability_mode": "eager",
+      "availability_probe": "tree-stump.available",
+      "priority": 30
+    },
+    {
+      "id": "tslp",
+      "family": "tree-sitter",
+      "host_runtime": "ruby",
+      "package": "tree_sitter_language_pack",
+      "package_version": "fixture",
+      "languages": ["json", "rbs", "ruby"],
+      "dialects": ["json", "rbs", "ruby"],
+      "contracts": ["structuredmerge.parse-result/v1"],
+      "capabilities": ["comments", "error-nodes", "exact-source-spans", "normalized-tree"],
+      "availability_mode": "lazy-language-load",
+      "availability_probe": "tslp.load-language",
+      "priority": 20
+    }
+  ],
+  "language_profiles": [
+    {
+      "id": "rbs-native-first",
+      "language": "rbs",
+      "backend_preference": ["rbs", "tslp"]
+    },
+    {
+      "id": "ruby-tree-sitter-default",
+      "language": "ruby",
+      "backend_preference": []
+    }
+  ],
+  "cases": [
+    {
+      "id": "rbs-workflow-native-default",
+      "request": {
+        "schema": "structuredmerge.capability-request/v1",
+        "request_id": "capability:rbs:default:001",
+        "operation": "merge2",
+        "family": "rbs",
+        "dialect": "rbs",
+        "profile_id": "source-preserving",
+        "provider_selection": {"provider_id": null, "required_capabilities": ["merge2", "source-preservation"]},
+        "parser_selection": {"backend": null, "preference": [], "language_profile": "rbs-native-first"},
+        "required_preservation": ["comments", "order"],
+        "registry_snapshot": "fixture:current",
+        "extensions": [],
+        "metadata": {}
+      },
+      "result": {
+        "schema": "structuredmerge.capability-result/v1",
+        "request_id": "capability:rbs:default:001",
+        "ok": true,
+        "selected_provider": "ruby.rbs",
+        "selected_backend": "rbs",
+        "provider_candidates": [
+          {"id": "ruby.rbs", "eligible": true, "selected": true, "rank": [0, -100, "ruby.rbs"], "reasons": []}
+        ],
+        "parser_candidates": [
+          {"id": "rbs", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": true, "rank": [0, 0, -50, "rbs"], "reasons": []},
+          {"id": "tslp", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": false, "rank": [0, 1, -20, "tslp"], "reasons": ["lower-language-profile-preference"]}
+        ],
+        "delegation": [],
+        "satisfied_capabilities": ["comments", "exact-source-spans", "merge2", "normalized-tree", "order", "source-preservation"],
+        "unsatisfied_capabilities": [],
+        "registry_snapshot": {"provider_generation": 12, "tree_haver_generation": 27},
+        "diagnostics": [],
+        "extensions": [],
+        "metadata": {}
+      }
+    },
+    {
+      "id": "rbs-workflow-explicit-tslp",
+      "request": {
+        "schema": "structuredmerge.capability-request/v1",
+        "request_id": "capability:rbs:tslp:001",
+        "operation": "merge2",
+        "family": "rbs",
+        "dialect": "rbs",
+        "profile_id": "source-preserving",
+        "provider_selection": {"provider_id": "ruby.rbs", "required_capabilities": ["merge2"]},
+        "parser_selection": {"backend": "tslp", "preference": [], "language_profile": "rbs-native-first"},
+        "required_preservation": ["order"],
+        "registry_snapshot": "fixture:current",
+        "extensions": [],
+        "metadata": {}
+      },
+      "result": {
+        "schema": "structuredmerge.capability-result/v1",
+        "request_id": "capability:rbs:tslp:001",
+        "ok": true,
+        "selected_provider": "ruby.rbs",
+        "selected_backend": "tslp",
+        "provider_candidates": [
+          {"id": "ruby.rbs", "eligible": true, "selected": true, "rank": [0, -100, "ruby.rbs"], "reasons": []}
+        ],
+        "parser_candidates": [
+          {"id": "rbs", "registered": true, "available": true, "loadable": true, "compatible": false, "selected": false, "rank": null, "reasons": ["explicit-backend-mismatch"]},
+          {"id": "tslp", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": true, "rank": [0, 0, -20, "tslp"], "reasons": []}
+        ],
+        "delegation": [],
+        "satisfied_capabilities": ["exact-source-spans", "merge2", "normalized-tree", "order"],
+        "unsatisfied_capabilities": [],
+        "registry_snapshot": {"provider_generation": 12, "tree_haver_generation": 27},
+        "diagnostics": [],
+        "extensions": [],
+        "metadata": {}
+      }
+    },
+    {
+      "id": "ruby-workflow-not-hijacked-by-prism",
+      "request": {
+        "schema": "structuredmerge.capability-request/v1",
+        "request_id": "capability:ruby:workflow:001",
+        "operation": "merge3",
+        "family": "ruby",
+        "dialect": "ruby",
+        "profile_id": "source-preserving",
+        "provider_selection": {"provider_id": null, "required_capabilities": ["merge3"]},
+        "parser_selection": {"backend": null, "preference": ["prism", "tslp", "mri"], "language_profile": "ruby-tree-sitter-default"},
+        "required_preservation": ["comments", "order"],
+        "registry_snapshot": "fixture:current",
+        "extensions": [],
+        "metadata": {}
+      },
+      "result": {
+        "schema": "structuredmerge.capability-result/v1",
+        "request_id": "capability:ruby:workflow:001",
+        "ok": true,
+        "selected_provider": "ruby.ruby",
+        "selected_backend": "tslp",
+        "provider_candidates": [
+          {"id": "ruby.ruby", "eligible": true, "selected": true, "rank": [0, -100, "ruby.ruby"], "reasons": []},
+          {"id": "ruby.ruby.prism", "eligible": false, "selected": false, "rank": null, "reasons": ["backend-provider-not-eligible-for-family-default"]}
+        ],
+        "parser_candidates": [
+          {"id": "prism", "registered": true, "available": true, "loadable": true, "compatible": false, "selected": false, "rank": null, "reasons": ["backend-family-not-allowed-by-provider"]},
+          {"id": "tslp", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": true, "rank": [1, 0, -20, "tslp"], "reasons": []},
+          {"id": "mri", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": false, "rank": [2, 0, -30, "mri"], "reasons": ["lower-request-preference"]},
+          {"id": "rust", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": false, "rank": [3, 0, -30, "rust"], "reasons": ["not-request-preferred"]}
+        ],
+        "delegation": [],
+        "satisfied_capabilities": ["comments", "exact-source-spans", "merge3", "normalized-tree", "order"],
+        "unsatisfied_capabilities": [],
+        "registry_snapshot": {"provider_generation": 12, "tree_haver_generation": 27},
+        "diagnostics": [],
+        "extensions": [],
+        "metadata": {}
+      }
+    },
+    {
+      "id": "explicit-prism-provider",
+      "request": {
+        "schema": "structuredmerge.capability-request/v1",
+        "request_id": "capability:ruby:prism:001",
+        "operation": "merge3",
+        "family": "ruby",
+        "dialect": "ruby",
+        "profile_id": "source-preserving",
+        "provider_selection": {"provider_id": "ruby.ruby.prism", "required_capabilities": ["merge3", "native-ruby-ast"]},
+        "parser_selection": {"backend": "prism", "preference": [], "language_profile": null},
+        "required_preservation": ["comments", "order"],
+        "registry_snapshot": "fixture:current",
+        "extensions": [],
+        "metadata": {}
+      },
+      "result": {
+        "schema": "structuredmerge.capability-result/v1",
+        "request_id": "capability:ruby:prism:001",
+        "ok": true,
+        "selected_provider": "ruby.ruby.prism",
+        "selected_backend": "prism",
+        "provider_candidates": [
+          {"id": "ruby.ruby.prism", "eligible": true, "selected": true, "rank": [0, -200, "ruby.ruby.prism"], "reasons": []},
+          {"id": "ruby.ruby", "eligible": false, "selected": false, "rank": null, "reasons": ["explicit-provider-mismatch"]}
+        ],
+        "parser_candidates": [
+          {"id": "prism", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": true, "rank": [0, 0, -100, "prism"], "reasons": []},
+          {"id": "mri", "registered": true, "available": true, "loadable": true, "compatible": false, "selected": false, "rank": null, "reasons": ["explicit-backend-mismatch", "backend-id-not-allowed-by-provider"]},
+          {"id": "rust", "registered": true, "available": true, "loadable": true, "compatible": false, "selected": false, "rank": null, "reasons": ["explicit-backend-mismatch", "backend-id-not-allowed-by-provider"]},
+          {"id": "tslp", "registered": true, "available": true, "loadable": true, "compatible": false, "selected": false, "rank": null, "reasons": ["explicit-backend-mismatch", "backend-id-not-allowed-by-provider"]}
+        ],
+        "delegation": [],
+        "satisfied_capabilities": ["comments", "exact-source-spans", "merge3", "native-extensions", "native-ruby-ast", "normalized-tree", "order"],
+        "unsatisfied_capabilities": [],
+        "registry_snapshot": {"provider_generation": 12, "tree_haver_generation": 27},
+        "diagnostics": [],
+        "extensions": [],
+        "metadata": {}
+      }
+    },
+    {
+      "id": "cold-tslp-language-load",
+      "request": {
+        "schema": "structuredmerge.capability-request/v1",
+        "request_id": "capability:json:cold-tslp:001",
+        "operation": "analyze",
+        "family": "json",
+        "dialect": "json",
+        "profile_id": "source-preserving",
+        "provider_selection": {"provider_id": "ruby.json", "required_capabilities": ["analyze"]},
+        "parser_selection": {"backend": "tslp", "preference": [], "language_profile": null},
+        "required_preservation": ["order"],
+        "registry_snapshot": "fixture:current",
+        "extensions": [],
+        "metadata": {"grammar_cache_state": "cold"}
+      },
+      "result": {
+        "schema": "structuredmerge.capability-result/v1",
+        "request_id": "capability:json:cold-tslp:001",
+        "ok": true,
+        "selected_provider": "ruby.json",
+        "selected_backend": "tslp",
+        "provider_candidates": [
+          {"id": "ruby.json", "eligible": true, "selected": true, "rank": [0, -100, "ruby.json"], "reasons": []}
+        ],
+        "parser_candidates": [
+          {"id": "tslp", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": true, "rank": [0, 0, -20, "tslp"], "reasons": ["loaded-through-tslp-interface-with-cold-cache"], "probe": "tslp.load-language(json)"}
+        ],
+        "delegation": [],
+        "satisfied_capabilities": ["analyze", "exact-source-spans", "normalized-tree", "order"],
+        "unsatisfied_capabilities": [],
+        "registry_snapshot": {"provider_generation": 12, "tree_haver_generation": 27},
+        "diagnostics": [],
+        "extensions": [],
+        "metadata": {"grammar_cache_state_before": "cold", "grammar_loaded_on_demand": true}
+      }
+    },
+    {
+      "id": "tree-sitter-priority-tie-stable-id",
+      "request": {
+        "schema": "structuredmerge.capability-request/v1",
+        "request_id": "capability:ruby:tie:001",
+        "operation": "analyze",
+        "family": "ruby",
+        "dialect": "ruby",
+        "profile_id": "source-preserving",
+        "provider_selection": {"provider_id": "ruby.ruby", "required_capabilities": ["analyze"]},
+        "parser_selection": {"backend": null, "preference": [], "language_profile": "ruby-tree-sitter-default"},
+        "required_preservation": ["comments"],
+        "registry_snapshot": "fixture:current",
+        "extensions": [],
+        "metadata": {"registration_order": ["rust", "mri"]}
+      },
+      "result": {
+        "schema": "structuredmerge.capability-result/v1",
+        "request_id": "capability:ruby:tie:001",
+        "ok": true,
+        "selected_provider": "ruby.ruby",
+        "selected_backend": "mri",
+        "provider_candidates": [
+          {"id": "ruby.ruby", "eligible": true, "selected": true, "rank": [0, -100, "ruby.ruby"], "reasons": []},
+          {"id": "ruby.ruby.prism", "eligible": false, "selected": false, "rank": null, "reasons": ["explicit-provider-mismatch"]}
+        ],
+        "parser_candidates": [
+          {"id": "mri", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": true, "rank": [0, 0, -30, "mri"], "reasons": []},
+          {"id": "rust", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": false, "rank": [0, 0, -30, "rust"], "reasons": ["stable-id-tiebreak"]},
+          {"id": "tslp", "registered": true, "available": true, "loadable": true, "compatible": true, "selected": false, "rank": [0, 0, -20, "tslp"], "reasons": ["lower-priority"]},
+          {"id": "prism", "registered": true, "available": true, "loadable": true, "compatible": false, "selected": false, "rank": null, "reasons": ["backend-family-not-allowed-by-provider"]}
+        ],
+        "delegation": [],
+        "satisfied_capabilities": ["analyze", "comments", "exact-source-spans", "normalized-tree"],
+        "unsatisfied_capabilities": [],
+        "registry_snapshot": {"provider_generation": 12, "tree_haver_generation": 27},
+        "diagnostics": [],
+        "extensions": [],
+        "metadata": {"registration_order_ignored": true}
+      }
+    },
+    {
+      "id": "explicit-tslp-unavailable-fails-closed",
+      "request": {
+        "schema": "structuredmerge.capability-request/v1",
+        "request_id": "capability:json:unavailable:001",
+        "operation": "analyze",
+        "family": "json",
+        "dialect": "json",
+        "profile_id": "source-preserving",
+        "provider_selection": {"provider_id": "ruby.json", "required_capabilities": ["analyze"]},
+        "parser_selection": {"backend": "tslp", "preference": ["mri"], "language_profile": null},
+        "required_preservation": ["order"],
+        "registry_snapshot": "fixture:current",
+        "extensions": [],
+        "metadata": {"availability_overrides": {"tslp": false}}
+      },
+      "result": {
+        "schema": "structuredmerge.capability-result/v1",
+        "request_id": "capability:json:unavailable:001",
+        "ok": false,
+        "selected_provider": "ruby.json",
+        "selected_backend": null,
+        "provider_candidates": [
+          {"id": "ruby.json", "eligible": true, "selected": true, "rank": [0, -100, "ruby.json"], "reasons": []}
+        ],
+        "parser_candidates": [
+          {"id": "tslp", "registered": true, "available": false, "loadable": false, "compatible": false, "selected": false, "rank": null, "reasons": ["explicit-backend-unavailable"]}
+        ],
+        "delegation": [],
+        "satisfied_capabilities": ["analyze"],
+        "unsatisfied_capabilities": ["exact-source-spans", "normalized-tree", "order"],
+        "registry_snapshot": {"provider_generation": 12, "tree_haver_generation": 27},
+        "diagnostics": [
+          {"severity": "error", "category": "no-compatible-parser-backend", "message": "Explicit TreeHaver backend tslp is unavailable.", "blocking": true}
+        ],
+        "extensions": [],
+        "metadata": {"external_parser_fallback_attempted": false}
+      }
+    }
+  ],
+  "registry_lifecycle": {
+    "before": {"generation": 27, "digest": "fixture:tree-haver:g27"},
+    "operation": "scoped-register-and-restore",
+    "during": {"generation": 28, "digest": "fixture:tree-haver:g28", "prior_cache_valid": false},
+    "after": {"generation": 29, "digest": "fixture:tree-haver:g29", "restored_semantics": true, "prior_cache_valid": false}
+  },
+  "known_ruby_gm_gap": {
+    "component": "TreeHaver.parser_for",
+    "behavior": "legacy backend-type ordering precedes generic registration ranking",
+    "portable_status": "must-migrate-to-language-profile-preference",
+    "copy_to_rust_or_alef": false
+  },
+  "invalid_cases": [
+    {"id": "merge-provider-id-used-as-parser-id", "expected_category": "selection-layer-mismatch"},
+    {"id": "backend-provider-becomes-family-default", "expected_category": "provider-role-violation"},
+    {"id": "explicit-provider-substituted", "expected_category": "explicit-provider-mismatch"},
+    {"id": "explicit-backend-substituted", "expected_category": "explicit-backend-mismatch"},
+    {"id": "cold-cache-treated-as-unavailable", "expected_category": "invalid-availability-probe"},
+    {"id": "registration-order-tiebreak", "expected_category": "nondeterministic-selection"},
+    {"id": "stale-cache-after-registry-change", "expected_category": "registry-generation-mismatch"},
+    {"id": "parser-called-outside-tree-haver", "expected_category": "parser-boundary-violation"}
+  ],
+  "expected": {
+    "case_count": 7,
+    "successful_case_count": 6,
+    "failed_closed_case_count": 1,
+    "rbs_default_backend": "rbs",
+    "rbs_explicit_backend": "tslp",
+    "ruby_workflow_backend": "tslp",
+    "explicit_prism_backend": "prism",
+    "cold_tslp_loads_on_demand": true,
+    "tie_selected_backend": "mri",
+    "external_fallbacks": 0,
+    "invalid_case_count": 8
+  }
+}

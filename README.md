@@ -2,7 +2,7 @@
 
 Shared conformance fixtures for StructuredMerge.
 
-This repository contains shared language-neutral fixture families along with implementation-specific fixture slices for the Go, TypeScript, Rust, and Ruby implementations. The shared fixtures are part of the public contract: they keep independent implementations aligned without making any one runtime canonical, while the language directories hold implementation-specific cases and metadata where needed.
+This repository contains shared language-neutral fixture families along with implementation-specific fixture slices for the Go, TypeScript, Rust, and Ruby implementations. The mature Ruby implementation is the behavioral golden master. Shared fixtures extract that behavior into portable contracts so independent implementations can be compared without coupling them to Ruby classes or process-local parser objects. Language directories hold implementation-specific cases and metadata where needed.
 
 Project links:
 
@@ -47,7 +47,8 @@ Each fixture set should include the smallest useful combination of:
 - Generated reports.
 - Language-specific snapshots.
 - Package scaffold examples.
-- Privileging one implementation's internal model over the shared contract.
+- Treating Ruby's internal object model as the portable contract. Ruby behavior
+  is authoritative, but portable fixtures define the cross-runtime transport.
 
 ## Adding fixtures
 

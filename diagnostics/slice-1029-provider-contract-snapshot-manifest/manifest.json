@@ -2,8 +2,13 @@
   "schema": "structuredmerge.provider-snapshot-manifest/v1",
   "slice": "1029",
   "manifest_id": "provider-snapshots.phase3.initial.v1",
-  "fixture_repository_revision": "9f6ad1f1287dc1a5ee8c92cf447b7769deb149bc",
-  "capture_states": ["observed", "provisional", "pending", "rejected"],
+  "fixture_repository_revision": "65252c2a59621d68df7d35fc14c799325e35b132",
+  "capture_states": [
+    "observed",
+    "provisional",
+    "pending",
+    "rejected"
+  ],
   "required_targets": [
     "snapshot.tslp.json",
     "snapshot.prism.ruby",
@@ -16,237 +21,1142 @@
   "rows": [
     {
       "snapshot_id": "snapshot.tslp.json",
-      "state": "provisional",
+      "state": "observed",
       "family": "json",
       "language": "json",
       "dialect": "json",
       "scenario": "object owners and exact interstitial gap",
       "workflow_provider": {
-        "provider_id": "ruby.json",
-        "role": "workflow",
+        "capabilities": {
+          "backends": [
+            "kreuzberg-language-pack"
+          ],
+          "dialects": [
+            "json",
+            "jsonc",
+            "json5"
+          ],
+          "operations": [
+            "analyze",
+            "diff2",
+            "merge2",
+            "merge3"
+          ],
+          "profiles": [
+            "source_preserving"
+          ],
+          "role": "workflow",
+          "source_preservation": [
+            "exact_source",
+            "family_synthesis",
+            "line_provenance",
+            "reparse"
+          ]
+        },
+        "family": "json",
         "package": "json-merge",
-        "version": null,
-        "capabilities": ["analyze", "source_preserving"]
+        "package_version": "7.1.7",
+        "provider_id": "ruby.json",
+        "role": "workflow"
       },
       "parser_backend": {
-        "backend_id": "tslp",
-        "backend_family": "tree-sitter",
+        "capabilities": [
+          "exact_source_spans",
+          "native_extensions",
+          "normalized_tree"
+        ],
+        "family": "tree-sitter",
+        "host_runtime": "ruby",
+        "id": "kreuzberg-language-pack",
         "package": "tree_sitter_language_pack",
-        "version": null,
-        "parser": "tree-sitter-json",
-        "capabilities": ["exact_source_spans", "normalized_tree", "native_extensions"]
+        "package_version": "1.16.1",
+        "parser": "tree-sitter-json"
       },
       "inputs": [
         {
-          "kind": "embedded_source",
-          "artifact_path": "diagnostics/slice-1024-normalized-parse-analysis-boundary/contract.json",
-          "source_id": "source:json:001",
+          "kind": "captured_source",
+          "bom": false,
           "byte_length": 41,
-          "sha256": "29047f5166b63e33effb39d84bfe032aa69a4e9a31808e5d16c8e15d78d1e81e"
+          "encoding": "utf-8",
+          "final_newline": true,
+          "line_endings": "lf",
+          "role": "source",
+          "sha256": "29047f5166b63e33effb39d84bfe032aa69a4e9a31808e5d16c8e15d78d1e81e",
+          "source_id": "source:json:001",
+          "origin": {
+            "kind": "embedded_source",
+            "artifact_path": "diagnostics/slice-1024-normalized-parse-analysis-boundary/contract.json",
+            "source_id": "source:json:001",
+            "byte_length": 41,
+            "sha256": "29047f5166b63e33effb39d84bfe032aa69a4e9a31808e5d16c8e15d78d1e81e"
+          }
         }
       ],
-      "candidate_artifacts": [
+      "artifacts": [
         {
-          "kind": "parse-analysis-contract",
-          "schema": "structuredmerge.parse-result/v1",
-          "path": "diagnostics/slice-1024-normalized-parse-analysis-boundary/contract.json",
-          "byte_length": 11976,
-          "sha256": "7593538cb3293cc5a384ba24207c00173b49e0c0212c92a213811c0ae61af880",
+          "kind": "provider-contract-snapshot",
+          "schema": "structuredmerge.provider-snapshot/v1",
+          "path": "diagnostics/slice-1029-provider-contract-snapshot-manifest/observed/snapshot.tslp.json.snapshot.json",
+          "byte_length": 20100,
+          "sha256": "faee07aeffa1551c9fa56bc3109ca344a2f6271bfbae9d6b2c7e9831b4506e69",
           "canonicalization": "exact_bytes"
         }
       ],
       "capture_requirements": {
-        "normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"],
-        "extension_requirements": [
-          {"schema": "structuredmerge.extension/tree-sitter/v1", "namespace": "tree-sitter", "capabilities": ["grammar-node-types"], "opaque_forwarding": true}
+        "normalized_schemas": [
+          "structuredmerge.parse-result/v1",
+          "structuredmerge.analysis-result/v1"
         ],
-        "operation_artifacts": []
+        "extension_requirements": [
+          {
+            "schema": "structuredmerge.extension/tree-sitter/v1",
+            "namespace": "tree-sitter",
+            "capabilities": [
+              "grammar-node-types"
+            ],
+            "opaque_forwarding": true
+          }
+        ],
+        "operation_artifacts": [
+          "merge2"
+        ]
       },
-      "producer": null,
-      "replay": null,
+      "producer": {
+        "ruby_gm_release": "7.1.7",
+        "ruby_gm_source_sha": "4646f8b98d5b96dfa6102bb72522285b54a228f7",
+        "clean_source_state": true,
+        "capture_adapter": {
+          "id": "ruby.provider-contract-capture",
+          "source_sha256": "65bc12ff061904c7b3e37d81ff72982670f2d37498227024a13198a660a055f1",
+          "version": "1"
+        },
+        "producer_manifest_sha256": "5bc6f3a878959e8ab68bfc12654dea8f453d283628bdb1b2c337c9919a13c0f4",
+        "capture_command": "bundle exec ruby tools/capture_provider_snapshot.rb snapshot.tslp.json",
+        "fixture_repository_revision": "65252c2a59621d68df7d35fc14c799325e35b132",
+        "captured_at": "2026-09-02T01:15:34-04:00"
+      },
+      "replay": {
+        "process_count": 2,
+        "canonicalization": "exact_bytes",
+        "artifact_sha256": [
+          "faee07aeffa1551c9fa56bc3109ca344a2f6271bfbae9d6b2c7e9831b4506e69",
+          "faee07aeffa1551c9fa56bc3109ca344a2f6271bfbae9d6b2c7e9831b4506e69"
+        ],
+        "excluded_fields": [],
+        "deterministic": true,
+        "differential_replays": [
+          {
+            "operation": "merge2",
+            "equivalent": true,
+            "original_sha256": "4465d097449500c92cdb618f3f2fc3bb781c1f5eb3674dfd4aa675a3a04b9e30",
+            "replay_sha256": "4465d097449500c92cdb618f3f2fc3bb781c1f5eb3674dfd4aa675a3a04b9e30",
+            "output_bytes_equal": true
+          }
+        ]
+      },
       "admission": {
-        "satisfies_required_target": false,
-        "reason": "canonical contract fixture was not emitted by a pinned Ruby GM capture",
-        "missing": ["ruby_gm_release", "ruby_gm_source_sha", "clean_source_state", "capture_adapter", "capture_command", "deterministic_replay"]
+        "satisfies_required_target": true,
+        "review_state": "admitted",
+        "reviewer": "codex-local-capture",
+        "findings": [
+          "complete artifact bytes matched across two fresh-process captures",
+          "canonical JSON request transport preserved the provider result and output bytes"
+        ],
+        "supersedes_snapshot_id": null,
+        "missing": []
       }
     },
     {
       "snapshot_id": "snapshot.prism.ruby",
-      "state": "provisional",
+      "state": "observed",
       "family": "ruby",
       "language": "ruby",
       "dialect": "ruby",
       "scenario": "class/method tree and comment directive metadata",
       "workflow_provider": {
-        "provider_id": "ruby.ruby.prism",
-        "role": "backend",
+        "capabilities": {
+          "backends": [
+            "prism"
+          ],
+          "dialects": [
+            "ruby"
+          ],
+          "operations": [
+            "analyze",
+            "diff2",
+            "merge2",
+            "merge3"
+          ],
+          "profiles": [
+            "source_preserving"
+          ],
+          "role": "backend",
+          "source_preservation": [
+            "exact_source",
+            "owner_fragments",
+            "line_provenance",
+            "reparse",
+            "semantic_verification"
+          ]
+        },
+        "family": "ruby",
         "package": "prism-merge",
-        "version": null,
-        "capabilities": ["analyze", "native_extensions", "source_preserving"]
+        "package_version": "7.1.7",
+        "provider_id": "ruby.ruby.prism",
+        "role": "backend"
       },
       "parser_backend": {
-        "backend_id": "prism",
-        "backend_family": "native",
+        "capabilities": [
+          "comments",
+          "directives",
+          "exact_source_spans",
+          "native_node_access",
+          "normalized_tree"
+        ],
+        "family": "native",
+        "host_runtime": "ruby",
+        "id": "prism",
         "package": "prism",
-        "version": "1.9.0",
-        "parser": "Prism",
-        "capabilities": ["comments", "directives", "exact_source_spans", "native_node_access", "normalized_tree"]
+        "package_version": "1.9.0",
+        "parser": "Prism"
       },
       "inputs": [
         {
-          "kind": "embedded_source",
-          "artifact_path": "ruby/slice-935-prism-normalized-parse/class-method-normalized-tree.json",
-          "source_id": "fixture.prism.class-method",
+          "kind": "captured_source",
+          "bom": false,
           "byte_length": 40,
-          "sha256": "40bd5fb2d1dd9a02b51802eba650d6076078124a8606c5b1dd586d3b2c2f87f0"
+          "encoding": "utf-8",
+          "final_newline": true,
+          "line_endings": "lf",
+          "role": "source",
+          "sha256": "40bd5fb2d1dd9a02b51802eba650d6076078124a8606c5b1dd586d3b2c2f87f0",
+          "source_id": "fixture:class-method-normalized-tree",
+          "origin": {
+            "kind": "embedded_source",
+            "artifact_path": "ruby/slice-935-prism-normalized-parse/class-method-normalized-tree.json",
+            "source_id": "fixture.prism.class-method",
+            "byte_length": 40,
+            "sha256": "40bd5fb2d1dd9a02b51802eba650d6076078124a8606c5b1dd586d3b2c2f87f0"
+          }
         },
         {
-          "kind": "embedded_source",
-          "artifact_path": "ruby/slice-936-prism-comment-directive-metadata/comment-directives-normalized-tree.json",
-          "source_id": "fixture.prism.comment-directives",
+          "kind": "captured_source",
+          "bom": false,
           "byte_length": 111,
-          "sha256": "837a2691a4cb1f6e25101b6f8b8d485dbef54888f7527adc08b39bad09ec3f66"
+          "encoding": "utf-8",
+          "final_newline": true,
+          "line_endings": "lf",
+          "role": "source",
+          "sha256": "837a2691a4cb1f6e25101b6f8b8d485dbef54888f7527adc08b39bad09ec3f66",
+          "source_id": "fixture:comment-directives-normalized-tree",
+          "origin": {
+            "kind": "embedded_source",
+            "artifact_path": "ruby/slice-936-prism-comment-directive-metadata/comment-directives-normalized-tree.json",
+            "source_id": "fixture.prism.comment-directives",
+            "byte_length": 111,
+            "sha256": "837a2691a4cb1f6e25101b6f8b8d485dbef54888f7527adc08b39bad09ec3f66"
+          }
         }
       ],
-      "candidate_artifacts": [
+      "artifacts": [
         {
-          "kind": "legacy-normalized-tree",
-          "schema": "structuredmerge.legacy-normalized-tree/v0",
-          "path": "ruby/slice-935-prism-normalized-parse/class-method-normalized-tree.json",
-          "byte_length": 4500,
-          "sha256": "4203dcfba1e73b7a5dbf0b9970d619ddc75f9da5d3d83126795e7d2652481acf",
-          "canonicalization": "exact_bytes"
-        },
-        {
-          "kind": "legacy-comment-extension",
-          "schema": "structuredmerge.legacy-prism-comments/v0",
-          "path": "ruby/slice-936-prism-comment-directive-metadata/comment-directives-normalized-tree.json",
-          "byte_length": 4028,
-          "sha256": "88807c648b8f72666227e61d6221746755883623cd2528dbe27e173aceafe5ab",
+          "kind": "provider-contract-snapshot",
+          "schema": "structuredmerge.provider-snapshot/v1",
+          "path": "diagnostics/slice-1029-provider-contract-snapshot-manifest/observed/snapshot.prism.ruby.snapshot.json",
+          "byte_length": 28315,
+          "sha256": "fd9f83dd7efac0c362df4b32bc7f9e0fbbfa8caea1b2d8ecaa0d230c067de5c1",
           "canonicalization": "exact_bytes"
         }
       ],
       "capture_requirements": {
-        "normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"],
-        "extension_requirements": [
-          {"schema": "structuredmerge.extension/ruby-prism/v1", "namespace": "ruby-prism", "capabilities": ["comment-directives", "magic-comments", "native-node-kinds", "node-paths"], "opaque_forwarding": true}
+        "normalized_schemas": [
+          "structuredmerge.parse-result/v1",
+          "structuredmerge.analysis-result/v1"
         ],
-        "operation_artifacts": []
+        "extension_requirements": [
+          {
+            "schema": "structuredmerge.extension/ruby-prism/v1",
+            "namespace": "ruby-prism",
+            "capabilities": [
+              "comment-directives",
+              "magic-comments",
+              "native-node-kinds",
+              "node-paths"
+            ],
+            "opaque_forwarding": true
+          }
+        ],
+        "operation_artifacts": [
+          "merge2"
+        ]
       },
-      "producer": null,
-      "replay": null,
+      "producer": {
+        "ruby_gm_release": "7.1.7",
+        "ruby_gm_source_sha": "4646f8b98d5b96dfa6102bb72522285b54a228f7",
+        "clean_source_state": true,
+        "capture_adapter": {
+          "id": "ruby.provider-contract-capture",
+          "source_sha256": "65bc12ff061904c7b3e37d81ff72982670f2d37498227024a13198a660a055f1",
+          "version": "1"
+        },
+        "producer_manifest_sha256": "5bc6f3a878959e8ab68bfc12654dea8f453d283628bdb1b2c337c9919a13c0f4",
+        "capture_command": "bundle exec ruby tools/capture_provider_snapshot.rb snapshot.prism.ruby",
+        "fixture_repository_revision": "65252c2a59621d68df7d35fc14c799325e35b132",
+        "captured_at": "2026-09-02T01:15:34-04:00"
+      },
+      "replay": {
+        "process_count": 2,
+        "canonicalization": "exact_bytes",
+        "artifact_sha256": [
+          "fd9f83dd7efac0c362df4b32bc7f9e0fbbfa8caea1b2d8ecaa0d230c067de5c1",
+          "fd9f83dd7efac0c362df4b32bc7f9e0fbbfa8caea1b2d8ecaa0d230c067de5c1"
+        ],
+        "excluded_fields": [],
+        "deterministic": true,
+        "differential_replays": [
+          {
+            "operation": "merge2",
+            "equivalent": true,
+            "original_sha256": "86d94c8b076160be3cd769e4360bd456e146a42ec0b026df67648dfeea78a78d",
+            "replay_sha256": "86d94c8b076160be3cd769e4360bd456e146a42ec0b026df67648dfeea78a78d",
+            "output_bytes_equal": true
+          }
+        ]
+      },
       "admission": {
-        "satisfies_required_target": false,
-        "reason": "legacy expected fixture lacks a pinned clean producer and v1 capture envelope",
-        "missing": ["ruby_gm_release", "ruby_gm_source_sha", "clean_source_state", "capture_adapter", "capture_command", "v1_artifacts", "deterministic_replay"]
+        "satisfies_required_target": true,
+        "review_state": "admitted",
+        "reviewer": "codex-local-capture",
+        "findings": [
+          "complete artifact bytes matched across two fresh-process captures",
+          "canonical JSON request transport preserved the provider result and output bytes"
+        ],
+        "supersedes_snapshot_id": null,
+        "missing": []
       }
     },
     {
       "snapshot_id": "snapshot.psych.yaml",
-      "state": "pending",
+      "state": "observed",
       "family": "yaml",
       "language": "yaml",
       "dialect": "yaml",
       "scenario": "comments, anchors, aliases, tags, documents, and sequence layout",
-      "workflow_provider": {"provider_id": "ruby.yaml.psych", "role": "backend", "package": "psych-merge", "version": null, "capabilities": ["analyze", "native_extensions", "source_preserving"]},
-      "parser_backend": {"backend_id": "psych", "backend_family": "native", "package": "psych", "version": null, "parser": "Psych", "capabilities": ["aliases", "anchors", "documents", "native_extensions", "tags"]},
-      "inputs": [{"kind": "local_fixture", "path": "yaml/slice-721-formatting-preservation/comments-anchors-documents-sequences.json", "byte_length": 1084, "sha256": "1c3c9dae1956bd03335f8095b545b69e6c6840b0e09a0097a2a41467ebd7be76"}],
-      "candidate_artifacts": [],
-      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/ruby-psych/v1", "namespace": "ruby-psych", "capabilities": ["aliases", "anchors", "documents", "scalar-styles", "tags"], "opaque_forwarding": true}], "operation_artifacts": ["merge2"]},
-      "producer": null,
-      "replay": null,
-      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "merge2_result", "extension_payload", "deterministic_replay"]}
+      "workflow_provider": {
+        "capabilities": {
+          "backends": [
+            "psych"
+          ],
+          "dialects": [
+            "yaml"
+          ],
+          "operations": [
+            "analyze",
+            "diff2",
+            "merge2",
+            "merge3"
+          ],
+          "profiles": [
+            "source_preserving"
+          ],
+          "role": "backend",
+          "source_preservation": [
+            "exact_source",
+            "mapping_entry_fragments",
+            "comment_ownership",
+            "line_provenance",
+            "reparse",
+            "semantic_verification",
+            "ast_attribute_verification"
+          ]
+        },
+        "family": "yaml",
+        "package": "psych-merge",
+        "package_version": "7.1.7",
+        "provider_id": "ruby.yaml.psych",
+        "role": "backend"
+      },
+      "parser_backend": {
+        "capabilities": [
+          "aliases",
+          "anchors",
+          "documents",
+          "native_extensions",
+          "normalized_tree",
+          "scalar_styles",
+          "tags"
+        ],
+        "family": "native",
+        "host_runtime": "ruby",
+        "id": "psych",
+        "package": "psych",
+        "package_version": "5.5.0",
+        "parser": "Psych"
+      },
+      "inputs": [
+        {
+          "kind": "captured_source",
+          "bom": false,
+          "byte_length": 197,
+          "encoding": "utf-8",
+          "final_newline": true,
+          "line_endings": "lf",
+          "role": "source",
+          "sha256": "1cf183ccb2821bd2a6b0dc928f950e71458fe1222fc4b3094b84774c3cb5b62a",
+          "source_id": "fixture:yaml:comments-anchors-documents-sequences",
+          "origin": {
+            "kind": "local_fixture",
+            "path": "yaml/slice-721-formatting-preservation/comments-anchors-documents-sequences.json",
+            "byte_length": 1084,
+            "sha256": "1c3c9dae1956bd03335f8095b545b69e6c6840b0e09a0097a2a41467ebd7be76"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "kind": "provider-contract-snapshot",
+          "schema": "structuredmerge.provider-snapshot/v1",
+          "path": "diagnostics/slice-1029-provider-contract-snapshot-manifest/observed/snapshot.psych.yaml.snapshot.json",
+          "byte_length": 33714,
+          "sha256": "e9b7358e5c8e0e548d4a8e99514b7cf218dd4f9595392ea9a079d9e1e2b02493",
+          "canonicalization": "exact_bytes"
+        }
+      ],
+      "capture_requirements": {
+        "normalized_schemas": [
+          "structuredmerge.parse-result/v1",
+          "structuredmerge.analysis-result/v1"
+        ],
+        "extension_requirements": [
+          {
+            "schema": "structuredmerge.extension/ruby-psych/v1",
+            "namespace": "ruby-psych",
+            "capabilities": [
+              "aliases",
+              "anchors",
+              "documents",
+              "scalar-styles",
+              "tags"
+            ],
+            "opaque_forwarding": true
+          }
+        ],
+        "operation_artifacts": [
+          "merge2"
+        ]
+      },
+      "producer": {
+        "ruby_gm_release": "7.1.7",
+        "ruby_gm_source_sha": "4646f8b98d5b96dfa6102bb72522285b54a228f7",
+        "clean_source_state": true,
+        "capture_adapter": {
+          "id": "ruby.provider-contract-capture",
+          "source_sha256": "65bc12ff061904c7b3e37d81ff72982670f2d37498227024a13198a660a055f1",
+          "version": "1"
+        },
+        "producer_manifest_sha256": "5bc6f3a878959e8ab68bfc12654dea8f453d283628bdb1b2c337c9919a13c0f4",
+        "capture_command": "bundle exec ruby tools/capture_provider_snapshot.rb snapshot.psych.yaml",
+        "fixture_repository_revision": "65252c2a59621d68df7d35fc14c799325e35b132",
+        "captured_at": "2026-09-02T01:15:34-04:00"
+      },
+      "replay": {
+        "process_count": 2,
+        "canonicalization": "exact_bytes",
+        "artifact_sha256": [
+          "e9b7358e5c8e0e548d4a8e99514b7cf218dd4f9595392ea9a079d9e1e2b02493",
+          "e9b7358e5c8e0e548d4a8e99514b7cf218dd4f9595392ea9a079d9e1e2b02493"
+        ],
+        "excluded_fields": [],
+        "deterministic": true,
+        "differential_replays": [
+          {
+            "operation": "merge2",
+            "equivalent": true,
+            "original_sha256": "9bcddbd8018cdff2f2b4a551e3c0b8e1f310ac12d683b8b6a92f9413a8c61657",
+            "replay_sha256": "9bcddbd8018cdff2f2b4a551e3c0b8e1f310ac12d683b8b6a92f9413a8c61657",
+            "output_bytes_equal": true
+          }
+        ]
+      },
+      "admission": {
+        "satisfies_required_target": true,
+        "review_state": "admitted",
+        "reviewer": "codex-local-capture",
+        "findings": [
+          "complete artifact bytes matched across two fresh-process captures",
+          "canonical JSON request transport preserved the provider result and output bytes"
+        ],
+        "supersedes_snapshot_id": null,
+        "missing": []
+      }
     },
     {
       "snapshot_id": "snapshot.rbs.native",
-      "state": "pending",
+      "state": "observed",
       "family": "rbs",
       "language": "rbs",
       "dialect": "rbs",
       "scenario": "class and method type declaration",
-      "workflow_provider": {"provider_id": "ruby.rbs", "role": "workflow", "package": "rbs-merge", "version": null, "capabilities": ["analyze", "multiple_parser_backends", "source_preserving"]},
-      "parser_backend": {"backend_id": "rbs", "backend_family": "native", "package": "rbs", "version": null, "parser": "RBS::Parser", "capabilities": ["native_extensions", "source_spans", "type_nodes"]},
-      "inputs": [{"kind": "inline_source", "source_id": "fixture.rbs.class-method", "content": "class User\n  def name: () -> String\nend\n", "byte_length": 40, "sha256": "be5a01b288bd03cf5f3da42c222836acd3c2a357a788bfe668391cb22e60cd40"}],
-      "candidate_artifacts": [],
-      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/ruby-rbs/v1", "namespace": "ruby-rbs", "capabilities": ["declaration-kinds", "method-types", "type-nodes"], "opaque_forwarding": true}], "operation_artifacts": []},
-      "producer": null,
-      "replay": null,
-      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "extension_payload", "deterministic_replay"]}
+      "workflow_provider": {
+        "capabilities": {
+          "backends": [
+            "rbs"
+          ],
+          "dialects": [
+            "rbs"
+          ],
+          "operations": [
+            "analyze",
+            "diff2",
+            "merge2",
+            "merge3"
+          ],
+          "profiles": [
+            "source_preserving"
+          ],
+          "role": "workflow",
+          "source_preservation": [
+            "exact_source",
+            "declaration_fragments",
+            "line_provenance",
+            "reparse",
+            "semantic_verification"
+          ]
+        },
+        "family": "rbs",
+        "package": "rbs-merge",
+        "package_version": "7.1.7",
+        "provider_id": "ruby.rbs",
+        "role": "workflow"
+      },
+      "parser_backend": {
+        "capabilities": [
+          "native_extensions",
+          "normalized_tree",
+          "source_spans",
+          "type_nodes"
+        ],
+        "family": "native",
+        "host_runtime": "ruby",
+        "id": "rbs",
+        "package": "rbs",
+        "package_version": "4.2.0",
+        "parser": "RBS::Parser"
+      },
+      "inputs": [
+        {
+          "kind": "captured_source",
+          "bom": false,
+          "byte_length": 40,
+          "encoding": "utf-8",
+          "final_newline": true,
+          "line_endings": "lf",
+          "role": "source",
+          "sha256": "be5a01b288bd03cf5f3da42c222836acd3c2a357a788bfe668391cb22e60cd40",
+          "source_id": "fixture.rbs.class-method",
+          "origin": {
+            "kind": "inline_source",
+            "source_id": "fixture.rbs.class-method",
+            "content": "class User\n  def name: () -> String\nend\n",
+            "byte_length": 40,
+            "sha256": "be5a01b288bd03cf5f3da42c222836acd3c2a357a788bfe668391cb22e60cd40"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "kind": "provider-contract-snapshot",
+          "schema": "structuredmerge.provider-snapshot/v1",
+          "path": "diagnostics/slice-1029-provider-contract-snapshot-manifest/observed/snapshot.rbs.native.snapshot.json",
+          "byte_length": 16254,
+          "sha256": "448c541fc51cfd2b1f77d17a57cc96ee567764f6d895e9e3cc41dd4c1d5f2d1d",
+          "canonicalization": "exact_bytes"
+        }
+      ],
+      "capture_requirements": {
+        "normalized_schemas": [
+          "structuredmerge.parse-result/v1",
+          "structuredmerge.analysis-result/v1"
+        ],
+        "extension_requirements": [
+          {
+            "schema": "structuredmerge.extension/ruby-rbs/v1",
+            "namespace": "ruby-rbs",
+            "capabilities": [
+              "declaration-kinds",
+              "method-types",
+              "type-nodes"
+            ],
+            "opaque_forwarding": true
+          }
+        ],
+        "operation_artifacts": [
+          "merge2"
+        ]
+      },
+      "producer": {
+        "ruby_gm_release": "7.1.7",
+        "ruby_gm_source_sha": "4646f8b98d5b96dfa6102bb72522285b54a228f7",
+        "clean_source_state": true,
+        "capture_adapter": {
+          "id": "ruby.provider-contract-capture",
+          "source_sha256": "65bc12ff061904c7b3e37d81ff72982670f2d37498227024a13198a660a055f1",
+          "version": "1"
+        },
+        "producer_manifest_sha256": "5bc6f3a878959e8ab68bfc12654dea8f453d283628bdb1b2c337c9919a13c0f4",
+        "capture_command": "bundle exec ruby tools/capture_provider_snapshot.rb snapshot.rbs.native",
+        "fixture_repository_revision": "65252c2a59621d68df7d35fc14c799325e35b132",
+        "captured_at": "2026-09-02T01:15:34-04:00"
+      },
+      "replay": {
+        "process_count": 2,
+        "canonicalization": "exact_bytes",
+        "artifact_sha256": [
+          "448c541fc51cfd2b1f77d17a57cc96ee567764f6d895e9e3cc41dd4c1d5f2d1d",
+          "448c541fc51cfd2b1f77d17a57cc96ee567764f6d895e9e3cc41dd4c1d5f2d1d"
+        ],
+        "excluded_fields": [],
+        "deterministic": true,
+        "differential_replays": [
+          {
+            "operation": "merge2",
+            "equivalent": true,
+            "original_sha256": "9b43daf0e39ad430c559a6592bf78eb99595df3271d53ade30e970283c352759",
+            "replay_sha256": "9b43daf0e39ad430c559a6592bf78eb99595df3271d53ade30e970283c352759",
+            "output_bytes_equal": true
+          }
+        ]
+      },
+      "admission": {
+        "satisfies_required_target": true,
+        "review_state": "admitted",
+        "reviewer": "codex-local-capture",
+        "findings": [
+          "complete artifact bytes matched across two fresh-process captures",
+          "canonical JSON request transport preserved the provider result and output bytes"
+        ],
+        "supersedes_snapshot_id": null,
+        "missing": []
+      }
     },
     {
       "snapshot_id": "snapshot.markdown.markly",
-      "state": "pending",
+      "state": "observed",
       "family": "markdown",
       "language": "markdown",
       "dialect": "markdown",
       "scenario": "headings, lists, tables, fences, links, frontmatter, and comments",
-      "workflow_provider": {"provider_id": "ruby.markdown.markly", "role": "backend", "package": "markly-merge", "version": null, "capabilities": ["analyze", "native_extensions", "source_preserving"]},
-      "parser_backend": {"backend_id": "markly", "backend_family": "native", "package": "markly", "version": null, "parser": "Markly", "capabilities": ["attributes", "native_extensions", "source_positions"]},
-      "inputs": [{"kind": "local_fixture", "path": "markdown/slice-721-provider-parity/headings-lists-tables-fences-links-frontmatter-comments.json", "byte_length": 879, "sha256": "740641c78b493f58823754a0289ceb2b51281e822aa8eaed73b1e4eda2489d74"}],
-      "candidate_artifacts": [],
-      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/ruby-markly/v1", "namespace": "ruby-markly", "capabilities": ["attributes", "block-kinds", "source-positions"], "opaque_forwarding": true}], "operation_artifacts": ["merge2"]},
-      "producer": null,
-      "replay": null,
-      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "merge2_result", "extension_payload", "deterministic_replay"]}
+      "workflow_provider": {
+        "capabilities": {
+          "ast_ownership": "unique_same_level_atx_heading_sections",
+          "backends": [
+            "markly"
+          ],
+          "dialects": [
+            "markdown",
+            "commonmark"
+          ],
+          "operations": [
+            "analyze",
+            "diff2",
+            "merge2",
+            "merge3"
+          ],
+          "profiles": [
+            "source_preserving"
+          ],
+          "role": "backend",
+          "source_preservation": [
+            "exact_source",
+            "exact_fragments",
+            "byte_provenance",
+            "reparse",
+            "semantic_verification"
+          ]
+        },
+        "family": "markdown",
+        "package": "markly-merge",
+        "package_version": "7.1.7",
+        "provider_id": "ruby.markdown.markly",
+        "role": "backend"
+      },
+      "parser_backend": {
+        "capabilities": [
+          "attributes",
+          "native_extensions",
+          "normalized_tree",
+          "source_positions"
+        ],
+        "family": "native",
+        "host_runtime": "ruby",
+        "id": "markly",
+        "package": "markly",
+        "package_version": "0.17.0",
+        "parser": "Markly"
+      },
+      "inputs": [
+        {
+          "kind": "captured_source",
+          "bom": false,
+          "byte_length": 226,
+          "encoding": "utf-8",
+          "final_newline": true,
+          "line_endings": "lf",
+          "role": "source",
+          "sha256": "7b74511fa21de5b96a29011286b67bb87895eb5ac763ca131d4a160293eecaba",
+          "source_id": "fixture:markdown:provider-parity",
+          "origin": {
+            "kind": "local_fixture",
+            "path": "markdown/slice-721-provider-parity/headings-lists-tables-fences-links-frontmatter-comments.json",
+            "byte_length": 879,
+            "sha256": "740641c78b493f58823754a0289ceb2b51281e822aa8eaed73b1e4eda2489d74"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "kind": "provider-contract-snapshot",
+          "schema": "structuredmerge.provider-snapshot/v1",
+          "path": "diagnostics/slice-1029-provider-contract-snapshot-manifest/observed/snapshot.markdown.markly.snapshot.json",
+          "byte_length": 36968,
+          "sha256": "ed6ba92e43ef9ecbf359afe48e3cda3763d9cad5e989631920e26a08c05088de",
+          "canonicalization": "exact_bytes"
+        }
+      ],
+      "capture_requirements": {
+        "normalized_schemas": [
+          "structuredmerge.parse-result/v1",
+          "structuredmerge.analysis-result/v1"
+        ],
+        "extension_requirements": [
+          {
+            "schema": "structuredmerge.extension/ruby-markly/v1",
+            "namespace": "ruby-markly",
+            "capabilities": [
+              "attributes",
+              "block-kinds",
+              "source-positions"
+            ],
+            "opaque_forwarding": true
+          }
+        ],
+        "operation_artifacts": [
+          "merge2"
+        ]
+      },
+      "producer": {
+        "ruby_gm_release": "7.1.7",
+        "ruby_gm_source_sha": "4646f8b98d5b96dfa6102bb72522285b54a228f7",
+        "clean_source_state": true,
+        "capture_adapter": {
+          "id": "ruby.provider-contract-capture",
+          "source_sha256": "65bc12ff061904c7b3e37d81ff72982670f2d37498227024a13198a660a055f1",
+          "version": "1"
+        },
+        "producer_manifest_sha256": "5bc6f3a878959e8ab68bfc12654dea8f453d283628bdb1b2c337c9919a13c0f4",
+        "capture_command": "bundle exec ruby tools/capture_provider_snapshot.rb snapshot.markdown.markly",
+        "fixture_repository_revision": "65252c2a59621d68df7d35fc14c799325e35b132",
+        "captured_at": "2026-09-02T01:15:34-04:00"
+      },
+      "replay": {
+        "process_count": 2,
+        "canonicalization": "exact_bytes",
+        "artifact_sha256": [
+          "ed6ba92e43ef9ecbf359afe48e3cda3763d9cad5e989631920e26a08c05088de",
+          "ed6ba92e43ef9ecbf359afe48e3cda3763d9cad5e989631920e26a08c05088de"
+        ],
+        "excluded_fields": [],
+        "deterministic": true,
+        "differential_replays": [
+          {
+            "operation": "merge2",
+            "equivalent": true,
+            "original_sha256": "130b3f7f5167bdb6d52df254088094e6750354d2d04b0188f7cffaf6ce26f353",
+            "replay_sha256": "130b3f7f5167bdb6d52df254088094e6750354d2d04b0188f7cffaf6ce26f353",
+            "output_bytes_equal": true
+          }
+        ]
+      },
+      "admission": {
+        "satisfies_required_target": true,
+        "review_state": "admitted",
+        "reviewer": "codex-local-capture",
+        "findings": [
+          "complete artifact bytes matched across two fresh-process captures",
+          "canonical JSON request transport preserved the provider result and output bytes"
+        ],
+        "supersedes_snapshot_id": null,
+        "missing": []
+      }
     },
     {
       "snapshot_id": "snapshot.toml.tslp",
-      "state": "pending",
+      "state": "observed",
       "family": "toml",
       "language": "toml",
       "dialect": "toml",
       "scenario": "dotted keys, inline comments, tables, and arrays",
-      "workflow_provider": {"provider_id": "ruby.toml", "role": "workflow", "package": "toml-merge", "version": null, "capabilities": ["analyze", "source_preserving"]},
-      "parser_backend": {"backend_id": "tslp", "backend_family": "tree-sitter", "package": "tree_sitter_language_pack", "version": null, "parser": "tree-sitter-toml", "capabilities": ["exact_source_spans", "normalized_tree", "native_extensions"]},
-      "inputs": [{"kind": "local_fixture", "path": "toml/slice-721-formatting-preservation/dotted-inline-comments-arrays.json", "byte_length": 1109, "sha256": "499a0ab286fb0fa054a5eee87c7c6708041bc229b2ea4eea8668ad0b379a33fe"}],
-      "candidate_artifacts": [],
-      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/tree-sitter/v1", "namespace": "tree-sitter", "capabilities": ["grammar-node-types"], "opaque_forwarding": true}], "operation_artifacts": ["merge2"]},
-      "producer": null,
-      "replay": null,
-      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "merge2_result", "extension_payload", "deterministic_replay"]}
+      "workflow_provider": {
+        "capabilities": {
+          "backends": [
+            "kreuzberg-language-pack"
+          ],
+          "dialects": [
+            "toml"
+          ],
+          "operations": [
+            "analyze",
+            "diff2",
+            "merge2",
+            "merge3"
+          ],
+          "profiles": [
+            "source_preserving"
+          ],
+          "role": "workflow",
+          "source_preservation": [
+            "exact_source",
+            "mapping_entry_fragments",
+            "comment_ownership",
+            "line_provenance",
+            "reparse",
+            "semantic_verification",
+            "ast_attribute_verification"
+          ]
+        },
+        "family": "toml",
+        "package": "toml-merge",
+        "package_version": "7.1.7",
+        "provider_id": "ruby.toml",
+        "role": "workflow"
+      },
+      "parser_backend": {
+        "capabilities": [
+          "exact_source_spans",
+          "native_extensions",
+          "normalized_tree"
+        ],
+        "family": "tree-sitter",
+        "host_runtime": "ruby",
+        "id": "kreuzberg-language-pack",
+        "package": "tree_sitter_language_pack",
+        "package_version": "1.16.1",
+        "parser": "tree-sitter-toml"
+      },
+      "inputs": [
+        {
+          "kind": "captured_source",
+          "bom": false,
+          "byte_length": 227,
+          "encoding": "utf-8",
+          "final_newline": true,
+          "line_endings": "lf",
+          "role": "source",
+          "sha256": "66deb38275f073d3bbc0304b481da88fb64d2803c0584668540fd86e1cfe7ec2",
+          "source_id": "fixture:toml:dotted-inline-comments-arrays",
+          "origin": {
+            "kind": "local_fixture",
+            "path": "toml/slice-721-formatting-preservation/dotted-inline-comments-arrays.json",
+            "byte_length": 1109,
+            "sha256": "499a0ab286fb0fa054a5eee87c7c6708041bc229b2ea4eea8668ad0b379a33fe"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "kind": "provider-contract-snapshot",
+          "schema": "structuredmerge.provider-snapshot/v1",
+          "path": "diagnostics/slice-1029-provider-contract-snapshot-manifest/observed/snapshot.toml.tslp.snapshot.json",
+          "byte_length": 44332,
+          "sha256": "77b2df990a99168a512040a4db47b68349019f4b5c7cb7bc44c74d6d8b3cf5e3",
+          "canonicalization": "exact_bytes"
+        }
+      ],
+      "capture_requirements": {
+        "normalized_schemas": [
+          "structuredmerge.parse-result/v1",
+          "structuredmerge.analysis-result/v1"
+        ],
+        "extension_requirements": [
+          {
+            "schema": "structuredmerge.extension/tree-sitter/v1",
+            "namespace": "tree-sitter",
+            "capabilities": [
+              "grammar-node-types"
+            ],
+            "opaque_forwarding": true
+          }
+        ],
+        "operation_artifacts": [
+          "merge2"
+        ]
+      },
+      "producer": {
+        "ruby_gm_release": "7.1.7",
+        "ruby_gm_source_sha": "4646f8b98d5b96dfa6102bb72522285b54a228f7",
+        "clean_source_state": true,
+        "capture_adapter": {
+          "id": "ruby.provider-contract-capture",
+          "source_sha256": "65bc12ff061904c7b3e37d81ff72982670f2d37498227024a13198a660a055f1",
+          "version": "1"
+        },
+        "producer_manifest_sha256": "5bc6f3a878959e8ab68bfc12654dea8f453d283628bdb1b2c337c9919a13c0f4",
+        "capture_command": "bundle exec ruby tools/capture_provider_snapshot.rb snapshot.toml.tslp",
+        "fixture_repository_revision": "65252c2a59621d68df7d35fc14c799325e35b132",
+        "captured_at": "2026-09-02T01:15:34-04:00"
+      },
+      "replay": {
+        "process_count": 2,
+        "canonicalization": "exact_bytes",
+        "artifact_sha256": [
+          "77b2df990a99168a512040a4db47b68349019f4b5c7cb7bc44c74d6d8b3cf5e3",
+          "77b2df990a99168a512040a4db47b68349019f4b5c7cb7bc44c74d6d8b3cf5e3"
+        ],
+        "excluded_fields": [],
+        "deterministic": true,
+        "differential_replays": [
+          {
+            "operation": "merge2",
+            "equivalent": true,
+            "original_sha256": "80fe21daf20c4e77d08f4311bf0b2edc2bfb1adb59f3e3fd6669590b46ce8718",
+            "replay_sha256": "80fe21daf20c4e77d08f4311bf0b2edc2bfb1adb59f3e3fd6669590b46ce8718",
+            "output_bytes_equal": true
+          }
+        ]
+      },
+      "admission": {
+        "satisfies_required_target": true,
+        "review_state": "admitted",
+        "reviewer": "codex-local-capture",
+        "findings": [
+          "complete artifact bytes matched across two fresh-process captures",
+          "canonical JSON request transport preserved the provider result and output bytes"
+        ],
+        "supersedes_snapshot_id": null,
+        "missing": []
+      }
     },
     {
       "snapshot_id": "snapshot.yaml.tslp",
-      "state": "pending",
+      "state": "observed",
       "family": "yaml",
       "language": "yaml",
       "dialect": "yaml",
       "scenario": "TSLP projection of comments, anchors, aliases, documents, and sequences",
-      "workflow_provider": {"provider_id": "ruby.yaml", "role": "workflow", "package": "yaml-merge", "version": null, "capabilities": ["analyze", "source_preserving"]},
-      "parser_backend": {"backend_id": "tslp", "backend_family": "tree-sitter", "package": "tree_sitter_language_pack", "version": null, "parser": "tree-sitter-yaml", "capabilities": ["exact_source_spans", "normalized_tree", "native_extensions"]},
-      "inputs": [{"kind": "local_fixture", "path": "yaml/slice-721-formatting-preservation/comments-anchors-documents-sequences.json", "byte_length": 1084, "sha256": "1c3c9dae1956bd03335f8095b545b69e6c6840b0e09a0097a2a41467ebd7be76"}],
-      "candidate_artifacts": [],
-      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/tree-sitter/v1", "namespace": "tree-sitter", "capabilities": ["grammar-node-types"], "opaque_forwarding": true}], "operation_artifacts": ["merge2"]},
-      "producer": null,
-      "replay": null,
-      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "merge2_result", "extension_payload", "deterministic_replay"]}
+      "workflow_provider": {
+        "capabilities": {
+          "backends": [
+            "kreuzberg-language-pack"
+          ],
+          "dialects": [
+            "yaml"
+          ],
+          "operations": [
+            "analyze",
+            "diff2",
+            "merge2",
+            "merge3"
+          ],
+          "profiles": [
+            "source_preserving"
+          ],
+          "role": "workflow",
+          "source_preservation": [
+            "exact_source",
+            "mapping_entry_fragments",
+            "comment_ownership",
+            "line_provenance",
+            "reparse",
+            "semantic_verification",
+            "ast_attribute_verification"
+          ]
+        },
+        "family": "yaml",
+        "package": "yaml-merge",
+        "package_version": "7.1.7",
+        "provider_id": "ruby.yaml",
+        "role": "workflow"
+      },
+      "parser_backend": {
+        "capabilities": [
+          "exact_source_spans",
+          "native_extensions",
+          "normalized_tree"
+        ],
+        "family": "tree-sitter",
+        "host_runtime": "ruby",
+        "id": "kreuzberg-language-pack",
+        "package": "tree_sitter_language_pack",
+        "package_version": "1.16.1",
+        "parser": "tree-sitter-yaml"
+      },
+      "inputs": [
+        {
+          "kind": "captured_source",
+          "bom": false,
+          "byte_length": 197,
+          "encoding": "utf-8",
+          "final_newline": true,
+          "line_endings": "lf",
+          "role": "source",
+          "sha256": "1cf183ccb2821bd2a6b0dc928f950e71458fe1222fc4b3094b84774c3cb5b62a",
+          "source_id": "fixture:yaml:comments-anchors-documents-sequences",
+          "origin": {
+            "kind": "local_fixture",
+            "path": "yaml/slice-721-formatting-preservation/comments-anchors-documents-sequences.json",
+            "byte_length": 1084,
+            "sha256": "1c3c9dae1956bd03335f8095b545b69e6c6840b0e09a0097a2a41467ebd7be76"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "kind": "provider-contract-snapshot",
+          "schema": "structuredmerge.provider-snapshot/v1",
+          "path": "diagnostics/slice-1029-provider-contract-snapshot-manifest/observed/snapshot.yaml.tslp.snapshot.json",
+          "byte_length": 56397,
+          "sha256": "1112773e4d6d9cb2f045a25524965c0c7b76a9d370eb67c47b258b2f21e41ec0",
+          "canonicalization": "exact_bytes"
+        }
+      ],
+      "capture_requirements": {
+        "normalized_schemas": [
+          "structuredmerge.parse-result/v1",
+          "structuredmerge.analysis-result/v1"
+        ],
+        "extension_requirements": [
+          {
+            "schema": "structuredmerge.extension/tree-sitter/v1",
+            "namespace": "tree-sitter",
+            "capabilities": [
+              "grammar-node-types"
+            ],
+            "opaque_forwarding": true
+          }
+        ],
+        "operation_artifacts": [
+          "merge2"
+        ]
+      },
+      "producer": {
+        "ruby_gm_release": "7.1.7",
+        "ruby_gm_source_sha": "4646f8b98d5b96dfa6102bb72522285b54a228f7",
+        "clean_source_state": true,
+        "capture_adapter": {
+          "id": "ruby.provider-contract-capture",
+          "source_sha256": "65bc12ff061904c7b3e37d81ff72982670f2d37498227024a13198a660a055f1",
+          "version": "1"
+        },
+        "producer_manifest_sha256": "5bc6f3a878959e8ab68bfc12654dea8f453d283628bdb1b2c337c9919a13c0f4",
+        "capture_command": "bundle exec ruby tools/capture_provider_snapshot.rb snapshot.yaml.tslp",
+        "fixture_repository_revision": "65252c2a59621d68df7d35fc14c799325e35b132",
+        "captured_at": "2026-09-02T01:15:34-04:00"
+      },
+      "replay": {
+        "process_count": 2,
+        "canonicalization": "exact_bytes",
+        "artifact_sha256": [
+          "1112773e4d6d9cb2f045a25524965c0c7b76a9d370eb67c47b258b2f21e41ec0",
+          "1112773e4d6d9cb2f045a25524965c0c7b76a9d370eb67c47b258b2f21e41ec0"
+        ],
+        "excluded_fields": [],
+        "deterministic": true,
+        "differential_replays": [
+          {
+            "operation": "merge2",
+            "equivalent": true,
+            "original_sha256": "36623409b205b843b55815a43475497db2ac4a60f87bbfd354aaafaaea63b910",
+            "replay_sha256": "36623409b205b843b55815a43475497db2ac4a60f87bbfd354aaafaaea63b910",
+            "output_bytes_equal": true
+          }
+        ]
+      },
+      "admission": {
+        "satisfies_required_target": true,
+        "review_state": "admitted",
+        "reviewer": "codex-local-capture",
+        "findings": [
+          "complete artifact bytes matched across two fresh-process captures",
+          "canonical JSON request transport preserved the provider result and output bytes"
+        ],
+        "supersedes_snapshot_id": null,
+        "missing": []
+      }
     }
   ],
   "invalid_examples": [
-    {"id": "hand-authored-as-observed", "mutation": "mark a reviewed expectation observed without producer capture", "rejected_by": "observed_provenance"},
-    {"id": "dirty-unaccounted-producer", "mutation": "capture from a dirty Ruby tree without content-addressing and review", "rejected_by": "clean_producer"},
-    {"id": "provider-backend-conflation", "mutation": "store tslp as the workflow provider ID", "rejected_by": "selection_layers"},
-    {"id": "artifact-digest-mismatch", "mutation": "referenced artifact bytes do not match SHA-256", "rejected_by": "artifact_integrity"},
-    {"id": "escaping-artifact-path", "mutation": "artifact path escapes the fixture repository", "rejected_by": "local_path_safety"},
-    {"id": "single-run-observed", "mutation": "admit observed after one capture run", "rejected_by": "deterministic_replay"},
-    {"id": "nondeterministic-node-order", "mutation": "exclude node ordering from replay comparison", "rejected_by": "deterministic_replay"},
-    {"id": "native-extension-dropped", "mutation": "normalize a native provider without retaining declared extension facts", "rejected_by": "extension_retention"},
-    {"id": "unknown-extension-not-forwarded", "mutation": "a compatible forwarder removes an unknown extension field", "rejected_by": "opaque_forwarding"},
-    {"id": "native-object-in-portable-payload", "mutation": "serialize a process-local parser object or pointer", "rejected_by": "portable_transport"},
-    {"id": "provisional-counted-complete", "mutation": "count provisional rows as satisfying the observed matrix", "rejected_by": "admission_state"},
-    {"id": "network-dependent-replay", "mutation": "validation fetches a remote artifact not materialized in the corpus", "rejected_by": "offline_replay"}
+    {
+      "id": "hand-authored-as-observed",
+      "mutation": "mark a reviewed expectation observed without producer capture",
+      "rejected_by": "observed_provenance"
+    },
+    {
+      "id": "dirty-unaccounted-producer",
+      "mutation": "capture from a dirty Ruby tree without content-addressing and review",
+      "rejected_by": "clean_producer"
+    },
+    {
+      "id": "provider-backend-conflation",
+      "mutation": "store tslp as the workflow provider ID",
+      "rejected_by": "selection_layers"
+    },
+    {
+      "id": "artifact-digest-mismatch",
+      "mutation": "referenced artifact bytes do not match SHA-256",
+      "rejected_by": "artifact_integrity"
+    },
+    {
+      "id": "escaping-artifact-path",
+      "mutation": "artifact path escapes the fixture repository",
+      "rejected_by": "local_path_safety"
+    },
+    {
+      "id": "single-run-observed",
+      "mutation": "admit observed after one capture run",
+      "rejected_by": "deterministic_replay"
+    },
+    {
+      "id": "nondeterministic-node-order",
+      "mutation": "exclude node ordering from replay comparison",
+      "rejected_by": "deterministic_replay"
+    },
+    {
+      "id": "native-extension-dropped",
+      "mutation": "normalize a native provider without retaining declared extension facts",
+      "rejected_by": "extension_retention"
+    },
+    {
+      "id": "unknown-extension-not-forwarded",
+      "mutation": "a compatible forwarder removes an unknown extension field",
+      "rejected_by": "opaque_forwarding"
+    },
+    {
+      "id": "native-object-in-portable-payload",
+      "mutation": "serialize a process-local parser object or pointer",
+      "rejected_by": "portable_transport"
+    },
+    {
+      "id": "provisional-counted-complete",
+      "mutation": "count provisional rows as satisfying the observed matrix",
+      "rejected_by": "admission_state"
+    },
+    {
+      "id": "network-dependent-replay",
+      "mutation": "validation fetches a remote artifact not materialized in the corpus",
+      "rejected_by": "offline_replay"
+    }
   ],
   "summary": {
     "required_target_count": 7,
     "row_count": 7,
-    "observed_count": 0,
-    "provisional_count": 2,
-    "pending_count": 5,
+    "observed_count": 7,
+    "provisional_count": 0,
+    "pending_count": 0,
     "rejected_count": 0,
     "native_target_count": 4,
     "tree_sitter_target_count": 3,
     "invalid_example_count": 12,
-    "matrix_complete": false,
+    "matrix_complete": true,
     "native_extensions_required": true,
     "provisional_satisfies_observed": false
   }

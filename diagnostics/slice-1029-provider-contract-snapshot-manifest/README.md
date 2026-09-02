@@ -1,14 +1,19 @@
 # Provider Contract Snapshot Manifest
 
-This manifest inventories the seven representative Phase 3 capture targets.
-It intentionally admits no observed golden-master snapshots yet.
+This manifest inventories and admits the seven representative Phase 3 Ruby
+golden-master capture targets.
 
-The existing TSLP JSON contract and Prism normalized-tree fixtures are marked
-`provisional`: their bytes and repository provenance are useful, but they were
-not produced by a pinned, clean Ruby GM capture with deterministic replay. The
-remaining rows are `pending` and name exact provider/backend, input, normalized
-contract, extension, and provenance requirements.
+Every observed artifact was captured twice in a fresh Ruby process from the
+same clean revision. Admission compares complete artifact bytes and separately
+records a differential `merge2` replay after canonical JSON request transport.
+No output or semantic field is excluded from comparison.
 
-After the Ruby release is pinned, the capture pass replaces or supersedes these
-rows with immutable `observed` rows. Validators must never infer matrix
-completion from provisional expectations.
+Capture one target from the Ruby repository with:
+
+```console
+bundle exec ruby tools/capture_provider_snapshot.rb snapshot.tslp.json
+```
+
+Run `python3 tools/validate_provider_snapshots.py` from this repository to
+verify target coverage, artifact integrity, producer provenance, normalized and
+native extension evidence, exact replay, and manifest summary counts.

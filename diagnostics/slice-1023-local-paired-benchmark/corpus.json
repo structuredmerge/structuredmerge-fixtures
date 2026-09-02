@@ -32,12 +32,13 @@
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
+        "case.merge3.typescript.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 20,
-        "case_count": 12,
+        "case_count": 13,
         "output_bytes": 1048576
       }
     },
@@ -56,6 +57,7 @@
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
+        "case.merge3.typescript.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 2,
@@ -80,6 +82,7 @@
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
+        "case.merge3.typescript.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 0,
@@ -104,6 +107,7 @@
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
+        "case.merge3.typescript.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 0,
@@ -232,6 +236,13 @@
     },
     {
       "path_prefix": "gems/typescript-merge/",
+      "capabilities": [
+        "typed_language",
+        "typescript"
+      ]
+    },
+    {
+      "path_prefix": "crates/typescript-merge/",
       "capabilities": [
         "typed_language",
         "typescript"
@@ -2118,7 +2129,7 @@
         "source_preserving",
         "typed_language"
       ],
-      "partition": "gold",
+      "partition": "sentinel",
       "provenance": {
         "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
         "revision": "slice-1023",
@@ -2549,8 +2560,8 @@
   "expected_summary": {
     "case_count": 21,
     "partition_counts": {
-      "sentinel": 12,
-      "gold": 7,
+      "sentinel": 13,
+      "gold": 6,
       "metamorphic": 2
     },
     "operation_counts": {
@@ -2581,6 +2592,7 @@
       "case.merge2.toml.nested-table-leaf.v1",
       "case.merge3.jsonc.comment-preservation.v1",
       "case.merge3.json5.order-format.v1",
+      "case.merge3.typescript.independent-functions.v1",
       "case.merge3.json.duplicate-identity.v1"
     ]
   }

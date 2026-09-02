@@ -1,0 +1,63 @@
+{
+  "schema_version": "structuredmerge.benchmark.baseline-manifest/v1",
+  "baseline_id": "rust-typescript-vertical-slice-2026-09-02",
+  "fixture_revision": "66a0295bdaba90e5b2addcbd2181792906d005bb",
+  "ruby_revision": "70c519c3d66a65c651cf7b3b262d8222ffad204d",
+  "rust_revision": "411109e7749d590113f1014d544594097a974468",
+  "commands": {
+    "micro": "ast-merge-git benchmark report --profile micro --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "dev": "ast-merge-git benchmark report --profile dev --changed-path crates/typescript-merge/src/lib.rs --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "ruby_gm": "ast-merge-git benchmark report --profile micro --workers 4"
+  },
+  "outcomes": {
+    "rust_micro": {
+      "selected_cases": 13,
+      "executed_candidate_cases": 13,
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "rust_dev": {
+      "selected_cases": 15,
+      "executed_candidate_cases": 13,
+      "unsupported_case_ids": [
+        "case.merge3.yaml.delete-modify.v1",
+        "case.merge3.toml.independent-tables.v1"
+      ],
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "ruby_micro": {
+      "selected_cases": 13,
+      "executed_candidate_cases": 13,
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "provider_comparison_exact": {
+      "ruby.typescript": true,
+      "rust.typescript": true
+    }
+  },
+  "scope": {
+    "operation": "merge3",
+    "supported_subset": "same ordered uniquely named top-level TypeScript or TSX declarations with unchanged inter-owner layout",
+    "source_preserving": true,
+    "merge2_supported": false,
+    "membership_changes_supported": false,
+    "unsupported_syntax_fails_closed": true,
+    "ruby_is_behavioral_golden_master": true,
+    "intentional_contract_changes": 0
+  },
+  "artifacts": {
+    "micro-run.json": "278f9f026ca54c507e98d8a32f787234695cb9f3c1d24386dcb2bc4df2b542e3",
+    "micro-report.json": "3ff2e786f7f3e51ea920c97014c45763e9375f83866407ecdd43e742f3b5d9d0",
+    "dev-report.json": "06b3b772792a03ad9fcb39f2e09ef333bd4d445f7e46eff4c2fe32bfdc3d5bad",
+    "ruby-gm-report.json": "55ab7ff021d7cc878ae4b93f0a338e78526a5d09e479fc6d58220e7824717db0",
+    "provider-comparison.json": "b8c3d9dbe92517952c2f5d1033ddeb77acfe715da8780c3a6bd419cd44ace5a3"
+  }
+}

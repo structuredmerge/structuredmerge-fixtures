@@ -1,0 +1,27 @@
+{
+  "schema_version": "structuredmerge.benchmark.provider-comparison/v1",
+  "fixture": "case.merge3.typescript.independent-functions.v1",
+  "expected_sha256": "16db7838eca96638b6872fce3c000dbf5b8205390de63e0d100d53a0a206fce8",
+  "repositories": {
+    "ruby": "70c519c3d66a65c651cf7b3b262d8222ffad204d",
+    "rust": "411109e7749d590113f1014d544594097a974468"
+  },
+  "providers": {
+    "ruby.typescript": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "16db7838eca96638b6872fce3c000dbf5b8205390de63e0d100d53a0a206fce8"
+    },
+    "rust.typescript": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "16db7838eca96638b6872fce3c000dbf5b8205390de63e0d100d53a0a206fce8"
+    }
+  },
+  "notes": [
+    "Both runtimes use TreeHaver's normalized TSLP parser contract and the same reviewed source bytes.",
+    "This comparison proves only conservative top-level named-declaration merge3 and does not claim source-preserving TypeScript merge2."
+  ]
+}

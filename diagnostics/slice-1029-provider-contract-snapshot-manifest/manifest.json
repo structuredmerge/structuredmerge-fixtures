@@ -1,0 +1,253 @@
+{
+  "schema": "structuredmerge.provider-snapshot-manifest/v1",
+  "slice": "1029",
+  "manifest_id": "provider-snapshots.phase3.initial.v1",
+  "fixture_repository_revision": "9f6ad1f1287dc1a5ee8c92cf447b7769deb149bc",
+  "capture_states": ["observed", "provisional", "pending", "rejected"],
+  "required_targets": [
+    "snapshot.tslp.json",
+    "snapshot.prism.ruby",
+    "snapshot.psych.yaml",
+    "snapshot.rbs.native",
+    "snapshot.markdown.markly",
+    "snapshot.toml.tslp",
+    "snapshot.yaml.tslp"
+  ],
+  "rows": [
+    {
+      "snapshot_id": "snapshot.tslp.json",
+      "state": "provisional",
+      "family": "json",
+      "language": "json",
+      "dialect": "json",
+      "scenario": "object owners and exact interstitial gap",
+      "workflow_provider": {
+        "provider_id": "ruby.json",
+        "role": "workflow",
+        "package": "json-merge",
+        "version": null,
+        "capabilities": ["analyze", "source_preserving"]
+      },
+      "parser_backend": {
+        "backend_id": "tslp",
+        "backend_family": "tree-sitter",
+        "package": "tree_sitter_language_pack",
+        "version": null,
+        "parser": "tree-sitter-json",
+        "capabilities": ["exact_source_spans", "normalized_tree", "native_extensions"]
+      },
+      "inputs": [
+        {
+          "kind": "embedded_source",
+          "artifact_path": "diagnostics/slice-1024-normalized-parse-analysis-boundary/contract.json",
+          "source_id": "source:json:001",
+          "byte_length": 41,
+          "sha256": "29047f5166b63e33effb39d84bfe032aa69a4e9a31808e5d16c8e15d78d1e81e"
+        }
+      ],
+      "candidate_artifacts": [
+        {
+          "kind": "parse-analysis-contract",
+          "schema": "structuredmerge.parse-result/v1",
+          "path": "diagnostics/slice-1024-normalized-parse-analysis-boundary/contract.json",
+          "byte_length": 11976,
+          "sha256": "7593538cb3293cc5a384ba24207c00173b49e0c0212c92a213811c0ae61af880",
+          "canonicalization": "exact_bytes"
+        }
+      ],
+      "capture_requirements": {
+        "normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"],
+        "extension_requirements": [
+          {"schema": "structuredmerge.extension/tree-sitter/v1", "namespace": "tree-sitter", "capabilities": ["grammar-node-types"], "opaque_forwarding": true}
+        ],
+        "operation_artifacts": []
+      },
+      "producer": null,
+      "replay": null,
+      "admission": {
+        "satisfies_required_target": false,
+        "reason": "canonical contract fixture was not emitted by a pinned Ruby GM capture",
+        "missing": ["ruby_gm_release", "ruby_gm_source_sha", "clean_source_state", "capture_adapter", "capture_command", "deterministic_replay"]
+      }
+    },
+    {
+      "snapshot_id": "snapshot.prism.ruby",
+      "state": "provisional",
+      "family": "ruby",
+      "language": "ruby",
+      "dialect": "ruby",
+      "scenario": "class/method tree and comment directive metadata",
+      "workflow_provider": {
+        "provider_id": "ruby.ruby.prism",
+        "role": "backend",
+        "package": "prism-merge",
+        "version": null,
+        "capabilities": ["analyze", "native_extensions", "source_preserving"]
+      },
+      "parser_backend": {
+        "backend_id": "prism",
+        "backend_family": "native",
+        "package": "prism",
+        "version": "1.9.0",
+        "parser": "Prism",
+        "capabilities": ["comments", "directives", "exact_source_spans", "native_node_access", "normalized_tree"]
+      },
+      "inputs": [
+        {
+          "kind": "embedded_source",
+          "artifact_path": "ruby/slice-935-prism-normalized-parse/class-method-normalized-tree.json",
+          "source_id": "fixture.prism.class-method",
+          "byte_length": 40,
+          "sha256": "40bd5fb2d1dd9a02b51802eba650d6076078124a8606c5b1dd586d3b2c2f87f0"
+        },
+        {
+          "kind": "embedded_source",
+          "artifact_path": "ruby/slice-936-prism-comment-directive-metadata/comment-directives-normalized-tree.json",
+          "source_id": "fixture.prism.comment-directives",
+          "byte_length": 111,
+          "sha256": "837a2691a4cb1f6e25101b6f8b8d485dbef54888f7527adc08b39bad09ec3f66"
+        }
+      ],
+      "candidate_artifacts": [
+        {
+          "kind": "legacy-normalized-tree",
+          "schema": "structuredmerge.legacy-normalized-tree/v0",
+          "path": "ruby/slice-935-prism-normalized-parse/class-method-normalized-tree.json",
+          "byte_length": 4500,
+          "sha256": "4203dcfba1e73b7a5dbf0b9970d619ddc75f9da5d3d83126795e7d2652481acf",
+          "canonicalization": "exact_bytes"
+        },
+        {
+          "kind": "legacy-comment-extension",
+          "schema": "structuredmerge.legacy-prism-comments/v0",
+          "path": "ruby/slice-936-prism-comment-directive-metadata/comment-directives-normalized-tree.json",
+          "byte_length": 4028,
+          "sha256": "88807c648b8f72666227e61d6221746755883623cd2528dbe27e173aceafe5ab",
+          "canonicalization": "exact_bytes"
+        }
+      ],
+      "capture_requirements": {
+        "normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"],
+        "extension_requirements": [
+          {"schema": "structuredmerge.extension/ruby-prism/v1", "namespace": "ruby-prism", "capabilities": ["comment-directives", "magic-comments", "native-node-kinds", "node-paths"], "opaque_forwarding": true}
+        ],
+        "operation_artifacts": []
+      },
+      "producer": null,
+      "replay": null,
+      "admission": {
+        "satisfies_required_target": false,
+        "reason": "legacy expected fixture lacks a pinned clean producer and v1 capture envelope",
+        "missing": ["ruby_gm_release", "ruby_gm_source_sha", "clean_source_state", "capture_adapter", "capture_command", "v1_artifacts", "deterministic_replay"]
+      }
+    },
+    {
+      "snapshot_id": "snapshot.psych.yaml",
+      "state": "pending",
+      "family": "yaml",
+      "language": "yaml",
+      "dialect": "yaml",
+      "scenario": "comments, anchors, aliases, tags, documents, and sequence layout",
+      "workflow_provider": {"provider_id": "ruby.yaml.psych", "role": "backend", "package": "psych-merge", "version": null, "capabilities": ["analyze", "native_extensions", "source_preserving"]},
+      "parser_backend": {"backend_id": "psych", "backend_family": "native", "package": "psych", "version": null, "parser": "Psych", "capabilities": ["aliases", "anchors", "documents", "native_extensions", "tags"]},
+      "inputs": [{"kind": "local_fixture", "path": "yaml/slice-721-formatting-preservation/comments-anchors-documents-sequences.json", "byte_length": 1084, "sha256": "1c3c9dae1956bd03335f8095b545b69e6c6840b0e09a0097a2a41467ebd7be76"}],
+      "candidate_artifacts": [],
+      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/ruby-psych/v1", "namespace": "ruby-psych", "capabilities": ["aliases", "anchors", "documents", "scalar-styles", "tags"], "opaque_forwarding": true}], "operation_artifacts": ["merge2"]},
+      "producer": null,
+      "replay": null,
+      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "merge2_result", "extension_payload", "deterministic_replay"]}
+    },
+    {
+      "snapshot_id": "snapshot.rbs.native",
+      "state": "pending",
+      "family": "rbs",
+      "language": "rbs",
+      "dialect": "rbs",
+      "scenario": "class and method type declaration",
+      "workflow_provider": {"provider_id": "ruby.rbs", "role": "workflow", "package": "rbs-merge", "version": null, "capabilities": ["analyze", "multiple_parser_backends", "source_preserving"]},
+      "parser_backend": {"backend_id": "rbs", "backend_family": "native", "package": "rbs", "version": null, "parser": "RBS::Parser", "capabilities": ["native_extensions", "source_spans", "type_nodes"]},
+      "inputs": [{"kind": "inline_source", "source_id": "fixture.rbs.class-method", "content": "class User\n  def name: () -> String\nend\n", "byte_length": 40, "sha256": "be5a01b288bd03cf5f3da42c222836acd3c2a357a788bfe668391cb22e60cd40"}],
+      "candidate_artifacts": [],
+      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/ruby-rbs/v1", "namespace": "ruby-rbs", "capabilities": ["declaration-kinds", "method-types", "type-nodes"], "opaque_forwarding": true}], "operation_artifacts": []},
+      "producer": null,
+      "replay": null,
+      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "extension_payload", "deterministic_replay"]}
+    },
+    {
+      "snapshot_id": "snapshot.markdown.markly",
+      "state": "pending",
+      "family": "markdown",
+      "language": "markdown",
+      "dialect": "markdown",
+      "scenario": "headings, lists, tables, fences, links, frontmatter, and comments",
+      "workflow_provider": {"provider_id": "ruby.markdown.markly", "role": "backend", "package": "markly-merge", "version": null, "capabilities": ["analyze", "native_extensions", "source_preserving"]},
+      "parser_backend": {"backend_id": "markly", "backend_family": "native", "package": "markly", "version": null, "parser": "Markly", "capabilities": ["attributes", "native_extensions", "source_positions"]},
+      "inputs": [{"kind": "local_fixture", "path": "markdown/slice-721-provider-parity/headings-lists-tables-fences-links-frontmatter-comments.json", "byte_length": 879, "sha256": "740641c78b493f58823754a0289ceb2b51281e822aa8eaed73b1e4eda2489d74"}],
+      "candidate_artifacts": [],
+      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/ruby-markly/v1", "namespace": "ruby-markly", "capabilities": ["attributes", "block-kinds", "source-positions"], "opaque_forwarding": true}], "operation_artifacts": ["merge2"]},
+      "producer": null,
+      "replay": null,
+      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "merge2_result", "extension_payload", "deterministic_replay"]}
+    },
+    {
+      "snapshot_id": "snapshot.toml.tslp",
+      "state": "pending",
+      "family": "toml",
+      "language": "toml",
+      "dialect": "toml",
+      "scenario": "dotted keys, inline comments, tables, and arrays",
+      "workflow_provider": {"provider_id": "ruby.toml", "role": "workflow", "package": "toml-merge", "version": null, "capabilities": ["analyze", "source_preserving"]},
+      "parser_backend": {"backend_id": "tslp", "backend_family": "tree-sitter", "package": "tree_sitter_language_pack", "version": null, "parser": "tree-sitter-toml", "capabilities": ["exact_source_spans", "normalized_tree", "native_extensions"]},
+      "inputs": [{"kind": "local_fixture", "path": "toml/slice-721-formatting-preservation/dotted-inline-comments-arrays.json", "byte_length": 1109, "sha256": "499a0ab286fb0fa054a5eee87c7c6708041bc229b2ea4eea8668ad0b379a33fe"}],
+      "candidate_artifacts": [],
+      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/tree-sitter/v1", "namespace": "tree-sitter", "capabilities": ["grammar-node-types"], "opaque_forwarding": true}], "operation_artifacts": ["merge2"]},
+      "producer": null,
+      "replay": null,
+      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "merge2_result", "extension_payload", "deterministic_replay"]}
+    },
+    {
+      "snapshot_id": "snapshot.yaml.tslp",
+      "state": "pending",
+      "family": "yaml",
+      "language": "yaml",
+      "dialect": "yaml",
+      "scenario": "TSLP projection of comments, anchors, aliases, documents, and sequences",
+      "workflow_provider": {"provider_id": "ruby.yaml", "role": "workflow", "package": "yaml-merge", "version": null, "capabilities": ["analyze", "source_preserving"]},
+      "parser_backend": {"backend_id": "tslp", "backend_family": "tree-sitter", "package": "tree_sitter_language_pack", "version": null, "parser": "tree-sitter-yaml", "capabilities": ["exact_source_spans", "normalized_tree", "native_extensions"]},
+      "inputs": [{"kind": "local_fixture", "path": "yaml/slice-721-formatting-preservation/comments-anchors-documents-sequences.json", "byte_length": 1084, "sha256": "1c3c9dae1956bd03335f8095b545b69e6c6840b0e09a0097a2a41467ebd7be76"}],
+      "candidate_artifacts": [],
+      "capture_requirements": {"normalized_schemas": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"], "extension_requirements": [{"schema": "structuredmerge.extension/tree-sitter/v1", "namespace": "tree-sitter", "capabilities": ["grammar-node-types"], "opaque_forwarding": true}], "operation_artifacts": ["merge2"]},
+      "producer": null,
+      "replay": null,
+      "admission": {"satisfies_required_target": false, "reason": "awaiting pinned Ruby GM capture", "missing": ["producer", "parse_request", "parse_result", "analysis_result", "merge2_result", "extension_payload", "deterministic_replay"]}
+    }
+  ],
+  "invalid_examples": [
+    {"id": "hand-authored-as-observed", "mutation": "mark a reviewed expectation observed without producer capture", "rejected_by": "observed_provenance"},
+    {"id": "dirty-unaccounted-producer", "mutation": "capture from a dirty Ruby tree without content-addressing and review", "rejected_by": "clean_producer"},
+    {"id": "provider-backend-conflation", "mutation": "store tslp as the workflow provider ID", "rejected_by": "selection_layers"},
+    {"id": "artifact-digest-mismatch", "mutation": "referenced artifact bytes do not match SHA-256", "rejected_by": "artifact_integrity"},
+    {"id": "escaping-artifact-path", "mutation": "artifact path escapes the fixture repository", "rejected_by": "local_path_safety"},
+    {"id": "single-run-observed", "mutation": "admit observed after one capture run", "rejected_by": "deterministic_replay"},
+    {"id": "nondeterministic-node-order", "mutation": "exclude node ordering from replay comparison", "rejected_by": "deterministic_replay"},
+    {"id": "native-extension-dropped", "mutation": "normalize a native provider without retaining declared extension facts", "rejected_by": "extension_retention"},
+    {"id": "unknown-extension-not-forwarded", "mutation": "a compatible forwarder removes an unknown extension field", "rejected_by": "opaque_forwarding"},
+    {"id": "native-object-in-portable-payload", "mutation": "serialize a process-local parser object or pointer", "rejected_by": "portable_transport"},
+    {"id": "provisional-counted-complete", "mutation": "count provisional rows as satisfying the observed matrix", "rejected_by": "admission_state"},
+    {"id": "network-dependent-replay", "mutation": "validation fetches a remote artifact not materialized in the corpus", "rejected_by": "offline_replay"}
+  ],
+  "summary": {
+    "required_target_count": 7,
+    "row_count": 7,
+    "observed_count": 0,
+    "provisional_count": 2,
+    "pending_count": 5,
+    "rejected_count": 0,
+    "native_target_count": 4,
+    "tree_sitter_target_count": 3,
+    "invalid_example_count": 12,
+    "matrix_complete": false,
+    "native_extensions_required": true,
+    "provisional_satisfies_observed": false
+  }
+}

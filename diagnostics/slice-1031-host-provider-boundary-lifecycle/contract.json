@@ -1,0 +1,177 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1031",
+  "name": "host-provider-boundary-lifecycle",
+  "description": "Alef host providers use bounded coarse batches, immutable registry snapshots, runtime-affine dispatch, and lease-safe teardown.",
+  "alef_revision": "eebd7619b9c8217b16d2ee9b287738ce6c97dda9",
+  "composed_alef_mechanics": [
+    "required_method_validation",
+    "opaque_host_object_wrapper",
+    "arc_dyn_trait_registration",
+    "configured_registry_getter",
+    "unregister_function",
+    "clear_function",
+    "ffi_vtable_user_data_drop"
+  ],
+  "host_interfaces": [
+    {
+      "provider_kind": "parser",
+      "methods": ["descriptor", "probe_batch", "parse_batch"],
+      "maximum_semantic_calls_per_batch": 1,
+      "per_node_callbacks": false,
+      "result_schemas": ["structuredmerge.parse-result/v1"]
+    },
+    {
+      "provider_kind": "workflow",
+      "methods": ["descriptor", "execute_batch"],
+      "maximum_semantic_calls_per_batch": 1,
+      "per_node_callbacks": false,
+      "result_schemas": ["https://structuredmerge.org/schemas/provider-result/v1.json"]
+    }
+  ],
+  "handshake": {
+    "required_fields": [
+      "protocol_versions",
+      "semantic_schema_versions",
+      "codecs",
+      "inline_byte_limit",
+      "batch_byte_limit",
+      "detached_blob_support",
+      "cancellation_granularity",
+      "threading",
+      "reentrancy"
+    ],
+    "compression_default": "disabled",
+    "codec_fixed": false,
+    "prototype_candidates": ["generated_typed_values", "canonical_json_with_detached_bytes"]
+  },
+  "frame": {
+    "required_fields": ["protocol_version", "codec", "semantic_schema", "batch_id", "payload_byte_length", "sha256"],
+    "validation_order": ["header", "limits_before_allocation", "payload_length", "sha256", "schema", "batch_identity", "item_identities", "payload_decode"],
+    "source_bytes": "byte_field_or_verified_detached_local_blob",
+    "network_fetch": false,
+    "trailing_bytes_allowed": false
+  },
+  "registration_steps": [
+    "validate_required_methods",
+    "invoke_descriptor_on_runtime_executor",
+    "validate_identity_kind_contracts_capabilities_limits",
+    "reject_duplicate_or_validate_atomic_replacement_generation",
+    "create_bridge_and_runtime_executor",
+    "insert_arc_dyn_provider",
+    "publish_immutable_registry_generation"
+  ],
+  "lifecycle": {
+    "states": ["constructing", "registered", "retired", "draining", "finalized", "unavailable"],
+    "transitions": [
+      {"from": "constructing", "event": "registration_validated", "to": "registered"},
+      {"from": "constructing", "event": "registration_failed", "to": "finalized"},
+      {"from": "registered", "event": "unregister", "to": "retired"},
+      {"from": "registered", "event": "runtime_health_failed", "to": "unavailable"},
+      {"from": "unavailable", "event": "unregister", "to": "retired"},
+      {"from": "retired", "event": "last_snapshot_released", "to": "draining"},
+      {"from": "draining", "event": "last_call_and_blob_lease_released", "to": "finalized"}
+    ],
+    "future_snapshots_exclude": ["retired", "draining", "finalized", "unavailable"],
+    "old_snapshots_may_finish_with": ["retired"],
+    "finalization_executor": "owning_runtime",
+    "free_user_data_count": 1,
+    "clear_scope": ["controlled_test_reset", "process_shutdown"]
+  },
+  "runtime_contract": {
+    "dispatch_modes": ["serialized", "concurrent", "runtime_affine"],
+    "wrapper_may_be_send_sync": true,
+    "host_object_assumed_send_sync": false,
+    "callbacks_under_registry_lock": false,
+    "callbacks_under_source_store_lock": false,
+    "self_registry_mutation_during_callback": false,
+    "reentrancy_default": false
+  },
+  "ownership": {
+    "requests_and_results": "owned",
+    "source_bytes": "immutable_content_addressed",
+    "registry_snapshot_provider_reference": "strong",
+    "detached_blob_lease": "read_until_result_validation",
+    "native_tree": "host_owned",
+    "native_tree_in_portable_payload": false,
+    "opaque_host_lease_default": "disabled",
+    "caller_source_paths_deleted_by_cleanup": false
+  },
+  "execution_control": {
+    "fields": ["absolute_deadline", "cancellation_token", "input_byte_limit", "output_byte_limit", "batch_item_limit", "diagnostic_limit", "conflict_limit", "resource_guidance"],
+    "checks": ["before_enqueue", "before_host_invocation", "between_batch_items_when_supported", "after_return"],
+    "cancellation": "cooperative",
+    "running_host_state_freed_on_cancel": false,
+    "oversized_frame_rejected_before_full_allocation": true,
+    "oversized_output_truncated": false
+  },
+  "failure_layers": [
+    "registration_handshake",
+    "runtime_or_provider_unavailable",
+    "enqueue_dispatch",
+    "codec_frame_schema",
+    "provider_operation",
+    "panic_host_exception_process_loss",
+    "cancellation_deadline_resource"
+  ],
+  "error_fidelity": {
+    "valid_provider_result_is_authoritative": true,
+    "provider_diagnostics_forwarded": true,
+    "provider_conflicts_forwarded": true,
+    "provider_preservation_forwarded": true,
+    "transport_failure_fabricates_merge_output": false,
+    "native_exception_message_is_stable_code": false,
+    "debug_backtrace_default": "redacted"
+  },
+  "shutdown": {
+    "steps": ["stop_registration_and_dispatch", "publish_host_free_registries", "request_cancellation", "bounded_drain", "runtime_affine_finalization", "lease_accounting"],
+    "idempotent": true,
+    "registration_during_shutdown": "rejected",
+    "forced_shutdown_reported_as_clean": false
+  },
+  "prototype_gate": [
+    "registration_and_descriptor_validation",
+    "crlf_and_non_ascii_exact_bytes",
+    "provider_parse_conflict_preservation_failures",
+    "host_exception_and_malformed_oversized_results",
+    "multi_worker_runtime_affinity",
+    "cancellation_before_during_after_dispatch",
+    "unregister_and_replace_in_flight",
+    "exactly_once_finalization_clear_shutdown",
+    "unknown_extension_round_trip",
+    "callback_copy_and_serialization_measurement"
+  ],
+  "invalid_examples": [
+    {"id": "per-node-callback", "mutation": "dispatch once per normalized node", "rejected_by": "coarse_batch_boundary"},
+    {"id": "descriptor-mutates-after-probe", "mutation": "probe changes stable identity or capabilities", "rejected_by": "registration_identity"},
+    {"id": "callback-under-registry-lock", "mutation": "invoke Ruby while holding registry write lock", "rejected_by": "lock_discipline"},
+    {"id": "arbitrary-worker-ruby-call", "mutation": "dereference a Ruby object on an arbitrary Rust worker", "rejected_by": "runtime_affinity"},
+    {"id": "early-host-object-drop", "mutation": "drop host object while an old registry snapshot still holds the provider", "rejected_by": "snapshot_lease"},
+    {"id": "double-free-user-data", "mutation": "clear and Drop both free C user_data", "rejected_by": "exactly_once_finalization"},
+    {"id": "unbounded-frame-allocation", "mutation": "allocate claimed payload before checking limits", "rejected_by": "frame_limits"},
+    {"id": "source-through-json-string-normalization", "mutation": "transcode or normalize source bytes while encoding JSON", "rejected_by": "exact_source_bytes"},
+    {"id": "remote-detached-blob", "mutation": "fetch a source blob over the network during dispatch", "rejected_by": "local_offline_blobs"},
+    {"id": "frame-identity-mismatch", "mutation": "accept response batch or item IDs from another request", "rejected_by": "identity_validation"},
+    {"id": "provider-error-erased", "mutation": "replace a valid provider conflict with a bridge exception", "rejected_by": "error_fidelity"},
+    {"id": "transport-failure-output", "mutation": "fabricate merged output after host process loss", "rejected_by": "fail_closed"},
+    {"id": "runtime-loss-hidden-fallback", "mutation": "silently use TSLP after required Psych host loss", "rejected_by": "fail_closed"},
+    {"id": "cancel-frees-running-state", "mutation": "free host state while callback continues", "rejected_by": "cooperative_cancellation"},
+    {"id": "truncated-oversized-result", "mutation": "truncate output into syntactically valid partial data", "rejected_by": "output_integrity"},
+    {"id": "forced-shutdown-called-clean", "mutation": "report clean finalization after drain timeout and forced runtime termination", "rejected_by": "shutdown_fidelity"},
+    {"id": "abi-fixed-before-measurement", "mutation": "publish stable codec before the prototype gate and overhead comparison", "rejected_by": "prototype_gate"}
+  ],
+  "expected": {
+    "host_interface_count": 2,
+    "lifecycle_state_count": 6,
+    "lifecycle_transition_count": 7,
+    "failure_layer_count": 7,
+    "prototype_gate_count": 10,
+    "invalid_example_count": 17,
+    "maximum_host_semantic_calls_per_batch": 1,
+    "codec_fixed": false,
+    "callbacks_hold_registry_lock": false,
+    "host_objects_portable": false,
+    "free_user_data_count": 1,
+    "implementation_complete": false
+  }
+}

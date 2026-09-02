@@ -105,6 +105,15 @@
       ]
     },
     {
+      "path_prefix": "crates/json-merge/",
+      "capabilities": [
+        "json",
+        "json5",
+        "jsonc",
+        "metamorphic"
+      ]
+    },
+    {
       "path_prefix": "gems/prism-merge/",
       "capabilities": [
         "prism",

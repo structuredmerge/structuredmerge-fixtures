@@ -1,0 +1,27 @@
+{
+  "schema_version": "structuredmerge.benchmark.provider-comparison/v1",
+  "fixture": "case.merge3.python.generic-independent-functions.v1",
+  "expected_sha256": "9ad138495db24a8d579af0777aa3dd0e44021564a0b5a3d11d106c7c9accaeb5",
+  "repositories": {
+    "ruby": "f788cec4fddffe77cc3f8641895cf3bab58b7440",
+    "rust": "bb6bf563abefe74d957cfb9edbbd2e558823ff34"
+  },
+  "providers": {
+    "rust.generic.tslp": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "status": "experimental",
+      "result": "exact",
+      "output_sha256": "9ad138495db24a8d579af0777aa3dd0e44021564a0b5a3d11d106c7c9accaeb5"
+    },
+    "ruby.python": {
+      "status": "not_available",
+      "result": "not_compared",
+      "reason": "The Ruby golden master has no Python merge provider."
+    }
+  },
+  "notes": [
+    "The exact oracle establishes fixture correctness but not cross-runtime parity.",
+    "Additional TSLP grammars require individual admission evidence before descriptor advertisement."
+  ]
+}

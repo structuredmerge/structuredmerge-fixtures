@@ -1,0 +1,73 @@
+{
+  "schema_version": "structuredmerge.benchmark.baseline-manifest/v1",
+  "baseline_id": "rust-generic-python-vertical-slice-2026-09-02",
+  "fixture_revision": "9ce80c1f05dd026c6874bec80638a1acf0225137",
+  "ruby_revision": "f788cec4fddffe77cc3f8641895cf3bab58b7440",
+  "rust_revision": "bb6bf563abefe74d957cfb9edbbd2e558823ff34",
+  "commands": {
+    "micro": "ast-merge-git benchmark report --profile micro --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "dev": "ast-merge-git benchmark report --profile dev --changed-path crates/generic-merge/src/lib.rs --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "ruby_gm": "ast-merge-git benchmark report --profile micro --workers 4"
+  },
+  "outcomes": {
+    "rust_micro": {
+      "selected_cases": 16,
+      "executed_candidate_cases": 16,
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "rust_dev": {
+      "selected_cases": 19,
+      "executed_candidate_cases": 17,
+      "direct_case_ids": [
+        "case.merge3.python.generic-independent-functions.v1"
+      ],
+      "unsupported_case_ids": [
+        "case.merge3.yaml.delete-modify.v1",
+        "case.merge3.toml.independent-tables.v1"
+      ],
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "ruby_micro": {
+      "selected_cases": 16,
+      "executed_candidate_cases": 16,
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "provider_comparison": {
+      "rust.generic.tslp": "exact",
+      "ruby.python": "not_available"
+    }
+  },
+  "scope": {
+    "operation": "merge3",
+    "status": "experimental",
+    "admitted_languages": [
+      "python"
+    ],
+    "supported_subset": "same ordered uniquely named top-level nodes with one direct name field and unchanged source outside owners",
+    "source_preserving": true,
+    "merge2_supported": false,
+    "membership_changes_supported": false,
+    "unnamed_top_level_nodes_supported": false,
+    "unsupported_syntax_fails_closed": true,
+    "ruby_provider_available": false,
+    "cross_runtime_parity_claimed": false,
+    "intentional_contract_changes": 0
+  },
+  "artifacts": {
+    "micro-run.json": "bb534001b3a323954118a5bd5b9139684bb8b4223cfdf276db56c5950b1ece9c",
+    "micro-report.json": "b4b45c2a72c5fe41f363446f927adce9dccb6fc8aa88440f0780d500bc9783a0",
+    "dev-run.json": "d24b6e67bab379c02c5c1b8aa39c278fcf7e1a98643bccd24eb21c859461ec4a",
+    "dev-report.json": "33ea5e910473aaadaa7dca4f4c6a78ea9831cc3b4dcc3dd3c8898b5d420d0b40",
+    "ruby-gm-report.json": "3717d479fcbb8dc8d624d1c6329869790a8e1331e85aa8ac4030f6ef13cb4f00",
+    "provider-comparison.json": "673bdb33f21b0c819e763c2097914dcb277350d1b5e291e9d2873766c4b7de7c"
+  }
+}

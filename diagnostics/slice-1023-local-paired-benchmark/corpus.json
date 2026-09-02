@@ -26,6 +26,7 @@
         "case.merge3.json.malformed-ours.v1",
         "case.merge2.jsonc.current-layout-preservation.v1",
         "case.merge2.yaml.nested-mapping-leaf.v1",
+        "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.json.duplicate-identity.v1"
@@ -33,7 +34,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 20,
-        "case_count": 8,
+        "case_count": 9,
         "output_bytes": 1048576
       }
     },
@@ -46,6 +47,7 @@
         "case.merge3.json.malformed-ours.v1",
         "case.merge2.jsonc.current-layout-preservation.v1",
         "case.merge2.yaml.nested-mapping-leaf.v1",
+        "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.json.duplicate-identity.v1"
@@ -53,7 +55,7 @@
       "neighbor_count": 2,
       "budgets": {
         "wall_seconds": 120,
-        "case_count": 17,
+        "case_count": 18,
         "output_bytes": 8388608
       }
     },
@@ -66,6 +68,7 @@
         "case.merge3.json.malformed-ours.v1",
         "case.merge2.jsonc.current-layout-preservation.v1",
         "case.merge2.yaml.nested-mapping-leaf.v1",
+        "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.json.duplicate-identity.v1"
@@ -73,7 +76,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 600,
-        "case_count": 17,
+        "case_count": 18,
         "output_bytes": 33554432
       }
     },
@@ -86,6 +89,7 @@
         "case.merge3.json.malformed-ours.v1",
         "case.merge2.jsonc.current-layout-preservation.v1",
         "case.merge2.yaml.nested-mapping-leaf.v1",
+        "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.json.duplicate-identity.v1"
@@ -93,7 +97,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 1200,
-        "case_count": 17,
+        "case_count": 18,
         "output_bytes": 67108864
       }
     }
@@ -724,6 +728,109 @@
           "mode": "inline",
           "bytes": "patient:\n  demographics:\n    name:\n      given: Pat\n      family: Destination\n    contact:\n      email: destination@example.test\n      phone: 555-0100\n  care_plan:\n    status: active\n    goals:\n      mobility: walk with assistance\n      nutrition: low sodium\n",
           "sha256": "58072ea3c8d1074c8fd0950497a6702a75b497a2a88d9be3885c318dd50332e3"
+        }
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [
+        {
+          "id": "incoming.add-missing-leaves",
+          "side": "incoming",
+          "path": "/patient"
+        },
+        {
+          "id": "current.retain-owned-leaves",
+          "side": "current",
+          "path": "/patient"
+        }
+      ],
+      "independent_edit_ids": [
+        "incoming.add-missing-leaves",
+        "current.retain-owned-leaves"
+      ]
+    },
+    {
+      "schema_version": "structuredmerge.benchmark/v1",
+      "kind": "benchmark_case",
+      "id": "case.merge2.toml.nested-table-leaf.v1",
+      "operation": "merge2",
+      "family": "toml",
+      "provider": "ruby.toml",
+      "dialect": "toml",
+      "capabilities": [
+        "merge2",
+        "nested_tables",
+        "source_preserving",
+        "structural_paths"
+      ],
+      "partition": "sentinel",
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures/tree/main/toml/slice-720-advanced-leaf-merge",
+        "revision": "slice-720",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Promoted from the shared Slice 720 nested-table leaf fixture exercised by the Ruby GM and Rust TSLP TOML substrate."
+      },
+      "oracle": {
+        "class": "exact",
+        "artifact": {
+          "mode": "inline",
+          "bytes": "[patient.demographics.name]\ngiven = \"Pat\"\nfamily = \"Destination\"\n\n[patient.demographics.contact]\nemail = \"destination@example.test\"\nphone = \"555-0100\"\n\n[patient.care_plan]\nstatus = \"active\"\n\n[patient.care_plan.goals]\nmobility = \"walk with assistance\"\nnutrition = \"low sodium\"\n",
+          "sha256": "1ab90687670a00a6102d74fd41b9de10e3b7b4a122fd20bcf84f6da8e49c5336"
+        },
+        "admission": "reviewed",
+        "score_eligible": true,
+        "procedure": "Require exact source-preserving recursive table output from the Ruby golden master and cross-runtime candidates."
+      },
+      "acceptable_equivalence": [
+        {
+          "class": "exact_bytes"
+        },
+        {
+          "class": "structural_ast",
+          "provider": "ruby.toml",
+          "required": true
+        }
+      ],
+      "preservation_policy": {
+        "comments": "not_applicable",
+        "formatting": "required",
+        "order": "required",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "false_auto_merge_severity": "high",
+      "selector": {
+        "provider_id": "ruby.toml",
+        "family": "toml",
+        "dialect": "toml",
+        "backend": "kreuzberg-language-pack",
+        "profile": "source_preserving",
+        "require": "toml/merge"
+      },
+      "inputs": {
+        "incoming": {
+          "mode": "inline",
+          "bytes": "[patient.demographics.name]\ngiven = \"Pat\"\nfamily = \"Template\"\n\n[patient.demographics.contact]\nemail = \"template@example.test\"\nphone = \"555-0100\"\n\n[patient.care_plan]\nstatus = \"draft\"\n\n[patient.care_plan.goals]\nmobility = \"walk daily\"\nnutrition = \"low sodium\"\n",
+          "sha256": "ccd03872392d4ac2f9ed5a402996798329e254b6e97a261134eb17382b348252"
+        },
+        "current": {
+          "mode": "inline",
+          "bytes": "[patient.demographics.name]\nfamily = \"Destination\"\n\n[patient.demographics.contact]\nemail = \"destination@example.test\"\n\n[patient.care_plan]\nstatus = \"active\"\n\n[patient.care_plan.goals]\nmobility = \"walk with assistance\"\n",
+          "sha256": "69eb1b80416dbc068fbcb48446c9764455c28b71f81f4428f5df7fd00813a843"
+        }
+      },
+      "expected": {
+        "outcome": "clean",
+        "output": {
+          "mode": "inline",
+          "bytes": "[patient.demographics.name]\ngiven = \"Pat\"\nfamily = \"Destination\"\n\n[patient.demographics.contact]\nemail = \"destination@example.test\"\nphone = \"555-0100\"\n\n[patient.care_plan]\nstatus = \"active\"\n\n[patient.care_plan.goals]\nmobility = \"walk with assistance\"\nnutrition = \"low sodium\"\n",
+          "sha256": "1ab90687670a00a6102d74fd41b9de10e3b7b4a122fd20bcf84f6da8e49c5336"
         }
       },
       "expected_conflicts": false,
@@ -2065,14 +2172,14 @@
     }
   ],
   "expected_summary": {
-    "case_count": 17,
+    "case_count": 18,
     "partition_counts": {
-      "sentinel": 8,
+      "sentinel": 9,
       "gold": 7,
       "metamorphic": 2
     },
     "operation_counts": {
-      "merge2": 2,
+      "merge2": 3,
       "merge3": 13,
       "metamorphic": 2
     },
@@ -2092,6 +2199,7 @@
       "case.merge3.json.malformed-ours.v1",
       "case.merge2.jsonc.current-layout-preservation.v1",
       "case.merge2.yaml.nested-mapping-leaf.v1",
+      "case.merge2.toml.nested-table-leaf.v1",
       "case.merge3.jsonc.comment-preservation.v1",
       "case.merge3.json5.order-format.v1",
       "case.merge3.json.duplicate-identity.v1"

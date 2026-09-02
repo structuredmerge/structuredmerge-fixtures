@@ -1,0 +1,470 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1027",
+  "name": "source-preservation-byte-evidence",
+  "description": "Exact byte partitions prove source retention and distinguish authorized synthesis from preserved source.",
+  "contract": {
+    "schemas": {
+      "policy": "structuredmerge.preservation-policy/v1",
+      "evidence": "structuredmerge.preservation-evidence/v1"
+    },
+    "requirements": [
+      "required",
+      "allowed_to_change",
+      "not_applicable"
+    ],
+    "observed_states": [
+      "preserved",
+      "changed",
+      "not_applicable",
+      "unverified"
+    ],
+    "statuses": [
+      "passed",
+      "failed",
+      "not_applicable",
+      "unverified"
+    ],
+    "segment_kinds": [
+      "source",
+      "synthesized",
+      "conflict_marker"
+    ],
+    "portable_properties": [
+      "comments",
+      "formatting",
+      "blank_line_gaps",
+      "order",
+      "lexical_style",
+      "encoding",
+      "line_endings",
+      "final_newline",
+      "unknown_fields",
+      "unknown_syntax",
+      "source_regions"
+    ],
+    "range_unit": "byte",
+    "range_end": "exclusive",
+    "digest": "sha256",
+    "output_partition": "ordered_contiguous_non_overlapping_complete",
+    "success_requires": [
+      "all_descriptors_verify",
+      "complete_output_partition",
+      "byte_equal_source_segments",
+      "authorized_synthesized_segments",
+      "protected_regions_accounted_for",
+      "all_required_properties_pass",
+      "no_blocking_preservation_diagnostics"
+    ],
+    "scalar_score": false
+  },
+  "cases": [
+    {
+      "case_id": "compose-current-layout-with-incoming-value",
+      "operation": "merge2",
+      "policy": {
+        "schema": "structuredmerge.preservation-policy/v1",
+        "policy_id": "policy.current-layout",
+        "properties": {
+          "comments": "required",
+          "formatting": "required",
+          "blank_line_gaps": "required",
+          "order": "required",
+          "lexical_style": "required",
+          "encoding": "required",
+          "line_endings": "required",
+          "final_newline": "required",
+          "unknown_fields": "required",
+          "unknown_syntax": "not_applicable",
+          "source_regions": "required"
+        },
+        "protected_regions": [
+          {
+            "region_id": "comment.local-note",
+            "source_id": "source.current",
+            "source_range": {"start_byte": 5, "end_byte": 18}
+          },
+          {
+            "region_id": "gap.before-managed",
+            "source_id": "source.current",
+            "source_range": {"start_byte": 20, "end_byte": 22}
+          },
+          {
+            "region_id": "field.local",
+            "source_id": "source.current",
+            "source_range": {"start_byte": 39, "end_byte": 54}
+          }
+        ]
+      },
+      "sources": [
+        {
+          "source_id": "source.incoming",
+          "role": "incoming",
+          "content": "{\n  \"managed\": 2\n}\n",
+          "byte_length": 19,
+          "sha256": "a962c02e05ec6a985081b62201e4adeec98167fd10316bf7e597893ab1e1c89f",
+          "encoding": "UTF-8",
+          "bom": false,
+          "line_endings": {"lf": 3, "crlf": 0, "cr": 0},
+          "final_newline": true
+        },
+        {
+          "source_id": "source.current",
+          "role": "current",
+          "content": "{\r\n  // local note\r\n\r\n  \"managed\": 1,\r\n  \"local\": true\r\n}\r\n",
+          "byte_length": 59,
+          "sha256": "8b5e24ed56cb428bc7fc6f8027c69be860244e44a27d87a22eee0675e1591030",
+          "encoding": "UTF-8",
+          "bom": false,
+          "line_endings": {"lf": 0, "crlf": 6, "cr": 0},
+          "final_newline": true
+        }
+      ],
+      "output": {
+        "output_id": "output.composed",
+        "role": "output",
+        "content": "{\r\n  // local note\r\n\r\n  \"managed\": 2,\r\n  \"local\": true\r\n}\r\n",
+        "byte_length": 59,
+        "sha256": "0b65c0e19aa851b45ce8393cc288d667de2f60cd6a3581be95137726418741aa",
+        "encoding": "UTF-8",
+        "bom": false,
+        "line_endings": {"lf": 0, "crlf": 6, "cr": 0},
+        "final_newline": true
+      },
+      "evidence": {
+        "schema": "structuredmerge.preservation-evidence/v1",
+        "evidence_id": "evidence.composed",
+        "policy_id": "policy.current-layout",
+        "ok": true,
+        "output_partition": [
+          {
+            "segment_id": "segment.current-prefix",
+            "kind": "source",
+            "source_id": "source.current",
+            "source_role": "current",
+            "source_range": {"start_byte": 0, "end_byte": 35},
+            "output_range": {"start_byte": 0, "end_byte": 35},
+            "byte_length": 35,
+            "source_sha256": "593cf8d751b61062ab1536e623616bb6f3cdd2d43d1a83ce8c0417f927a9aa7b",
+            "output_sha256": "593cf8d751b61062ab1536e623616bb6f3cdd2d43d1a83ce8c0417f927a9aa7b",
+            "equality": "byte_exact",
+            "render_fragment_id": "render.current-prefix"
+          },
+          {
+            "segment_id": "segment.incoming-value",
+            "kind": "source",
+            "source_id": "source.incoming",
+            "source_role": "incoming",
+            "source_range": {"start_byte": 15, "end_byte": 16},
+            "output_range": {"start_byte": 35, "end_byte": 36},
+            "byte_length": 1,
+            "source_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+            "output_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+            "equality": "byte_exact",
+            "render_fragment_id": "render.incoming-value",
+            "decision_id": "change.managed-value"
+          },
+          {
+            "segment_id": "segment.current-suffix",
+            "kind": "source",
+            "source_id": "source.current",
+            "source_role": "current",
+            "source_range": {"start_byte": 36, "end_byte": 59},
+            "output_range": {"start_byte": 36, "end_byte": 59},
+            "byte_length": 23,
+            "source_sha256": "be3f482dcba69d92aeae52094816774c61aeb56d93dd7f6f85d243fd46a55881",
+            "output_sha256": "be3f482dcba69d92aeae52094816774c61aeb56d93dd7f6f85d243fd46a55881",
+            "equality": "byte_exact",
+            "render_fragment_id": "render.current-suffix"
+          }
+        ],
+        "region_claims": [
+          {
+            "claim_id": "claim.comment.local-note",
+            "property": "comments",
+            "analysis_region_id": "comment.local-note",
+            "source_id": "source.current",
+            "source_range": {"start_byte": 5, "end_byte": 18},
+            "output_range": {"start_byte": 5, "end_byte": 18},
+            "byte_length": 13,
+            "source_sha256": "e16899d893f25003b5097ef76d1a75e83dabaf7866742f835c8b667cfe704f8c",
+            "output_sha256": "e16899d893f25003b5097ef76d1a75e83dabaf7866742f835c8b667cfe704f8c",
+            "equality": "byte_exact"
+          },
+          {
+            "claim_id": "claim.gap.before-managed",
+            "property": "blank_line_gaps",
+            "analysis_region_id": "gap.before-managed",
+            "source_id": "source.current",
+            "source_range": {"start_byte": 20, "end_byte": 22},
+            "output_range": {"start_byte": 20, "end_byte": 22},
+            "byte_length": 2,
+            "source_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+            "output_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+            "equality": "byte_exact"
+          },
+          {
+            "claim_id": "claim.field.local",
+            "property": "unknown_fields",
+            "analysis_region_id": "field.local",
+            "source_id": "source.current",
+            "source_range": {"start_byte": 39, "end_byte": 54},
+            "output_range": {"start_byte": 39, "end_byte": 54},
+            "byte_length": 15,
+            "source_sha256": "7e6d810b8ad2f71b1e95ab1a23f50027ace184b5fef6bed6fcbcb303211c8706",
+            "output_sha256": "7e6d810b8ad2f71b1e95ab1a23f50027ace184b5fef6bed6fcbcb303211c8706",
+            "equality": "byte_exact"
+          },
+          {
+            "claim_id": "claim.final-newline",
+            "property": "final_newline",
+            "source_id": "source.current",
+            "source_range": {"start_byte": 57, "end_byte": 59},
+            "output_range": {"start_byte": 57, "end_byte": 59},
+            "byte_length": 2,
+            "source_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+            "output_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+            "equality": "byte_exact"
+          }
+        ],
+        "source_dispositions": [
+          {
+            "disposition_id": "disposition.old-managed-value",
+            "source_id": "source.current",
+            "source_role": "current",
+            "source_range": {"start_byte": 35, "end_byte": 36},
+            "byte_length": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "disposition": "superseded",
+            "decision_id": "change.managed-value",
+            "authorization": "directional-managed-value-policy",
+            "reason": "incoming owns the managed value"
+          }
+        ],
+        "property_results": [
+          {"property": "comments", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["claim.comment.local-note"]},
+          {"property": "formatting", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.current-prefix", "segment.current-suffix"]},
+          {"property": "blank_line_gaps", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["claim.gap.before-managed"]},
+          {"property": "order", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.current-prefix", "segment.current-suffix"]},
+          {"property": "lexical_style", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.current-prefix", "segment.current-suffix"]},
+          {"property": "encoding", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.current-prefix", "segment.current-suffix"]},
+          {"property": "line_endings", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.current-prefix", "segment.current-suffix", "claim.gap.before-managed"]},
+          {"property": "final_newline", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["claim.final-newline"]},
+          {"property": "unknown_fields", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["claim.field.local"]},
+          {"property": "unknown_syntax", "requirement": "not_applicable", "observed": "not_applicable", "status": "not_applicable", "evidence_ids": []},
+          {"property": "source_regions", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.current-prefix", "segment.incoming-value", "segment.current-suffix"]}
+        ],
+        "diagnostics": []
+      }
+    },
+    {
+      "case_id": "authorized-synthesized-member",
+      "operation": "merge2",
+      "policy": {
+        "schema": "structuredmerge.preservation-policy/v1",
+        "policy_id": "policy.authorized-insertion",
+        "properties": {
+          "comments": "not_applicable",
+          "formatting": "required",
+          "blank_line_gaps": "not_applicable",
+          "order": "allowed_to_change",
+          "lexical_style": "required",
+          "encoding": "required",
+          "line_endings": "required",
+          "final_newline": "required",
+          "unknown_fields": "not_applicable",
+          "unknown_syntax": "not_applicable",
+          "source_regions": "required"
+        },
+        "protected_regions": [
+          {
+            "region_id": "document.existing-bytes",
+            "source_id": "source.before-insert",
+            "source_range": {"start_byte": 0, "end_byte": 13}
+          }
+        ]
+      },
+      "sources": [
+        {
+          "source_id": "source.before-insert",
+          "role": "current",
+          "content": "{\n  \"a\": 1\n}\n",
+          "byte_length": 13,
+          "sha256": "5e36b6560513586ced65eca0e8b025fe88edbcab82ba2cb67a5fcb2d7b202383",
+          "encoding": "UTF-8",
+          "bom": false,
+          "line_endings": {"lf": 3, "crlf": 0, "cr": 0},
+          "final_newline": true
+        }
+      ],
+      "output": {
+        "output_id": "output.after-insert",
+        "role": "output",
+        "content": "{\n  \"a\": 1,\n  \"b\": 2\n}\n",
+        "byte_length": 23,
+        "sha256": "080d51f49b27c73d17f51f3b808515a425d16218aa40021eed2ca1d204e59224",
+        "encoding": "UTF-8",
+        "bom": false,
+        "line_endings": {"lf": 4, "crlf": 0, "cr": 0},
+        "final_newline": true
+      },
+      "evidence": {
+        "schema": "structuredmerge.preservation-evidence/v1",
+        "evidence_id": "evidence.authorized-insertion",
+        "policy_id": "policy.authorized-insertion",
+        "ok": true,
+        "output_partition": [
+          {
+            "segment_id": "segment.existing-prefix",
+            "kind": "source",
+            "source_id": "source.before-insert",
+            "source_role": "current",
+            "source_range": {"start_byte": 0, "end_byte": 10},
+            "output_range": {"start_byte": 0, "end_byte": 10},
+            "byte_length": 10,
+            "source_sha256": "d298ee5b852fc7dfacbb4dbf9c73da22d8a55ccb56c156043c930b278c39e889",
+            "output_sha256": "d298ee5b852fc7dfacbb4dbf9c73da22d8a55ccb56c156043c930b278c39e889",
+            "equality": "byte_exact",
+            "render_fragment_id": "render.existing-prefix"
+          },
+          {
+            "segment_id": "segment.synthesized-member",
+            "kind": "synthesized",
+            "content": ",\n  \"b\": 2",
+            "output_range": {"start_byte": 10, "end_byte": 20},
+            "byte_length": 10,
+            "output_sha256": "082ef9f0cc57659e8b8ff80eda632d384a4dbc2872e7c35652745f0bd44e3079",
+            "producer": "json-family-profile/v1",
+            "reason": "separator_and_new_member",
+            "authorization": {
+              "decision_id": "change.insert-b",
+              "render_fragment_id": "render.synthesized-member",
+              "policy_rule": "incoming-additions"
+            },
+            "line_ending_selection": {
+              "policy": "match_adjacent_source",
+              "source_segment_id": "segment.existing-prefix"
+            }
+          },
+          {
+            "segment_id": "segment.existing-suffix",
+            "kind": "source",
+            "source_id": "source.before-insert",
+            "source_role": "current",
+            "source_range": {"start_byte": 10, "end_byte": 13},
+            "output_range": {"start_byte": 20, "end_byte": 23},
+            "byte_length": 3,
+            "source_sha256": "804f89fc0ec98c9824183e795d3edd19e930f7bc471f9012aa3d503be2f8974b",
+            "output_sha256": "804f89fc0ec98c9824183e795d3edd19e930f7bc471f9012aa3d503be2f8974b",
+            "equality": "byte_exact",
+            "render_fragment_id": "render.existing-suffix"
+          }
+        ],
+        "region_claims": [
+          {
+            "claim_id": "claim.existing-document",
+            "property": "source_regions",
+            "analysis_region_id": "document.existing-bytes",
+            "source_id": "source.before-insert",
+            "source_ranges": [
+              {"start_byte": 0, "end_byte": 10},
+              {"start_byte": 10, "end_byte": 13}
+            ],
+            "output_ranges": [
+              {"start_byte": 0, "end_byte": 10},
+              {"start_byte": 20, "end_byte": 23}
+            ],
+            "byte_length": 13,
+            "source_sha256": "5e36b6560513586ced65eca0e8b025fe88edbcab82ba2cb67a5fcb2d7b202383",
+            "reassembled_output_sha256": "5e36b6560513586ced65eca0e8b025fe88edbcab82ba2cb67a5fcb2d7b202383",
+            "equality": "byte_exact"
+          }
+        ],
+        "source_dispositions": [],
+        "property_results": [
+          {"property": "comments", "requirement": "not_applicable", "observed": "not_applicable", "status": "not_applicable", "evidence_ids": []},
+          {"property": "formatting", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.existing-prefix", "segment.existing-suffix"]},
+          {"property": "blank_line_gaps", "requirement": "not_applicable", "observed": "not_applicable", "status": "not_applicable", "evidence_ids": []},
+          {"property": "order", "requirement": "allowed_to_change", "observed": "changed", "status": "passed", "evidence_ids": ["segment.synthesized-member"]},
+          {"property": "lexical_style", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.existing-prefix", "segment.existing-suffix", "segment.synthesized-member"]},
+          {"property": "encoding", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["claim.existing-document"]},
+          {"property": "line_endings", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.synthesized-member", "claim.existing-document"]},
+          {"property": "final_newline", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["segment.existing-suffix"]},
+          {"property": "unknown_fields", "requirement": "not_applicable", "observed": "not_applicable", "status": "not_applicable", "evidence_ids": []},
+          {"property": "unknown_syntax", "requirement": "not_applicable", "observed": "not_applicable", "status": "not_applicable", "evidence_ids": []},
+          {"property": "source_regions", "requirement": "required", "observed": "preserved", "status": "passed", "evidence_ids": ["claim.existing-document"]}
+        ],
+        "diagnostics": []
+      }
+    }
+  ],
+  "invalid_examples": [
+    {
+      "id": "output-partition-gap",
+      "mutation": "the second segment starts one byte after the first segment ends",
+      "rejected_by": "complete_output_partition"
+    },
+    {
+      "id": "output-partition-overlap",
+      "mutation": "two output segments claim the same output byte",
+      "rejected_by": "complete_output_partition"
+    },
+    {
+      "id": "retained-region-digest-mismatch",
+      "mutation": "a source segment output digest differs from its source digest",
+      "rejected_by": "byte_equal_source_segments"
+    },
+    {
+      "id": "blank-line-count-only",
+      "mutation": "the CRLF gap is rebuilt as LF while retaining a count of one blank line",
+      "rejected_by": "protected_regions_accounted_for"
+    },
+    {
+      "id": "required-line-ending-normalization",
+      "mutation": "the current CRLF document is normalized to LF under a required line_endings policy",
+      "rejected_by": "all_required_properties_pass"
+    },
+    {
+      "id": "required-comment-loss",
+      "mutation": "the protected local comment is omitted without a permitted disposition",
+      "rejected_by": "protected_regions_accounted_for"
+    },
+    {
+      "id": "required-unknown-field-loss",
+      "mutation": "the current-only local field is omitted because it is absent from the incoming AST",
+      "rejected_by": "protected_regions_accounted_for"
+    },
+    {
+      "id": "unverified-required-property",
+      "mutation": "source_regions is required but its result status is unverified",
+      "rejected_by": "all_required_properties_pass"
+    },
+    {
+      "id": "unauthorized-synthesis",
+      "mutation": "a synthesized separator has no producer, reason, or authorization",
+      "rejected_by": "authorized_synthesized_segments"
+    },
+    {
+      "id": "semantic-equivalence-waiver",
+      "mutation": "structural equivalence is used to mark evidence ok after required source loss",
+      "rejected_by": "all_required_properties_pass"
+    },
+    {
+      "id": "scalar-score-compensation",
+      "mutation": "a high aggregate score is used to offset one failed required property",
+      "rejected_by": "no_scalar_score"
+    }
+  ],
+  "expected": {
+    "case_count": 2,
+    "successful_evidence_count": 2,
+    "portable_property_count": 11,
+    "invalid_example_count": 11,
+    "first_case_output_segment_count": 3,
+    "first_case_exact_region_claim_count": 4,
+    "second_case_synthesized_segment_count": 1,
+    "source_preservation_is_hard_gate": true,
+    "semantic_equivalence_can_waive_preservation": false,
+    "scalar_score": false
+  }
+}

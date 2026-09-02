@@ -1,0 +1,3352 @@
+{
+  "schema_version": "structuredmerge.benchmark.run/v1",
+  "kind": "paired_local_run",
+  "corpus_id": "corpus.local-paired.authored.v1",
+  "corpus_digest": "e631632c0b648141894c5a4bc371afdf222aa60dc9961e1bb19f6a4ac7803116",
+  "selection": {
+    "profile": "micro",
+    "seed": "structuredmerge-slice-1023-v1",
+    "selected_case_ids": [
+      "case.merge3.json.independent-fields.v1",
+      "case.merge3.json.same-owner-conflict.v1",
+      "case.merge3.json.malformed-ours.v1",
+      "case.merge2.jsonc.current-layout-preservation.v1",
+      "case.merge3.jsonc.comment-preservation.v1",
+      "case.merge3.json5.order-format.v1",
+      "case.merge3.json.duplicate-identity.v1"
+    ],
+    "excluded_case_ids": [
+      "case.merge3.ruby.prism-independent-methods.v1",
+      "case.merge3.yaml.delete-modify.v1",
+      "case.merge3.toml.independent-tables.v1",
+      "case.merge3.markdown.independent-headings.v1",
+      "case.merge3.html.independent-ids.v1",
+      "case.merge3.bash.independent-functions.v1",
+      "case.merge3.typescript.independent-functions.v1",
+      "case.metamorphic.json.reorder-format.v1",
+      "case.metamorphic.jsonc.comment-format.v1"
+    ],
+    "changed_paths": [],
+    "inferred_capabilities": [],
+    "direct_cases": [],
+    "direct_case_reasons": {},
+    "sentinels": [
+      "case.merge3.json.independent-fields.v1",
+      "case.merge3.json.same-owner-conflict.v1",
+      "case.merge3.json.malformed-ours.v1",
+      "case.merge2.jsonc.current-layout-preservation.v1",
+      "case.merge3.jsonc.comment-preservation.v1",
+      "case.merge3.json5.order-format.v1",
+      "case.merge3.json.duplicate-identity.v1"
+    ],
+    "neighbor_sample": {
+      "population": [
+        "case.merge3.ruby.prism-independent-methods.v1",
+        "case.merge3.yaml.delete-modify.v1",
+        "case.merge3.toml.independent-tables.v1",
+        "case.merge3.markdown.independent-headings.v1",
+        "case.merge3.html.independent-ids.v1",
+        "case.merge3.bash.independent-functions.v1",
+        "case.merge3.typescript.independent-functions.v1",
+        "case.metamorphic.json.reorder-format.v1",
+        "case.metamorphic.jsonc.comment-format.v1"
+      ],
+      "ordering_algorithm": "sha256(seed + NUL + case_id), then case_id",
+      "seed": "structuredmerge-slice-1023-v1",
+      "selected_case_ids": []
+    },
+    "unsupported_selected_cases": [],
+    "budgets": {
+      "wall_seconds": 20,
+      "case_count": 7,
+      "output_bytes": 1048576
+    },
+    "explanation": {
+      "profile_rule": "mandatory sentinels only",
+      "changed_paths": [],
+      "direct_cases": [],
+      "sentinels": [
+        "case.merge3.json.independent-fields.v1",
+        "case.merge3.json.same-owner-conflict.v1",
+        "case.merge3.json.malformed-ours.v1",
+        "case.merge2.jsonc.current-layout-preservation.v1",
+        "case.merge3.jsonc.comment-preservation.v1",
+        "case.merge3.json5.order-format.v1",
+        "case.merge3.json.duplicate-identity.v1"
+      ],
+      "neighbors": {
+        "population": [
+          "case.merge3.ruby.prism-independent-methods.v1",
+          "case.merge3.yaml.delete-modify.v1",
+          "case.merge3.toml.independent-tables.v1",
+          "case.merge3.markdown.independent-headings.v1",
+          "case.merge3.html.independent-ids.v1",
+          "case.merge3.bash.independent-functions.v1",
+          "case.merge3.typescript.independent-functions.v1",
+          "case.metamorphic.json.reorder-format.v1",
+          "case.metamorphic.jsonc.comment-format.v1"
+        ],
+        "algorithm": "sha256(seed + NUL + case_id), then case_id",
+        "selected": []
+      },
+      "budget_rule": "selection fits declared case budget; no silent extension or dropping"
+    }
+  },
+  "cache_identity": {
+    "adapter_source_sha": "c422b578bcdbc7ac9affb5d13786ed338c3c14f7",
+    "adapter_artifact_sha256": "8e684b5e31511d6a78edd973375abd710a02190a06e37fad3d27e90a0b31259d",
+    "configuration_sha256": "f813d7148b405a2279b029c64ed3f4306c48c75110644813ddaefcba4e0463b6",
+    "competitors": {
+      "mergiraf": {
+        "adapter_id": "mergiraf",
+        "source_url": "https://codeberg.org/mergiraf/mergiraf",
+        "source_revision": "13b813c02da9511c7433131aed142473ffe62d52",
+        "version": "0.18.0",
+        "spdx_license": "GPL-3.0-only",
+        "reuse_posture": "reference_only",
+        "toolchain": "rust 1.91.0",
+        "build_command": "cargo build --release",
+        "operations": [
+          "merge3"
+        ],
+        "dialects": [
+          "bash",
+          "html",
+          "json",
+          "markdown",
+          "ruby",
+          "toml",
+          "typescript",
+          "yaml"
+        ],
+        "binary_path": "/var/home/pboling/src/my/structuredmerge/vendor/mergiraf/target/release/mergiraf",
+        "binary_sha256": "54692934b2f9d7f267a526f3de04ec62865eaef6c32701b483ab3cea2fb2dff6",
+        "reported_version": "mergiraf 0.18.0"
+      }
+    },
+    "corpus_sha256": "e631632c0b648141894c5a4bc371afdf222aa60dc9961e1bb19f6a4ac7803116",
+    "environment": {
+      "ruby": "ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [x86_64-linux]",
+      "platform": "x86_64-linux",
+      "host_os": "linux",
+      "host_cpu": "x86_64"
+    },
+    "profile": "micro",
+    "changed_paths": [],
+    "inferred_capabilities": [],
+    "selection_explanation_sha256": "268503b245a7586bcb50bf416e295cc3a9a9596d78852db13fcccc65f64bcdc2",
+    "selected_case_ids": [
+      "case.merge3.json.independent-fields.v1",
+      "case.merge3.json.same-owner-conflict.v1",
+      "case.merge3.json.malformed-ours.v1",
+      "case.merge2.jsonc.current-layout-preservation.v1",
+      "case.merge3.jsonc.comment-preservation.v1",
+      "case.merge3.json5.order-format.v1",
+      "case.merge3.json.duplicate-identity.v1"
+    ],
+    "sha256": "5f6420eb25ef9ab9eeaff2f1a19e332b8059fd5d9f6c9979e64062bc090781aa"
+  },
+  "competitors": {
+    "mergiraf": {
+      "adapter_id": "mergiraf",
+      "source_url": "https://codeberg.org/mergiraf/mergiraf",
+      "source_revision": "13b813c02da9511c7433131aed142473ffe62d52",
+      "version": "0.18.0",
+      "spdx_license": "GPL-3.0-only",
+      "reuse_posture": "reference_only",
+      "toolchain": "rust 1.91.0",
+      "build_command": "cargo build --release",
+      "operations": [
+        "merge3"
+      ],
+      "dialects": [
+        "bash",
+        "html",
+        "json",
+        "markdown",
+        "ruby",
+        "toml",
+        "typescript",
+        "yaml"
+      ],
+      "binary_path": "/var/home/pboling/src/my/structuredmerge/vendor/mergiraf/target/release/mergiraf",
+      "binary_sha256": "54692934b2f9d7f267a526f3de04ec62865eaef6c32701b483ab3cea2fb2dff6",
+      "reported_version": "mergiraf 0.18.0"
+    }
+  },
+  "results": [
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.independent-fields.v1.git.merge-file",
+      "case_id": "case.merge3.json.independent-fields.v1",
+      "adapter_id": "git.merge-file",
+      "adapter_role": "baseline",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "merge3",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "false_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "{\n  \"shared\": true,\n<<<<<<< ours\n  \"ours\": 1\n=======\n  \"theirs\": 2\n>>>>>>> theirs\n}\n",
+          "bytes": 84,
+          "sha256": "267aa5f9091070d0e17c8faa2625ab360579c45de25b10a189dd6be7bc46bb9f"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "{\n  \"shared\": true,\n<<<<<<< ours\n  \"ours\": 1\n=======\n  \"theirs\": 2\n>>>>>>> theirs\n}\n",
+          "bytes": 84,
+          "sha256": "267aa5f9091070d0e17c8faa2625ab360579c45de25b10a189dd6be7bc46bb9f"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [
+          {
+            "start_byte": 20,
+            "end_byte": 82,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": false,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "not_required",
+          "formatting": "not_required",
+          "order": "not_required",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "unverified",
+          "source_regions": "fail"
+        },
+        "preservation_violations": [
+          "source_regions"
+        ],
+        "preservation_unverified": [
+          "unknown_fields"
+        ],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": false,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.add": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.add": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "not_applicable",
+            "formatting": "allowed_to_change",
+            "order": "allowed_to_change",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [
+            "source_regions"
+          ],
+          "unverified": [
+            "unknown_fields"
+          ]
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 1902757,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.independent-fields.v1.ast-merge-git",
+      "case_id": "case.merge3.json.independent-fields.v1",
+      "adapter_id": "ast-merge-git",
+      "adapter_role": "candidate",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "merge3",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "correct_clean",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 0,
+        "exit_classification": "clean"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "{\n  \"shared\": true,\n  \"ours\": 1,\n  \"theirs\": 2\n}\n",
+          "bytes": 49,
+          "sha256": "431d57d00d9411ef8c5f114de72125dc7992000b843d0a0e4e6d3516ef9f1cf1"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": true,
+        "structural": true,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": true
+          },
+          {
+            "class": "structural_ast",
+            "matched": true
+          }
+        ],
+        "accepted_equivalence": "exact_bytes",
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "not_required",
+          "formatting": "not_required",
+          "order": "not_required",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "pass",
+          "source_regions": "pass"
+        },
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": true,
+        "preservation_acceptable": true,
+        "acceptable": true
+      },
+      "independent_edit_evidence": {
+        "ours.add": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        },
+        "theirs.add": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "not_applicable",
+            "formatting": "allowed_to_change",
+            "order": "allowed_to_change",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 189062457,
+        "comparable": true
+      },
+      "deterministic_correctness_rerun": true
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.independent-fields.v1.mergiraf",
+      "case_id": "case.merge3.json.independent-fields.v1",
+      "adapter_id": "mergiraf",
+      "adapter_role": "competitor",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "merge3",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "correct_clean",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 0,
+        "exit_classification": "clean"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "INFO Mergiraf: Solved 1 conflict. Review with: mergiraf review case.merge3.json.independent-fields.v1.json_vTpED6xD\n",
+          "bytes": 116,
+          "sha256": "bea8daafaeb37bb5cdbc9e90d3d4a87ab3977f0f9d2a6d2d2f826694f1551ab9"
+        },
+        "output": {
+          "inline": "{\n  \"shared\": true,\n  \"ours\": 1,\n  \"theirs\": 2\n}\n",
+          "bytes": 49,
+          "sha256": "431d57d00d9411ef8c5f114de72125dc7992000b843d0a0e4e6d3516ef9f1cf1"
+        }
+      },
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "process",
+          "message": "INFO Mergiraf: Solved 1 conflict. Review with: mergiraf review case.merge3.json.independent-fields.v1.json_vTpED6xD"
+        }
+      ],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": true,
+        "structural": true,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": true
+          },
+          {
+            "class": "structural_ast",
+            "matched": true
+          }
+        ],
+        "accepted_equivalence": "exact_bytes",
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "not_required",
+          "formatting": "not_required",
+          "order": "not_required",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "pass",
+          "source_regions": "pass"
+        },
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": true,
+        "preservation_acceptable": true,
+        "acceptable": true
+      },
+      "independent_edit_evidence": {
+        "ours.add": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        },
+        "theirs.add": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "not_applicable",
+            "formatting": "allowed_to_change",
+            "order": "allowed_to_change",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 10266926,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.same-owner-conflict.v1.git.merge-file",
+      "case_id": "case.merge3.json.same-owner-conflict.v1",
+      "adapter_id": "git.merge-file",
+      "adapter_role": "baseline",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "conflict_regions",
+          "merge3",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "critical"
+      },
+      "outcome": "true_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "<<<<<<< ours\n{\"region\":\"west\"}\n=======\n{\"region\":\"north\"}\n>>>>>>> theirs\n",
+          "bytes": 73,
+          "sha256": "9866dcf534e97c6c258a74112a58cf63a10272feb3597039a4a6858aa4f4e8a4"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "<<<<<<< ours\n{\"region\":\"west\"}\n=======\n{\"region\":\"north\"}\n>>>>>>> theirs\n",
+          "bytes": 73,
+          "sha256": "9866dcf534e97c6c258a74112a58cf63a10272feb3597039a4a6858aa4f4e8a4"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [
+          {
+            "id": "region.region",
+            "path": "/region",
+            "base_bytes": [
+              10,
+              16
+            ],
+            "ours_bytes": [
+              10,
+              16
+            ],
+            "theirs_bytes": [
+              10,
+              17
+            ]
+          }
+        ],
+        "observed": [
+          {
+            "start_byte": 0,
+            "end_byte": 73,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [
+          "region.region"
+        ],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": null,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {},
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": true,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.region": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.region": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "critical",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "not_applicable",
+            "formatting": "allowed_to_change",
+            "order": "allowed_to_change",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 1687636,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.same-owner-conflict.v1.ast-merge-git",
+      "case_id": "case.merge3.json.same-owner-conflict.v1",
+      "adapter_id": "ast-merge-git",
+      "adapter_role": "candidate",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "conflict_regions",
+          "merge3",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "critical"
+      },
+      "outcome": "true_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "ast-merge-git: merge_conflict: 1 unresolved JSON merge conflict(s).\n",
+          "bytes": 68,
+          "sha256": "4aa4bcda6d4751323148a479f020ed6e26d1baa78fa9684e3519de35da052e1e"
+        },
+        "output": {
+          "inline": "<<<<<<< ours\n{\"region\":\"west\"}\n||||||| base\n{\"region\":\"east\"}\n=======\n{\"region\":\"north\"}\n>>>>>>> theirs\n",
+          "bytes": 104,
+          "sha256": "7bac3290f958a11fcb74cff4bdf47d8bdb69fb8df0f629783bfb5fb69aa5f878"
+        }
+      },
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "merge_conflict",
+          "message": "ast-merge-git: merge_conflict: 1 unresolved JSON merge conflict(s)."
+        }
+      ],
+      "conflict_regions": {
+        "expected": [
+          {
+            "id": "region.region",
+            "path": "/region",
+            "base_bytes": [
+              10,
+              16
+            ],
+            "ours_bytes": [
+              10,
+              16
+            ],
+            "theirs_bytes": [
+              10,
+              17
+            ]
+          }
+        ],
+        "observed": [
+          {
+            "start_byte": 0,
+            "end_byte": 104,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [
+          "region.region"
+        ],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": null,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {},
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": true,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.region": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.region": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "critical",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "not_applicable",
+            "formatting": "allowed_to_change",
+            "order": "allowed_to_change",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 192166079,
+        "comparable": true
+      },
+      "deterministic_correctness_rerun": true
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.same-owner-conflict.v1.mergiraf",
+      "case_id": "case.merge3.json.same-owner-conflict.v1",
+      "adapter_id": "mergiraf",
+      "adapter_role": "competitor",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "conflict_regions",
+          "merge3",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "critical"
+      },
+      "outcome": "true_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "<<<<<<< ours\n{\"region\":\"west\"}\n||||||| base\n{\"region\":\"east\"}\n=======\n{\"region\":\"north\"}\n>>>>>>> theirs\n",
+          "bytes": 104,
+          "sha256": "7bac3290f958a11fcb74cff4bdf47d8bdb69fb8df0f629783bfb5fb69aa5f878"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [
+          {
+            "id": "region.region",
+            "path": "/region",
+            "base_bytes": [
+              10,
+              16
+            ],
+            "ours_bytes": [
+              10,
+              16
+            ],
+            "theirs_bytes": [
+              10,
+              17
+            ]
+          }
+        ],
+        "observed": [
+          {
+            "start_byte": 0,
+            "end_byte": 104,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [
+          "region.region"
+        ],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": null,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {},
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": true,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.region": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.region": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "critical",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "not_applicable",
+            "formatting": "allowed_to_change",
+            "order": "allowed_to_change",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 7892580,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.malformed-ours.v1.git.merge-file",
+      "case_id": "case.merge3.json.malformed-ours.v1",
+      "adapter_id": "git.merge-file",
+      "adapter_role": "baseline",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "error_attribution",
+          "malformed_revision",
+          "merge3",
+          "source_preserving"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "false_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "<<<<<<< ours\n{\"ok\": tru\n=======\n{\"ok\":false}\n>>>>>>> theirs\n",
+          "bytes": 60,
+          "sha256": "e85db7f63b37ab10ea8f158a9a1f5956be97771d1af0385e3e5f2cf269137ee5"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "<<<<<<< ours\n{\"ok\": tru\n=======\n{\"ok\":false}\n>>>>>>> theirs\n",
+          "bytes": 60,
+          "sha256": "e85db7f63b37ab10ea8f158a9a1f5956be97771d1af0385e3e5f2cf269137ee5"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [
+          {
+            "start_byte": 0,
+            "end_byte": 60,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": null,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {},
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": true,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.malformed-token": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.ok": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "not_applicable",
+            "formatting": "allowed_to_change",
+            "order": "allowed_to_change",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 2312454,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.malformed-ours.v1.ast-merge-git",
+      "case_id": "case.merge3.json.malformed-ours.v1",
+      "adapter_id": "ast-merge-git",
+      "adapter_role": "candidate",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "error_attribution",
+          "malformed_revision",
+          "merge3",
+          "source_preserving"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "correct_clean",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 2,
+        "exit_classification": "error"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "ast-merge-git: parse_error: ours parse error: {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"ERROR\", start_point: {row: 0, column: 7}, end_point: {row: 0, column: 10}, text: \"tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"ERROR\", start_point: {row: 0, column: 7}, end_point: {row: 0, column: 10}, text: \"tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"ERROR\", start_point: {row: 0, column: 7}, end_point: {row: 0, column: 10}, text: \"tru\"}\n",
+          "bytes": 2280,
+          "sha256": "98126ddab1e837d6c65a7cc969aa07136637bd9f7c34b27bd262dcba42dc2628"
+        },
+        "output": {
+          "inline": "{\"ok\": tru\n",
+          "bytes": 11,
+          "sha256": "5a6079336dda708112bda5623dd35cbbcf7fa8fbbe977a0ee74800b9bd1dbf78"
+        }
+      },
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "parse_error",
+          "message": "ast-merge-git: parse_error: ours parse error: {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"ERROR\", start_point: {row: 0, column: 7}, end_point: {row: 0, column: 10}, text: \"tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"ERROR\", start_point: {row: 0, column: 7}, end_point: {row: 0, column: 10}, text: \"tru\"}, {type: \"document\", start_point: {row: 0, column: 0}, end_point: {row: 1, column: 0}, text: \"{\\\"ok\\\": tru\\n\"}, {type: \"ERROR\", start_point: {row: 0, column: 0}, end_point: {row: 0, column: 10}, text: \"{\\\"ok\\\": tru\"}, {type: \"ERROR\", start_point: {row: 0, column: 7}, end_point: {row: 0, column: 10}, text: \"tru\"}"
+        }
+      ],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": null,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {},
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": true,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.malformed-token": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.ok": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "not_applicable",
+            "formatting": "allowed_to_change",
+            "order": "allowed_to_change",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 173183995,
+        "comparable": true
+      },
+      "deterministic_correctness_rerun": true
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.malformed-ours.v1.mergiraf",
+      "case_id": "case.merge3.json.malformed-ours.v1",
+      "adapter_id": "mergiraf",
+      "adapter_role": "competitor",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "error_attribution",
+          "malformed_revision",
+          "merge3",
+          "source_preserving"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "false_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "<<<<<<< ours\n{\"ok\": tru\n||||||| base\n{\"ok\":true}\n=======\n{\"ok\":false}\n>>>>>>> theirs\n",
+          "bytes": 85,
+          "sha256": "f2117c05c360cbbc3a327043bf85a05fc4e34fc8017c32f9ef3c6fe3dc238f9f"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [
+          {
+            "start_byte": 0,
+            "end_byte": 85,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": null,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {},
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": true,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.malformed-token": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.ok": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "not_applicable",
+            "formatting": "allowed_to_change",
+            "order": "allowed_to_change",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 6466226,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge2.jsonc.current-layout-preservation.v1.template.overwrite",
+      "case_id": "case.merge2.jsonc.current-layout-preservation.v1",
+      "adapter_id": "template.overwrite",
+      "adapter_role": "baseline",
+      "case_tags": {
+        "operation": "merge2",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "jsonc",
+        "capabilities": [
+          "comments",
+          "jsonc",
+          "merge2",
+          "source_preserving",
+          "whitespace"
+        ],
+        "false_auto_merge_severity": "high"
+      },
+      "outcome": "false_auto_merge",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture reproducing unrelated blank-line churn during an idempotent directional template merge."
+      },
+      "process": {
+        "status": 0,
+        "exit_classification": "clean"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "{\n  \"managed\": {\n    \"version\": 2\n  }\n}\n",
+          "bytes": 40,
+          "sha256": "ef7ab4e6d2fc30c065f0d44740c1a0d271f41322e2eb2399acaa3bb8814c1465"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": false,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "unverified",
+          "formatting": "fail",
+          "order": "unverified",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "unverified",
+          "source_regions": "fail"
+        },
+        "preservation_violations": [
+          "formatting",
+          "source_regions"
+        ],
+        "preservation_unverified": [
+          "comments",
+          "order",
+          "unknown_fields"
+        ],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": false,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "incoming.managed-version": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "current.local": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": true,
+          "severity": "high",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [
+            "formatting",
+            "source_regions"
+          ],
+          "unverified": [
+            "comments",
+            "order",
+            "unknown_fields"
+          ]
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 14308,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge2.jsonc.current-layout-preservation.v1.ast-merge-provider.merge2",
+      "case_id": "case.merge2.jsonc.current-layout-preservation.v1",
+      "adapter_id": "ast-merge-provider.merge2",
+      "adapter_role": "candidate",
+      "case_tags": {
+        "operation": "merge2",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "jsonc",
+        "capabilities": [
+          "comments",
+          "jsonc",
+          "merge2",
+          "source_preserving",
+          "whitespace"
+        ],
+        "false_auto_merge_severity": "high"
+      },
+      "outcome": "correct_clean",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture reproducing unrelated blank-line churn during an idempotent directional template merge."
+      },
+      "process": {
+        "status": 0,
+        "exit_classification": "clean"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "{\"output\":\"{\\n  // retained project note\\n\\n  \\\"managed\\\": {\\n    \\\"version\\\": 1\\n  },\\n\\n  \\\"local\\\": true\\n}\\n\",\"provider\":{\"provider_id\":\"ruby.json\",\"family\":\"json\",\"dialect\":\"jsonc\",\"backend\":\"kreuzberg-language-pack\",\"package\":\"json-merge\",\"package_version\":\"7.1.6\"},\"profile\":{\"profile_id\":\"source_preserving\"},\"diagnostics\":[],\"changes\":[],\"conflicts\":[],\"fallbacks\":[],\"render_report\":{\"strategy\":\"json_smart_merger\",\"synthesis\":\"family_emission\"},\"verification\":{\"output_reparsed\":true,\"semantic_value\":{\"managed\":{\"version\":1},\"local\":true}},\"schema\":\"https://structuredmerge.org/schemas/provider-result/v1.json\",\"operation\":\"merge2\",\"ok\":true}\n",
+          "bytes": 655,
+          "sha256": "92901ae90ea22f96c33953ed6714f11bb25855d74c60cadd3f42a1879992295f"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "{\n  // retained project note\n\n  \"managed\": {\n    \"version\": 1\n  },\n\n  \"local\": true\n}\n",
+          "bytes": 86,
+          "sha256": "a8d2263f376cc784273f3dd26f37538937f4ed91701be29a68424ef35ff764d3"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": true,
+        "structural": true,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": true
+          },
+          {
+            "class": "structural_ast",
+            "matched": true
+          }
+        ],
+        "accepted_equivalence": "exact_bytes",
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "pass",
+          "formatting": "pass",
+          "order": "pass",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "pass",
+          "source_regions": "pass"
+        },
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": true,
+        "preservation_acceptable": true,
+        "acceptable": true
+      },
+      "independent_edit_evidence": {
+        "incoming.managed-version": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        },
+        "current.local": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "high",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 179130480,
+        "comparable": true
+      },
+      "deterministic_correctness_rerun": true
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge2.jsonc.current-layout-preservation.v1.mergiraf",
+      "case_id": "case.merge2.jsonc.current-layout-preservation.v1",
+      "adapter_id": "mergiraf",
+      "adapter_role": "competitor",
+      "case_tags": {
+        "operation": "merge2",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "jsonc",
+        "capabilities": [
+          "comments",
+          "jsonc",
+          "merge2",
+          "source_preserving",
+          "whitespace"
+        ],
+        "false_auto_merge_severity": "high"
+      },
+      "outcome": "unsupported",
+      "score_eligible": false,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture reproducing unrelated blank-line churn during an idempotent directional template merge."
+      },
+      "process": null,
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "unsupported",
+          "message": "mergiraf does not support merge2/jsonc"
+        }
+      ],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": false,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "unverified",
+          "formatting": "fail",
+          "order": "unverified",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "unverified",
+          "source_regions": "fail"
+        },
+        "preservation_violations": [
+          "formatting",
+          "source_regions"
+        ],
+        "preservation_unverified": [
+          "comments",
+          "order",
+          "unknown_fields"
+        ],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": false,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "incoming.managed-version": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "current.local": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "high",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [
+            "formatting",
+            "source_regions"
+          ],
+          "unverified": [
+            "comments",
+            "order",
+            "unknown_fields"
+          ]
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": null
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.jsonc.comment-preservation.v1.git.merge-file",
+      "case_id": "case.merge3.jsonc.comment-preservation.v1",
+      "adapter_id": "git.merge-file",
+      "adapter_role": "baseline",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "jsonc",
+        "capabilities": [
+          "comments",
+          "merge3",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "false_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "{\n  // left stays\n<<<<<<< ours\n  \"left\": 2,\n  \"right\": 1\n=======\n  \"left\": 1,\n  \"right\": 2\n>>>>>>> theirs\n}\n",
+          "bytes": 108,
+          "sha256": "af59ffb518b25356264943795b51b930c525f69a3ad8eece77fe89fde85c3414"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "{\n  // left stays\n<<<<<<< ours\n  \"left\": 2,\n  \"right\": 1\n=======\n  \"left\": 1,\n  \"right\": 2\n>>>>>>> theirs\n}\n",
+          "bytes": 108,
+          "sha256": "af59ffb518b25356264943795b51b930c525f69a3ad8eece77fe89fde85c3414"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [
+          {
+            "start_byte": 18,
+            "end_byte": 106,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": false,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "unverified",
+          "formatting": "fail",
+          "order": "unverified",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "unverified",
+          "source_regions": "fail"
+        },
+        "preservation_violations": [
+          "formatting",
+          "source_regions"
+        ],
+        "preservation_unverified": [
+          "comments",
+          "order",
+          "unknown_fields"
+        ],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": false,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.left": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.right": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [
+            "formatting",
+            "source_regions"
+          ],
+          "unverified": [
+            "comments",
+            "order",
+            "unknown_fields"
+          ]
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 2626846,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.jsonc.comment-preservation.v1.ast-merge-git",
+      "case_id": "case.merge3.jsonc.comment-preservation.v1",
+      "adapter_id": "ast-merge-git",
+      "adapter_role": "candidate",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "jsonc",
+        "capabilities": [
+          "comments",
+          "merge3",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "correct_clean",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 0,
+        "exit_classification": "clean"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "{\n  // left stays\n  \"left\": 2,\n  \"right\": 2\n}\n",
+          "bytes": 46,
+          "sha256": "2adcff6744c9499190bf5854fe678cd008fab5dd7a85d33c9eff2ff70aa66d05"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": true,
+        "structural": true,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": true
+          },
+          {
+            "class": "structural_ast",
+            "matched": true
+          }
+        ],
+        "accepted_equivalence": "exact_bytes",
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "pass",
+          "formatting": "pass",
+          "order": "pass",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "pass",
+          "source_regions": "pass"
+        },
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": true,
+        "preservation_acceptable": true,
+        "acceptable": true
+      },
+      "independent_edit_evidence": {
+        "ours.left": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        },
+        "theirs.right": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 201199222,
+        "comparable": true
+      },
+      "deterministic_correctness_rerun": true
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.jsonc.comment-preservation.v1.mergiraf",
+      "case_id": "case.merge3.jsonc.comment-preservation.v1",
+      "adapter_id": "mergiraf",
+      "adapter_role": "competitor",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "jsonc",
+        "capabilities": [
+          "comments",
+          "merge3",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "unsupported",
+      "score_eligible": false,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": null,
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "unsupported",
+          "message": "mergiraf does not support merge3/jsonc"
+        }
+      ],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": false,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "unverified",
+          "formatting": "fail",
+          "order": "unverified",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "unverified",
+          "source_regions": "fail"
+        },
+        "preservation_violations": [
+          "formatting",
+          "source_regions"
+        ],
+        "preservation_unverified": [
+          "comments",
+          "order",
+          "unknown_fields"
+        ],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": false,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.left": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.right": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [
+            "formatting",
+            "source_regions"
+          ],
+          "unverified": [
+            "comments",
+            "order",
+            "unknown_fields"
+          ]
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": null
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json5.order-format.v1.git.merge-file",
+      "case_id": "case.merge3.json5.order-format.v1",
+      "adapter_id": "git.merge-file",
+      "adapter_role": "baseline",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json5",
+        "capabilities": [
+          "formatting",
+          "merge3",
+          "order",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "false_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "{\n<<<<<<< ours\n  first: 2,\n  second: 1,\n=======\n  first: 1,\n  second: 2,\n>>>>>>> theirs\n}\n",
+          "bytes": 90,
+          "sha256": "45ae86dc1d3e0653474eeb59bb694575f3c045960c8eaeaca50443461c6ce73b"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "{\n<<<<<<< ours\n  first: 2,\n  second: 1,\n=======\n  first: 1,\n  second: 2,\n>>>>>>> theirs\n}\n",
+          "bytes": 90,
+          "sha256": "45ae86dc1d3e0653474eeb59bb694575f3c045960c8eaeaca50443461c6ce73b"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [
+          {
+            "start_byte": 2,
+            "end_byte": 88,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": false,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "unverified",
+          "formatting": "fail",
+          "order": "unverified",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "unverified",
+          "source_regions": "fail"
+        },
+        "preservation_violations": [
+          "formatting",
+          "source_regions"
+        ],
+        "preservation_unverified": [
+          "comments",
+          "order",
+          "unknown_fields"
+        ],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": false,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.first": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.second": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [
+            "formatting",
+            "source_regions"
+          ],
+          "unverified": [
+            "comments",
+            "order",
+            "unknown_fields"
+          ]
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 1962070,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json5.order-format.v1.ast-merge-git",
+      "case_id": "case.merge3.json5.order-format.v1",
+      "adapter_id": "ast-merge-git",
+      "adapter_role": "candidate",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json5",
+        "capabilities": [
+          "formatting",
+          "merge3",
+          "order",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "correct_clean",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 0,
+        "exit_classification": "clean"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "{\n  first: 2,\n  second: 2,\n}\n",
+          "bytes": 29,
+          "sha256": "608044d4f86a11e6c89ab2b862d391c0f73ae2e0ed01f6329cd7c92565456ad0"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": true,
+        "structural": true,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": true
+          },
+          {
+            "class": "structural_ast",
+            "matched": true
+          }
+        ],
+        "accepted_equivalence": "exact_bytes",
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "pass",
+          "formatting": "pass",
+          "order": "pass",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "pass",
+          "source_regions": "pass"
+        },
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": true,
+        "preservation_acceptable": true,
+        "acceptable": true
+      },
+      "independent_edit_evidence": {
+        "ours.first": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        },
+        "theirs.second": {
+          "preserved": true,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 200441552,
+        "comparable": true
+      },
+      "deterministic_correctness_rerun": true
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json5.order-format.v1.mergiraf",
+      "case_id": "case.merge3.json5.order-format.v1",
+      "adapter_id": "mergiraf",
+      "adapter_role": "competitor",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json5",
+        "capabilities": [
+          "formatting",
+          "merge3",
+          "order",
+          "source_preserving",
+          "structural_paths"
+        ],
+        "false_auto_merge_severity": "none"
+      },
+      "outcome": "unsupported",
+      "score_eligible": false,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": null,
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "unsupported",
+          "message": "mergiraf does not support merge3/json5"
+        }
+      ],
+      "conflict_regions": {
+        "expected": [],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [],
+        "false_positive_region_ids": [],
+        "localization_status": "not_applicable",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": false,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {
+          "comments": "unverified",
+          "formatting": "fail",
+          "order": "unverified",
+          "encoding": "pass",
+          "line_endings": "pass",
+          "unknown_fields": "unverified",
+          "source_regions": "fail"
+        },
+        "preservation_violations": [
+          "formatting",
+          "source_regions"
+        ],
+        "preservation_unverified": [
+          "comments",
+          "order",
+          "unknown_fields"
+        ],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": false,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.first": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.second": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "none",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [
+            "formatting",
+            "source_regions"
+          ],
+          "unverified": [
+            "comments",
+            "order",
+            "unknown_fields"
+          ]
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": null
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.duplicate-identity.v1.git.merge-file",
+      "case_id": "case.merge3.json.duplicate-identity.v1",
+      "adapter_id": "git.merge-file",
+      "adapter_role": "baseline",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "ambiguous_ownership",
+          "duplicate_identity",
+          "merge3",
+          "source_preserving"
+        ],
+        "false_auto_merge_severity": "high"
+      },
+      "outcome": "true_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "<<<<<<< ours\n{\"items\":[{\"id\":\"same\",\"v\":2},{\"id\":\"same\",\"v\":1}]}\n=======\n{\"items\":[{\"id\":\"same\",\"v\":1},{\"id\":\"same\",\"v\":2}]}\n>>>>>>> theirs\n",
+          "bytes": 140,
+          "sha256": "5512a8ec11f0b348b979604c6830304b90c850c63f3cbb447b0643d92b48e1b6"
+        },
+        "stderr": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "output": {
+          "inline": "<<<<<<< ours\n{\"items\":[{\"id\":\"same\",\"v\":2},{\"id\":\"same\",\"v\":1}]}\n=======\n{\"items\":[{\"id\":\"same\",\"v\":1},{\"id\":\"same\",\"v\":2}]}\n>>>>>>> theirs\n",
+          "bytes": 140,
+          "sha256": "5512a8ec11f0b348b979604c6830304b90c850c63f3cbb447b0643d92b48e1b6"
+        }
+      },
+      "diagnostics": [],
+      "conflict_regions": {
+        "expected": [
+          {
+            "id": "region.items.same",
+            "path": "/items/id:same",
+            "base_bytes": [
+              10,
+              49
+            ],
+            "ours_bytes": [
+              10,
+              49
+            ],
+            "theirs_bytes": [
+              10,
+              49
+            ]
+          }
+        ],
+        "observed": [
+          {
+            "start_byte": 0,
+            "end_byte": 140,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [
+          "region.items.same"
+        ],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": null,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {},
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": true,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.duplicate-same": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.duplicate-same": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "high",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 2156678,
+        "comparable": true
+      }
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.duplicate-identity.v1.ast-merge-git",
+      "case_id": "case.merge3.json.duplicate-identity.v1",
+      "adapter_id": "ast-merge-git",
+      "adapter_role": "candidate",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "ambiguous_ownership",
+          "duplicate_identity",
+          "merge3",
+          "source_preserving"
+        ],
+        "false_auto_merge_severity": "high"
+      },
+      "outcome": "true_conflict",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 1,
+        "exit_classification": "conflict"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "ast-merge-git: merge_conflict: 1 unresolved JSON merge conflict(s).\n",
+          "bytes": 68,
+          "sha256": "4aa4bcda6d4751323148a479f020ed6e26d1baa78fa9684e3519de35da052e1e"
+        },
+        "output": {
+          "inline": "<<<<<<< ours\n{\"items\":[{\"id\":\"same\",\"v\":2},{\"id\":\"same\",\"v\":1}]}\n||||||| base\n{\"items\":[{\"id\":\"same\",\"v\":1},{\"id\":\"same\",\"v\":1}]}\n=======\n{\"items\":[{\"id\":\"same\",\"v\":1},{\"id\":\"same\",\"v\":2}]}\n>>>>>>> theirs\n",
+          "bytes": 205,
+          "sha256": "a136b84abad225c6656edf03f0813c679255287213293a5b4ce78cb34222465e"
+        }
+      },
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "merge_conflict",
+          "message": "ast-merge-git: merge_conflict: 1 unresolved JSON merge conflict(s)."
+        }
+      ],
+      "conflict_regions": {
+        "expected": [
+          {
+            "id": "region.items.same",
+            "path": "/items/id:same",
+            "base_bytes": [
+              10,
+              49
+            ],
+            "ours_bytes": [
+              10,
+              49
+            ],
+            "theirs_bytes": [
+              10,
+              49
+            ]
+          }
+        ],
+        "observed": [
+          {
+            "start_byte": 0,
+            "end_byte": 205,
+            "id": "observed.1"
+          }
+        ],
+        "matched_region_ids": [],
+        "missed_region_ids": [
+          "region.items.same"
+        ],
+        "false_positive_region_ids": [
+          "observed.1"
+        ],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": null,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {},
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": true,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.duplicate-same": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.duplicate-same": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": false,
+          "severity": "high",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": true
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 181850289,
+        "comparable": true
+      },
+      "deterministic_correctness_rerun": true
+    },
+    {
+      "schema_version": "structuredmerge.benchmark.result/v1",
+      "id": "result.case.merge3.json.duplicate-identity.v1.mergiraf",
+      "case_id": "case.merge3.json.duplicate-identity.v1",
+      "adapter_id": "mergiraf",
+      "adapter_role": "competitor",
+      "case_tags": {
+        "operation": "merge3",
+        "partition": "sentinel",
+        "family": "json",
+        "provider": "ruby.json",
+        "dialect": "json",
+        "capabilities": [
+          "ambiguous_ownership",
+          "duplicate_identity",
+          "merge3",
+          "source_preserving"
+        ],
+        "false_auto_merge_severity": "high"
+      },
+      "outcome": "false_auto_merge",
+      "score_eligible": true,
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "process": {
+        "status": 0,
+        "exit_classification": "clean"
+      },
+      "raw": {
+        "stdout": {
+          "inline": "",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "inline": "INFO Mergiraf: Solved 1 conflict. Review with: mergiraf review case.merge3.json.duplicate-identity.v1.json_bQOujCLC\n",
+          "bytes": 116,
+          "sha256": "2981e04a75322c532eb180cc612129790a95b161abd6305cdf9b25d79865fc31"
+        },
+        "output": {
+          "inline": "{\"items\":[{\"id\":\"same\",\"v\":2},{\"id\":\"same\",\"v\":2}]}\n",
+          "bytes": 52,
+          "sha256": "cb0e39c0d671f2422beaf5d30a913f14a129b90bae0f95625417bb4c4cf44a1d"
+        }
+      },
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "process",
+          "message": "INFO Mergiraf: Solved 1 conflict. Review with: mergiraf review case.merge3.json.duplicate-identity.v1.json_bQOujCLC"
+        }
+      ],
+      "conflict_regions": {
+        "expected": [
+          {
+            "id": "region.items.same",
+            "path": "/items/id:same",
+            "base_bytes": [
+              10,
+              49
+            ],
+            "ours_bytes": [
+              10,
+              49
+            ],
+            "theirs_bytes": [
+              10,
+              49
+            ]
+          }
+        ],
+        "observed": [],
+        "matched_region_ids": [],
+        "missed_region_ids": [
+          "region.items.same"
+        ],
+        "false_positive_region_ids": [],
+        "localization_status": "unknown",
+        "matching_basis": "unknown: expected role ranges/paths and observed output ranges have no proven mapping",
+        "localization_error_bytes": null
+      },
+      "checks": {
+        "exact": false,
+        "structural": null,
+        "structural_provider": "ruby.json",
+        "acceptable_equivalence_evaluations": [
+          {
+            "class": "exact_bytes",
+            "matched": false
+          },
+          {
+            "class": "structural_ast",
+            "matched": false
+          }
+        ],
+        "accepted_equivalence": null,
+        "parse_validity_only_accepted": false,
+        "preservation_evaluations": {},
+        "preservation_violations": [],
+        "preservation_unverified": [],
+        "equivalence_acceptable": false,
+        "preservation_acceptable": true,
+        "acceptable": false
+      },
+      "independent_edit_evidence": {
+        "ours.duplicate-same": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        },
+        "theirs.duplicate-same": {
+          "preserved": false,
+          "method": "oracle equivalence"
+        }
+      },
+      "dimensions": {
+        "safety": {
+          "eligible": true,
+          "false_auto_merge": true,
+          "severity": "high",
+          "compensable": false
+        },
+        "effectiveness": {
+          "eligible": true,
+          "success": false
+        },
+        "preservation": {
+          "eligible": true,
+          "requirements": {
+            "comments": "required",
+            "formatting": "required",
+            "order": "required",
+            "encoding": "required",
+            "line_endings": "required",
+            "unknown_fields": "required",
+            "source_regions": "required"
+          },
+          "violations": [],
+          "unverified": []
+        },
+        "performance": {
+          "quality_offset_allowed": false
+        }
+      },
+      "runtime": {
+        "duration_ns": 7724485,
+        "comparable": true
+      }
+    }
+  ]
+}

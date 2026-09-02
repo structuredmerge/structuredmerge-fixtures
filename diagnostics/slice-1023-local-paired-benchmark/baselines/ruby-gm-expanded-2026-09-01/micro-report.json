@@ -1,0 +1,401 @@
+{
+  "schema_version": "structuredmerge.benchmark.report/v1",
+  "kind": "paired_aggregate_report",
+  "corpus_id": "corpus.local-paired.authored.v1",
+  "corpus_digest": "e631632c0b648141894c5a4bc371afdf222aa60dc9961e1bb19f6a4ac7803116",
+  "selection": {
+    "profile": "micro",
+    "seed": "structuredmerge-slice-1023-v1",
+    "selected_case_ids": [
+      "case.merge3.json.independent-fields.v1",
+      "case.merge3.json.same-owner-conflict.v1",
+      "case.merge3.json.malformed-ours.v1",
+      "case.merge2.jsonc.current-layout-preservation.v1",
+      "case.merge3.jsonc.comment-preservation.v1",
+      "case.merge3.json5.order-format.v1",
+      "case.merge3.json.duplicate-identity.v1"
+    ],
+    "excluded_case_ids": [
+      "case.merge3.ruby.prism-independent-methods.v1",
+      "case.merge3.yaml.delete-modify.v1",
+      "case.merge3.toml.independent-tables.v1",
+      "case.merge3.markdown.independent-headings.v1",
+      "case.merge3.html.independent-ids.v1",
+      "case.merge3.bash.independent-functions.v1",
+      "case.merge3.typescript.independent-functions.v1",
+      "case.metamorphic.json.reorder-format.v1",
+      "case.metamorphic.jsonc.comment-format.v1"
+    ],
+    "changed_paths": [],
+    "inferred_capabilities": [],
+    "direct_cases": [],
+    "direct_case_reasons": {},
+    "sentinels": [
+      "case.merge3.json.independent-fields.v1",
+      "case.merge3.json.same-owner-conflict.v1",
+      "case.merge3.json.malformed-ours.v1",
+      "case.merge2.jsonc.current-layout-preservation.v1",
+      "case.merge3.jsonc.comment-preservation.v1",
+      "case.merge3.json5.order-format.v1",
+      "case.merge3.json.duplicate-identity.v1"
+    ],
+    "neighbor_sample": {
+      "population": [
+        "case.merge3.ruby.prism-independent-methods.v1",
+        "case.merge3.yaml.delete-modify.v1",
+        "case.merge3.toml.independent-tables.v1",
+        "case.merge3.markdown.independent-headings.v1",
+        "case.merge3.html.independent-ids.v1",
+        "case.merge3.bash.independent-functions.v1",
+        "case.merge3.typescript.independent-functions.v1",
+        "case.metamorphic.json.reorder-format.v1",
+        "case.metamorphic.jsonc.comment-format.v1"
+      ],
+      "ordering_algorithm": "sha256(seed + NUL + case_id), then case_id",
+      "seed": "structuredmerge-slice-1023-v1",
+      "selected_case_ids": []
+    },
+    "unsupported_selected_cases": [],
+    "budgets": {
+      "wall_seconds": 20,
+      "case_count": 7,
+      "output_bytes": 1048576
+    },
+    "explanation": {
+      "profile_rule": "mandatory sentinels only",
+      "changed_paths": [],
+      "direct_cases": [],
+      "sentinels": [
+        "case.merge3.json.independent-fields.v1",
+        "case.merge3.json.same-owner-conflict.v1",
+        "case.merge3.json.malformed-ours.v1",
+        "case.merge2.jsonc.current-layout-preservation.v1",
+        "case.merge3.jsonc.comment-preservation.v1",
+        "case.merge3.json5.order-format.v1",
+        "case.merge3.json.duplicate-identity.v1"
+      ],
+      "neighbors": {
+        "population": [
+          "case.merge3.ruby.prism-independent-methods.v1",
+          "case.merge3.yaml.delete-modify.v1",
+          "case.merge3.toml.independent-tables.v1",
+          "case.merge3.markdown.independent-headings.v1",
+          "case.merge3.html.independent-ids.v1",
+          "case.merge3.bash.independent-functions.v1",
+          "case.merge3.typescript.independent-functions.v1",
+          "case.metamorphic.json.reorder-format.v1",
+          "case.metamorphic.jsonc.comment-format.v1"
+        ],
+        "algorithm": "sha256(seed + NUL + case_id), then case_id",
+        "selected": []
+      },
+      "budget_rule": "selection fits declared case budget; no silent extension or dropping"
+    }
+  },
+  "cache_identity": {
+    "adapter_source_sha": "c422b578bcdbc7ac9affb5d13786ed338c3c14f7",
+    "adapter_artifact_sha256": "8e684b5e31511d6a78edd973375abd710a02190a06e37fad3d27e90a0b31259d",
+    "configuration_sha256": "f813d7148b405a2279b029c64ed3f4306c48c75110644813ddaefcba4e0463b6",
+    "competitors": {
+      "mergiraf": {
+        "adapter_id": "mergiraf",
+        "source_url": "https://codeberg.org/mergiraf/mergiraf",
+        "source_revision": "13b813c02da9511c7433131aed142473ffe62d52",
+        "version": "0.18.0",
+        "spdx_license": "GPL-3.0-only",
+        "reuse_posture": "reference_only",
+        "toolchain": "rust 1.91.0",
+        "build_command": "cargo build --release",
+        "operations": [
+          "merge3"
+        ],
+        "dialects": [
+          "bash",
+          "html",
+          "json",
+          "markdown",
+          "ruby",
+          "toml",
+          "typescript",
+          "yaml"
+        ],
+        "binary_path": "/var/home/pboling/src/my/structuredmerge/vendor/mergiraf/target/release/mergiraf",
+        "binary_sha256": "54692934b2f9d7f267a526f3de04ec62865eaef6c32701b483ab3cea2fb2dff6",
+        "reported_version": "mergiraf 0.18.0"
+      }
+    },
+    "corpus_sha256": "e631632c0b648141894c5a4bc371afdf222aa60dc9961e1bb19f6a4ac7803116",
+    "environment": {
+      "ruby": "ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [x86_64-linux]",
+      "platform": "x86_64-linux",
+      "host_os": "linux",
+      "host_cpu": "x86_64"
+    },
+    "profile": "micro",
+    "changed_paths": [],
+    "inferred_capabilities": [],
+    "selection_explanation_sha256": "268503b245a7586bcb50bf416e295cc3a9a9596d78852db13fcccc65f64bcdc2",
+    "selected_case_ids": [
+      "case.merge3.json.independent-fields.v1",
+      "case.merge3.json.same-owner-conflict.v1",
+      "case.merge3.json.malformed-ours.v1",
+      "case.merge2.jsonc.current-layout-preservation.v1",
+      "case.merge3.jsonc.comment-preservation.v1",
+      "case.merge3.json5.order-format.v1",
+      "case.merge3.json.duplicate-identity.v1"
+    ],
+    "sha256": "5f6420eb25ef9ab9eeaff2f1a19e332b8059fd5d9f6c9979e64062bc090781aa"
+  },
+  "dimensions": {
+    "safety": {
+      "eligible": 7,
+      "false_auto_merge_result_ids": [],
+      "gate": "pass",
+      "non_compensable": true
+    },
+    "effectiveness": {
+      "correct_clean": 6,
+      "false_conflict": 5,
+      "true_conflict": 5,
+      "false_auto_merge": 2,
+      "error": 0,
+      "unsupported": 3,
+      "excluded_ambiguous": 0
+    },
+    "preservation": {
+      "eligible": 7,
+      "violation_result_ids": [],
+      "unverified_result_ids": [],
+      "gate": "pass"
+    },
+    "performance": {
+      "git.merge-file": {
+        "samples": 6,
+        "total_ns": 12648441,
+        "runtime_values_excluded_from_correctness": true
+      },
+      "ast-merge-git": {
+        "samples": 6,
+        "total_ns": 1137903594,
+        "runtime_values_excluded_from_correctness": true
+      },
+      "mergiraf": {
+        "samples": 4,
+        "total_ns": 32350217,
+        "runtime_values_excluded_from_correctness": true
+      },
+      "template.overwrite": {
+        "samples": 1,
+        "total_ns": 14308,
+        "runtime_values_excluded_from_correctness": true
+      },
+      "ast-merge-provider.merge2": {
+        "samples": 1,
+        "total_ns": 179130480,
+        "runtime_values_excluded_from_correctness": true
+      }
+    },
+    "reliability": {
+      "error_result_ids": [],
+      "gate": "pass"
+    },
+    "coverage": {
+      "selected_cases": 7,
+      "executed_candidate_cases": 7,
+      "unsupported_case_ids": [],
+      "unsupported_is_quality_failure": false
+    },
+    "competitive": {
+      "configured": {
+        "mergiraf": {
+          "adapter_id": "mergiraf",
+          "source_url": "https://codeberg.org/mergiraf/mergiraf",
+          "source_revision": "13b813c02da9511c7433131aed142473ffe62d52",
+          "version": "0.18.0",
+          "spdx_license": "GPL-3.0-only",
+          "reuse_posture": "reference_only",
+          "toolchain": "rust 1.91.0",
+          "build_command": "cargo build --release",
+          "operations": [
+            "merge3"
+          ],
+          "dialects": [
+            "bash",
+            "html",
+            "json",
+            "markdown",
+            "ruby",
+            "toml",
+            "typescript",
+            "yaml"
+          ],
+          "binary_path": "/var/home/pboling/src/my/structuredmerge/vendor/mergiraf/target/release/mergiraf",
+          "binary_sha256": "54692934b2f9d7f267a526f3de04ec62865eaef6c32701b483ab3cea2fb2dff6",
+          "reported_version": "mergiraf 0.18.0"
+        }
+      },
+      "outcomes": {
+        "correct_clean": 1,
+        "true_conflict": 1,
+        "false_conflict": 1,
+        "unsupported": 3,
+        "false_auto_merge": 1
+      },
+      "unsupported_case_ids": [
+        "case.merge2.jsonc.current-layout-preservation.v1",
+        "case.merge3.jsonc.comment-preservation.v1",
+        "case.merge3.json5.order-format.v1"
+      ],
+      "false_auto_merge_result_ids": [
+        "result.case.merge3.json.duplicate-identity.v1.mergiraf"
+      ],
+      "affects_candidate_safety_gate": false
+    }
+  },
+  "strata": {
+    "operation": {
+      "merge3": 6,
+      "merge2": 1
+    },
+    "partition": {
+      "sentinel": 7
+    },
+    "family": {
+      "json": 7
+    },
+    "provider": {
+      "ruby.json": 7
+    },
+    "dialect": {
+      "json": 4,
+      "jsonc": 2,
+      "json5": 1
+    },
+    "false_auto_merge_severity": {
+      "none": 4,
+      "critical": 1,
+      "high": 2
+    },
+    "capability": {
+      "merge3": 6,
+      "source_preserving": 7,
+      "structural_paths": 4,
+      "conflict_regions": 1,
+      "error_attribution": 1,
+      "malformed_revision": 1,
+      "comments": 2,
+      "jsonc": 1,
+      "merge2": 1,
+      "whitespace": 1,
+      "formatting": 1,
+      "order": 1,
+      "ambiguous_ownership": 1,
+      "duplicate_identity": 1
+    },
+    "outcome": {
+      "false_conflict": 5,
+      "correct_clean": 6,
+      "true_conflict": 5,
+      "false_auto_merge": 2,
+      "unsupported": 3
+    },
+    "adapter": {
+      "git.merge-file": 6,
+      "ast-merge-git": 6,
+      "mergiraf": 7,
+      "template.overwrite": 1,
+      "ast-merge-provider.merge2": 1
+    },
+    "transition": {
+      "false_conflict->correct_clean": 4,
+      "true_conflict->true_conflict": 2,
+      "false_auto_merge->correct_clean": 1
+    }
+  },
+  "transitions": [
+    {
+      "case_id": "case.merge3.json.independent-fields.v1",
+      "baseline_result_id": "result.case.merge3.json.independent-fields.v1.git.merge-file",
+      "candidate_result_id": "result.case.merge3.json.independent-fields.v1.ast-merge-git",
+      "from": "false_conflict",
+      "to": "correct_clean",
+      "newly_passing": true,
+      "newly_failing": false,
+      "changed_conflict": false
+    },
+    {
+      "case_id": "case.merge3.json.same-owner-conflict.v1",
+      "baseline_result_id": "result.case.merge3.json.same-owner-conflict.v1.git.merge-file",
+      "candidate_result_id": "result.case.merge3.json.same-owner-conflict.v1.ast-merge-git",
+      "from": "true_conflict",
+      "to": "true_conflict",
+      "newly_passing": false,
+      "newly_failing": false,
+      "changed_conflict": true
+    },
+    {
+      "case_id": "case.merge3.json.malformed-ours.v1",
+      "baseline_result_id": "result.case.merge3.json.malformed-ours.v1.git.merge-file",
+      "candidate_result_id": "result.case.merge3.json.malformed-ours.v1.ast-merge-git",
+      "from": "false_conflict",
+      "to": "correct_clean",
+      "newly_passing": true,
+      "newly_failing": false,
+      "changed_conflict": false
+    },
+    {
+      "case_id": "case.merge2.jsonc.current-layout-preservation.v1",
+      "baseline_result_id": "result.case.merge2.jsonc.current-layout-preservation.v1.template.overwrite",
+      "candidate_result_id": "result.case.merge2.jsonc.current-layout-preservation.v1.ast-merge-provider.merge2",
+      "from": "false_auto_merge",
+      "to": "correct_clean",
+      "newly_passing": true,
+      "newly_failing": false,
+      "changed_conflict": false
+    },
+    {
+      "case_id": "case.merge3.jsonc.comment-preservation.v1",
+      "baseline_result_id": "result.case.merge3.jsonc.comment-preservation.v1.git.merge-file",
+      "candidate_result_id": "result.case.merge3.jsonc.comment-preservation.v1.ast-merge-git",
+      "from": "false_conflict",
+      "to": "correct_clean",
+      "newly_passing": true,
+      "newly_failing": false,
+      "changed_conflict": false
+    },
+    {
+      "case_id": "case.merge3.json5.order-format.v1",
+      "baseline_result_id": "result.case.merge3.json5.order-format.v1.git.merge-file",
+      "candidate_result_id": "result.case.merge3.json5.order-format.v1.ast-merge-git",
+      "from": "false_conflict",
+      "to": "correct_clean",
+      "newly_passing": true,
+      "newly_failing": false,
+      "changed_conflict": false
+    },
+    {
+      "case_id": "case.merge3.json.duplicate-identity.v1",
+      "baseline_result_id": "result.case.merge3.json.duplicate-identity.v1.git.merge-file",
+      "candidate_result_id": "result.case.merge3.json.duplicate-identity.v1.ast-merge-git",
+      "from": "true_conflict",
+      "to": "true_conflict",
+      "newly_passing": false,
+      "newly_failing": false,
+      "changed_conflict": true
+    }
+  ],
+  "newly_passing_case_ids": [
+    "case.merge3.json.independent-fields.v1",
+    "case.merge3.json.malformed-ours.v1",
+    "case.merge2.jsonc.current-layout-preservation.v1",
+    "case.merge3.jsonc.comment-preservation.v1",
+    "case.merge3.json5.order-format.v1"
+  ],
+  "newly_failing_case_ids": [],
+  "changed_conflict_case_ids": [
+    "case.merge3.json.same-owner-conflict.v1",
+    "case.merge3.json.duplicate-identity.v1"
+  ],
+  "hard_gate_failed": false,
+  "scalar_score": null
+}

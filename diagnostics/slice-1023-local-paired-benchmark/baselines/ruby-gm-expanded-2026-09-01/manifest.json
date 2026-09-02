@@ -1,0 +1,108 @@
+{
+  "schema_version": "structuredmerge.benchmark.baseline/v1",
+  "kind": "ruby_golden_master_competitive_baseline",
+  "id": "baseline.ruby-gm.expanded-micro.2026-09-01",
+  "profile": "micro",
+  "corpus": {
+    "id": "corpus.local-paired.authored.v1",
+    "repository_revision": "9446b03474bc52653115e76a4ff18f86b5d87f4a",
+    "corpus_revision": "e8f438ddbdcf9a03bc12cff729e47f8405354ca2",
+    "sha256": "e631632c0b648141894c5a4bc371afdf222aa60dc9961e1bb19f6a4ac7803116",
+    "selected_case_ids": [
+      "case.merge3.json.independent-fields.v1",
+      "case.merge3.json.same-owner-conflict.v1",
+      "case.merge3.json.malformed-ours.v1",
+      "case.merge2.jsonc.current-layout-preservation.v1",
+      "case.merge3.jsonc.comment-preservation.v1",
+      "case.merge3.json5.order-format.v1",
+      "case.merge3.json.duplicate-identity.v1"
+    ]
+  },
+  "candidate": {
+    "repository": "structuredmerge-ruby",
+    "revision": "c422b578bcdbc7ac9affb5d13786ed338c3c14f7",
+    "version": "7.1.6",
+    "relevant_paths_clean": true,
+    "relevant_paths": [
+      "gems/ast-merge-git",
+      "gems/ast-merge",
+      "gems/json-merge",
+      "gems/tree_haver"
+    ],
+    "unrelated_dirty_paths": [
+      "Gemfile.lock",
+      "gems/kettle-jem/CHANGELOG.md",
+      "gems/kettle-jem/Gemfile.lock",
+      "gems/kettle-jem/lib/kettle/jem/maintenance_changelog.rb",
+      "gems/kettle-jem/spec/kettle/jem/maintenance_changelog_spec.rb"
+    ],
+    "driver_sha256": "8e684b5e31511d6a78edd973375abd710a02190a06e37fad3d27e90a0b31259d",
+    "runner_sha256": "bea3d5355570a00c017a18e8437892e1c8f4307978c58042fc029edaba4d4dfa"
+  },
+  "parser_runtime": {
+    "repository": "structuredmerge/tree-sitter-language-pack",
+    "revision": "8f59a4bb1a372ac5f2aead6b8ff01bb63b1a2964",
+    "version": "1.16.1",
+    "json_provider_sha256": "c121d7c3dae42d2017f5d2d34052f3cfd24c7acba6f244017275412941cbcb7d",
+    "tree_haver_sha256": "3756048bc0d3b07b5ebe8c89c94ea0dcf5c0578a2e841f57e76d87f5748598e0"
+  },
+  "competitor": {
+    "adapter_id": "mergiraf",
+    "repository": "https://codeberg.org/mergiraf/mergiraf",
+    "revision": "13b813c02da9511c7433131aed142473ffe62d52",
+    "version": "0.18.0",
+    "toolchain": "rust 1.91.0",
+    "binary_sha256": "54692934b2f9d7f267a526f3de04ec62865eaef6c32701b483ab3cea2fb2dff6",
+    "spdx_license": "GPL-3.0-only",
+    "reuse_posture": "reference_only"
+  },
+  "specification": {
+    "repository_revision": "474b9cfdde2e6c02d566d39c47645fcbd10af379"
+  },
+  "environment": {
+    "ruby": "ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [x86_64-linux]",
+    "kernel": "Linux 7.1.6-201.fc44.x86_64",
+    "architecture": "x86_64",
+    "cpu": "Intel(R) Core(TM) Ultra 9 185H",
+    "logical_cpus": 22
+  },
+  "cache_identity_sha256": "5f6420eb25ef9ab9eeaff2f1a19e332b8059fd5d9f6c9979e64062bc090781aa",
+  "artifacts": {
+    "micro-run.json": "2d9ed4ad9892519001d42828cd3786caeb7e5e4d1f0b5e171b883450c9501508",
+    "micro-report.json": "b5a5a80ebec441c056ef0c8d6798a41e2b88c76e52610591db1ab92e42dd565f",
+    "external-time.txt": "e0579e3cf02c586b227928a942ce089c4294fc4e1d2540dabb98124e037713b3"
+  },
+  "external_observations": {
+    "elapsed_seconds": 3.15,
+    "user_seconds": 2.50,
+    "system_seconds": 0.62,
+    "maximum_resident_set_kb": 31808,
+    "excluded_from_correctness": true
+  },
+  "candidate_outcomes": {
+    "correct_clean": 5,
+    "true_conflict": 2,
+    "false_auto_merge": 0,
+    "unexpected_error": 0
+  },
+  "candidate_gates": {
+    "safety": "pass",
+    "preservation": "pass",
+    "reliability": "pass",
+    "hard_gate_failed": false
+  },
+  "competitor_outcomes": {
+    "correct_clean": 1,
+    "true_conflict": 1,
+    "false_conflict": 1,
+    "false_auto_merge": 1,
+    "unsupported": 3
+  },
+  "interpretation": {
+    "expected_parse_rejections": 1,
+    "runner_failures": 0,
+    "competitor_false_auto_merges": 1,
+    "competitor_affects_candidate_gate": false,
+    "public_ranking_authorized": false
+  }
+}

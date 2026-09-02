@@ -1,0 +1,27 @@
+{
+  "schema_version": "structuredmerge.benchmark.provider-comparison/v1",
+  "fixture": "case.merge3.go.independent-functions.v1",
+  "expected_sha256": "04fc9700f31c9a0ff4b0f0b2083083ea742cc75e3f3e4c6aefe9078c3db78f53",
+  "repositories": {
+    "ruby": "ea7a0904de396ff86f03f800307c2158aa80d478",
+    "rust": "ebd3ea6801cf5de2922d1dead392d522bba3976e"
+  },
+  "providers": {
+    "ruby.go": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "04fc9700f31c9a0ff4b0f0b2083083ea742cc75e3f3e4c6aefe9078c3db78f53"
+    },
+    "rust.go": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "04fc9700f31c9a0ff4b0f0b2083083ea742cc75e3f3e4c6aefe9078c3db78f53"
+    }
+  },
+  "notes": [
+    "Both runtimes use TreeHaver's normalized TSLP parser contract and the same reviewed source bytes.",
+    "This comparison proves only conservative top-level named-function merge3 and does not claim source-preserving Go merge2."
+  ]
+}

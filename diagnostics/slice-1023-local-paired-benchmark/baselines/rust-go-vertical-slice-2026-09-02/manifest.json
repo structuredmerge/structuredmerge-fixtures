@@ -1,0 +1,63 @@
+{
+  "schema_version": "structuredmerge.benchmark.baseline-manifest/v1",
+  "baseline_id": "rust-go-vertical-slice-2026-09-02",
+  "fixture_revision": "39203b539fd16e4200a7497ac939461b99abb05d",
+  "ruby_revision": "ea7a0904de396ff86f03f800307c2158aa80d478",
+  "rust_revision": "ebd3ea6801cf5de2922d1dead392d522bba3976e",
+  "commands": {
+    "micro": "ast-merge-git benchmark report --profile micro --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "dev": "ast-merge-git benchmark report --profile dev --changed-path crates/go-merge/src/lib.rs --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "ruby_gm": "ast-merge-git benchmark report --profile micro --workers 4"
+  },
+  "outcomes": {
+    "rust_micro": {
+      "selected_cases": 14,
+      "executed_candidate_cases": 14,
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "rust_dev": {
+      "selected_cases": 16,
+      "executed_candidate_cases": 14,
+      "unsupported_case_ids": [
+        "case.merge3.yaml.delete-modify.v1",
+        "case.merge3.toml.independent-tables.v1"
+      ],
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "ruby_micro": {
+      "selected_cases": 14,
+      "executed_candidate_cases": 14,
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "provider_comparison_exact": {
+      "ruby.go": true,
+      "rust.go": true
+    }
+  },
+  "scope": {
+    "operation": "merge3",
+    "supported_subset": "same ordered uniquely named top-level Go functions with unchanged source outside function owners",
+    "source_preserving": true,
+    "merge2_supported": false,
+    "membership_changes_supported": false,
+    "unsupported_syntax_fails_closed": true,
+    "ruby_is_behavioral_golden_master": true,
+    "intentional_contract_changes": 0
+  },
+  "artifacts": {
+    "micro-run.json": "57ca7687cea6c8740e964fae197a060d7bfedc3e8e68cf2bae7e6ff505e597c4",
+    "micro-report.json": "59371f45facec8e8baabddd8babf819b1287bf27741437fd704496c22ac9bce5",
+    "dev-report.json": "35370a610fc6d6c412c2d286b16078c448d3468ae82a2d559310536198de295d",
+    "ruby-gm-report.json": "c0875f3f2fa4161a7aaf5393116fcc1ef77859ff82c964f578f23fa0d6b0d6c5",
+    "provider-comparison.json": "9bb308a0e784a38574a9ab3ce9186fece9f98605eeaeaf3fe056648a03cee58f"
+  }
+}

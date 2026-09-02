@@ -1,0 +1,212 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1032",
+  "name": "cli-artifact-provider-policy",
+  "description": "CLI artifacts advertise only manifested capabilities and select only providers proven available in the captured runtime snapshot.",
+  "composes": ["slice-1028", "slice-1030", "slice-1031", "tree_haver.parser_for"],
+  "current_state": {
+    "cli_private_mvp_provider_aware": false,
+    "rust_workspace_cli_provider_aware": false,
+    "source_repository_is_capability_evidence": false
+  },
+  "artifact_profiles": [
+    {
+      "id": "standalone",
+      "provider_sources": ["manifested_in_process"],
+      "host_provider_available_by_default": false,
+      "implicit_host_start": false,
+      "operation_time_grammar_download": false
+    },
+    {
+      "id": "embedded_host",
+      "provider_sources": ["manifested_in_process", "validated_host_registration"],
+      "host_provider_available_by_default": false,
+      "implicit_host_start": false,
+      "operation_time_grammar_download": false
+    },
+    {
+      "id": "explicit_sidecar",
+      "provider_sources": ["manifested_in_process", "validated_sidecar_registration"],
+      "host_provider_available_by_default": false,
+      "implicit_host_start": false,
+      "operation_time_grammar_download": false
+    }
+  ],
+  "artifact_manifest": {
+    "immutable": true,
+    "required_fields": [
+      "artifact_id",
+      "artifact_version",
+      "build_revision",
+      "artifact_digest",
+      "target",
+      "profile",
+      "schema_contracts",
+      "built_in_provider_descriptors",
+      "host_bridge_protocols",
+      "grammar_assets",
+      "grammar_installation_policy",
+      "network_policy",
+      "compiled_features",
+      "platform_requirements"
+    ],
+    "host_bridge_protocol_implies_host_provider": false,
+    "repository_contents_imply_provider": false,
+    "unmanifested_provider_advertised": false
+  },
+  "availability": {
+    "report_inputs": [
+      "verified_artifact_manifest",
+      "runtime_platform",
+      "parser_registry_snapshot",
+      "workflow_registry_snapshot",
+      "bounded_provider_probes",
+      "verified_asset_state",
+      "host_or_sidecar_handshake"
+    ],
+    "states": [
+      "available",
+      "compiled",
+      "manifest_only",
+      "unregistered",
+      "unhealthy",
+      "asset_missing",
+      "incompatible",
+      "retired"
+    ],
+    "selectable_states": ["available"],
+    "tslp_probe_path": "public_on_demand_acquisition_interface",
+    "operation_time_network_default": false,
+    "package_detection_is_registration": false
+  },
+  "selection": {
+    "parser_owner": "tree_haver",
+    "parser_api": "parser_for",
+    "workflow_owner": "rust_kernel_merge_provider_registry",
+    "parser_and_workflow_are_distinct": true,
+    "snapshot_before_selection": true,
+    "steps": [
+      "capture_registry_generations",
+      "filter_available_contract_capability_matches",
+      "honor_explicit_stable_id_or_fail",
+      "apply_declared_policy_priorities",
+      "apply_stable_tie_breakers",
+      "record_selection_evidence"
+    ],
+    "forbidden_tie_breakers": [
+      "registration_order",
+      "dependency_load_order",
+      "package_discovery_order",
+      "hash_iteration_order"
+    ],
+    "silent_substitution": false,
+    "textual_fallback": false,
+    "direct_parser_bypass": false
+  },
+  "sidecar": {
+    "explicit_configuration_fields": [
+      "endpoint",
+      "expected_host_identity",
+      "protocol_range",
+      "authentication_policy"
+    ],
+    "auto_discovery": false,
+    "auto_start": false,
+    "local_transport_preferred": true,
+    "network_requires_authenticated_explicit_policy": true,
+    "loss_triggers_substitution": false
+  },
+  "introspection": {
+    "machine_readable": true,
+    "views": [
+      "artifact",
+      "providers_list",
+      "provider_inspect",
+      "operation_preflight",
+      "runtime_health",
+      "grammar_assets"
+    ],
+    "human_output_uses_same_report": true,
+    "preflight_uses_execution_selection_path": true,
+    "normal_operation_installs_provider_or_grammar": false,
+    "preflight_pins": [
+      "artifact_digest",
+      "parser_registry_generation",
+      "workflow_registry_generation",
+      "parser_provider_id",
+      "workflow_provider_id",
+      "asset_digests",
+      "policy_digest"
+    ]
+  },
+  "diagnostic_codes": [
+    "artifact.manifest_invalid",
+    "artifact.digest_mismatch",
+    "artifact.profile_unsupported",
+    "artifact.platform_unsupported",
+    "provider.not_in_artifact",
+    "provider.host_unregistered",
+    "provider.unhealthy",
+    "provider.retired",
+    "provider.contract_incompatible",
+    "sidecar.identity_mismatch",
+    "sidecar.authentication_failed",
+    "sidecar.protocol_incompatible",
+    "grammar.asset_missing",
+    "grammar.asset_corrupt",
+    "grammar.network_forbidden",
+    "provider.capability_unsatisfied",
+    "provider.explicit_unavailable",
+    "provider.policy_ambiguous",
+    "provider.preflight_stale"
+  ],
+  "release_claim": {
+    "scope": "artifact_profile_provider_target",
+    "required_evidence": [
+      "artifact_digest_or_release",
+      "provider_stable_id",
+      "profile",
+      "target",
+      "contract_versions",
+      "evidence_state"
+    ],
+    "grammar_count_is_execution_evidence": false,
+    "compiled_bridge_is_execution_evidence": false,
+    "installed_host_package_is_execution_evidence": false
+  },
+  "invalid_examples": [
+    {"id": "compiled-bridge-advertised-available", "mutation": "treat compiled Ruby bridge support as a registered provider", "rejected_by": "availability_evidence"},
+    {"id": "repository-provider-advertisement", "mutation": "advertise every provider found in the source checkout", "rejected_by": "artifact_manifest"},
+    {"id": "implicit-ruby-start", "mutation": "start or discover Ruby because Psych is requested", "rejected_by": "explicit_host_profile"},
+    {"id": "package-name-registration", "mutation": "select Prism after finding the prism-merge package on disk", "rejected_by": "validated_registration"},
+    {"id": "registration-order-default", "mutation": "select the first compatible provider registered", "rejected_by": "deterministic_policy"},
+    {"id": "parser-workflow-conflation", "mutation": "use a parser backend descriptor as a merge provider", "rejected_by": "provider_kind_separation"},
+    {"id": "cold-cache-line-fallback", "mutation": "line merge when the TSLP grammar cache begins cold", "rejected_by": "tree_haver_fail_closed"},
+    {"id": "direct-tslp-cache-scan", "mutation": "infer TSLP availability without its public on-demand interface", "rejected_by": "tslp_acquisition_path"},
+    {"id": "merge-downloads-grammar", "mutation": "download a missing grammar during merge without an explicit preparation action", "rejected_by": "operation_network_policy"},
+    {"id": "psych-to-tslp-substitution", "mutation": "use TSLP YAML after required Psych host loss", "rejected_by": "explicit_provider_fidelity"},
+    {"id": "tslp-to-native-substitution", "mutation": "use a native parser after explicit TSLP selection fails", "rejected_by": "explicit_provider_fidelity"},
+    {"id": "direct-parser-call", "mutation": "CLI invokes a parser without TreeHaver", "rejected_by": "parser_selection_owner"},
+    {"id": "hidden-textual-fallback", "mutation": "fall back to line or JSON-library merge after provider failure", "rejected_by": "merge_provider_fail_closed"},
+    {"id": "stale-preflight-execution", "mutation": "execute after registry generation changes without revalidation", "rejected_by": "pinned_preflight"},
+    {"id": "platform-mismatch", "mutation": "load a provider built for a different target ABI", "rejected_by": "artifact_platform"},
+    {"id": "manifest-digest-mismatch", "mutation": "continue after artifact bytes differ from the manifest digest", "rejected_by": "artifact_integrity"},
+    {"id": "sidecar-identity-mismatch", "mutation": "accept a healthy sidecar with the wrong expected identity", "rejected_by": "authenticated_sidecar"},
+    {"id": "sidecar-auto-discovery", "mutation": "connect to the first sidecar found on the network", "rejected_by": "explicit_sidecar"},
+    {"id": "provider-error-fabricates-output", "mutation": "emit merged text after selection or availability failure", "rejected_by": "diagnostic_fail_closed"},
+    {"id": "grammar-count-capability-claim", "mutation": "claim support for all grammars present in an upstream source tree", "rejected_by": "artifact_evidence_scope"}
+  ],
+  "expected": {
+    "artifact_profile_count": 3,
+    "availability_state_count": 8,
+    "selectable_state_count": 1,
+    "selection_step_count": 6,
+    "introspection_view_count": 6,
+    "diagnostic_code_count": 19,
+    "invalid_example_count": 20,
+    "parser_selection_owner": "tree_haver",
+    "silent_substitution": false,
+    "operation_time_network_default": false,
+    "implementation_complete": false
+  }
+}

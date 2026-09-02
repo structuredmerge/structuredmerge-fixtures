@@ -1,0 +1,718 @@
+{
+  "schema": "structuredmerge.host-transport-benchmark/v1",
+  "clock": "CLOCK_MONOTONIC nanoseconds",
+  "correctness": "all measured results matched source length and SHA-256",
+  "environment": {
+    "ruby": "ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [x86_64-linux]",
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+    "host_cpu": "x86_64",
+    "host_os": "linux",
+    "peak_resident_kibibytes": 127572
+  },
+  "revisions": {
+    "rust": {
+      "revision": "d482d632638e33a1299224613c27a8037b1909ba",
+      "dirty": false,
+      "status_sha256": null
+    },
+    "alef": {
+      "revision": "bed1af3fdc125e4a14ac2caefdba0a1dbe8abeae",
+      "dirty": false,
+      "status_sha256": null
+    },
+    "fixtures": {
+      "revision": "dc007f692981511747940dc3d6aa9206a5c91d0c",
+      "dirty": false,
+      "status_sha256": null
+    }
+  },
+  "generated_binding_sha256": "89954b9ea34b02ebfcee16fb5e835c6702e97b69b3eac1bf116f1d19ffe486a8",
+  "measurement": {
+    "implementations": [
+      "in_process_rust_identity",
+      "generated_typed_values",
+      "canonical_json_detached_bytes"
+    ],
+    "batch_sizes": {
+      "1": 1,
+      "8": 8,
+      "32": 32,
+      "negotiated_maximum": 32
+    },
+    "payload_classes": {
+      "small_inline": 64,
+      "medium_inline": 16384,
+      "detached_above_threshold": 262145
+    },
+    "warmup_samples": 5,
+    "measured_samples": 30,
+    "scenarios": [
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "1",
+          "effective_batch_size": 1,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+        },
+        "summary": {
+          "p50_ns": 1543,
+          "p95_ns": 2345,
+          "p99_ns": 8715,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "1",
+          "effective_batch_size": 1,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        "summary": {
+          "p50_ns": 243262,
+          "p95_ns": 267615,
+          "p99_ns": 282364,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "1",
+          "effective_batch_size": 1,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "b27a032984ea8a6bec700c3d6f63f8fcfbf8ff8ef87e972891feda4eea4aad0c"
+        },
+        "summary": {
+          "p50_ns": 3789752,
+          "p95_ns": 4356955,
+          "p99_ns": 9127981,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "8",
+          "effective_batch_size": 8,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "3788437f0885266aee74fa065a49da2ad1bef1c071a812a8f662f8bdee5a2c06"
+        },
+        "summary": {
+          "p50_ns": 3014,
+          "p95_ns": 4942,
+          "p99_ns": 12062,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "8",
+          "effective_batch_size": 8,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "cd00090bfdef09c2086eaba5b6e5f60858cb6b5f4d3f7031e1cb20b0a35600f5"
+        },
+        "summary": {
+          "p50_ns": 253016,
+          "p95_ns": 268922,
+          "p99_ns": 275726,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "8",
+          "effective_batch_size": 8,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "3a1c8c6b918296a7a3084c29d80375711331827157911e419be20a1949739bce"
+        },
+        "summary": {
+          "p50_ns": 3773693,
+          "p95_ns": 4058845,
+          "p99_ns": 10037411,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "32",
+          "effective_batch_size": 32,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+        },
+        "summary": {
+          "p50_ns": 6958,
+          "p95_ns": 10907,
+          "p99_ns": 27051,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "32",
+          "effective_batch_size": 32,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+        },
+        "summary": {
+          "p50_ns": 251614,
+          "p95_ns": 268744,
+          "p99_ns": 268824,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "32",
+          "effective_batch_size": 32,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+        },
+        "summary": {
+          "p50_ns": 3562018,
+          "p95_ns": 4092266,
+          "p99_ns": 4271347,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "negotiated_maximum",
+          "effective_batch_size": 32,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+        },
+        "summary": {
+          "p50_ns": 7110,
+          "p95_ns": 10263,
+          "p99_ns": 18617,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "negotiated_maximum",
+          "effective_batch_size": 32,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+        },
+        "summary": {
+          "p50_ns": 263632,
+          "p95_ns": 286152,
+          "p99_ns": 293715,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "in_process_rust_identity",
+          "batch_size": "negotiated_maximum",
+          "effective_batch_size": 32,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+        },
+        "summary": {
+          "p50_ns": 3822423,
+          "p95_ns": 4644296,
+          "p99_ns": 5627638,
+          "callback_count": 0,
+          "observed_host_callback_bytes": 0,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "1",
+          "effective_batch_size": 1,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+        },
+        "summary": {
+          "p50_ns": 2281,
+          "p95_ns": 3617,
+          "p99_ns": 20024,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 1920,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "1",
+          "effective_batch_size": 1,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        "summary": {
+          "p50_ns": 254884,
+          "p95_ns": 266604,
+          "p99_ns": 276502,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 491520,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "1",
+          "effective_batch_size": 1,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "b27a032984ea8a6bec700c3d6f63f8fcfbf8ff8ef87e972891feda4eea4aad0c"
+        },
+        "summary": {
+          "p50_ns": 3273356,
+          "p95_ns": 4298667,
+          "p99_ns": 4376101,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 7864350,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "8",
+          "effective_batch_size": 8,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "3788437f0885266aee74fa065a49da2ad1bef1c071a812a8f662f8bdee5a2c06"
+        },
+        "summary": {
+          "p50_ns": 4568,
+          "p95_ns": 9925,
+          "p99_ns": 31229,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 1920,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "8",
+          "effective_batch_size": 8,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "cd00090bfdef09c2086eaba5b6e5f60858cb6b5f4d3f7031e1cb20b0a35600f5"
+        },
+        "summary": {
+          "p50_ns": 258681,
+          "p95_ns": 270272,
+          "p99_ns": 272060,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 491520,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "8",
+          "effective_batch_size": 8,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "3a1c8c6b918296a7a3084c29d80375711331827157911e419be20a1949739bce"
+        },
+        "summary": {
+          "p50_ns": 3963244,
+          "p95_ns": 4281527,
+          "p99_ns": 4478429,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 7864350,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "32",
+          "effective_batch_size": 32,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+        },
+        "summary": {
+          "p50_ns": 11144,
+          "p95_ns": 19046,
+          "p99_ns": 22559,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 1920,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "32",
+          "effective_batch_size": 32,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+        },
+        "summary": {
+          "p50_ns": 262553,
+          "p95_ns": 276956,
+          "p99_ns": 292361,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 491520,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "32",
+          "effective_batch_size": 32,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+        },
+        "summary": {
+          "p50_ns": 3500776,
+          "p95_ns": 4391006,
+          "p99_ns": 6138310,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 7864350,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "negotiated_maximum",
+          "effective_batch_size": 32,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+        },
+        "summary": {
+          "p50_ns": 10554,
+          "p95_ns": 15603,
+          "p99_ns": 22948,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 1920,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "negotiated_maximum",
+          "effective_batch_size": 32,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+        },
+        "summary": {
+          "p50_ns": 265889,
+          "p95_ns": 279482,
+          "p99_ns": 280007,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 491520,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "generated_typed_values",
+          "batch_size": "negotiated_maximum",
+          "effective_batch_size": 32,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+        },
+        "summary": {
+          "p50_ns": 3237217,
+          "p95_ns": 4112664,
+          "p99_ns": 4434481,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 7864350,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "1",
+          "effective_batch_size": 1,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+        },
+        "summary": {
+          "p50_ns": 20549,
+          "p95_ns": 27396,
+          "p99_ns": 85343,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 12180,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "1",
+          "effective_batch_size": 1,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        "summary": {
+          "p50_ns": 330737,
+          "p95_ns": 374207,
+          "p99_ns": 397564,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 501960,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "1",
+          "effective_batch_size": 1,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "b27a032984ea8a6bec700c3d6f63f8fcfbf8ff8ef87e972891feda4eea4aad0c"
+        },
+        "summary": {
+          "p50_ns": 4066891,
+          "p95_ns": 4958622,
+          "p99_ns": 5039106,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 7874850,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "8",
+          "effective_batch_size": 8,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "3788437f0885266aee74fa065a49da2ad1bef1c071a812a8f662f8bdee5a2c06"
+        },
+        "summary": {
+          "p50_ns": 26210,
+          "p95_ns": 37738,
+          "p99_ns": 108838,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 39210,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "8",
+          "effective_batch_size": 8,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "cd00090bfdef09c2086eaba5b6e5f60858cb6b5f4d3f7031e1cb20b0a35600f5"
+        },
+        "summary": {
+          "p50_ns": 328668,
+          "p95_ns": 358732,
+          "p99_ns": 371019,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 530160,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "8",
+          "effective_batch_size": 8,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "3a1c8c6b918296a7a3084c29d80375711331827157911e419be20a1949739bce"
+        },
+        "summary": {
+          "p50_ns": 4203255,
+          "p95_ns": 5566700,
+          "p99_ns": 9739944,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 7903500,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "32",
+          "effective_batch_size": 32,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+        },
+        "summary": {
+          "p50_ns": 40914,
+          "p95_ns": 77164,
+          "p99_ns": 115169,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 132690,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "32",
+          "effective_batch_size": 32,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+        },
+        "summary": {
+          "p50_ns": 349791,
+          "p95_ns": 375582,
+          "p99_ns": 414276,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 626610,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "32",
+          "effective_batch_size": 32,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+        },
+        "summary": {
+          "p50_ns": 4327757,
+          "p95_ns": 5217176,
+          "p99_ns": 5380111,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 8001570,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "negotiated_maximum",
+          "effective_batch_size": 32,
+          "payload_class": "small_inline",
+          "source_bytes": 64,
+          "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+        },
+        "summary": {
+          "p50_ns": 40522,
+          "p95_ns": 67706,
+          "p99_ns": 92684,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 132690,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "negotiated_maximum",
+          "effective_batch_size": 32,
+          "payload_class": "medium_inline",
+          "source_bytes": 16384,
+          "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+        },
+        "summary": {
+          "p50_ns": 349125,
+          "p95_ns": 394215,
+          "p99_ns": 401256,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 626610,
+          "digest_equality": true
+        }
+      },
+      {
+        "identity": {
+          "implementation": "canonical_json_detached_bytes",
+          "batch_size": "negotiated_maximum",
+          "effective_batch_size": 32,
+          "payload_class": "detached_above_threshold",
+          "source_bytes": 262145,
+          "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+        },
+        "summary": {
+          "p50_ns": 4288950,
+          "p95_ns": 5244408,
+          "p99_ns": 5322921,
+          "callback_count": 30,
+          "observed_host_callback_bytes": 8001570,
+          "digest_equality": true
+        }
+      }
+    ],
+    "lifecycle": {
+      "register_p50_ns": 1626,
+      "register_p95_ns": 23027,
+      "unregister_p50_ns": 313,
+      "unregister_p95_ns": 1780
+    },
+    "not_measured": [
+      "allocator_counts",
+      "per_scenario_peak_resident_memory",
+      "gvl_hold_time",
+      "gvl_wait_time",
+      "internal_rust_copy_counts"
+    ]
+  },
+  "raw_samples": {
+    "path": "raw-samples.json",
+    "sha256": "da6c1a8ceca1a2bbb2541d0d5d461e7dad70be702ffb61a0646fb09eca0f2478"
+  },
+  "transport_decision": "undecided_pending_review"
+}

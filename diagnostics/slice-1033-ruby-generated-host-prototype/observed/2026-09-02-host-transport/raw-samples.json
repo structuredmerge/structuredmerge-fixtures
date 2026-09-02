@@ -1,0 +1,4911 @@
+{
+  "schema": "structuredmerge.host-transport-raw-samples/v1",
+  "warmup_samples_per_scenario": 5,
+  "measured_samples_per_scenario": 30,
+  "scenarios": [
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "1",
+        "effective_batch_size": 1,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 8715
+        },
+        {
+          "sample": 2,
+          "duration_ns": 2212
+        },
+        {
+          "sample": 3,
+          "duration_ns": 1651
+        },
+        {
+          "sample": 4,
+          "duration_ns": 1643
+        },
+        {
+          "sample": 5,
+          "duration_ns": 1526
+        },
+        {
+          "sample": 6,
+          "duration_ns": 1424
+        },
+        {
+          "sample": 7,
+          "duration_ns": 1825
+        },
+        {
+          "sample": 8,
+          "duration_ns": 1449
+        },
+        {
+          "sample": 9,
+          "duration_ns": 1642
+        },
+        {
+          "sample": 10,
+          "duration_ns": 1515
+        },
+        {
+          "sample": 11,
+          "duration_ns": 1618
+        },
+        {
+          "sample": 12,
+          "duration_ns": 1393
+        },
+        {
+          "sample": 13,
+          "duration_ns": 1609
+        },
+        {
+          "sample": 14,
+          "duration_ns": 1385
+        },
+        {
+          "sample": 15,
+          "duration_ns": 1455
+        },
+        {
+          "sample": 16,
+          "duration_ns": 2345
+        },
+        {
+          "sample": 17,
+          "duration_ns": 1708
+        },
+        {
+          "sample": 18,
+          "duration_ns": 1590
+        },
+        {
+          "sample": 19,
+          "duration_ns": 1612
+        },
+        {
+          "sample": 20,
+          "duration_ns": 1543
+        },
+        {
+          "sample": 21,
+          "duration_ns": 1513
+        },
+        {
+          "sample": 22,
+          "duration_ns": 1381
+        },
+        {
+          "sample": 23,
+          "duration_ns": 1685
+        },
+        {
+          "sample": 24,
+          "duration_ns": 1574
+        },
+        {
+          "sample": 25,
+          "duration_ns": 1498
+        },
+        {
+          "sample": 26,
+          "duration_ns": 1591
+        },
+        {
+          "sample": 27,
+          "duration_ns": 1412
+        },
+        {
+          "sample": 28,
+          "duration_ns": 1389
+        },
+        {
+          "sample": 29,
+          "duration_ns": 1539
+        },
+        {
+          "sample": 30,
+          "duration_ns": 1519
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "1",
+        "effective_batch_size": 1,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 174413
+        },
+        {
+          "sample": 2,
+          "duration_ns": 182197
+        },
+        {
+          "sample": 3,
+          "duration_ns": 200066
+        },
+        {
+          "sample": 4,
+          "duration_ns": 176691
+        },
+        {
+          "sample": 5,
+          "duration_ns": 188052
+        },
+        {
+          "sample": 6,
+          "duration_ns": 243262
+        },
+        {
+          "sample": 7,
+          "duration_ns": 257262
+        },
+        {
+          "sample": 8,
+          "duration_ns": 255285
+        },
+        {
+          "sample": 9,
+          "duration_ns": 232952
+        },
+        {
+          "sample": 10,
+          "duration_ns": 267615
+        },
+        {
+          "sample": 11,
+          "duration_ns": 235329
+        },
+        {
+          "sample": 12,
+          "duration_ns": 231314
+        },
+        {
+          "sample": 13,
+          "duration_ns": 246878
+        },
+        {
+          "sample": 14,
+          "duration_ns": 282364
+        },
+        {
+          "sample": 15,
+          "duration_ns": 254670
+        },
+        {
+          "sample": 16,
+          "duration_ns": 249451
+        },
+        {
+          "sample": 17,
+          "duration_ns": 254571
+        },
+        {
+          "sample": 18,
+          "duration_ns": 250476
+        },
+        {
+          "sample": 19,
+          "duration_ns": 254823
+        },
+        {
+          "sample": 20,
+          "duration_ns": 245340
+        },
+        {
+          "sample": 21,
+          "duration_ns": 246901
+        },
+        {
+          "sample": 22,
+          "duration_ns": 248595
+        },
+        {
+          "sample": 23,
+          "duration_ns": 228812
+        },
+        {
+          "sample": 24,
+          "duration_ns": 255155
+        },
+        {
+          "sample": 25,
+          "duration_ns": 234237
+        },
+        {
+          "sample": 26,
+          "duration_ns": 238360
+        },
+        {
+          "sample": 27,
+          "duration_ns": 236062
+        },
+        {
+          "sample": 28,
+          "duration_ns": 227969
+        },
+        {
+          "sample": 29,
+          "duration_ns": 230373
+        },
+        {
+          "sample": 30,
+          "duration_ns": 244962
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "1",
+        "effective_batch_size": 1,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "b27a032984ea8a6bec700c3d6f63f8fcfbf8ff8ef87e972891feda4eea4aad0c"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 3137971
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3207959
+        },
+        {
+          "sample": 3,
+          "duration_ns": 3789752
+        },
+        {
+          "sample": 4,
+          "duration_ns": 3816654
+        },
+        {
+          "sample": 5,
+          "duration_ns": 3886021
+        },
+        {
+          "sample": 6,
+          "duration_ns": 4077214
+        },
+        {
+          "sample": 7,
+          "duration_ns": 3750382
+        },
+        {
+          "sample": 8,
+          "duration_ns": 3907161
+        },
+        {
+          "sample": 9,
+          "duration_ns": 3809111
+        },
+        {
+          "sample": 10,
+          "duration_ns": 3772799
+        },
+        {
+          "sample": 11,
+          "duration_ns": 3722637
+        },
+        {
+          "sample": 12,
+          "duration_ns": 3876782
+        },
+        {
+          "sample": 13,
+          "duration_ns": 3813058
+        },
+        {
+          "sample": 14,
+          "duration_ns": 2896037
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3104723
+        },
+        {
+          "sample": 16,
+          "duration_ns": 3136290
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3007917
+        },
+        {
+          "sample": 18,
+          "duration_ns": 3945330
+        },
+        {
+          "sample": 19,
+          "duration_ns": 3872974
+        },
+        {
+          "sample": 20,
+          "duration_ns": 4356955
+        },
+        {
+          "sample": 21,
+          "duration_ns": 3848297
+        },
+        {
+          "sample": 22,
+          "duration_ns": 3970078
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3789874
+        },
+        {
+          "sample": 24,
+          "duration_ns": 3919458
+        },
+        {
+          "sample": 25,
+          "duration_ns": 9127981
+        },
+        {
+          "sample": 26,
+          "duration_ns": 3065557
+        },
+        {
+          "sample": 27,
+          "duration_ns": 2987814
+        },
+        {
+          "sample": 28,
+          "duration_ns": 2975290
+        },
+        {
+          "sample": 29,
+          "duration_ns": 2947359
+        },
+        {
+          "sample": 30,
+          "duration_ns": 3030443
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "8",
+        "effective_batch_size": 8,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "3788437f0885266aee74fa065a49da2ad1bef1c071a812a8f662f8bdee5a2c06"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 12062
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3634
+        },
+        {
+          "sample": 3,
+          "duration_ns": 3320
+        },
+        {
+          "sample": 4,
+          "duration_ns": 3299
+        },
+        {
+          "sample": 5,
+          "duration_ns": 3263
+        },
+        {
+          "sample": 6,
+          "duration_ns": 4942
+        },
+        {
+          "sample": 7,
+          "duration_ns": 3269
+        },
+        {
+          "sample": 8,
+          "duration_ns": 3014
+        },
+        {
+          "sample": 9,
+          "duration_ns": 4941
+        },
+        {
+          "sample": 10,
+          "duration_ns": 3689
+        },
+        {
+          "sample": 11,
+          "duration_ns": 3387
+        },
+        {
+          "sample": 12,
+          "duration_ns": 4592
+        },
+        {
+          "sample": 13,
+          "duration_ns": 2851
+        },
+        {
+          "sample": 14,
+          "duration_ns": 2531
+        },
+        {
+          "sample": 15,
+          "duration_ns": 2596
+        },
+        {
+          "sample": 16,
+          "duration_ns": 2680
+        },
+        {
+          "sample": 17,
+          "duration_ns": 2854
+        },
+        {
+          "sample": 18,
+          "duration_ns": 4515
+        },
+        {
+          "sample": 19,
+          "duration_ns": 2859
+        },
+        {
+          "sample": 20,
+          "duration_ns": 2725
+        },
+        {
+          "sample": 21,
+          "duration_ns": 2933
+        },
+        {
+          "sample": 22,
+          "duration_ns": 2578
+        },
+        {
+          "sample": 23,
+          "duration_ns": 2886
+        },
+        {
+          "sample": 24,
+          "duration_ns": 2576
+        },
+        {
+          "sample": 25,
+          "duration_ns": 2744
+        },
+        {
+          "sample": 26,
+          "duration_ns": 2848
+        },
+        {
+          "sample": 27,
+          "duration_ns": 3861
+        },
+        {
+          "sample": 28,
+          "duration_ns": 2781
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3086
+        },
+        {
+          "sample": 30,
+          "duration_ns": 3031
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "8",
+        "effective_batch_size": 8,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "cd00090bfdef09c2086eaba5b6e5f60858cb6b5f4d3f7031e1cb20b0a35600f5"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 185596
+        },
+        {
+          "sample": 2,
+          "duration_ns": 196080
+        },
+        {
+          "sample": 3,
+          "duration_ns": 194444
+        },
+        {
+          "sample": 4,
+          "duration_ns": 198199
+        },
+        {
+          "sample": 5,
+          "duration_ns": 231100
+        },
+        {
+          "sample": 6,
+          "duration_ns": 255614
+        },
+        {
+          "sample": 7,
+          "duration_ns": 268922
+        },
+        {
+          "sample": 8,
+          "duration_ns": 245792
+        },
+        {
+          "sample": 9,
+          "duration_ns": 257891
+        },
+        {
+          "sample": 10,
+          "duration_ns": 252295
+        },
+        {
+          "sample": 11,
+          "duration_ns": 243380
+        },
+        {
+          "sample": 12,
+          "duration_ns": 275726
+        },
+        {
+          "sample": 13,
+          "duration_ns": 262618
+        },
+        {
+          "sample": 14,
+          "duration_ns": 253580
+        },
+        {
+          "sample": 15,
+          "duration_ns": 268633
+        },
+        {
+          "sample": 16,
+          "duration_ns": 254904
+        },
+        {
+          "sample": 17,
+          "duration_ns": 250319
+        },
+        {
+          "sample": 18,
+          "duration_ns": 253016
+        },
+        {
+          "sample": 19,
+          "duration_ns": 261718
+        },
+        {
+          "sample": 20,
+          "duration_ns": 260485
+        },
+        {
+          "sample": 21,
+          "duration_ns": 266368
+        },
+        {
+          "sample": 22,
+          "duration_ns": 251056
+        },
+        {
+          "sample": 23,
+          "duration_ns": 257701
+        },
+        {
+          "sample": 24,
+          "duration_ns": 247946
+        },
+        {
+          "sample": 25,
+          "duration_ns": 256620
+        },
+        {
+          "sample": 26,
+          "duration_ns": 246180
+        },
+        {
+          "sample": 27,
+          "duration_ns": 253470
+        },
+        {
+          "sample": 28,
+          "duration_ns": 257924
+        },
+        {
+          "sample": 29,
+          "duration_ns": 250318
+        },
+        {
+          "sample": 30,
+          "duration_ns": 252838
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "8",
+        "effective_batch_size": 8,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "3a1c8c6b918296a7a3084c29d80375711331827157911e419be20a1949739bce"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 2945645
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3544869
+        },
+        {
+          "sample": 3,
+          "duration_ns": 3773693
+        },
+        {
+          "sample": 4,
+          "duration_ns": 4058845
+        },
+        {
+          "sample": 5,
+          "duration_ns": 3847856
+        },
+        {
+          "sample": 6,
+          "duration_ns": 3905718
+        },
+        {
+          "sample": 7,
+          "duration_ns": 3922479
+        },
+        {
+          "sample": 8,
+          "duration_ns": 3768308
+        },
+        {
+          "sample": 9,
+          "duration_ns": 3783857
+        },
+        {
+          "sample": 10,
+          "duration_ns": 4000562
+        },
+        {
+          "sample": 11,
+          "duration_ns": 3841595
+        },
+        {
+          "sample": 12,
+          "duration_ns": 3778421
+        },
+        {
+          "sample": 13,
+          "duration_ns": 3916833
+        },
+        {
+          "sample": 14,
+          "duration_ns": 3842141
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3465305
+        },
+        {
+          "sample": 16,
+          "duration_ns": 2987842
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3033392
+        },
+        {
+          "sample": 18,
+          "duration_ns": 3261683
+        },
+        {
+          "sample": 19,
+          "duration_ns": 3079904
+        },
+        {
+          "sample": 20,
+          "duration_ns": 3220616
+        },
+        {
+          "sample": 21,
+          "duration_ns": 3444706
+        },
+        {
+          "sample": 22,
+          "duration_ns": 3931419
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3780810
+        },
+        {
+          "sample": 24,
+          "duration_ns": 3809882
+        },
+        {
+          "sample": 25,
+          "duration_ns": 3716501
+        },
+        {
+          "sample": 26,
+          "duration_ns": 3712083
+        },
+        {
+          "sample": 27,
+          "duration_ns": 3855390
+        },
+        {
+          "sample": 28,
+          "duration_ns": 10037411
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3359696
+        },
+        {
+          "sample": 30,
+          "duration_ns": 2954503
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "32",
+        "effective_batch_size": 32,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 27051
+        },
+        {
+          "sample": 2,
+          "duration_ns": 10907
+        },
+        {
+          "sample": 3,
+          "duration_ns": 8523
+        },
+        {
+          "sample": 4,
+          "duration_ns": 7650
+        },
+        {
+          "sample": 5,
+          "duration_ns": 8301
+        },
+        {
+          "sample": 6,
+          "duration_ns": 7944
+        },
+        {
+          "sample": 7,
+          "duration_ns": 7937
+        },
+        {
+          "sample": 8,
+          "duration_ns": 7771
+        },
+        {
+          "sample": 9,
+          "duration_ns": 8155
+        },
+        {
+          "sample": 10,
+          "duration_ns": 7009
+        },
+        {
+          "sample": 11,
+          "duration_ns": 6839
+        },
+        {
+          "sample": 12,
+          "duration_ns": 7278
+        },
+        {
+          "sample": 13,
+          "duration_ns": 6733
+        },
+        {
+          "sample": 14,
+          "duration_ns": 6772
+        },
+        {
+          "sample": 15,
+          "duration_ns": 6811
+        },
+        {
+          "sample": 16,
+          "duration_ns": 6561
+        },
+        {
+          "sample": 17,
+          "duration_ns": 6957
+        },
+        {
+          "sample": 18,
+          "duration_ns": 7079
+        },
+        {
+          "sample": 19,
+          "duration_ns": 7092
+        },
+        {
+          "sample": 20,
+          "duration_ns": 7058
+        },
+        {
+          "sample": 21,
+          "duration_ns": 6712
+        },
+        {
+          "sample": 22,
+          "duration_ns": 6954
+        },
+        {
+          "sample": 23,
+          "duration_ns": 8353
+        },
+        {
+          "sample": 24,
+          "duration_ns": 6470
+        },
+        {
+          "sample": 25,
+          "duration_ns": 6784
+        },
+        {
+          "sample": 26,
+          "duration_ns": 6821
+        },
+        {
+          "sample": 27,
+          "duration_ns": 6958
+        },
+        {
+          "sample": 28,
+          "duration_ns": 6757
+        },
+        {
+          "sample": 29,
+          "duration_ns": 6806
+        },
+        {
+          "sample": 30,
+          "duration_ns": 6895
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "32",
+        "effective_batch_size": 32,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 189193
+        },
+        {
+          "sample": 2,
+          "duration_ns": 211072
+        },
+        {
+          "sample": 3,
+          "duration_ns": 184639
+        },
+        {
+          "sample": 4,
+          "duration_ns": 206752
+        },
+        {
+          "sample": 5,
+          "duration_ns": 200016
+        },
+        {
+          "sample": 6,
+          "duration_ns": 206561
+        },
+        {
+          "sample": 7,
+          "duration_ns": 214883
+        },
+        {
+          "sample": 8,
+          "duration_ns": 204703
+        },
+        {
+          "sample": 9,
+          "duration_ns": 238146
+        },
+        {
+          "sample": 10,
+          "duration_ns": 265708
+        },
+        {
+          "sample": 11,
+          "duration_ns": 259035
+        },
+        {
+          "sample": 12,
+          "duration_ns": 258577
+        },
+        {
+          "sample": 13,
+          "duration_ns": 255828
+        },
+        {
+          "sample": 14,
+          "duration_ns": 251614
+        },
+        {
+          "sample": 15,
+          "duration_ns": 257547
+        },
+        {
+          "sample": 16,
+          "duration_ns": 268744
+        },
+        {
+          "sample": 17,
+          "duration_ns": 254584
+        },
+        {
+          "sample": 18,
+          "duration_ns": 268824
+        },
+        {
+          "sample": 19,
+          "duration_ns": 252980
+        },
+        {
+          "sample": 20,
+          "duration_ns": 258190
+        },
+        {
+          "sample": 21,
+          "duration_ns": 245378
+        },
+        {
+          "sample": 22,
+          "duration_ns": 258913
+        },
+        {
+          "sample": 23,
+          "duration_ns": 251886
+        },
+        {
+          "sample": 24,
+          "duration_ns": 249302
+        },
+        {
+          "sample": 25,
+          "duration_ns": 249808
+        },
+        {
+          "sample": 26,
+          "duration_ns": 261994
+        },
+        {
+          "sample": 27,
+          "duration_ns": 247300
+        },
+        {
+          "sample": 28,
+          "duration_ns": 250350
+        },
+        {
+          "sample": 29,
+          "duration_ns": 263471
+        },
+        {
+          "sample": 30,
+          "duration_ns": 257369
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "32",
+        "effective_batch_size": 32,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 2987669
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3450509
+        },
+        {
+          "sample": 3,
+          "duration_ns": 4054916
+        },
+        {
+          "sample": 4,
+          "duration_ns": 4092266
+        },
+        {
+          "sample": 5,
+          "duration_ns": 3909403
+        },
+        {
+          "sample": 6,
+          "duration_ns": 3808100
+        },
+        {
+          "sample": 7,
+          "duration_ns": 3798732
+        },
+        {
+          "sample": 8,
+          "duration_ns": 3681611
+        },
+        {
+          "sample": 9,
+          "duration_ns": 3830258
+        },
+        {
+          "sample": 10,
+          "duration_ns": 3814647
+        },
+        {
+          "sample": 11,
+          "duration_ns": 3941554
+        },
+        {
+          "sample": 12,
+          "duration_ns": 3952192
+        },
+        {
+          "sample": 13,
+          "duration_ns": 3886818
+        },
+        {
+          "sample": 14,
+          "duration_ns": 3887860
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3468803
+        },
+        {
+          "sample": 16,
+          "duration_ns": 3278259
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3093611
+        },
+        {
+          "sample": 18,
+          "duration_ns": 3330182
+        },
+        {
+          "sample": 19,
+          "duration_ns": 3341593
+        },
+        {
+          "sample": 20,
+          "duration_ns": 3124389
+        },
+        {
+          "sample": 21,
+          "duration_ns": 4271347
+        },
+        {
+          "sample": 22,
+          "duration_ns": 3405205
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3349144
+        },
+        {
+          "sample": 24,
+          "duration_ns": 2912976
+        },
+        {
+          "sample": 25,
+          "duration_ns": 3168754
+        },
+        {
+          "sample": 26,
+          "duration_ns": 3371950
+        },
+        {
+          "sample": 27,
+          "duration_ns": 3562018
+        },
+        {
+          "sample": 28,
+          "duration_ns": 3842814
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3473182
+        },
+        {
+          "sample": 30,
+          "duration_ns": 3951115
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "negotiated_maximum",
+        "effective_batch_size": 32,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 18617
+        },
+        {
+          "sample": 2,
+          "duration_ns": 9644
+        },
+        {
+          "sample": 3,
+          "duration_ns": 8443
+        },
+        {
+          "sample": 4,
+          "duration_ns": 8129
+        },
+        {
+          "sample": 5,
+          "duration_ns": 8067
+        },
+        {
+          "sample": 6,
+          "duration_ns": 8110
+        },
+        {
+          "sample": 7,
+          "duration_ns": 7953
+        },
+        {
+          "sample": 8,
+          "duration_ns": 7494
+        },
+        {
+          "sample": 9,
+          "duration_ns": 7724
+        },
+        {
+          "sample": 10,
+          "duration_ns": 6995
+        },
+        {
+          "sample": 11,
+          "duration_ns": 7126
+        },
+        {
+          "sample": 12,
+          "duration_ns": 7091
+        },
+        {
+          "sample": 13,
+          "duration_ns": 7077
+        },
+        {
+          "sample": 14,
+          "duration_ns": 7110
+        },
+        {
+          "sample": 15,
+          "duration_ns": 7003
+        },
+        {
+          "sample": 16,
+          "duration_ns": 7044
+        },
+        {
+          "sample": 17,
+          "duration_ns": 7002
+        },
+        {
+          "sample": 18,
+          "duration_ns": 6804
+        },
+        {
+          "sample": 19,
+          "duration_ns": 7427
+        },
+        {
+          "sample": 20,
+          "duration_ns": 7097
+        },
+        {
+          "sample": 21,
+          "duration_ns": 7101
+        },
+        {
+          "sample": 22,
+          "duration_ns": 7026
+        },
+        {
+          "sample": 23,
+          "duration_ns": 7402
+        },
+        {
+          "sample": 24,
+          "duration_ns": 10263
+        },
+        {
+          "sample": 25,
+          "duration_ns": 7188
+        },
+        {
+          "sample": 26,
+          "duration_ns": 7102
+        },
+        {
+          "sample": 27,
+          "duration_ns": 7048
+        },
+        {
+          "sample": 28,
+          "duration_ns": 6977
+        },
+        {
+          "sample": 29,
+          "duration_ns": 6890
+        },
+        {
+          "sample": 30,
+          "duration_ns": 7199
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "negotiated_maximum",
+        "effective_batch_size": 32,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 203069
+        },
+        {
+          "sample": 2,
+          "duration_ns": 209123
+        },
+        {
+          "sample": 3,
+          "duration_ns": 196701
+        },
+        {
+          "sample": 4,
+          "duration_ns": 209874
+        },
+        {
+          "sample": 5,
+          "duration_ns": 214140
+        },
+        {
+          "sample": 6,
+          "duration_ns": 213072
+        },
+        {
+          "sample": 7,
+          "duration_ns": 222313
+        },
+        {
+          "sample": 8,
+          "duration_ns": 224317
+        },
+        {
+          "sample": 9,
+          "duration_ns": 258791
+        },
+        {
+          "sample": 10,
+          "duration_ns": 264628
+        },
+        {
+          "sample": 11,
+          "duration_ns": 263632
+        },
+        {
+          "sample": 12,
+          "duration_ns": 267217
+        },
+        {
+          "sample": 13,
+          "duration_ns": 273373
+        },
+        {
+          "sample": 14,
+          "duration_ns": 249562
+        },
+        {
+          "sample": 15,
+          "duration_ns": 259281
+        },
+        {
+          "sample": 16,
+          "duration_ns": 273587
+        },
+        {
+          "sample": 17,
+          "duration_ns": 268714
+        },
+        {
+          "sample": 18,
+          "duration_ns": 272973
+        },
+        {
+          "sample": 19,
+          "duration_ns": 255747
+        },
+        {
+          "sample": 20,
+          "duration_ns": 277262
+        },
+        {
+          "sample": 21,
+          "duration_ns": 269810
+        },
+        {
+          "sample": 22,
+          "duration_ns": 263392
+        },
+        {
+          "sample": 23,
+          "duration_ns": 278455
+        },
+        {
+          "sample": 24,
+          "duration_ns": 275187
+        },
+        {
+          "sample": 25,
+          "duration_ns": 254448
+        },
+        {
+          "sample": 26,
+          "duration_ns": 268759
+        },
+        {
+          "sample": 27,
+          "duration_ns": 270582
+        },
+        {
+          "sample": 28,
+          "duration_ns": 270449
+        },
+        {
+          "sample": 29,
+          "duration_ns": 293715
+        },
+        {
+          "sample": 30,
+          "duration_ns": 286152
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "in_process_rust_identity",
+        "batch_size": "negotiated_maximum",
+        "effective_batch_size": 32,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 3064253
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3801397
+        },
+        {
+          "sample": 3,
+          "duration_ns": 5627638
+        },
+        {
+          "sample": 4,
+          "duration_ns": 4428929
+        },
+        {
+          "sample": 5,
+          "duration_ns": 4344506
+        },
+        {
+          "sample": 6,
+          "duration_ns": 4057616
+        },
+        {
+          "sample": 7,
+          "duration_ns": 4027669
+        },
+        {
+          "sample": 8,
+          "duration_ns": 3822423
+        },
+        {
+          "sample": 9,
+          "duration_ns": 4070000
+        },
+        {
+          "sample": 10,
+          "duration_ns": 3988293
+        },
+        {
+          "sample": 11,
+          "duration_ns": 4380593
+        },
+        {
+          "sample": 12,
+          "duration_ns": 3994429
+        },
+        {
+          "sample": 13,
+          "duration_ns": 4138473
+        },
+        {
+          "sample": 14,
+          "duration_ns": 4030814
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3972253
+        },
+        {
+          "sample": 16,
+          "duration_ns": 3190070
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3164261
+        },
+        {
+          "sample": 18,
+          "duration_ns": 3263543
+        },
+        {
+          "sample": 19,
+          "duration_ns": 3051203
+        },
+        {
+          "sample": 20,
+          "duration_ns": 3384717
+        },
+        {
+          "sample": 21,
+          "duration_ns": 4644296
+        },
+        {
+          "sample": 22,
+          "duration_ns": 3050506
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3207888
+        },
+        {
+          "sample": 24,
+          "duration_ns": 3140353
+        },
+        {
+          "sample": 25,
+          "duration_ns": 3038615
+        },
+        {
+          "sample": 26,
+          "duration_ns": 3085675
+        },
+        {
+          "sample": 27,
+          "duration_ns": 3686041
+        },
+        {
+          "sample": 28,
+          "duration_ns": 3967297
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3498856
+        },
+        {
+          "sample": 30,
+          "duration_ns": 3823976
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "1",
+        "effective_batch_size": 1,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 20024
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3272
+        },
+        {
+          "sample": 3,
+          "duration_ns": 2446
+        },
+        {
+          "sample": 4,
+          "duration_ns": 2281
+        },
+        {
+          "sample": 5,
+          "duration_ns": 3617
+        },
+        {
+          "sample": 6,
+          "duration_ns": 2448
+        },
+        {
+          "sample": 7,
+          "duration_ns": 2542
+        },
+        {
+          "sample": 8,
+          "duration_ns": 2163
+        },
+        {
+          "sample": 9,
+          "duration_ns": 2427
+        },
+        {
+          "sample": 10,
+          "duration_ns": 2249
+        },
+        {
+          "sample": 11,
+          "duration_ns": 2284
+        },
+        {
+          "sample": 12,
+          "duration_ns": 3440
+        },
+        {
+          "sample": 13,
+          "duration_ns": 2327
+        },
+        {
+          "sample": 14,
+          "duration_ns": 3505
+        },
+        {
+          "sample": 15,
+          "duration_ns": 2193
+        },
+        {
+          "sample": 16,
+          "duration_ns": 3482
+        },
+        {
+          "sample": 17,
+          "duration_ns": 2215
+        },
+        {
+          "sample": 18,
+          "duration_ns": 2018
+        },
+        {
+          "sample": 19,
+          "duration_ns": 3290
+        },
+        {
+          "sample": 20,
+          "duration_ns": 2159
+        },
+        {
+          "sample": 21,
+          "duration_ns": 2209
+        },
+        {
+          "sample": 22,
+          "duration_ns": 2190
+        },
+        {
+          "sample": 23,
+          "duration_ns": 2192
+        },
+        {
+          "sample": 24,
+          "duration_ns": 2123
+        },
+        {
+          "sample": 25,
+          "duration_ns": 2170
+        },
+        {
+          "sample": 26,
+          "duration_ns": 3081
+        },
+        {
+          "sample": 27,
+          "duration_ns": 2050
+        },
+        {
+          "sample": 28,
+          "duration_ns": 1874
+        },
+        {
+          "sample": 29,
+          "duration_ns": 2125
+        },
+        {
+          "sample": 30,
+          "duration_ns": 2299
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "1",
+        "effective_batch_size": 1,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 202721
+        },
+        {
+          "sample": 2,
+          "duration_ns": 199151
+        },
+        {
+          "sample": 3,
+          "duration_ns": 198280
+        },
+        {
+          "sample": 4,
+          "duration_ns": 197259
+        },
+        {
+          "sample": 5,
+          "duration_ns": 204529
+        },
+        {
+          "sample": 6,
+          "duration_ns": 202152
+        },
+        {
+          "sample": 7,
+          "duration_ns": 204500
+        },
+        {
+          "sample": 8,
+          "duration_ns": 210343
+        },
+        {
+          "sample": 9,
+          "duration_ns": 263207
+        },
+        {
+          "sample": 10,
+          "duration_ns": 253352
+        },
+        {
+          "sample": 11,
+          "duration_ns": 266558
+        },
+        {
+          "sample": 12,
+          "duration_ns": 258452
+        },
+        {
+          "sample": 13,
+          "duration_ns": 263876
+        },
+        {
+          "sample": 14,
+          "duration_ns": 248398
+        },
+        {
+          "sample": 15,
+          "duration_ns": 261213
+        },
+        {
+          "sample": 16,
+          "duration_ns": 262314
+        },
+        {
+          "sample": 17,
+          "duration_ns": 262197
+        },
+        {
+          "sample": 18,
+          "duration_ns": 243882
+        },
+        {
+          "sample": 19,
+          "duration_ns": 254900
+        },
+        {
+          "sample": 20,
+          "duration_ns": 255884
+        },
+        {
+          "sample": 21,
+          "duration_ns": 262843
+        },
+        {
+          "sample": 22,
+          "duration_ns": 254884
+        },
+        {
+          "sample": 23,
+          "duration_ns": 242272
+        },
+        {
+          "sample": 24,
+          "duration_ns": 263498
+        },
+        {
+          "sample": 25,
+          "duration_ns": 252703
+        },
+        {
+          "sample": 26,
+          "duration_ns": 262502
+        },
+        {
+          "sample": 27,
+          "duration_ns": 264263
+        },
+        {
+          "sample": 28,
+          "duration_ns": 266604
+        },
+        {
+          "sample": 29,
+          "duration_ns": 253652
+        },
+        {
+          "sample": 30,
+          "duration_ns": 276502
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "1",
+        "effective_batch_size": 1,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "b27a032984ea8a6bec700c3d6f63f8fcfbf8ff8ef87e972891feda4eea4aad0c"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 2919760
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3575226
+        },
+        {
+          "sample": 3,
+          "duration_ns": 4132860
+        },
+        {
+          "sample": 4,
+          "duration_ns": 3903838
+        },
+        {
+          "sample": 5,
+          "duration_ns": 3891812
+        },
+        {
+          "sample": 6,
+          "duration_ns": 4220664
+        },
+        {
+          "sample": 7,
+          "duration_ns": 4286925
+        },
+        {
+          "sample": 8,
+          "duration_ns": 3969350
+        },
+        {
+          "sample": 9,
+          "duration_ns": 3927034
+        },
+        {
+          "sample": 10,
+          "duration_ns": 4298667
+        },
+        {
+          "sample": 11,
+          "duration_ns": 3944185
+        },
+        {
+          "sample": 12,
+          "duration_ns": 3910910
+        },
+        {
+          "sample": 13,
+          "duration_ns": 4376101
+        },
+        {
+          "sample": 14,
+          "duration_ns": 4042348
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3163532
+        },
+        {
+          "sample": 16,
+          "duration_ns": 2998129
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3078332
+        },
+        {
+          "sample": 18,
+          "duration_ns": 3132793
+        },
+        {
+          "sample": 19,
+          "duration_ns": 3240299
+        },
+        {
+          "sample": 20,
+          "duration_ns": 4031312
+        },
+        {
+          "sample": 21,
+          "duration_ns": 3208288
+        },
+        {
+          "sample": 22,
+          "duration_ns": 3183108
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3095178
+        },
+        {
+          "sample": 24,
+          "duration_ns": 3107724
+        },
+        {
+          "sample": 25,
+          "duration_ns": 3273356
+        },
+        {
+          "sample": 26,
+          "duration_ns": 3199754
+        },
+        {
+          "sample": 27,
+          "duration_ns": 3330422
+        },
+        {
+          "sample": 28,
+          "duration_ns": 3031171
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3180904
+        },
+        {
+          "sample": 30,
+          "duration_ns": 3257505
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "8",
+        "effective_batch_size": 8,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "3788437f0885266aee74fa065a49da2ad1bef1c071a812a8f662f8bdee5a2c06"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 31229
+        },
+        {
+          "sample": 2,
+          "duration_ns": 6786
+        },
+        {
+          "sample": 3,
+          "duration_ns": 6094
+        },
+        {
+          "sample": 4,
+          "duration_ns": 4950
+        },
+        {
+          "sample": 5,
+          "duration_ns": 5134
+        },
+        {
+          "sample": 6,
+          "duration_ns": 6145
+        },
+        {
+          "sample": 7,
+          "duration_ns": 4044
+        },
+        {
+          "sample": 8,
+          "duration_ns": 4414
+        },
+        {
+          "sample": 9,
+          "duration_ns": 5099
+        },
+        {
+          "sample": 10,
+          "duration_ns": 5582
+        },
+        {
+          "sample": 11,
+          "duration_ns": 4002
+        },
+        {
+          "sample": 12,
+          "duration_ns": 4807
+        },
+        {
+          "sample": 13,
+          "duration_ns": 3945
+        },
+        {
+          "sample": 14,
+          "duration_ns": 4185
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3995
+        },
+        {
+          "sample": 16,
+          "duration_ns": 3750
+        },
+        {
+          "sample": 17,
+          "duration_ns": 9925
+        },
+        {
+          "sample": 18,
+          "duration_ns": 4431
+        },
+        {
+          "sample": 19,
+          "duration_ns": 5113
+        },
+        {
+          "sample": 20,
+          "duration_ns": 4428
+        },
+        {
+          "sample": 21,
+          "duration_ns": 5563
+        },
+        {
+          "sample": 22,
+          "duration_ns": 4406
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3987
+        },
+        {
+          "sample": 24,
+          "duration_ns": 4370
+        },
+        {
+          "sample": 25,
+          "duration_ns": 4175
+        },
+        {
+          "sample": 26,
+          "duration_ns": 4372
+        },
+        {
+          "sample": 27,
+          "duration_ns": 4877
+        },
+        {
+          "sample": 28,
+          "duration_ns": 4568
+        },
+        {
+          "sample": 29,
+          "duration_ns": 4970
+        },
+        {
+          "sample": 30,
+          "duration_ns": 4644
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "8",
+        "effective_batch_size": 8,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "cd00090bfdef09c2086eaba5b6e5f60858cb6b5f4d3f7031e1cb20b0a35600f5"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 203567
+        },
+        {
+          "sample": 2,
+          "duration_ns": 204517
+        },
+        {
+          "sample": 3,
+          "duration_ns": 199599
+        },
+        {
+          "sample": 4,
+          "duration_ns": 200625
+        },
+        {
+          "sample": 5,
+          "duration_ns": 208261
+        },
+        {
+          "sample": 6,
+          "duration_ns": 270272
+        },
+        {
+          "sample": 7,
+          "duration_ns": 249211
+        },
+        {
+          "sample": 8,
+          "duration_ns": 262001
+        },
+        {
+          "sample": 9,
+          "duration_ns": 239771
+        },
+        {
+          "sample": 10,
+          "duration_ns": 266207
+        },
+        {
+          "sample": 11,
+          "duration_ns": 259708
+        },
+        {
+          "sample": 12,
+          "duration_ns": 272060
+        },
+        {
+          "sample": 13,
+          "duration_ns": 256932
+        },
+        {
+          "sample": 14,
+          "duration_ns": 259067
+        },
+        {
+          "sample": 15,
+          "duration_ns": 270089
+        },
+        {
+          "sample": 16,
+          "duration_ns": 258070
+        },
+        {
+          "sample": 17,
+          "duration_ns": 263511
+        },
+        {
+          "sample": 18,
+          "duration_ns": 265903
+        },
+        {
+          "sample": 19,
+          "duration_ns": 268660
+        },
+        {
+          "sample": 20,
+          "duration_ns": 253071
+        },
+        {
+          "sample": 21,
+          "duration_ns": 263268
+        },
+        {
+          "sample": 22,
+          "duration_ns": 262937
+        },
+        {
+          "sample": 23,
+          "duration_ns": 247921
+        },
+        {
+          "sample": 24,
+          "duration_ns": 246509
+        },
+        {
+          "sample": 25,
+          "duration_ns": 259363
+        },
+        {
+          "sample": 26,
+          "duration_ns": 243780
+        },
+        {
+          "sample": 27,
+          "duration_ns": 262652
+        },
+        {
+          "sample": 28,
+          "duration_ns": 252894
+        },
+        {
+          "sample": 29,
+          "duration_ns": 265482
+        },
+        {
+          "sample": 30,
+          "duration_ns": 258681
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "8",
+        "effective_batch_size": 8,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "3a1c8c6b918296a7a3084c29d80375711331827157911e419be20a1949739bce"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 3184793
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3608045
+        },
+        {
+          "sample": 3,
+          "duration_ns": 3963244
+        },
+        {
+          "sample": 4,
+          "duration_ns": 3924018
+        },
+        {
+          "sample": 5,
+          "duration_ns": 4019520
+        },
+        {
+          "sample": 6,
+          "duration_ns": 4269636
+        },
+        {
+          "sample": 7,
+          "duration_ns": 4478429
+        },
+        {
+          "sample": 8,
+          "duration_ns": 4261100
+        },
+        {
+          "sample": 9,
+          "duration_ns": 4081234
+        },
+        {
+          "sample": 10,
+          "duration_ns": 3970507
+        },
+        {
+          "sample": 11,
+          "duration_ns": 4008108
+        },
+        {
+          "sample": 12,
+          "duration_ns": 4281066
+        },
+        {
+          "sample": 13,
+          "duration_ns": 4091037
+        },
+        {
+          "sample": 14,
+          "duration_ns": 4084994
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3056261
+        },
+        {
+          "sample": 16,
+          "duration_ns": 3023528
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3071089
+        },
+        {
+          "sample": 18,
+          "duration_ns": 3104077
+        },
+        {
+          "sample": 19,
+          "duration_ns": 3209206
+        },
+        {
+          "sample": 20,
+          "duration_ns": 4281527
+        },
+        {
+          "sample": 21,
+          "duration_ns": 3306909
+        },
+        {
+          "sample": 22,
+          "duration_ns": 3325796
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3092776
+        },
+        {
+          "sample": 24,
+          "duration_ns": 3235244
+        },
+        {
+          "sample": 25,
+          "duration_ns": 4031667
+        },
+        {
+          "sample": 26,
+          "duration_ns": 4000110
+        },
+        {
+          "sample": 27,
+          "duration_ns": 3666341
+        },
+        {
+          "sample": 28,
+          "duration_ns": 4160433
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3947690
+        },
+        {
+          "sample": 30,
+          "duration_ns": 3977849
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "32",
+        "effective_batch_size": 32,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 22559
+        },
+        {
+          "sample": 2,
+          "duration_ns": 12460
+        },
+        {
+          "sample": 3,
+          "duration_ns": 10872
+        },
+        {
+          "sample": 4,
+          "duration_ns": 11072
+        },
+        {
+          "sample": 5,
+          "duration_ns": 10596
+        },
+        {
+          "sample": 6,
+          "duration_ns": 11873
+        },
+        {
+          "sample": 7,
+          "duration_ns": 10603
+        },
+        {
+          "sample": 8,
+          "duration_ns": 9221
+        },
+        {
+          "sample": 9,
+          "duration_ns": 9805
+        },
+        {
+          "sample": 10,
+          "duration_ns": 13307
+        },
+        {
+          "sample": 11,
+          "duration_ns": 11752
+        },
+        {
+          "sample": 12,
+          "duration_ns": 12741
+        },
+        {
+          "sample": 13,
+          "duration_ns": 12635
+        },
+        {
+          "sample": 14,
+          "duration_ns": 11170
+        },
+        {
+          "sample": 15,
+          "duration_ns": 12026
+        },
+        {
+          "sample": 16,
+          "duration_ns": 12070
+        },
+        {
+          "sample": 17,
+          "duration_ns": 12836
+        },
+        {
+          "sample": 18,
+          "duration_ns": 10811
+        },
+        {
+          "sample": 19,
+          "duration_ns": 11897
+        },
+        {
+          "sample": 20,
+          "duration_ns": 19046
+        },
+        {
+          "sample": 21,
+          "duration_ns": 12210
+        },
+        {
+          "sample": 22,
+          "duration_ns": 11409
+        },
+        {
+          "sample": 23,
+          "duration_ns": 11144
+        },
+        {
+          "sample": 24,
+          "duration_ns": 10726
+        },
+        {
+          "sample": 25,
+          "duration_ns": 11026
+        },
+        {
+          "sample": 26,
+          "duration_ns": 10592
+        },
+        {
+          "sample": 27,
+          "duration_ns": 10312
+        },
+        {
+          "sample": 28,
+          "duration_ns": 10500
+        },
+        {
+          "sample": 29,
+          "duration_ns": 10136
+        },
+        {
+          "sample": 30,
+          "duration_ns": 10499
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "32",
+        "effective_batch_size": 32,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 227198
+        },
+        {
+          "sample": 2,
+          "duration_ns": 230017
+        },
+        {
+          "sample": 3,
+          "duration_ns": 198597
+        },
+        {
+          "sample": 4,
+          "duration_ns": 198191
+        },
+        {
+          "sample": 5,
+          "duration_ns": 202418
+        },
+        {
+          "sample": 6,
+          "duration_ns": 207717
+        },
+        {
+          "sample": 7,
+          "duration_ns": 188602
+        },
+        {
+          "sample": 8,
+          "duration_ns": 210975
+        },
+        {
+          "sample": 9,
+          "duration_ns": 236962
+        },
+        {
+          "sample": 10,
+          "duration_ns": 268865
+        },
+        {
+          "sample": 11,
+          "duration_ns": 270726
+        },
+        {
+          "sample": 12,
+          "duration_ns": 261306
+        },
+        {
+          "sample": 13,
+          "duration_ns": 254525
+        },
+        {
+          "sample": 14,
+          "duration_ns": 267647
+        },
+        {
+          "sample": 15,
+          "duration_ns": 263779
+        },
+        {
+          "sample": 16,
+          "duration_ns": 271611
+        },
+        {
+          "sample": 17,
+          "duration_ns": 264280
+        },
+        {
+          "sample": 18,
+          "duration_ns": 292361
+        },
+        {
+          "sample": 19,
+          "duration_ns": 271214
+        },
+        {
+          "sample": 20,
+          "duration_ns": 262553
+        },
+        {
+          "sample": 21,
+          "duration_ns": 276956
+        },
+        {
+          "sample": 22,
+          "duration_ns": 274416
+        },
+        {
+          "sample": 23,
+          "duration_ns": 260368
+        },
+        {
+          "sample": 24,
+          "duration_ns": 264812
+        },
+        {
+          "sample": 25,
+          "duration_ns": 273450
+        },
+        {
+          "sample": 26,
+          "duration_ns": 272675
+        },
+        {
+          "sample": 27,
+          "duration_ns": 269996
+        },
+        {
+          "sample": 28,
+          "duration_ns": 260438
+        },
+        {
+          "sample": 29,
+          "duration_ns": 270777
+        },
+        {
+          "sample": 30,
+          "duration_ns": 258231
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "32",
+        "effective_batch_size": 32,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 3107305
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3500776
+        },
+        {
+          "sample": 3,
+          "duration_ns": 4094300
+        },
+        {
+          "sample": 4,
+          "duration_ns": 3998260
+        },
+        {
+          "sample": 5,
+          "duration_ns": 4132560
+        },
+        {
+          "sample": 6,
+          "duration_ns": 4021323
+        },
+        {
+          "sample": 7,
+          "duration_ns": 4391006
+        },
+        {
+          "sample": 8,
+          "duration_ns": 6138310
+        },
+        {
+          "sample": 9,
+          "duration_ns": 4298393
+        },
+        {
+          "sample": 10,
+          "duration_ns": 3993260
+        },
+        {
+          "sample": 11,
+          "duration_ns": 4154334
+        },
+        {
+          "sample": 12,
+          "duration_ns": 4013525
+        },
+        {
+          "sample": 13,
+          "duration_ns": 4053326
+        },
+        {
+          "sample": 14,
+          "duration_ns": 4103710
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3518152
+        },
+        {
+          "sample": 16,
+          "duration_ns": 3244263
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3008913
+        },
+        {
+          "sample": 18,
+          "duration_ns": 3216486
+        },
+        {
+          "sample": 19,
+          "duration_ns": 3367118
+        },
+        {
+          "sample": 20,
+          "duration_ns": 3858014
+        },
+        {
+          "sample": 21,
+          "duration_ns": 3174744
+        },
+        {
+          "sample": 22,
+          "duration_ns": 3099864
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3196222
+        },
+        {
+          "sample": 24,
+          "duration_ns": 3241353
+        },
+        {
+          "sample": 25,
+          "duration_ns": 3096032
+        },
+        {
+          "sample": 26,
+          "duration_ns": 3179093
+        },
+        {
+          "sample": 27,
+          "duration_ns": 3598719
+        },
+        {
+          "sample": 28,
+          "duration_ns": 3107004
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3181340
+        },
+        {
+          "sample": 30,
+          "duration_ns": 3076135
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "negotiated_maximum",
+        "effective_batch_size": 32,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 22948
+        },
+        {
+          "sample": 2,
+          "duration_ns": 10490
+        },
+        {
+          "sample": 3,
+          "duration_ns": 10874
+        },
+        {
+          "sample": 4,
+          "duration_ns": 11904
+        },
+        {
+          "sample": 5,
+          "duration_ns": 10437
+        },
+        {
+          "sample": 6,
+          "duration_ns": 12105
+        },
+        {
+          "sample": 7,
+          "duration_ns": 10159
+        },
+        {
+          "sample": 8,
+          "duration_ns": 9899
+        },
+        {
+          "sample": 9,
+          "duration_ns": 9767
+        },
+        {
+          "sample": 10,
+          "duration_ns": 9946
+        },
+        {
+          "sample": 11,
+          "duration_ns": 10423
+        },
+        {
+          "sample": 12,
+          "duration_ns": 11221
+        },
+        {
+          "sample": 13,
+          "duration_ns": 12121
+        },
+        {
+          "sample": 14,
+          "duration_ns": 11236
+        },
+        {
+          "sample": 15,
+          "duration_ns": 10878
+        },
+        {
+          "sample": 16,
+          "duration_ns": 10537
+        },
+        {
+          "sample": 17,
+          "duration_ns": 12544
+        },
+        {
+          "sample": 18,
+          "duration_ns": 11405
+        },
+        {
+          "sample": 19,
+          "duration_ns": 11558
+        },
+        {
+          "sample": 20,
+          "duration_ns": 15603
+        },
+        {
+          "sample": 21,
+          "duration_ns": 11987
+        },
+        {
+          "sample": 22,
+          "duration_ns": 10815
+        },
+        {
+          "sample": 23,
+          "duration_ns": 10192
+        },
+        {
+          "sample": 24,
+          "duration_ns": 10554
+        },
+        {
+          "sample": 25,
+          "duration_ns": 10685
+        },
+        {
+          "sample": 26,
+          "duration_ns": 10389
+        },
+        {
+          "sample": 27,
+          "duration_ns": 10385
+        },
+        {
+          "sample": 28,
+          "duration_ns": 9494
+        },
+        {
+          "sample": 29,
+          "duration_ns": 9354
+        },
+        {
+          "sample": 30,
+          "duration_ns": 9391
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "negotiated_maximum",
+        "effective_batch_size": 32,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 254264
+        },
+        {
+          "sample": 2,
+          "duration_ns": 200884
+        },
+        {
+          "sample": 3,
+          "duration_ns": 207131
+        },
+        {
+          "sample": 4,
+          "duration_ns": 195371
+        },
+        {
+          "sample": 5,
+          "duration_ns": 198337
+        },
+        {
+          "sample": 6,
+          "duration_ns": 278619
+        },
+        {
+          "sample": 7,
+          "duration_ns": 268265
+        },
+        {
+          "sample": 8,
+          "duration_ns": 262063
+        },
+        {
+          "sample": 9,
+          "duration_ns": 262208
+        },
+        {
+          "sample": 10,
+          "duration_ns": 274221
+        },
+        {
+          "sample": 11,
+          "duration_ns": 273341
+        },
+        {
+          "sample": 12,
+          "duration_ns": 280007
+        },
+        {
+          "sample": 13,
+          "duration_ns": 261146
+        },
+        {
+          "sample": 14,
+          "duration_ns": 262879
+        },
+        {
+          "sample": 15,
+          "duration_ns": 266023
+        },
+        {
+          "sample": 16,
+          "duration_ns": 269073
+        },
+        {
+          "sample": 17,
+          "duration_ns": 259530
+        },
+        {
+          "sample": 18,
+          "duration_ns": 263040
+        },
+        {
+          "sample": 19,
+          "duration_ns": 275265
+        },
+        {
+          "sample": 20,
+          "duration_ns": 260677
+        },
+        {
+          "sample": 21,
+          "duration_ns": 264663
+        },
+        {
+          "sample": 22,
+          "duration_ns": 276281
+        },
+        {
+          "sample": 23,
+          "duration_ns": 262533
+        },
+        {
+          "sample": 24,
+          "duration_ns": 276203
+        },
+        {
+          "sample": 25,
+          "duration_ns": 276834
+        },
+        {
+          "sample": 26,
+          "duration_ns": 266909
+        },
+        {
+          "sample": 27,
+          "duration_ns": 266481
+        },
+        {
+          "sample": 28,
+          "duration_ns": 279482
+        },
+        {
+          "sample": 29,
+          "duration_ns": 265889
+        },
+        {
+          "sample": 30,
+          "duration_ns": 273872
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "generated_typed_values",
+        "batch_size": "negotiated_maximum",
+        "effective_batch_size": 32,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 3319053
+        },
+        {
+          "sample": 2,
+          "duration_ns": 3169152
+        },
+        {
+          "sample": 3,
+          "duration_ns": 3586401
+        },
+        {
+          "sample": 4,
+          "duration_ns": 3900849
+        },
+        {
+          "sample": 5,
+          "duration_ns": 3683741
+        },
+        {
+          "sample": 6,
+          "duration_ns": 3990294
+        },
+        {
+          "sample": 7,
+          "duration_ns": 4040356
+        },
+        {
+          "sample": 8,
+          "duration_ns": 4112664
+        },
+        {
+          "sample": 9,
+          "duration_ns": 3723625
+        },
+        {
+          "sample": 10,
+          "duration_ns": 4434481
+        },
+        {
+          "sample": 11,
+          "duration_ns": 3775818
+        },
+        {
+          "sample": 12,
+          "duration_ns": 3827515
+        },
+        {
+          "sample": 13,
+          "duration_ns": 3767527
+        },
+        {
+          "sample": 14,
+          "duration_ns": 3767818
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3059039
+        },
+        {
+          "sample": 16,
+          "duration_ns": 2857419
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3121261
+        },
+        {
+          "sample": 18,
+          "duration_ns": 2957549
+        },
+        {
+          "sample": 19,
+          "duration_ns": 2925844
+        },
+        {
+          "sample": 20,
+          "duration_ns": 3794184
+        },
+        {
+          "sample": 21,
+          "duration_ns": 2779397
+        },
+        {
+          "sample": 22,
+          "duration_ns": 2827871
+        },
+        {
+          "sample": 23,
+          "duration_ns": 2952666
+        },
+        {
+          "sample": 24,
+          "duration_ns": 3016039
+        },
+        {
+          "sample": 25,
+          "duration_ns": 3070488
+        },
+        {
+          "sample": 26,
+          "duration_ns": 3237217
+        },
+        {
+          "sample": 27,
+          "duration_ns": 3119934
+        },
+        {
+          "sample": 28,
+          "duration_ns": 4085370
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3102122
+        },
+        {
+          "sample": 30,
+          "duration_ns": 2886946
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "1",
+        "effective_batch_size": 1,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 85343
+        },
+        {
+          "sample": 2,
+          "duration_ns": 27396
+        },
+        {
+          "sample": 3,
+          "duration_ns": 22226
+        },
+        {
+          "sample": 4,
+          "duration_ns": 20800
+        },
+        {
+          "sample": 5,
+          "duration_ns": 22635
+        },
+        {
+          "sample": 6,
+          "duration_ns": 21784
+        },
+        {
+          "sample": 7,
+          "duration_ns": 21461
+        },
+        {
+          "sample": 8,
+          "duration_ns": 21721
+        },
+        {
+          "sample": 9,
+          "duration_ns": 22512
+        },
+        {
+          "sample": 10,
+          "duration_ns": 20549
+        },
+        {
+          "sample": 11,
+          "duration_ns": 20809
+        },
+        {
+          "sample": 12,
+          "duration_ns": 20282
+        },
+        {
+          "sample": 13,
+          "duration_ns": 20344
+        },
+        {
+          "sample": 14,
+          "duration_ns": 19912
+        },
+        {
+          "sample": 15,
+          "duration_ns": 20497
+        },
+        {
+          "sample": 16,
+          "duration_ns": 20802
+        },
+        {
+          "sample": 17,
+          "duration_ns": 22914
+        },
+        {
+          "sample": 18,
+          "duration_ns": 20326
+        },
+        {
+          "sample": 19,
+          "duration_ns": 20007
+        },
+        {
+          "sample": 20,
+          "duration_ns": 26871
+        },
+        {
+          "sample": 21,
+          "duration_ns": 21758
+        },
+        {
+          "sample": 22,
+          "duration_ns": 20257
+        },
+        {
+          "sample": 23,
+          "duration_ns": 20048
+        },
+        {
+          "sample": 24,
+          "duration_ns": 20681
+        },
+        {
+          "sample": 25,
+          "duration_ns": 20245
+        },
+        {
+          "sample": 26,
+          "duration_ns": 19898
+        },
+        {
+          "sample": 27,
+          "duration_ns": 20533
+        },
+        {
+          "sample": 28,
+          "duration_ns": 19971
+        },
+        {
+          "sample": 29,
+          "duration_ns": 19648
+        },
+        {
+          "sample": 30,
+          "duration_ns": 20088
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "1",
+        "effective_batch_size": 1,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 397564
+        },
+        {
+          "sample": 2,
+          "duration_ns": 297790
+        },
+        {
+          "sample": 3,
+          "duration_ns": 277915
+        },
+        {
+          "sample": 4,
+          "duration_ns": 247023
+        },
+        {
+          "sample": 5,
+          "duration_ns": 278511
+        },
+        {
+          "sample": 6,
+          "duration_ns": 374207
+        },
+        {
+          "sample": 7,
+          "duration_ns": 343177
+        },
+        {
+          "sample": 8,
+          "duration_ns": 335914
+        },
+        {
+          "sample": 9,
+          "duration_ns": 331467
+        },
+        {
+          "sample": 10,
+          "duration_ns": 327264
+        },
+        {
+          "sample": 11,
+          "duration_ns": 344640
+        },
+        {
+          "sample": 12,
+          "duration_ns": 326367
+        },
+        {
+          "sample": 13,
+          "duration_ns": 319438
+        },
+        {
+          "sample": 14,
+          "duration_ns": 331869
+        },
+        {
+          "sample": 15,
+          "duration_ns": 318366
+        },
+        {
+          "sample": 16,
+          "duration_ns": 341353
+        },
+        {
+          "sample": 17,
+          "duration_ns": 331010
+        },
+        {
+          "sample": 18,
+          "duration_ns": 316330
+        },
+        {
+          "sample": 19,
+          "duration_ns": 327674
+        },
+        {
+          "sample": 20,
+          "duration_ns": 323904
+        },
+        {
+          "sample": 21,
+          "duration_ns": 322216
+        },
+        {
+          "sample": 22,
+          "duration_ns": 334522
+        },
+        {
+          "sample": 23,
+          "duration_ns": 320893
+        },
+        {
+          "sample": 24,
+          "duration_ns": 340463
+        },
+        {
+          "sample": 25,
+          "duration_ns": 339472
+        },
+        {
+          "sample": 26,
+          "duration_ns": 322701
+        },
+        {
+          "sample": 27,
+          "duration_ns": 340640
+        },
+        {
+          "sample": 28,
+          "duration_ns": 342926
+        },
+        {
+          "sample": 29,
+          "duration_ns": 330737
+        },
+        {
+          "sample": 30,
+          "duration_ns": 337715
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "1",
+        "effective_batch_size": 1,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "b27a032984ea8a6bec700c3d6f63f8fcfbf8ff8ef87e972891feda4eea4aad0c"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 3951737
+        },
+        {
+          "sample": 2,
+          "duration_ns": 4192756
+        },
+        {
+          "sample": 3,
+          "duration_ns": 4811505
+        },
+        {
+          "sample": 4,
+          "duration_ns": 4850392
+        },
+        {
+          "sample": 5,
+          "duration_ns": 4740614
+        },
+        {
+          "sample": 6,
+          "duration_ns": 4958622
+        },
+        {
+          "sample": 7,
+          "duration_ns": 5039106
+        },
+        {
+          "sample": 8,
+          "duration_ns": 4668902
+        },
+        {
+          "sample": 9,
+          "duration_ns": 4935808
+        },
+        {
+          "sample": 10,
+          "duration_ns": 4672123
+        },
+        {
+          "sample": 11,
+          "duration_ns": 4853451
+        },
+        {
+          "sample": 12,
+          "duration_ns": 4697921
+        },
+        {
+          "sample": 13,
+          "duration_ns": 4730620
+        },
+        {
+          "sample": 14,
+          "duration_ns": 4788806
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3835364
+        },
+        {
+          "sample": 16,
+          "duration_ns": 3965844
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3844918
+        },
+        {
+          "sample": 18,
+          "duration_ns": 3927098
+        },
+        {
+          "sample": 19,
+          "duration_ns": 4028185
+        },
+        {
+          "sample": 20,
+          "duration_ns": 4682055
+        },
+        {
+          "sample": 21,
+          "duration_ns": 3931550
+        },
+        {
+          "sample": 22,
+          "duration_ns": 3835195
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3963033
+        },
+        {
+          "sample": 24,
+          "duration_ns": 4010492
+        },
+        {
+          "sample": 25,
+          "duration_ns": 3871732
+        },
+        {
+          "sample": 26,
+          "duration_ns": 3875060
+        },
+        {
+          "sample": 27,
+          "duration_ns": 4066891
+        },
+        {
+          "sample": 28,
+          "duration_ns": 4361980
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3765140
+        },
+        {
+          "sample": 30,
+          "duration_ns": 4055278
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "8",
+        "effective_batch_size": 8,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "3788437f0885266aee74fa065a49da2ad1bef1c071a812a8f662f8bdee5a2c06"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 108838
+        },
+        {
+          "sample": 2,
+          "duration_ns": 37738
+        },
+        {
+          "sample": 3,
+          "duration_ns": 30751
+        },
+        {
+          "sample": 4,
+          "duration_ns": 29751
+        },
+        {
+          "sample": 5,
+          "duration_ns": 27908
+        },
+        {
+          "sample": 6,
+          "duration_ns": 27160
+        },
+        {
+          "sample": 7,
+          "duration_ns": 26395
+        },
+        {
+          "sample": 8,
+          "duration_ns": 25903
+        },
+        {
+          "sample": 9,
+          "duration_ns": 26420
+        },
+        {
+          "sample": 10,
+          "duration_ns": 25443
+        },
+        {
+          "sample": 11,
+          "duration_ns": 25365
+        },
+        {
+          "sample": 12,
+          "duration_ns": 25326
+        },
+        {
+          "sample": 13,
+          "duration_ns": 25543
+        },
+        {
+          "sample": 14,
+          "duration_ns": 25531
+        },
+        {
+          "sample": 15,
+          "duration_ns": 26253
+        },
+        {
+          "sample": 16,
+          "duration_ns": 25343
+        },
+        {
+          "sample": 17,
+          "duration_ns": 26068
+        },
+        {
+          "sample": 18,
+          "duration_ns": 25078
+        },
+        {
+          "sample": 19,
+          "duration_ns": 33106
+        },
+        {
+          "sample": 20,
+          "duration_ns": 26963
+        },
+        {
+          "sample": 21,
+          "duration_ns": 25620
+        },
+        {
+          "sample": 22,
+          "duration_ns": 26468
+        },
+        {
+          "sample": 23,
+          "duration_ns": 26210
+        },
+        {
+          "sample": 24,
+          "duration_ns": 26736
+        },
+        {
+          "sample": 25,
+          "duration_ns": 26200
+        },
+        {
+          "sample": 26,
+          "duration_ns": 26758
+        },
+        {
+          "sample": 27,
+          "duration_ns": 25625
+        },
+        {
+          "sample": 28,
+          "duration_ns": 25991
+        },
+        {
+          "sample": 29,
+          "duration_ns": 26248
+        },
+        {
+          "sample": 30,
+          "duration_ns": 26149
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "8",
+        "effective_batch_size": 8,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "cd00090bfdef09c2086eaba5b6e5f60858cb6b5f4d3f7031e1cb20b0a35600f5"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 371019
+        },
+        {
+          "sample": 2,
+          "duration_ns": 293227
+        },
+        {
+          "sample": 3,
+          "duration_ns": 314881
+        },
+        {
+          "sample": 4,
+          "duration_ns": 278618
+        },
+        {
+          "sample": 5,
+          "duration_ns": 275754
+        },
+        {
+          "sample": 6,
+          "duration_ns": 331670
+        },
+        {
+          "sample": 7,
+          "duration_ns": 338639
+        },
+        {
+          "sample": 8,
+          "duration_ns": 334801
+        },
+        {
+          "sample": 9,
+          "duration_ns": 345994
+        },
+        {
+          "sample": 10,
+          "duration_ns": 326302
+        },
+        {
+          "sample": 11,
+          "duration_ns": 328668
+        },
+        {
+          "sample": 12,
+          "duration_ns": 335590
+        },
+        {
+          "sample": 13,
+          "duration_ns": 323833
+        },
+        {
+          "sample": 14,
+          "duration_ns": 325707
+        },
+        {
+          "sample": 15,
+          "duration_ns": 322198
+        },
+        {
+          "sample": 16,
+          "duration_ns": 329086
+        },
+        {
+          "sample": 17,
+          "duration_ns": 344609
+        },
+        {
+          "sample": 18,
+          "duration_ns": 318290
+        },
+        {
+          "sample": 19,
+          "duration_ns": 329607
+        },
+        {
+          "sample": 20,
+          "duration_ns": 327465
+        },
+        {
+          "sample": 21,
+          "duration_ns": 332087
+        },
+        {
+          "sample": 22,
+          "duration_ns": 314554
+        },
+        {
+          "sample": 23,
+          "duration_ns": 327986
+        },
+        {
+          "sample": 24,
+          "duration_ns": 358732
+        },
+        {
+          "sample": 25,
+          "duration_ns": 333725
+        },
+        {
+          "sample": 26,
+          "duration_ns": 317980
+        },
+        {
+          "sample": 27,
+          "duration_ns": 333918
+        },
+        {
+          "sample": 28,
+          "duration_ns": 327530
+        },
+        {
+          "sample": 29,
+          "duration_ns": 335122
+        },
+        {
+          "sample": 30,
+          "duration_ns": 357230
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "8",
+        "effective_batch_size": 8,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "3a1c8c6b918296a7a3084c29d80375711331827157911e419be20a1949739bce"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 3944026
+        },
+        {
+          "sample": 2,
+          "duration_ns": 4205066
+        },
+        {
+          "sample": 3,
+          "duration_ns": 4891420
+        },
+        {
+          "sample": 4,
+          "duration_ns": 4822080
+        },
+        {
+          "sample": 5,
+          "duration_ns": 4696677
+        },
+        {
+          "sample": 6,
+          "duration_ns": 4746222
+        },
+        {
+          "sample": 7,
+          "duration_ns": 5136122
+        },
+        {
+          "sample": 8,
+          "duration_ns": 4671034
+        },
+        {
+          "sample": 9,
+          "duration_ns": 4946782
+        },
+        {
+          "sample": 10,
+          "duration_ns": 4796881
+        },
+        {
+          "sample": 11,
+          "duration_ns": 4716291
+        },
+        {
+          "sample": 12,
+          "duration_ns": 4657084
+        },
+        {
+          "sample": 13,
+          "duration_ns": 4883342
+        },
+        {
+          "sample": 14,
+          "duration_ns": 9739944
+        },
+        {
+          "sample": 15,
+          "duration_ns": 3828257
+        },
+        {
+          "sample": 16,
+          "duration_ns": 4018402
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3771350
+        },
+        {
+          "sample": 18,
+          "duration_ns": 4175203
+        },
+        {
+          "sample": 19,
+          "duration_ns": 4026484
+        },
+        {
+          "sample": 20,
+          "duration_ns": 4682619
+        },
+        {
+          "sample": 21,
+          "duration_ns": 3856237
+        },
+        {
+          "sample": 22,
+          "duration_ns": 3887906
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3947000
+        },
+        {
+          "sample": 24,
+          "duration_ns": 3882905
+        },
+        {
+          "sample": 25,
+          "duration_ns": 3805781
+        },
+        {
+          "sample": 26,
+          "duration_ns": 4030318
+        },
+        {
+          "sample": 27,
+          "duration_ns": 4203255
+        },
+        {
+          "sample": 28,
+          "duration_ns": 5566700
+        },
+        {
+          "sample": 29,
+          "duration_ns": 3970394
+        },
+        {
+          "sample": 30,
+          "duration_ns": 3985234
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "32",
+        "effective_batch_size": 32,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 115169
+        },
+        {
+          "sample": 2,
+          "duration_ns": 54268
+        },
+        {
+          "sample": 3,
+          "duration_ns": 44123
+        },
+        {
+          "sample": 4,
+          "duration_ns": 41124
+        },
+        {
+          "sample": 5,
+          "duration_ns": 39697
+        },
+        {
+          "sample": 6,
+          "duration_ns": 40914
+        },
+        {
+          "sample": 7,
+          "duration_ns": 40458
+        },
+        {
+          "sample": 8,
+          "duration_ns": 40768
+        },
+        {
+          "sample": 9,
+          "duration_ns": 52721
+        },
+        {
+          "sample": 10,
+          "duration_ns": 43348
+        },
+        {
+          "sample": 11,
+          "duration_ns": 41323
+        },
+        {
+          "sample": 12,
+          "duration_ns": 39937
+        },
+        {
+          "sample": 13,
+          "duration_ns": 41902
+        },
+        {
+          "sample": 14,
+          "duration_ns": 39445
+        },
+        {
+          "sample": 15,
+          "duration_ns": 42636
+        },
+        {
+          "sample": 16,
+          "duration_ns": 40919
+        },
+        {
+          "sample": 17,
+          "duration_ns": 41535
+        },
+        {
+          "sample": 18,
+          "duration_ns": 39751
+        },
+        {
+          "sample": 19,
+          "duration_ns": 40149
+        },
+        {
+          "sample": 20,
+          "duration_ns": 45400
+        },
+        {
+          "sample": 21,
+          "duration_ns": 39511
+        },
+        {
+          "sample": 22,
+          "duration_ns": 39864
+        },
+        {
+          "sample": 23,
+          "duration_ns": 42941
+        },
+        {
+          "sample": 24,
+          "duration_ns": 39392
+        },
+        {
+          "sample": 25,
+          "duration_ns": 39019
+        },
+        {
+          "sample": 26,
+          "duration_ns": 38948
+        },
+        {
+          "sample": 27,
+          "duration_ns": 39325
+        },
+        {
+          "sample": 28,
+          "duration_ns": 38955
+        },
+        {
+          "sample": 29,
+          "duration_ns": 77164
+        },
+        {
+          "sample": 30,
+          "duration_ns": 41053
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "32",
+        "effective_batch_size": 32,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 414276
+        },
+        {
+          "sample": 2,
+          "duration_ns": 298806
+        },
+        {
+          "sample": 3,
+          "duration_ns": 320935
+        },
+        {
+          "sample": 4,
+          "duration_ns": 299646
+        },
+        {
+          "sample": 5,
+          "duration_ns": 303068
+        },
+        {
+          "sample": 6,
+          "duration_ns": 356254
+        },
+        {
+          "sample": 7,
+          "duration_ns": 372776
+        },
+        {
+          "sample": 8,
+          "duration_ns": 352588
+        },
+        {
+          "sample": 9,
+          "duration_ns": 348575
+        },
+        {
+          "sample": 10,
+          "duration_ns": 342150
+        },
+        {
+          "sample": 11,
+          "duration_ns": 341879
+        },
+        {
+          "sample": 12,
+          "duration_ns": 347216
+        },
+        {
+          "sample": 13,
+          "duration_ns": 353057
+        },
+        {
+          "sample": 14,
+          "duration_ns": 344665
+        },
+        {
+          "sample": 15,
+          "duration_ns": 344776
+        },
+        {
+          "sample": 16,
+          "duration_ns": 341691
+        },
+        {
+          "sample": 17,
+          "duration_ns": 340340
+        },
+        {
+          "sample": 18,
+          "duration_ns": 354633
+        },
+        {
+          "sample": 19,
+          "duration_ns": 349791
+        },
+        {
+          "sample": 20,
+          "duration_ns": 353960
+        },
+        {
+          "sample": 21,
+          "duration_ns": 357514
+        },
+        {
+          "sample": 22,
+          "duration_ns": 351777
+        },
+        {
+          "sample": 23,
+          "duration_ns": 350133
+        },
+        {
+          "sample": 24,
+          "duration_ns": 348825
+        },
+        {
+          "sample": 25,
+          "duration_ns": 360416
+        },
+        {
+          "sample": 26,
+          "duration_ns": 375582
+        },
+        {
+          "sample": 27,
+          "duration_ns": 360873
+        },
+        {
+          "sample": 28,
+          "duration_ns": 367658
+        },
+        {
+          "sample": 29,
+          "duration_ns": 351592
+        },
+        {
+          "sample": 30,
+          "duration_ns": 338306
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "32",
+        "effective_batch_size": 32,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 3952462
+        },
+        {
+          "sample": 2,
+          "duration_ns": 4327757
+        },
+        {
+          "sample": 3,
+          "duration_ns": 4630576
+        },
+        {
+          "sample": 4,
+          "duration_ns": 4809589
+        },
+        {
+          "sample": 5,
+          "duration_ns": 4773324
+        },
+        {
+          "sample": 6,
+          "duration_ns": 5038252
+        },
+        {
+          "sample": 7,
+          "duration_ns": 5217176
+        },
+        {
+          "sample": 8,
+          "duration_ns": 5010269
+        },
+        {
+          "sample": 9,
+          "duration_ns": 4791959
+        },
+        {
+          "sample": 10,
+          "duration_ns": 4949838
+        },
+        {
+          "sample": 11,
+          "duration_ns": 4789340
+        },
+        {
+          "sample": 12,
+          "duration_ns": 4748921
+        },
+        {
+          "sample": 13,
+          "duration_ns": 4816882
+        },
+        {
+          "sample": 14,
+          "duration_ns": 4997425
+        },
+        {
+          "sample": 15,
+          "duration_ns": 4010901
+        },
+        {
+          "sample": 16,
+          "duration_ns": 3998832
+        },
+        {
+          "sample": 17,
+          "duration_ns": 4059835
+        },
+        {
+          "sample": 18,
+          "duration_ns": 3871978
+        },
+        {
+          "sample": 19,
+          "duration_ns": 4235067
+        },
+        {
+          "sample": 20,
+          "duration_ns": 4653034
+        },
+        {
+          "sample": 21,
+          "duration_ns": 4107269
+        },
+        {
+          "sample": 22,
+          "duration_ns": 4215721
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3880906
+        },
+        {
+          "sample": 24,
+          "duration_ns": 4094568
+        },
+        {
+          "sample": 25,
+          "duration_ns": 3886344
+        },
+        {
+          "sample": 26,
+          "duration_ns": 4013504
+        },
+        {
+          "sample": 27,
+          "duration_ns": 4739929
+        },
+        {
+          "sample": 28,
+          "duration_ns": 5380111
+        },
+        {
+          "sample": 29,
+          "duration_ns": 4057756
+        },
+        {
+          "sample": 30,
+          "duration_ns": 4125033
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "negotiated_maximum",
+        "effective_batch_size": 32,
+        "payload_class": "small_inline",
+        "source_bytes": 64,
+        "source_sha256": "4ea1ed932c91305685124a8a010cd97ac02834c8f8a346f2d09d33906310d7bf"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 92684
+        },
+        {
+          "sample": 2,
+          "duration_ns": 50510
+        },
+        {
+          "sample": 3,
+          "duration_ns": 43515
+        },
+        {
+          "sample": 4,
+          "duration_ns": 41444
+        },
+        {
+          "sample": 5,
+          "duration_ns": 41027
+        },
+        {
+          "sample": 6,
+          "duration_ns": 40253
+        },
+        {
+          "sample": 7,
+          "duration_ns": 39389
+        },
+        {
+          "sample": 8,
+          "duration_ns": 39784
+        },
+        {
+          "sample": 9,
+          "duration_ns": 40541
+        },
+        {
+          "sample": 10,
+          "duration_ns": 40781
+        },
+        {
+          "sample": 11,
+          "duration_ns": 40458
+        },
+        {
+          "sample": 12,
+          "duration_ns": 39317
+        },
+        {
+          "sample": 13,
+          "duration_ns": 40139
+        },
+        {
+          "sample": 14,
+          "duration_ns": 40522
+        },
+        {
+          "sample": 15,
+          "duration_ns": 39528
+        },
+        {
+          "sample": 16,
+          "duration_ns": 39259
+        },
+        {
+          "sample": 17,
+          "duration_ns": 41677
+        },
+        {
+          "sample": 18,
+          "duration_ns": 39852
+        },
+        {
+          "sample": 19,
+          "duration_ns": 40921
+        },
+        {
+          "sample": 20,
+          "duration_ns": 67706
+        },
+        {
+          "sample": 21,
+          "duration_ns": 45626
+        },
+        {
+          "sample": 22,
+          "duration_ns": 39932
+        },
+        {
+          "sample": 23,
+          "duration_ns": 42877
+        },
+        {
+          "sample": 24,
+          "duration_ns": 39246
+        },
+        {
+          "sample": 25,
+          "duration_ns": 42907
+        },
+        {
+          "sample": 26,
+          "duration_ns": 43602
+        },
+        {
+          "sample": 27,
+          "duration_ns": 40365
+        },
+        {
+          "sample": 28,
+          "duration_ns": 39751
+        },
+        {
+          "sample": 29,
+          "duration_ns": 39844
+        },
+        {
+          "sample": 30,
+          "duration_ns": 40939
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "negotiated_maximum",
+        "effective_batch_size": 32,
+        "payload_class": "medium_inline",
+        "source_bytes": 16384,
+        "source_sha256": "cb37c8a0aa98b80c3f438c4d1b6b51ebc420c6c766fad50d030f352f89d7f433"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 394215
+        },
+        {
+          "sample": 2,
+          "duration_ns": 326406
+        },
+        {
+          "sample": 3,
+          "duration_ns": 303831
+        },
+        {
+          "sample": 4,
+          "duration_ns": 301333
+        },
+        {
+          "sample": 5,
+          "duration_ns": 293782
+        },
+        {
+          "sample": 6,
+          "duration_ns": 349693
+        },
+        {
+          "sample": 7,
+          "duration_ns": 341547
+        },
+        {
+          "sample": 8,
+          "duration_ns": 357431
+        },
+        {
+          "sample": 9,
+          "duration_ns": 358657
+        },
+        {
+          "sample": 10,
+          "duration_ns": 346543
+        },
+        {
+          "sample": 11,
+          "duration_ns": 333649
+        },
+        {
+          "sample": 12,
+          "duration_ns": 349125
+        },
+        {
+          "sample": 13,
+          "duration_ns": 351930
+        },
+        {
+          "sample": 14,
+          "duration_ns": 346084
+        },
+        {
+          "sample": 15,
+          "duration_ns": 348019
+        },
+        {
+          "sample": 16,
+          "duration_ns": 349629
+        },
+        {
+          "sample": 17,
+          "duration_ns": 337659
+        },
+        {
+          "sample": 18,
+          "duration_ns": 346889
+        },
+        {
+          "sample": 19,
+          "duration_ns": 345252
+        },
+        {
+          "sample": 20,
+          "duration_ns": 330992
+        },
+        {
+          "sample": 21,
+          "duration_ns": 348276
+        },
+        {
+          "sample": 22,
+          "duration_ns": 361837
+        },
+        {
+          "sample": 23,
+          "duration_ns": 358615
+        },
+        {
+          "sample": 24,
+          "duration_ns": 401256
+        },
+        {
+          "sample": 25,
+          "duration_ns": 361963
+        },
+        {
+          "sample": 26,
+          "duration_ns": 353825
+        },
+        {
+          "sample": 27,
+          "duration_ns": 385522
+        },
+        {
+          "sample": 28,
+          "duration_ns": 377640
+        },
+        {
+          "sample": 29,
+          "duration_ns": 357995
+        },
+        {
+          "sample": 30,
+          "duration_ns": 356874
+        }
+      ]
+    },
+    {
+      "identity": {
+        "implementation": "canonical_json_detached_bytes",
+        "batch_size": "negotiated_maximum",
+        "effective_batch_size": 32,
+        "payload_class": "detached_above_threshold",
+        "source_bytes": 262145,
+        "source_sha256": "15dd20886392f98c18246b6bd6c7b245b507a6d37fb0bb2ba4637af7bcc3d9e2"
+      },
+      "samples": [
+        {
+          "sample": 1,
+          "duration_ns": 3984025
+        },
+        {
+          "sample": 2,
+          "duration_ns": 4288950
+        },
+        {
+          "sample": 3,
+          "duration_ns": 4671189
+        },
+        {
+          "sample": 4,
+          "duration_ns": 4885927
+        },
+        {
+          "sample": 5,
+          "duration_ns": 4729994
+        },
+        {
+          "sample": 6,
+          "duration_ns": 5013371
+        },
+        {
+          "sample": 7,
+          "duration_ns": 5244408
+        },
+        {
+          "sample": 8,
+          "duration_ns": 4960417
+        },
+        {
+          "sample": 9,
+          "duration_ns": 4773720
+        },
+        {
+          "sample": 10,
+          "duration_ns": 4985125
+        },
+        {
+          "sample": 11,
+          "duration_ns": 4833257
+        },
+        {
+          "sample": 12,
+          "duration_ns": 5170410
+        },
+        {
+          "sample": 13,
+          "duration_ns": 4725094
+        },
+        {
+          "sample": 14,
+          "duration_ns": 5322921
+        },
+        {
+          "sample": 15,
+          "duration_ns": 4284703
+        },
+        {
+          "sample": 16,
+          "duration_ns": 4304719
+        },
+        {
+          "sample": 17,
+          "duration_ns": 3984638
+        },
+        {
+          "sample": 18,
+          "duration_ns": 4222235
+        },
+        {
+          "sample": 19,
+          "duration_ns": 3997851
+        },
+        {
+          "sample": 20,
+          "duration_ns": 4891776
+        },
+        {
+          "sample": 21,
+          "duration_ns": 3942703
+        },
+        {
+          "sample": 22,
+          "duration_ns": 4154709
+        },
+        {
+          "sample": 23,
+          "duration_ns": 3884380
+        },
+        {
+          "sample": 24,
+          "duration_ns": 3963148
+        },
+        {
+          "sample": 25,
+          "duration_ns": 4046543
+        },
+        {
+          "sample": 26,
+          "duration_ns": 4195737
+        },
+        {
+          "sample": 27,
+          "duration_ns": 4105790
+        },
+        {
+          "sample": 28,
+          "duration_ns": 4017480
+        },
+        {
+          "sample": 29,
+          "duration_ns": 4331484
+        },
+        {
+          "sample": 30,
+          "duration_ns": 3945278
+        }
+      ]
+    }
+  ],
+  "lifecycle_samples": [
+    {
+      "sample": 1,
+      "register_ns": 23027,
+      "unregister_ns": 7975
+    },
+    {
+      "sample": 2,
+      "register_ns": 2788,
+      "unregister_ns": 592
+    },
+    {
+      "sample": 3,
+      "register_ns": 8469,
+      "unregister_ns": 1780
+    },
+    {
+      "sample": 4,
+      "register_ns": 2084,
+      "unregister_ns": 517
+    },
+    {
+      "sample": 5,
+      "register_ns": 1887,
+      "unregister_ns": 353
+    },
+    {
+      "sample": 6,
+      "register_ns": 6095,
+      "unregister_ns": 1073
+    },
+    {
+      "sample": 7,
+      "register_ns": 1607,
+      "unregister_ns": 275
+    },
+    {
+      "sample": 8,
+      "register_ns": 1648,
+      "unregister_ns": 320
+    },
+    {
+      "sample": 9,
+      "register_ns": 1618,
+      "unregister_ns": 375
+    },
+    {
+      "sample": 10,
+      "register_ns": 1761,
+      "unregister_ns": 292
+    },
+    {
+      "sample": 11,
+      "register_ns": 1700,
+      "unregister_ns": 439
+    },
+    {
+      "sample": 12,
+      "register_ns": 1697,
+      "unregister_ns": 509
+    },
+    {
+      "sample": 13,
+      "register_ns": 1664,
+      "unregister_ns": 288
+    },
+    {
+      "sample": 14,
+      "register_ns": 1605,
+      "unregister_ns": 326
+    },
+    {
+      "sample": 15,
+      "register_ns": 1581,
+      "unregister_ns": 269
+    },
+    {
+      "sample": 16,
+      "register_ns": 1490,
+      "unregister_ns": 283
+    },
+    {
+      "sample": 17,
+      "register_ns": 1439,
+      "unregister_ns": 274
+    },
+    {
+      "sample": 18,
+      "register_ns": 1527,
+      "unregister_ns": 274
+    },
+    {
+      "sample": 19,
+      "register_ns": 1630,
+      "unregister_ns": 522
+    },
+    {
+      "sample": 20,
+      "register_ns": 1491,
+      "unregister_ns": 269
+    },
+    {
+      "sample": 21,
+      "register_ns": 1591,
+      "unregister_ns": 436
+    },
+    {
+      "sample": 22,
+      "register_ns": 1598,
+      "unregister_ns": 284
+    },
+    {
+      "sample": 23,
+      "register_ns": 1481,
+      "unregister_ns": 272
+    },
+    {
+      "sample": 24,
+      "register_ns": 1684,
+      "unregister_ns": 274
+    },
+    {
+      "sample": 25,
+      "register_ns": 1626,
+      "unregister_ns": 313
+    },
+    {
+      "sample": 26,
+      "register_ns": 1541,
+      "unregister_ns": 292
+    },
+    {
+      "sample": 27,
+      "register_ns": 178466,
+      "unregister_ns": 671
+    },
+    {
+      "sample": 28,
+      "register_ns": 1950,
+      "unregister_ns": 297
+    },
+    {
+      "sample": 29,
+      "register_ns": 1537,
+      "unregister_ns": 457
+    },
+    {
+      "sample": 30,
+      "register_ns": 1411,
+      "unregister_ns": 279
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "description": "An Alef-generated Magnus trait bridge must pass byte-preserving identity, lifecycle, thread/GVL, failure, and overhead gates before its ABI is selected.",
   "alef_baseline_revision": "eebd7619b9c8217b16d2ee9b287738ce6c97dda9",
   "alef_prototype_revision": "bed1af3fdc125e4a14ac2caefdba0a1dbe8abeae",
-  "rust_prototype_revision": "34f8f09e827246fb4eb7f42108892249a0b8923b",
+  "rust_prototype_revision": "d482d632638e33a1299224613c27a8037b1909ba",
   "status": "prototype_in_progress",
   "identity_corpus_fixture": "identity-corpus.json",
   "baseline_observations": {
@@ -39,19 +39,20 @@
       "unregister_removal_before_shutdown",
       "controlled_clear_with_aggregated_shutdown_failures",
       "no_registry_lock_during_host_callbacks",
-      "repeated_calls_entered_from_ruby_threads"
-    ],
-    "open": [
+      "repeated_calls_entered_from_ruby_threads",
       "generated_typed_value_transport",
       "canonical_json_detached_byte_transport",
+      "clean_reproducible_transport_measurements",
+      "typed_inline_default_transport_decision"
+    ],
+    "open": [
       "atomic_replacement_and_generation_tracking",
       "rust_worker_to_ruby_runtime_affine_dispatch",
       "async_generated_invocation",
       "cancellation_boundaries",
       "in_flight_unregister_snapshot_completion",
       "bounded_and_forced_shutdown",
-      "sidecar_loss_and_stale_preflight",
-      "transport_measurements_and_decision"
+      "sidecar_loss_and_stale_preflight"
     ],
     "alef_upstream": {
       "binary_bytes": "https://github.com/xberg-io/alef/pull/280",
@@ -60,7 +61,7 @@
     },
     "verification": {
       "rust_core_tests": 7,
-      "ruby_bridge_examples": 18,
+      "ruby_bridge_examples": 24,
       "rust_workspace_check": "passed",
       "alef_generated_binding_fresh": true,
       "alef_workspace_verify": "blocked_by_pre_existing_missing_docs_readme_and_frozen_rustfmt"
@@ -159,7 +160,20 @@
       "digest_equality"
     ],
     "universal_performance_threshold_fixed": false,
-    "raw_samples_retained": true
+    "raw_samples_retained": true,
+    "observed_run": {
+      "report": "observed/2026-09-02-host-transport/report.json",
+      "raw_samples": "observed/2026-09-02-host-transport/raw-samples.json",
+      "raw_samples_sha256": "da6c1a8ceca1a2bbb2541d0d5d461e7dad70be702ffb61a0646fb09eca0f2478",
+      "scenario_count": 36,
+      "measured_samples_per_scenario": 30,
+      "all_identity_digests_equal": true,
+      "all_input_repositories_clean": true,
+      "typed_p50_ratio_to_in_process_range": [0.847, 1.602],
+      "detached_p50_ratio_to_in_process_range": [1.073, 13.318],
+      "decision": "generated_typed_values_default; canonical_json_detached_bytes_only_when_explicitly_negotiated_for_isolation_or_out_of_process_operation",
+      "automatic_detached_size_threshold_selected": false
+    }
   },
   "evidence_fields": [
     "source_alef_rust_ruby_revisions_and_dirty_state",

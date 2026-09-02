@@ -4,7 +4,8 @@
   "name": "ruby-generated-host-prototype",
   "description": "An Alef-generated Magnus trait bridge must pass byte-preserving identity, lifecycle, thread/GVL, failure, and overhead gates before its ABI is selected.",
   "alef_revision": "eebd7619b9c8217b16d2ee9b287738ce6c97dda9",
-  "status": "acceptance_contract_only",
+  "status": "prototype_in_progress",
+  "identity_corpus_fixture": "identity-corpus.json",
   "baseline_observations": {
     "magnus_wrapper_storage": "opaque_ruby_value",
     "registration_arc_dyn_trait": true,

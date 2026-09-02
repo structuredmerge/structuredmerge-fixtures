@@ -33,12 +33,13 @@
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.typescript.independent-functions.v1",
+        "case.merge3.go.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 20,
-        "case_count": 13,
+        "case_count": 14,
         "output_bytes": 1048576
       }
     },
@@ -58,12 +59,13 @@
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.typescript.independent-functions.v1",
+        "case.merge3.go.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 2,
       "budgets": {
         "wall_seconds": 120,
-        "case_count": 21,
+        "case_count": 22,
         "output_bytes": 8388608
       }
     },
@@ -83,12 +85,13 @@
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.typescript.independent-functions.v1",
+        "case.merge3.go.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 600,
-        "case_count": 21,
+        "case_count": 22,
         "output_bytes": 33554432
       }
     },
@@ -108,12 +111,13 @@
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.typescript.independent-functions.v1",
+        "case.merge3.go.independent-functions.v1",
         "case.merge3.json.duplicate-identity.v1"
       ],
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 1200,
-        "case_count": 21,
+        "case_count": 22,
         "output_bytes": 67108864
       }
     }
@@ -135,6 +139,18 @@
         "json5",
         "jsonc",
         "metamorphic"
+      ]
+    },
+    {
+      "path_prefix": "gems/go-merge/",
+      "capabilities": [
+        "go"
+      ]
+    },
+    {
+      "path_prefix": "crates/go-merge/",
+      "capabilities": [
+        "go"
       ]
     },
     {
@@ -2226,6 +2242,114 @@
     {
       "schema_version": "structuredmerge.benchmark/v1",
       "kind": "benchmark_case",
+      "id": "case.merge3.go.independent-functions.v1",
+      "operation": "merge3",
+      "family": "go",
+      "provider": "ruby.go",
+      "dialect": "go",
+      "capabilities": [
+        "functions",
+        "go",
+        "merge3",
+        "source_preserving"
+      ],
+      "partition": "sentinel",
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "oracle": {
+        "class": "exact",
+        "artifact": {
+          "mode": "inline",
+          "bytes": "package main\n\nfunc left() int { return 2 }\n\nfunc right() int { return 2 }\n",
+          "sha256": "04fc9700f31c9a0ff4b0f0b2083083ea742cc75e3f3e4c6aefe9078c3db78f53"
+        },
+        "admission": "reviewed",
+        "score_eligible": true,
+        "procedure": "Compare exact expected bytes first; structural equivalence requires provider-backed semantic equality and never mere parse validity."
+      },
+      "acceptable_equivalence": [
+        {
+          "class": "exact_bytes"
+        },
+        {
+          "class": "structural_ast",
+          "provider": "ruby.go",
+          "required": true
+        }
+      ],
+      "preservation_policy": {
+        "comments": "required",
+        "formatting": "required",
+        "order": "required",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "false_auto_merge_severity": "none",
+      "selector": {
+        "provider_id": "ruby.go",
+        "family": "go",
+        "dialect": "go",
+        "backend": "kreuzberg-language-pack",
+        "profile": "source_preserving",
+        "require": "go/merge"
+      },
+      "inputs": {
+        "base": {
+          "mode": "inline",
+          "bytes": "package main\n\nfunc left() int { return 1 }\n\nfunc right() int { return 1 }\n",
+          "sha256": "7bca17aa6a3bc57e74af03b0414144434cf63497127786dd021d002a45a183f1"
+        },
+        "ours": {
+          "mode": "inline",
+          "bytes": "package main\n\nfunc left() int { return 2 }\n\nfunc right() int { return 1 }\n",
+          "sha256": "ec8d71aa914c23f67411e1674b3eabcf415969d0c128d608c0ea66b68afc731b"
+        },
+        "theirs": {
+          "mode": "inline",
+          "bytes": "package main\n\nfunc left() int { return 1 }\n\nfunc right() int { return 2 }\n",
+          "sha256": "93ffb05377b367972a715222a83890ba7307a411f52daf801497dd86d82c4b4b"
+        }
+      },
+      "expected": {
+        "outcome": "clean",
+        "output": {
+          "mode": "inline",
+          "bytes": "package main\n\nfunc left() int { return 2 }\n\nfunc right() int { return 2 }\n",
+          "sha256": "04fc9700f31c9a0ff4b0f0b2083083ea742cc75e3f3e4c6aefe9078c3db78f53"
+        }
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [
+        {
+          "id": "ours.function-left",
+          "side": "ours",
+          "path": "/function:left"
+        },
+        {
+          "id": "theirs.function-right",
+          "side": "theirs",
+          "path": "/function:right"
+        }
+      ],
+      "independent_edit_ids": [
+        "ours.function-left",
+        "theirs.function-right"
+      ]
+    },
+    {
+      "schema_version": "structuredmerge.benchmark/v1",
+      "kind": "benchmark_case",
       "id": "case.merge3.json.duplicate-identity.v1",
       "operation": "merge3",
       "family": "json",
@@ -2558,19 +2682,20 @@
     }
   ],
   "expected_summary": {
-    "case_count": 21,
+    "case_count": 22,
     "partition_counts": {
-      "sentinel": 13,
+      "sentinel": 14,
       "gold": 6,
       "metamorphic": 2
     },
     "operation_counts": {
       "merge2": 6,
-      "merge3": 13,
+      "merge3": 14,
       "metamorphic": 2
     },
     "families": [
       "bash",
+      "go",
       "html",
       "json",
       "markdown",
@@ -2593,6 +2718,7 @@
       "case.merge3.jsonc.comment-preservation.v1",
       "case.merge3.json5.order-format.v1",
       "case.merge3.typescript.independent-functions.v1",
+      "case.merge3.go.independent-functions.v1",
       "case.merge3.json.duplicate-identity.v1"
     ]
   }

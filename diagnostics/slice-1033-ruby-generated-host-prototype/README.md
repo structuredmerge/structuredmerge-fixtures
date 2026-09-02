@@ -32,3 +32,10 @@ Ruby byte string. Its exercised return path performs no arbitrary `to_json`
 conversion. Alef's general DTO input conversion still contains such a fallback,
 but that reverse conversion is not part of this host callback transport and is
 not evidence that arbitrary Ruby objects may cross the provider boundary.
+
+The completed generated-host prototype also exercises native Rust worker
+callbacks, async Rust-to-Ruby re-entry with the GVL released, cancellation at
+all four dispatch boundaries, in-flight unregister and atomic replacement,
+bounded graceful/forced shutdown, and loss of a real child-process sidecar.
+Sidecar loss remains an error on the explicitly selected provider even when a
+healthy alternative is registered; there is no substitution path.

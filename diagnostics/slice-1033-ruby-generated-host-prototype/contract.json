@@ -4,9 +4,9 @@
   "name": "ruby-generated-host-prototype",
   "description": "An Alef-generated Magnus trait bridge must pass byte-preserving identity, lifecycle, thread/GVL, failure, and overhead gates before its ABI is selected.",
   "alef_baseline_revision": "eebd7619b9c8217b16d2ee9b287738ce6c97dda9",
-  "alef_prototype_revision": "bed1af3fdc125e4a14ac2caefdba0a1dbe8abeae",
-  "rust_prototype_revision": "d482d632638e33a1299224613c27a8037b1909ba",
-  "status": "prototype_in_progress",
+  "alef_prototype_revision": "81b743a15e95bf43ba193a88dfbba36ca4d04aeb",
+  "rust_prototype_revision": "e27abf92078864829747d85d4061fc50b1b31613",
+  "status": "generated_host_prototype_complete",
   "identity_corpus_fixture": "identity-corpus.json",
   "baseline_observations": {
     "magnus_wrapper_storage": "opaque_ruby_value",
@@ -42,27 +42,31 @@
       "repeated_calls_entered_from_ruby_threads",
       "generated_typed_value_transport",
       "canonical_json_detached_byte_transport",
+      "runtime_affine_callbacks_from_native_rust_workers",
+      "async_rust_reentry_with_gvl_release",
+      "four_boundary_cooperative_cancellation",
+      "unregister_in_flight_snapshot_completion",
+      "atomic_replacement_with_snapshot_retirement",
+      "bounded_graceful_and_forced_shutdown",
+      "sidecar_loss_without_provider_substitution",
       "clean_reproducible_transport_measurements",
       "typed_inline_default_transport_decision"
     ],
     "open": [
-      "atomic_replacement_and_generation_tracking",
-      "rust_worker_to_ruby_runtime_affine_dispatch",
-      "async_generated_invocation",
-      "cancellation_boundaries",
-      "in_flight_unregister_snapshot_completion",
-      "bounded_and_forced_shutdown",
-      "sidecar_loss_and_stale_preflight"
+      "rust_tslp_provider_round_trip"
     ],
     "alef_upstream": {
       "binary_bytes": "https://github.com/xberg-io/alef/pull/280",
       "fallible_plugin_version": "https://github.com/xberg-io/alef/pull/282",
-      "direct_host_registration": "https://github.com/xberg-io/alef/pull/284"
+      "direct_host_registration": "https://github.com/xberg-io/alef/pull/284",
+      "runtime_affine_dispatch": "https://github.com/xberg-io/alef/pull/286",
+      "async_gvl_release": "https://github.com/xberg-io/alef/pull/288",
+      "function_bridge_core_wrappers": "https://github.com/xberg-io/alef/pull/290"
     },
     "verification": {
-      "rust_core_tests": 7,
-      "ruby_bridge_examples": 24,
-      "rust_workspace_check": "passed",
+      "rust_core_tests": 9,
+      "ruby_bridge_examples": 35,
+      "rust_workspace_check": "targeted_core_and_generated_extension_passed; full_workspace_has_pre_existing_slice_716_and_json5_failures",
       "alef_generated_binding_fresh": true,
       "alef_workspace_verify": "blocked_by_pre_existing_missing_docs_readme_and_frozen_rustfmt"
     }
@@ -75,7 +79,7 @@
     },
     {
       "kind": "workflow",
-      "methods": ["descriptor", "execute_batch"],
+      "methods": ["descriptor", "execute_batch", "execute_cancellable_batch", "execute_async_batch", "execute_typed_batch", "execute_detached_batch"],
       "all_methods_fallible": true
     }
   ],

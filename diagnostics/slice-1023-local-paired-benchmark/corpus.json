@@ -27,6 +27,7 @@
         "case.merge2.jsonc.current-layout-preservation.v1",
         "case.merge2.yaml.nested-mapping-leaf.v1",
         "case.merge2.ruby.class-method.v1",
+        "case.merge2.markdown.heading-sections.v1",
         "case.merge2.rbs.declarations-comments.v1",
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
@@ -36,7 +37,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 20,
-        "case_count": 11,
+        "case_count": 12,
         "output_bytes": 1048576
       }
     },
@@ -50,6 +51,7 @@
         "case.merge2.jsonc.current-layout-preservation.v1",
         "case.merge2.yaml.nested-mapping-leaf.v1",
         "case.merge2.ruby.class-method.v1",
+        "case.merge2.markdown.heading-sections.v1",
         "case.merge2.rbs.declarations-comments.v1",
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
@@ -59,7 +61,7 @@
       "neighbor_count": 2,
       "budgets": {
         "wall_seconds": 120,
-        "case_count": 20,
+        "case_count": 21,
         "output_bytes": 8388608
       }
     },
@@ -73,6 +75,7 @@
         "case.merge2.jsonc.current-layout-preservation.v1",
         "case.merge2.yaml.nested-mapping-leaf.v1",
         "case.merge2.ruby.class-method.v1",
+        "case.merge2.markdown.heading-sections.v1",
         "case.merge2.rbs.declarations-comments.v1",
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
@@ -82,7 +85,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 600,
-        "case_count": 20,
+        "case_count": 21,
         "output_bytes": 33554432
       }
     },
@@ -96,6 +99,7 @@
         "case.merge2.jsonc.current-layout-preservation.v1",
         "case.merge2.yaml.nested-mapping-leaf.v1",
         "case.merge2.ruby.class-method.v1",
+        "case.merge2.markdown.heading-sections.v1",
         "case.merge2.rbs.declarations-comments.v1",
         "case.merge2.toml.nested-table-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
@@ -105,7 +109,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 1200,
-        "case_count": 20,
+        "case_count": 21,
         "output_bytes": 67108864
       }
     }
@@ -180,6 +184,36 @@
     },
     {
       "path_prefix": "gems/markdown-merge/",
+      "capabilities": [
+        "markdown"
+      ]
+    },
+    {
+      "path_prefix": "gems/markly-merge/",
+      "capabilities": [
+        "markdown"
+      ]
+    },
+    {
+      "path_prefix": "gems/commonmarker-merge/",
+      "capabilities": [
+        "markdown"
+      ]
+    },
+    {
+      "path_prefix": "gems/kramdown-merge/",
+      "capabilities": [
+        "markdown"
+      ]
+    },
+    {
+      "path_prefix": "crates/markdown-merge/",
+      "capabilities": [
+        "markdown"
+      ]
+    },
+    {
+      "path_prefix": "crates/pulldown-cmark-merge/",
       "capabilities": [
         "markdown"
       ]
@@ -881,6 +915,110 @@
       "independent_edit_ids": [
         "incoming.add-wave-method",
         "current.retain-greet-method"
+      ]
+    },
+    {
+      "schema_version": "structuredmerge.benchmark/v1",
+      "kind": "benchmark_case",
+      "id": "case.merge2.markdown.heading-sections.v1",
+      "operation": "merge2",
+      "family": "markdown",
+      "provider": "ruby.markdown",
+      "dialect": "markdown",
+      "capabilities": [
+        "comments",
+        "heading_sections",
+        "merge2",
+        "order",
+        "source_preserving"
+      ],
+      "partition": "sentinel",
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures/tree/main/markdown/slice-721-provider-parity",
+        "revision": "slice-721",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Promoted from the shared Markdown provider parity behavior exercised by the Ruby TSLP, Markly, CommonMarker, and Kramdown providers."
+      },
+      "oracle": {
+        "class": "exact",
+        "artifact": {
+          "mode": "inline",
+          "bytes": "# Title\n\ncurrent body\n\n\n# Added\n\n<!-- retained incoming comment -->\nnew section\n\n# Last\n\ncurrent ending",
+          "sha256": "0d73032ebccef65c3377d870c08f3861b947c8c3a1423649dab2c920f1c1e9bd"
+        },
+        "admission": "reviewed",
+        "score_eligible": true,
+        "procedure": "Require exact source fragments, current-wins heading ownership, incoming-only section insertion, and parser-verified order."
+      },
+      "acceptable_equivalence": [
+        {
+          "class": "exact_bytes"
+        },
+        {
+          "class": "structural_ast",
+          "provider": "ruby.markdown",
+          "required": true
+        }
+      ],
+      "preservation_policy": {
+        "comments": "required",
+        "formatting": "required",
+        "order": "required",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "false_auto_merge_severity": "high",
+      "selector": {
+        "provider_id": "ruby.markdown",
+        "family": "markdown",
+        "dialect": "markdown",
+        "backend": "kreuzberg-language-pack",
+        "profile": "source_preserving",
+        "require": "markdown/merge"
+      },
+      "inputs": {
+        "incoming": {
+          "mode": "inline",
+          "bytes": "# Title\n\ntemplate body\n\n# Added\n\n<!-- retained incoming comment -->\nnew section\n\n# Last\n\ntemplate ending\n",
+          "sha256": "d1855badcdc8f0271997aa8c93eff0bd596f7a4b8dcb842d7c3fe48aae1b21ef"
+        },
+        "current": {
+          "mode": "inline",
+          "bytes": "# Title\n\ncurrent body\n\n\n# Last\n\ncurrent ending",
+          "sha256": "b668fd6f5e9fcce72e7b4a52d7d57377197c8006fdfb72744300940b4bd91385"
+        }
+      },
+      "expected": {
+        "outcome": "clean",
+        "output": {
+          "mode": "inline",
+          "bytes": "# Title\n\ncurrent body\n\n\n# Added\n\n<!-- retained incoming comment -->\nnew section\n\n# Last\n\ncurrent ending",
+          "sha256": "0d73032ebccef65c3377d870c08f3861b947c8c3a1423649dab2c920f1c1e9bd"
+        }
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [
+        {
+          "id": "incoming.add-section",
+          "side": "incoming",
+          "path": "/heading:Added"
+        },
+        {
+          "id": "current.retain-title-and-last",
+          "side": "current",
+          "path": "/heading:{Title,Last}"
+        }
+      ],
+      "independent_edit_ids": [
+        "incoming.add-section",
+        "current.retain-title-and-last"
       ]
     },
     {
@@ -2409,14 +2547,14 @@
     }
   ],
   "expected_summary": {
-    "case_count": 20,
+    "case_count": 21,
     "partition_counts": {
-      "sentinel": 11,
+      "sentinel": 12,
       "gold": 7,
       "metamorphic": 2
     },
     "operation_counts": {
-      "merge2": 5,
+      "merge2": 6,
       "merge3": 13,
       "metamorphic": 2
     },
@@ -2438,6 +2576,7 @@
       "case.merge2.jsonc.current-layout-preservation.v1",
       "case.merge2.yaml.nested-mapping-leaf.v1",
       "case.merge2.ruby.class-method.v1",
+      "case.merge2.markdown.heading-sections.v1",
       "case.merge2.rbs.declarations-comments.v1",
       "case.merge2.toml.nested-table-leaf.v1",
       "case.merge3.jsonc.comment-preservation.v1",

@@ -25,6 +25,7 @@
         "case.merge3.json.same-owner-conflict.v1",
         "case.merge3.json.malformed-ours.v1",
         "case.merge2.jsonc.current-layout-preservation.v1",
+        "case.merge2.yaml.nested-mapping-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.json.duplicate-identity.v1"
@@ -32,7 +33,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 20,
-        "case_count": 7,
+        "case_count": 8,
         "output_bytes": 1048576
       }
     },
@@ -44,6 +45,7 @@
         "case.merge3.json.same-owner-conflict.v1",
         "case.merge3.json.malformed-ours.v1",
         "case.merge2.jsonc.current-layout-preservation.v1",
+        "case.merge2.yaml.nested-mapping-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.json.duplicate-identity.v1"
@@ -51,7 +53,7 @@
       "neighbor_count": 2,
       "budgets": {
         "wall_seconds": 120,
-        "case_count": 16,
+        "case_count": 17,
         "output_bytes": 8388608
       }
     },
@@ -63,6 +65,7 @@
         "case.merge3.json.same-owner-conflict.v1",
         "case.merge3.json.malformed-ours.v1",
         "case.merge2.jsonc.current-layout-preservation.v1",
+        "case.merge2.yaml.nested-mapping-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.json.duplicate-identity.v1"
@@ -70,7 +73,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 600,
-        "case_count": 16,
+        "case_count": 17,
         "output_bytes": 33554432
       }
     },
@@ -82,6 +85,7 @@
         "case.merge3.json.same-owner-conflict.v1",
         "case.merge3.json.malformed-ours.v1",
         "case.merge2.jsonc.current-layout-preservation.v1",
+        "case.merge2.yaml.nested-mapping-leaf.v1",
         "case.merge3.jsonc.comment-preservation.v1",
         "case.merge3.json5.order-format.v1",
         "case.merge3.json.duplicate-identity.v1"
@@ -89,7 +93,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 1200,
-        "case_count": 16,
+        "case_count": 17,
         "output_bytes": 67108864
       }
     }
@@ -111,6 +115,12 @@
         "json5",
         "jsonc",
         "metamorphic"
+      ]
+    },
+    {
+      "path_prefix": "crates/yaml-merge/",
+      "capabilities": [
+        "yaml"
       ]
     },
     {
@@ -630,6 +640,109 @@
       "independent_edit_ids": [
         "incoming.managed-version",
         "current.local"
+      ]
+    },
+    {
+      "schema_version": "structuredmerge.benchmark/v1",
+      "kind": "benchmark_case",
+      "id": "case.merge2.yaml.nested-mapping-leaf.v1",
+      "operation": "merge2",
+      "family": "yaml",
+      "provider": "ruby.yaml",
+      "dialect": "yaml",
+      "capabilities": [
+        "merge2",
+        "nested_mappings",
+        "source_preserving",
+        "structural_paths"
+      ],
+      "partition": "sentinel",
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures/tree/main/yaml/slice-720-advanced-leaf-merge",
+        "revision": "slice-720",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Promoted from the shared Slice 720 nested-mapping leaf fixture used by the Ruby and Rust TSLP-backed YAML substrates."
+      },
+      "oracle": {
+        "class": "exact",
+        "artifact": {
+          "mode": "inline",
+          "bytes": "patient:\n  demographics:\n    name:\n      given: Pat\n      family: Destination\n    contact:\n      email: destination@example.test\n      phone: 555-0100\n  care_plan:\n    status: active\n    goals:\n      mobility: walk with assistance\n      nutrition: low sodium\n",
+          "sha256": "58072ea3c8d1074c8fd0950497a6702a75b497a2a88d9be3885c318dd50332e3"
+        },
+        "admission": "reviewed",
+        "score_eligible": true,
+        "procedure": "Require exact source-preserving recursive mapping output from both the Ruby golden master and cross-runtime candidates."
+      },
+      "acceptable_equivalence": [
+        {
+          "class": "exact_bytes"
+        },
+        {
+          "class": "structural_ast",
+          "provider": "ruby.yaml",
+          "required": true
+        }
+      ],
+      "preservation_policy": {
+        "comments": "not_applicable",
+        "formatting": "required",
+        "order": "required",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "false_auto_merge_severity": "high",
+      "selector": {
+        "provider_id": "ruby.yaml",
+        "family": "yaml",
+        "dialect": "yaml",
+        "backend": "kreuzberg-language-pack",
+        "profile": "source_preserving",
+        "require": "yaml/merge"
+      },
+      "inputs": {
+        "incoming": {
+          "mode": "inline",
+          "bytes": "patient:\n  demographics:\n    name:\n      given: Pat\n      family: Template\n    contact:\n      email: template@example.test\n      phone: 555-0100\n  care_plan:\n    status: draft\n    goals:\n      mobility: walk daily\n      nutrition: low sodium\n",
+          "sha256": "b754964ede7701b6f6aa76aafdc9fa5b34ae19ca69978d9a7085cf2158088f79"
+        },
+        "current": {
+          "mode": "inline",
+          "bytes": "patient:\n  demographics:\n    name:\n      family: Destination\n    contact:\n      email: destination@example.test\n  care_plan:\n    status: active\n    goals:\n      mobility: walk with assistance\n",
+          "sha256": "a44d2298909b92085934002696b4695336b3583033da79af09bbebe96c994dea"
+        }
+      },
+      "expected": {
+        "outcome": "clean",
+        "output": {
+          "mode": "inline",
+          "bytes": "patient:\n  demographics:\n    name:\n      given: Pat\n      family: Destination\n    contact:\n      email: destination@example.test\n      phone: 555-0100\n  care_plan:\n    status: active\n    goals:\n      mobility: walk with assistance\n      nutrition: low sodium\n",
+          "sha256": "58072ea3c8d1074c8fd0950497a6702a75b497a2a88d9be3885c318dd50332e3"
+        }
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [
+        {
+          "id": "incoming.add-missing-leaves",
+          "side": "incoming",
+          "path": "/patient"
+        },
+        {
+          "id": "current.retain-owned-leaves",
+          "side": "current",
+          "path": "/patient"
+        }
+      ],
+      "independent_edit_ids": [
+        "incoming.add-missing-leaves",
+        "current.retain-owned-leaves"
       ]
     },
     {
@@ -1952,14 +2065,14 @@
     }
   ],
   "expected_summary": {
-    "case_count": 16,
+    "case_count": 17,
     "partition_counts": {
-      "sentinel": 7,
+      "sentinel": 8,
       "gold": 7,
       "metamorphic": 2
     },
     "operation_counts": {
-      "merge2": 1,
+      "merge2": 2,
       "merge3": 13,
       "metamorphic": 2
     },
@@ -1978,6 +2091,7 @@
       "case.merge3.json.same-owner-conflict.v1",
       "case.merge3.json.malformed-ours.v1",
       "case.merge2.jsonc.current-layout-preservation.v1",
+      "case.merge2.yaml.nested-mapping-leaf.v1",
       "case.merge3.jsonc.comment-preservation.v1",
       "case.merge3.json5.order-format.v1",
       "case.merge3.json.duplicate-identity.v1"

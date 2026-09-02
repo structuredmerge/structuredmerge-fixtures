@@ -340,9 +340,9 @@
       {
         "provider_id": "ruby.ruby",
         "dialect": "ruby",
-        "backend": "prism",
+        "backend": "tslp",
         "profile_id": "source_preserving",
-        "status": "blocked"
+        "status": "tested"
       },
       {
         "provider_id": "ruby.rbs",
@@ -429,13 +429,13 @@
         "status": "tested"
       }
     ],
-    "blocked_provider_ids": ["ruby.ruby", "ruby.yaml"],
+    "blocked_provider_ids": ["ruby.yaml"],
     "expected": {
       "provider_rows": 22,
-      "tested_provider_rows": 20,
-      "tested_dialect_backend_rows": 27,
-      "blocked_provider_rows": 2,
-      "advertised_provider_ids": ["ruby.bash", "ruby.binary", "ruby.dotenv", "ruby.go", "ruby.html", "ruby.json", "ruby.markdown", "ruby.markdown.commonmarker", "ruby.markdown.kramdown", "ruby.markdown.markly", "ruby.rbs", "ruby.ruby.prism", "ruby.rust", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.typescript", "ruby.yaml.psych", "ruby.zip"]
+      "tested_provider_rows": 21,
+      "tested_dialect_backend_rows": 28,
+      "blocked_provider_rows": 1,
+      "advertised_provider_ids": ["ruby.bash", "ruby.binary", "ruby.dotenv", "ruby.go", "ruby.html", "ruby.json", "ruby.markdown", "ruby.markdown.commonmarker", "ruby.markdown.kramdown", "ruby.markdown.markly", "ruby.rbs", "ruby.ruby", "ruby.ruby.prism", "ruby.rust", "ruby.text", "ruby.toml", "ruby.toml.citrus", "ruby.toml.parslet", "ruby.typescript", "ruby.yaml.psych", "ruby.zip"]
     }
   },
   "expected": {

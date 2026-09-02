@@ -69,7 +69,7 @@
       "neighbor_count": 2,
       "budgets": {
         "wall_seconds": 120,
-        "case_count": 23,
+        "case_count": 24,
         "output_bytes": 8388608
       }
     },
@@ -97,7 +97,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 600,
-        "case_count": 23,
+        "case_count": 24,
         "output_bytes": 33554432
       }
     },
@@ -125,7 +125,7 @@
       "neighbor_count": 0,
       "budgets": {
         "wall_seconds": 1200,
-        "case_count": 23,
+        "case_count": 24,
         "output_bytes": 67108864
       }
     }
@@ -288,6 +288,12 @@
       "capabilities": [
         "typed_language",
         "typescript"
+      ]
+    },
+    {
+      "path_prefix": "crates/generic-merge/",
+      "capabilities": [
+        "python"
       ]
     },
     {
@@ -2052,6 +2058,110 @@
     {
       "schema_version": "structuredmerge.benchmark/v1",
       "kind": "benchmark_case",
+      "id": "case.merge3.python.generic-independent-functions.v1",
+      "operation": "merge3",
+      "family": "python",
+      "provider": "rust.generic.tslp",
+      "dialect": "python",
+      "capabilities": [
+        "experimental_generic_provider",
+        "functions",
+        "merge3",
+        "source_preserving",
+        "structural_paths"
+      ],
+      "partition": "gold",
+      "provenance": {
+        "origin_uri": "https://github.com/structuredmerge/structuredmerge-fixtures",
+        "revision": "slice-1023",
+        "spdx_license": "CC0-1.0",
+        "license_evidence_uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authorship": "project_authored",
+        "author_review": "reviewed",
+        "reviewer": "StructuredMerge maintainers",
+        "derivation": "Original minimal fixture; no external source copied."
+      },
+      "oracle": {
+        "class": "exact",
+        "artifact": {
+          "mode": "inline",
+          "bytes": "def left():\n    return 2\n\ndef right():\n    return 2\n",
+          "sha256": "9ad138495db24a8d579af0777aa3dd0e44021564a0b5a3d11d106c7c9accaeb5"
+        },
+        "admission": "reviewed",
+        "score_eligible": true,
+        "procedure": "Compare exact expected bytes; this experimental provider has no Ruby structural-equivalence oracle."
+      },
+      "acceptable_equivalence": [
+        {
+          "class": "exact_bytes"
+        }
+      ],
+      "preservation_policy": {
+        "comments": "required",
+        "formatting": "required",
+        "order": "required",
+        "encoding": "required",
+        "line_endings": "required",
+        "unknown_fields": "required",
+        "source_regions": "required"
+      },
+      "false_auto_merge_severity": "none",
+      "selector": {
+        "provider_id": "rust.generic.tslp",
+        "family": "python",
+        "dialect": "python",
+        "backend": "kreuzberg-language-pack",
+        "profile": "experimental_named_top_level",
+        "require": "generic/merge"
+      },
+      "inputs": {
+        "base": {
+          "mode": "inline",
+          "bytes": "def left():\n    return 1\n\ndef right():\n    return 1\n",
+          "sha256": "030bfe03deb7d5982ece4ae95bf4fa38e611057be9c442b075a3cd5c42424d74"
+        },
+        "ours": {
+          "mode": "inline",
+          "bytes": "def left():\n    return 2\n\ndef right():\n    return 1\n",
+          "sha256": "5a9a1430f467ea8b4c5f8b6cc9654559dfa03b4f9efaa3153deafe0ac2bce8a2"
+        },
+        "theirs": {
+          "mode": "inline",
+          "bytes": "def left():\n    return 1\n\ndef right():\n    return 2\n",
+          "sha256": "374bbd7c11f3d8ea752f3221f9ec58e6b491a4e1494821e7f29c15f509d41b68"
+        }
+      },
+      "expected": {
+        "outcome": "clean",
+        "output": {
+          "mode": "inline",
+          "bytes": "def left():\n    return 2\n\ndef right():\n    return 2\n",
+          "sha256": "9ad138495db24a8d579af0777aa3dd0e44021564a0b5a3d11d106c7c9accaeb5"
+        }
+      },
+      "expected_conflicts": false,
+      "expected_conflict_regions": [],
+      "independent_edits": [
+        {
+          "id": "ours.function-left",
+          "side": "ours",
+          "path": "/function_definition:left"
+        },
+        {
+          "id": "theirs.function-right",
+          "side": "theirs",
+          "path": "/function_definition:right"
+        }
+      ],
+      "independent_edit_ids": [
+        "ours.function-left",
+        "theirs.function-right"
+      ]
+    },
+    {
+      "schema_version": "structuredmerge.benchmark/v1",
+      "kind": "benchmark_case",
       "id": "case.merge3.bash.independent-functions.v1",
       "operation": "merge3",
       "family": "bash",
@@ -2816,15 +2926,15 @@
     }
   ],
   "expected_summary": {
-    "case_count": 23,
+    "case_count": 24,
     "partition_counts": {
       "sentinel": 16,
-      "gold": 5,
+      "gold": 6,
       "metamorphic": 2
     },
     "operation_counts": {
       "merge2": 6,
-      "merge3": 15,
+      "merge3": 16,
       "metamorphic": 2
     },
     "families": [
@@ -2833,6 +2943,7 @@
       "html",
       "json",
       "markdown",
+      "python",
       "rbs",
       "ruby",
       "rust",

@@ -1,0 +1,68 @@
+{
+  "schema_version": "structuredmerge.benchmark.baseline-manifest/v1",
+  "baseline_id": "rust-markdown-vertical-slice-2026-09-02",
+  "fixture_revision": "30aa72b44b5ecf3cc51550c303853e67db3ff9b2",
+  "ruby_revision": "1d77114f2681d9462c43cf418d4e9afd322cd009",
+  "rust_revision": "7d8a92acb447f1f443b192aaa5c5055b63fa25d3",
+  "rust_native_provider_revision": "0c3c1be0f86a91e18954810fdc64f26619fd42a5",
+  "commands": {
+    "micro": "ast-merge-git benchmark report --profile micro --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "dev": "ast-merge-git benchmark report --profile dev --changed-path crates/markdown-merge/src/lib.rs --workers 4 --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "ruby_gm": "ast-merge-git benchmark report --profile micro --workers 4"
+  },
+  "outcomes": {
+    "rust_micro": {
+      "selected_cases": 12,
+      "executed_candidate_cases": 12,
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "rust_dev": {
+      "selected_cases": 15,
+      "executed_candidate_cases": 12,
+      "unsupported_case_ids": [
+        "case.merge3.yaml.delete-modify.v1",
+        "case.merge3.toml.independent-tables.v1",
+        "case.merge3.markdown.independent-headings.v1"
+      ],
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "ruby_micro": {
+      "selected_cases": 12,
+      "executed_candidate_cases": 12,
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "provider_comparison_exact": {
+      "ruby.markdown.tslp": true,
+      "ruby.markdown.markly": true,
+      "ruby.markdown.commonmarker": true,
+      "ruby.markdown.kramdown": true,
+      "rust.markdown.tslp": true,
+      "rust.markdown.pulldown-cmark": true
+    }
+  },
+  "scope": {
+    "operation": "merge2",
+    "supported_subset": "complete documents partitioned by unique same-level top-level ATX headings",
+    "source_preserving": true,
+    "merge3_supported": false,
+    "unsupported_syntax_fails_closed": true,
+    "ruby_is_behavioral_golden_master": true,
+    "intentional_contract_changes": 0
+  },
+  "artifacts": {
+    "micro-run.json": "8461006f24c9c086392bab6d0038c9bbc868c00f64433c812a5ad85731b55bcf",
+    "micro-report.json": "8c4540474ebe2d7cbfe8e844a8c2b9b5ce84eb10c93db97c27d9fb2f1669b6d4",
+    "dev-report.json": "5e828253f1fed5211e5248f42da41806169cfd6d884c1633d3a7db5c56c33679",
+    "ruby-gm-report.json": "1f8f208e179e4121da814c43c8ad49c53f5eaeca3e49cf42a66beaeffe366646",
+    "provider-comparison.json": "35a78c2cbabab36112d6bd16757867bb8811bd97f56484b7e32d8f83fde86d20"
+  }
+}

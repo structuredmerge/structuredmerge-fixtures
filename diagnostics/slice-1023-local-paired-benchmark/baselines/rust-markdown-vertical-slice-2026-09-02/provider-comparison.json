@@ -1,0 +1,43 @@
+{
+  "schema_version": "structuredmerge.provider-comparison/v1",
+  "fixture": "case.merge2.markdown.heading-sections.v1",
+  "expected_sha256": "0d73032ebccef65c3377d870c08f3861b947c8c3a1423649dab2c920f1c1e9bd",
+  "providers": {
+    "ruby.markdown.tslp": {
+      "backend": "kreuzberg-language-pack",
+      "ok": true,
+      "exact": true,
+      "output_sha256": "0d73032ebccef65c3377d870c08f3861b947c8c3a1423649dab2c920f1c1e9bd"
+    },
+    "ruby.markdown.markly": {
+      "backend": "markly",
+      "ok": true,
+      "exact": true,
+      "output_sha256": "0d73032ebccef65c3377d870c08f3861b947c8c3a1423649dab2c920f1c1e9bd"
+    },
+    "ruby.markdown.commonmarker": {
+      "backend": "commonmarker",
+      "ok": true,
+      "exact": true,
+      "output_sha256": "0d73032ebccef65c3377d870c08f3861b947c8c3a1423649dab2c920f1c1e9bd"
+    },
+    "ruby.markdown.kramdown": {
+      "backend": "kramdown",
+      "ok": true,
+      "exact": true,
+      "output_sha256": "0d73032ebccef65c3377d870c08f3861b947c8c3a1423649dab2c920f1c1e9bd"
+    },
+    "rust.markdown.tslp": {
+      "backend": "kreuzberg-language-pack",
+      "ok": true,
+      "exact": true,
+      "output_sha256": "0d73032ebccef65c3377d870c08f3861b947c8c3a1423649dab2c920f1c1e9bd"
+    },
+    "rust.markdown.pulldown-cmark": {
+      "backend": "pulldown-cmark",
+      "ok": true,
+      "exact": true,
+      "output_sha256": "0d73032ebccef65c3377d870c08f3861b947c8c3a1423649dab2c920f1c1e9bd"
+    }
+  }
+}

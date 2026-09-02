@@ -1,0 +1,200 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1035",
+  "name": "ruby-merge-behavior-ownership",
+  "description": "Separates shared merge mechanics, family semantics, parser adapters, and integration adapters in the released Ruby golden master.",
+  "source": {
+    "repository": "structuredmerge/structuredmerge-ruby",
+    "revision": "e3ad14c9a52bf12d24783104eddbf557db247d46",
+    "family_version": "7.1.7"
+  },
+  "ownership_layers": [
+    {
+      "id": "parser_boundary",
+      "owner": "tree_haver",
+      "responsibilities": [
+        "backend_registration",
+        "language_registration",
+        "capability_aware_parser_selection",
+        "normalized_parser_facade",
+        "fail_closed_unavailable_selection"
+      ],
+      "source_anchors": [
+        "ruby/gems/tree_haver/lib/tree_haver/backend_registry.rb",
+        "ruby/gems/tree_haver/lib/tree_haver/language_registry.rb",
+        "ruby/gems/tree_haver/lib/tree_haver.rb"
+      ]
+    },
+    {
+      "id": "shared_merge_kernel",
+      "owner": "ast-merge",
+      "responsibilities": [
+        "merge_orchestration",
+        "identity_and_matching_primitives",
+        "comment_and_layout_ownership",
+        "structural_edit_planning",
+        "source_rendering_and_preservation",
+        "provider_dispatch_and_results",
+        "ruleset_runtime_review_and_replay",
+        "ruby_test_harness_support"
+      ],
+      "source_anchors": [
+        "ruby/gems/ast-merge/lib/ast/merge/smart_merger_base.rb",
+        "ruby/gems/ast-merge/lib/ast/merge/owner_selection.rb",
+        "ruby/gems/ast-merge/lib/ast/merge/comment/",
+        "ruby/gems/ast-merge/lib/ast/merge/layout/",
+        "ruby/gems/ast-merge/lib/ast/merge/structural_edit/",
+        "ruby/gems/ast-merge/lib/ast/merge/source_render/",
+        "ruby/gems/ast-merge/lib/ast/merge/provider_registry.rb",
+        "ruby/gems/ast-merge/lib/ast/merge/runtime/",
+        "ruby/gems/ast-merge/lib/ast/merge/rspec/"
+      ]
+    },
+    {
+      "id": "family_semantics",
+      "owner": "language_or_format_substrate",
+      "responsibilities": [
+        "family_owner_identity",
+        "family_matching_policy",
+        "family_comment_and_gap_semantics",
+        "family_merge_policy",
+        "family_source_preservation"
+      ]
+    },
+    {
+      "id": "parser_adapter",
+      "owner": "parser_provider",
+      "responsibilities": [
+        "tree_haver_backend_registration",
+        "native_ast_projection",
+        "native_source_locations",
+        "provider_capabilities_and_extensions"
+      ]
+    },
+    {
+      "id": "integration_adapter",
+      "owner": "git_crispr_template_or_cli_package",
+      "responsibilities": [
+        "operation_envelope_adaptation",
+        "file_and_process_io",
+        "user_facing_dispatch"
+      ]
+    }
+  ],
+  "families": [
+    {
+      "family": "markdown",
+      "substrate": "markdown-merge",
+      "providers": ["commonmarker-merge", "kramdown-merge", "markly-merge"],
+      "sharing_state": "strong_substrate_delegation",
+      "evidence": [
+        "provider_gems depend on markdown-merge",
+        "provider SmartMerger and FileAnalysis classes subclass Markdown::Merge classes",
+        "providers reuse Markdown::Merge backend, wrapper, matching, and source-preserving provider support"
+      ]
+    },
+    {
+      "family": "toml",
+      "substrate": "toml-merge",
+      "providers": ["citrus-toml-merge", "parslet-toml-merge"],
+      "sharing_state": "strong_substrate_delegation",
+      "evidence": [
+        "provider gems depend on toml-merge",
+        "provider SmartMerger classes subclass Toml::Merge::SmartMerger",
+        "provider classes subclass Toml::Merge::SourcePreservingProvider"
+      ]
+    },
+    {
+      "family": "ruby",
+      "substrate": "ruby-merge",
+      "providers": ["prism-merge"],
+      "sharing_state": "substrate_delegation_with_native_projection",
+      "evidence": [
+        "prism-merge depends on ruby-merge",
+        "Prism delegates owner matching, signatures, directives, nocov, magic comments, gemspec, documentation, scaffold, and rescue semantics to Ruby::Merge",
+        "Prism retains native node wrappers, analysis, emitters, and refiners"
+      ]
+    },
+    {
+      "family": "yaml",
+      "substrate": "yaml-merge",
+      "providers": ["psych-merge"],
+      "sharing_state": "partial_substrate_delegation_review_required",
+      "evidence": [
+        "psych-merge depends on yaml-merge",
+        "Psych delegates normalized document analysis and owner matching to Yaml::Merge",
+        "Psych retains parallel SmartMerger, FileAnalysis, NodeWrapper, Emitter, MergeResult, and ConflictResolver classes"
+      ]
+    },
+    {
+      "family": "binary",
+      "substrate": "binary-merge",
+      "providers": ["zip-merge"],
+      "sharing_state": "substrate_delegation",
+      "evidence": [
+        "zip-merge depends on binary-merge",
+        "Zip provider subclasses Binary::Merge::Provider",
+        "Zip uses Binary::Merge preservation and unsafe diagnostic contracts"
+      ]
+    },
+    {
+      "family": "rbs",
+      "substrate": "rbs-merge",
+      "providers": ["rbs-gem", "tree-sitter-language-pack"],
+      "sharing_state": "intentional_dual_backend_single_package",
+      "evidence": [
+        "both backends register through TreeHaver",
+        "FileAnalysis selects only through TreeHaver.parser_for",
+        "backend result projection remains internal to rbs-merge"
+      ]
+    },
+    {
+      "family": "direct_tree_sitter",
+      "substrate": null,
+      "providers": ["bash-merge", "go-merge", "html-merge", "json-merge", "rust-merge", "typescript-merge"],
+      "sharing_state": "single_format_package"
+    },
+    {
+      "family": "synthetic_line",
+      "substrate": "plain-merge",
+      "providers": ["dotenv-merge"],
+      "sharing_state": "line_oriented_tree_haver_path"
+    }
+  ],
+  "review_queue": [
+    {
+      "id": "psych-yaml-parallel-merge-stack",
+      "status": "review_required",
+      "question": "Which Psych classes are native AST adapters and which duplicate YAML semantics that belong in yaml-merge?"
+    },
+    {
+      "id": "generic-ruby-workflow-registration",
+      "status": "review_required",
+      "question": "Why does the released provider registry snapshot lack a generic Ruby workflow provider?"
+    },
+    {
+      "id": "generic-yaml-workflow-registration",
+      "status": "review_required",
+      "question": "Why does the released provider registry snapshot lack a generic YAML workflow provider?"
+    },
+    {
+      "id": "rbs-tslp-provider-advertisement",
+      "status": "review_required",
+      "question": "Why does provider metadata advertise only the native RBS backend when TreeHaver registers both native and Tree-sitter paths?"
+    }
+  ],
+  "authority_rules": {
+    "direct_parser_call_outside_tree_haver_allowed": false,
+    "cross_format_behavior_owner": "ast-merge",
+    "same_family_multi_provider_behavior_owner": "language_or_format_substrate",
+    "native_ast_projection_owner": "parser_provider",
+    "released_duplication_is_portable_authority": false,
+    "inheritance_shape_alone_proves_correct_ownership": false
+  },
+  "expected": {
+    "ownership_layer_count": 5,
+    "family_inventory_count": 8,
+    "review_required_count": 4,
+    "phase_zero_shared_mechanics_inventory_complete": true
+  }
+}

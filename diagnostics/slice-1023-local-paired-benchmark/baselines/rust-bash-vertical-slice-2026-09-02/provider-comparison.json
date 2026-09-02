@@ -1,0 +1,27 @@
+{
+  "schema_version": "structuredmerge.benchmark.provider-comparison/v1",
+  "fixture": "case.merge3.bash.independent-functions.v1",
+  "expected_sha256": "76a38ed2c73d4bdfb249fc618becb9bc35338525beb0a0307a964407e0b200ca",
+  "repositories": {
+    "ruby": "8e8e0c0a55c501a2775b519476d2dc3ee0a30270",
+    "rust": "4bfb15eb75533f391de5125a80df892e684ce05b"
+  },
+  "providers": {
+    "ruby.bash": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "76a38ed2c73d4bdfb249fc618becb9bc35338525beb0a0307a964407e0b200ca"
+    },
+    "rust.bash": {
+      "parser": "tree-sitter-language-pack",
+      "parser_boundary": "tree-haver",
+      "result": "exact",
+      "output_sha256": "76a38ed2c73d4bdfb249fc618becb9bc35338525beb0a0307a964407e0b200ca"
+    }
+  },
+  "notes": [
+    "Both runtime implementations use TreeHaver's normalized TSLP parser contract for this comparison.",
+    "The comparison covers only source-preserving top-level function merge3 behavior."
+  ]
+}

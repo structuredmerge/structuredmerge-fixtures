@@ -55,6 +55,17 @@
       "golden_master_behavior": false
     }
   ],
+  "provider_registry_snapshot": {
+    "artifact": "provider-registry.json",
+    "required_entry_file_count": 22,
+    "load_error_count": 0,
+    "provider_count": 20,
+    "observed_absences_require_review": [
+      "generic_ruby_workflow",
+      "generic_yaml_workflow",
+      "rbs_tslp_backend_advertisement"
+    ]
+  },
   "authority_rules": {
     "ruby_is_behavioral_golden_master": true,
     "documentation_only_symbol_is_authoritative": false,
@@ -66,6 +77,7 @@
     "lock_file_count": 32,
     "portable_operation_count": 4,
     "known_defect_count": 1,
+    "provider_count": 20,
     "baseline_recorded": true,
     "api_inventory_complete": false
   }

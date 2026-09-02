@@ -1,0 +1,89 @@
+{
+  "schema_version": "structuredmerge.benchmark.baseline/v1",
+  "kind": "rust_json_vertical_slice_baseline",
+  "id": "baseline.rust-json.vertical-slice.2026-09-02",
+  "corpus": {
+    "id": "corpus.local-paired.authored.v1",
+    "repository_revision": "4e381dd4950716a045d51c087ca7ca92556a62ad",
+    "sha256": "343d78bf059fc4ee0b648be8427eb3a00f95e30b25b7741779854e5bff3de348"
+  },
+  "candidate": {
+    "adapter_id": "rust-candidate.smorg-rs",
+    "repository": "structuredmerge/structuredmerge-rust",
+    "revision": "844440f40e44f003dada5576e9211d8e4cee486c",
+    "package": "smorg-rs",
+    "version": "0.2.0",
+    "driver_sha256": "1b779c7ab2d4a415c9753a57a6802a4ace2a3ba148b7921a418afba7f79db3f9",
+    "merge_provider": "rust.json",
+    "merge_package": "json-merge",
+    "parser_boundary": "tree-haver",
+    "parser_provider": "tree-sitter-language-pack",
+    "parser_provider_version": "1.8.1"
+  },
+  "golden_master": {
+    "adapter_id": "ruby-gm.ast-merge-git",
+    "repository": "structuredmerge/structuredmerge-ruby",
+    "revision": "f2ff7b296ecf2583095322da3f1f2b5327469471",
+    "package_version": "7.1.7"
+  },
+  "environment": {
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+    "ruby": "ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [x86_64-linux]",
+    "kernel": "Linux 7.1.6-201.fc44.x86_64",
+    "architecture": "x86_64"
+  },
+  "commands": {
+    "micro": "ast-merge-git benchmark report --profile micro --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "dev": "ast-merge-git benchmark report --profile dev --changed-path crates/json-merge/src/source_preserving.rs --driver rust/target/debug/smorg-rs --adapter-descriptor rust/benchmark-adapter.json",
+    "performance": "ast-merge-git benchmark performance --profile micro --iterations 5 --driver <adapter>"
+  },
+  "artifacts": {
+    "dev-report.json": "3c121cf35cd9285d5f77aaed9c3b9e16cc60d79b8617decd136c735068fbe54e",
+    "micro-report.json": "752462cbc248593e3e1ef698b3831a049073966b73ee6b559d5b59280bb92d54",
+    "micro-run.json": "cc51d3737b9a9b6992d026a89ba3ef22202b4a15e2d20397ab75422523810ca8",
+    "ruby-gm-performance.json": "291887b74b565afe2f02a7da5876cebda1b6dffbf6eece8ff6bb6f9ee56038f7",
+    "ruby-gm-report.json": "3b246a8d752b9f47c9ad5693f5a8176e636c161944c96a3435e0deb56dc7cfd9",
+    "rust-performance.json": "933367b6e92a1c3983fdaa17e9a25592b3ae9b6a9f8ca1759717f0c8ca1d5c92"
+  },
+  "correctness": {
+    "micro_candidate_outcomes": {
+      "correct_clean": 5,
+      "true_conflict": 2,
+      "false_auto_merge": 0,
+      "unexpected_error": 0
+    },
+    "micro_gates": {
+      "safety": "pass",
+      "preservation": "pass",
+      "reliability": "pass",
+      "hard_gate_failed": false
+    },
+    "dev_direct_cases": 9,
+    "dev_unsupported_neighbor_cases": 2,
+    "dev_hard_gate_failed": false
+  },
+  "performance": {
+    "quality_classification_uses_these_values": false,
+    "cold_candidate_total_ns": {
+      "rust": 16238504,
+      "ruby": 1815901095,
+      "observed_ratio_ruby_over_rust": 111.827
+    },
+    "persistent_round_trip_total_ns": {
+      "rust": 15390827,
+      "ruby": 330402383,
+      "observed_ratio_ruby_over_rust": 21.4675
+    },
+    "persistent_adapter_execution_total_ns": {
+      "rust": 8305958,
+      "ruby": 139156573,
+      "observed_ratio_ruby_over_rust": 16.7538
+    }
+  },
+  "interpretation": {
+    "ruby_is_behavioral_golden_master": true,
+    "intentional_contract_changes": 0,
+    "public_ranking_authorized": false,
+    "conflict_localization_pending_shared_substrate_support": true
+  }
+}

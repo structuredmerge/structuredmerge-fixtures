@@ -1,0 +1,230 @@
+{
+  "schema": "https://structuredmerge.org/schemas/diagnostic-fixture/v1.json",
+  "slice": "1030",
+  "name": "rust-kernel-provider-traits",
+  "description": "Object-safe Rust traits support heterogeneous in-process and Alef host providers while preserving TreeHaver-only parser selection.",
+  "audited_revisions": {
+    "structuredmerge_rust": "7903b6f440e8861410b1b64103db269ef78bf234",
+    "alef": "eebd7619b9c8217b16d2ee9b287738ce6c97dda9",
+    "tree_sitter_language_pack": "8f59a4bb1a372ac5f2aead6b8ff01bb63b1a2964"
+  },
+  "audit_findings": [
+    {
+      "id": "rust.generic-parser-adapter",
+      "repository": "structuredmerge_rust",
+      "finding": "ParserAdapter<TAnalysis> is generic and cannot directly populate a heterogeneous runtime provider registry",
+      "disposition": "replace_with_object_safe_owned_envelope_trait"
+    },
+    {
+      "id": "rust.reference-only-registry",
+      "repository": "structuredmerge_rust",
+      "finding": "the backend registry stores BackendReference values rather than parser implementations and immutable capability snapshots",
+      "disposition": "replace_with_provider_registry_snapshots"
+    },
+    {
+      "id": "rust.legacy-normalized-shape",
+      "repository": "structuredmerge_rust",
+      "finding": "legacy normalized nodes duplicate source fragments and do not implement the Slice 1024 child-edge and extension contract",
+      "disposition": "migrate_to_slice_1024_owned_values"
+    },
+    {
+      "id": "tslp.outbound-only-ir",
+      "repository": "tree_sitter_language_pack",
+      "finding": "the current Alef IR exports owned types/functions but zero traits, services, and handler contracts",
+      "disposition": "do_not_assume_tslp_generation_proves_host_provider_bridges"
+    },
+    {
+      "id": "alef.callback-versus-trait-bridge",
+      "repository": "alef",
+      "finding": "Alef has dedicated trait-bridge generators while the generic callback adapter still contains unsupported host conversions for some runtimes",
+      "disposition": "prototype_actual_magnus_trait_bridge_before_fixing_abi"
+    }
+  ],
+  "crate_boundaries": [
+    {"crate": "tree-haver-core", "owns": ["parse_contracts", "parser_registry", "parser_selection", "parser_provider_traits", "source_maps"]},
+    {"crate": "ast-merge-core", "owns": ["operation_contracts", "workflow_registry", "merge_policy", "diagnostics", "conflicts", "rendering", "preservation"]},
+    {"crate": "structuredmerge-host", "owns": ["alef_registration", "host_dispatch", "host_lifecycle", "wire_codec_negotiation"]},
+    {"crate": "provider_crates", "owns": ["tslp_adapter", "future_native_rust_adapters"]},
+    {"crate": "host_packages", "owns": ["generated_interfaces", "runtime_specific_provider_adapters"]}
+  ],
+  "traits": [
+    {
+      "name": "ParserProvider",
+      "owner": "tree-haver-core",
+      "object_safe": true,
+      "send_sync_boundary": "descriptor_declared_executor",
+      "host_exposure": "coarse_trait_bridge",
+      "methods": ["descriptor", "probe", "parse_batch"],
+      "semantic_contracts": ["structuredmerge.parse-request/v1", "structuredmerge.parse-result/v1"]
+    },
+    {
+      "name": "ParseService",
+      "owner": "tree-haver-core",
+      "object_safe": true,
+      "send_sync_boundary": "kernel_service",
+      "host_exposure": "none",
+      "methods": ["parser_for", "parse_batch"],
+      "semantic_contracts": ["structuredmerge.parse-request/v1", "structuredmerge.parse-result/v1", "slice-1026-capability-negotiation"]
+    },
+    {
+      "name": "NormalizedTreeView",
+      "owner": "tree-haver-core",
+      "object_safe": true,
+      "send_sync_boundary": "immutable_owned_projection",
+      "host_exposure": "values_only",
+      "methods": ["root", "node", "children", "comments", "diagnostics", "extensions"],
+      "semantic_contracts": ["structuredmerge.parse-result/v1", "structuredmerge.analysis-result/v1"]
+    },
+    {
+      "name": "SourceMap",
+      "owner": "tree-haver-core",
+      "object_safe": true,
+      "send_sync_boundary": "immutable_content_addressed_bytes",
+      "host_exposure": "values_or_verified_blob_refs",
+      "methods": ["descriptor", "validate_span", "slice", "digest", "project_point", "line_ending_evidence"],
+      "semantic_contracts": ["slice-722-byte-locations", "structuredmerge.preservation-evidence/v1"]
+    },
+    {
+      "name": "MergeProvider",
+      "owner": "ast-merge-core",
+      "object_safe": true,
+      "send_sync_boundary": "descriptor_declared_executor",
+      "host_exposure": "coarse_trait_bridge",
+      "methods": ["descriptor", "execute_batch"],
+      "semantic_contracts": ["https://structuredmerge.org/schemas/provider-request/v1.json", "https://structuredmerge.org/schemas/provider-result/v1.json"]
+    },
+    {
+      "name": "MergePolicy",
+      "owner": "ast-merge-core",
+      "object_safe": true,
+      "send_sync_boundary": "immutable_policy_and_batched_context",
+      "host_exposure": "batch_only_when_negotiated",
+      "methods": ["descriptor", "evaluate_batch"],
+      "semantic_contracts": ["versioned-policy-envelope", "ordered-decision-records"]
+    },
+    {
+      "name": "DiagnosticCollector",
+      "owner": "ast-merge-core",
+      "object_safe": true,
+      "send_sync_boundary": "per_operation_collector",
+      "host_exposure": "none",
+      "methods": ["push", "finalize"],
+      "semantic_contracts": ["structuredmerge.diagnostic/v1"]
+    },
+    {
+      "name": "RenderApplier",
+      "owner": "ast-merge-core",
+      "object_safe": true,
+      "send_sync_boundary": "stateless_shared_service",
+      "host_exposure": "none",
+      "methods": ["apply"],
+      "semantic_contracts": ["slice-1019-render-plan", "structuredmerge.preservation-evidence/v1"]
+    },
+    {
+      "name": "EditApplier",
+      "owner": "ast-merge-core",
+      "object_safe": true,
+      "send_sync_boundary": "stateless_shared_service",
+      "host_exposure": "none",
+      "methods": ["validate", "apply"],
+      "semantic_contracts": ["slice-1024-edit-projection", "structuredmerge.preservation-evidence/v1"]
+    }
+  ],
+  "provider_modes": [
+    {
+      "mode": "in_process",
+      "registration": "Arc<dyn ProviderTrait>",
+      "dispatch": "direct_or_descriptor_declared_executor",
+      "native_state": "request_scoped_capability_gated_lease",
+      "portable_payload_may_contain_native_object": false,
+      "first_provider": "tslp"
+    },
+    {
+      "mode": "host",
+      "registration": "alef_generated_trait_bridge",
+      "dispatch": "runtime_affine_queue",
+      "native_state": "host_owned_and_never_serialized",
+      "portable_payload_may_contain_native_object": false,
+      "first_provider": "ruby_golden_master"
+    }
+  ],
+  "call_paths": [
+    {
+      "id": "rust-workflow-rust-parser",
+      "steps": ["MergeService", "RustMergeProvider", "ParseService", "ParserRegistrySnapshot", "RustParserProvider", "ParseResult", "RenderApplier", "PreservationEvidence"],
+      "parser_selection_owner": "ParseService",
+      "coarse_host_calls": 0
+    },
+    {
+      "id": "rust-workflow-host-parser",
+      "steps": ["MergeService", "RustMergeProvider", "ParseService", "ParserRegistrySnapshot", "HostParserProviderBridge", "HostRuntimeParser", "ParseResult", "RenderApplier", "PreservationEvidence"],
+      "parser_selection_owner": "ParseService",
+      "coarse_host_calls": 1
+    },
+    {
+      "id": "host-native-workflow",
+      "steps": ["MergeService", "HostMergeProviderBridge", "HostAstMergeProvider", "HostTreeHaver", "HostNativeParser", "ProviderResult"],
+      "parser_selection_owner": "HostTreeHaver",
+      "rust_preparse": false,
+      "coarse_host_calls": 1
+    }
+  ],
+  "execution_context": {
+    "fields": ["request_ids", "deadline", "cancellation", "resource_limits", "registry_generations", "registry_digests", "trace_context", "network_policy"],
+    "contains_fallback_policy": false,
+    "cancellation": "cooperative_before_between_phases_and_after_dispatch"
+  },
+  "ownership_rules": [
+    "portable_envelopes_are_owned_versioned_values",
+    "source_bytes_are_immutable_and_content_addressed",
+    "normalized_nodes_reference_source_ids_and_byte_spans",
+    "native_objects_never_cross_portable_boundaries",
+    "host_runtime_objects_are_accessed_only_on_runtime_affine_executors",
+    "registry_snapshots_are_immutable_for_one_operation",
+    "batch_items_retain_independent_identity_and_diagnostics",
+    "unknown_extension_payloads_are_forwarded_unchanged"
+  ],
+  "fail_closed_cases": [
+    "no_compatible_parser_provider",
+    "explicit_backend_unavailable",
+    "provider_capability_missing",
+    "host_runtime_unavailable",
+    "host_provider_unregistered",
+    "required_extension_missing",
+    "bridge_envelope_invalid",
+    "bridge_result_identity_mismatch",
+    "resource_limit_exceeded",
+    "required_preservation_unverified"
+  ],
+  "invalid_examples": [
+    {"id": "generic-analysis-registry", "mutation": "retain ParserAdapter<TAnalysis> as the runtime registry boundary", "rejected_by": "heterogeneous_object_safe_registry"},
+    {"id": "reference-only-provider", "mutation": "treat a backend ID record as a registered parser implementation", "rejected_by": "provider_registration"},
+    {"id": "direct-tslp-from-merge", "mutation": "a merge provider invokes TSLP without ParseService", "rejected_by": "tree_haver_only_selection"},
+    {"id": "package-name-selection", "mutation": "select a parser by testing which gem or crate package is installed", "rejected_by": "capability_selection"},
+    {"id": "prism-hijacks-ruby-workflow", "mutation": "registered Prism support changes the generic Ruby workflow backend implicitly", "rejected_by": "selection_layer_separation"},
+    {"id": "rust-preparse-before-host-workflow", "mutation": "parse with TSLP before invoking the Ruby Psych workflow", "rejected_by": "host_workflow_authority"},
+    {"id": "per-node-host-callback", "mutation": "cross the Alef boundary once per AST node", "rejected_by": "coarse_batch_boundary"},
+    {"id": "native-pointer-in-envelope", "mutation": "serialize a parser node pointer or host object ID as portable state", "rejected_by": "portable_ownership"},
+    {"id": "send-sync-assumed-for-ruby", "mutation": "invoke a Ruby host object from arbitrary Rust worker threads", "rejected_by": "runtime_affinity"},
+    {"id": "cold-cache-means-unavailable", "mutation": "reject a TSLP language because its grammar was not preloaded", "rejected_by": "on_demand_probe"},
+    {"id": "render-redecides-owner", "mutation": "RenderApplier selects an owner or separator", "rejected_by": "passive_render_plan"},
+    {"id": "edit-projection-replans", "mutation": "EditApplier performs matching or merge decisions", "rejected_by": "edit_is_projection"},
+    {"id": "bridge-error-erases-provider-diagnostics", "mutation": "replace a valid failed host result with one generic FFI exception", "rejected_by": "diagnostic_fidelity"},
+    {"id": "host-missing-falls-to-tslp", "mutation": "silently replace an unavailable required native host provider with TSLP", "rejected_by": "fail_closed"},
+    {"id": "fix-abi-before-prototype", "mutation": "publish a stable host ABI before Magnus trait registration/invocation/teardown and overhead are measured", "rejected_by": "prototype_gate"}
+  ],
+  "expected": {
+    "audit_finding_count": 5,
+    "crate_boundary_count": 5,
+    "trait_count": 9,
+    "provider_mode_count": 2,
+    "call_path_count": 3,
+    "fail_closed_case_count": 10,
+    "invalid_example_count": 15,
+    "tree_haver_is_only_rust_parser_selector": true,
+    "host_callbacks_are_coarse": true,
+    "native_objects_are_portable": false,
+    "abi_fixed": false,
+    "implementation_complete": false
+  }
+}

@@ -28,6 +28,13 @@
       "case_id": "alef-markdown-changelog-ordered-union",
       "reason": "The content conflict and human ordered union were reviewed; the selected Markdown provider can evaluate structural equivalence.",
       "score_eligible": true
+    },
+    {
+      "candidate_id": "alef-json-schema-clean-union",
+      "status": "admitted",
+      "case_id": "alef-json-schema-disjoint-sections",
+      "reason": "Both parents modify the same JSON schema in disjoint object regions, and the clean Git merge tree exactly matches the reviewed merge blob.",
+      "score_eligible": true
     }
   ],
   "cases": [
@@ -86,6 +93,56 @@
           "status": "supported",
           "reason": "The selected Rust provider parses the complete source and compares the candidate with the reviewed human result through provider-backed diff2."
         },
+        "score_eligible": true
+      }
+    },
+    {
+      "case_id": "alef-json-schema-disjoint-sections",
+      "merge_commit": "dec77eeae18ca642edc9f630c2c8ef69e73688ed",
+      "base_commit": "df544782ae68d55c16cfe734326ef195e053d784",
+      "parent_commits": [
+        "18bc2e84b6daafdcb87caf3edd69c412537f8d99",
+        "4b457a50b5652d187e879b6b460a66c333a82d32"
+      ],
+      "path": "schemas/alef.schema.json",
+      "blob_oids": {
+        "base": "b3fcdff6efa1ed8b7c604af519d20ca37e560f37",
+        "ours": "926b0a2863deff5899f9df191e0e079fb4a6db77",
+        "theirs": "a40f3c6074958359ac5fc36cc20f0bc953172bd3",
+        "human": "43e8f30abbd558b20d11145707bc4c42a15eb5a0"
+      },
+      "selector": {
+        "provider_id": "ruby.json",
+        "family": "json",
+        "dialect": "json",
+        "backend": "kreuzberg-language-pack",
+        "profile": "source_preserving",
+        "require": "json/merge"
+      },
+      "capability_tags": [
+        "merge3",
+        "json",
+        "source_preserving",
+        "clean_history",
+        "same_file_disjoint_edits",
+        "reviewed_human_resolution"
+      ],
+      "stratum": {
+        "provider": "ruby.json",
+        "dialect": "json",
+        "conflict_type": "same_file_disjoint_object_sections"
+      },
+      "review": {
+        "provenance": "manual comparison of base, both parent diffs, Git merge-tree result, and human merge blob",
+        "status": "complete",
+        "finding": "Ours updates snippet and verify schema definitions while theirs adds excluded_default_features to four backend definitions; the clean merge preserves both sets and exactly matches the committed blob."
+      },
+      "oracle": {
+        "classification": "exact_automatic_resolution",
+        "human_resolution_rationale": "The committed JSON schema is byte-for-byte identical to Git's clean merge tree and preserves both reviewed disjoint parent changes.",
+        "ambiguity_status": "reviewed_unambiguous",
+        "reclassification_status": "not_reclassified",
+        "false_auto_merge_review": "complete",
         "score_eligible": true
       }
     },

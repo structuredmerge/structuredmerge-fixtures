@@ -310,6 +310,31 @@
     "canonical_case_order": "fixture order"
   },
   "competitors": {
+    "git": {
+      "adapter_id": "git",
+      "source_url": "https://github.com/git/git",
+      "source_revision": "e9019fcafe0040228b8631c30f97ae1adb61bcdc",
+      "version": "2.55.0",
+      "spdx_license": "GPL-2.0-only",
+      "reuse_posture": "reference_only",
+      "toolchain": "C compiler and Make",
+      "build_command": "make",
+      "operations": [
+        "merge3"
+      ],
+      "dialects": [
+        "bash",
+        "go",
+        "json",
+        "markdown",
+        "rbs",
+        "ruby",
+        "rust",
+        "toml",
+        "typescript",
+        "yaml"
+      ]
+    },
     "mergiraf": {
       "adapter_id": "mergiraf",
       "source_url": "https://codeberg.org/mergiraf/mergiraf",

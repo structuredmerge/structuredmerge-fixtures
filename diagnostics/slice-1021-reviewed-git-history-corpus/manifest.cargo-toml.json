@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "corpus_id": "cargo-toml-reviewed-history-v1",
+  "source": {
+    "repository": "rust-lang/cargo",
+    "remote_url": "https://github.com/rust-lang/cargo.git",
+    "revision": "e25a3183f05ef6d2bc0633adf18cf99604f86741",
+    "spdx_license": "MIT OR Apache-2.0",
+    "license_evidence_url": "https://github.com/rust-lang/cargo/blob/e25a3183f05ef6d2bc0633adf18cf99604f86741/LICENSE-MIT",
+    "oracle_rationale": "Both parents independently update dependency declarations in the same root Cargo.toml, and the clean Git merge tree exactly matches the committed result."
+  },
+  "claim_policy": {"quality_claims_allowed": false, "reason": "One reviewed TOML history is not sufficient for an aggregate quality claim.", "runtime_comparable": false},
+  "admission_backlog": [
+    {"candidate_id": "cargo-root-dependency-updates", "status": "admitted", "case_id": "cargo-toml-independent-dependency-updates", "reason": "Both same-file parent changes and the exact clean merge result were reviewed.", "score_eligible": true}
+  ],
+  "cases": [
+    {
+      "case_id": "cargo-toml-independent-dependency-updates",
+      "merge_commit": "e25a3183f05ef6d2bc0633adf18cf99604f86741",
+      "base_commit": "aa45f722b2b2e94b2e22c18c4c8e43a29752125f",
+      "parent_commits": ["b2e9d5f9db3fb1c454ab84f10c16508984a266e2", "163c938e0d156f96da4f0768c46daff14ad18173"],
+      "path": "Cargo.toml",
+      "blob_oids": {"base": "118765b01703b8f703bf6226262ebca9dff22c25", "ours": "b0f73150f711c12399e3bd8d17caae46963192b8", "theirs": "617a51924890883452f10e3d655e3cdc3e651276", "human": "f1f03c66d122affd8a79da3706b607c949330b35"},
+      "selector": {"provider_id": "ruby.toml", "family": "toml", "dialect": "toml", "backend": "kreuzberg-language-pack", "profile": "source_preserving", "require": "toml/merge"},
+      "capability_tags": ["merge3", "toml", "source_preserving", "clean_history", "same_file_disjoint_edits", "reviewed_human_resolution"],
+      "stratum": {"provider": "ruby.toml", "dialect": "toml", "conflict_type": "independent_dependency_updates"},
+      "review": {"provenance": "manual comparison of base, both parent diffs, Git merge-tree result, and human merge blob", "status": "complete", "finding": "Ours updates the toml dependency while theirs updates base64; the clean merge retains both exact declarations and introduces no unrelated change."},
+      "oracle": {"classification": "exact_automatic_resolution", "human_resolution_rationale": "The committed TOML is byte-for-byte identical to Git's clean merge tree and preserves both reviewed dependency updates.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "complete", "score_eligible": true}
+    }
+  ]
+}

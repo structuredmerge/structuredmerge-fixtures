@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "corpus_id": "kubernetes-go-yaml-reviewed-history-v1",
+  "source": {
+    "repository": "kubernetes/kubernetes",
+    "remote_url": "https://github.com/kubernetes/kubernetes.git",
+    "revision": "73b08be6346d68bf550c95789fdde1a305dd0820",
+    "spdx_license": "Apache-2.0",
+    "license_evidence_url": "https://github.com/kubernetes/kubernetes/blob/73b08be6346d68bf550c95789fdde1a305dd0820/LICENSE",
+    "oracle_rationale": "The same reviewed merge independently removes different graduated feature gates on both parents. Git cleanly unions those removals in the Go registry and its generated YAML lifecycle reference, exactly matching both committed files."
+  },
+  "claim_policy": {"quality_claims_allowed": false, "reason": "Two related reviewed histories broaden Go and YAML coverage but are not sufficient for aggregate quality claims.", "runtime_comparable": false},
+  "admission_backlog": [
+    {"candidate_id": "kubernetes-go-feature-gate-removals", "status": "admitted", "case_id": "kubernetes-go-independent-feature-removals", "reason": "Both same-file parent changes and the exact clean Go merge result were reviewed.", "score_eligible": true},
+    {"candidate_id": "kubernetes-yaml-feature-gate-removals", "status": "admitted", "case_id": "kubernetes-yaml-independent-feature-removals", "reason": "Both same-file parent changes and the exact clean YAML merge result were reviewed.", "score_eligible": true}
+  ],
+  "cases": [
+    {
+      "case_id": "kubernetes-go-independent-feature-removals",
+      "merge_commit": "73b08be6346d68bf550c95789fdde1a305dd0820",
+      "base_commit": "863a2243207330b415f805a4439fe002c76086b6",
+      "parent_commits": ["1639b85dd365fd16b2971d5b6141c28fb11bf9cd", "10b3fc23da774fbdab6ab112e96101e47cde4860"],
+      "path": "pkg/features/kube_features.go",
+      "blob_oids": {"base": "43ac46ba8b11297ab85ed91a48f25de44170bc34", "ours": "761ad1813499e0240ef3343a9063401aa8337d02", "theirs": "20c19338ca97ba00499869742e7477e28a4b18e0", "human": "3005010e802e6dbfa2aca44b67c63362b15d0820"},
+      "selector": {"provider_id": "ruby.go", "family": "go", "dialect": "go", "backend": "kreuzberg-language-pack", "profile": "source_preserving", "require": "go/merge"},
+      "capability_tags": ["merge3", "go", "source_preserving", "clean_history", "same_file_disjoint_edits", "reviewed_human_resolution"],
+      "stratum": {"provider": "ruby.go", "dialect": "go", "conflict_type": "independent_declaration_and_map_removals"},
+      "review": {"provenance": "manual comparison of base, both parent diffs, Git merge-tree result, and human merge blob", "status": "complete", "finding": "Ours removes JobManagedBy, KubeletTracing, and PodSchedulingReadiness declarations and map entries; theirs independently removes NFTablesProxyMode and PreferSameTrafficDistribution. The committed Go source is their exact clean union."},
+      "oracle": {"classification": "exact_automatic_resolution", "human_resolution_rationale": "The committed Go source is byte-for-byte identical to Git's clean merge tree and preserves every reviewed removal from both parents.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "complete", "score_eligible": true}
+    },
+    {
+      "case_id": "kubernetes-yaml-independent-feature-removals",
+      "merge_commit": "73b08be6346d68bf550c95789fdde1a305dd0820",
+      "base_commit": "863a2243207330b415f805a4439fe002c76086b6",
+      "parent_commits": ["1639b85dd365fd16b2971d5b6141c28fb11bf9cd", "10b3fc23da774fbdab6ab112e96101e47cde4860"],
+      "path": "test/compatibility_lifecycle/reference/versioned_feature_list.yaml",
+      "blob_oids": {"base": "459c9c6cc0198e306253bc552906f100654a7360", "ours": "68a45d36ee80704c6131e8b791e6766c80534779", "theirs": "d891c561facf8891b117a956e9fc9064bfd84cb9", "human": "842fde42e423c628447f5dda526f546bbef9b689"},
+      "selector": {"provider_id": "ruby.yaml", "family": "yaml", "dialect": "yaml", "backend": "kreuzberg-language-pack", "profile": "source_preserving", "require": "yaml/merge"},
+      "capability_tags": ["merge3", "yaml", "source_preserving", "clean_history", "same_file_disjoint_edits", "reviewed_human_resolution"],
+      "stratum": {"provider": "ruby.yaml", "dialect": "yaml", "conflict_type": "independent_sequence_entry_removals"},
+      "review": {"provenance": "manual comparison of base, both parent diffs, Git merge-tree result, and human merge blob", "status": "complete", "finding": "Ours removes three named feature records and theirs removes two different named records from the same ordered YAML sequence. The committed lifecycle reference is their exact clean union."},
+      "oracle": {"classification": "exact_automatic_resolution", "human_resolution_rationale": "The committed YAML is byte-for-byte identical to Git's clean merge tree and preserves every reviewed sequence-entry removal from both parents.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "complete", "score_eligible": true}
+    }
+  ]
+}

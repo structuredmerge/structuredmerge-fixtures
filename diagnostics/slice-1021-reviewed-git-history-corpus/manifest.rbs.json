@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "corpus_id": "ruby-rbs-reviewed-history-v1",
+  "source": {
+    "repository": "ruby/rbs",
+    "remote_url": "https://github.com/ruby/rbs.git",
+    "revision": "e383373c8ae0f2a8b4d9a291b8164bc98b1b4e23",
+    "spdx_license": "Ruby OR BSD-2-Clause",
+    "license_evidence_url": "https://github.com/ruby/rbs/blob/e383373c8ae0f2a8b4d9a291b8164bc98b1b4e23/COPYING",
+    "oracle_rationale": "Both parents independently modify core/kernel.rbs: one updates documentation markup and the other corrects a method overload. The clean Git merge tree exactly matches the committed result."
+  },
+  "claim_policy": {"quality_claims_allowed": false, "reason": "One reviewed RBS history is not sufficient for an aggregate quality claim.", "runtime_comparable": false},
+  "admission_backlog": [
+    {"candidate_id": "rbs-kernel-docs-and-signature", "status": "admitted", "case_id": "rbs-kernel-docs-signature-union", "reason": "Both same-file parent changes and the exact clean RBS merge result were reviewed.", "score_eligible": true}
+  ],
+  "cases": [
+    {
+      "case_id": "rbs-kernel-docs-signature-union",
+      "merge_commit": "e383373c8ae0f2a8b4d9a291b8164bc98b1b4e23",
+      "base_commit": "0222af81aeedd315f499e67b096f82c4ebcbe404",
+      "parent_commits": ["37c354243d34b7a3f737cab59f05108b8dd711a1", "026f00504155456657ce80a938826955b38f38e9"],
+      "path": "core/kernel.rbs",
+      "blob_oids": {"base": "332aa930a5d36c4f9f90fb38e207fca8c8b94366", "ours": "dff2b1b36f1f7216c5c47f70224e651982bdf17d", "theirs": "f1d94725f045890f5f3a995c86f18b4898f84b25", "human": "a48ea848fbfdd09b0926647f1c71825a78385328"},
+      "selector": {"provider_id": "ruby.rbs", "family": "rbs", "dialect": "rbs", "backend": "rbs", "profile": "source_preserving", "require": "rbs/merge"},
+      "capability_tags": ["merge3", "rbs", "source_preserving", "clean_history", "same_file_disjoint_edits", "reviewed_human_resolution"],
+      "stratum": {"provider": "ruby.rbs", "dialect": "rbs", "conflict_type": "documentation_and_signature_edits"},
+      "review": {"provenance": "manual comparison of base, both parent diffs, Git merge-tree result, and human merge blob", "status": "complete", "finding": "Ours changes documentation markup throughout Kernel while theirs independently corrects the fail overload's optional message type. The committed RBS is their exact clean union."},
+      "oracle": {"classification": "exact_automatic_resolution", "human_resolution_rationale": "The committed RBS is byte-for-byte identical to Git's clean merge tree and preserves the reviewed documentation and signature changes.", "ambiguity_status": "reviewed_unambiguous", "reclassification_status": "not_reclassified", "false_auto_merge_review": "complete", "score_eligible": true}
+    }
+  ]
+}

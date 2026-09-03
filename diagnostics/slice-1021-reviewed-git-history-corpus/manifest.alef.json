@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "corpus_id": "alef-reviewed-history-v1",
+  "source": {
+    "repository": "xberg-io/alef",
+    "remote_url": "https://github.com/xberg-io/alef.git",
+    "revision": "cc426d04f74fad68875300c4c80b923f41f0397f",
+    "spdx_license": "MIT",
+    "license_evidence_url": "https://github.com/xberg-io/alef/blob/cc426d04f74fad68875300c4c80b923f41f0397f/LICENSE",
+    "oracle_rationale": "Both merge-result blobs resolve Git-proven content conflicts. Manual review confirms that the Rust result integrates both overlapping behavior changes and that the Markdown result is the ordered union of both changelog entry sets."
+  },
+  "claim_policy": {
+    "quality_claims_allowed": false,
+    "reason": "Two reviewed histories broaden language coverage but are not sufficient for an aggregate quality claim.",
+    "runtime_comparable": false
+  },
+  "admission_backlog": [
+    {
+      "candidate_id": "alef-rust-bridge-coverage-conflict",
+      "status": "admitted",
+      "case_id": "alef-rust-bridge-coverage-integration",
+      "reason": "The content conflict and human integration were reviewed; the selected Rust provider can evaluate structural equivalence.",
+      "score_eligible": true
+    },
+    {
+      "candidate_id": "alef-markdown-changelog-conflict",
+      "status": "admitted",
+      "case_id": "alef-markdown-changelog-ordered-union",
+      "reason": "The content conflict and human ordered union were reviewed; the selected Markdown provider can evaluate structural equivalence.",
+      "score_eligible": true
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "alef-rust-bridge-coverage-integration",
+      "merge_commit": "d5c80bd5a52f97a28ec6ce71b5fbdd5a43e8aa87",
+      "base_commit": "baf23897f7cf0f1ce5644862bb275c46cdfa8723",
+      "parent_commits": [
+        "2a3c0852ca81bb16fd7611f6306a3e1636010192",
+        "7e5ef38ca4636f99ad0090ebec942fc647bf9c95"
+      ],
+      "path": "src/backends/dart/frb_rewrite/bridge_coverage.rs",
+      "blob_oids": {
+        "base": "a4012d5f4092eb8a40e93e8e91c1ead6b4d5d42f",
+        "ours": "7a7358cb65d035ab37df5864dc736f28c735b65c",
+        "theirs": "8db0daea0341d8805f5f1305f73df9f76e935ccd",
+        "human": "bbb9c3e22aac1e7d327dd440cdd10b1f7356c6d2"
+      },
+      "selector": {
+        "provider_id": "ruby.rust",
+        "family": "rust",
+        "dialect": "rust",
+        "backend": "kreuzberg-language-pack",
+        "profile": "source_preserving",
+        "require": "rust/merge"
+      },
+      "capability_tags": [
+        "merge3",
+        "rust",
+        "source_preserving",
+        "content_conflict",
+        "reviewed_human_resolution"
+      ],
+      "stratum": {
+        "provider": "ruby.rust",
+        "dialect": "rust",
+        "conflict_type": "overlapping_test_and_api_edits"
+      },
+      "conflict_evidence": {
+        "method": "git merge-tree --write-tree",
+        "result": "content_conflict",
+        "review_status": "complete"
+      },
+      "review": {
+        "provenance": "manual comparison of base, both parents, Git remerge conflict, and human merge blob",
+        "status": "complete",
+        "finding": "The human result retains ours' two intervening-attribute tests, adapts both to theirs' declared-feature API, and retains theirs' undeclared-feature tests without unrelated source changes."
+      },
+      "oracle": {
+        "classification": "structurally_equivalent_resolution",
+        "human_resolution_rationale": "The human result is the reviewed semantic integration of both overlapping Rust test and API changes.",
+        "ambiguity_status": "reviewed_unambiguous",
+        "reclassification_status": "not_reclassified",
+        "false_auto_merge_review": "complete",
+        "provider_coverage": {
+          "status": "supported",
+          "reason": "The selected Rust provider parses the complete source and compares the candidate with the reviewed human result through provider-backed diff2."
+        },
+        "score_eligible": true
+      }
+    },
+    {
+      "case_id": "alef-markdown-changelog-ordered-union",
+      "merge_commit": "3ffbfb65f68034c8307d3d426ac303f9e6c85112",
+      "base_commit": "9b60ac28a00f3fc9c4c34a8a3acbcbde720da172",
+      "parent_commits": [
+        "a08e677eb8995d4caf63903f771287254f97d3de",
+        "2f0812c11b65ef437429832bfc30de8ddfd9d95f"
+      ],
+      "path": "CHANGELOG.md",
+      "blob_oids": {
+        "base": "758f6552aeecdc8710023ff4b584373de5d2d374",
+        "ours": "342ae65f1951ba6cdc491f6b4bbbfb0190b0ee0c",
+        "theirs": "798011706cab0646be9c14b2a817424c57bef738",
+        "human": "e5c55a10b9568d7d9524240ef6b04eb6654a0e0e"
+      },
+      "selector": {
+        "provider_id": "ruby.markdown",
+        "family": "markdown",
+        "dialect": "markdown",
+        "backend": "kreuzberg-language-pack",
+        "profile": "source_preserving",
+        "require": "markdown/merge"
+      },
+      "capability_tags": [
+        "merge3",
+        "markdown",
+        "source_preserving",
+        "content_conflict",
+        "reviewed_human_resolution"
+      ],
+      "stratum": {
+        "provider": "ruby.markdown",
+        "dialect": "markdown",
+        "conflict_type": "overlapping_changelog_release_entries"
+      },
+      "conflict_evidence": {
+        "method": "git merge-tree --write-tree",
+        "result": "content_conflict",
+        "review_status": "complete"
+      },
+      "review": {
+        "provenance": "manual comparison of base, both parents, Git remerge conflict, and human merge blob",
+        "status": "complete",
+        "finding": "The human result keeps theirs' 0.67.2 release heading, places all entries from both parents under its Fixed section, and introduces no unrelated changelog entry."
+      },
+      "oracle": {
+        "classification": "structurally_equivalent_resolution",
+        "human_resolution_rationale": "The human result is the reviewed ordered union of both Markdown changelog entry sets under the released version heading.",
+        "ambiguity_status": "reviewed_unambiguous",
+        "reclassification_status": "not_reclassified",
+        "false_auto_merge_review": "complete",
+        "provider_coverage": {
+          "status": "supported",
+          "reason": "The selected Markdown provider owns headings and list items structurally and compares the candidate with the reviewed human result through provider-backed diff2."
+        },
+        "score_eligible": true
+      }
+    }
+  ]
+}

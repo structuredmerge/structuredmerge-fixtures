@@ -1,0 +1,17 @@
+{
+  "id": "native_profiles_are_explicitly_experimental",
+  "category": "native_profiles",
+  "description": "Scoped Rust merge profiles expose their identity and do not claim default approval.",
+  "input": {},
+  "assertions": [
+    {"type": "count_equals", "value": 2},
+    {"type": "equals", "field": "[0].id", "value": "kernel.python.native_declarations.v1"},
+    {"type": "equals", "field": "[1].id", "value": "kernel.yaml.native_mapping.v1"},
+    {"type": "equals", "field": "[0].semantic_runtime", "value": "rust"},
+    {"type": "equals", "field": "[1].semantic_runtime", "value": "rust"},
+    {"type": "equals", "field": "[0].experimental", "value": true},
+    {"type": "equals", "field": "[1].experimental", "value": true},
+    {"type": "equals", "field": "[0].approved_as_default", "value": false},
+    {"type": "equals", "field": "[1].approved_as_default", "value": false}
+  ]
+}

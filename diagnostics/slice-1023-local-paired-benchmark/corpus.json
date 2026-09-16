@@ -132,6 +132,14 @@
   },
   "capability_map": [
     {
+      "path_prefix": "crates/ast-merge/",
+      "capabilities": ["merge2", "merge3", "metamorphic"]
+    },
+    {
+      "path_prefix": "crates/python-merge/",
+      "capabilities": ["python"]
+    },
+    {
       "path_prefix": "gems/json-merge/",
       "capabilities": [
         "json",

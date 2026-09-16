@@ -1,0 +1,14 @@
+{
+  "id": "python_native_unsupported_import_owner",
+  "category": "python_native_merge",
+  "call": "python_native_merge",
+  "description": "Syntactically valid imports fail closed in the explicitly scoped declarations profile.",
+  "input": {"base": "alpha = 1\n", "ours": "import os\n", "theirs": "alpha = 3\n"},
+  "assertions": [
+    {"type": "equals", "field": "output", "value": null},
+    {"type": "equals", "field": "rejected_parse", "value": null},
+    {"type": "count_equals", "field": "input_parses", "value": 3},
+    {"type": "count_equals", "field": "analysis_rejections", "value": 1},
+    {"type": "equals", "field": "analysis_rejections[0].code", "value": "analysis.unsupported_profile"}
+  ]
+}

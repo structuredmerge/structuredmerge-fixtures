@@ -1,0 +1,17 @@
+{
+  "id": "python_native_independent_assignments",
+  "category": "python_native_merge",
+  "call": "python_native_merge",
+  "description": "LibCST supplies parse facts; Rust combines independent assignment edits.",
+  "input": {
+    "base": "alpha = 1\nbeta = 2\n",
+    "ours": "alpha = 10\nbeta = 2\n",
+    "theirs": "alpha = 1\nbeta = 20\n"
+  },
+  "assertions": [
+    {"type": "equals", "field": "profile_id", "value": "kernel.python.native_declarations.v1"},
+    {"type": "equals", "field": "output", "value": "alpha = 10\nbeta = 20\n"},
+    {"type": "count_equals", "field": "input_parses", "value": 3},
+    {"type": "count_equals", "field": "conflicts", "value": 0}
+  ]
+}

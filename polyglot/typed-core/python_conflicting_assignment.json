@@ -1,0 +1,13 @@
+{
+  "id": "python_native_conflicting_assignment",
+  "category": "python_native_merge",
+  "call": "python_native_merge",
+  "description": "Concurrent edits to one assignment retain a conflict without rendered output.",
+  "input": {"base": "alpha = 1\n", "ours": "alpha = 2\n", "theirs": "alpha = 3\n"},
+  "assertions": [
+    {"type": "equals", "field": "output", "value": null},
+    {"type": "count_equals", "field": "conflicts", "value": 1},
+    {"type": "count_equals", "field": "input_parses", "value": 3},
+    {"type": "count_equals", "field": "source_segments", "value": 0}
+  ]
+}

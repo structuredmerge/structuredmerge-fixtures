@@ -1,0 +1,18 @@
+{
+  "id": "python_native_utf8_bom_crlf_no_final_newline",
+  "category": "python_native_merge",
+  "call": "python_native_merge",
+  "description": "Independent edits preserve UTF-8 BOM, Unicode, CRLF, comments, and absent final newline.",
+  "input": {
+    "base": "\ufeff# header\r\né = 'one'  # stable\r\nbeta = 2",
+    "ours": "\ufeff# header\r\né = 'ours'  # stable\r\nbeta = 2",
+    "theirs": "\ufeff# header\r\né = 'one'  # stable\r\nbeta = 3"
+  },
+  "assertions": [
+    {"type": "equals", "field": "output", "value": "\ufeff# header\r\né = 'ours'  # stable\r\nbeta = 3"},
+    {"type": "equals", "field": "output_source.bom", "value": true},
+    {"type": "equals", "field": "output_source.final_newline", "value": false},
+    {"type": "equals", "field": "output_source.line_endings.crlf", "value": 2},
+    {"type": "count_equals", "field": "conflicts", "value": 0}
+  ]
+}

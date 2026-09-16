@@ -1,0 +1,14 @@
+{
+  "id": "python_native_syntax_failure",
+  "category": "python_native_merge",
+  "call": "python_native_merge",
+  "description": "A LibCST syntax failure retains all input parse evidence and exposes no output.",
+  "input": {"base": "alpha = 1\n", "ours": "alpha = (\n", "theirs": "alpha = 3\n"},
+  "assertions": [
+    {"type": "equals", "field": "output", "value": null},
+    {"type": "count_equals", "field": "input_parses", "value": 3},
+    {"type": "count_equals", "field": "source_segments", "value": 0},
+    {"type": "count_equals", "field": "analysis_rejections", "value": 0},
+    {"type": "equals", "field": "rejected_parse.parsed.ok", "value": false}
+  ]
+}

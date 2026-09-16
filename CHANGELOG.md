@@ -10,6 +10,8 @@
 
 - Add Psych-backed native YAML fixtures for independent edits, conflicts, syntax rejection, unsupported sequences, and byte preservation.
 
+- Add common typed analyze, diff2, and merge3 fixtures for installed Ruby/Psych and Python/LibCST bindings, including syntax rejection, conflicts, and byte preservation.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

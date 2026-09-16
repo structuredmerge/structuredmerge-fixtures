@@ -1,0 +1,48 @@
+{
+  "id": "yaml_common_byte_preservation",
+  "category": "yaml_common_merge",
+  "call": "yaml_common_merge",
+  "description": "Common typed merge through the installed binding, using native parser facts and Rust-owned semantics.",
+  "input": {
+    "base": "﻿# header\r\né: 'one'  # stable\r\nbeta: two",
+    "ours": "﻿# header\r\né: 'ours'  # stable\r\nbeta: two",
+    "theirs": "﻿# header\r\né: 'one'  # stable\r\nbeta: theirs"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "schema",
+      "value": "https://structuredmerge.org/schemas/provider-result/v1.json"
+    },
+    {
+      "type": "equals",
+      "field": "request_id",
+      "value": "typed-common-merge3"
+    },
+    {
+      "type": "equals",
+      "field": "provider.provider_id",
+      "value": "kernel.yaml"
+    },
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "﻿# header\r\né: 'ours'  # stable\r\nbeta: theirs"
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 0
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

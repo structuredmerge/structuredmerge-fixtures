@@ -1,0 +1,41 @@
+{
+  "id": "yaml_common_analyze",
+  "category": "yaml_common_analyze",
+  "call": "yaml_common_analyze",
+  "description": "Common typed analyze through the installed binding, using native parser facts and Rust-owned semantics.",
+  "input": {
+    "source": "alpha: one\nbeta: two\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "schema",
+      "value": "https://structuredmerge.org/schemas/provider-result/v1.json"
+    },
+    {
+      "type": "equals",
+      "field": "request_id",
+      "value": "typed-common-analyze"
+    },
+    {
+      "type": "equals",
+      "field": "provider.provider_id",
+      "value": "kernel.yaml"
+    },
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 0
+    }
+  ]
+}

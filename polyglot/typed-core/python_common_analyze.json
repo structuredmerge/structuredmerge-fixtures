@@ -1,0 +1,41 @@
+{
+  "id": "python_common_analyze",
+  "category": "python_common_analyze",
+  "call": "python_common_analyze",
+  "description": "Common typed analyze through the installed binding, using native parser facts and Rust-owned semantics.",
+  "input": {
+    "source": "alpha = 1\nbeta = 2\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "schema",
+      "value": "https://structuredmerge.org/schemas/provider-result/v1.json"
+    },
+    {
+      "type": "equals",
+      "field": "request_id",
+      "value": "typed-common-analyze"
+    },
+    {
+      "type": "equals",
+      "field": "provider.provider_id",
+      "value": "kernel.python"
+    },
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 0
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "python_common_independent_merge",
+  "category": "python_common_merge",
+  "call": "python_common_merge",
+  "description": "Common typed merge through the installed binding, using native parser facts and Rust-owned semantics.",
+  "input": {
+    "base": "alpha = 1\nbeta = 2\n",
+    "ours": "alpha = 10\nbeta = 2\n",
+    "theirs": "alpha = 1\nbeta = 20\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "schema",
+      "value": "https://structuredmerge.org/schemas/provider-result/v1.json"
+    },
+    {
+      "type": "equals",
+      "field": "request_id",
+      "value": "typed-common-merge3"
+    },
+    {
+      "type": "equals",
+      "field": "provider.provider_id",
+      "value": "kernel.python"
+    },
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "alpha = 10\nbeta = 20\n"
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 0
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

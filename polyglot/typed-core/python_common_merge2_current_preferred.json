@@ -1,0 +1,57 @@
+{
+  "id": "python_common_merge2_current_preferred",
+  "category": "python_common_merge2",
+  "call": "python_common_merge2",
+  "description": "Rust-owned directional merge through the installed common API with native LibCST facts.",
+  "input": {
+    "incoming": "a = 9\n",
+    "current": "a = 1\nb = 2\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "request_id",
+      "value": "typed-common-merge2"
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "a = 1\nb = 2\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.base_participated",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 0
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 0
+    },
+    {
+      "type": "equals",
+      "field": "verification.directional_roles_preserved",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    },
+    {
+      "type": "count_equals",
+      "field": "verification.consumed_source_roles",
+      "value": 2
+    }
+  ]
+}

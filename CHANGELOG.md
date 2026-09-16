@@ -12,6 +12,8 @@
 
 - Add common typed analyze, diff2, and merge3 fixtures for installed Ruby/Psych and Python/LibCST bindings, including syntax rejection, conflicts, and byte preservation.
 
+- Add common Python merge2 fixtures for current-preferred insertion with byte preservation, reversed direction, and rejection of reordered shared anchors.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

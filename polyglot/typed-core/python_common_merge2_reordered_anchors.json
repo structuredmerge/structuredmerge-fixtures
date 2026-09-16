@@ -1,0 +1,47 @@
+{
+  "id": "python_common_merge2_reordered_anchors",
+  "category": "python_common_merge2",
+  "call": "python_common_merge2",
+  "description": "Rust-owned directional merge through the installed common API with native LibCST facts.",
+  "input": {
+    "incoming": "a = 1\nb = 2\nc = 3\n",
+    "current": "c = 30\na = 10\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "request_id",
+      "value": "typed-common-merge2"
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "equals",
+      "field": "verification.base_participated",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 0
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 0
+    },
+    {
+      "type": "count_equals",
+      "field": "diagnostics",
+      "value": 1
+    }
+  ]
+}

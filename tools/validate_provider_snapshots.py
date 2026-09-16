@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -193,7 +194,8 @@ def validate_captures(
         if source.get("sha256") != hashlib.sha256(encoded).hexdigest():
             errors.append(f"{capture_context}: source SHA-256 mismatch")
         if index < len(inputs):
-            validate_input(inputs[index], source, capture_context, errors)
+            validate_input(inputs[index], source, capture_context, errors,
+                           row.get("producer", {}).get("fixture_repository_revision"))
         extension_schemas = {extension.get("schema") for extension in parse_result.get("extensions", [])}
         if not expected_extensions.issubset(extension_schemas):
             errors.append(f"{capture_context}: required extension evidence is missing")
@@ -215,7 +217,7 @@ def validate_captures(
 
 def validate_input(
     manifest_input: dict[str, Any], captured_source: dict[str, Any],
-    context: str, errors: list[str]
+    context: str, errors: list[str], fixture_revision: str | None = None
 ) -> None:
     expected = {key: value for key, value in captured_source.items() if key != "content"}
     actual = {key: value for key, value in manifest_input.items() if key not in {"kind", "origin"}}
@@ -229,18 +231,47 @@ def validate_input(
     elif kind in {"local_fixture", "embedded_source"}:
         relative_path = origin.get("path") or origin.get("artifact_path")
         path = safe_local_path(relative_path, f"{context} origin", errors)
-        if path is None or not path.is_file():
-            errors.append(f"{context}: source origin does not exist")
-        elif kind == "local_fixture":
-            validate_bytes(path.read_bytes(), origin, f"{context} fixture origin", errors)
+        if path is None:
+            return
+        content = historical_fixture_bytes(path, fixture_revision, context, errors)
+        if content is None:
+            return
+        if kind == "local_fixture":
+            validate_bytes(content, origin, f"{context} fixture origin", errors)
         else:
-            document = load_json(path, errors)
+            try:
+                document = json.loads(content)
+            except (ValueError, UnicodeError) as error:
+                errors.append(f"{context}: invalid historical JSON: {error}")
+                return
             candidates = list(string_values(document))
             matching = [value for value in candidates if digest_text(value) == origin.get("sha256")]
             if not matching or len(matching[0].encode("utf-8")) != origin.get("byte_length"):
                 errors.append(f"{context}: embedded source origin was not found")
     else:
         errors.append(f"{context}: unsupported source origin kind {kind!r}")
+
+
+def historical_fixture_bytes(
+    path: Path, revision: str | None, context: str, errors: list[str]
+) -> bytes | None:
+    # Captures pin the whole fixture revision, not the mutable checkout.
+    # Read only local Git objects: validation must never fetch missing history.
+    if not isinstance(revision, str) or len(revision) != 40 or any(
+        char not in "0123456789abcdef" for char in revision
+    ):
+        errors.append(f"{context}: fixture revision must be a full commit SHA")
+        return None
+    try:
+        relative = path.relative_to(ROOT.resolve()).as_posix()
+        return subprocess.run(
+            ["git", "show", f"{revision}:{relative}"], cwd=ROOT,
+            check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            timeout=10,
+        ).stdout
+    except (ValueError, OSError, subprocess.SubprocessError):
+        errors.append(f"{context}: pinned fixture is unavailable locally: {revision}:{path.name}")
+        return None
 
 
 def validate_replays(

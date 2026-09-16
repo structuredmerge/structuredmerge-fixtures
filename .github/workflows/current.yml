@@ -26,6 +26,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0 # Provider captures validate fixture bytes at pinned commits.
+      - name: Validate provider snapshots and validator regressions
+        run: |
+          python3 -m unittest discover -s tools -p 'test_*.py'
+          python3 tools/validate_provider_snapshots.py
       - name: Validate JSON fixtures
         shell: bash
         run: |

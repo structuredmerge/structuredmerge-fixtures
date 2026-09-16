@@ -14,5 +14,10 @@ The Python native-merge family now covers independent assignments, conflicting
 assignments, native syntax failure, unsupported import owners, and exact UTF-8
 BOM/CRLF/comment/final-newline preservation. These expectations exercise the
 bounded LibCST-backed Rust declarations profile, not general Python semantics or
-Ruby oracle parity. Ruby intentionally does not run this Python-only family;
-its Psych/YAML family remains to be mapped.
+Ruby oracle parity. Ruby intentionally does not run this Python-only family.
+
+The Ruby Psych/YAML family covers independent mapping edits, conflicts, native
+syntax failures, unsupported top-level sequences, and exact BOM/CRLF/Unicode
+preservation. Python intentionally excludes this Ruby-provider family. Each
+family exercises its real native parser and the corresponding scoped Rust merge
+entry point; neither claims full-language or cross-provider parity.

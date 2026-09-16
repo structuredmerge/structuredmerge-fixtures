@@ -1,0 +1,17 @@
+{
+  "id": "yaml_native_utf8_bom_crlf_no_final_newline",
+  "category": "yaml_native_merge",
+  "call": "yaml_native_merge",
+  "description": "Mapping edits preserve BOM, Unicode, CRLF, comments, and absent final newline.",
+  "input": {
+    "base": "\ufeff# header\r\né: 'one'  # stable\r\nbeta: two",
+    "ours": "\ufeff# header\r\né: 'ours'  # stable\r\nbeta: two",
+    "theirs": "\ufeff# header\r\né: 'one'  # stable\r\nbeta: theirs"
+  },
+  "assertions": [
+    {"type": "equals", "field": "output", "value": "\ufeff# header\r\né: 'ours'  # stable\r\nbeta: theirs"},
+    {"type": "equals", "field": "output_source.bom", "value": true},
+    {"type": "equals", "field": "output_source.final_newline", "value": false},
+    {"type": "equals", "field": "output_source.line_endings.crlf", "value": 2}
+  ]
+}

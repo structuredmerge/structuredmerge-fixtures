@@ -1,0 +1,13 @@
+{
+  "id": "yaml_native_unsupported_sequence",
+  "category": "yaml_native_merge",
+  "call": "yaml_native_merge",
+  "description": "A valid top-level sequence fails closed in the explicitly scoped mapping profile.",
+  "input": {"base": "alpha: one\n", "ours": "- unsupported\n", "theirs": "alpha: theirs\n"},
+  "assertions": [
+    {"type": "equals", "field": "output", "value": null},
+    {"type": "equals", "field": "rejected_parse", "value": null},
+    {"type": "count_equals", "field": "input_parses", "value": 3},
+    {"type": "count_equals", "field": "analysis_rejections", "value": 1}
+  ]
+}

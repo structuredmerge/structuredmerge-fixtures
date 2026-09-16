@@ -1,0 +1,13 @@
+{
+  "id": "yaml_native_syntax_failure",
+  "category": "yaml_native_merge",
+  "call": "yaml_native_merge",
+  "description": "Psych syntax rejection retains input parse evidence without rendered output.",
+  "input": {"base": "alpha: one\n", "ours": "alpha: [\n", "theirs": "alpha: theirs\n"},
+  "assertions": [
+    {"type": "equals", "field": "output", "value": null},
+    {"type": "count_equals", "field": "input_parses", "value": 3},
+    {"type": "count_equals", "field": "source_segments", "value": 0},
+    {"type": "equals", "field": "rejected_parse.parsed.ok", "value": false}
+  ]
+}

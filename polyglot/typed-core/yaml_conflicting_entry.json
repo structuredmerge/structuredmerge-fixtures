@@ -1,0 +1,13 @@
+{
+  "id": "yaml_native_conflicting_entry",
+  "category": "yaml_native_merge",
+  "call": "yaml_native_merge",
+  "description": "Concurrent edits to one mapping entry retain a conflict without rendered output.",
+  "input": {"base": "alpha: one\n", "ours": "alpha: ours\n", "theirs": "alpha: theirs\n"},
+  "assertions": [
+    {"type": "equals", "field": "output", "value": null},
+    {"type": "count_equals", "field": "conflicts", "value": 1},
+    {"type": "count_equals", "field": "input_parses", "value": 3},
+    {"type": "count_equals", "field": "source_segments", "value": 0}
+  ]
+}

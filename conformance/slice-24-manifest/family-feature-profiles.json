@@ -3935,7 +3935,7 @@
         "path": [
           "yaml",
           "slice-96-parse",
-          "mapping-and-sequence.json"
+          "valid-document.json"
         ]
       },
       {

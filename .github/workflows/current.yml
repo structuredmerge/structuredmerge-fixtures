@@ -49,5 +49,5 @@ jobs:
               .families[][]?.path
             ] | map(join("/")) | .[]
           ' conformance/slice-24-manifest/family-feature-profiles.json | while IFS= read -r path; do
-            test -f "$path"
+            test -f "$path" || { echo "Missing manifest fixture: $path" >&2; exit 1; }
           done

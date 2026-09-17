@@ -20,6 +20,8 @@
 
 - Expand the typed benchmark adapter changed-path mapping to Bash, Go, Rust and TypeScript alongside JSON-family cases.
 
+- Map shared typed-core changes to all retained operation families so affected-dev selection does not silently omit cases when facade validation changes.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

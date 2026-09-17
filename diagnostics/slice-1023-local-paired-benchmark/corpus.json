@@ -132,6 +132,10 @@
   },
   "capability_map": [
     {
+      "path_prefix": "crates/structuredmerge-core/",
+      "capabilities": ["merge2", "merge3", "metamorphic"]
+    },
+    {
       "path_prefix": "workspace-scripts/typed_core_benchmark.py",
       "capabilities": ["bash", "go", "json", "json5", "jsonc", "rust", "typescript"]
     },

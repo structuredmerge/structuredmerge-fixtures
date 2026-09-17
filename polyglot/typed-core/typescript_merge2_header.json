@@ -1,0 +1,28 @@
+{
+  "id": "typescript_merge2_header",
+  "category": "typescript_common_merge2",
+  "call": "typescript_common_merge2",
+  "description": "Shared typed typescript merge2: merge2_header",
+  "input": {
+    "dialect": "typescript",
+    "incoming": "// incoming header\nexport function added() {}\nfunction f() {}\n",
+    "current": "// @ts-nocheck\nfunction f() {}\n// footer\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "// @ts-nocheck\nexport function added() {}\nfunction f() {}\n// footer\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

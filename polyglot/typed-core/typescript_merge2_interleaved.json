@@ -1,0 +1,28 @@
+{
+  "id": "typescript_merge2_interleaved",
+  "category": "typescript_common_merge2",
+  "call": "typescript_common_merge2",
+  "description": "Shared typed typescript merge2: merge2_interleaved",
+  "input": {
+    "dialect": "typescript",
+    "incoming": "function f() {}\nimport { x } from 'x';\n// added\nconst added = 1;\n",
+    "current": "import { x } from 'x';\nfunction f() {}\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "import { x } from 'x';\nfunction f() {}\n// added\nconst added = 1;\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

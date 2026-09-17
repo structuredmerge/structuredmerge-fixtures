@@ -1,0 +1,17 @@
+{
+  "id": "typescript_analysis_rejected",
+  "category": "typescript_common_analyze",
+  "call": "typescript_common_analyze",
+  "description": "Shared typed typescript analyze: analysis_rejected",
+  "input": {
+    "dialect": "typescript",
+    "source": "export const v = 1;\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    }
+  ]
+}

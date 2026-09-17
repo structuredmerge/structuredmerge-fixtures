@@ -1,0 +1,28 @@
+{
+  "id": "tsx_jsx_merge2",
+  "category": "typescript_common_merge2",
+  "call": "typescript_common_merge2",
+  "description": "Shared tsx grammar jsx_merge2",
+  "input": {
+    "dialect": "tsx",
+    "incoming": "function View() { return <div/>; }\n",
+    "current": ""
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "function View() { return <div/>; }\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

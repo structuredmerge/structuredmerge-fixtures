@@ -1,0 +1,23 @@
+{
+  "id": "tsx_merge2_rejected",
+  "category": "typescript_common_merge2",
+  "call": "typescript_common_merge2",
+  "description": "Shared typed tsx merge2: merge2_rejected",
+  "input": {
+    "dialect": "tsx",
+    "incoming": "import { x } from 'x';\nfunction added() {}\n",
+    "current": "import { x } from 'y';\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

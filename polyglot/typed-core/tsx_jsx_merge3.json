@@ -1,0 +1,29 @@
+{
+  "id": "tsx_jsx_merge3",
+  "category": "typescript_common_merge3",
+  "call": "typescript_common_merge3",
+  "description": "Shared tsx grammar jsx_merge3",
+  "input": {
+    "dialect": "tsx",
+    "base": "function View() { return <div>one</div>; }\nfunction f() { return 1; }\n",
+    "ours": "function View() { return <div>two</div>; }\nfunction f() { return 1; }\n",
+    "theirs": "function View() { return <div>one</div>; }\nfunction f() { return 2; }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "function View() { return <div>two</div>; }\nfunction f() { return 2; }\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

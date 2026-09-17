@@ -1,0 +1,17 @@
+{
+  "id": "typescript_jsx_rejected",
+  "category": "typescript_common_analyze",
+  "call": "typescript_common_analyze",
+  "description": "Shared typescript grammar jsx_rejected",
+  "input": {
+    "dialect": "typescript",
+    "source": "function View() { return <div/>; }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    }
+  ]
+}

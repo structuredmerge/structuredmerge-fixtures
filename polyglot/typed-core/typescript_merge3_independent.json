@@ -1,0 +1,34 @@
+{
+  "id": "typescript_merge3_independent",
+  "category": "typescript_common_merge3",
+  "call": "typescript_common_merge3",
+  "description": "Shared typed typescript merge3: merge3_independent",
+  "input": {
+    "dialect": "typescript",
+    "base": "import { x } from 'x';\n// é\nexport function f() { return 1; }\nfunction g() { return 1; }\n",
+    "ours": "import { x } from 'x';\n// é\nexport function f() { return 2; }\nfunction g() { return 1; }\n",
+    "theirs": "import { x } from 'x';\n// é\nexport function f() { return 1; }\nfunction g() { return 2; }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "import { x } from 'x';\n// é\nexport function f() { return 2; }\nfunction g() { return 2; }\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "verification.base_participated",
+      "value": true
+    }
+  ]
+}

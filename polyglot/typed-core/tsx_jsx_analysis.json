@@ -1,0 +1,22 @@
+{
+  "id": "tsx_jsx_analysis",
+  "category": "typescript_common_analyze",
+  "call": "typescript_common_analyze",
+  "description": "Shared tsx grammar jsx_analysis",
+  "input": {
+    "dialect": "tsx",
+    "source": "function View() { return <div/>; }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "/function:View"
+    }
+  ]
+}

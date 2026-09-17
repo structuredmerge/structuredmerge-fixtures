@@ -1,0 +1,28 @@
+{
+  "id": "tsx_diff_owner",
+  "category": "typescript_common_diff",
+  "call": "typescript_common_diff",
+  "description": "Shared typed tsx diff: diff_owner",
+  "input": {
+    "dialect": "tsx",
+    "before": "import { x } from 'x';\n// é\nexport function f() { return 1; }\nfunction g() { return 1; }\n",
+    "after": "import { x } from 'x';\n// é\nexport function f() { return 2; }\nfunction g() { return 1; }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 2
+    },
+    {
+      "type": "equals",
+      "field": "changes[0].path",
+      "value": "/function:f"
+    }
+  ]
+}

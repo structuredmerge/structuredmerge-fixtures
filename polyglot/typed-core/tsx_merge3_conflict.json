@@ -1,0 +1,29 @@
+{
+  "id": "tsx_merge3_conflict",
+  "category": "typescript_common_merge3",
+  "call": "typescript_common_merge3",
+  "description": "Shared typed tsx merge3: merge3_conflict",
+  "input": {
+    "dialect": "tsx",
+    "base": "import { x } from 'x';\n// é\nexport function f() { return 1; }\nfunction g() { return 1; }\n",
+    "ours": "import { x } from 'x';\n// é\nexport function f() { return 2; }\nfunction g() { return 1; }\n",
+    "theirs": "import { x } from 'x';\n// é\nexport function f() { return 3; }\nfunction g() { return 1; }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 1
+    }
+  ]
+}

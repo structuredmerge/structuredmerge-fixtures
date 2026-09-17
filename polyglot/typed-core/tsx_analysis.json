@@ -1,0 +1,27 @@
+{
+  "id": "tsx_analysis",
+  "category": "typescript_common_analyze",
+  "call": "typescript_common_analyze",
+  "description": "Shared typed tsx analyze: analysis",
+  "input": {
+    "dialect": "tsx",
+    "source": "import { x } from 'x';\n// é\nexport function f() { return 1; }\nfunction g() { return 1; }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "/function:f"
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "node_ids"
+    }
+  ]
+}

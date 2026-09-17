@@ -1,0 +1,28 @@
+{
+  "id": "typescript_merge2_comments",
+  "category": "typescript_common_merge2",
+  "call": "typescript_common_merge2",
+  "description": "Shared typed typescript merge2: merge2_comments",
+  "input": {
+    "dialect": "typescript",
+    "incoming": "import { x } from 'x';\n/** é added */\nexport class C {}\n",
+    "current": "// module\nimport { x } from 'x';\n// footer\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "// module\nimport { x } from 'x';\n/** é added */\nexport class C {}\n// footer\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

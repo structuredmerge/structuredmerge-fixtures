@@ -132,6 +132,14 @@
   },
   "capability_map": [
     {
+      "path_prefix": "workspace-scripts/typed_core_benchmark.py",
+      "capabilities": ["json", "json5", "jsonc"]
+    },
+    {
+      "path_prefix": "typed-benchmark-adapter.json",
+      "capabilities": ["json", "json5", "jsonc"]
+    },
+    {
       "path_prefix": "crates/smorg-rs/",
       "capabilities": ["merge2", "merge3", "metamorphic"]
     },

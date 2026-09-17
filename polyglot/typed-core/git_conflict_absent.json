@@ -2,7 +2,7 @@
   "id": "git_conflict_absent",
   "category": "git_common_merge3",
   "call": "git_common_merge3",
-  "description": "Typed Git common-profile contract: git_conflict_absent",
+  "description": "Deleted ours owner remains unresolved with an empty-side appended review block, not merged output",
   "input": {
     "dialect": "json",
     "base": "{\"x\":0}",
@@ -25,7 +25,7 @@
     {
       "type": "equals",
       "field": "conflicted_output",
-      "value": null
+      "value": "{}\n<<<<<<< ours\n||||||| base\n{\"x\":0}\n=======\n{\"x\":2}\n>>>>>>> theirs\n"
     },
     {
       "type": "count_equals",
@@ -35,7 +35,7 @@
     {
       "type": "contains",
       "field": "render_report[strategy]",
-      "value": "git-unrendered-conflict"
+      "value": "git-absent-owner-conflict-review"
     }
   ]
 }

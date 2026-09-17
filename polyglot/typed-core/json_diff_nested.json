@@ -1,0 +1,38 @@
+{
+  "id": "json_diff_nested",
+  "category": "json_common_diff",
+  "call": "json_common_diff",
+  "description": "Repeated identical fragments retain the changed nested owner path.",
+  "input": {
+    "dialect": "json",
+    "before": "{\"a\":{\"x\":1},\"b\":{\"x\":1}}",
+    "after": "{\"a\":{\"x\":1},\"b\":{\"x\":2}}"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 4
+    },
+    {
+      "type": "equals",
+      "field": "changes[3].path",
+      "value": "/b/x"
+    },
+    {
+      "type": "equals",
+      "field": "changes[3].classification",
+      "value": "edited"
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

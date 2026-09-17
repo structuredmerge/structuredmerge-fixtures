@@ -1,0 +1,37 @@
+{
+  "id": "json_analysis_unclaimed",
+  "category": "json_common_analyze",
+  "call": "json_common_analyze",
+  "description": "An unattached native comment remains analyzable without a fabricated sibling attachment.",
+  "input": {
+    "dialect": "json5",
+    "source": "{} /* retained */"
+  },
+  "assertions": [
+    {
+      "type": "contains",
+      "field": "analysis.extra[comment_regions]",
+      "value": "\"attachment_resolved\":false"
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[comment_regions]",
+      "value": "\"owner_id\":\"json:\""
+    },
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "analysis.schema",
+      "value": "structuredmerge.analysis-result/v1"
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

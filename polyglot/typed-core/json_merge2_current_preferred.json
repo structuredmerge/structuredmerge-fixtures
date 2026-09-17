@@ -1,0 +1,38 @@
+{
+  "id": "json_merge2_current_preferred",
+  "category": "json_common_merge2",
+  "call": "json_common_merge2",
+  "description": "Directional JSON merge keeps current values, arrays and exact CRLF bytes without a base.",
+  "input": {
+    "dialect": "json",
+    "incoming": "{\"x\":2,\"a\":[3]}",
+    "current": "{\r\n \"x\":1,\"a\":[1,2]\r\n}"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "{\r\n \"x\":1,\"a\":[1,2]\r\n}"
+    },
+    {
+      "type": "equals",
+      "field": "verification.directional_roles_preserved",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "verification.base_participated",
+      "value": null
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

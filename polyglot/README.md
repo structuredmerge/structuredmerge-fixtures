@@ -21,3 +21,13 @@ syntax failures, unsupported top-level sequences, and exact BOM/CRLF/Unicode
 preservation. Python intentionally excludes this Ruby-provider family. Each
 family exercises its real native parser and the corresponding scoped Rust merge
 entry point; neither claims full-language or cross-provider parity.
+
+The JSON operation family runs the same eleven fixtures in both generated Ruby
+and Python suites. It covers nested JSON5 analysis, unclaimed native comments,
+JSONC dialect rejection, duplicate decoded keys, repeated-fragment and trivia
+diffs, Unicode no-ops, directional current/array precedence, independent merge3,
+canonical conflicts, and selected-source comment/CRLF/final-newline preservation.
+Each adapter explicitly registers the Rust TreeHaver language-pack provider and
+builds typed common requests. It contains no matching, expected-output or render
+logic. These fixtures test the generated binding path, not Ruby golden-master
+authority, all parser backends, full analysis-policy parity or publication gates.

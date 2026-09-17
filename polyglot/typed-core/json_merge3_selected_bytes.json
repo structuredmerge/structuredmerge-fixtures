@@ -1,0 +1,29 @@
+{
+  "id": "json_merge3_selected_bytes",
+  "category": "json_common_merge3",
+  "call": "json_common_merge3",
+  "description": "Selected JSON5 input retains Unicode, comment, CRLF and no-final-newline bytes.",
+  "input": {
+    "dialect": "json5",
+    "base": "{x:1}",
+    "ours": "{x:1}",
+    "theirs": "// chosen\r\n{x:'é'}"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "// chosen\r\n{x:'é'}"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

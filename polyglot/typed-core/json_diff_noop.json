@@ -1,0 +1,28 @@
+{
+  "id": "json_diff_noop",
+  "category": "json_common_diff",
+  "call": "json_common_diff",
+  "description": "Identical Unicode JSON documents report no changes.",
+  "input": {
+    "dialect": "json",
+    "before": "{\"é\":1}",
+    "after": "{\"é\":1}"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 0
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

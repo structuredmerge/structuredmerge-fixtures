@@ -1,0 +1,42 @@
+{
+  "id": "json_analysis_nested",
+  "category": "json_common_analyze",
+  "call": "json_common_analyze",
+  "description": "Nested JSON5 analysis uses Rust-owned native facts.",
+  "input": {
+    "dialect": "json5",
+    "source": "// note\r\n{a:{x:'é'},b:[1,2]}\r\n"
+  },
+  "assertions": [
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "\"path\":\"/a/x\""
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "\"path\":\"/b/1\""
+    },
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "analysis.schema",
+      "value": "structuredmerge.analysis-result/v1"
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "equals",
+      "field": "provider.provider_id",
+      "value": "kernel.json"
+    }
+  ]
+}

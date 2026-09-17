@@ -1,0 +1,27 @@
+{
+  "id": "json_analysis_jsonc_rejects_json5",
+  "category": "json_common_analyze",
+  "call": "json_common_analyze",
+  "description": "JSONC rejects JSON5-only keys and strings despite sharing its parser grammar.",
+  "input": {
+    "dialect": "jsonc",
+    "source": "{x:'not-jsonc'}"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "analysis",
+      "value": null
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

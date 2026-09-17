@@ -1,0 +1,34 @@
+{
+  "id": "json_merge3_independent",
+  "category": "json_common_merge3",
+  "call": "json_common_merge3",
+  "description": "Independent JSON changes merge in Rust and require output verification.",
+  "input": {
+    "dialect": "json",
+    "base": "{\"a\":1,\"b\":2}",
+    "ours": "{\"a\":3,\"b\":2}",
+    "theirs": "{\"a\":1,\"b\":4}"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "{\"a\":3,\"b\":4}"
+    },
+    {
+      "type": "equals",
+      "field": "verification.base_participated",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

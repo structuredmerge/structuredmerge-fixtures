@@ -14,6 +14,8 @@
 
 - Add common Python merge2 fixtures for current-preferred insertion with byte preservation, reversed direction, and rejection of reordered shared anchors.
 
+- Add eleven shared typed JSON operation fixtures for generated Ruby/Python analysis, diff, merge, conflict and exact-byte checks.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

@@ -1,0 +1,33 @@
+{
+  "id": "json_diff_trivia",
+  "category": "json_common_diff",
+  "call": "json_common_diff",
+  "description": "Document comparison covers comment and newline edits outside syntax owners.",
+  "input": {
+    "dialect": "json5",
+    "before": "// before\n{}",
+    "after": "// after\n{}\r\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 1
+    },
+    {
+      "type": "equals",
+      "field": "changes[0].subject_ref",
+      "value": "json.document"
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

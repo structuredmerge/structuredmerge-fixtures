@@ -1,0 +1,34 @@
+{
+  "id": "json_merge3_conflict",
+  "category": "json_common_merge3",
+  "call": "json_common_merge3",
+  "description": "Overlapping JSON edits retain a canonical conflict with all revision alternatives.",
+  "input": {
+    "dialect": "json",
+    "base": "{\"a\":1}",
+    "ours": "{\"a\":2}",
+    "theirs": "{\"a\":3}"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 1
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts[0].canonical.alternatives",
+      "value": 3
+    }
+  ]
+}

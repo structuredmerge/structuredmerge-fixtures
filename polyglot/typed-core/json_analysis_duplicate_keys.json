@@ -1,0 +1,32 @@
+{
+  "id": "json_analysis_duplicate_keys",
+  "category": "json_common_analyze",
+  "call": "json_common_analyze",
+  "description": "Duplicate decoded JSON keys fail closed rather than collapsing owners.",
+  "input": {
+    "dialect": "json",
+    "source": "{\"x\":1,\"\\u0078\":2}"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "analysis",
+      "value": null
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "diagnostics",
+      "value": 1
+    }
+  ]
+}

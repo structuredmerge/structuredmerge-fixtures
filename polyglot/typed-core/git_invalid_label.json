@@ -1,0 +1,31 @@
+{
+  "id": "git_invalid_label",
+  "category": "git_common_merge3",
+  "call": "git_common_merge3",
+  "description": "Typed Git common-profile contract: git_invalid_label",
+  "input": {
+    "dialect": "json",
+    "base": "{}",
+    "ours": "{}",
+    "theirs": "{}",
+    "marker_size": 7,
+    "ours_label": "bad\nlabel"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "equals",
+      "field": "verification.classification_reached",
+      "value": false
+    }
+  ]
+}

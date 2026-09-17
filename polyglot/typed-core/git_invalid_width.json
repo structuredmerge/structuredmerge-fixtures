@@ -1,0 +1,26 @@
+{
+  "id": "git_invalid_width",
+  "category": "git_common_merge3",
+  "call": "git_common_merge3",
+  "description": "Typed Git common-profile contract: git_invalid_width",
+  "input": {
+    "dialect": "json",
+    "base": "{}",
+    "ours": "{}",
+    "theirs": "{}",
+    "marker_size": 1025,
+    "ours_label": "ours"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

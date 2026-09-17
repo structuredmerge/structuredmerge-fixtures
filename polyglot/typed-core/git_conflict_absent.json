@@ -1,0 +1,41 @@
+{
+  "id": "git_conflict_absent",
+  "category": "git_common_merge3",
+  "call": "git_common_merge3",
+  "description": "Typed Git common-profile contract: git_conflict_absent",
+  "input": {
+    "dialect": "json",
+    "base": "{\"x\":0}",
+    "ours": "{}",
+    "theirs": "{\"x\":2}",
+    "marker_size": 7,
+    "ours_label": "ours"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "equals",
+      "field": "conflicted_output",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 1
+    },
+    {
+      "type": "contains",
+      "field": "render_report[strategy]",
+      "value": "git-unrendered-conflict"
+    }
+  ]
+}

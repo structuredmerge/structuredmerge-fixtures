@@ -1,0 +1,31 @@
+{
+  "id": "git_clean_json",
+  "category": "git_common_merge3",
+  "call": "git_common_merge3",
+  "description": "Typed Git common-profile contract: git_clean_json",
+  "input": {
+    "dialect": "json",
+    "base": "{\"x\":0,\"y\":0}",
+    "ours": "{\"x\":1,\"y\":0}",
+    "theirs": "{\"x\":0,\"y\":2}",
+    "marker_size": 7,
+    "ours_label": "ours"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "{\"x\":1,\"y\":2}"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

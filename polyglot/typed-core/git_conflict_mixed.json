@@ -1,0 +1,31 @@
+{
+  "id": "git_conflict_mixed",
+  "category": "git_common_merge3",
+  "call": "git_common_merge3",
+  "description": "Typed Git common-profile contract: git_conflict_mixed",
+  "input": {
+    "dialect": "json",
+    "base": "{\n\"x\":0,\n\"other\":0\n}\n",
+    "ours": "{\n\"x\":1,\n\"other\":0\n}\n",
+    "theirs": "{\n\"x\":2,\n\"other\":9\n}\n",
+    "marker_size": 7,
+    "ours_label": "ours"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "contains",
+      "field": "conflicted_output",
+      "value": "\"other\":0\n}\n"
+    },
+    {
+      "type": "contains",
+      "field": "render_report[artifact_kind]",
+      "value": "unresolved-conflict-review"
+    }
+  ]
+}

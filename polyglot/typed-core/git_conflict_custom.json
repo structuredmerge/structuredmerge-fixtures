@@ -1,0 +1,51 @@
+{
+  "id": "git_conflict_custom",
+  "category": "git_common_merge3",
+  "call": "git_common_merge3",
+  "description": "Typed Git common-profile contract: git_conflict_custom",
+  "input": {
+    "dialect": "json",
+    "base": "{\r\n\"x\":0\r\n}\r\n",
+    "ours": "{\r\n\"x\":1\r\n}\r\n",
+    "theirs": "{\r\n\"x\":2\r\n}\r\n",
+    "marker_size": 9,
+    "ours_label": "local-é"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "contains",
+      "field": "conflicted_output",
+      "value": "<<<<<<<<< local-é\n"
+    },
+    {
+      "type": "contains",
+      "field": "conflicted_output",
+      "value": "\"x\":1\r\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts[0].canonical.alternatives",
+      "value": 3
+    },
+    {
+      "type": "contains",
+      "field": "render_report[outside_conflicts]",
+      "value": "ours-not-partially-merged"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "git_clean_json5",
+  "category": "git_common_merge3",
+  "call": "git_common_merge3",
+  "description": "Typed Git common-profile contract: git_clean_json5",
+  "input": {
+    "dialect": "json5",
+    "base": "{x:'é',}\r\n",
+    "ours": "{x:'é',}\r\n",
+    "theirs": "{x:'雪',}\r\n",
+    "marker_size": 7,
+    "ours_label": "ours"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "{x:'雪',}\r\n"
+    }
+  ]
+}

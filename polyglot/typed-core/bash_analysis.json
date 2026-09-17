@@ -1,0 +1,26 @@
+{
+  "id": "bash_analysis",
+  "category": "bash_common_analyze",
+  "call": "bash_common_analyze",
+  "description": "Shared typed Bash analyze contract: bash_analysis",
+  "input": {
+    "source": "# é\nx=1\n\nf() { :; }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "/function:f"
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "node_ids"
+    }
+  ]
+}

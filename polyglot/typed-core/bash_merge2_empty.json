@@ -1,0 +1,22 @@
+{
+  "id": "bash_merge2_empty",
+  "category": "bash_common_merge2",
+  "call": "bash_common_merge2",
+  "description": "Shared typed Bash merge2 contract: bash_merge2_empty",
+  "input": {
+    "incoming": "x=1\n",
+    "current": ""
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "x=1\n"
+    }
+  ]
+}

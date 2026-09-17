@@ -1,0 +1,28 @@
+{
+  "id": "bash_merge3_independent",
+  "category": "bash_common_merge3",
+  "call": "bash_common_merge3",
+  "description": "Shared typed Bash merge3 contract: bash_merge3_independent",
+  "input": {
+    "base": "x=1\ny=1\n",
+    "ours": "x=2\ny=1\n",
+    "theirs": "x=1\ny=2\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "x=2\ny=2\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.base_participated",
+      "value": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "bash_analysis_rejected",
+  "category": "bash_common_analyze",
+  "call": "bash_common_analyze",
+  "description": "Shared typed Bash analyze contract: bash_analysis_rejected",
+  "input": {
+    "source": "echo unsupported\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "analysis",
+      "value": null
+    }
+  ]
+}

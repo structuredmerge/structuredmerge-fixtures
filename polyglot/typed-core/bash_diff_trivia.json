@@ -1,0 +1,27 @@
+{
+  "id": "bash_diff_trivia",
+  "category": "bash_common_diff",
+  "call": "bash_common_diff",
+  "description": "Shared typed Bash diff contract: bash_diff_trivia",
+  "input": {
+    "before": "# before\nx=1\n",
+    "after": "# after\nx=1\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 1
+    },
+    {
+      "type": "equals",
+      "field": "changes[0].subject_ref",
+      "value": "document"
+    }
+  ]
+}

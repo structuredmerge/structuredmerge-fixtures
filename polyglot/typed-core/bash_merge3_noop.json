@@ -1,0 +1,28 @@
+{
+  "id": "bash_merge3_noop",
+  "category": "bash_common_merge3",
+  "call": "bash_common_merge3",
+  "description": "Shared typed Bash merge3 contract: bash_merge3_noop",
+  "input": {
+    "base": "# é\nx=1",
+    "ours": "# é\nx=1",
+    "theirs": "# é\nx=1"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "# é\nx=1"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

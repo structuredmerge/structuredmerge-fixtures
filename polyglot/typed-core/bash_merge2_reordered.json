@@ -1,0 +1,22 @@
+{
+  "id": "bash_merge2_reordered",
+  "category": "bash_common_merge2",
+  "call": "bash_common_merge2",
+  "description": "Shared typed Bash merge2 contract: bash_merge2_reordered",
+  "input": {
+    "incoming": "b=2\nnew=3\na=1\n",
+    "current": "a=9\nb=8\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

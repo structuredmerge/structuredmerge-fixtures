@@ -1,0 +1,27 @@
+{
+  "id": "bash_diff_owner",
+  "category": "bash_common_diff",
+  "call": "bash_common_diff",
+  "description": "Shared typed Bash diff contract: bash_diff_owner",
+  "input": {
+    "before": "x=1\nf() { :; }\n",
+    "after": "x=2\nf() { :; }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "changes[0].path",
+      "value": "/variable:x"
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 2
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "bash_merge3_conflict",
+  "category": "bash_common_merge3",
+  "call": "bash_common_merge3",
+  "description": "Shared typed Bash merge3 contract: bash_merge3_conflict",
+  "input": {
+    "base": "x=1\n",
+    "ours": "x=2\n",
+    "theirs": "x=3\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 1
+    }
+  ]
+}

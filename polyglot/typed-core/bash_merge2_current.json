@@ -1,0 +1,32 @@
+{
+  "id": "bash_merge2_current",
+  "category": "bash_common_merge2",
+  "call": "bash_common_merge2",
+  "description": "Shared typed Bash merge2 contract: bash_merge2_current",
+  "input": {
+    "incoming": "x=1\ny=2\n",
+    "current": "x=9\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "x=9\ny=2\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.directional_roles_preserved",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

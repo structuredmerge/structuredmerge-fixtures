@@ -1,0 +1,21 @@
+{
+  "id": "go_analysis_rejected",
+  "category": "go_common_analyze",
+  "call": "go_common_analyze",
+  "description": "Shared typed Go analyze contract: go_analysis_rejected",
+  "input": {
+    "source": "package main\nvar x=1\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "analysis",
+      "value": null
+    }
+  ]
+}

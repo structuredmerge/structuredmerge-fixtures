@@ -1,0 +1,22 @@
+{
+  "id": "go_merge2_comments",
+  "category": "go_common_merge2",
+  "call": "go_common_merge2",
+  "description": "Shared typed Go merge2 contract: go_merge2_comments",
+  "input": {
+    "incoming": "package main\n\n// é new\nfunc added() {}\nfunc f() {}\n",
+    "current": "// module\npackage main\n\n// f\nfunc f() {}\n// footer\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "// module\npackage main\n\n// é new\nfunc added() {}\n\n// f\nfunc f() {}\n// footer\n"
+    }
+  ]
+}

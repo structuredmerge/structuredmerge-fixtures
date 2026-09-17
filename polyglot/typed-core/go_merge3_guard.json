@@ -1,0 +1,48 @@
+{
+  "id": "go_merge3_guard",
+  "category": "go_common_merge3",
+  "call": "go_common_merge3",
+  "description": "Shared typed Go merge3 contract: go_merge3_guard",
+  "input": {
+    "base": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }\n",
+    "ours": "package main\n// é\nfunc f() { println(2) }\nfunc g() { println(1) }\n",
+    "theirs": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }\nfunc added() {}\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts",
+      "value": 1
+    },
+    {
+      "type": "equals",
+      "field": "conflicts[0].canonical.code",
+      "value": "go.membership_with_owner_edit"
+    },
+    {
+      "type": "equals",
+      "field": "conflicts[0].canonical.subject.whole_document",
+      "value": true
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts[0].canonical.decision_ids",
+      "value": 0
+    },
+    {
+      "type": "equals",
+      "field": "verification.base_participated",
+      "value": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "go_diff_owner",
+  "category": "go_common_diff",
+  "call": "go_common_diff",
+  "description": "Shared typed Go diff contract: go_diff_owner",
+  "input": {
+    "before": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }\n",
+    "after": "package main\n// é\nfunc f() { println(2) }\nfunc g() { println(1) }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 2
+    },
+    {
+      "type": "equals",
+      "field": "changes[0].path",
+      "value": "/function:f"
+    }
+  ]
+}

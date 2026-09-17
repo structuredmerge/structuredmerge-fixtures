@@ -1,0 +1,26 @@
+{
+  "id": "go_analysis",
+  "category": "go_common_analyze",
+  "call": "go_common_analyze",
+  "description": "Shared typed Go analyze contract: go_analysis",
+  "input": {
+    "source": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "/function:f"
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "node_ids"
+    }
+  ]
+}

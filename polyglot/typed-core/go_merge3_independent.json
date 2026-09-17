@@ -1,0 +1,33 @@
+{
+  "id": "go_merge3_independent",
+  "category": "go_common_merge3",
+  "call": "go_common_merge3",
+  "description": "Shared typed Go merge3 contract: go_merge3_independent",
+  "input": {
+    "base": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }\n",
+    "ours": "package main\n// é\nfunc f() { println(2) }\nfunc g() { println(1) }\n",
+    "theirs": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(2) }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "package main\n// é\nfunc f() { println(2) }\nfunc g() { println(2) }\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "verification.base_participated",
+      "value": true
+    }
+  ]
+}

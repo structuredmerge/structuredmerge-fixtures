@@ -1,0 +1,22 @@
+{
+  "id": "go_merge2_import_rejected",
+  "category": "go_common_merge2",
+  "call": "go_common_merge2",
+  "description": "Shared typed Go merge2 contract: go_merge2_import_rejected",
+  "input": {
+    "incoming": "package main\nimport \"fmt\"\nfunc g() { fmt.Println(1) }\n",
+    "current": "package main\nfunc f() {}\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

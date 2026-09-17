@@ -1,0 +1,28 @@
+{
+  "id": "go_merge3_noop",
+  "category": "go_common_merge3",
+  "call": "go_common_merge3",
+  "description": "Shared typed Go merge3 contract: go_merge3_noop",
+  "input": {
+    "base": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }",
+    "ours": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }",
+    "theirs": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

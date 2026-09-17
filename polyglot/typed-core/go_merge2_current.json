@@ -1,0 +1,32 @@
+{
+  "id": "go_merge2_current",
+  "category": "go_common_merge2",
+  "call": "go_common_merge2",
+  "description": "Shared typed Go merge2 contract: go_merge2_current",
+  "input": {
+    "incoming": "package main\nfunc f() { println(1) }\nfunc g() {}\n",
+    "current": "package main\nfunc f() { println(9) }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "package main\nfunc f() { println(9) }\nfunc g() {}\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.directional_roles_preserved",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

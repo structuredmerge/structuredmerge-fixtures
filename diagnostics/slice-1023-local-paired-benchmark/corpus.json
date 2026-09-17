@@ -132,6 +132,10 @@
   },
   "capability_map": [
     {
+      "path_prefix": "crates/smorg-rs/",
+      "capabilities": ["merge2", "merge3", "metamorphic"]
+    },
+    {
       "path_prefix": "crates/ast-merge/",
       "capabilities": ["merge2", "merge3", "metamorphic"]
     },

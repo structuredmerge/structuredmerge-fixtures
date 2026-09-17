@@ -18,6 +18,8 @@
 
 - Map the installed typed-core JSON benchmark adapter and descriptor to JSON-family cases in the retained Slice 1023 changed-path selector.
 
+- Expand the typed benchmark adapter changed-path mapping to Bash, Go, Rust and TypeScript alongside JSON-family cases.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

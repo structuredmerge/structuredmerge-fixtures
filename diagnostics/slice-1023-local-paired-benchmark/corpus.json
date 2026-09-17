@@ -133,11 +133,11 @@
   "capability_map": [
     {
       "path_prefix": "workspace-scripts/typed_core_benchmark.py",
-      "capabilities": ["json", "json5", "jsonc"]
+      "capabilities": ["bash", "go", "json", "json5", "jsonc", "rust", "typescript"]
     },
     {
       "path_prefix": "typed-benchmark-adapter.json",
-      "capabilities": ["json", "json5", "jsonc"]
+      "capabilities": ["bash", "go", "json", "json5", "jsonc", "rust", "typescript"]
     },
     {
       "path_prefix": "crates/smorg-rs/",

@@ -1,0 +1,21 @@
+{
+  "id": "rust_analysis_rejected",
+  "category": "rust_common_analyze",
+  "call": "rust_common_analyze",
+  "description": "Shared typed Rust analyze: analysis_rejected",
+  "input": {
+    "source": "#[test]\nfn f() {}\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    }
+  ]
+}

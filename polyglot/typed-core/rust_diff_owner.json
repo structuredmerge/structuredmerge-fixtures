@@ -1,0 +1,27 @@
+{
+  "id": "rust_diff_owner",
+  "category": "rust_common_diff",
+  "call": "rust_common_diff",
+  "description": "Shared typed Rust diff: diff_owner",
+  "input": {
+    "before": "use std::fmt;\n// é\nfn f() -> i32 { 1 }\nfn g() -> i32 { 1 }\n",
+    "after": "use std::fmt;\n// é\nfn f() -> i32 { 2 }\nfn g() -> i32 { 1 }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "count_equals",
+      "field": "changes",
+      "value": 2
+    },
+    {
+      "type": "equals",
+      "field": "changes[0].path",
+      "value": "/function:f"
+    }
+  ]
+}

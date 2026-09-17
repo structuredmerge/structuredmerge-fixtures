@@ -1,0 +1,32 @@
+{
+  "id": "rust_merge2_current",
+  "category": "rust_common_merge2",
+  "call": "rust_common_merge2",
+  "description": "Shared typed Rust merge2: merge2_current",
+  "input": {
+    "incoming": "fn f() { incoming(); }\nfn g() {}\n",
+    "current": "fn f() { current(); }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "fn f() { current(); }\nfn g() {}\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "verification.directional_roles_preserved",
+      "value": true
+    }
+  ]
+}

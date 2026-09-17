@@ -1,0 +1,27 @@
+{
+  "id": "rust_merge2_interleaved",
+  "category": "rust_common_merge2",
+  "call": "rust_common_merge2",
+  "description": "Shared typed Rust merge2: merge2_interleaved",
+  "input": {
+    "incoming": "fn f() {}\nuse std::fmt;\n// added\nfn g() {}\n",
+    "current": "use std::fmt;\nfn f() { current(); }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "use std::fmt;\nfn f() { current(); }\n// added\nfn g() {}\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "rust_analysis",
+  "category": "rust_common_analyze",
+  "call": "rust_common_analyze",
+  "description": "Shared typed Rust analyze: analysis",
+  "input": {
+    "source": "use std::fmt;\n// é\nfn f() -> i32 { 1 }\nfn g() -> i32 { 1 }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "/function:f"
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "node_ids"
+    }
+  ]
+}

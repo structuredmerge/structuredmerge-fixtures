@@ -1,0 +1,33 @@
+{
+  "id": "rust_merge3_guard_shortcut",
+  "category": "rust_common_merge3",
+  "call": "rust_common_merge3",
+  "description": "Shared typed Rust merge3: merge3_guard_shortcut",
+  "input": {
+    "base": "use std::fmt;\n// é\nfn f() -> i32 { 1 }\nfn g() -> i32 { 1 }\n",
+    "ours": "use std::fmt;\n// é\nfn f() -> i32 { 2 }\nfn g() -> i32 { 1 }\nfn added() {}\n",
+    "theirs": "use std::fmt;\n// é\nfn f() -> i32 { 1 }\nfn g() -> i32 { 1 }\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": null
+    },
+    {
+      "type": "equals",
+      "field": "conflicts[0].canonical.code",
+      "value": "rust.membership_with_owner_edit"
+    },
+    {
+      "type": "count_equals",
+      "field": "conflicts[0].canonical.decision_ids",
+      "value": 0
+    }
+  ]
+}

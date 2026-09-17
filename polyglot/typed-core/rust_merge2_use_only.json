@@ -1,0 +1,27 @@
+{
+  "id": "rust_merge2_use_only",
+  "category": "rust_common_merge2",
+  "call": "rust_common_merge2",
+  "description": "Shared typed Rust merge2: merge2_use_only",
+  "input": {
+    "incoming": "use std::fmt;\n/// first\nfn f() {}\n",
+    "current": "use std::fmt;\n// footer\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "use std::fmt;\n/// first\nfn f() {}\n// footer\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

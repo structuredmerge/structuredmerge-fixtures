@@ -1,0 +1,27 @@
+{
+  "id": "rust_merge2_docs",
+  "category": "rust_common_merge2",
+  "call": "rust_common_merge2",
+  "description": "Shared typed Rust merge2: merge2_docs",
+  "input": {
+    "incoming": "//! incoming module\n/// é added\nfn added() {}\nfn f() {}\n",
+    "current": "//! current module\n/// current f\nfn f() {} // inline\n// footer\n"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "//! current module\n/// é added\nfn added() {}\n/// current f\nfn f() {} // inline\n// footer\n"
+    },
+    {
+      "type": "equals",
+      "field": "verification.output_reparsed",
+      "value": true
+    }
+  ]
+}

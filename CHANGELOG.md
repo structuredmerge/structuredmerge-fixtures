@@ -22,6 +22,8 @@
 
 - Map shared typed-core changes to all retained operation families so affected-dev selection does not silently omit cases when facade validation changes.
 
+- Map typed benchmark and LibCST conformance helper changes to Python corpus coverage without changing benchmark cases or oracles.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

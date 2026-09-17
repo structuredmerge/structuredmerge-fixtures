@@ -1,0 +1,58 @@
+{
+  "id": "capability_bash",
+  "category": "capability_manifest",
+  "call": "capability_manifest",
+  "description": "Declared profile scope does not imply an eligible parser or default approval.",
+  "input": {
+    "profile": "kernel.bash.owners.v1",
+    "operation": "merge3",
+    "dialect": "bash"
+  },
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "schema",
+      "value": "structuredmerge.typed-capability-manifest/v1"
+    },
+    {
+      "type": "count_equals",
+      "field": "observations",
+      "value": 1
+    },
+    {
+      "type": "equals",
+      "field": "observations[0].query.profile_id",
+      "value": "kernel.bash.owners.v1"
+    },
+    {
+      "type": "equals",
+      "field": "observations[0].operation_declared",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "observations[0].dialect_declared",
+      "value": true
+    },
+    {
+      "type": "equals",
+      "field": "observations[0].approved_as_default",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "observations[0].parser_eligible",
+      "value": false
+    },
+    {
+      "type": "equals",
+      "field": "observations[0].parser_request.language",
+      "value": "bash"
+    },
+    {
+      "type": "equals",
+      "field": "observations[0].parser_report.selected_backend",
+      "value": null
+    }
+  ]
+}

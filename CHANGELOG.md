@@ -26,6 +26,8 @@
 
 - Map installed Ruby/Psych benchmark adapter and shared Ruby conformance helper changes to the retained affected-case selector.
 
+- Add twelve cross-runtime typed capability manifest fixtures separating declared scope, parser eligibility, and default approval.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

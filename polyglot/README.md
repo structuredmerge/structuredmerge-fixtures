@@ -4,6 +4,12 @@
 Python suites in the kernel repository. The kernel's `alef.toml` points directly
 at this directory; do not maintain target-specific fixture copies.
 
+The twelve `capability_*` fixtures cover explicit-profile manifest observations:
+all eight profiles, missing-backend eligibility, undeclared operations/dialects,
+and empty inventory queries. Helpers only construct typed requests; assertions
+live here. These are not the full workflow-negotiation contract or merge corpus
+coverage. See the spec repository's `TYPED_CAPABILITY_MANIFEST_CONTRACT.md`.
+
 The initial profile fixture checks the explicit scope and experimental status
 of the Rust-native merge entry points without registering a parser provider.
 It is an introspection contract, **not** native merge corpus coverage or proof

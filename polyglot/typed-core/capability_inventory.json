@@ -1,0 +1,24 @@
+{
+  "id": "capability_inventory",
+  "category": "capability_inventory",
+  "call": "capability_inventory",
+  "description": "An empty query list exposes declarations, not successful probes or default authority.",
+  "input": {},
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "schema",
+      "value": "structuredmerge.typed-capability-manifest/v1"
+    },
+    {
+      "type": "count_equals",
+      "field": "profiles.profiles",
+      "value": 8
+    },
+    {
+      "type": "count_equals",
+      "field": "observations",
+      "value": 0
+    }
+  ]
+}

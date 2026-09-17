@@ -132,6 +132,18 @@
   },
   "capability_map": [
     {
+      "path_prefix": "workspace-scripts/typed_ruby_benchmark",
+      "capabilities": ["yaml"]
+    },
+    {
+      "path_prefix": "typed-ruby-benchmark-adapter.json",
+      "capabilities": ["yaml"]
+    },
+    {
+      "path_prefix": "packages/ruby/spec/native_merge_fixture.rb",
+      "capabilities": ["bash", "go", "json", "json5", "jsonc", "rust", "typescript", "yaml"]
+    },
+    {
       "path_prefix": "crates/structuredmerge-core/",
       "capabilities": ["merge2", "merge3", "metamorphic"]
     },

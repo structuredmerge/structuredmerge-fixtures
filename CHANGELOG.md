@@ -24,6 +24,8 @@
 
 - Map typed benchmark and LibCST conformance helper changes to Python corpus coverage without changing benchmark cases or oracles.
 
+- Map installed Ruby/Psych benchmark adapter and shared Ruby conformance helper changes to the retained affected-case selector.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

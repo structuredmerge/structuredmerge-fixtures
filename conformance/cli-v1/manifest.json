@@ -1,0 +1,318 @@
+{
+  "schema": "structuredmerge.cli-conformance/v1",
+  "scope": "discovery-and-argument-rejection",
+  "full_cli_conformance": false,
+  "files": {
+    "base.py": "a = 1\n",
+    "ours.py": "a = 2\n",
+    "theirs.py": "a = 3\n",
+    "output.txt": "existing output\n",
+    "report.json": "existing report\n"
+  },
+  "cases": [
+    {
+      "id": "help",
+      "argv": [
+        "--help"
+      ],
+      "expect": {
+        "exit_code": 0,
+        "stdout_contains": [
+          "merge-driver",
+          "diff-driver",
+          "conflicts",
+          "languages",
+          "git",
+          "benchmark-provider-session"
+        ],
+        "stderr_empty": true
+      }
+    },
+    {
+      "id": "empty-invocation",
+      "argv": [],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "version-json",
+      "argv": [
+        "--version",
+        "--json"
+      ],
+      "expect": {
+        "exit_code": 0,
+        "stdout_json": {
+          "schema": "structuredmerge.cli-version/v1",
+          "cli_contract": "structuredmerge.cli/v1"
+        },
+        "stdout_json_strings": [
+          "executable",
+          "package",
+          "version",
+          "kernel_version"
+        ],
+        "stderr_empty": true
+      }
+    },
+    {
+      "id": "languages-json",
+      "argv": [
+        "languages",
+        "--json"
+      ],
+      "expect": {
+        "exit_code": 0,
+        "stdout_json": {
+          "schema": "structuredmerge.cli-report/v1",
+          "command": "languages"
+        },
+        "stderr_empty": true
+      }
+    },
+    {
+      "id": "merge-help",
+      "argv": [
+        "merge-driver",
+        "--help"
+      ],
+      "expect": {
+        "exit_code": 0,
+        "stdout_contains": [
+          "merge-driver"
+        ],
+        "stderr_empty": true
+      }
+    },
+    {
+      "id": "diff-help",
+      "argv": [
+        "diff-driver",
+        "--help"
+      ],
+      "expect": {
+        "exit_code": 0,
+        "stdout_contains": [
+          "diff-driver"
+        ],
+        "stderr_empty": true
+      }
+    },
+    {
+      "id": "merge-extra-positional",
+      "argv": [
+        "merge-driver",
+        "base.py",
+        "ours.py",
+        "theirs.py",
+        "sample.py",
+        "unexpected"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "merge-mixed-source-forms",
+      "argv": [
+        "merge-driver",
+        "--ancestor",
+        "base.py",
+        "base.py",
+        "ours.py",
+        "theirs.py"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "merge-duplicate-singleton",
+      "argv": [
+        "merge-driver",
+        "--path-name",
+        "first.py",
+        "--path-name",
+        "second.py",
+        "base.py",
+        "ours.py",
+        "theirs.py"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "merge-conflicting-logical-paths",
+      "argv": [
+        "merge-driver",
+        "--path-name",
+        "first.py",
+        "base.py",
+        "ours.py",
+        "theirs.py",
+        "second.py"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "merge-incomplete-named-roles",
+      "argv": [
+        "merge-driver",
+        "--ancestor",
+        "base.py",
+        "--current",
+        "ours.py"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "merge-empty-report",
+      "argv": [
+        "merge-driver",
+        "base.py",
+        "ours.py",
+        "theirs.py",
+        "--report",
+        ""
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "merge-option-not-value",
+      "argv": [
+        "merge-driver",
+        "base.py",
+        "ours.py",
+        "theirs.py",
+        "--output",
+        "--strict"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "merge-unknown-status",
+      "argv": [
+        "merge-driver",
+        "--require-profile-status",
+        "unrecognized",
+        "base.py",
+        "ours.py",
+        "theirs.py"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "diff-missing-path-value",
+      "argv": [
+        "diff-driver",
+        "base.py",
+        "ours.py",
+        "--path-name"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "diff-duplicate-path",
+      "argv": [
+        "diff-driver",
+        "--path-name",
+        "one.py",
+        "--path-name",
+        "two.py",
+        "base.py",
+        "ours.py"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "diff-extra-positional",
+      "argv": [
+        "diff-driver",
+        "base.py",
+        "ours.py",
+        "unexpected"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "diff-unknown-option",
+      "argv": [
+        "diff-driver",
+        "--unknown",
+        "base.py",
+        "ours.py"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "conflicts-missing-command",
+      "argv": [
+        "conflicts"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    },
+    {
+      "id": "benchmark-missing-role",
+      "argv": [
+        "benchmark-provider-merge3",
+        "base.py",
+        "ours.py"
+      ],
+      "expect": {
+        "exit_code": 2,
+        "stderr_nonempty": true,
+        "stdout_empty": true
+      }
+    }
+  ]
+}

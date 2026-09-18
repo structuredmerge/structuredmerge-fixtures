@@ -28,6 +28,8 @@
 
 - Add twelve cross-runtime typed capability manifest fixtures separating declared scope, parser eligibility, and default approval.
 
+- Add twenty portable CLI discovery and argument-rejection cases with a bounded real-process runner, exact output and file-state evidence, and failure/cleanup self-tests.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

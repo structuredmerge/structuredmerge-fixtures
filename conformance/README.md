@@ -3,6 +3,9 @@
 Shared manifests and other fixture-index material used by multiple language
 implementations to discover the same portable fixture subsets.
 
+The separate [CLI v1 subset](cli-v1/README.md) runs real executable discovery and
+argument-rejection cases; it does not confer full CLI or semantic conformance.
+
 The conformance manifest is intentionally selective. It indexes representative
 roles that multiple language implementations should exercise in common, rather
 than attempting to enumerate every fixture in the corpus.

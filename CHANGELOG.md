@@ -32,6 +32,8 @@
 
 - Add explicit typed-kernel real-Git CLI fixtures distinguishing Git status from driver error/conflict outcomes and checking clean writes, conflict policies, and preservation on failure.
 
+- Add twelve portable CLI conflict-review cases and a bounded real-process runner checking exact source digests, role byte ranges, errors, and source preservation.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

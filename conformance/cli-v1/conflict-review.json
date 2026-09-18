@@ -1,0 +1,18 @@
+{
+  "schema": "structuredmerge.cli-conflict-review-cases/v1",
+  "full_cli_conformance": false,
+  "cases": [
+    {"id":"clean", "source":"雪\r\n", "exit_code":true, "expected":{"exit":0,"outcome":"clean","regions":[]}},
+    {"id":"merge-style", "source":"<<<<<<< ours\nx\n=======\ny\n>>>>>>> theirs\n", "exit_code":false, "expected":{"exit":0,"outcome":"conflict","regions":[{"ours":"x\n","base":null,"theirs":"y\n"}]}},
+    {"id":"utf8-bom", "source":"\ufeff<<<<<<< ours\nx\n=======\ny\n>>>>>>> theirs\n", "exit_code":true, "expected":{"exit":1,"outcome":"conflict","regions":[{"ours":"x\n","base":null,"theirs":"y\n"}]}},
+    {"id":"diff3-unicode-crlf", "source":"前\r\n<<<<<<< ours\r\n雪\r\n||||||| base\r\n=======\r\n後\r\n>>>>>>> theirs", "exit_code":true, "expected":{"exit":1,"outcome":"conflict","regions":[{"ours":"雪\r\n","base":"","theirs":"後\r\n"}]}},
+    {"id":"custom-marker-size", "marker_size":9, "source":"<<<<<<<<< ours\n=========\nx\n>>>>>>>>> theirs\n", "exit_code":true, "expected":{"exit":1,"outcome":"conflict","regions":[{"ours":"","base":null,"theirs":"x\n"}]}},
+    {"id":"multiple-regions", "source":"<<<<<<< a\n1\n=======\n2\n>>>>>>> b\ntext\n<<<<<<< a\n3\n=======\n4\n>>>>>>> b\n", "exit_code":true, "expected":{"exit":1,"outcome":"conflict","regions":[{"ours":"1\n","base":null,"theirs":"2\n"},{"ours":"3\n","base":null,"theirs":"4\n"}]}},
+    {"id":"not-marker-boundaries", "source":"<<<<<<<value\n=======value\n>>>>>>>value\n", "exit_code":true, "expected":{"exit":0,"outcome":"clean","regions":[]}},
+    {"id":"unterminated", "source":"<<<<<<< ours\nx\n", "exit_code":true, "expected":{"exit":2,"outcome":"error","code":"conflict.invalid_markers"}},
+    {"id":"missing-separator", "source":"<<<<<<< ours\nx\n>>>>>>> theirs\n", "exit_code":true, "expected":{"exit":2,"outcome":"error","code":"conflict.invalid_markers"}},
+    {"id":"nested-start", "source":"<<<<<<< ours\n<<<<<<< nested\n", "exit_code":true, "expected":{"exit":2,"outcome":"error","code":"conflict.invalid_markers"}},
+    {"id":"orphan-separator", "source":"=======\n", "exit_code":false, "expected":{"exit":2,"outcome":"error","code":"conflict.invalid_markers"}},
+    {"id":"invalid-marker-size", "marker_size":129, "source":"clean\n", "exit_code":true, "expected":{"exit":2,"outcome":"error","code":"conflict.marker_size"}}
+  ]
+}

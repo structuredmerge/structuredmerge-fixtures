@@ -37,3 +37,21 @@ validation, selectors and unavailable providers, exact-byte preservation on
 success, conflicts/fallback policy, real Git, output/report aliases and write
 faults, external dispatch, and the platform/runtime matrix. Existing kernel
 integration suites retain some of that evidence but do not close this shared gate.
+
+## Exact-byte conflict review
+
+`conflict-review.json` adds twelve positive and negative review cases, separate
+from the original twenty discovery/argument cases. Run against any full CLI:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 tools/check_conflict_review.py --executable /absolute/path/to/smorg
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tools -p test_check_conflict_review.py -v
+```
+
+The runner reuses the bounded subprocess observer above, verifies no source or
+attribute changes, checks SHA-256 and exact role bytes, and rejects partial
+reviews on errors or fabricated semantic/provider claims. Cases include standard
+and base-bearing markers, empty sides, multiple regions, Unicode/CRLF/BOM,
+custom widths, marker-like non-boundaries and malformed framing. It retains small
+reports in `tmp/cli-conflict-review-*`; per-case sources/captures are removed.
+This is scoped conflict-review evidence, not full CLI or platform conformance.

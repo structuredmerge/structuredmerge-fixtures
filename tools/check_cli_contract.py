@@ -81,7 +81,18 @@ def snapshot(directory):
     return result
 
 
+def child_limits():
+    """POSIX per-file limits, not an aggregate filesystem or process sandbox."""
+    import resource
+    resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
+    # One sentinel byte preserves the distinction between complete output at
+    # the accepted limit and a capture truncated for exceeding that limit.
+    resource.setrlimit(resource.RLIMIT_FSIZE, (OUTPUT_LIMIT + 1, OUTPUT_LIMIT + 1))
+
+
 def run_case(command, case, files, scratch, timeout=10):
+    if shutil.disk_usage(scratch).free < RESERVE:
+        raise RuntimeError("disk reserve reached before starting fixture process")
     with tempfile.TemporaryDirectory(prefix="case-", dir=scratch) as directory:
         directory = Path(directory)
         for name, text in files.items():
@@ -93,7 +104,8 @@ def run_case(command, case, files, scratch, timeout=10):
         with stdout_path.open("wb") as stdout, stderr_path.open("wb") as stderr:
             process = subprocess.Popen([*command, *case["argv"]], cwd=directory,
                 stdin=subprocess.DEVNULL, stdout=stdout, stderr=stderr,
-                start_new_session=os.name != "nt")
+                start_new_session=os.name != "nt",
+                preexec_fn=child_limits if os.name == "posix" else None)
             try:
                 while process.poll() is None:
                     if time.monotonic() - started > timeout:

@@ -41,3 +41,5 @@
 - Map the shared kernel CLI source directory to all benchmark operation capabilities so affected dev runs include every corpus case when CLI routing changes.
 
 - Require exact unresolved review output for the typed Git absent-owner case now supported by the kernel; retain failure status and absence of merged output.
+
+- Disable child core dumps and cap per-file writes in POSIX CLI conformance runs, with a pre-launch disk-reserve check and cleanup/resource-limit regressions.

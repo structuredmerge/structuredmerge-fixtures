@@ -1,9 +1,12 @@
 import copy
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from types import SimpleNamespace
 
 import check_cli_contract as gate
 
@@ -58,6 +61,32 @@ class CLIContractTest(unittest.TestCase):
         self.assertIn("output_budget", result["errors"])
         self.assertTrue(result["raw"]["stdout"]["truncated"])
         self.assertLessEqual(len(result["stdout"]), gate.OUTPUT_LIMIT)
+        if os.name == "posix":
+            self.assertLessEqual(result["raw"]["stdout"]["byte_length"], gate.OUTPUT_LIMIT + 1)
+
+    @unittest.skipUnless(os.name == "posix", "POSIX child resource limits")
+    def test_child_and_grandchild_inherit_disabled_cores_and_file_limit(self):
+        expected = {"core": [0, 0], "file": [gate.OUTPUT_LIMIT + 1] * 2}
+        probe = "import resource,json; print(json.dumps({'core':resource.getrlimit(resource.RLIMIT_CORE),'file':resource.getrlimit(resource.RLIMIT_FSIZE)}))"
+        for script in (probe, "import subprocess,sys; subprocess.run([sys.executable,'-c'," + repr(probe) + "],check=True)"):
+            result = self.run_script(script, {"exit_code": 0, "stdout_json": expected})
+            self.assertTrue(result["passed"], result["errors"])
+
+    @unittest.skipUnless(os.name == "posix", "POSIX child resource limits")
+    def test_side_file_growth_is_limited_and_cleanup_remains_exact(self):
+        result = self.run_script("from pathlib import Path; Path('extra').write_bytes(b'x' * 1000000)",
+                                 {"exit_code": 0})
+        self.assertIn("filesystem_changed", result["errors"])
+        self.assertIn("exit_code", result["errors"])
+        self.assertLessEqual(result["after"]["extra"]["size"], gate.OUTPUT_LIMIT + 1)
+
+    def test_low_disk_rejects_before_process_or_scratch_creation(self):
+        with patch.object(gate.shutil, "disk_usage", return_value=SimpleNamespace(free=0)), \
+                patch.object(gate.subprocess, "Popen") as process:
+            with self.assertRaisesRegex(RuntimeError, "disk reserve"):
+                self.run_script("print('must not run')", {"exit_code": 0})
+            process.assert_not_called()
+        self.assertEqual(list(self.root.iterdir()), [])
 
 
 if __name__ == "__main__":

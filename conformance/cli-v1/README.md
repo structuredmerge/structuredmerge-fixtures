@@ -28,9 +28,21 @@ terminates only the direct child and does not establish descendant cleanup.
 
 Allow 1 GiB working space above the mandatory 20 GiB reserve. Runtime polling
 checks free space and capture size; these are cooperative monitoring limits, not
-an OS filesystem quota. Case directories are cleaned even when assertions fail;
+an OS filesystem quota. Each case also checks the reserve before creating scratch
+or launching a process. On POSIX, child core dumps are disabled and each regular
+file write is capped at 256 KiB plus one overflow-detection byte; descendants
+inherit both limits. This bounds capture bursts and incidental side files between
+polls, not aggregate storage across arbitrarily many files. Windows does not yet
+have equivalent OS resource limits. Case directories are cleaned even when assertions fail;
 small `tmp/cli-conformance-*/report.json` files remain. Do not point the runner at
 untrusted executables: it is not a sandbox and inherits the operator's environment.
+
+Resource regression tests verify child/grandchild limits without generating a
+core dump, bound excessive stdout and side-file writes, reject low disk before
+launch, and verify exact scratch cleanup. Local revalidation passes all 17
+fixture-tool tests and all 12 conflict-review cases for each retained kernel CLI
+name. The discovery subset remains 19/20: missing `languages --json` is still a
+failure, not converted to a skip by these safety changes.
 
 Remaining portable coverage includes positive typed operations, full report
 validation, selectors and unavailable providers, exact-byte preservation on

@@ -1,0 +1,51 @@
+{
+  "schema": "structuredmerge.cli-typed-git-cases/v1",
+  "scope": "explicit-kernel-git-json-local-grammar",
+  "cases": [
+    {
+      "id": "independent-edits",
+      "base": "{\"a\":1,\"b\":1}\n",
+      "ours": "{\"a\":2,\"b\":1}\n",
+      "theirs": "{\"a\":1,\"b\":2}\n",
+      "expected": {"git_exit": 0, "driver_exit": 0, "outcome": "changed", "json": {"a":2,"b":2}}
+    },
+    {
+      "id": "conflict-leave-ours",
+      "base": "{\"a\":1}\n",
+      "ours": "{\"a\":2}\n",
+      "theirs": "{\"a\":3}\n",
+      "expected": {"git_exit": 1, "driver_exit": 1, "outcome": "conflict", "preserve_ours": true}
+    },
+    {
+      "id": "conflict-write",
+      "conflict_policy": "write",
+      "base": "{\"a\":1}\n",
+      "ours": "{\"a\":2}\n",
+      "theirs": "{\"a\":3}\n",
+      "expected": {"git_exit": 1, "driver_exit": 1, "outcome": "conflict", "provider_conflicted_output": true}
+    },
+    {
+      "id": "delete-edit-write",
+      "conflict_policy": "write",
+      "base": "{\"a\":1,\"b\":1}\n",
+      "ours": "{\"b\":1}\n",
+      "theirs": "{\"a\":2,\"b\":1}\n",
+      "expected": {"git_exit": 1, "driver_exit": 1, "outcome": "conflict", "provider_conflicted_output": true}
+    },
+    {
+      "id": "ours-parse-error",
+      "base": "{\"a\":1}\n",
+      "ours": "{\"a\":",
+      "theirs": "{\"a\":3}\n",
+      "expected": {"git_exit": 1, "driver_exit": 2, "outcome": "error", "preserve_ours": true}
+    },
+    {
+      "id": "cold-grammar",
+      "cold": true,
+      "base": "{\"a\":1,\"b\":1}\n",
+      "ours": "{\"a\":2,\"b\":1}\n",
+      "theirs": "{\"a\":1,\"b\":2}\n",
+      "expected": {"git_exit": 1, "driver_exit": 2, "outcome": "error", "preserve_ours": true}
+    }
+  ]
+}

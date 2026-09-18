@@ -30,6 +30,8 @@
 
 - Add twenty portable CLI discovery and argument-rejection cases with a bounded real-process runner, exact output and file-state evidence, and failure/cleanup self-tests.
 
+- Add explicit typed-kernel real-Git CLI fixtures distinguishing Git status from driver error/conflict outcomes and checking clean writes, conflict policies, and preservation on failure.
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

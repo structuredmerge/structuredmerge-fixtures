@@ -33,7 +33,7 @@ conversion. Alef's general DTO input conversion still contains such a fallback,
 but that reverse conversion is not part of this host callback transport and is
 not evidence that arbitrary Ruby objects may cross the provider boundary.
 
-The completed generated-host prototype also exercises native Rust worker
+The completed generated-host experiment also exercises native Rust worker
 callbacks, async Rust-to-Ruby re-entry with the GVL released, cancellation at
 all four dispatch boundaries, in-flight unregister and atomic replacement,
 bounded graceful/forced shutdown, and loss of a real child-process sidecar.

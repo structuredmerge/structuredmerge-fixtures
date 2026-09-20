@@ -41,8 +41,8 @@ Resource regression tests verify child/grandchild limits without generating a
 core dump, bound excessive stdout and side-file writes, reject low disk before
 launch, and verify exact scratch cleanup. Local revalidation passes all 17
 fixture-tool tests and all 12 conflict-review cases for each retained kernel CLI
-name. The discovery subset remains 19/20: missing `languages --json` is still a
-failure, not converted to a skip by these safety changes.
+name. The discovery subset now passes all 20 cases, including
+`languages --json`; unsupported discovery commands remain failures, not skips.
 
 Remaining portable coverage includes positive typed operations, full report
 validation, selectors and unavailable providers, exact-byte preservation on

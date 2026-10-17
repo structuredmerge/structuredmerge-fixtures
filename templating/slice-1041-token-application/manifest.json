@@ -1,0 +1,108 @@
+{
+  "schema": "slice-1041-token-application/v1",
+  "description": "Token application contract: normalize replacements (stringify keys and values), resolve with on-missing keep, then scan the resolved output for unresolved tokens whose first segment equals the namespace (separator-agnostic) and error with the sorted deduplicated full keys. See structuredmerge/spec slices/slice-1041-token-application-contract.md.",
+  "cases": [
+    {
+      "name": "basic_substitution",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": true,
+      "input": "gem \"{KJ|GEM_NAME}\"\n",
+      "replacements": {"KJ|GEM_NAME": "demo"},
+      "expected": {"output": "gem \"demo\"\n"}
+    },
+    {
+      "name": "colon_separator_substitution",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": true,
+      "input": "gem \"{KJ:GEM_NAME}\"\n",
+      "replacements": {"KJ|GEM_NAME": "demo"},
+      "expected": {"output": "gem \"demo\"\n"},
+      "note": "Replacements are keyed by CANONICAL form (segments joined with the first configured separator); the colon-form template token resolves from the pipe-keyed replacement."
+    },
+    {
+      "name": "colon_missing_normalizes_on_keep",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": false,
+      "input": "env: {KJ:APP_ENV}\n",
+      "replacements": {},
+      "expected": {"output": "env: {KJ|APP_ENV}\n"},
+      "note": "on-missing keep emits the CANONICAL token form, not the original text."
+    },
+    {
+      "name": "non_string_values_stringified",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": true,
+      "input": "count: {KJ|COUNT}\n",
+      "replacements": {"KJ|COUNT": 3},
+      "expected": {"output": "count: 3\n"}
+    },
+    {
+      "name": "missing_token_kept_when_scan_disabled",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": false,
+      "input": "env: {KJ|APP_ENV}\n",
+      "replacements": {},
+      "expected": {"output": "env: {KJ|APP_ENV}\n"}
+    },
+    {
+      "name": "unresolved_namespace_token_errors",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": true,
+      "input": "env: {KJ|UNSET}\n",
+      "replacements": {},
+      "expected": {"error": {"tokens": ["KJ|UNSET"]}}
+    },
+    {
+      "name": "unresolved_colon_form_errors",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": true,
+      "input": "env: {KJ:UNSET}\n",
+      "replacements": {},
+      "expected": {"error": {"tokens": ["KJ|UNSET"]}},
+      "note": "The kept-missing output is canonicalized before the scan, so the reported key is the canonical pipe form even though the template wrote a colon."
+    },
+    {
+      "name": "multiple_unresolved_sorted_deduped",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": true,
+      "input": "{KJ|B} {KJ|A} {KJ|B}\n",
+      "replacements": {},
+      "expected": {"error": {"tokens": ["KJ|A", "KJ|B"]}}
+    },
+    {
+      "name": "foreign_namespace_tolerated",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": true,
+      "input": "other: {OTHER|THING}\n",
+      "replacements": {},
+      "expected": {"output": "other: {OTHER|THING}\n"}
+    },
+    {
+      "name": "single_segment_braces_not_tokens",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": true,
+      "input": "literal {KJ} braces\n",
+      "replacements": {},
+      "expected": {"output": "literal {KJ} braces\n"}
+    },
+    {
+      "name": "text_without_tokens",
+      "config": {"pre": "{", "post": "}", "separators": ["|", ":"], "min_segments": 2},
+      "namespace": "KJ",
+      "scan_unresolved": true,
+      "input": "plain text\n",
+      "replacements": {"KJ|GEM_NAME": "demo"},
+      "expected": {"output": "plain text\n"}
+    }
+  ]
+}

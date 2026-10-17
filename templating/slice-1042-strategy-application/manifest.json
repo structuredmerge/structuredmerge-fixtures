@@ -1,0 +1,101 @@
+{
+  "schema": "slice-1042-strategy-application/v1",
+  "description": "Strategy resolution and application contract. Resolution: matching override wins over the default. Application: the decision table from structuredmerge/spec slices/slice-1042-strategy-application-contract.md. Vocabulary (execution_action/write_action/status) matches the slice-353 session fixtures.",
+  "resolution_cases": [
+    {
+      "name": "default_when_no_overrides",
+      "default": "merge",
+      "overrides": [],
+      "path": "config/mise.toml",
+      "expected": "merge"
+    },
+    {
+      "name": "matching_override_wins",
+      "default": "merge",
+      "overrides": [{"path": "config/mise.toml", "strategy": "keep_destination"}],
+      "path": "config/mise.toml",
+      "expected": "keep_destination"
+    },
+    {
+      "name": "non_matching_override_falls_back_to_default",
+      "default": "accept_template",
+      "overrides": [{"path": "README.md", "strategy": "raw_copy"}],
+      "path": "config/mise.toml",
+      "expected": "accept_template"
+    }
+  ],
+  "application_cases": [
+    {
+      "name": "keep_destination_existing",
+      "strategy": "keep_destination",
+      "template_content": "template\n",
+      "destination_content": "custom\n",
+      "expected": {"execution_action": "keep", "write_action": "keep", "status": "keep", "content": null}
+    },
+    {
+      "name": "keep_destination_absent_does_not_create",
+      "strategy": "keep_destination",
+      "template_content": "template\n",
+      "destination_content": null,
+      "expected": {"execution_action": "keep", "write_action": "keep", "status": "keep", "content": null}
+    },
+    {
+      "name": "raw_copy_creates",
+      "strategy": "raw_copy",
+      "template_content": "template\n",
+      "destination_content": null,
+      "expected": {"execution_action": "raw_copy", "write_action": "create", "status": "create", "content": "template\n"}
+    },
+    {
+      "name": "raw_copy_updates",
+      "strategy": "raw_copy",
+      "template_content": "template\n",
+      "destination_content": "old\n",
+      "expected": {"execution_action": "raw_copy", "write_action": "update", "status": "update", "content": "template\n"}
+    },
+    {
+      "name": "accept_template_creates",
+      "strategy": "accept_template",
+      "template_content": "template\n",
+      "destination_content": null,
+      "expected": {"execution_action": "merge_prepared_content", "write_action": "create", "status": "create", "content": "template\n"}
+    },
+    {
+      "name": "accept_template_updates",
+      "strategy": "accept_template",
+      "template_content": "template\n",
+      "destination_content": "old\n",
+      "expected": {"execution_action": "merge_prepared_content", "write_action": "update", "status": "update", "content": "template\n"}
+    },
+    {
+      "name": "merge_empty_destination_writes_template",
+      "strategy": "merge",
+      "template_content": "template\n",
+      "destination_content": "",
+      "expected": {"execution_action": "merge_prepared_content", "write_action": "update", "status": "update", "content": "template\n"},
+      "note": "write_action tracks FILE existence: the empty destination file exists, so this is an update; only a nil (absent) destination creates."
+    },
+    {
+      "name": "merge_absent_destination_writes_template",
+      "strategy": "merge",
+      "template_content": "template\n",
+      "destination_content": null,
+      "expected": {"execution_action": "merge_prepared_content", "write_action": "create", "status": "create", "content": "template\n"}
+    },
+    {
+      "name": "merge_identical_keeps_destination",
+      "strategy": "merge",
+      "template_content": "same\n",
+      "destination_content": "same\n",
+      "expected": {"execution_action": "keep", "write_action": "keep", "status": "keep", "content": null}
+    },
+    {
+      "name": "merge_differs_defers_to_merger",
+      "strategy": "merge",
+      "template_content": "template\n",
+      "destination_content": "custom\n",
+      "expected": {"execution_action": "merge_prepared_content", "write_action": "update", "status": "update", "content": null},
+      "note": "content is null: the merger (slice-1043) owns the merged output; this contract stops at the decision."
+    }
+  ]
+}

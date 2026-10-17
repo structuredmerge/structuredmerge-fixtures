@@ -1,0 +1,73 @@
+{
+  "schema": "slice-1043-merge-dispatch/v1",
+  "description": "File-type detection and merge dispatch contract. Detection order is first-match-wins per the slice-1043 table; dispatch proves routing to the real default adapters with disjoint-content unions. See structuredmerge/spec slices/slice-1043-merge-dispatch-contract.md.",
+  "detection_cases": [
+    {"name": "configured_override_wins", "path": "README.md", "configured": "toml", "expected": "toml"},
+    {"name": "gitignore", "path": ".gitignore", "expected": "gitignore"},
+    {"name": "gemfile", "path": "Gemfile", "expected": "gemfile"},
+    {"name": "modular_gemfile", "path": "gemfiles/modular/coverage.gemfile", "expected": "gemfile"},
+    {"name": "appraisal_root_is_gemfile_by_order", "path": "Appraisal.root.gemfile", "expected": "gemfile", "note": "Documented shadowing: the .gemfile rule fires before the appraisals rule."},
+    {"name": "appraisals", "path": "Appraisals", "expected": "appraisals"},
+    {"name": "gemspec", "path": "example.gemspec", "expected": "gemspec"},
+    {"name": "rakefile", "path": "Rakefile", "expected": "rakefile"},
+    {"name": "rake_extension", "path": "rakelib/tasks.rake", "expected": "rakefile"},
+    {"name": "ruby_file", "path": "lib/example.rb", "expected": "ruby"},
+    {"name": "simplecov_is_ruby", "path": ".simplecov", "expected": "ruby"},
+    {"name": "yaml", "path": ".github/workflows/ci.yml", "expected": "yaml"},
+    {"name": "citation_cff_is_yaml", "path": "CITATION.cff", "expected": "yaml"},
+    {"name": "toml", "path": "mise.toml", "expected": "toml"},
+    {"name": "devcontainer_json_is_jsonc", "path": ".devcontainer/devcontainer.json", "expected": "jsonc"},
+    {"name": "jsonc", "path": "config/settings.jsonc", "expected": "jsonc"},
+    {"name": "json5", "path": "config/settings.json5", "expected": "json5"},
+    {"name": "json", "path": "config/settings.json", "expected": "json"},
+    {"name": "markdown", "path": "README.md", "expected": "markdown"},
+    {"name": "dotenv", "path": ".env.local", "expected": "dotenv"},
+    {"name": "rbs", "path": "sig/example.rbs", "expected": "rbs"},
+    {"name": "text_fallback", "path": "LICENSE.txt", "expected": "text"}
+  ],
+  "dispatch_cases": [
+    {
+      "name": "toml_union",
+      "file_type": "toml",
+      "template_content": "[tool]\nalpha = 1\n",
+      "destination_content": "[tool]\nbeta = 2\n",
+      "options": {},
+      "expected": {"ok": true, "output_contains": ["alpha = 1", "beta = 2"]}
+    },
+    {
+      "name": "yaml_union",
+      "file_type": "yaml",
+      "template_content": "alpha: 1\n",
+      "destination_content": "beta: 2\n",
+      "options": {},
+      "expected": {"ok": true, "output_contains": ["alpha:", "beta:"]}
+    },
+    {
+      "name": "markdown_conflict_proves_routing",
+      "file_type": "markdown",
+      "template_content": "# Demo\n\nTemplate paragraph.\n",
+      "destination_content": "# Demo\n\nDestination paragraph.\n",
+      "options": {},
+      "expected": {"ok": true, "output_contains": ["Destination paragraph."], "output_excludes": ["Template paragraph."]},
+      "note": "markdown-merge's default preference resolves same-position conflicts to the destination — the destination winning proves the real merger ran (a passthrough would return the template). Template-only sections are NOT added by default; union behavior is merger policy, pinned by the merger's own conformance fixtures, not here."
+    },
+    {
+      "name": "yaml_preference_passthrough",
+      "file_type": "yaml",
+      "template_content": "shared: template\n",
+      "destination_content": "shared: destination\n",
+      "options": {"preference": "template"},
+      "expected": {"ok": true, "output_contains": ["shared: template"]},
+      "note": "Options reach the merger: with preference template the conflicting key takes the template value. Fixture option values are JSON scalars; hosts map enum options (preference, comment_merge_policy) to their native enum type (Ruby: symbols)."
+    },
+    {
+      "name": "unregistered_type_returns_nil",
+      "file_type": "gemspec",
+      "template_content": "# t\n",
+      "destination_content": "# d\n",
+      "options": {},
+      "expected": {"nil": true},
+      "note": "Types with consumer policy have no default adapter; the caller falls back to template content."
+    }
+  ]
+}

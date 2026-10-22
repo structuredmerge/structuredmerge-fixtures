@@ -4,6 +4,8 @@
 
 ### Added
 
+- Add merge-driver v1 conformance subset (`conformance/merge-driver-v1`) covering two-sided disjoint-edit merges across twelve format families plus designed fail-closed cases (YAML flow-style, HTML unowned edits), with a portable runner (`tools/check_merge_driver_conformance.py`) for any installed full `smorg*` CLI.
+
 - Add shared typed-core native profile conformance fixtures for Alef-generated Ruby and Python suites.
 
 - Add shared LibCST-backed Rust merge fixtures for independent edits, conflicts, malformed input, unsupported owners, and exact source preservation.

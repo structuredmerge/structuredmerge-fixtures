@@ -1,0 +1,277 @@
+{
+  "schema": "structuredmerge.merge-driver-conformance/v1",
+  "scope": "merge-driver-two-sided-disjoint-edits-and-designed-conflicts",
+  "full_cli_conformance": false,
+  "golden_master": "ruby",
+  "notes": [
+    "Each case runs in a fresh sandbox directory containing exactly its files map.",
+    "output_source is the Ruby golden-master rendering; portable runners may instead assert output_json_value, report_ok, and conflict_count.",
+    "Render strategies are implementation-specific and intentionally not asserted."
+  ],
+  "cases": [
+    {
+      "id": "json-pretty-two-sided-disjoint-edit",
+      "family": "json",
+      "files": {
+        "base.in": "{\n  \"a\": 1,\n  \"b\": 2\n}\n",
+        "ours.in": "{\n  \"a\": 1,\n  \"b\": 2,\n  \"c\": 3\n}\n",
+        "theirs.in": "{\n  \"a\": 1,\n  \"b\": 20\n}\n"
+      },
+      "argv": ["merge-driver", "--path-name", "merge.json", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.in", "ours.in", "theirs.in"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "{\n  \"a\": 1,\n  \"b\": 20,\n  \"c\": 3\n}\n",
+        "output_json_value": {"a": 1, "b": 20, "c": 3}
+      }
+    },
+    {
+      "id": "json-compact-two-sided-disjoint-edit",
+      "family": "json",
+      "files": {
+        "base.in": "{\"a\":1,\"b\":2}",
+        "ours.in": "{\"a\":1,\"b\":2,\"c\":3}",
+        "theirs.in": "{\"a\":1,\"b\":20}"
+      },
+      "argv": ["merge-driver", "--path-name", "merge.json", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.in", "ours.in", "theirs.in"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "{\n  \"a\": 1,\n  \"b\": 20,\n  \"c\": 3\n}\n",
+        "output_json_value": {"a": 1, "b": 20, "c": 3}
+      }
+    },
+    {
+      "id": "jsonc-compact-two-sided-disjoint-edit",
+      "family": "jsonc",
+      "files": {
+        "base.in": "{\"a\":1,\"b\":2}",
+        "ours.in": "{\"a\":1,\"b\":2,\"c\":3}",
+        "theirs.in": "{\"a\":1,\"b\":20}"
+      },
+      "argv": ["merge-driver", "--path-name", "config.jsonc", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.in", "ours.in", "theirs.in"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "{\n  \"a\": 1,\n  \"b\": 20,\n  \"c\": 3\n}\n",
+        "output_json_value": {"a": 1, "b": 20, "c": 3}
+      }
+    },
+    {
+      "id": "yaml-block-mapping-two-sided-disjoint-edit",
+      "family": "yaml",
+      "files": {
+        "base.yaml": "a: 1\nb: 2\n",
+        "ours.yaml": "a: 1\nb: 2\nc: 3\n",
+        "theirs.yaml": "a: 1\nb: 20\n"
+      },
+      "argv": ["merge-driver", "--path-name", "config.yaml", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.yaml", "ours.yaml", "theirs.yaml"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "a: 1\nb: 20\nc: 3\n"
+      }
+    },
+    {
+      "id": "toml-two-sided-disjoint-edit",
+      "family": "toml",
+      "files": {
+        "base.toml": "a = 1\nb = 2\n",
+        "ours.toml": "a = 1\nb = 2\nc = 3\n",
+        "theirs.toml": "a = 1\nb = 20\n"
+      },
+      "argv": ["merge-driver", "--path-name", "config.toml", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.toml", "ours.toml", "theirs.toml"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "a = 1\nb = 20\nc = 3\n"
+      }
+    },
+    {
+      "id": "dotenv-two-sided-disjoint-edit",
+      "family": "dotenv",
+      "notes": "dotenv routing requires gitattributes language mapping; the case ships its own .gitattributes.",
+      "files": {
+        ".gitattributes": "*.env merge=smorg-rb diff=smorg-rb smorg.language=dotenv\n",
+        "base.env": "A=1\nB=2\n",
+        "ours.env": "A=1\nB=2\nC=3\n",
+        "theirs.env": "A=1\nB=20\n"
+      },
+      "argv": ["merge-driver", "--path-name", "app.env", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.env", "ours.env", "theirs.env"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "A=1\nB=20\nC=3\n"
+      }
+    },
+    {
+      "id": "markdown-section-two-sided-disjoint-edit",
+      "family": "markdown",
+      "files": {
+        "base.md": "# Title\n\n## Alpha\n\none\n\n## Beta\n\ntwo\n",
+        "ours.md": "# Title\n\n## Alpha\n\none edited\n\n## Beta\n\ntwo\n",
+        "theirs.md": "# Title\n\n## Alpha\n\none\n\n## Beta\n\ntwo edited\n"
+      },
+      "argv": ["merge-driver", "--path-name", "doc.md", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.md", "ours.md", "theirs.md"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "# Title\n\n## Alpha\n\none edited\n\n## Beta\n\ntwo edited\n"
+      }
+    },
+    {
+      "id": "ruby-method-two-sided-disjoint-edit",
+      "family": "ruby",
+      "files": {
+        "base.rb": "def alpha\n  1\nend\n\ndef beta\n  2\nend\n",
+        "ours.rb": "def alpha\n  10\nend\n\ndef beta\n  2\nend\n",
+        "theirs.rb": "def alpha\n  1\nend\n\ndef beta\n  20\nend\n"
+      },
+      "argv": ["merge-driver", "--path-name", "app.rb", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.rb", "ours.rb", "theirs.rb"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "def alpha\n  10\nend\n\ndef beta\n  20\nend\n"
+      }
+    },
+    {
+      "id": "go-function-two-sided-disjoint-edit",
+      "family": "go",
+      "files": {
+        "base.go": "package main\n\nfunc alpha() int {\n\treturn 1\n}\n\nfunc beta() int {\n\treturn 2\n}\n",
+        "ours.go": "package main\n\nfunc alpha() int {\n\treturn 10\n}\n\nfunc beta() int {\n\treturn 2\n}\n",
+        "theirs.go": "package main\n\nfunc alpha() int {\n\treturn 1\n}\n\nfunc beta() int {\n\treturn 20\n}\n"
+      },
+      "argv": ["merge-driver", "--path-name", "main.go", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.go", "ours.go", "theirs.go"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "package main\n\nfunc alpha() int {\n\treturn 10\n}\n\nfunc beta() int {\n\treturn 20\n}\n"
+      }
+    },
+    {
+      "id": "rust-function-two-sided-disjoint-edit",
+      "family": "rust",
+      "files": {
+        "base.rs": "fn alpha() -> i32 {\n    1\n}\n\nfn beta() -> i32 {\n    2\n}\n",
+        "ours.rs": "fn alpha() -> i32 {\n    10\n}\n\nfn beta() -> i32 {\n    2\n}\n",
+        "theirs.rs": "fn alpha() -> i32 {\n    1\n}\n\nfn beta() -> i32 {\n    20\n}\n"
+      },
+      "argv": ["merge-driver", "--path-name", "main.rs", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.rs", "ours.rs", "theirs.rs"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "fn alpha() -> i32 {\n    10\n}\n\nfn beta() -> i32 {\n    20\n}\n"
+      }
+    },
+    {
+      "id": "typescript-function-two-sided-disjoint-edit",
+      "family": "typescript",
+      "files": {
+        "base.ts": "function alpha(): number {\n  return 1;\n}\n\nfunction beta(): number {\n  return 2;\n}\n",
+        "ours.ts": "function alpha(): number {\n  return 10;\n}\n\nfunction beta(): number {\n  return 2;\n}\n",
+        "theirs.ts": "function alpha(): number {\n  return 1;\n}\n\nfunction beta(): number {\n  return 20;\n}\n"
+      },
+      "argv": ["merge-driver", "--path-name", "app.ts", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.ts", "ours.ts", "theirs.ts"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "function alpha(): number {\n  return 10;\n}\n\nfunction beta(): number {\n  return 20;\n}\n"
+      }
+    },
+    {
+      "id": "bash-function-two-sided-disjoint-edit",
+      "family": "bash",
+      "files": {
+        "base.sh": "alpha() {\n  echo 1\n}\n\nbeta() {\n  echo 2\n}\n",
+        "ours.sh": "alpha() {\n  echo 10\n}\n\nbeta() {\n  echo 2\n}\n",
+        "theirs.sh": "alpha() {\n  echo 1\n}\n\nbeta() {\n  echo 20\n}\n"
+      },
+      "argv": ["merge-driver", "--path-name", "script.sh", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.sh", "ours.sh", "theirs.sh"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "alpha() {\n  echo 10\n}\n\nbeta() {\n  echo 20\n}\n"
+      }
+    },
+    {
+      "id": "rbs-member-two-sided-disjoint-edit",
+      "family": "rbs",
+      "files": {
+        "base.rbs": "class Alpha\n  def one: () -> Integer\nend\n\nclass Beta\n  def two: () -> Integer\nend\n",
+        "ours.rbs": "class Alpha\n  def one: () -> Integer\n  def extra: () -> Integer\nend\n\nclass Beta\n  def two: () -> Integer\nend\n",
+        "theirs.rbs": "class Alpha\n  def one: () -> Integer\nend\n\nclass Beta\n  def two: () -> String\nend\n"
+      },
+      "argv": ["merge-driver", "--path-name", "sig.rbs", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.rbs", "ours.rbs", "theirs.rbs"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "class Alpha\n  def one: () -> Integer\n  def extra: () -> Integer\nend\n\nclass Beta\n  def two: () -> String\nend\n"
+      }
+    },
+    {
+      "id": "html-owned-element-two-sided-disjoint-edit",
+      "family": "html",
+      "notes": "HTML ownership is element-ID based; both edited elements carry IDs so the edits are owned and merge.",
+      "files": {
+        "base.html": "<html>\n<body>\n<section id=\"alpha\">one</section>\n<section id=\"beta\">two</section>\n</body>\n</html>\n",
+        "ours.html": "<html>\n<body>\n<section id=\"alpha\">one edited</section>\n<section id=\"beta\">two</section>\n</body>\n</html>\n",
+        "theirs.html": "<html>\n<body>\n<section id=\"alpha\">one</section>\n<section id=\"beta\">two edited</section>\n</body>\n</html>\n"
+      },
+      "argv": ["merge-driver", "--path-name", "page.html", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.html", "ours.html", "theirs.html"],
+      "expect": {
+        "exit_code": 0,
+        "report_ok": true,
+        "conflict_count": 0,
+        "output_source": "<html>\n<body>\n<section id=\"alpha\">one edited</section>\n<section id=\"beta\">two edited</section>\n</body>\n</html>\n"
+      }
+    },
+    {
+      "id": "yaml-flow-style-requires-one-sided-merge",
+      "family": "yaml",
+      "notes": "Designed fail-closed behavior: flow-style collections only merge exactly one-sided.",
+      "files": {
+        "base.yaml": "{a: 1, b: 2}",
+        "ours.yaml": "{a: 1, b: 2, c: 3}",
+        "theirs.yaml": "{a: 1, b: 20}"
+      },
+      "argv": ["merge-driver", "--path-name", "config.yaml", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.yaml", "ours.yaml", "theirs.yaml"],
+      "expect": {
+        "exit_code": 1,
+        "report_ok": false,
+        "conflict_count": 1,
+        "diagnostics_contain": ["Flow-style collections require an exact one-sided merge"]
+      }
+    },
+    {
+      "id": "html-unowned-text-edits-fail-closed",
+      "family": "html",
+      "notes": "Designed fail-closed behavior: edits in elements without IDs are unmanaged.",
+      "files": {
+        "base.html": "<html>\n<body>\n<p>one</p>\n<p>two</p>\n</body>\n</html>\n",
+        "ours.html": "<html>\n<body>\n<p>one edited</p>\n<p>two</p>\n</body>\n</html>\n",
+        "theirs.html": "<html>\n<body>\n<p>one</p>\n<p>two edited</p>\n</body>\n</html>\n"
+      },
+      "argv": ["merge-driver", "--path-name", "page.html", "--output", "merged.out", "--report", "report.json", "--fallback=none", "base.html", "ours.html", "theirs.html"],
+      "expect": {
+        "exit_code": 1,
+        "report_ok": false,
+        "conflict_count": 1,
+        "conflicts_category_contain": ["unmanaged_source_change"]
+      }
+    }
+  ]
+}

@@ -50,6 +50,16 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Temporal and dedupe fixtures (slice 1048)
+
+`diagnostics/slice-1048-temporal-dedupe-preconditions/contract.json`
+contains designed examples for the temporal/dedupe/precondition rules
+of `INGEST_OBSERVATION_CONTRACT.md`: source time intervals, no clock
+substitution, unchanged-content re-observation without head
+advancement, projection-evidence revision-reuse rejection, and
+scope-bound dedupe. Same run commands; the harness loads all
+ingest-observation corpora.
+
 ## Revision ancestry fixtures (slice 1047)
 
 `diagnostics/slice-1047-revision-ancestry-merge-roles/contract.json`

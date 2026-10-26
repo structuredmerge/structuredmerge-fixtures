@@ -167,6 +167,9 @@ def verify(envelope, context, state):
     allowed = set(base_fields)
     if "revision_parents" in payload:
         allowed.add("revision_parents")
+    if "source_time_start" in payload or "source_time_end" in payload:
+        allowed.update({"source_time_start", "source_time_end"})
+        require("source_time_start" in payload and "source_time_end" in payload, "time")
     require(isinstance(payload, dict) and set(payload) == allowed, "fields")
     producer, scope = payload["producer"], payload["scope"]
     fields(producer, "id version contract_ref")
@@ -185,7 +188,12 @@ def verify(envelope, context, state):
         require(payload["revision_ref"] not in declared_parents, "ancestry")
         if declared_parents:
             expected_prior = payload["expected_prior_revision_ref"]
-            require(expected_prior is None or expected_prior in declared_parents, "ancestry")
+            require(
+                expected_prior is None
+                or expected_prior == payload["revision_ref"]
+                or expected_prior in declared_parents,
+                "ancestry",
+            )
         else:
             require(payload["expected_prior_revision_ref"] is None, "ancestry")
     require(isinstance(payload["extensions"], dict)
@@ -246,6 +254,10 @@ def verify(envelope, context, state):
         if name == "source_at" and value is None:
             continue
         require(valid_time(value), "time")
+    if "source_time_start" in payload:
+        require(valid_time(payload["source_time_start"]), "time")
+        require(valid_time(payload["source_time_end"]), "time")
+        require(payload["source_time_start"] <= payload["source_time_end"], "time")
     scan = payload["scan"]
     fields(scan, "status enumerated_scope checkpoint_ref finalization_ref")
     require(scan["status"] in ("complete", "partial", "interrupted", "unknown"), "scan")
@@ -276,11 +288,23 @@ def verify(envelope, context, state):
                 and authority.get("mode") == mode and authority.get("finalization_ref") == final
                 and id_list(authority.get("targets"), "authority") == targets, "authority")
     revision_key = (producer["id"], json.dumps(scope, sort_keys=True), payload["revision_ref"])
-    require(revision_key not in state.get("revisions", {}), "revision")
+    projection_evidence = digest(
+        payload["legacy_result"]["bytes"]["digest"].encode()
+        + payload["original"]["digest"].encode()
+        + payload["normalized"]["digest"].encode()
+        + payload["processing"]["fingerprint"].encode()
+    )
+    retained = state.get("revisions", {}).get(revision_key)
+    if retained is None:
+        state.setdefault("revisions", {})[revision_key] = {"projection": projection_evidence}
+    else:
+        # Re-referencing a retained revision is valid only as a fresh
+        # observation of the same projection: evidence must agree, and the
+        # head does not advance.
+        require(retained.get("projection") == projection_evidence, "revision")
     decision = {"authorized_delete_ids": deletion["targets"], "replay": False}
     # Commit local model state only after every proof has passed. This is not a runtime store.
     state.setdefault("accepted", {})[key] = {"digest": envelope["payload_digest"], "decision": decision}
-    state.setdefault("revisions", {})[revision_key] = envelope["payload_digest"]
     state["head"] = payload["revision_ref"]
     return decision
 

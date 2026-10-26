@@ -30,6 +30,7 @@ CORPORA = [
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1046-document-identity-occurrence-scoping/contract.json",
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1047-revision-ancestry-merge-roles/contract.json",
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1048-temporal-dedupe-preconditions/contract.json",
+    Path(__file__).resolve().parents[1] / "diagnostics/slice-1049-embedding-contract-handoff/contract.json",
 ]
 
 

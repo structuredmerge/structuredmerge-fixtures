@@ -36,6 +36,8 @@
 
 - Add twelve portable CLI conflict-review cases and a bounded real-process runner checking exact source digests, role byte ranges, errors, and source preservation.
 
+- Add designed slice-1045 ingest-observation fixtures and executable fail-closed evidence/deletion-authority checks, preserving both legacy adapter dialects (plans #12, #2, #3).
+
 ### Fixed
 
 - Include shared ast-merge and native Python crate changes in the Slice 1023 affected-case benchmark selection.

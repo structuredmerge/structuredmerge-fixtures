@@ -50,6 +50,23 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Ingest observation proposal (slice 1045)
+
+`diagnostics/slice-1045-ingest-observation-deletion-authority/contract.json`
+contains designed positive/negative examples for the opt-in companion described
+in the spec repository's `INGEST_OBSERVATION_CONTRACT.md`. These are not captured
+Ruby runtime outputs or claims of adapter support. Run:
+
+```sh
+python3 tools/validate_ingest_observations.py
+python3 -m unittest discover -s tools -p 'test_*.py'
+```
+
+The local verifier checks supplied evidence, byte descriptors, adapter dialects,
+retry payload binding and fail-closed deletion authority. Production scope-safe
+storage, authentication, immutable revision/replay persistence and rollout are
+separate gates. Existing CI unittest discovery includes these regressions.
+
 ## Adding fixtures
 
 A good fixture is small, named for the behavior it exercises, and clear about whether it expects a successful merge, an unresolved review state, or a diagnostic. Prefer adding or updating manifest metadata when a fixture becomes part of a portable conformance subset.

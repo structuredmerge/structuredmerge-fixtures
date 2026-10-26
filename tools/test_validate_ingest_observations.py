@@ -28,6 +28,7 @@ class DescriptorTests(unittest.TestCase):
 CORPORA = [
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1045-ingest-observation-deletion-authority/contract.json",
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1046-document-identity-occurrence-scoping/contract.json",
+    Path(__file__).resolve().parents[1] / "diagnostics/slice-1047-revision-ancestry-merge-roles/contract.json",
 ]
 
 
@@ -157,7 +158,7 @@ class ContractTests(unittest.TestCase):
             state = {}
             for step in sequence["steps"]:
                 with self.subTest(sequence=sequence["name"], step=step["name"]):
-                    self.check_case(step, sequence["context"], state)
+                    self.check_case(step, step.get("context") or sequence["context"], state)
 
     def test_shared_positive_and_negative_cases(self):
         for corpus_path in CORPORA:

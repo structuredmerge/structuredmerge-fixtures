@@ -50,6 +50,16 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Revision ancestry fixtures (slice 1047)
+
+`diagnostics/slice-1047-revision-ancestry-merge-roles/contract.json`
+contains designed examples for the revision-ancestry and merge-role
+section of `INGEST_OBSERVATION_CONTRACT.md`: declared parents with a
+mandatory chain edge, root/contradiction/self/duplicate rejections,
+multi-parent merge declarations with external parents retained
+unverified, and content-equal revisions with distinct provenance. Same
+run commands; the harness loads all ingest-observation corpora.
+
 ## Document identity fixtures (slice 1046)
 
 `diagnostics/slice-1046-document-identity-occurrence-scoping/contract.json`

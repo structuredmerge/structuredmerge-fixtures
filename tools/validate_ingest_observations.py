@@ -161,9 +161,13 @@ def verify(envelope, context, state):
         raise Invalid("utf8") from None
     require(digest(encoded) == envelope["payload_digest"], "payload_digest")
     payload = strict_json(encoded)
-    fields(payload, "producer scope observation_id revision_ref source_revision_ref "
-           "expected_prior_revision_ref prior_inventory legacy_result original normalized "
-           "processing times scan deletion evidence_refs extensions")
+    base_fields = ("producer scope observation_id revision_ref source_revision_ref "
+                   "expected_prior_revision_ref prior_inventory legacy_result original normalized "
+                   "processing times scan deletion evidence_refs extensions").split()
+    allowed = set(base_fields)
+    if "revision_parents" in payload:
+        allowed.add("revision_parents")
+    require(isinstance(payload, dict) and set(payload) == allowed, "fields")
     producer, scope = payload["producer"], payload["scope"]
     fields(producer, "id version contract_ref")
     require(all(text(v) for v in producer.values()), "producer")
@@ -173,6 +177,17 @@ def verify(envelope, context, state):
     require(text(payload["observation_id"]) and text(payload["revision_ref"]), "identity")
     for key in ("source_revision_ref", "expected_prior_revision_ref"):
         require(payload[key] is None or text(payload[key]), "identity")
+    declared_parents = payload.get("revision_parents")
+    if declared_parents is not None:
+        require(isinstance(declared_parents, list)
+                and all(text(parent) for parent in declared_parents), "ancestry")
+        require(len(set(declared_parents)) == len(declared_parents), "ancestry")
+        require(payload["revision_ref"] not in declared_parents, "ancestry")
+        if declared_parents:
+            expected_prior = payload["expected_prior_revision_ref"]
+            require(expected_prior is None or expected_prior in declared_parents, "ancestry")
+        else:
+            require(payload["expected_prior_revision_ref"] is None, "ancestry")
     require(isinstance(payload["extensions"], dict)
             and all(":" in k for k in payload["extensions"]), "fields")
     key = (producer["id"], json.dumps(scope, sort_keys=True), payload["observation_id"])

@@ -25,12 +25,15 @@ class DescriptorTests(unittest.TestCase):
             v.verify_bytes(broken, "original-source-bytes", {})
 
 
-CORPUS = Path(__file__).resolve().parents[1] / "diagnostics/slice-1045-ingest-observation-deletion-authority/contract.json"
+CORPORA = [
+    Path(__file__).resolve().parents[1] / "diagnostics/slice-1045-ingest-observation-deletion-authority/contract.json",
+    Path(__file__).resolve().parents[1] / "diagnostics/slice-1046-document-identity-occurrence-scoping/contract.json",
+]
 
 
 class ContractTests(unittest.TestCase):
     def base_case(self):
-        return copy.deepcopy(json.loads(CORPUS.read_text())["cases"][0])
+        return copy.deepcopy(json.loads(CORPORA[0].read_text())["cases"][0])
 
     def mutate(self, change):
         case = self.base_case()
@@ -142,8 +145,8 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(decision["replay"], expected["replay"])
         self.assertEqual(case["envelope"], original, "legacy and companion bytes must not be rewritten")
 
-    def test_shared_positive_and_negative_cases(self):
-        corpus = json.loads(CORPUS.read_text())
+    def run_corpus(self, corpus_path):
+        corpus = json.loads(corpus_path.read_text())
         self.assertTrue(corpus["cases"])
         names = [case["name"] for case in corpus["cases"]]
         self.assertEqual(len(names), len(set(names)))
@@ -155,6 +158,11 @@ class ContractTests(unittest.TestCase):
             for step in sequence["steps"]:
                 with self.subTest(sequence=sequence["name"], step=step["name"]):
                     self.check_case(step, sequence["context"], state)
+
+    def test_shared_positive_and_negative_cases(self):
+        for corpus_path in CORPORA:
+            with self.subTest(corpus=corpus_path.parent.name):
+                self.run_corpus(corpus_path)
 
 
 if __name__ == "__main__":

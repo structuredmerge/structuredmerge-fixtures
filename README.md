@@ -50,6 +50,17 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Document identity fixtures (slice 1046)
+
+`diagnostics/slice-1046-document-identity-occurrence-scoping/contract.json`
+contains designed examples for the document identity, namespace and
+rename/alias semantics section of `INGEST_OBSERVATION_CONTRACT.md`:
+rename as a fresh observation scope, cross-scope prior rejection,
+extension alias non-authorization, workspace namespace disjointness,
+equal text under distinct documents, and duplicate ordinals in a prior
+inventory. Same run commands as slice 1045; the test harness loads both
+corpora.
+
 ## Ingest observation proposal (slice 1045)
 
 `diagnostics/slice-1045-ingest-observation-deletion-authority/contract.json`

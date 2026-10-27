@@ -170,6 +170,8 @@ def verify(envelope, context, state):
     if "source_time_start" in payload or "source_time_end" in payload:
         allowed.update({"source_time_start", "source_time_end"})
         require("source_time_start" in payload and "source_time_end" in payload, "time")
+    if "embedding_contract" in payload:
+        allowed.add("embedding_contract")
     require(isinstance(payload, dict) and set(payload) == allowed, "fields")
     producer, scope = payload["producer"], payload["scope"]
     fields(producer, "id version contract_ref")
@@ -258,6 +260,14 @@ def verify(envelope, context, state):
         require(valid_time(payload["source_time_start"]), "time")
         require(valid_time(payload["source_time_end"]), "time")
         require(payload["source_time_start"] <= payload["source_time_end"], "time")
+    contract = payload.get("embedding_contract")
+    if contract is not None:
+        fields(contract, "owner model_ref model_revision dimensions normalization instruction_profile")
+        require(text(contract["owner"]) and text(contract["model_ref"]), "embedding")
+        for key in ("model_revision", "normalization", "instruction_profile"):
+            require(contract[key] is None or text(contract[key]), "embedding")
+        dimensions = contract["dimensions"]
+        require(dimensions is None or (type(dimensions) is int and dimensions > 0), "embedding")
     scan = payload["scan"]
     fields(scan, "status enumerated_scope checkpoint_ref finalization_ref")
     require(scan["status"] in ("complete", "partial", "interrupted", "unknown"), "scan")

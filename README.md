@@ -50,6 +50,15 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Embedding contract fixtures (slice 1049)
+
+`diagnostics/slice-1049-embedding-contract-handoff/contract.json`
+contains designed examples for the embedding-contract handoff section
+of `INGEST_OBSERVATION_CONTRACT.md`: attribution-not-attestation, same
+vs changed contract over equal content, explicit unknown model
+revision, and malformed-shape rejection. Same run commands; the
+harness loads all ingest-observation corpora.
+
 ## Temporal and dedupe fixtures (slice 1048)
 
 `diagnostics/slice-1048-temporal-dedupe-preconditions/contract.json`

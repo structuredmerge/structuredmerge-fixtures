@@ -50,6 +50,16 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Evidence retention fixtures (slice 1051)
+
+`diagnostics/slice-1051-evidence-retention-integrity/contract.json`
+contains designed examples for the evidence-retention section of
+`INGEST_OBSERVATION_CONTRACT.md`: retained-evidence manifests on
+verified decisions (inline and ref transports) and evidence lifetime
+shorter than referring history (expired reference rejects as
+`unavailable_bytes`). Same run commands; the harness loads all
+ingest-observation corpora.
+
 ## Tombstone and compatibility fixtures (slice 1050)
 
 `diagnostics/slice-1050-tombstones-atomicity-compatibility/contract.json`

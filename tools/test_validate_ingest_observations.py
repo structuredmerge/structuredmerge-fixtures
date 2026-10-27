@@ -32,6 +32,7 @@ CORPORA = [
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1048-temporal-dedupe-preconditions/contract.json",
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1049-embedding-contract-handoff/contract.json",
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1050-tombstones-atomicity-compatibility/contract.json",
+    Path(__file__).resolve().parents[1] / "diagnostics/slice-1051-evidence-retention-integrity/contract.json",
 ]
 
 
@@ -149,6 +150,8 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(decision["replay"], expected["replay"])
             if "tombstones" in expected:
                 self.assertEqual(decision["tombstones"], expected["tombstones"])
+            if "retained_evidence" in expected:
+                self.assertEqual(decision["retained_evidence"], expected["retained_evidence"])
         self.assertEqual(case["envelope"], original, "legacy and companion bytes must not be rewritten")
 
     def run_corpus(self, corpus_path):

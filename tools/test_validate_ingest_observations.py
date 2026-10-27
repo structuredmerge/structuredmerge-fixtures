@@ -34,6 +34,7 @@ CORPORA = [
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1050-tombstones-atomicity-compatibility/contract.json",
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1051-evidence-retention-integrity/contract.json",
     Path(__file__).resolve().parents[1] / "diagnostics/slice-1053-asserted-lineage/contract.json",
+    Path(__file__).resolve().parents[1] / "diagnostics/slice-1054-incorporation-decisions/contract.json",
 ]
 
 

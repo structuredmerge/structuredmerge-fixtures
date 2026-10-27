@@ -150,6 +150,43 @@ def legacy_inventory(legacy, dialect, prior):
     return current, deleted
 
 
+def occurrence_entries(refs, code):
+    require(isinstance(refs, list), code)
+    entries = []
+    for ref in refs:
+        require(isinstance(ref, dict), code)
+        fields(ref, "id ordinal")
+        require(text(ref["id"]) and type(ref["ordinal"]) is int
+                and ref["ordinal"] >= 0, code)
+        entries.append((ref["id"], ref["ordinal"]))
+    require(len(set(entries)) == len(entries), code)
+    return entries
+
+
+def verify_incorporation(incorporation, prior, current, payload_evidence):
+    require(isinstance(incorporation, list), "incorporation")
+    prior_refs = {(row["id"], row["ordinal"]) for row in prior}
+    current_refs = {(row["id"], row["ordinal"]) for row in current}
+    declared_evidence = set(payload_evidence)
+    decision_ids = set()
+    for record in incorporation:
+        require(isinstance(record, dict), "incorporation")
+        fields(record, "decision_id authority_ref source_refs subject_refs outcome evidence_refs")
+        require(text(record["decision_id"]) and text(record["authority_ref"]), "incorporation")
+        require(record["decision_id"] not in decision_ids, "incorporation")
+        decision_ids.add(record["decision_id"])
+        require(record["outcome"] in ("accepted", "rejected", "edited", "ignored", "unknown"),
+                "incorporation")
+        source = occurrence_entries(record["source_refs"], "incorporation")
+        subject = occurrence_entries(record["subject_refs"], "incorporation")
+        require(all(ref in prior_refs for ref in source), "incorporation")
+        require(all(ref in current_refs for ref in subject), "incorporation")
+        if record["outcome"] in ("accepted", "rejected", "edited"):
+            require(subject, "incorporation")
+        require(isinstance(record["evidence_refs"], list)
+                and set(record["evidence_refs"]) <= declared_evidence, "incorporation")
+
+
 def verify_lineage(lineage, prior, current):
     require(isinstance(lineage, list), "lineage")
     prior_refs = {(row["id"], row["ordinal"]): row for row in prior}
@@ -222,6 +259,8 @@ def verify(envelope, context, state):
         allowed.add("embedding_contract")
     if "lineage" in payload:
         allowed.add("lineage")
+    if "incorporation" in payload:
+        allowed.add("incorporation")
     require(isinstance(payload, dict) and set(payload) == allowed, "fields")
     producer, scope = payload["producer"], payload["scope"]
     fields(producer, "id version contract_ref")
@@ -332,6 +371,9 @@ def verify(envelope, context, state):
     lineage = payload.get("lineage")
     if lineage is not None:
         verify_lineage(lineage, prior, current)
+    incorporation = payload.get("incorporation")
+    if incorporation is not None:
+        verify_incorporation(incorporation, prior, current, payload["evidence_refs"])
     deletion = payload["deletion"]
     fields(deletion, "mode authority_ref targets")
     mode = deletion["mode"]

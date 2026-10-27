@@ -50,6 +50,16 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Incorporation decision fixtures (slice 1054)
+
+`diagnostics/slice-1054-incorporation-decisions/contract.json`
+contains designed examples for the incorporation-decisions section of
+`INGEST_OBSERVATION_CONTRACT.md`: considered inputs with
+accepted/rejected/edited/ignored/unknown outcomes, equal-content
+integration, explicit empty subjects for ignored/unknown, and
+membership/evidence/uniqueness rejections. Same run commands; the
+harness loads all ingest-observation corpora.
+
 ## Asserted lineage fixtures (slice 1053)
 
 `diagnostics/slice-1053-asserted-lineage/contract.json` contains

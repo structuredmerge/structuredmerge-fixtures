@@ -150,6 +150,54 @@ def legacy_inventory(legacy, dialect, prior):
     return current, deleted
 
 
+def verify_lineage(lineage, prior, current):
+    require(isinstance(lineage, list), "lineage")
+    prior_refs = {(row["id"], row["ordinal"]): row for row in prior}
+    current_refs = {(row["id"], row["ordinal"]): row for row in current}
+    for assertion in lineage:
+        require(isinstance(assertion, dict), "lineage")
+        fields(assertion, "kind from to provenance status")
+        require(assertion["kind"] in ("move", "copy", "split", "join", "reorder"), "lineage")
+        require(assertion["status"] in ("asserted", "ambiguous", "unknown"), "lineage")
+        sides = {}
+        for side in ("from", "to"):
+            refs = assertion[side]
+            require(isinstance(refs, list), "lineage")
+            entries = []
+            for ref in refs:
+                require(isinstance(ref, dict), "lineage")
+                fields(ref, "id ordinal")
+                require(text(ref["id"]) and type(ref["ordinal"]) is int
+                        and ref["ordinal"] >= 0, "lineage")
+                entries.append((ref["id"], ref["ordinal"]))
+            require(len(set(entries)) == len(entries), "lineage")
+            sides[side] = entries
+        provenance = assertion["provenance"]
+        require(isinstance(provenance, dict), "lineage")
+        fields(provenance, "basis authority_ref algorithm confidence")
+        require(provenance["basis"] in ("authored", "algorithmic", "unknown"), "lineage")
+        if provenance["basis"] == "authored":
+            require(text(provenance["authority_ref"]) and provenance["algorithm"] is None, "lineage")
+        elif provenance["basis"] == "algorithmic":
+            algorithm = provenance["algorithm"]
+            require(provenance["authority_ref"] is None and isinstance(algorithm, dict), "lineage")
+            fields(algorithm, "id version")
+            require(text(algorithm["id"]) and text(algorithm["version"]), "lineage")
+        else:
+            require(provenance["authority_ref"] is None and provenance["algorithm"] is None, "lineage")
+        confidence = provenance["confidence"]
+        require(confidence is None or (isinstance(confidence, (int, float))
+                and 0 <= confidence <= 1), "lineage")
+        if assertion["status"] == "asserted":
+            require(sides["from"] and sides["to"], "lineage")
+            require(all(ref in prior_refs for ref in sides["from"]), "lineage")
+            require(all(ref in current_refs for ref in sides["to"]), "lineage")
+            if assertion["kind"] == "reorder":
+                from_hashes = sorted(prior_refs[ref]["content_hash"] for ref in sides["from"])
+                to_hashes = sorted(current_refs[ref]["content_hash"] for ref in sides["to"])
+                require(from_hashes == to_hashes, "lineage")
+
+
 def verify(envelope, context, state):
     """Verify designed evidence against trusted local context; mutate only on success."""
     fields(envelope, "schema payload_json payload_digest")
@@ -172,6 +220,8 @@ def verify(envelope, context, state):
         require("source_time_start" in payload and "source_time_end" in payload, "time")
     if "embedding_contract" in payload:
         allowed.add("embedding_contract")
+    if "lineage" in payload:
+        allowed.add("lineage")
     require(isinstance(payload, dict) and set(payload) == allowed, "fields")
     producer, scope = payload["producer"], payload["scope"]
     fields(producer, "id version contract_ref")
@@ -279,6 +329,9 @@ def verify(envelope, context, state):
     for ref in [scan["checkpoint_ref"], final, *payload["evidence_refs"]]:
         require(ref is None or (text(ref) and ref in context["evidence_refs"]), "evidence")
     current, deleted = legacy_inventory(legacy, legacy_ref["dialect"], prior)
+    lineage = payload.get("lineage")
+    if lineage is not None:
+        verify_lineage(lineage, prior, current)
     deletion = payload["deletion"]
     fields(deletion, "mode authority_ref targets")
     mode = deletion["mode"]

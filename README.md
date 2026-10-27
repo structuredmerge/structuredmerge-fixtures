@@ -50,6 +50,15 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Asserted lineage fixtures (slice 1053)
+
+`diagnostics/slice-1053-asserted-lineage/contract.json` contains
+designed examples for the asserted-lineage section of
+`INGEST_OBSERVATION_CONTRACT.md`: typed move/copy/split/reorder
+assertions with provenance and membership checks, independent re-entry
+vs copy, ambiguous uncertainty, and four rejection cases. Same run
+commands; the harness loads all ingest-observation corpora.
+
 ## Evidence retention fixtures (slice 1051)
 
 `diagnostics/slice-1051-evidence-retention-integrity/contract.json`

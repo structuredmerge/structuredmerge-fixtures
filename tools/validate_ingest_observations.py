@@ -312,7 +312,21 @@ def verify(envelope, context, state):
         # observation of the same projection: evidence must agree, and the
         # head does not advance.
         require(retained.get("projection") == projection_evidence, "revision")
-    decision = {"authorized_delete_ids": deletion["targets"], "replay": False}
+    decision = {
+        "authorized_delete_ids": deletion["targets"],
+        "tombstones": [
+            {
+                "target": target,
+                "prior_revision_ref": head,
+                "cause": mode,
+                "observation_id": payload["observation_id"],
+                "revision_ref": payload["revision_ref"],
+                "authority_ref": deletion["authority_ref"],
+            }
+            for target in deletion["targets"]
+        ],
+        "replay": False,
+    }
     # Commit local model state only after every proof has passed. This is not a runtime store.
     state.setdefault("accepted", {})[key] = {"digest": envelope["payload_digest"], "decision": decision}
     state["head"] = payload["revision_ref"]

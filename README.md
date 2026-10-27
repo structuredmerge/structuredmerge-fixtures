@@ -50,6 +50,17 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Tombstone and compatibility fixtures (slice 1050)
+
+`diagnostics/slice-1050-tombstones-atomicity-compatibility/contract.json`
+contains designed examples for the tombstone/atomicity/compatibility
+section of `INGEST_OBSERVATION_CONTRACT.md`: derived tombstone records
+(scope, cause, authorizing observation/revision, authority), the
+overlapping upsert/delete rejection, and — via the shared harness —
+byte-preserving legacy round-trips and no-effects-on-failure for every
+rejected case. Same run commands; the harness loads all
+ingest-observation corpora.
+
 ## Embedding contract fixtures (slice 1049)
 
 `diagnostics/slice-1049-embedding-contract-handoff/contract.json`

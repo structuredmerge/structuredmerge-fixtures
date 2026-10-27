@@ -312,8 +312,20 @@ def verify(envelope, context, state):
         # observation of the same projection: evidence must agree, and the
         # head does not advance.
         require(retained.get("projection") == projection_evidence, "revision")
+    descriptors = [payload["prior_inventory"], payload["legacy_result"]["bytes"],
+                   payload["original"], payload["normalized"], payload["processing"]["descriptor"]]
+    retained_evidence = []
+    for item in descriptors:
+        if item is None:
+            continue
+        entry = {"domain": item["domain"], "digest": item["digest"],
+                 "via": "ref" if "ref" in item else "inline_base64"}
+        if "ref" in item:
+            entry["ref"] = item["ref"]
+        retained_evidence.append(entry)
     decision = {
         "authorized_delete_ids": deletion["targets"],
+        "retained_evidence": retained_evidence,
         "tombstones": [
             {
                 "target": target,

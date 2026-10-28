@@ -1,0 +1,330 @@
+{
+  "schema": "structuredmerge.residue-fixtures/v1",
+  "kind": "designed-contract-examples-not-runtime-captures",
+  "cases": [
+    {
+      "name": "jsonc-comment-only-edit-preserves-owned-identity",
+      "format": "jsonc",
+      "source": "{\n  // throttle for the ERA demo\n  \"limit\": 1,\n  \"enabled\": true\n  // keep until launch\n}\n",
+      "output": {
+        "owned": [
+          {
+            "address": "/json/paths/limit",
+            "content_hash": "sha256:6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "text": "1",
+            "start_byte": 44,
+            "end_byte": 45
+          },
+          {
+            "address": "/json/paths/enabled",
+            "content_hash": "sha256:b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+            "text": "true",
+            "start_byte": 60,
+            "end_byte": 64
+          }
+        ],
+        "residue": [
+          {
+            "address": "/json/comments/0",
+            "content_hash": "sha256:e56d4ef9fd2bbbc1bd95adcfdd78a36d3d08dc5b7882c9ed9afd460c30b1977f",
+            "text": "// throttle for the ERA demo",
+            "start_byte": 4,
+            "end_byte": 32,
+            "ordinal": 0,
+            "surface_kind": "json_residue",
+            "residue_parser": "comment",
+            "parent_address": "/json/paths/limit"
+          },
+          {
+            "address": "/json/comments/1",
+            "content_hash": "sha256:65657c12c462327f0f5d5a8a46498a22e64d54ad2c0c03906b960b2992899202",
+            "text": "// keep until launch",
+            "start_byte": 67,
+            "end_byte": 87,
+            "ordinal": 2,
+            "surface_kind": "json_residue",
+            "residue_parser": "comment",
+            "parent_address": "/json/paths/enabled"
+          }
+        ],
+        "dropped": []
+      },
+      "expect": null
+    },
+    {
+      "name": "comment-only-edit-changes-one-residue-chunk",
+      "format": "jsonc",
+      "source": "{\n  // new explanation\n  \"limit\": 1,\n  \"enabled\": true\n  // keep until launch\n}\n",
+      "variant_of": "jsonc-comment-only-edit-preserves-owned-identity",
+      "output": {
+        "owned": [
+          {
+            "address": "/json/paths/limit",
+            "content_hash": "sha256:6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "text": "1",
+            "start_byte": 34,
+            "end_byte": 35
+          },
+          {
+            "address": "/json/paths/enabled",
+            "content_hash": "sha256:b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+            "text": "true",
+            "start_byte": 50,
+            "end_byte": 54
+          }
+        ],
+        "residue": [
+          {
+            "address": "/json/comments/0",
+            "content_hash": "sha256:6a3a1720577aa12a76b8cc87bd035d46ff6fd4f02fa70f714c32a2db6857a444",
+            "text": "// new explanation",
+            "start_byte": 4,
+            "end_byte": 22,
+            "ordinal": 0,
+            "surface_kind": "json_residue",
+            "residue_parser": "comment",
+            "parent_address": "/json/paths/limit"
+          },
+          {
+            "address": "/json/comments/1",
+            "content_hash": "sha256:65657c12c462327f0f5d5a8a46498a22e64d54ad2c0c03906b960b2992899202",
+            "text": "// keep until launch",
+            "start_byte": 57,
+            "end_byte": 77,
+            "ordinal": 2,
+            "surface_kind": "json_residue",
+            "residue_parser": "comment",
+            "parent_address": "/json/paths/enabled"
+          }
+        ],
+        "dropped": []
+      },
+      "expect": null
+    },
+    {
+      "name": "trailing-comment-attaches-to-last-surface",
+      "format": "jsonc",
+      "source": "{\n  \"limit\": 1\n  // final note\n}\n",
+      "output": {
+        "owned": [
+          {
+            "address": "/json/paths/limit",
+            "content_hash": "sha256:6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "text": "1",
+            "start_byte": 13,
+            "end_byte": 14
+          }
+        ],
+        "residue": [
+          {
+            "address": "/json/comments/0",
+            "content_hash": "sha256:9ca48c9aec8b481bc955d372a108035a8c7ceaa10c2b0f1826891802342e65a3",
+            "text": "// final note",
+            "start_byte": 17,
+            "end_byte": 30,
+            "ordinal": 1,
+            "surface_kind": "json_residue",
+            "residue_parser": "comment",
+            "parent_address": "/json/paths/limit"
+          }
+        ],
+        "dropped": []
+      },
+      "expect": null
+    },
+    {
+      "name": "string-containing-comment-syntax-is-not-residue",
+      "format": "jsonc",
+      "source": "{\n  \"url\": \"https://example.com/a//b\",\n  \"limit\": 1\n}\n",
+      "output": {
+        "owned": [
+          {
+            "address": "/json/paths/url",
+            "content_hash": "sha256:bc562e14cd4fd3e0cf062750908eced1c9d6934dbc3c4b86349005483528693d",
+            "text": "\"https://example.com/a//b\"",
+            "start_byte": 11,
+            "end_byte": 37
+          },
+          {
+            "address": "/json/paths/limit",
+            "content_hash": "sha256:6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "text": "1",
+            "start_byte": 50,
+            "end_byte": 51
+          }
+        ],
+        "residue": [],
+        "dropped": []
+      },
+      "expect": null
+    },
+    {
+      "name": "undetected-residue-falls-back-to-plain-tier",
+      "format": "jsonc",
+      "source": "{\n  ???unparsed???\n  \"limit\": 1\n}\n",
+      "output": {
+        "owned": [
+          {
+            "address": "/json/paths/limit",
+            "content_hash": "sha256:6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "text": "1",
+            "start_byte": 30,
+            "end_byte": 31
+          }
+        ],
+        "residue": [
+          {
+            "address": "/json/residue/0",
+            "content_hash": "sha256:b47d35fac3f78fa68477374d2f74b840eebf4059d5929f06ba2a4767fd6b38f9",
+            "text": "???unparsed???",
+            "start_byte": 4,
+            "end_byte": 18,
+            "ordinal": 0,
+            "surface_kind": "json_residue",
+            "residue_parser": "plain",
+            "parent_address": "/json/paths/limit"
+          }
+        ],
+        "dropped": []
+      },
+      "expect": null
+    },
+    {
+      "name": "residue-silent-drop-rejected",
+      "format": "jsonc",
+      "source": "{\n  // throttle for the ERA demo\n  \"limit\": 1,\n  \"enabled\": true\n  // keep until launch\n}\n",
+      "uncovered_spans": [
+        [
+          4,
+          32
+        ]
+      ],
+      "output": {
+        "owned": [
+          {
+            "address": "/json/paths/limit",
+            "content_hash": "sha256:6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "text": "1",
+            "start_byte": 44,
+            "end_byte": 45
+          },
+          {
+            "address": "/json/paths/enabled",
+            "content_hash": "sha256:b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+            "text": "true",
+            "start_byte": 60,
+            "end_byte": 64
+          }
+        ],
+        "residue": [
+          {
+            "address": "/json/comments/1",
+            "content_hash": "sha256:65657c12c462327f0f5d5a8a46498a22e64d54ad2c0c03906b960b2992899202",
+            "text": "// keep until launch",
+            "start_byte": 67,
+            "end_byte": 87,
+            "ordinal": 2,
+            "surface_kind": "json_residue",
+            "residue_parser": "comment",
+            "parent_address": "/json/paths/enabled"
+          }
+        ],
+        "dropped": []
+      },
+      "expect": {
+        "error": "coverage"
+      }
+    },
+    {
+      "name": "residue-missing-parent-address-rejected",
+      "format": "jsonc",
+      "source": "{\n  // throttle for the ERA demo\n  \"limit\": 1,\n  \"enabled\": true\n  // keep until launch\n}\n",
+      "output": {
+        "owned": [
+          {
+            "address": "/json/paths/limit",
+            "content_hash": "sha256:6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "text": "1",
+            "start_byte": 44,
+            "end_byte": 45
+          },
+          {
+            "address": "/json/paths/enabled",
+            "content_hash": "sha256:b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+            "text": "true",
+            "start_byte": 60,
+            "end_byte": 64
+          }
+        ],
+        "residue": [
+          {
+            "address": "/json/comments/0",
+            "content_hash": "sha256:e56d4ef9fd2bbbc1bd95adcfdd78a36d3d08dc5b7882c9ed9afd460c30b1977f",
+            "text": "// throttle for the ERA demo",
+            "start_byte": 4,
+            "end_byte": 32,
+            "ordinal": 0,
+            "surface_kind": "json_residue",
+            "residue_parser": "comment"
+          }
+        ],
+        "dropped": []
+      },
+      "expect": {
+        "error": "attachment"
+      }
+    },
+    {
+      "name": "residue-edit-changing-owned-hash-rejected",
+      "format": "jsonc",
+      "source": "{\n  // new explanation\n  \"limit\": 2,\n  \"enabled\": true\n  // keep until launch\n}\n",
+      "variant_of": "jsonc-comment-only-edit-preserves-owned-identity",
+      "output": {
+        "owned": [
+          {
+            "address": "/json/paths/limit",
+            "content_hash": "sha256:d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+            "text": "2",
+            "start_byte": 34,
+            "end_byte": 35
+          },
+          {
+            "address": "/json/paths/enabled",
+            "content_hash": "sha256:b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+            "text": "true",
+            "start_byte": 50,
+            "end_byte": 54
+          }
+        ],
+        "residue": [
+          {
+            "address": "/json/comments/0",
+            "content_hash": "sha256:6a3a1720577aa12a76b8cc87bd035d46ff6fd4f02fa70f714c32a2db6857a444",
+            "text": "// new explanation",
+            "start_byte": 4,
+            "end_byte": 22,
+            "ordinal": 0,
+            "surface_kind": "json_residue",
+            "residue_parser": "comment",
+            "parent_address": "/json/paths/limit"
+          },
+          {
+            "address": "/json/comments/1",
+            "content_hash": "sha256:65657c12c462327f0f5d5a8a46498a22e64d54ad2c0c03906b960b2992899202",
+            "text": "// keep until launch",
+            "start_byte": 57,
+            "end_byte": 77,
+            "ordinal": 2,
+            "surface_kind": "json_residue",
+            "residue_parser": "comment",
+            "parent_address": "/json/paths/enabled"
+          }
+        ],
+        "dropped": []
+      },
+      "expect": {
+        "error": "identity"
+      }
+    }
+  ]
+}

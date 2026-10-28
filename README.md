@@ -50,6 +50,22 @@ Each fixture set should include the smallest useful combination of:
 - Treating Ruby's internal object model as the portable contract. Ruby behavior
   is authoritative, but portable fixtures define the cross-runtime transport.
 
+## Residue interleaving fixtures (slice 1055)
+
+`diagnostics/slice-1055-residue-interleaving/contract.json` contains
+designed examples for the residue-interleaving section of
+`RAG_INGESTION_ADAPTER_CONTRACT.md`: interleaved residue chunks
+(comments, plain-text fallback), attachment to the nearest following
+owned surface, the owned-identity invariant across comment-only edit
+variants, and coverage/attachment/identity rejections. Checked by the
+parser-free validator:
+
+```sh
+cd tools && python3 -m unittest test_validate_residue_chunks
+```
+
+The generator lives in `tmp/generate-slice-1055.py` (uncommitted).
+
 ## Incorporation decision fixtures (slice 1054)
 
 `diagnostics/slice-1054-incorporation-decisions/contract.json`

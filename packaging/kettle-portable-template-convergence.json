@@ -9,7 +9,7 @@
   "template_content": "# Shared Project\n\nPortable generated content.\n",
   "expected_content": "# Shared Project\n\nPortable generated content.\n",
   "expected_changed_files": [
-    "README.md"
+    "docs/PORTABLE.md"
   ],
   "expected_second_run_changed_files": []
 }

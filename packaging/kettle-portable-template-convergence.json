@@ -2,12 +2,14 @@
   "case_id": "kettle-portable-template-convergence-v1",
   "purpose": "Shared template content and convergence expectation for Ruby and Rust project adapters.",
   "template_source_paths": {
-    "rubygems": "templates/README.md.example",
-    "crates": "templates/custom/README.md"
+    "rubygems": "templates/docs/PORTABLE.md.example",
+    "crates": "templates/custom/docs/PORTABLE.md"
   },
-  "template_target_path": "README.md",
+  "template_target_path": "docs/PORTABLE.md",
   "template_content": "# Shared Project\n\nPortable generated content.\n",
   "expected_content": "# Shared Project\n\nPortable generated content.\n",
-  "expected_changed_files": ["README.md"],
+  "expected_changed_files": [
+    "README.md"
+  ],
   "expected_second_run_changed_files": []
 }

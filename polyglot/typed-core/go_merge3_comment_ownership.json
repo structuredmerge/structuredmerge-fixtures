@@ -1,0 +1,19 @@
+{
+  "id": "go_merge3_comment_ownership",
+  "category": "go_common_merge3",
+  "call": "go_common_merge3",
+  "description": "Independent Go owner edits preserve attached documentation comments and blank-line layout.",
+  "input": {
+    "base": "package main\n\n// owner docs\nfunc left() int { return 1 }\n\n// right docs\nfunc right() int { return 1 }\n",
+    "ours": "package main\n\n// owner docs\nfunc left() int { return 2 }\n\n// right docs\nfunc right() int { return 1 }\n",
+    "theirs": "package main\n\n// owner docs\nfunc left() int { return 1 }\n\n// right docs\nfunc right() int { return 2 }\n"
+  },
+  "assertions": [
+    {"type": "equals", "field": "ok", "value": true},
+    {
+      "type": "equals",
+      "field": "output",
+      "value": "package main\n\n// owner docs\nfunc left() int { return 2 }\n\n// right docs\nfunc right() int { return 2 }\n"
+    }
+  ]
+}

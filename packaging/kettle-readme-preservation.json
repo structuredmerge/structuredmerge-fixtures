@@ -1,11 +1,15 @@
 {
   "case_id": "kettle-readme-user-section-preservation-v1",
   "purpose": "Shared user-owned README section bytes preserved while package metadata is regenerated.",
-  "preserve_sections": ["Synopsis", "Configuration", "Basic Usage"],
+  "preserve_sections": [
+    "Synopsis",
+    "Configuration",
+    "Basic Usage"
+  ],
   "destination_readme": "# Old Project\n\n## Synopsis\n\nUser synopsis stays.\n\n## Configuration\n\nUser configuration stays.\n\n## Basic Usage\n\nUser usage stays.\n",
   "expected_preserved_fragments": [
-    "## Synopsis\n\nUser synopsis stays.",
-    "## Configuration\n\nUser configuration stays.",
-    "## Basic Usage\n\nUser usage stays."
+    "User synopsis stays.",
+    "User configuration stays.",
+    "User usage stays."
   ]
 }

@@ -1,0 +1,42 @@
+{
+  "id": "ast_merge_removed_owner_inline_promotion",
+  "contract": "ast_merge_removed_owner_inline_promotion",
+  "description": "Shared rules for promoting an inline comment when a supported single-line owner is removed.",
+  "rules": {
+    "required_owner_shape": "single_line",
+    "eligible_owner_kinds": [
+      "command",
+      "variable_assignment"
+    ],
+    "comment_emission": "source_indentation_plus_raw_comment",
+    "emitted_line_ending": "LF"
+  },
+  "cases": [
+    {
+      "name": "indented_variable_assignment_crlf_source",
+      "template": "retained=2\r\n",
+      "source": "  APP_MODE=destination # inline docs\r\nretained=2\r\n",
+      "removed_owner": {
+        "id": "removed",
+        "kind": "variable_assignment",
+        "start_line": 1,
+        "end_line": 1
+      },
+      "retained_owner": {
+        "id": "retained",
+        "line": 2
+      },
+      "inline_comment": {
+        "id": "inline",
+        "kind": "inline",
+        "owner_id": "removed",
+        "line": 1,
+        "raw": "# inline docs"
+      },
+      "expected": {
+        "promoted_comment_fragment": "  # inline docs\n",
+        "output": "  # inline docs\nretained=2\n"
+      }
+    }
+  ]
+}

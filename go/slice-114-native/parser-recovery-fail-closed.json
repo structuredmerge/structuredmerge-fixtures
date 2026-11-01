@@ -16,6 +16,22 @@
     {
       "name": "recovered-struct-declaration",
       "source": "package main\ntype Broken struct { Field int\nfunc Later() {}\n"
+    },
+    {
+      "name": "recovered-import-group",
+      "source": "package main\nimport (\n\"fmt\"\n"
+    },
+    {
+      "name": "recovered-const-group",
+      "source": "package main\nconst (\n A = 1\n B =\n)\n"
+    },
+    {
+      "name": "recovered-composite-literal",
+      "source": "package main\nfunc Broken() { _ = []int{1, 2\n}\nfunc Later() {}\n"
+    },
+    {
+      "name": "recovered-method-receiver",
+      "source": "package main\ntype T struct{}\nfunc (t *T M() {}\n"
     }
   ],
   "expected": {

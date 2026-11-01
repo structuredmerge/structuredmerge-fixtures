@@ -33,6 +33,38 @@
       "theirs_source": "package main\ntype Broken struct { Field int\nfunc Later() {}\n",
       "malformed_source": "package main\ntype Broken struct { Field int\nfunc Later() {}\n",
       "failed_role": "theirs"
+    },
+    {
+      "base_source": "package main\n\nfunc left() int { return 1 }\n",
+      "ours_source": "package main\nimport (\n\"fmt\"\n",
+      "theirs_source": "package main\n\nfunc left() int { return 2 }\n",
+      "name": "ours-recovered-import-group",
+      "malformed_source": "package main\nimport (\n\"fmt\"\n",
+      "failed_role": "ours"
+    },
+    {
+      "base_source": "package main\n\nfunc left() int { return 1 }\n",
+      "ours_source": "package main\n\nfunc left() int { return 2 }\n",
+      "theirs_source": "package main\nconst (\n A = 1\n B =\n)\n",
+      "name": "theirs-recovered-const-group",
+      "malformed_source": "package main\nconst (\n A = 1\n B =\n)\n",
+      "failed_role": "theirs"
+    },
+    {
+      "base_source": "package main\n\nfunc left() int { return 1 }\n",
+      "ours_source": "package main\nfunc Broken() { _ = []int{1, 2\n}\nfunc Later() {}\n",
+      "theirs_source": "package main\n\nfunc left() int { return 2 }\n",
+      "name": "ours-recovered-composite-literal",
+      "malformed_source": "package main\nfunc Broken() { _ = []int{1, 2\n}\nfunc Later() {}\n",
+      "failed_role": "ours"
+    },
+    {
+      "base_source": "package main\n\nfunc left() int { return 1 }\n",
+      "ours_source": "package main\n\nfunc left() int { return 2 }\n",
+      "theirs_source": "package main\ntype T struct{}\nfunc (t *T M() {}\n",
+      "name": "theirs-recovered-method-receiver",
+      "malformed_source": "package main\ntype T struct{}\nfunc (t *T M() {}\n",
+      "failed_role": "theirs"
     }
   ],
   "expected": {

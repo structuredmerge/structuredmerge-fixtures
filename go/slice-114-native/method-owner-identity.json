@@ -4,6 +4,11 @@
   "expected": {
     "owners": [
       {
+        "path": "/package:main",
+        "owner_kind": "package",
+        "match_key": "main"
+      },
+      {
         "path": "/method:Alpha.Read",
         "owner_kind": "declaration",
         "match_key": "Alpha.Read"
@@ -12,11 +17,23 @@
         "path": "/method:Beta.Read",
         "owner_kind": "declaration",
         "match_key": "Beta.Read"
+      },
+      {
+        "path": "/type:Alpha",
+        "owner_kind": "declaration",
+        "match_key": "type:Alpha"
+      },
+      {
+        "path": "/type:Beta",
+        "owner_kind": "declaration",
+        "match_key": "type:Beta"
       }
     ],
     "declaration_texts": [
       "// Alpha.Read documents Alpha's method.\nfunc (a *Alpha) Read() string { return \"alpha\" }\n",
-      "// Beta.Read documents Beta's method.\nfunc (b Beta) Read() string { return \"beta\" }\n"
+      "// Beta.Read documents Beta's method.\nfunc (b Beta) Read() string { return \"beta\" }\n",
+      "type Alpha struct{}\n",
+      "type Beta struct{}\n"
     ],
     "merge_template": "package main\n\n// Template Alpha.Read.\nfunc (a Alpha) Read() string { return \"template\" }\n\n// Added method.\nfunc (b Beta) Write() {}\n",
     "merge_destination": "package main\n\n// Destination Alpha.Read.\nfunc (a Alpha) Read() string { return \"destination\" }\n",

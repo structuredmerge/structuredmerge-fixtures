@@ -1,0 +1,18 @@
+{
+  "dialect": "go",
+  "source": "// Package real documents the package clause.\npackage real\n\nfunc Run() {}\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/package:real",
+        "owner_kind": "package",
+        "match_key": "real"
+      },
+      {
+        "path": "/declarations/Run",
+        "owner_kind": "declaration",
+        "match_key": "Run"
+      }
+    ]
+  }
+}

@@ -4,6 +4,11 @@
   "expected": {
     "owners": [
       {
+        "path": "/package:main",
+        "owner_kind": "package",
+        "match_key": "main"
+      },
+      {
         "path": "/const_group:First,Second;Third",
         "owner_kind": "declaration",
         "match_key": "const_group:First,Second;Third"

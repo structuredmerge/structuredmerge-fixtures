@@ -1,8 +1,8 @@
 {
-  "id": "rust_analysis_rejected",
+  "id": "rust_analysis_test_attribute_accepted",
   "category": "rust_common_analyze",
   "call": "rust_common_analyze",
-  "description": "Shared typed Rust analyze: analysis_rejected",
+  "description": "Shared typed Rust analyze: accepts test attribute owner",
   "input": {
     "source": "#[test]\nfn f() {}\n"
   },
@@ -10,7 +10,12 @@
     {
       "type": "equals",
       "field": "ok",
-      "value": false
+      "value": true
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "/function:f"
     },
     {
       "type": "equals",

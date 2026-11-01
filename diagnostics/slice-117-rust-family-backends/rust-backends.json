@@ -1,4 +1,4 @@
 {
   "family": "rust",
-  "backends": ["native", "tree-sitter"]
+  "backends": ["tree-sitter", "native"]
 }

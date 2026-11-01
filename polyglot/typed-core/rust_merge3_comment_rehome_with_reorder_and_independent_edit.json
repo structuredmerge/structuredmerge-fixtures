@@ -1,0 +1,29 @@
+{
+  "id": "rust_merge3_comment_rehome_with_reorder_and_independent_edit",
+  "contract": "rust_merge3_comment_rehome_with_reorder_and_independent_edit",
+  "description": "Native syn rehomes a removed owner's ordinary comment while a retained documented owner is independently edited and reordered.",
+  "input": {
+    "base": "// Retiring owner.\nfn retiring() { 1 }\n\n/// B docs\nfn b() { 1 }\n\n// C ordinary\nfn c() { 1 }\n",
+    "ours": "// Retiring owner.\nfn retiring() { 1 }\n\n// C ordinary\nfn c() { 1 }\n/// B docs\nfn b() { 2 }\n",
+    "theirs": "// Retiring owner.\n\n/// B docs\nfn b() { 1 }\n\n// C ordinary\nfn c() { 1 }\n"
+  },
+  "expected": {
+    "outcome": "clean",
+    "output": "// Retiring owner.\n\n// C ordinary\nfn c() { 1 }\n/// B docs\nfn b() { 2 }\n",
+    "ruby_native": {
+      "ok": false,
+      "diagnostic_category": "merge_conflict"
+    },
+    "rust_host": {
+      "rust_tslp": {
+        "ok": false,
+        "diagnostic_code": "rust.membership_with_owner_edit",
+        "conflict_category": "ownership"
+      },
+      "rust_syn": {
+        "ok": true,
+        "output": "// Retiring owner.\n\n// C ordinary\nfn c() { 1 }\n/// B docs\nfn b() { 2 }\n"
+      }
+    }
+  }
+}

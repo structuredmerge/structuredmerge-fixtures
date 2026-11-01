@@ -32,6 +32,10 @@
     {
       "name": "recovered-method-receiver",
       "source": "package main\ntype T struct{}\nfunc (t *T M() {}\n"
+    },
+    {
+      "name": "recovered-type-alias",
+      "source": "package main\ntype Broken =\nfunc Later() {}\n"
     }
   ],
   "expected": {

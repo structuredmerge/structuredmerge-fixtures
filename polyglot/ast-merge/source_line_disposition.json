@@ -391,6 +391,97 @@
           "root_region_kind": null
         }
       ]
+    },
+    {
+      "name": "root_comment_inside_owner_span_remains_in_that_owner_source",
+      "source": "extern \"C\" {\n    // nested comment\n}\nfn value() {}\n",
+      "style": "c_style_line",
+      "owners": [
+        {
+          "id": "foreign",
+          "start_line": 1,
+          "end_line": 3,
+          "indent": 0
+        },
+        {
+          "id": "value",
+          "start_line": 4,
+          "end_line": 4,
+          "indent": 0
+        }
+      ],
+      "comments": [
+        {
+          "line": 2,
+          "text": "// nested comment",
+          "normalized_content": "nested comment",
+          "full_line": true,
+          "indent": 4
+        }
+      ],
+      "comment_regions": [
+        {
+          "id": "comment-region:orphan:2-2",
+          "owner_id": null,
+          "kind": "orphan",
+          "start_line": 2,
+          "end_line": 2,
+          "selection_key": "root:orphan:0"
+        }
+      ],
+      "layout_gaps": [],
+      "expected": [
+        {
+          "line_number": 1,
+          "line": "extern \"C\" {\n",
+          "kind": "structural_owner",
+          "owner_id": "foreign",
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null,
+          "selection_key": "owner:foreign"
+        },
+        {
+          "line_number": 2,
+          "line": "    // nested comment\n",
+          "kind": "structural_owner",
+          "owner_id": "foreign",
+          "comment_region_ids": [
+            "comment-region:orphan:2-2"
+          ],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": "orphan",
+          "selection_key": "owner:foreign"
+        },
+        {
+          "line_number": 3,
+          "line": "}\n",
+          "kind": "structural_owner",
+          "owner_id": "foreign",
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null,
+          "selection_key": "owner:foreign"
+        },
+        {
+          "line_number": 4,
+          "line": "fn value() {}\n",
+          "kind": "structural_owner",
+          "owner_id": "value",
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null,
+          "selection_key": "owner:value"
+        }
+      ]
     }
   ]
 }

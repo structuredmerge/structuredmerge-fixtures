@@ -1,0 +1,25 @@
+{
+  "dialect": "go",
+  "source": "package main\n\ntype Alpha struct{}\ntype Beta struct{}\n\n// Alpha.Read documents Alpha's method.\nfunc (a *Alpha) Read() string { return \"alpha\" }\n\n// Beta.Read documents Beta's method.\nfunc (b Beta) Read() string { return \"beta\" }\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/method:Alpha.Read",
+        "owner_kind": "declaration",
+        "match_key": "Alpha.Read"
+      },
+      {
+        "path": "/method:Beta.Read",
+        "owner_kind": "declaration",
+        "match_key": "Beta.Read"
+      }
+    ],
+    "declaration_texts": [
+      "// Alpha.Read documents Alpha's method.\nfunc (a *Alpha) Read() string { return \"alpha\" }\n",
+      "// Beta.Read documents Beta's method.\nfunc (b Beta) Read() string { return \"beta\" }\n"
+    ],
+    "merge_template": "package main\n\n// Template Alpha.Read.\nfunc (a Alpha) Read() string { return \"template\" }\n\n// Added method.\nfunc (b Beta) Write() {}\n",
+    "merge_destination": "package main\n\n// Destination Alpha.Read.\nfunc (a Alpha) Read() string { return \"destination\" }\n",
+    "merge_output": "// Destination Alpha.Read.\nfunc (a Alpha) Read() string { return \"destination\" }\n\n// Added method.\nfunc (b Beta) Write() {}\n"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "ast_merge_native_owner_prefix_ownership",
+  "contract": "ast_merge_native_owner_prefix_ownership",
+  "description": "A parser-backed shared contract for outer documentation and attributes attached to one declaration owner across blank lines.",
+  "cases": [
+    {
+      "name": "outer documentation and spaced attribute prefix",
+      "family": "rust",
+      "source": "#![allow(dead_code)]\n\n/// docs\n\n#[cold]\n\nfn stable() {}\n",
+      "owner_path": "/function:stable",
+      "owner_source": "/// docs\n\n#[cold]\n\nfn stable() {}",
+      "owner_line_range": [
+        3,
+        7
+      ],
+      "owner_node_kinds": [
+        "attribute_item",
+        "function_item"
+      ],
+      "attached_comment_texts": [
+        "/// docs"
+      ],
+      "owner_byte_range": [
+        22,
+        55
+      ]
+    },
+    {
+      "name": "attribute precedes structural documentation",
+      "family": "rust",
+      "source": "#[cold]\n/// docs\n\nfn stable() {}\n",
+      "owner_path": "/function:stable",
+      "owner_source": "#[cold]\n/// docs\n\nfn stable() {}",
+      "owner_line_range": [
+        1,
+        4
+      ],
+      "owner_node_kinds": [
+        "attribute_item",
+        "function_item"
+      ],
+      "attached_comment_texts": [
+        "/// docs"
+      ],
+      "owner_byte_range": [
+        0,
+        32
+      ]
+    }
+  ]
+}

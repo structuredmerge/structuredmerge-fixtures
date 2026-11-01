@@ -336,6 +336,65 @@
           }
         }
       ]
+    },
+    {
+      "name": "structural documentation comment crosses a blank line to its owner",
+      "source": "fn alpha() {}\n// Beta documentation\n\nfn beta() {}\n",
+      "style": "c_style_line",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 1,
+          "end_line": 1
+        },
+        {
+          "id": "beta",
+          "start_line": 4,
+          "end_line": 4
+        }
+      ],
+      "comments": [
+        {
+          "line": 2,
+          "text": "// Beta documentation",
+          "normalized_content": "Beta documentation",
+          "full_line": true,
+          "indent": 0,
+          "structural_prefix": true
+        }
+      ],
+      "policies": [
+        {
+          "id": "preceding_owner",
+          "expected": {
+            "leading_by_owner": {
+              "alpha": null,
+              "beta": null
+            },
+            "trailing_by_owner": {
+              "alpha": "Beta documentation",
+              "beta": null
+            },
+            "postlude": null,
+            "orphans": []
+          }
+        },
+        {
+          "id": "following_owner",
+          "expected": {
+            "leading_by_owner": {
+              "alpha": null,
+              "beta": "Beta documentation"
+            },
+            "trailing_by_owner": {
+              "alpha": null,
+              "beta": null
+            },
+            "postlude": null,
+            "orphans": []
+          }
+        }
+      ]
     }
   ]
 }

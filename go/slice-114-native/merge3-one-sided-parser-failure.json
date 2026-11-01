@@ -1,0 +1,28 @@
+{
+  "dialect": "go",
+  "operation": "merge3",
+  "cases": [
+    {
+      "name": "ours-partial-expression",
+      "base_source": "package main\n\nfunc left() int { return 1 }\n",
+      "ours_source": "package main\nfunc Broken() { value := }\n",
+      "theirs_source": "package main\n\nfunc left() int { return 2 }\n",
+      "malformed_source": "package main\nfunc Broken() { value := }\n",
+      "failed_role": "ours"
+    },
+    {
+      "name": "theirs-partial-parameter-list",
+      "base_source": "package main\n\nfunc left() int { return 1 }\n",
+      "ours_source": "package main\n\nfunc left() int { return 2 }\n",
+      "theirs_source": "package main\nfunc Broken(first int second string) {}\n",
+      "malformed_source": "package main\nfunc Broken(first int second string) {}\n",
+      "failed_role": "theirs"
+    }
+  ],
+  "expected": {
+    "ok": false,
+    "category": "parse_error",
+    "output": null,
+    "conflicted_output": null
+  }
+}

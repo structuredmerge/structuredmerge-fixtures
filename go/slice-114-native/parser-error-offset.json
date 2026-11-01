@@ -1,0 +1,8 @@
+{
+  "dialect": "go",
+  "source": "func Ready() {}\n\nfunc Broken() {\n  return 1\n",
+  "expected": {
+    "category": "parse_error",
+    "message_prefix": "input.go:4:"
+  }
+}

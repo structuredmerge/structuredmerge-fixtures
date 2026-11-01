@@ -1,7 +1,7 @@
 {
   "id": "ast_merge_source_line_addition_selection",
   "contract": "ast_merge_source_line_addition_selection",
-  "description": "A template-only owner carries its leading blank-line gap when appended after destination owners.",
+  "description": "A template-only owner carries every gap controlled by it, including its leading interstitial gap and trailing postlude, when appended after destination owners.",
   "baseline_revision": "ours",
   "documents": [
     {
@@ -20,7 +20,7 @@
     },
     {
       "revision": "theirs",
-      "source": "fn shared() {}\n\nfn added() {}\n",
+      "source": "fn shared() {}\n\nfn added() {}\n\n",
       "owners": [
         {
           "id": "shared",
@@ -46,6 +46,17 @@
           "before_owner_id": "shared",
           "after_owner_id": "added",
           "controller_side": "after",
+          "controller_owner_id": "added"
+        },
+        {
+          "id": "layout-gap:4-4",
+          "selection_key": "gap:postlude:added:root",
+          "kind": "postlude",
+          "start_line": 4,
+          "end_line": 4,
+          "before_owner_id": "added",
+          "after_owner_id": null,
+          "controller_side": "before",
           "controller_owner_id": "added"
         }
       ]
@@ -74,8 +85,12 @@
       {
         "selection_key": "owner:added",
         "revision": "theirs"
+      },
+      {
+        "selection_key": "gap:postlude:added:root",
+        "revision": "theirs"
       }
     ],
-    "content": "pub fn shared() {}\n\nfn added() {}\n"
+    "content": "pub fn shared() {}\n\nfn added() {}\n\n"
   }
 }

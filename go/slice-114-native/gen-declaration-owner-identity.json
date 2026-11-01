@@ -1,0 +1,31 @@
+{
+  "dialect": "go",
+  "source": "package main\n\n// Shared types.\ntype (\n\tAlpha int\n\tBeta string\n)\n\n// Shared constants.\nconst (\n\tFirst, Second = 1, 2\n\tThird = 3\n)\n\n// Shared variables.\nvar (\n\tLeft, Right = 4, 5\n\tOther = 6\n)\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/const_group:First,Second;Third",
+        "owner_kind": "declaration",
+        "match_key": "const_group:First,Second;Third"
+      },
+      {
+        "path": "/type_group:Alpha;Beta",
+        "owner_kind": "declaration",
+        "match_key": "type_group:Alpha;Beta"
+      },
+      {
+        "path": "/var_group:Left,Right;Other",
+        "owner_kind": "declaration",
+        "match_key": "var_group:Left,Right;Other"
+      }
+    ],
+    "declaration_texts": [
+      "// Shared constants.\nconst (\n\tFirst, Second = 1, 2\n\tThird = 3\n)\n",
+      "// Shared types.\ntype (\n\tAlpha int\n\tBeta string\n)\n",
+      "// Shared variables.\nvar (\n\tLeft, Right = 4, 5\n\tOther = 6\n)\n"
+    ],
+    "merge_template": "package main\n\n// New type group.\ntype (\n\tAdded int\n\tShared string\n)\n\n// New variables.\nvar (\n\tNewLeft, NewRight = 7, 8\n)\n",
+    "merge_destination": "package main\n\n// Existing type group.\ntype (\n\tShared bool\n\tKept float64\n)\n",
+    "merge_output": "// Existing type group.\ntype (\n\tShared bool\n\tKept float64\n)\n\n// New type group.\ntype (\n\tAdded int\n\tShared string\n)\n\n// New variables.\nvar (\n\tNewLeft, NewRight = 7, 8\n)\n"
+  }
+}

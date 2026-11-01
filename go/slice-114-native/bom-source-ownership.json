@@ -8,8 +8,11 @@
         "declaration_path": "/declarations/Greet",
         "declaration_text": "﻿func Greet() {}\n",
         "ruby_treesitter_category": "parse_error",
-        "rust_treesitter_category": "unsupported_feature"
-      }
+        "rust_treesitter_category": "unsupported_feature",
+        "merge_output": "﻿func Existing() {}\n\nfunc Added() {}\n"
+      },
+      "merge_template": "﻿func Added() {}\n",
+      "merge_destination": "﻿func Existing() {}\n"
     },
     {
       "name": "bom-package-file",

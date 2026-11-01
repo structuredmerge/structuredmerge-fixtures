@@ -2,7 +2,7 @@
   "id": "rust_diff_use",
   "category": "rust_common_diff",
   "call": "rust_common_diff",
-  "description": "Shared typed Rust diff: diff_use",
+  "description": "Native Rust diff identifies a changed use item as a deleted owner plus an added owner.",
   "input": {
     "before": "use std::fmt;\n// é\nfn f() -> i32 { 1 }\nfn g() -> i32 { 1 }\n",
     "after": "use std::io;\n// é\nfn f() -> i32 { 1 }\nfn g() -> i32 { 1 }\n"
@@ -16,11 +16,31 @@
     {
       "type": "count_equals",
       "field": "changes",
-      "value": 1
+      "value": 3
     },
     {
       "type": "equals",
-      "field": "changes[0].subject_ref",
+      "field": "changes[0].classification",
+      "value": "deleted"
+    },
+    {
+      "type": "equals",
+      "field": "changes[0].path",
+      "value": "/use:std::fmt"
+    },
+    {
+      "type": "equals",
+      "field": "changes[1].classification",
+      "value": "added"
+    },
+    {
+      "type": "equals",
+      "field": "changes[1].path",
+      "value": "/use:std::io"
+    },
+    {
+      "type": "equals",
+      "field": "changes[2].subject_ref",
       "value": "document"
     }
   ]

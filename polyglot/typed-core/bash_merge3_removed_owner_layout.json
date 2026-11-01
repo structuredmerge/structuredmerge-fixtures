@@ -1,14 +1,14 @@
 {
   "id": "bash_merge3_removed_owner_layout",
   "contract": "bash_merge3_removed_owner_layout",
-  "description": "A removed variable owner leaves its leading comment as the following function's leading region while an independent function edit is selected.",
+  "description": "Deleting a commented Bash variable while editing a function preserves the leading comment and stable preamble and postlude lines.",
   "input": {
-    "base": "# x docs\nx=1\n\nf() { :; }\n",
-    "ours": "# x docs\nx=1\n\nf() { echo changed; }\n",
-    "theirs": "# x docs\n\nf() { :; }\n"
+    "base": "# file preamble\n\n# x docs\nx=1\n\nf() { :; }\n\n# file postlude\n",
+    "ours": "# file preamble\n\n# x docs\nx=1\n\nf() { echo changed; }\n\n# file postlude\n",
+    "theirs": "# file preamble\n\n# x docs\n\nf() { :; }\n\n# file postlude\n"
   },
   "expected": {
     "ok": true,
-    "output": "# x docs\n\nf() { echo changed; }\n"
+    "output": "# file preamble\n\n# x docs\n\nf() { echo changed; }\n\n# file postlude\n"
   }
 }

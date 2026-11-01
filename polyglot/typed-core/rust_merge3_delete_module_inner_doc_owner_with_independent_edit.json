@@ -1,0 +1,31 @@
+{
+  "id": "rust_merge3_delete_module_inner_doc_owner_with_independent_edit",
+  "contract": "rust_merge3_delete_module_inner_doc_owner_with_independent_edit",
+  "description": "Deleting a Rust module removes its inner documentation with the module while preserving an independent edit and retained item docs.",
+  "input": {
+    "base": "mod retiring {\n    //! Retiring module docs.\n    fn inner() {}\n}\n\n/// Stable API.\nfn stable() { 1 }\n",
+    "ours": "mod retiring {\n    //! Retiring module docs.\n    fn inner() {}\n}\n\n/// Stable API.\nfn stable() { 2 }\n",
+    "theirs": "/// Stable API.\nfn stable() { 1 }\n"
+  },
+  "expected": {
+    "outcome": "clean",
+    "output": "/// Stable API.\nfn stable() { 2 }\n"
+  },
+  "ruby_native_expected": {
+    "outcome": "conflict",
+    "diagnostic_category": "merge_conflict",
+    "conflict_category": "unmanaged_source_change"
+  },
+  "rust_host_expected": {
+    "rust_tslp": {
+      "outcome": "conflict",
+      "diagnostic_category": "merge_conflict",
+      "diagnostic_code": "rust.membership_with_owner_edit",
+      "conflict_category": "ownership"
+    },
+    "rust_syn": {
+      "outcome": "clean",
+      "output": "/// Stable API.\nfn stable() { 2 }\n"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "rust_merge3_delete_owner_with_trailing_postlude_comment_and_independent_edit",
+  "contract": "rust_merge3_delete_owner_with_trailing_postlude_comment_and_independent_edit",
+  "description": "Deleting the first owner while editing a retained owner preserves a document-scoped trailing comment and its separating gap.",
+  "input": {
+    "base": "fn retiring() { 1 }\n\nfn stable() { 1 }\n\n// File footer.\n",
+    "ours": "fn retiring() { 1 }\n\nfn stable() { 2 }\n\n// File footer.\n",
+    "theirs": "fn stable() { 1 }\n\n// File footer.\n"
+  },
+  "expected": {
+    "outcome": "clean",
+    "output": "fn stable() { 2 }\n\n// File footer.\n"
+  },
+  "ruby_native_expected": {
+    "outcome": "conflict",
+    "diagnostic_category": "merge_conflict",
+    "conflict_category": "unmanaged_source_change"
+  },
+  "rust_host_expected": {
+    "rust_tslp": {
+      "outcome": "conflict",
+      "diagnostic_category": "merge_conflict",
+      "diagnostic_code": "rust.membership_with_owner_edit",
+      "conflict_category": "ownership"
+    },
+    "rust_syn": {
+      "outcome": "clean",
+      "output": "fn stable() { 2 }\n\n// File footer.\n"
+    }
+  }
+}

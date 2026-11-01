@@ -3,13 +3,15 @@
   "contract": "rust_impl_concrete_generic_identity_merge3",
   "description": "Native syn owner identity preserves concrete generic arguments and non-path targets so distinct valid impls remain independently mergeable; the Ruby Tree-sitter owner projection still reports these concrete generic impls as ambiguous.",
   "input": {
-    "base": "trait Convert<T> {}\ntrait Marker {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 1 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl<X> Convert<Vec<X>> for Value<Vec<X>> {}\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 1 }\n",
-    "ours": "trait Convert<T> {}\ntrait Marker {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 2 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl<X> Convert<Vec<X>> for Value<Vec<X>> {}\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 1 }\n",
-    "theirs": "trait Convert<T> {}\ntrait Marker {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 1 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl<Y> Convert<Vec<Y>> for Value<Vec<Y>> {}\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 2 }\n"
+    "base": "trait Convert<T> {}\ntrait Marker {}\ntrait Borrowed<T> {}\nstruct BorrowedValue<T>(T);\nimpl<T> Borrowed<T> for BorrowedValue<T> {}\nimpl<T> Borrowed<T> for &BorrowedValue<T> {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 1 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl<X> Convert<Vec<X>> for Value<Vec<X>> {}\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 1 }\n",
+    "ours": "trait Convert<T> {}\ntrait Marker {}\ntrait Borrowed<T> {}\nstruct BorrowedValue<T>(T);\nimpl<T> Borrowed<T> for BorrowedValue<T> {}\nimpl<T> Borrowed<T> for &BorrowedValue<T> {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 2 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl<X> Convert<Vec<X>> for Value<Vec<X>> {}\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 1 }\n",
+    "theirs": "trait Convert<T> {}\ntrait Marker {}\ntrait Borrowed<T> {}\nstruct BorrowedValue<T>(T);\nimpl<T> Borrowed<T> for BorrowedValue<T> {}\nimpl<T> Borrowed<T> for &BorrowedValue<T> {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 1 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl<Y> Convert<Vec<Y>> for Value<Vec<Y>> {}\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 2 }\n"
   },
   "expected": {
-    "output": "trait Convert<T> {}\ntrait Marker {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 2 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl<Y> Convert<Vec<Y>> for Value<Vec<Y>> {}\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 2 }\n",
+    "output": "trait Convert<T> {}\ntrait Marker {}\ntrait Borrowed<T> {}\nstruct BorrowedValue<T>(T);\nimpl<T> Borrowed<T> for BorrowedValue<T> {}\nimpl<T> Borrowed<T> for &BorrowedValue<T> {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 2 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl<Y> Convert<Vec<Y>> for Value<Vec<Y>> {}\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 2 }\n",
     "impl_owner_paths": [
+      "/impl:Borrowed|BorrowedValue|positive|1",
+      "/impl:Borrowed|& BorrowedValue < __sm_type_0 >|positive|1",
       "/impl:Convert < u8 >|Value < u8 >|positive|0",
       "/impl:Convert < String >|Value < String >|positive|0",
       "/impl:Convert < Vec < __sm_type_0 >>|Value < Vec < __sm_type_0 >>|positive|1",

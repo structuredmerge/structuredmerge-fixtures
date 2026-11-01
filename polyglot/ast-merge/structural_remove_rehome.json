@@ -1,0 +1,171 @@
+{
+  "id": "ast_merge_structural_remove_rehome",
+  "contract": "ast_merge_structural_remove_rehome",
+  "description": "Shared removal splice and comment/layout fragment promotion contract.",
+  "cases": [
+    {
+      "name": "split_fragments_across_both_boundaries",
+      "source": "before\nremove\nafter\n",
+      "remove_start_line": 2,
+      "remove_end_line": 2,
+      "boundaries": {
+        "leading": {
+          "owner_id": "before",
+          "edge": "leading"
+        },
+        "trailing": {
+          "owner_id": "after",
+          "edge": "trailing"
+        }
+      },
+      "removed_attachments": [
+        {
+          "owner_id": "removed",
+          "leading_region_id": "leading",
+          "inline_region_id": "inline",
+          "orphan_region_ids": [
+            "orphan"
+          ],
+          "trailing_region_id": "trailing",
+          "leading_gap_id": "leading-gap",
+          "trailing_gap_id": "trailing-gap"
+        }
+      ],
+      "expected": {
+        "merged": "before\nafter\n",
+        "removed_owner_ids": [
+          "removed"
+        ],
+        "retained_owner_ids": [
+          "before",
+          "after"
+        ],
+        "promoted_comment_region_ids": [
+          "leading",
+          "inline",
+          "orphan",
+          "trailing"
+        ],
+        "promoted_layout_gap_ids": [
+          "leading-gap",
+          "trailing-gap"
+        ],
+        "plans": [
+          {
+            "source_owner_id": "removed",
+            "target_owner_id": "before",
+            "edge": "leading",
+            "kind": "leading",
+            "comment_region_ids": [
+              "leading"
+            ],
+            "layout_gap_ids": [
+              "leading-gap"
+            ]
+          },
+          {
+            "source_owner_id": "removed",
+            "target_owner_id": "before",
+            "edge": "leading",
+            "kind": "ambiguous",
+            "comment_region_ids": [
+              "inline",
+              "orphan"
+            ],
+            "layout_gap_ids": []
+          },
+          {
+            "source_owner_id": "removed",
+            "target_owner_id": "after",
+            "edge": "trailing",
+            "kind": "trailing",
+            "comment_region_ids": [
+              "trailing"
+            ],
+            "layout_gap_ids": [
+              "trailing-gap"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "falls_back_to_trailing_boundary",
+      "source": "remove\nafter\n",
+      "remove_start_line": 1,
+      "remove_end_line": 1,
+      "boundaries": {
+        "leading": null,
+        "trailing": {
+          "owner_id": "after",
+          "edge": "trailing"
+        }
+      },
+      "removed_attachments": [
+        {
+          "owner_id": "removed",
+          "leading_region_id": "leading",
+          "leading_gap_id": "leading-gap"
+        }
+      ],
+      "expected": {
+        "merged": "after\n",
+        "removed_owner_ids": [
+          "removed"
+        ],
+        "retained_owner_ids": [
+          "after"
+        ],
+        "promoted_comment_region_ids": [
+          "leading"
+        ],
+        "promoted_layout_gap_ids": [
+          "leading-gap"
+        ],
+        "plans": [
+          {
+            "source_owner_id": "removed",
+            "target_owner_id": "after",
+            "edge": "trailing",
+            "kind": "leading",
+            "comment_region_ids": [
+              "leading"
+            ],
+            "layout_gap_ids": [
+              "leading-gap"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "does_not_rehome_when_no_boundary_survives",
+      "source": "remove",
+      "remove_start_line": 1,
+      "remove_end_line": 1,
+      "boundaries": {
+        "leading": null,
+        "trailing": null
+      },
+      "removed_attachments": [
+        {
+          "owner_id": "removed",
+          "inline_region_id": "inline",
+          "orphan_region_ids": [
+            "orphan"
+          ]
+        }
+      ],
+      "expected": {
+        "merged": "",
+        "removed_owner_ids": [
+          "removed"
+        ],
+        "retained_owner_ids": [],
+        "promoted_comment_region_ids": [],
+        "promoted_layout_gap_ids": [],
+        "plans": []
+      }
+    }
+  ]
+}

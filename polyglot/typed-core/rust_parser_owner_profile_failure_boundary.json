@@ -1,21 +1,27 @@
 {
   "id": "rust_parser_owner_profile_failure_boundary",
   "contract": "rust_parser_owner_profile_failure_boundary",
-  "description": "Valid Rust syntax outside the source-preserving owner profile and malformed Rust syntax both fail closed across native and Rust parser paths.",
+  "description": "Malformed Rust remains rejected. A valid foreign module now demonstrates the richer syn owner projection while the Ruby Tree-sitter provider retains its unsupported-feature boundary.",
   "cases": [
     {
-      "name": "valid foreign module remains outside current owner profile",
+      "name": "valid foreign module is supported by native syn",
       "source": "unsafe extern \"C\" { fn native_symbol(); }\n",
       "expected": {
         "ok": false,
+        "ruby_native_ok": false,
+        "rust_syn_host_ok": true,
+        "ruby_native_merge_ok": false,
+        "rust_syn_host_merge_ok": true,
+        "rust_syn_host_merge_output": "unsafe extern \"C\" { fn native_symbol(); fn second_symbol(); }\nfn stable() {}\n",
         "ruby_native_category": "unsupported_feature",
-        "rust_family_category": "unsupported_feature",
-        "rust_syn_host_category": "unsupported_feature"
+        "native_rust_ok": true,
+        "tree_sitter_rust_ok": false,
+        "rust_family_category": "unsupported_feature"
       },
       "merge3": {
-        "base": "fn stable() {}\n",
-        "ours": "unsafe extern \"C\" { fn native_symbol(); }\n",
-        "theirs": "fn stable() {}\n"
+        "base": "unsafe extern \"C\" { fn native_symbol(); }\nfn stable() {}\n",
+        "ours": "unsafe extern \"C\" { fn native_symbol(); fn second_symbol(); }\nfn stable() {}\n",
+        "theirs": "unsafe extern \"C\" { fn native_symbol(); }\nfn stable() {}\n"
       }
     },
     {

@@ -1,0 +1,28 @@
+{
+  "id": "rust_merge3_multiple_deletions_keep_preamble_comment_and_remove_attached_comment",
+  "contract": "rust_merge3_multiple_deletions_keep_preamble_comment_and_remove_attached_comment",
+  "description": "The file preamble comment stays document-owned; the ordinary comment between owners belongs to the following deleted owner and is removed with it while a retained edit composes.",
+  "input": {
+    "base": "// Retiring one.\nfn one() { 1 }\n\n// Retiring two.\nfn two() { 1 }\n\n/// Following owner.\nfn following() { 1 }\n",
+    "ours": "// Retiring one.\nfn one() { 1 }\n\n// Retiring two.\nfn two() { 1 }\n\n/// Following owner.\nfn following() { 2 }\n",
+    "theirs": "// Retiring one.\n\n// Retiring two.\n\n/// Following owner.\nfn following() { 1 }\n"
+  },
+  "expected": {
+    "outcome": "clean",
+    "output": "// Retiring one.\n\n/// Following owner.\nfn following() { 2 }\n",
+    "ruby_native": {
+      "ok": false,
+      "diagnostic_category": "merge_conflict"
+    },
+    "rust_host": {
+      "rust_tslp": {
+        "ok": false,
+        "diagnostic_code": "rust.membership_with_owner_edit"
+      },
+      "rust_syn": {
+        "ok": true,
+        "output": "// Retiring one.\n\n/// Following owner.\nfn following() { 2 }\n"
+      }
+    }
+  }
+}

@@ -34,6 +34,35 @@
     "function_line_range": [
       6,
       7
+    ],
+    "grouped_go_owners": [
+      {
+        "path": "/package:demo",
+        "owner_kind": "package",
+        "match_key": "demo"
+      },
+      {
+        "path": "/type_group:Plain;Generic",
+        "owner_kind": "declaration",
+        "match_key": "type_group:Plain;Generic"
+      }
+    ],
+    "grouped_ruby_signature": [
+      "type_group",
+      [
+        [
+          "Plain"
+        ],
+        [
+          "Generic"
+        ]
+      ]
+    ],
+    "grouped_rust_path": "/type_group:Plain;Generic",
+    "grouped_line_range": [
+      3,
+      6
     ]
-  }
+  },
+  "grouped_source": "package demo\n\ntype (\n\tPlain int\n\tGeneric[T comparable] = map[T]bool\n)\n"
 }

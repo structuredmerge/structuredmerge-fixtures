@@ -8,6 +8,16 @@
     ],
     "merge_template": "package main\n\n// Added declaration.\nfunc Added() {}\n",
     "merge_destination": "package main\n\nfunc Existing() {} // Existing keeps this trailing comment.\n",
-    "merge_output": "func Existing() {} // Existing keeps this trailing comment.\n\n// Added declaration.\nfunc Added() {}\n"
+    "merge_output": "func Existing() {} // Existing keeps this trailing comment.\n\n// Added declaration.\nfunc Added() {}\n",
+    "declaration_line_ranges": [
+      [
+        3,
+        3
+      ],
+      [
+        5,
+        6
+      ]
+    ]
   }
 }

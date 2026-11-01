@@ -248,6 +248,81 @@
         "promoted_layout_gap_ids": [],
         "plans": []
       }
+    },
+    {
+      "name": "explicit_owner_inventories_override_inference",
+      "source": "before\nremove\nafter\n",
+      "remove_start_line": 2,
+      "remove_end_line": 2,
+      "boundaries": {
+        "leading": {
+          "owner_id": "before",
+          "edge": "leading"
+        },
+        "trailing": {
+          "owner_id": "after",
+          "edge": "trailing"
+        }
+      },
+      "removed_attachments": [
+        {
+          "owner_id": "attached-owner",
+          "leading_region_id": "leading"
+        }
+      ],
+      "owner_overrides": {
+        "removed_owner_ids": [
+          "explicit-removed"
+        ],
+        "retained_owner_ids": [
+          "explicit-retained"
+        ]
+      },
+      "expected": {
+        "merged": "before\nafter\n",
+        "removed_owner_ids": [
+          "explicit-removed"
+        ],
+        "retained_owner_ids": [
+          "explicit-retained"
+        ],
+        "promoted_comment_region_ids": [
+          "leading"
+        ],
+        "promoted_layout_gap_ids": [],
+        "plans": [
+          {
+            "source_owner_id": "attached-owner",
+            "target_owner_id": "before",
+            "edge": "leading",
+            "kind": "leading",
+            "comment_region_ids": [
+              "leading"
+            ],
+            "layout_gap_ids": [],
+            "comment_attachment": {
+              "owner_id": "before",
+              "leading_region_id": null,
+              "inline_region_id": null,
+              "trailing_region_id": "leading",
+              "orphan_region_ids": [],
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "leading"
+              }
+            },
+            "layout_attachment": {
+              "owner_id": "before",
+              "leading_gap_id": null,
+              "trailing_gap_id": null,
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "leading"
+              }
+            }
+          }
+        ]
+      }
     }
   ]
 }

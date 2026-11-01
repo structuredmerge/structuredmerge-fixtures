@@ -40,7 +40,7 @@
       "layout_gaps": [
         {
           "id": "layout-gap:2-2",
-          "selection_key": "gap:header-alpha",
+          "selection_key": "gap:preamble:root:alpha",
           "kind": "preamble",
           "start_line": 2,
           "end_line": 2,
@@ -51,7 +51,7 @@
         },
         {
           "id": "layout-gap:4-4",
-          "selection_key": "gap:alpha-beta",
+          "selection_key": "gap:interstitial:alpha:beta",
           "kind": "interstitial",
           "start_line": 4,
           "end_line": 4,
@@ -99,7 +99,7 @@
       "layout_gaps": [
         {
           "id": "layout-gap:2-2",
-          "selection_key": "gap:header-alpha",
+          "selection_key": "gap:preamble:root:alpha",
           "kind": "preamble",
           "start_line": 2,
           "end_line": 2,
@@ -110,7 +110,7 @@
         },
         {
           "id": "layout-gap:4-4",
-          "selection_key": "gap:alpha-beta",
+          "selection_key": "gap:interstitial:alpha:beta",
           "kind": "interstitial",
           "start_line": 4,
           "end_line": 4,
@@ -158,7 +158,7 @@
       "layout_gaps": [
         {
           "id": "layout-gap:2-2",
-          "selection_key": "gap:header-alpha",
+          "selection_key": "gap:preamble:root:alpha",
           "kind": "preamble",
           "start_line": 2,
           "end_line": 2,
@@ -169,7 +169,7 @@
         },
         {
           "id": "layout-gap:4-4",
-          "selection_key": "gap:alpha-beta",
+          "selection_key": "gap:interstitial:alpha:beta",
           "kind": "interstitial",
           "start_line": 4,
           "end_line": 4,
@@ -187,7 +187,7 @@
       "revision": "ours"
     },
     {
-      "selection_key": "gap:header-alpha",
+      "selection_key": "gap:preamble:root:alpha",
       "revision": "ours"
     },
     {
@@ -195,8 +195,8 @@
       "revision": "ours"
     },
     {
-      "selection_key": "gap:alpha-beta",
-      "revision": "ours"
+      "selection_key": "gap:interstitial:alpha:beta",
+      "revision": "theirs"
     },
     {
       "selection_key": "owner:beta",
@@ -217,7 +217,7 @@
         "output_line": 2,
         "revision": "ours",
         "original_line": 2,
-        "selection_key": "gap:header-alpha",
+        "selection_key": "gap:preamble:root:alpha",
         "disposition_kind": "layout_gap"
       },
       {
@@ -229,9 +229,9 @@
       },
       {
         "output_line": 4,
-        "revision": "ours",
+        "revision": "theirs",
         "original_line": 4,
-        "selection_key": "gap:alpha-beta",
+        "selection_key": "gap:interstitial:alpha:beta",
         "disposition_kind": "layout_gap"
       },
       {
@@ -242,5 +242,6 @@
         "disposition_kind": "structural_owner"
       }
     ]
-  }
+  },
+  "baseline_revision": "ours"
 }

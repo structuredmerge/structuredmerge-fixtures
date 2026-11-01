@@ -20,7 +20,11 @@
         "rust_treesitter_ok": false,
         "rust_treesitter_category": "unsupported_feature",
         "rust_treesitter_merge_ok": false,
-        "rust_treesitter_merge_category": "unsupported_feature"
+        "rust_treesitter_merge_category": "unsupported_feature",
+        "native_rust_merge_ok": true,
+        "native_rust_merge_output": "unsafe extern \"C\" { fn native_symbol(); fn second_symbol(); }\nfn stable() {}\n",
+        "tree_sitter_rust_merge_ok": false,
+        "tree_sitter_rust_merge_category": "parse_error"
       },
       "merge3": {
         "base": "unsafe extern \"C\" { fn native_symbol(); }\nfn stable() {}\n",

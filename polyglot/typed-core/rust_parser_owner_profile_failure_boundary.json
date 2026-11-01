@@ -16,13 +16,18 @@
         "ruby_native_category": "unsupported_feature",
         "native_rust_ok": true,
         "tree_sitter_rust_ok": false,
-        "rust_family_category": "unsupported_feature"
+        "rust_family_category": "unsupported_feature",
+        "rust_treesitter_ok": false,
+        "rust_treesitter_category": "unsupported_feature",
+        "rust_treesitter_merge_ok": false,
+        "rust_treesitter_merge_category": "unsupported_feature"
       },
       "merge3": {
         "base": "unsafe extern \"C\" { fn native_symbol(); }\nfn stable() {}\n",
         "ours": "unsafe extern \"C\" { fn native_symbol(); fn second_symbol(); }\nfn stable() {}\n",
         "theirs": "unsafe extern \"C\" { fn native_symbol(); }\nfn stable() {}\n"
-      }
+      },
+      "description": "Native syn accepts the valid unsafe extern block, retains its foreign-module owner, and merges an independent function edit. The Ruby Tree-sitter host rejects the form as unsupported."
     },
     {
       "name": "malformed function syntax is rejected",

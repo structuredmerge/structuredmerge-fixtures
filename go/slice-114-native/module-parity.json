@@ -4,12 +4,12 @@
   "expected": {
     "owners": [
       {
-        "path": "/imports/0",
+        "path": "/import:=fmt",
         "owner_kind": "import",
         "match_key": "fmt"
       },
       {
-        "path": "/imports/1",
+        "path": "/import:=strings",
         "owner_kind": "import",
         "match_key": "strings"
       },

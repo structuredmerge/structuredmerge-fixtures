@@ -1,0 +1,24 @@
+{
+  "dialect": "go",
+  "source": "package main\n\n// Standard library imports.\nimport (\n\t\"fmt\" // formatting\n\tstrings \"strings\"\n)\n",
+  "expected": {
+    "owners": [
+      {
+        "path": "/package:main",
+        "owner_kind": "package",
+        "match_key": "main"
+      },
+      {
+        "path": "/import_group:=fmt;strings=strings",
+        "owner_kind": "import",
+        "match_key": "=fmt;strings=strings"
+      }
+    ],
+    "import_path": "/import_group:=fmt;strings=strings",
+    "import_match_key": "=fmt;strings=strings",
+    "import_text": "// Standard library imports.\nimport (\n\t\"fmt\" // formatting\n\tstrings \"strings\"\n)\n",
+    "merge_template": "package main\n\nimport (\n\t\"net/http\"\n)\n",
+    "merge_destination": "package main\n\nimport (\n\t\"os\"\n)\n",
+    "merge_output": "import (\n\t\"os\"\n)\nimport (\n\t\"net/http\"\n)\n"
+  }
+}

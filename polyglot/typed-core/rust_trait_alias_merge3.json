@@ -1,0 +1,18 @@
+{
+  "id": "rust_trait_alias_merge3",
+  "contract": "rust_trait_alias_merge3",
+  "description": "Native syn projects an unstable Rust trait alias as a named top-level owner; an alias edit merges with an independent function edit.",
+  "input": {
+    "base": "pub trait Sendable = Send + Sync;\nfn stable() -> i32 { 1 }\n",
+    "ours": "pub trait Sendable = Send + Sync + 'static;\nfn stable() -> i32 { 1 }\n",
+    "theirs": "pub trait Sendable = Send + Sync;\nfn stable() -> i32 { 2 }\n"
+  },
+  "expected": {
+    "output": "pub trait Sendable = Send + Sync + 'static;\nfn stable() -> i32 { 2 }\n",
+    "trait_alias_path": "/trait_alias:Sendable",
+    "ruby_tree_sitter_boundary": {
+      "ok": false,
+      "diagnostic_category": "parse_error"
+    }
+  }
+}

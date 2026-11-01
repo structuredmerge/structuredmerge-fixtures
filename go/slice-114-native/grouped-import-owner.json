@@ -19,6 +19,10 @@
     "import_text": "// Standard library imports.\nimport (\n\t\"fmt\" // formatting\n\tstrings \"strings\"\n)\n",
     "merge_template": "package main\n\nimport (\n\t\"net/http\"\n)\n",
     "merge_destination": "package main\n\nimport (\n\t\"os\"\n)\n",
-    "merge_output": "import (\n\t\"os\"\n)\nimport (\n\t\"net/http\"\n)\n"
+    "merge_output": "import (\n\t\"os\"\n)\nimport (\n\t\"net/http\"\n)\n",
+    "owner_line_range": [
+      3,
+      7
+    ]
   }
 }

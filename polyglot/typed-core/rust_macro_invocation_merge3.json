@@ -17,7 +17,7 @@
     "expected": {
       "ok": false,
       "ruby_native_category": "ambiguous_owner",
-      "rust_syn_host_category": "unsupported_feature",
+      "rust_syn_host_category": "ambiguous_owner",
       "owner_path": "/macro_invocation:build"
     }
   }

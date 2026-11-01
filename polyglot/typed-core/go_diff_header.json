@@ -2,7 +2,7 @@
   "id": "go_diff_header",
   "category": "go_common_diff",
   "call": "go_common_diff",
-  "description": "Shared typed Go diff contract: go_diff_header",
+  "description": "A Go package-clause rename is reported as deleted and added package owners plus a complete-source summary.",
   "input": {
     "before": "package main\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }\n",
     "after": "package other\n// é\nfunc f() { println(1) }\nfunc g() { println(1) }\n"
@@ -16,11 +16,31 @@
     {
       "type": "count_equals",
       "field": "changes",
-      "value": 1
+      "value": 3
     },
     {
       "type": "equals",
-      "field": "changes[0].subject_ref",
+      "field": "changes[0].classification",
+      "value": "deleted"
+    },
+    {
+      "type": "equals",
+      "field": "changes[0].path",
+      "value": "/package:main"
+    },
+    {
+      "type": "equals",
+      "field": "changes[1].classification",
+      "value": "added"
+    },
+    {
+      "type": "equals",
+      "field": "changes[1].path",
+      "value": "/package:other"
+    },
+    {
+      "type": "equals",
+      "field": "changes[2].subject_ref",
       "value": "document"
     }
   ]

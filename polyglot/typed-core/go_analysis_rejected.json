@@ -2,7 +2,7 @@
   "id": "go_analysis_rejected",
   "category": "go_common_analyze",
   "call": "go_common_analyze",
-  "description": "Shared typed Go analyze contract: go_analysis_rejected",
+  "description": "The Go Rust provider accepts a package-level variable owner.",
   "input": {
     "source": "package main\nvar x=1\n"
   },
@@ -10,12 +10,17 @@
     {
       "type": "equals",
       "field": "ok",
-      "value": false
+      "value": true
     },
     {
-      "type": "equals",
-      "field": "analysis",
-      "value": null
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "/package:main"
+    },
+    {
+      "type": "contains",
+      "field": "analysis.extra[owners]",
+      "value": "/var:x"
     }
   ]
 }

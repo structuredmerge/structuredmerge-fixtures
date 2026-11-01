@@ -1,0 +1,15 @@
+{
+  "dialect": "go",
+  "source": "package assets\n\nimport _ \"embed\"\n\n//go:embed assets/banner.txt\nvar banner string\n\nfunc Read() string { return banner }\n",
+  "expected": {
+    "declaration_path": "/var:banner",
+    "declaration_text": "//go:embed assets/banner.txt\nvar banner string\n",
+    "declaration_line_range": [
+      5,
+      6
+    ],
+    "merge_output": "import _ \"embed\"\n\nfunc Read() string { return banner }\n\n//go:embed assets/banner.txt\nvar banner string\n\n// Added read helper.\nfunc Added() string { return \"\" }\n"
+  },
+  "merge_template": "package assets\n\n// Added read helper.\nfunc Added() string { return \"\" }\n",
+  "merge_destination": "package assets\n\nimport _ \"embed\"\n\n//go:embed assets/banner.txt\nvar banner string\n\nfunc Read() string { return banner }\n"
+}

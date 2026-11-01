@@ -144,6 +144,26 @@
         24,
         38
       ]
+    },
+    {
+      "name": "doc attribute is native syntax attached to the item",
+      "family": "rust",
+      "source": "#[doc = \"generated docs\"]\nfn stable() {}\n",
+      "owner_path": "/function:stable",
+      "owner_source": "#[doc = \"generated docs\"]\nfn stable() {}",
+      "owner_line_range": [
+        1,
+        2
+      ],
+      "owner_node_kinds": [
+        "attribute_item",
+        "function_item"
+      ],
+      "attached_comment_texts": [],
+      "owner_byte_range": [
+        0,
+        40
+      ]
     }
   ]
 }

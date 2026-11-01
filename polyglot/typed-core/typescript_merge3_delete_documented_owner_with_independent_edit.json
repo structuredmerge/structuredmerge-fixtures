@@ -1,7 +1,7 @@
 {
   "id": "typescript_merge3_delete_documented_owner_with_independent_edit",
   "contract": "typescript_merge3_delete_documented_owner_with_independent_edit",
-  "description": "Deleting a documented TypeScript function while the other tip edits a retained function. Both providers fail closed without output; Ruby reports merge_conflict and the Rust host reports that it could not prove an accepted output.",
+  "description": "Deleting a documented TypeScript function while the other tip edits a retained function. Ruby native fails closed with merge_conflict. The Rust host selects whole source lines per owner decision (shared line-selection recovery) and merges cleanly with the JSDoc removed together with its owner, on both the Tree-sitter and oxc backends.",
   "input": {
     "base": "/** a docs */\nfunction a() {}\n\nfunction b() { return 1 }\n",
     "ours": "function b() { return 1 }\n",
@@ -12,8 +12,7 @@
     "diagnostic_category": "merge_conflict"
   },
   "rust_host_expected": {
-    "outcome": "conflict",
-    "diagnostic_category": "verification_error",
-    "diagnostic_code": "merge.not_accepted"
+    "outcome": "clean",
+    "output": "function b() { return 2 }\n"
   }
 }

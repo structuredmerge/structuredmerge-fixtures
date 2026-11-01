@@ -1,0 +1,208 @@
+{
+  "id": "ast_merge_source_line_disposition",
+  "contract": "ast_merge_source_line_disposition",
+  "description": "Each physical source line has one explicit owner, comment, layout-gap, root-region, or unmanaged disposition.",
+  "cases": [
+    {
+      "name": "comments_and_blank_gaps_have_single_line_disposition",
+      "source": "# header\n\nalpha() # inline alpha\n\nbeta()\n# footer\n",
+      "style": "hash_comment",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 3,
+          "end_line": 3,
+          "indent": 0
+        },
+        {
+          "id": "beta",
+          "start_line": 5,
+          "end_line": 5,
+          "indent": 0
+        }
+      ],
+      "comments": [
+        {
+          "line": 1,
+          "text": "# header",
+          "normalized_content": "header",
+          "full_line": true,
+          "indent": 0
+        },
+        {
+          "line": 3,
+          "text": "# inline alpha",
+          "normalized_content": "inline alpha",
+          "full_line": false,
+          "indent": 0
+        },
+        {
+          "line": 6,
+          "text": "# footer",
+          "normalized_content": "footer",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "comment_regions": [
+        {
+          "id": "comment:root:preamble:1-1",
+          "owner_id": null,
+          "kind": "preamble",
+          "start_line": 1,
+          "end_line": 1
+        },
+        {
+          "id": "comment:alpha:inline:3-3",
+          "owner_id": "alpha",
+          "kind": "inline",
+          "start_line": 3,
+          "end_line": 3
+        },
+        {
+          "id": "comment:beta:trailing:6-6",
+          "owner_id": "beta",
+          "kind": "trailing",
+          "start_line": 6,
+          "end_line": 6
+        }
+      ],
+      "layout_gaps": [
+        {
+          "id": "layout-gap:2-2",
+          "kind": "preamble",
+          "start_line": 2,
+          "end_line": 2,
+          "before_owner_id": null,
+          "after_owner_id": "alpha",
+          "controller_side": "after",
+          "controller_owner_id": "alpha"
+        },
+        {
+          "id": "layout-gap:4-4",
+          "kind": "interstitial",
+          "start_line": 4,
+          "end_line": 4,
+          "before_owner_id": "alpha",
+          "after_owner_id": "beta",
+          "controller_side": "after",
+          "controller_owner_id": "beta"
+        }
+      ],
+      "expected": [
+        {
+          "line_number": 1,
+          "line": "# header\n",
+          "kind": "root_region",
+          "owner_id": null,
+          "comment_region_ids": [
+            "comment:root:preamble:1-1"
+          ],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": "preamble"
+        },
+        {
+          "line_number": 2,
+          "line": "\n",
+          "kind": "layout_gap",
+          "owner_id": null,
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": "layout-gap:2-2",
+          "controller_owner_id": "alpha",
+          "root_region_kind": null
+        },
+        {
+          "line_number": 3,
+          "line": "alpha() # inline alpha\n",
+          "kind": "structural_owner",
+          "owner_id": "alpha",
+          "comment_region_ids": [
+            "comment:alpha:inline:3-3"
+          ],
+          "comment_kind": "inline",
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null
+        },
+        {
+          "line_number": 4,
+          "line": "\n",
+          "kind": "layout_gap",
+          "owner_id": null,
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": "layout-gap:4-4",
+          "controller_owner_id": "beta",
+          "root_region_kind": null
+        },
+        {
+          "line_number": 5,
+          "line": "beta()\n",
+          "kind": "structural_owner",
+          "owner_id": "beta",
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null
+        },
+        {
+          "line_number": 6,
+          "line": "# footer\n",
+          "kind": "comment_owner",
+          "owner_id": "beta",
+          "comment_region_ids": [
+            "comment:beta:trailing:6-6"
+          ],
+          "comment_kind": "trailing",
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null
+        }
+      ]
+    },
+    {
+      "name": "unmanaged_syntax_is_explicit",
+      "source": "alpha()\nunknown syntax\n",
+      "style": "hash_comment",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 1,
+          "end_line": 1,
+          "indent": 0
+        }
+      ],
+      "comments": [],
+      "comment_regions": [],
+      "layout_gaps": [],
+      "expected": [
+        {
+          "line_number": 1,
+          "line": "alpha()\n",
+          "kind": "structural_owner",
+          "owner_id": "alpha",
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null
+        },
+        {
+          "line_number": 2,
+          "line": "unknown syntax\n",
+          "kind": "unmanaged",
+          "owner_id": null,
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null
+        }
+      ]
+    }
+  ]
+}

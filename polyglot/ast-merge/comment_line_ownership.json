@@ -1,0 +1,145 @@
+{
+  "id": "ast_merge_comment_line_ownership",
+  "contract": "ast_merge_comment_line_ownership",
+  "description": "Shared comment-region ownership contract for preamble, floating leading, inline, following-owner leading, and trailing comments.",
+  "source": "// File header\n\n// Floats toward alpha\n\nfn alpha() {} // inline alpha\n\n// Documents beta.\nfn beta() {}\n// Postlude\n",
+  "style": "c_style_line",
+  "owners": [
+    {
+      "id": "alpha",
+      "start_line": 5,
+      "end_line": 5,
+      "indent": 0
+    },
+    {
+      "id": "beta",
+      "start_line": 8,
+      "end_line": 8,
+      "indent": 0
+    }
+  ],
+  "comments": [
+    {
+      "line": 1,
+      "text": "// File header",
+      "normalized_content": "File header",
+      "full_line": true,
+      "indent": 0
+    },
+    {
+      "line": 3,
+      "text": "// Floats toward alpha",
+      "normalized_content": "Floats toward alpha",
+      "full_line": true,
+      "indent": 0
+    },
+    {
+      "line": 5,
+      "text": "// inline alpha",
+      "normalized_content": "inline alpha",
+      "full_line": false,
+      "indent": 0
+    },
+    {
+      "line": 7,
+      "text": "// Documents beta.",
+      "normalized_content": "Documents beta.",
+      "full_line": true,
+      "indent": 0
+    },
+    {
+      "line": 9,
+      "text": "// Postlude",
+      "normalized_content": "Postlude",
+      "full_line": true,
+      "indent": 0
+    }
+  ],
+  "expected": {
+    "document_regions": {
+      "preamble": "File header",
+      "postlude": null,
+      "orphans": []
+    },
+    "attachments": [
+      {
+        "owner_id": "alpha",
+        "leading": {
+          "kind": "leading",
+          "normalized_content": "Floats toward alpha",
+          "floating": true,
+          "start_line": 3,
+          "end_line": 3
+        },
+        "inline": {
+          "kind": "inline",
+          "normalized_content": "inline alpha",
+          "floating": false,
+          "start_line": 5,
+          "end_line": 5
+        },
+        "trailing": null,
+        "leading_gap": {
+          "kind": "preamble",
+          "start_line": 4,
+          "end_line": 4
+        },
+        "trailing_gap": {
+          "kind": "postlude",
+          "start_line": 6,
+          "end_line": 6
+        }
+      },
+      {
+        "owner_id": "beta",
+        "leading": {
+          "kind": "leading",
+          "normalized_content": "Documents beta.",
+          "floating": false,
+          "start_line": 7,
+          "end_line": 7
+        },
+        "inline": null,
+        "trailing": {
+          "kind": "trailing",
+          "normalized_content": "Postlude",
+          "floating": false,
+          "start_line": 9,
+          "end_line": 9
+        },
+        "leading_gap": null,
+        "trailing_gap": null
+      }
+    ]
+  },
+  "indent_cases": [
+    {
+      "name": "unknown-owner-indent",
+      "source": "fn alpha() {}\n  // Different indentation\n",
+      "owner_indent": null,
+      "comment": {
+        "line": 2,
+        "text": "// Different indentation",
+        "normalized_content": "Different indentation",
+        "full_line": true,
+        "indent": 2
+      },
+      "expected_trailing": "Different indentation",
+      "expected_postlude": null
+    },
+    {
+      "name": "known-owner-indent",
+      "source": "fn alpha() {}\n  // Different indentation\n",
+      "owner_indent": 0,
+      "comment": {
+        "line": 2,
+        "text": "// Different indentation",
+        "normalized_content": "Different indentation",
+        "full_line": true,
+        "indent": 2
+      },
+      "expected_trailing": null,
+      "expected_postlude": "Different indentation"
+    }
+  ]
+}

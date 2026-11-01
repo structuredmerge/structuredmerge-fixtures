@@ -1,0 +1,13 @@
+{
+  "dialect": "go",
+  "source": "package links\n\nimport _ \"unsafe\"\n\n//go:linkname localName runtime.someSymbol\nfunc localName()\n\nfunc Stable() {}\n",
+  "expected": {
+    "function_path": "/declarations/localName",
+    "function_text": "//go:linkname localName runtime.someSymbol\nfunc localName()\n",
+    "function_line_range": [
+      5,
+      6
+    ],
+    "rust_function_path": "/function:localName"
+  }
+}

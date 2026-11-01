@@ -13,6 +13,8 @@
       32,
       33
     ],
-    "diagnostic_text": ";"
+    "diagnostic_text": ";",
+    "ruby_native_category": "parse_error",
+    "rust_tslp_category": "parse_error"
   }
 }

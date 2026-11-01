@@ -1,0 +1,81 @@
+{
+  "id": "ast_merge_source_line_addition_selection",
+  "contract": "ast_merge_source_line_addition_selection",
+  "description": "A template-only owner carries its leading blank-line gap when appended after destination owners.",
+  "baseline_revision": "ours",
+  "documents": [
+    {
+      "revision": "ours",
+      "source": "pub fn shared() {}\n",
+      "owners": [
+        {
+          "id": "shared",
+          "start_line": 1,
+          "end_line": 1,
+          "indent": 0
+        }
+      ],
+      "comment_regions": [],
+      "layout_gaps": []
+    },
+    {
+      "revision": "theirs",
+      "source": "fn shared() {}\n\nfn added() {}\n",
+      "owners": [
+        {
+          "id": "shared",
+          "start_line": 1,
+          "end_line": 1,
+          "indent": 0
+        },
+        {
+          "id": "added",
+          "start_line": 3,
+          "end_line": 3,
+          "indent": 0
+        }
+      ],
+      "comment_regions": [],
+      "layout_gaps": [
+        {
+          "id": "layout-gap:2-2",
+          "selection_key": "gap:interstitial:shared:added",
+          "kind": "interstitial",
+          "start_line": 2,
+          "end_line": 2,
+          "before_owner_id": "shared",
+          "after_owner_id": "added",
+          "controller_side": "after",
+          "controller_owner_id": "added"
+        }
+      ]
+    }
+  ],
+  "owner_revisions": [
+    {
+      "owner_id": "shared",
+      "revision": "ours"
+    },
+    {
+      "owner_id": "added",
+      "revision": "theirs"
+    }
+  ],
+  "expected": {
+    "selections": [
+      {
+        "selection_key": "owner:shared",
+        "revision": "ours"
+      },
+      {
+        "selection_key": "gap:interstitial:shared:added",
+        "revision": "theirs"
+      },
+      {
+        "selection_key": "owner:added",
+        "revision": "theirs"
+      }
+    ],
+    "content": "pub fn shared() {}\n\nfn added() {}\n"
+  }
+}

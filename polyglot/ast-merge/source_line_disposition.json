@@ -119,7 +119,9 @@
           "gap_id": "layout-gap:2-2",
           "controller_owner_id": "alpha",
           "root_region_kind": null,
-          "selection_key": "gap:preamble:root:alpha"
+          "selection_key": "gap:preamble:root:alpha",
+          "before_owner_id": null,
+          "after_owner_id": "alpha"
         },
         {
           "line_number": 3,
@@ -145,7 +147,9 @@
           "gap_id": "layout-gap:4-4",
           "controller_owner_id": "beta",
           "root_region_kind": null,
-          "selection_key": "gap:interstitial:alpha:beta"
+          "selection_key": "gap:interstitial:alpha:beta",
+          "before_owner_id": "alpha",
+          "after_owner_id": "beta"
         },
         {
           "line_number": 5,
@@ -280,6 +284,111 @@
           "controller_owner_id": null,
           "root_region_kind": null,
           "selection_key": "unmanaged:3"
+        }
+      ]
+    },
+    {
+      "name": "a blank gap before a leading comment remains controlled by the preceding owner",
+      "source": "alpha()\n\n# beta docs\nbeta()\n",
+      "style": "hash_comment",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 1,
+          "end_line": 1,
+          "indent": 0
+        },
+        {
+          "id": "beta",
+          "start_line": 4,
+          "end_line": 4,
+          "indent": 0
+        }
+      ],
+      "comments": [
+        {
+          "line": 3,
+          "text": "# beta docs",
+          "normalized_content": "beta docs",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "comment_regions": [
+        {
+          "id": "comment-region:leading:3-3",
+          "selection_key": "comment:beta:leading",
+          "owner_id": "beta",
+          "kind": "leading",
+          "start_line": 3,
+          "end_line": 3
+        }
+      ],
+      "layout_gaps": [
+        {
+          "id": "layout-gap:2-2",
+          "selection_key": "gap:postlude:alpha:root",
+          "kind": "postlude",
+          "start_line": 2,
+          "end_line": 2,
+          "before_owner_id": "alpha",
+          "after_owner_id": null,
+          "controller_side": "before",
+          "controller_owner_id": "alpha"
+        }
+      ],
+      "expected": [
+        {
+          "line_number": 1,
+          "line": "alpha()\n",
+          "kind": "structural_owner",
+          "selection_key": "owner:alpha",
+          "owner_id": "alpha",
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null
+        },
+        {
+          "line_number": 2,
+          "line": "\n",
+          "kind": "layout_gap",
+          "selection_key": "gap:postlude:alpha:root",
+          "owner_id": null,
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": "layout-gap:2-2",
+          "controller_owner_id": "alpha",
+          "before_owner_id": "alpha",
+          "after_owner_id": null,
+          "root_region_kind": null
+        },
+        {
+          "line_number": 3,
+          "line": "# beta docs\n",
+          "kind": "comment_owner",
+          "selection_key": "comment:beta:leading",
+          "owner_id": "beta",
+          "comment_region_ids": [
+            "comment-region:leading:3-3"
+          ],
+          "comment_kind": "leading",
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null
+        },
+        {
+          "line_number": 4,
+          "line": "beta()\n",
+          "kind": "structural_owner",
+          "selection_key": "owner:beta",
+          "owner_id": "beta",
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null
         }
       ]
     }

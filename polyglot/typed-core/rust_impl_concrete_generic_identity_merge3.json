@@ -1,0 +1,22 @@
+{
+  "id": "rust_impl_concrete_generic_identity_merge3",
+  "contract": "rust_impl_concrete_generic_identity_merge3",
+  "description": "Native syn owner identity preserves concrete generic arguments and non-path targets so distinct valid impls remain independently mergeable; the Ruby Tree-sitter owner projection still reports these concrete generic impls as ambiguous.",
+  "input": {
+    "base": "trait Convert<T> {}\ntrait Marker {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 1 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 1 }\n",
+    "ours": "trait Convert<T> {}\ntrait Marker {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 2 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 1 }\n",
+    "theirs": "trait Convert<T> {}\ntrait Marker {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 1 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 2 }\n"
+  },
+  "expected": {
+    "output": "trait Convert<T> {}\ntrait Marker {}\nstruct Value<T>(T);\nimpl Convert<u8> for Value<u8> { fn convert(&self) -> u8 { 2 } }\nimpl Convert<String> for Value<String> { fn convert(&self) -> String { String::new() } }\nimpl Marker for (u8, u16) {}\nfn stable() -> i32 { 2 }\n",
+    "impl_owner_paths": [
+      "/impl:Convert < u8 >|Value < u8 >|positive|0",
+      "/impl:Convert < String >|Value < String >|positive|0",
+      "/impl:Marker|(u8 , u16)|positive|0"
+    ],
+    "ruby_tree_sitter_boundary": {
+      "ok": false,
+      "diagnostic_category": "ambiguous_owner"
+    }
+  }
+}

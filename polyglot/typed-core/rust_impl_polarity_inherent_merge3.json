@@ -11,7 +11,7 @@
     "output": "struct Value<T>(T);\nimpl<T> !Send for Value<T> {}\nimpl Value<i32> { fn marker() -> i32 { 2 } }\nfn stable() -> i32 { 2 }\n",
     "impl_owner_paths": [
       "/impl:Send|Value|negative|1",
-      "/impl:<inherent>|Value|positive|0"
+      "/impl:<inherent>|Value < i32 >|positive|0"
     ]
   }
 }

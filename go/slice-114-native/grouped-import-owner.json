@@ -23,6 +23,21 @@
     "owner_line_range": [
       3,
       7
-    ]
-  }
+    ],
+    "import_signature": [
+      "import_group",
+      [
+        [
+          null,
+          "fmt"
+        ],
+        [
+          "strings",
+          "strings"
+        ]
+      ]
+    ],
+    "rust_import_path": "/import_group:[(None, \"fmt\"), (Some(\"strings\"), \"strings\")]"
+  },
+  "reordered_source": "package main\n\nimport (\n\tstrings \"strings\"\n\t\"fmt\"\n)\n"
 }

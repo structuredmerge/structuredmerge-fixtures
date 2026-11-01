@@ -216,6 +216,40 @@
         },
         "postlude": null
       }
+    },
+    {
+      "name": "root-scoped module documentation remains a document preamble",
+      "source": "// module documentation\nfn alpha() {}\n",
+      "style": "c_style_line",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 2,
+          "end_line": 2,
+          "indent": 0
+        }
+      ],
+      "comments": [
+        {
+          "line": 1,
+          "text": "// module documentation",
+          "normalized_content": "module documentation",
+          "full_line": true,
+          "indent": 0,
+          "scope": "root"
+        }
+      ],
+      "expected": {
+        "leading_by_owner": {
+          "alpha": null
+        },
+        "trailing_by_owner": {
+          "alpha": null
+        },
+        "preamble": "module documentation",
+        "postlude": null,
+        "orphans": []
+      }
     }
   ],
   "policy_cases": [

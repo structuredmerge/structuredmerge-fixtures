@@ -1,0 +1,15 @@
+{
+  "id": "rust_merge3_compatible_reorders_with_owned_gaps",
+  "contract": "rust_merge3_compatible_reorders_with_owned_gaps",
+  "description": "Compatible two-tip Rust owner reorders compose with independent edits and preserve distinct blank-line gaps under the shared controller-owner rule.",
+  "input": {
+    "base": "// docs for a\nfn a() { 1 }\n\n\n// docs for b\nfn b() { 1 }\n\n// docs for c\nfn c() { 1 }\n\n\n\n// docs for d\nfn d() { 1 }\n",
+    "ours": "// docs for b\nfn b() { 2 }\n\n// docs for a\nfn a() { 1 }\n\n\n// docs for c\nfn c() { 1 }\n\n\n\n// docs for d\nfn d() { 1 }\n",
+    "theirs": "// docs for a\nfn a() { 1 }\n\n\n// docs for b\nfn b() { 1 }\n\n\n// docs for d\nfn d() { 2 }\n\n// docs for c\nfn c() { 1 }\n"
+  },
+  "expected": {
+    "outcome": "clean",
+    "output": "// docs for b\nfn b() { 2 }\n\n// docs for a\nfn a() { 1 }\n\n\n// docs for d\nfn d() { 2 }\n\n// docs for c\nfn c() { 1 }\n",
+    "ruby_native_outcome": "unmanaged_source_change conflict"
+  }
+}

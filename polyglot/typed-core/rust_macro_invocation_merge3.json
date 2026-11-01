@@ -10,7 +10,19 @@
   "expected": {
     "output": "fn stable() {}\nleft!(2);\nright!(2);\n",
     "left_owner_path": "/macro_invocation:left",
-    "right_owner_path": "/macro_invocation:right"
+    "right_owner_path": "/macro_invocation:right",
+    "parser_paths": {
+      "ruby_native": {
+        "ok": true
+      },
+      "rust_treesitter": {
+        "ok": false,
+        "category": "unsupported_feature"
+      },
+      "rust_syn": {
+        "ok": true
+      }
+    }
   },
   "duplicate_identity": {
     "source": "build!();\nbuild!();\n",

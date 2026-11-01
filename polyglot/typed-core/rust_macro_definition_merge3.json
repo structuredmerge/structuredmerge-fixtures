@@ -1,0 +1,14 @@
+{
+  "id": "rust_macro_definition_merge3",
+  "contract": "rust_macro_definition_merge3",
+  "description": "A named macro_rules definition is a whole top-level Rust owner and merges independently from a function owner.",
+  "input": {
+    "base": "/// builds a number\nmacro_rules! build { () => { 1 }; }\n\nfn stable() -> i32 { 1 }\n",
+    "ours": "/// builds a number\nmacro_rules! build { () => { 2 }; }\n\nfn stable() -> i32 { 1 }\n",
+    "theirs": "/// builds a number\nmacro_rules! build { () => { 1 }; }\n\nfn stable() -> i32 { 2 }\n"
+  },
+  "expected": {
+    "output": "/// builds a number\nmacro_rules! build { () => { 2 }; }\n\nfn stable() -> i32 { 2 }\n",
+    "macro_owner_path": "/macro:build"
+  }
+}

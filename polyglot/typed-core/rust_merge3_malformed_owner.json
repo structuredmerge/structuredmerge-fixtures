@@ -1,12 +1,18 @@
 {
   "id": "rust_merge3_malformed_owner",
   "category": "rust_merge3",
-  "call": "rust_merge3",
+  "call": "rust_common_merge3",
   "description": "Malformed Rust source fails closed during an otherwise independent owner merge.",
   "input": {
     "base": "fn left() -> i32 { 1 }\nfn right() -> i32 { 1 }\n",
     "ours": "fn left() -> i32 { 2 }\nfn right() -> i32 { 1 }\n",
     "theirs": "fn left() -> i32 { 1 }\nfn broken( {\n"
   },
-  "assertions": [{"type":"equals","field":"ok","value":false}]
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": false
+    }
+  ]
 }

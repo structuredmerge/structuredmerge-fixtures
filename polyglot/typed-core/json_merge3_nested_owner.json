@@ -1,7 +1,7 @@
 {
   "id": "json_merge3_nested_owner",
   "category": "json_merge3",
-  "call": "json_merge3",
+  "call": "json_common_merge3",
   "description": "Independent nested object member edits preserve source bytes and ordering.",
   "input": {
     "dialect": "json",
@@ -9,5 +9,11 @@
     "ours": "{\"settings\":{\"left\":2,\"right\":1}}\n",
     "theirs": "{\"settings\":{\"left\":1,\"right\":2}}\n"
   },
-  "assertions": [{"type":"equals","field":"ok","value":true}]
+  "assertions": [
+    {
+      "type": "equals",
+      "field": "ok",
+      "value": true
+    }
+  ]
 }

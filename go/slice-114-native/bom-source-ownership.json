@@ -1,0 +1,26 @@
+{
+  "dialect": "go",
+  "cases": [
+    {
+      "name": "bom-declaration-snippet",
+      "source": "﻿func Greet() {}\n",
+      "expected": {
+        "declaration_path": "/declarations/Greet",
+        "declaration_text": "﻿func Greet() {}\n",
+        "ruby_treesitter_category": "parse_error",
+        "rust_treesitter_category": "unsupported_feature"
+      }
+    },
+    {
+      "name": "bom-package-file",
+      "source": "﻿package main\nfunc Greet() {}\n",
+      "expected": {
+        "package_owner_path": "/package:main",
+        "declaration_path": "/declarations/Greet",
+        "declaration_text": "func Greet() {}\n",
+        "ruby_treesitter_category": "unsafe_source_range",
+        "rust_treesitter_category": "unsupported_feature"
+      }
+    }
+  ]
+}

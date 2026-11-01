@@ -2,7 +2,7 @@
   "id": "bash_merge2_comments",
   "category": "bash_common_merge2",
   "call": "bash_common_merge2",
-  "description": "Shared typed Bash merge2 contract: bash_merge2_comments",
+  "description": "Directional Bash merge2 keeps current edits and current comments, inserts incoming-only owners, and preserves inline comment bytes through the Ruby SmartMerger, Ruby Provider, and Rust host.",
   "input": {
     "incoming": "x=1\n# é new\ny=2 # inline\nz=3\n",
     "current": "x=9 # keep\n# current z\nz=8\n# footer\n"
@@ -18,5 +18,9 @@
       "field": "output",
       "value": "x=9 # keep\n# é new\ny=2 # inline\n# current z\nz=8\n# footer\n"
     }
-  ]
+  ],
+  "ruby_native_expected": {
+    "ok": true,
+    "output": "x=9 # keep\n# é new\ny=2 # inline\n# current z\nz=8\n# footer\n"
+  }
 }

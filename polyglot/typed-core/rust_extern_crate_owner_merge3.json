@@ -1,0 +1,14 @@
+{
+  "id": "rust_extern_crate_owner_merge3",
+  "contract": "rust_extern_crate_owner_merge3",
+  "description": "The native Rust extern-crate identity remains the original crate name across alias changes and merges independently from a function edit.",
+  "input": {
+    "base": "extern crate alloc as memory;\nfn stable() -> i32 { 1 }\n",
+    "ours": "extern crate alloc as arena;\nfn stable() -> i32 { 1 }\n",
+    "theirs": "extern crate alloc as memory;\nfn stable() -> i32 { 2 }\n"
+  },
+  "expected": {
+    "output": "extern crate alloc as arena;\nfn stable() -> i32 { 2 }\n",
+    "owner_path": "/extern_crate:alloc"
+  }
+}

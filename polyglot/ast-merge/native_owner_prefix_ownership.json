@@ -106,6 +106,44 @@
         19,
         33
       ]
+    },
+    {
+      "name": "four-slash comment is not an outer documentation prefix",
+      "family": "rust",
+      "source": "//// ordinary\n\nfn stable() {}\n",
+      "owner_path": "/function:stable",
+      "owner_source": "fn stable() {}",
+      "owner_line_range": [
+        3,
+        3
+      ],
+      "owner_node_kinds": [
+        "function_item"
+      ],
+      "attached_comment_texts": [],
+      "owner_byte_range": [
+        15,
+        29
+      ]
+    },
+    {
+      "name": "three-star block comment is not an outer documentation prefix",
+      "family": "rust",
+      "source": "/*** ordinary block */\n\nfn stable() {}\n",
+      "owner_path": "/function:stable",
+      "owner_source": "fn stable() {}",
+      "owner_line_range": [
+        3,
+        3
+      ],
+      "owner_node_kinds": [
+        "function_item"
+      ],
+      "attached_comment_texts": [],
+      "owner_byte_range": [
+        24,
+        38
+      ]
     }
   ]
 }

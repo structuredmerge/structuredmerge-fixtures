@@ -1,0 +1,14 @@
+{
+  "id": "bash_merge3_removed_owner_layout",
+  "contract": "bash_merge3_removed_owner_layout",
+  "description": "A removed variable owner leaves its leading comment as the following function's leading region while an independent function edit is selected.",
+  "input": {
+    "base": "# x docs\nx=1\n\nf() { :; }\n",
+    "ours": "# x docs\nx=1\n\nf() { echo changed; }\n",
+    "theirs": "# x docs\n\nf() { :; }\n"
+  },
+  "expected": {
+    "ok": true,
+    "output": "# x docs\n\nf() { echo changed; }\n"
+  }
+}

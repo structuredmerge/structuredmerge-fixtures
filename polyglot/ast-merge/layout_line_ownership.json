@@ -156,5 +156,71 @@
       ],
       "expected": false
     }
-  ]
+  ],
+  "membership_removal_case": {
+    "stable_owner_ids": [
+      "function:f"
+    ],
+    "expected_stable_layout_segments": [
+      "# x docs\n\n",
+      ""
+    ],
+    "documents": [
+      {
+        "source": "# x docs\nx=1\n\nf() { :; }\n",
+        "owners": [
+          {
+            "id": "variable:x",
+            "fingerprint": "x=1",
+            "start_byte": 9,
+            "end_byte": 12,
+            "start_line": 2,
+            "end_line": 2
+          },
+          {
+            "id": "function:f",
+            "fingerprint": "f",
+            "start_byte": 14,
+            "end_byte": 24,
+            "start_line": 4,
+            "end_line": 4
+          }
+        ]
+      },
+      {
+        "source": "# x docs\nx=1\n\nf() { echo changed; }\n",
+        "owners": [
+          {
+            "id": "variable:x",
+            "fingerprint": "x=1",
+            "start_byte": 9,
+            "end_byte": 12,
+            "start_line": 2,
+            "end_line": 2
+          },
+          {
+            "id": "function:f",
+            "fingerprint": "f",
+            "start_byte": 14,
+            "end_byte": 35,
+            "start_line": 4,
+            "end_line": 4
+          }
+        ]
+      },
+      {
+        "source": "# x docs\n\nf() { :; }\n",
+        "owners": [
+          {
+            "id": "function:f",
+            "fingerprint": "f",
+            "start_byte": 10,
+            "end_byte": 20,
+            "start_line": 3,
+            "end_line": 3
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -1,10 +1,10 @@
 {
   "id": "rust_merge3_delete_module_inner_doc_owner_with_independent_edit",
   "contract": "rust_merge3_delete_module_inner_doc_owner_with_independent_edit",
-  "description": "Deleting a Rust module removes its own and nested inline-module inner documentation while preserving an independent edit and retained item docs.",
+  "description": "Deleting a Rust module removes its inner docs and ordinary nested comments with the module while preserving an independent edit and retained item docs.",
   "input": {
-    "base": "//! Crate documentation.\n\nmod retiring {\n    //! Retiring module docs.\n    mod nested {\n        //! Nested module docs.\n        fn inner() {}\n    }\n}\n\n/// Stable API.\nfn stable() { 1 }\n",
-    "ours": "//! Crate documentation.\n\nmod retiring {\n    //! Retiring module docs.\n    mod nested {\n        //! Nested module docs.\n        fn inner() {}\n    }\n}\n\n/// Stable API.\nfn stable() { 2 }\n",
+    "base": "//! Crate documentation.\n\nmod retiring {\n    //! Retiring module docs.\n    // This ordinary comment is inside the deleted module.\n    mod nested {\n        //! Nested module docs.\n        /* This block comment is also inside the deleted module. */\n        // This comment sits between nested syntax owners.\n        fn inner() {}\n    }\n    // This postlude comment remains inside the module braces.\n}\n\n/// Stable API.\nfn stable() { 1 }\n",
+    "ours": "//! Crate documentation.\n\nmod retiring {\n    //! Retiring module docs.\n    // This ordinary comment is inside the deleted module.\n    mod nested {\n        //! Nested module docs.\n        /* This block comment is also inside the deleted module. */\n        // This comment sits between nested syntax owners.\n        fn inner() {}\n    }\n    // This postlude comment remains inside the module braces.\n}\n\n/// Stable API.\nfn stable() { 2 }\n",
     "theirs": "//! Crate documentation.\n\n/// Stable API.\nfn stable() { 1 }\n"
   },
   "expected": {

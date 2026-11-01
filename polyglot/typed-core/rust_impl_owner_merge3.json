@@ -1,14 +1,14 @@
 {
   "id": "rust_impl_owner_merge3",
   "contract": "rust_impl_owner_merge3",
-  "description": "A trait implementation is one native Rust owner identified by trait, target path, polarity, and generic arity, and merges independently from a function.",
+  "description": "A native syn ItemImpl owner retains ordinary leading, attached doc, same-line trailing comments, and owner-controlled blank gaps while merging independently from a function.",
   "input": {
-    "base": "trait Render<T> { }\nstruct Value<T>(T);\nimpl<T> Render<T> for Value<T> { fn render(&self) -> i32 { 1 } }\nfn stable() -> i32 { 1 }\n",
-    "ours": "trait Render<T> { }\nstruct Value<T>(T);\nimpl<T> Render<T> for Value<T> { fn render(&self) -> i32 { 2 } }\nfn stable() -> i32 { 1 }\n",
-    "theirs": "trait Render<T> { }\nstruct Value<T>(T);\nimpl<T> Render<T> for Value<T> { fn render(&self) -> i32 { 1 } }\nfn stable() -> i32 { 2 }\n"
+    "base": "trait Render<T> { }\n\nstruct Value<T>(T);\n\n// Impl owner comment\n/// Render implementation docs.\nimpl<T> Render<T> for Value<T> {\n    fn render(&self) -> i32 { 1 }\n} // Impl trailing comment\n\n// Stable owner comment\nfn stable() -> i32 { 1 }\n",
+    "ours": "trait Render<T> { }\n\nstruct Value<T>(T);\n\n// Impl owner comment\n/// Render implementation docs.\nimpl<T> Render<T> for Value<T> {\n    fn render(&self) -> i32 { 2 }\n} // Impl trailing comment\n\n// Stable owner comment\nfn stable() -> i32 { 1 }\n",
+    "theirs": "trait Render<T> { }\n\nstruct Value<T>(T);\n\n// Impl owner comment\n/// Render implementation docs.\nimpl<T> Render<T> for Value<T> {\n    fn render(&self) -> i32 { 1 }\n} // Impl trailing comment\n\n// Stable owner comment\nfn stable() -> i32 { 2 }\n"
   },
   "expected": {
-    "output": "trait Render<T> { }\nstruct Value<T>(T);\nimpl<T> Render<T> for Value<T> { fn render(&self) -> i32 { 2 } }\nfn stable() -> i32 { 2 }\n",
+    "output": "trait Render<T> { }\n\nstruct Value<T>(T);\n\n// Impl owner comment\n/// Render implementation docs.\nimpl<T> Render<T> for Value<T> {\n    fn render(&self) -> i32 { 2 }\n} // Impl trailing comment\n\n// Stable owner comment\nfn stable() -> i32 { 2 }\n",
     "impl_owner_path": "/impl:Render|Value|positive|1"
   }
 }

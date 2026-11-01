@@ -17,6 +17,7 @@
       "selection_error",
       "backend_unavailable",
       "unsupported_feature",
+      "unsafe_source_range",
       "ambiguity",
       "analysis_error",
       "merge_conflict",

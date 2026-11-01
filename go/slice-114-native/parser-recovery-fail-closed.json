@@ -36,6 +36,10 @@
     {
       "name": "recovered-type-alias",
       "source": "package main\ntype Broken =\nfunc Later() {}\n"
+    },
+    {
+      "name": "recovered-unclosed-function-body",
+      "source": "package main\nfunc Broken() { if true { return }\nfunc Later() {}\n"
     }
   ],
   "expected": {

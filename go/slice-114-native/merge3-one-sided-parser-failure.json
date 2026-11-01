@@ -73,6 +73,14 @@
       "name": "theirs-recovered-type-alias",
       "malformed_source": "package main\ntype Broken =\nfunc Later() {}\n",
       "failed_role": "theirs"
+    },
+    {
+      "base_source": "package main\n\nfunc left() int { return 1 }\n",
+      "ours_source": "package main\n\nfunc left() int { return 2 }\n",
+      "theirs_source": "package main\nfunc Broken() { if true { return }\nfunc Later() {}\n",
+      "name": "theirs-recovered-unclosed-function-body",
+      "malformed_source": "package main\nfunc Broken() { if true { return }\nfunc Later() {}\n",
+      "failed_role": "theirs"
     }
   ],
   "expected": {

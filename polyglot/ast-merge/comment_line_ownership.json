@@ -187,5 +187,35 @@
         }
       }
     }
+  ],
+  "attachment_cases": [
+    {
+      "name": "hash comment immediately after owner belongs to that owner",
+      "source": "right() { echo one; }\n# footer\n",
+      "style": "hash_comment",
+      "owners": [
+        {
+          "id": "right",
+          "start_line": 1,
+          "end_line": 1,
+          "indent": 0
+        }
+      ],
+      "comments": [
+        {
+          "line": 2,
+          "text": "# footer",
+          "normalized_content": "footer",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "expected": {
+        "trailing_by_owner": {
+          "right": "footer"
+        },
+        "postlude": null
+      }
+    }
   ]
 }

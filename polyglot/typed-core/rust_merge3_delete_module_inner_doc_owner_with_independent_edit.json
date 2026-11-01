@@ -3,13 +3,13 @@
   "contract": "rust_merge3_delete_module_inner_doc_owner_with_independent_edit",
   "description": "Deleting a Rust module removes its inner documentation with the module while preserving an independent edit and retained item docs.",
   "input": {
-    "base": "mod retiring {\n    //! Retiring module docs.\n    fn inner() {}\n}\n\n/// Stable API.\nfn stable() { 1 }\n",
-    "ours": "mod retiring {\n    //! Retiring module docs.\n    fn inner() {}\n}\n\n/// Stable API.\nfn stable() { 2 }\n",
-    "theirs": "/// Stable API.\nfn stable() { 1 }\n"
+    "base": "//! Crate documentation.\n\nmod retiring {\n    //! Retiring module docs.\n    fn inner() {}\n}\n\n/// Stable API.\nfn stable() { 1 }\n",
+    "ours": "//! Crate documentation.\n\nmod retiring {\n    //! Retiring module docs.\n    fn inner() {}\n}\n\n/// Stable API.\nfn stable() { 2 }\n",
+    "theirs": "//! Crate documentation.\n\n/// Stable API.\nfn stable() { 1 }\n"
   },
   "expected": {
     "outcome": "clean",
-    "output": "/// Stable API.\nfn stable() { 2 }\n"
+    "output": "//! Crate documentation.\n\n/// Stable API.\nfn stable() { 2 }\n"
   },
   "ruby_native_expected": {
     "outcome": "conflict",
@@ -25,7 +25,14 @@
     },
     "rust_syn": {
       "outcome": "clean",
-      "output": "/// Stable API.\nfn stable() { 2 }\n"
+      "output": "//! Crate documentation.\n\n/// Stable API.\nfn stable() { 2 }\n"
     }
+  },
+  "syn_doc_scope_expected": {
+    "root_doc_text": "//! Crate documentation.",
+    "module_doc_text": "//! Retiring module docs.",
+    "module_owner_path": "/mod:retiring",
+    "root_doc_scope": "root",
+    "module_doc_scope": "owner"
   }
 }

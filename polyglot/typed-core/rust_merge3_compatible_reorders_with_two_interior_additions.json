@@ -13,6 +13,6 @@
   },
   "ruby_native_expected": {
     "outcome": "clean",
-    "output": "// docs b\nfn b() {}\n// docs a() {}\n\n// docs c\nfn c() {}\n// docs x\nfn x() {}\n\n// docs d\nfn d() {}\n// docs y\nfn y() {}\n// docs e\nfn e() {}\n// docs f\nfn f() {}\n"
+    "output": "// docs b\nfn b() {}\n// docs a\nfn a() {}\n\n// docs c\nfn c() {}\n// docs x\nfn x() {}\n\n// docs d\nfn d() {}\n// docs e\nfn e() {}\n// docs y\nfn y() {}\n// docs f\nfn f() {}\n"
   }
 }

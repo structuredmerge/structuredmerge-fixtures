@@ -1,0 +1,120 @@
+{
+  "id": "ast_merge_structural_splice",
+  "contract": "ast_merge_structural_splice",
+  "description": "Shared source-preserving line splice and blank-line junction contract.",
+  "cases": [
+    {
+      "name": "deletion_caps_joined_separator",
+      "source": "# Before\n\n## Section\nOld body\n\n## After\n",
+      "replacement": "",
+      "replace_start_line": 3,
+      "replace_end_line": 5,
+      "expected": {
+        "before": "# Before\n\n",
+        "removed": "## Section\nOld body\n\n",
+        "after": "## After\n",
+        "merged": "# Before\n\n## After\n",
+        "changed": true
+      }
+    },
+    {
+      "name": "deletion_at_document_start",
+      "source": "## Section\nOld body\n\n## After\n",
+      "replacement": "",
+      "replace_start_line": 1,
+      "replace_end_line": 3,
+      "expected": {
+        "before": "",
+        "removed": "## Section\nOld body\n\n",
+        "after": "## After\n",
+        "merged": "## After\n",
+        "changed": true
+      }
+    },
+    {
+      "name": "replacement_reemits_removed_trailing_separator",
+      "source": "## Section\nOld body\n\n## After\n",
+      "replacement": "## Section\nNew body\n",
+      "replace_start_line": 1,
+      "replace_end_line": 3,
+      "expected": {
+        "before": "",
+        "removed": "## Section\nOld body\n\n",
+        "after": "## After\n",
+        "merged": "## Section\nNew body\n\n## After\n",
+        "changed": true
+      }
+    },
+    {
+      "name": "preserves_longest_existing_junction_separator",
+      "source": "# Before\n\n\n## Section\nOld body\n\n# After\n",
+      "replacement": "",
+      "replace_start_line": 4,
+      "replace_end_line": 6,
+      "expected": {
+        "before": "# Before\n\n\n",
+        "removed": "## Section\nOld body\n\n",
+        "after": "# After\n",
+        "merged": "# Before\n\n\n# After\n",
+        "changed": true
+      }
+    },
+    {
+      "name": "caps_partial_double_blank_junction",
+      "source": "# Before\n\n## Section\nOld body\n\n\n## After\n",
+      "replacement": "",
+      "replace_start_line": 3,
+      "replace_end_line": 5,
+      "expected": {
+        "before": "# Before\n\n",
+        "removed": "## Section\nOld body\n\n",
+        "after": "\n## After\n",
+        "merged": "# Before\n\n## After\n",
+        "changed": true
+      }
+    },
+    {
+      "name": "preserves_no_final_newline",
+      "source": "left\nremove\nright",
+      "replacement": "",
+      "replace_start_line": 2,
+      "replace_end_line": 2,
+      "expected": {
+        "before": "left\n",
+        "removed": "remove\n",
+        "after": "right",
+        "merged": "left\nright",
+        "changed": true
+      }
+    },
+    {
+      "name": "replacement_can_disable_removed_separator",
+      "source": "## Section\nOld body\n\n## After\n",
+      "replacement": "## Section\nNew body\n",
+      "replace_start_line": 1,
+      "replace_end_line": 3,
+      "preserve_removed_trailing_blank_lines": false,
+      "expected": {
+        "before": "",
+        "removed": "## Section\nOld body\n\n",
+        "after": "## After\n",
+        "merged": "## Section\nNew body\n## After\n",
+        "changed": true
+      }
+    },
+    {
+      "name": "identical_replacement_is_unchanged",
+      "source": "keep without final newline",
+      "replacement": "keep without final newline",
+      "replace_start_line": 1,
+      "replace_end_line": 1,
+      "expected": {
+        "before": "",
+        "removed": "keep without final newline",
+        "after": "",
+        "merged": "keep without final newline",
+        "changed": false
+      }
+    }
+  ]
+}

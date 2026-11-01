@@ -1,0 +1,15 @@
+{
+  "dialect": "go",
+  "source": "package main\n\n// Greet documents the greeting.\nfunc Greet() string { return \"hi\" }\n",
+  "expected": {
+    "declaration_path": "/declarations/Greet",
+    "declaration_text": "// Greet documents the greeting.\nfunc Greet() string { return \"hi\" }\n",
+    "merge_template": "package main\n\n// Added documentation.\nfunc Added() {}\n",
+    "merge_destination": "package main\n\n// Existing documentation.\nfunc Existing() {}\n",
+    "merge_output": "// Existing documentation.\nfunc Existing() {}\n\n// Added documentation.\nfunc Added() {}\n",
+    "declaration_line_range": [
+      3,
+      4
+    ]
+  }
+}

@@ -482,6 +482,109 @@
           "selection_key": "owner:value"
         }
       ]
+    },
+    {
+      "name": "orphan_comment_boundary_blank_is_explicitly_unmanaged",
+      "source": "// Retiring owner.\n\n/// Following owner.\nfn following() {}\n",
+      "style": "c_style_line",
+      "owners": [
+        {
+          "id": "following",
+          "start_line": 4,
+          "end_line": 4,
+          "indent": 0
+        }
+      ],
+      "comments": [
+        {
+          "line": 1,
+          "text": "// Retiring owner.",
+          "normalized_content": "Retiring owner.",
+          "full_line": true,
+          "indent": 0
+        },
+        {
+          "line": 3,
+          "text": "/// Following owner.",
+          "normalized_content": "Following owner.",
+          "full_line": true,
+          "indent": 0,
+          "structural_prefix": true
+        }
+      ],
+      "comment_regions": [
+        {
+          "id": "comment-region:preamble:1-1",
+          "owner_id": null,
+          "kind": "preamble",
+          "start_line": 1,
+          "end_line": 1,
+          "selection_key": "root:preamble"
+        },
+        {
+          "id": "comment-region:leading:3-3",
+          "owner_id": "following",
+          "kind": "leading",
+          "start_line": 3,
+          "end_line": 3,
+          "selection_key": "comment:following:leading"
+        }
+      ],
+      "layout_gaps": [],
+      "expected": [
+        {
+          "line_number": 1,
+          "line": "// Retiring owner.\n",
+          "kind": "root_region",
+          "owner_id": null,
+          "comment_region_ids": [
+            "comment-region:preamble:1-1"
+          ],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": "preamble",
+          "selection_key": "root:preamble"
+        },
+        {
+          "line_number": 2,
+          "line": "\n",
+          "kind": "unmanaged",
+          "owner_id": null,
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null,
+          "selection_key": "unmanaged:2"
+        },
+        {
+          "line_number": 3,
+          "line": "/// Following owner.\n",
+          "kind": "comment_owner",
+          "owner_id": "following",
+          "comment_region_ids": [
+            "comment-region:leading:3-3"
+          ],
+          "comment_kind": "leading",
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null,
+          "selection_key": "comment:following:leading"
+        },
+        {
+          "line_number": 4,
+          "line": "fn following() {}\n",
+          "kind": "structural_owner",
+          "owner_id": "following",
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": null,
+          "controller_owner_id": null,
+          "root_region_kind": null,
+          "selection_key": "owner:following"
+        }
+      ]
     }
   ]
 }

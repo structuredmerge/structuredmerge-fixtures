@@ -24,5 +24,10 @@
       "field": "conflicts",
       "value": 1
     }
-  ]
+  ],
+  "expected_conflicted_output": {
+    "ruby_native": "<<<<<<< ours\nuse std::fmt;\n// é\nfn f() -> i32 { 2 }\nfn g() -> i32 { 1 }\n||||||| base\nuse std::fmt;\n// é\nfn f() -> i32 { 1 }\nfn g() -> i32 { 1 }\n=======\nuse std::fmt;\n// é\nfn f() -> i32 { 3 }\nfn g() -> i32 { 1 }\n>>>>>>> theirs\n",
+    "rust_tslp": "use std::fmt;\n<<<<<<< ours\n// é\nfn f() -> i32 { 2 }\n||||||| base\n// é\nfn f() -> i32 { 1 }\n=======\n// é\nfn f() -> i32 { 3 }\n>>>>>>> theirs\nfn g() -> i32 { 1 }\n",
+    "rust_syn": "use std::fmt;\n<<<<<<< ours\n// é\nfn f() -> i32 { 2 }\n||||||| base\n// é\nfn f() -> i32 { 1 }\n=======\n// é\nfn f() -> i32 { 3 }\n>>>>>>> theirs\nfn g() -> i32 { 1 }\n"
+  }
 }

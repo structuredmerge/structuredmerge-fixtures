@@ -1,0 +1,18 @@
+{
+  "id": "go_merge3_delete_documented_owner_with_independent_edit",
+  "contract": "go_merge3_delete_documented_owner_with_independent_edit",
+  "description": "Deleting a Go function that owns a Doc comment while the other tip edits a retained function. go/ast attaches the Doc to the declaration, but neither provider line-renders removed owners yet; both fail closed and must not invent output.",
+  "input": {
+    "base": "package main\n\n// a docs\nfunc a() {}\n\nfunc b() { return 1 }\n",
+    "ours": "package main\n\nfunc b() { return 1 }\n",
+    "theirs": "package main\n\n// a docs\nfunc a() {}\n\nfunc b() { return 2 }\n"
+  },
+  "ruby_native_expected": {
+    "outcome": "conflict",
+    "diagnostic_category": "merge_conflict"
+  },
+  "rust_host_expected": {
+    "outcome": "conflict",
+    "diagnostic_category": "merge_conflict"
+  }
+}

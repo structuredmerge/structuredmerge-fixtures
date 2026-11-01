@@ -1,7 +1,7 @@
 {
   "id": "ast_merge_native_owner_prefix_ownership",
   "contract": "ast_merge_native_owner_prefix_ownership",
-  "description": "A parser-backed shared contract for outer documentation and attributes attached to one declaration owner across blank lines.",
+  "description": "A parser-backed shared contract for outer documentation and attributes attached to one declaration owner, plus crate-level inner documentation that stays at document scope.",
   "cases": [
     {
       "name": "outer documentation and spaced attribute prefix",
@@ -67,6 +67,25 @@
       "owner_byte_range": [
         0,
         40
+      ]
+    },
+    {
+      "name": "crate inner documentation remains at document root",
+      "family": "rust",
+      "source": "//! crate docs\n\nfn stable() {}\n",
+      "owner_path": "/function:stable",
+      "owner_source": "fn stable() {}",
+      "owner_line_range": [
+        3,
+        3
+      ],
+      "owner_node_kinds": [
+        "function_item"
+      ],
+      "attached_comment_texts": [],
+      "owner_byte_range": [
+        16,
+        30
       ]
     }
   ]

@@ -1,0 +1,22 @@
+{
+  "dialect": "go",
+  "source": "//go:build linux && amd64\n// +build linux,amd64\n\npackage buildtags\n\n// Run is package-local documentation.\nfunc Run() {}\n",
+  "expected": {
+    "build_constraint_line_range": [
+      1,
+      2
+    ],
+    "package_owner_path": "/package:buildtags",
+    "package_line_range": [
+      4,
+      4
+    ],
+    "function_path": "/declarations/Run",
+    "function_line_range": [
+      6,
+      7
+    ],
+    "function_text": "// Run is package-local documentation.\nfunc Run() {}\n",
+    "rust_function_path": "/function:Run"
+  }
+}

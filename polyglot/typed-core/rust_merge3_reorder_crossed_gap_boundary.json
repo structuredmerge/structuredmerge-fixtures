@@ -1,0 +1,14 @@
+{
+  "id": "rust_merge3_reorder_crossed_gap_boundary",
+  "contract": "rust_merge3_reorder_crossed_gap_boundary",
+  "description": "When one tip reorders across the other tip's insertion gap, stable owner facts do not prove where the addition belongs in the reordered source, so the merge fails closed.",
+  "input": {
+    "base": "fn a() {}\nfn b() {}\nfn c() {}\n",
+    "ours": "fn b() {}\nfn a() {}\nfn c() {}\n",
+    "theirs": "fn a() {}\nfn x() {}\nfn b() {}\nfn c() {}\n"
+  },
+  "expected": {
+    "outcome": "error",
+    "diagnostic_category": "unsupported_feature"
+  }
+}

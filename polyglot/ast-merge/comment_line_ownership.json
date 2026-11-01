@@ -395,6 +395,79 @@
           }
         }
       ]
+    },
+    {
+      "name": "inline comment and following standalone comment keep distinct ownership",
+      "source": "fn alpha() {} // inline alpha\n// Beta documentation\nfn beta() {}\n",
+      "style": "c_style_line",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 1,
+          "end_line": 1
+        },
+        {
+          "id": "beta",
+          "start_line": 3,
+          "end_line": 3
+        }
+      ],
+      "comments": [
+        {
+          "line": 1,
+          "text": "// inline alpha",
+          "normalized_content": "inline alpha",
+          "full_line": false,
+          "indent": 0
+        },
+        {
+          "line": 2,
+          "text": "// Beta documentation",
+          "normalized_content": "Beta documentation",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "policies": [
+        {
+          "id": "preceding_owner",
+          "expected": {
+            "leading_by_owner": {
+              "alpha": null,
+              "beta": null
+            },
+            "inline_by_owner": {
+              "alpha": "inline alpha",
+              "beta": null
+            },
+            "trailing_by_owner": {
+              "alpha": "Beta documentation",
+              "beta": null
+            },
+            "postlude": null,
+            "orphans": []
+          }
+        },
+        {
+          "id": "following_owner",
+          "expected": {
+            "leading_by_owner": {
+              "alpha": null,
+              "beta": "Beta documentation"
+            },
+            "inline_by_owner": {
+              "alpha": "inline alpha",
+              "beta": null
+            },
+            "trailing_by_owner": {
+              "alpha": null,
+              "beta": null
+            },
+            "postlude": null,
+            "orphans": []
+          }
+        }
+      ]
     }
   ]
 }

@@ -61,7 +61,27 @@
             ],
             "layout_gap_ids": [
               "leading-gap"
-            ]
+            ],
+            "comment_attachment": {
+              "owner_id": "before",
+              "leading_region_id": null,
+              "inline_region_id": null,
+              "trailing_region_id": "leading",
+              "orphan_region_ids": [],
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "leading"
+              }
+            },
+            "layout_attachment": {
+              "owner_id": "before",
+              "leading_gap_id": null,
+              "trailing_gap_id": "leading-gap",
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "leading"
+              }
+            }
           },
           {
             "source_owner_id": "removed",
@@ -72,7 +92,29 @@
               "inline",
               "orphan"
             ],
-            "layout_gap_ids": []
+            "layout_gap_ids": [],
+            "comment_attachment": {
+              "owner_id": "before",
+              "leading_region_id": null,
+              "inline_region_id": null,
+              "trailing_region_id": "inline",
+              "orphan_region_ids": [
+                "orphan"
+              ],
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "ambiguous"
+              }
+            },
+            "layout_attachment": {
+              "owner_id": "before",
+              "leading_gap_id": null,
+              "trailing_gap_id": null,
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "ambiguous"
+              }
+            }
           },
           {
             "source_owner_id": "removed",
@@ -84,7 +126,27 @@
             ],
             "layout_gap_ids": [
               "trailing-gap"
-            ]
+            ],
+            "comment_attachment": {
+              "owner_id": "after",
+              "leading_region_id": "trailing",
+              "inline_region_id": null,
+              "trailing_region_id": null,
+              "orphan_region_ids": [],
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "trailing"
+              }
+            },
+            "layout_attachment": {
+              "owner_id": "after",
+              "leading_gap_id": "trailing-gap",
+              "trailing_gap_id": null,
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "trailing"
+              }
+            }
           }
         ]
       }
@@ -133,7 +195,27 @@
             ],
             "layout_gap_ids": [
               "leading-gap"
-            ]
+            ],
+            "comment_attachment": {
+              "owner_id": "after",
+              "leading_region_id": "leading",
+              "inline_region_id": null,
+              "trailing_region_id": null,
+              "orphan_region_ids": [],
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "leading"
+              }
+            },
+            "layout_attachment": {
+              "owner_id": "after",
+              "leading_gap_id": "leading-gap",
+              "trailing_gap_id": null,
+              "metadata": {
+                "source": "structural_edit_remove_plan",
+                "kind": "leading"
+              }
+            }
           }
         ]
       }

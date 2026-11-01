@@ -11,5 +11,14 @@
     "output": "fn stable() {}\nleft!(2);\nright!(2);\n",
     "left_owner_path": "/macro_invocation:left",
     "right_owner_path": "/macro_invocation:right"
+  },
+  "duplicate_identity": {
+    "source": "build!();\nbuild!();\n",
+    "expected": {
+      "ok": false,
+      "ruby_native_category": "ambiguous_owner",
+      "rust_syn_host_category": "unsupported_feature",
+      "owner_path": "/macro_invocation:build"
+    }
   }
 }

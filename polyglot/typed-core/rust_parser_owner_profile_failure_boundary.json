@@ -1,0 +1,37 @@
+{
+  "id": "rust_parser_owner_profile_failure_boundary",
+  "contract": "rust_parser_owner_profile_failure_boundary",
+  "description": "Valid Rust syntax outside the source-preserving owner profile and malformed Rust syntax both fail closed across native and Rust parser paths.",
+  "cases": [
+    {
+      "name": "valid foreign module remains outside current owner profile",
+      "source": "unsafe extern \"C\" { fn native_symbol(); }\n",
+      "expected": {
+        "ok": false,
+        "ruby_native_category": "unsupported_feature",
+        "rust_family_category": "unsupported_feature",
+        "rust_syn_host_category": "unsupported_feature"
+      },
+      "merge3": {
+        "base": "fn stable() {}\n",
+        "ours": "unsafe extern \"C\" { fn native_symbol(); }\n",
+        "theirs": "fn stable() {}\n"
+      }
+    },
+    {
+      "name": "malformed function syntax is rejected",
+      "source": "fn broken(\n",
+      "expected": {
+        "ok": false,
+        "ruby_native_category": "parse_error",
+        "rust_family_category": "parse_error",
+        "rust_syn_host_category": "parse_error"
+      },
+      "merge3": {
+        "base": "fn stable() {}\n",
+        "ours": "fn broken(\n",
+        "theirs": "fn stable() {}\n"
+      }
+    }
+  ]
+}

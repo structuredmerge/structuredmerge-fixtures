@@ -17,6 +17,22 @@
       "theirs_source": "package main\nfunc Broken(first int second string) {}\n",
       "malformed_source": "package main\nfunc Broken(first int second string) {}\n",
       "failed_role": "theirs"
+    },
+    {
+      "name": "ours-recovered-var-initializer",
+      "base_source": "package main\n\nfunc left() int { return 1 }\n",
+      "ours_source": "package main\nvar Broken = ;\n",
+      "theirs_source": "package main\n\nfunc left() int { return 2 }\n",
+      "malformed_source": "package main\nvar Broken = ;\n",
+      "failed_role": "ours"
+    },
+    {
+      "name": "theirs-recovered-struct-declaration",
+      "base_source": "package main\n\nfunc left() int { return 1 }\n",
+      "ours_source": "package main\n\nfunc left() int { return 2 }\n",
+      "theirs_source": "package main\ntype Broken struct { Field int\nfunc Later() {}\n",
+      "malformed_source": "package main\ntype Broken struct { Field int\nfunc Later() {}\n",
+      "failed_role": "theirs"
     }
   ],
   "expected": {

@@ -1,0 +1,82 @@
+{
+  "id": "ast_merge_layout_line_ownership",
+  "contract": "ast_merge_layout_line_ownership",
+  "description": "Shared blank-line ownership, shared-gap attachment, controller, and removal fallback contract.",
+  "lines": [
+    "",
+    "alpha",
+    "",
+    "",
+    "beta",
+    ""
+  ],
+  "owners": [
+    {
+      "id": "alpha",
+      "start_line": 2,
+      "end_line": 2
+    },
+    {
+      "id": "beta",
+      "start_line": 5,
+      "end_line": 5
+    }
+  ],
+  "gaps": [
+    {
+      "id": "layout-gap:1-1",
+      "kind": "preamble",
+      "start_line": 1,
+      "end_line": 1,
+      "lines": [
+        ""
+      ],
+      "before_owner_id": null,
+      "after_owner_id": "alpha",
+      "controller_side": "after",
+      "controller_after_removal_owner_id": "alpha"
+    },
+    {
+      "id": "layout-gap:3-4",
+      "kind": "interstitial",
+      "start_line": 3,
+      "end_line": 4,
+      "lines": [
+        "",
+        ""
+      ],
+      "before_owner_id": "alpha",
+      "after_owner_id": "beta",
+      "controller_side": "after",
+      "controller_after_removal_owner_id": "alpha"
+    },
+    {
+      "id": "layout-gap:6-6",
+      "kind": "postlude",
+      "start_line": 6,
+      "end_line": 6,
+      "lines": [
+        ""
+      ],
+      "before_owner_id": "beta",
+      "after_owner_id": null,
+      "controller_side": "before",
+      "controller_after_removal_owner_id": null
+    }
+  ],
+  "attachments": [
+    {
+      "owner_id": "alpha",
+      "leading_gap_id": "layout-gap:1-1",
+      "trailing_gap_id": "layout-gap:3-4"
+    },
+    {
+      "owner_id": "beta",
+      "leading_gap_id": "layout-gap:3-4",
+      "trailing_gap_id": "layout-gap:6-6"
+    }
+  ],
+  "removed_owner_ids_for_fallback": [
+    "beta"
+  ]
+}

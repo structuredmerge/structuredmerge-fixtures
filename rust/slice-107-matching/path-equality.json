@@ -3,10 +3,20 @@
   "destination": "use std::fmt::Debug;\nuse std::fmt::Display;\n\npub fn greet(name: &str) -> String {\n  name.to_uppercase()\n}\n",
   "expected": {
     "matched": [
-      ["/imports/0", "/imports/0"],
-      ["/declarations/greet", "/declarations/greet"]
+      [
+        "/imports/0",
+        "/imports/0"
+      ],
+      [
+        "/function:greet",
+        "/function:greet"
+      ]
     ],
-    "unmatched_template": ["/declarations/Greeter"],
-    "unmatched_destination": ["/imports/1"]
+    "unmatched_template": [
+      "/struct:Greeter"
+    ],
+    "unmatched_destination": [
+      "/imports/1"
+    ]
   }
 }

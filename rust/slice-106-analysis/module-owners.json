@@ -15,14 +15,14 @@
         "match_key": "std::fmt::Display"
       },
       {
-        "path": "/declarations/Greeter",
-        "owner_kind": "declaration",
-        "match_key": "Greeter"
-      },
-      {
-        "path": "/declarations/greet",
+        "path": "/function:greet",
         "owner_kind": "declaration",
         "match_key": "greet"
+      },
+      {
+        "path": "/struct:Greeter",
+        "owner_kind": "declaration",
+        "match_key": "Greeter"
       }
     ]
   }

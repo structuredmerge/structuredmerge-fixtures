@@ -14,14 +14,14 @@
         "match_key": "std::fmt::Display"
       },
       {
-        "path": "/declarations/Greeter",
-        "owner_kind": "declaration",
-        "match_key": "Greeter"
-      },
-      {
-        "path": "/declarations/greet",
+        "path": "/function:greet",
         "owner_kind": "declaration",
         "match_key": "greet"
+      },
+      {
+        "path": "/struct:Greeter",
+        "owner_kind": "declaration",
+        "match_key": "Greeter"
       }
     ],
     "output": "use std::fmt::Display;\nuse std::fmt::Debug;\n\npub fn greet(name: &str) -> String {\n  name.to_uppercase()\n}\n\npub struct Greeter;\n"

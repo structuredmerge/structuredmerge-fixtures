@@ -1,0 +1,8 @@
+{
+  "dialect": "go",
+  "source": "package main\n\nfunc Repeated() {}\nfunc Repeated() {}\n",
+  "expected": {
+    "category": "parse_error",
+    "message": "duplicate top-level Go owner identity \"/declarations/Repeated\""
+  }
+}

@@ -78,5 +78,50 @@
   ],
   "removed_owner_ids_for_fallback": [
     "beta"
-  ]
+  ],
+  "physical_line_case": {
+    "stable_owner_ids": [
+      "function:f"
+    ],
+    "expected_stable_layout_segments": [
+      "",
+      ""
+    ],
+    "documents": [
+      {
+        "source": "fn f() -> i32 { 1 }\n",
+        "owners": [
+          {
+            "id": "function:f",
+            "fingerprint": "function",
+            "start_byte": 0,
+            "end_byte": 19,
+            "start_line": 1,
+            "end_line": 1
+          }
+        ]
+      },
+      {
+        "source": "use std::fmt;\nfn f() -> i32 { 1 }\n",
+        "owners": [
+          {
+            "id": "use:std::fmt",
+            "fingerprint": "use",
+            "start_byte": 0,
+            "end_byte": 13,
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "id": "function:f",
+            "fingerprint": "function",
+            "start_byte": 14,
+            "end_byte": 33,
+            "start_line": 2,
+            "end_line": 2
+          }
+        ]
+      }
+    ]
+  }
 }

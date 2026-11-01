@@ -123,5 +123,38 @@
         ]
       }
     ]
-  }
+  },
+  "controller_checks": [
+    {
+      "owner_id": "beta",
+      "edge": "leading",
+      "removed_owner_ids": [],
+      "expected": true
+    },
+    {
+      "owner_id": "alpha",
+      "edge": "trailing",
+      "removed_owner_ids": [
+        "beta"
+      ],
+      "expected": true
+    },
+    {
+      "owner_id": "beta",
+      "edge": "leading",
+      "removed_owner_ids": [
+        "beta"
+      ],
+      "expected": false
+    },
+    {
+      "owner_id": "alpha",
+      "edge": "trailing",
+      "removed_owner_ids": [
+        "alpha",
+        "beta"
+      ],
+      "expected": false
+    }
+  ]
 }

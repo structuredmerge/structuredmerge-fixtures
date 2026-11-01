@@ -1,0 +1,18 @@
+{
+  "dialect": "go",
+  "cases": [
+    {
+      "name": "recovered-expression",
+      "source": "package main\nfunc Broken() { value := }\nfunc Later() {}\n"
+    },
+    {
+      "name": "recovered-parameter-list",
+      "source": "package main\nfunc Broken(first int second string) {}\nfunc Later() {}\n"
+    }
+  ],
+  "expected": {
+    "ok": false,
+    "category": "parse_error",
+    "analysis": null
+  }
+}

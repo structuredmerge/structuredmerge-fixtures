@@ -2,7 +2,7 @@
 
 Shared conformance fixtures for StructuredMerge.
 
-This repository contains shared language-neutral fixture families along with implementation-specific fixture slices for the Go, TypeScript, Rust, and Ruby implementations. The mature Ruby implementation is the behavioral golden master. Shared fixtures extract that behavior into portable contracts so independent implementations can be compared without coupling them to Ruby classes or process-local parser objects. Language directories hold implementation-specific cases and metadata where needed.
+This repository contains shared language-neutral fixture families along with implementation-specific fixture slices for the Go, TypeScript, Rust, and Ruby implementations. Shared fixtures define portable behavioral contracts so implementations can be compared without coupling them to one language's classes or parser objects. Each implementation should use its language's native parser when that parser provides stronger syntax facts; for example, Rust's native parser and Go's standard-library AST can expose structure and comments more accurately than Tree-sitter. Tree-sitter remains useful where it is the chosen parser, but no language implementation is the universal behavioral authority. Language directories hold implementation-specific cases and metadata where needed.
 
 Project links:
 
@@ -47,8 +47,9 @@ Each fixture set should include the smallest useful combination of:
 - Generated reports.
 - Language-specific snapshots.
 - Package scaffold examples.
-- Treating Ruby's internal object model as the portable contract. Ruby behavior
-  is authoritative, but portable fixtures define the cross-runtime transport.
+- Treating any implementation's internal object model as the portable contract.
+  Portable fixtures define shared behavior; native parsers provide language-specific
+  syntax facts, and fixtures make deliberate policy differences explicit.
 
 ## Residue interleaving fixtures (slice 1055)
 

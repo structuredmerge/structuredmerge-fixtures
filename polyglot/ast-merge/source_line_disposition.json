@@ -289,7 +289,7 @@
     },
     {
       "name": "a blank gap before a leading comment remains controlled by the preceding owner",
-      "source": "alpha()\n\n# beta docs\nbeta()\n",
+      "source": "alpha()\n\n\n# beta docs\nbeta()\n",
       "style": "hash_comment",
       "owners": [
         {
@@ -300,14 +300,14 @@
         },
         {
           "id": "beta",
-          "start_line": 4,
-          "end_line": 4,
+          "start_line": 5,
+          "end_line": 5,
           "indent": 0
         }
       ],
       "comments": [
         {
-          "line": 3,
+          "line": 4,
           "text": "# beta docs",
           "normalized_content": "beta docs",
           "full_line": true,
@@ -316,21 +316,21 @@
       ],
       "comment_regions": [
         {
-          "id": "comment-region:leading:3-3",
+          "id": "comment-region:leading:4-4",
           "selection_key": "comment:beta:leading",
           "owner_id": "beta",
           "kind": "leading",
-          "start_line": 3,
-          "end_line": 3
+          "start_line": 4,
+          "end_line": 4
         }
       ],
       "layout_gaps": [
         {
-          "id": "layout-gap:2-2",
+          "id": "layout-gap:2-3",
           "selection_key": "gap:interstitial:alpha:beta",
           "kind": "interstitial",
           "start_line": 2,
-          "end_line": 2,
+          "end_line": 3,
           "before_owner_id": "alpha",
           "after_owner_id": "beta",
           "controller_side": "before",
@@ -358,7 +358,7 @@
           "owner_id": null,
           "comment_region_ids": [],
           "comment_kind": null,
-          "gap_id": "layout-gap:2-2",
+          "gap_id": "layout-gap:2-3",
           "controller_owner_id": "alpha",
           "before_owner_id": "alpha",
           "after_owner_id": "beta",
@@ -366,12 +366,26 @@
         },
         {
           "line_number": 3,
+          "line": "\n",
+          "kind": "layout_gap",
+          "selection_key": "gap:interstitial:alpha:beta",
+          "owner_id": null,
+          "comment_region_ids": [],
+          "comment_kind": null,
+          "gap_id": "layout-gap:2-3",
+          "controller_owner_id": "alpha",
+          "before_owner_id": "alpha",
+          "after_owner_id": "beta",
+          "root_region_kind": null
+        },
+        {
+          "line_number": 4,
           "line": "# beta docs\n",
           "kind": "comment_owner",
           "selection_key": "comment:beta:leading",
           "owner_id": "beta",
           "comment_region_ids": [
-            "comment-region:leading:3-3"
+            "comment-region:leading:4-4"
           ],
           "comment_kind": "leading",
           "gap_id": null,
@@ -379,7 +393,7 @@
           "root_region_kind": null
         },
         {
-          "line_number": 4,
+          "line_number": 5,
           "line": "beta()\n",
           "kind": "structural_owner",
           "selection_key": "owner:beta",

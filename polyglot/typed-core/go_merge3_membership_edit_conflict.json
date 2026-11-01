@@ -1,0 +1,15 @@
+{
+  "id": "go_merge3_membership_edit_conflict",
+  "category": "go_common_merge3",
+  "call": "go_common_merge3",
+  "description": "A Go owner deletion alongside an independent edit requires a full-file conflict review because source ownership is unproven.",
+  "input": {
+    "base": "package main\n\nfunc retiring() {}\n\nfunc stable() { println(1) }\n",
+    "ours": "package main\n\nfunc retiring() {}\n\nfunc stable() { println(2) }\n",
+    "theirs": "package main\n\nfunc stable() { println(1) }\n"
+  },
+  "expected_conflicted_output": {
+    "ruby_native": "<<<<<<< ours\npackage main\n\nfunc retiring() {}\n\nfunc stable() { println(2) }\n||||||| base\npackage main\n\nfunc retiring() {}\n\nfunc stable() { println(1) }\n=======\npackage main\n\nfunc stable() { println(1) }\n>>>>>>> theirs\n",
+    "rust_host": "<<<<<<< ours\npackage main\n\nfunc retiring() {}\n\nfunc stable() { println(2) }\n||||||| base\npackage main\n\nfunc retiring() {}\n\nfunc stable() { println(1) }\n=======\npackage main\n\nfunc stable() { println(1) }\n>>>>>>> theirs\n"
+  }
+}

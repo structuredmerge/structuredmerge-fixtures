@@ -1,0 +1,13 @@
+{
+  "id": "rust_merge2_comment_owner",
+  "contract": "rust_merge2_comment_owner",
+  "description": "A Rust classic two-way merge retains destination documentation and carries template documentation with a template-only owner.",
+  "input": {
+    "template": "fn shared() {}\n\n/// added docs\npub fn added() {}\n",
+    "destination": "/// destination docs\npub fn shared() {}\n"
+  },
+  "expected": {
+    "ok": true,
+    "output": "/// destination docs\npub fn shared() {}\n/// added docs\npub fn added() {}\n"
+  }
+}

@@ -3,12 +3,12 @@
   "contract": "rust_syn_macro_invocation_comments_merge3",
   "description": "Native syn item identity and spans let the shared owner renderer preserve comments around top-level macro invocations that the classic Tree-sitter parser path does not accept.",
   "input": {
-    "base": "// left invocation docs\nleft!(1);\n\n// right invocation docs\nright!(1);\n",
-    "ours": "// left invocation docs\nleft!(2);\n\n// right invocation docs\nright!(1);\n",
-    "theirs": "// left invocation docs\nleft!(1);\n\n// right invocation docs\nright!(2);\n"
+    "base": "// left invocation docs\nleft!(1); // left invocation tail\n\n// right invocation docs\nright!(1); // right invocation tail\n",
+    "ours": "// left invocation docs\nleft!(2); // left invocation tail\n\n// right invocation docs\nright!(1); // right invocation tail\n",
+    "theirs": "// left invocation docs\nleft!(1); // left invocation tail\n\n// right invocation docs\nright!(2); // right invocation tail\n"
   },
   "expected": {
-    "output": "// left invocation docs\nleft!(2);\n\n// right invocation docs\nright!(2);\n",
+    "output": "// left invocation docs\nleft!(2); // left invocation tail\n\n// right invocation docs\nright!(2); // right invocation tail\n",
     "left_owner_path": "/macro_invocation:left",
     "right_owner_path": "/macro_invocation:right"
   }

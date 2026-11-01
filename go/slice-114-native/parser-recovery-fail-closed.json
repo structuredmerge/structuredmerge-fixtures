@@ -8,6 +8,14 @@
     {
       "name": "recovered-parameter-list",
       "source": "package main\nfunc Broken(first int second string) {}\nfunc Later() {}\n"
+    },
+    {
+      "name": "recovered-var-initializer",
+      "source": "package main\nvar Broken = ;\nfunc Later() {}\n"
+    },
+    {
+      "name": "recovered-struct-declaration",
+      "source": "package main\ntype Broken struct { Field int\nfunc Later() {}\n"
     }
   ],
   "expected": {

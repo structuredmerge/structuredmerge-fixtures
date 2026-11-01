@@ -141,5 +141,51 @@
       "expected_trailing": null,
       "expected_postlude": "Different indentation"
     }
+  ],
+  "document_cases": [
+    {
+      "name": "preamble_split_from_orphan_comments",
+      "source": "// File header\n\n// Detached comment\nunowned syntax\n// Attached comment\nfn alpha() {}\n",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 6,
+          "end_line": 6,
+          "indent": 0
+        }
+      ],
+      "comments": [
+        {
+          "line": 1,
+          "text": "// File header",
+          "normalized_content": "File header",
+          "full_line": true,
+          "indent": 0
+        },
+        {
+          "line": 3,
+          "text": "// Detached comment",
+          "normalized_content": "Detached comment",
+          "full_line": true,
+          "indent": 0
+        },
+        {
+          "line": 5,
+          "text": "// Attached comment",
+          "normalized_content": "Attached comment",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "expected": {
+        "preamble": "File header",
+        "orphans": [
+          "Detached comment"
+        ],
+        "leading_by_owner": {
+          "alpha": "Attached comment"
+        }
+      }
+    }
   ]
 }

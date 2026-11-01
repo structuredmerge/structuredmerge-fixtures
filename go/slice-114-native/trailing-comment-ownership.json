@@ -1,0 +1,13 @@
+{
+  "dialect": "go",
+  "source": "package main\n\nfunc First() {} // First owns this trailing comment.\n\n// Second documents the next declaration.\nfunc Second() {}\n",
+  "expected": {
+    "declaration_texts": [
+      "func First() {} // First owns this trailing comment.\n",
+      "// Second documents the next declaration.\nfunc Second() {}\n"
+    ],
+    "merge_template": "package main\n\n// Added declaration.\nfunc Added() {}\n",
+    "merge_destination": "package main\n\nfunc Existing() {} // Existing keeps this trailing comment.\n",
+    "merge_output": "func Existing() {} // Existing keeps this trailing comment.\n\n// Added declaration.\nfunc Added() {}\n"
+  }
+}

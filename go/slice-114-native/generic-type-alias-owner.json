@@ -1,0 +1,39 @@
+{
+  "dialect": "go",
+  "source": "package demo\n\n// Set is a generic alias.\ntype Set[T comparable] = map[T]bool\n\n// Contains uses Set.\nfunc Contains[T comparable](set Set[T], value T) bool { return set[value] }\n",
+  "expected": {
+    "go_owners": [
+      {
+        "path": "/package:demo",
+        "owner_kind": "package",
+        "match_key": "demo"
+      },
+      {
+        "path": "/declarations/Contains",
+        "owner_kind": "declaration",
+        "match_key": "Contains"
+      },
+      {
+        "path": "/type:Set",
+        "owner_kind": "declaration",
+        "match_key": "type:Set"
+      }
+    ],
+    "declaration_paths": [
+      "/declarations/Contains",
+      "/type:Set"
+    ],
+    "declaration_texts": [
+      "// Contains uses Set.\nfunc Contains[T comparable](set Set[T], value T) bool { return set[value] }\n",
+      "// Set is a generic alias.\ntype Set[T comparable] = map[T]bool\n"
+    ],
+    "type_line_range": [
+      3,
+      4
+    ],
+    "function_line_range": [
+      6,
+      7
+    ]
+  }
+}

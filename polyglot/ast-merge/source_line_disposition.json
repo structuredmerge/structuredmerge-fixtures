@@ -50,21 +50,24 @@
           "owner_id": null,
           "kind": "preamble",
           "start_line": 1,
-          "end_line": 1
+          "end_line": 1,
+          "selection_key": "root:preamble"
         },
         {
           "id": "comment:alpha:inline:3-3",
           "owner_id": "alpha",
           "kind": "inline",
           "start_line": 3,
-          "end_line": 3
+          "end_line": 3,
+          "selection_key": "comment:alpha:inline"
         },
         {
           "id": "comment:beta:trailing:6-6",
           "owner_id": "beta",
           "kind": "trailing",
           "start_line": 6,
-          "end_line": 6
+          "end_line": 6,
+          "selection_key": "comment:beta:trailing"
         }
       ],
       "layout_gaps": [
@@ -76,7 +79,8 @@
           "before_owner_id": null,
           "after_owner_id": "alpha",
           "controller_side": "after",
-          "controller_owner_id": "alpha"
+          "controller_owner_id": "alpha",
+          "selection_key": "gap:preamble:root:alpha"
         },
         {
           "id": "layout-gap:4-4",
@@ -86,7 +90,8 @@
           "before_owner_id": "alpha",
           "after_owner_id": "beta",
           "controller_side": "after",
-          "controller_owner_id": "beta"
+          "controller_owner_id": "beta",
+          "selection_key": "gap:interstitial:alpha:beta"
         }
       ],
       "expected": [
@@ -101,7 +106,8 @@
           "comment_kind": null,
           "gap_id": null,
           "controller_owner_id": null,
-          "root_region_kind": "preamble"
+          "root_region_kind": "preamble",
+          "selection_key": "root:preamble"
         },
         {
           "line_number": 2,
@@ -112,7 +118,8 @@
           "comment_kind": null,
           "gap_id": "layout-gap:2-2",
           "controller_owner_id": "alpha",
-          "root_region_kind": null
+          "root_region_kind": null,
+          "selection_key": "gap:preamble:root:alpha"
         },
         {
           "line_number": 3,
@@ -125,7 +132,8 @@
           "comment_kind": "inline",
           "gap_id": null,
           "controller_owner_id": null,
-          "root_region_kind": null
+          "root_region_kind": null,
+          "selection_key": "owner:alpha"
         },
         {
           "line_number": 4,
@@ -136,7 +144,8 @@
           "comment_kind": null,
           "gap_id": "layout-gap:4-4",
           "controller_owner_id": "beta",
-          "root_region_kind": null
+          "root_region_kind": null,
+          "selection_key": "gap:interstitial:alpha:beta"
         },
         {
           "line_number": 5,
@@ -147,7 +156,8 @@
           "comment_kind": null,
           "gap_id": null,
           "controller_owner_id": null,
-          "root_region_kind": null
+          "root_region_kind": null,
+          "selection_key": "owner:beta"
         },
         {
           "line_number": 6,
@@ -160,7 +170,8 @@
           "comment_kind": "trailing",
           "gap_id": null,
           "controller_owner_id": null,
-          "root_region_kind": null
+          "root_region_kind": null,
+          "selection_key": "comment:beta:trailing"
         }
       ]
     },
@@ -189,7 +200,8 @@
           "comment_kind": null,
           "gap_id": null,
           "controller_owner_id": null,
-          "root_region_kind": null
+          "root_region_kind": null,
+          "selection_key": "owner:alpha"
         },
         {
           "line_number": 2,
@@ -200,7 +212,8 @@
           "comment_kind": null,
           "gap_id": null,
           "controller_owner_id": null,
-          "root_region_kind": null
+          "root_region_kind": null,
+          "selection_key": "unmanaged:2"
         }
       ]
     }

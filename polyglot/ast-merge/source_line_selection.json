@@ -1,0 +1,246 @@
+{
+  "id": "ast_merge_source_line_selection",
+  "contract": "ast_merge_source_line_selection",
+  "description": "An explicit ordered selection of semantic line regions from source revisions renders exact bytes and provenance.",
+  "documents": [
+    {
+      "revision": "base",
+      "source": "# base\n\nalpha base\n\nbeta base\n",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 3,
+          "end_line": 3
+        },
+        {
+          "id": "beta",
+          "start_line": 5,
+          "end_line": 5
+        }
+      ],
+      "comment_regions": [
+        {
+          "id": "comment:root:preamble:1-1",
+          "selection_key": "root:header",
+          "owner_id": null,
+          "kind": "preamble",
+          "start_line": 1,
+          "end_line": 1
+        }
+      ],
+      "comments": [
+        {
+          "line": 1,
+          "text": "# base",
+          "normalized_content": "base",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "layout_gaps": [
+        {
+          "id": "layout-gap:2-2",
+          "selection_key": "gap:header-alpha",
+          "kind": "preamble",
+          "start_line": 2,
+          "end_line": 2,
+          "before_owner_id": null,
+          "after_owner_id": "alpha",
+          "controller_side": "after",
+          "controller_owner_id": "alpha"
+        },
+        {
+          "id": "layout-gap:4-4",
+          "selection_key": "gap:alpha-beta",
+          "kind": "interstitial",
+          "start_line": 4,
+          "end_line": 4,
+          "before_owner_id": "alpha",
+          "after_owner_id": "beta",
+          "controller_side": "after",
+          "controller_owner_id": "beta"
+        }
+      ]
+    },
+    {
+      "revision": "ours",
+      "source": "# ours\n\nalpha ours\n\nbeta ours\n",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 3,
+          "end_line": 3
+        },
+        {
+          "id": "beta",
+          "start_line": 5,
+          "end_line": 5
+        }
+      ],
+      "comment_regions": [
+        {
+          "id": "comment:root:preamble:1-1",
+          "selection_key": "root:header",
+          "owner_id": null,
+          "kind": "preamble",
+          "start_line": 1,
+          "end_line": 1
+        }
+      ],
+      "comments": [
+        {
+          "line": 1,
+          "text": "# ours",
+          "normalized_content": "ours",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "layout_gaps": [
+        {
+          "id": "layout-gap:2-2",
+          "selection_key": "gap:header-alpha",
+          "kind": "preamble",
+          "start_line": 2,
+          "end_line": 2,
+          "before_owner_id": null,
+          "after_owner_id": "alpha",
+          "controller_side": "after",
+          "controller_owner_id": "alpha"
+        },
+        {
+          "id": "layout-gap:4-4",
+          "selection_key": "gap:alpha-beta",
+          "kind": "interstitial",
+          "start_line": 4,
+          "end_line": 4,
+          "before_owner_id": "alpha",
+          "after_owner_id": "beta",
+          "controller_side": "after",
+          "controller_owner_id": "beta"
+        }
+      ]
+    },
+    {
+      "revision": "theirs",
+      "source": "# theirs\n\nalpha theirs\n\nbeta theirs\n",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 3,
+          "end_line": 3
+        },
+        {
+          "id": "beta",
+          "start_line": 5,
+          "end_line": 5
+        }
+      ],
+      "comment_regions": [
+        {
+          "id": "comment:root:preamble:1-1",
+          "selection_key": "root:header",
+          "owner_id": null,
+          "kind": "preamble",
+          "start_line": 1,
+          "end_line": 1
+        }
+      ],
+      "comments": [
+        {
+          "line": 1,
+          "text": "# theirs",
+          "normalized_content": "theirs",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "layout_gaps": [
+        {
+          "id": "layout-gap:2-2",
+          "selection_key": "gap:header-alpha",
+          "kind": "preamble",
+          "start_line": 2,
+          "end_line": 2,
+          "before_owner_id": null,
+          "after_owner_id": "alpha",
+          "controller_side": "after",
+          "controller_owner_id": "alpha"
+        },
+        {
+          "id": "layout-gap:4-4",
+          "selection_key": "gap:alpha-beta",
+          "kind": "interstitial",
+          "start_line": 4,
+          "end_line": 4,
+          "before_owner_id": "alpha",
+          "after_owner_id": "beta",
+          "controller_side": "after",
+          "controller_owner_id": "beta"
+        }
+      ]
+    }
+  ],
+  "selections": [
+    {
+      "selection_key": "root:header",
+      "revision": "ours"
+    },
+    {
+      "selection_key": "gap:header-alpha",
+      "revision": "ours"
+    },
+    {
+      "selection_key": "owner:alpha",
+      "revision": "ours"
+    },
+    {
+      "selection_key": "gap:alpha-beta",
+      "revision": "ours"
+    },
+    {
+      "selection_key": "owner:beta",
+      "revision": "theirs"
+    }
+  ],
+  "expected": {
+    "content": "# ours\n\nalpha ours\n\nbeta theirs\n",
+    "line_records": [
+      {
+        "output_line": 1,
+        "revision": "ours",
+        "original_line": 1,
+        "selection_key": "root:header",
+        "disposition_kind": "root_region"
+      },
+      {
+        "output_line": 2,
+        "revision": "ours",
+        "original_line": 2,
+        "selection_key": "gap:header-alpha",
+        "disposition_kind": "layout_gap"
+      },
+      {
+        "output_line": 3,
+        "revision": "ours",
+        "original_line": 3,
+        "selection_key": "owner:alpha",
+        "disposition_kind": "structural_owner"
+      },
+      {
+        "output_line": 4,
+        "revision": "ours",
+        "original_line": 4,
+        "selection_key": "gap:alpha-beta",
+        "disposition_kind": "layout_gap"
+      },
+      {
+        "output_line": 5,
+        "revision": "theirs",
+        "original_line": 5,
+        "selection_key": "owner:beta",
+        "disposition_kind": "structural_owner"
+      }
+    ]
+  }
+}

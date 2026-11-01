@@ -87,6 +87,25 @@
         16,
         30
       ]
+    },
+    {
+      "name": "block crate inner documentation remains at document root",
+      "family": "rust",
+      "source": "/*! crate docs */\n\nfn stable() {}\n",
+      "owner_path": "/function:stable",
+      "owner_source": "fn stable() {}",
+      "owner_line_range": [
+        3,
+        3
+      ],
+      "owner_node_kinds": [
+        "function_item"
+      ],
+      "attached_comment_texts": [],
+      "owner_byte_range": [
+        19,
+        33
+      ]
     }
   ]
 }

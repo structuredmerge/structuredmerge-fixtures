@@ -1,7 +1,7 @@
 {
   "id": "ast_merge_comment_line_ownership",
   "contract": "ast_merge_comment_line_ownership",
-  "description": "Shared comment-region ownership contract for preamble, floating leading, inline, following-owner leading, and trailing comments.",
+  "description": "Shared comment-region ownership contract for preamble, floating leading, inline, following-owner leading, trailing comments, and explicit attachment policies.",
   "source": "// File header\n\n// Floats toward alpha\n\nfn alpha() {} // inline alpha\n\n// Documents beta.\nfn beta() {}\n// Postlude\n",
   "style": "c_style_line",
   "owners": [
@@ -216,6 +216,126 @@
         },
         "postlude": null
       }
+    }
+  ],
+  "policy_cases": [
+    {
+      "name": "standalone comment between owners follows declared policy",
+      "source": "fn alpha() {}\n// Beta documentation\nfn beta() {}\n",
+      "style": "c_style_line",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 1,
+          "end_line": 1
+        },
+        {
+          "id": "beta",
+          "start_line": 3,
+          "end_line": 3
+        }
+      ],
+      "comments": [
+        {
+          "line": 2,
+          "text": "// Beta documentation",
+          "normalized_content": "Beta documentation",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "policies": [
+        {
+          "id": "preceding_owner",
+          "expected": {
+            "leading_by_owner": {
+              "alpha": null,
+              "beta": null
+            },
+            "trailing_by_owner": {
+              "alpha": "Beta documentation",
+              "beta": null
+            },
+            "postlude": null,
+            "orphans": []
+          }
+        },
+        {
+          "id": "following_owner",
+          "expected": {
+            "leading_by_owner": {
+              "alpha": null,
+              "beta": "Beta documentation"
+            },
+            "trailing_by_owner": {
+              "alpha": null,
+              "beta": null
+            },
+            "postlude": null,
+            "orphans": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "blank line between standalone comment and next owner",
+      "source": "fn alpha() {}\n// Beta documentation\n\nfn beta() {}\n",
+      "style": "c_style_line",
+      "owners": [
+        {
+          "id": "alpha",
+          "start_line": 1,
+          "end_line": 1
+        },
+        {
+          "id": "beta",
+          "start_line": 4,
+          "end_line": 4
+        }
+      ],
+      "comments": [
+        {
+          "line": 2,
+          "text": "// Beta documentation",
+          "normalized_content": "Beta documentation",
+          "full_line": true,
+          "indent": 0
+        }
+      ],
+      "policies": [
+        {
+          "id": "preceding_owner",
+          "expected": {
+            "leading_by_owner": {
+              "alpha": null,
+              "beta": null
+            },
+            "trailing_by_owner": {
+              "alpha": "Beta documentation",
+              "beta": null
+            },
+            "postlude": null,
+            "orphans": []
+          }
+        },
+        {
+          "id": "following_owner",
+          "expected": {
+            "leading_by_owner": {
+              "alpha": null,
+              "beta": null
+            },
+            "trailing_by_owner": {
+              "alpha": null,
+              "beta": null
+            },
+            "postlude": null,
+            "orphans": [
+              "Beta documentation"
+            ]
+          }
+        }
+      ]
     }
   ]
 }
